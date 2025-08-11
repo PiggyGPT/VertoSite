@@ -25,11 +25,14 @@
   --ring: hsl(202.8169, 89.1213%, 53.1373%);
   --radius: 1.3rem;
 
-  /* Verto Brand Colors */
-  --verto-purple: hsl(252, 100%, 67%);
-  --verto-blue: hsl(210, 84%, 16%);
+  /* Verto Brand Colors - Updated to match logo gradient */
+  --verto-gradient-start: hsl(225, 100%, 60%); /* Blue from logo */
+  --verto-gradient-middle: hsl(270, 100%, 70%); /* Purple from logo */
+  --verto-gradient-end: hsl(30, 100%, 65%); /* Orange from logo */
+  --verto-purple: hsl(270, 100%, 70%);
+  --verto-blue: hsl(225, 100%, 60%);
   --verto-green: hsl(127, 100%, 41%);
-  --verto-orange: hsl(14, 100%, 60%);
+  --verto-orange: hsl(30, 100%, 65%);
   
   /* Verto Gray Scale */
   --verto-gray-50: hsl(210, 20%, 98%);
@@ -88,6 +91,23 @@
 
   .animate-slide-up {
     animation: slideUp 0.6s ease-out;
+  }
+
+  .verto-gradient {
+    background: linear-gradient(135deg, var(--verto-gradient-start), var(--verto-gradient-middle), var(--verto-gradient-end));
+  }
+
+  .verto-gradient-text {
+    background: linear-gradient(135deg, var(--verto-gradient-start), var(--verto-gradient-middle), var(--verto-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   @keyframes fadeIn {

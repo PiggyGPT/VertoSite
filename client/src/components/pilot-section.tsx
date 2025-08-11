@@ -68,7 +68,7 @@ export default function PilotSection() {
               className="inline-flex items-center px-8 py-4 bg-verto-purple text-white text-lg font-semibold rounded-xl hover:bg-verto-purple/90 transition-all transform hover:scale-105 shadow-lg"
               data-testid="button-pilot-blueprint"
             >
-              Get Your Live Pilot Blueprint →
+              Free 90-day Pilot Strategy
               <ArrowRight className="ml-2" />
             </Button>
           </div>

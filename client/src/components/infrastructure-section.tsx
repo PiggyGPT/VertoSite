@@ -3,44 +3,59 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function InfrastructureSection() {
   return (
-    <section id="infrastructure" className="py-20 animate-slide-up">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+    <section id="infrastructure" className="py-20 bg-white animate-slide-up">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-verto-blue mb-6" data-testid="infrastructure-title">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6" data-testid="infrastructure-title">
             The Verto Infrastructure Stack
           </h2>
-          <p className="text-xl text-verto-gray-600 max-w-4xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
             Verto leverages <strong>proven models</strong> and tailors them into blockchain‑native rails — delivering familiar user experiences with institutional‑grade controls.
           </p>
         </div>
 
-        {/* Reference Models */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          <div className="text-center p-6" data-testid="reference-mpesa">
-            <div className="w-16 h-16 bg-verto-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Smartphone className="text-2xl text-verto-green" />
+        {/* Seamless Reference Integration */}
+        <div className="bg-slate-50 rounded-3xl p-12 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 text-center group hover:shadow-xl transition-all" data-testid="reference-mpesa">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Smartphone className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">M‑Pesa Model</h3>
+              <p className="text-slate-600 leading-relaxed">Cash‑to‑digital access anywhere through existing retail agents</p>
+              <div className="mt-6 text-sm font-semibold text-green-600">→ Minting Infrastructure</div>
             </div>
-            <h3 className="text-xl font-semibold text-verto-blue mb-2">M‑Pesa</h3>
-            <p className="text-verto-gray-600">Cash‑to‑digital access anywhere through existing retail agents</p>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 text-center group hover:shadow-xl transition-all" data-testid="reference-stripe">
+              <div className="w-20 h-20 verto-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Zap className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">Stripe Model</h3>
+              <p className="text-slate-600 leading-relaxed">Instant merchant onboarding and payments with developer‑first APIs</p>
+              <div className="mt-6 text-sm font-semibold text-purple-600">→ Payment Infrastructure</div>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 text-center group hover:shadow-xl transition-all" data-testid="reference-swift">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Globe className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">SWIFT Model</h3>
+              <p className="text-slate-600 leading-relaxed">Trusted multi‑currency routing, reconciliation, and compliance</p>
+              <div className="mt-6 text-sm font-semibold text-blue-600">→ Settlement Infrastructure</div>
+            </div>
           </div>
-          <div className="text-center p-6" data-testid="reference-stripe">
-            <div className="w-16 h-16 bg-verto-purple/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Zap className="text-2xl text-verto-purple" />
+
+          {/* Connecting Arrow */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center px-6 py-3 bg-white rounded-full shadow-lg border border-slate-200">
+              <span className="text-slate-600 font-medium mr-2">Implemented as</span>
+              <ArrowLeftRight className="w-5 h-5 text-slate-500" />
             </div>
-            <h3 className="text-xl font-semibold text-verto-blue mb-2">Stripe</h3>
-            <p className="text-verto-gray-600">Instant merchant onboarding and payments with developer‑first APIs</p>
-          </div>
-          <div className="text-center p-6" data-testid="reference-swift">
-            <div className="w-16 h-16 bg-verto-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Globe className="text-2xl text-verto-blue" />
-            </div>
-            <h3 className="text-xl font-semibold text-verto-blue mb-2">SWIFT</h3>
-            <p className="text-verto-gray-600">Trusted multi‑currency routing, reconciliation, and compliance</p>
           </div>
         </div>
 
         {/* Infrastructure Pillars */}
-        <div className="bg-verto-gray-50 rounded-3xl p-8 lg:p-12">
+        <div className="space-y-24">
           {/* Pillar 1: Minting */}
           <div className="mb-24" data-testid="pillar-minting">
             <div className="grid lg:grid-cols-2 gap-12 items-center">

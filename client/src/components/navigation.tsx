@@ -27,8 +27,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white border-b border-verto-gray-100 shadow-sm"
-          : "bg-white/95 backdrop-blur-sm border-b border-verto-gray-100"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
+          : "bg-white/80 backdrop-blur-sm border-b border-slate-100"
       }`}
       data-testid="navigation"
     >
@@ -36,58 +36,58 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
             <div 
-              className="text-2xl font-bold text-verto-blue cursor-pointer"
+              className="text-2xl font-bold verto-gradient-text cursor-pointer"
               onClick={() => scrollToSection("hero")}
               data-testid="logo"
             >
-              VERTO
+              verto
             </div>
-            <div className="hidden md:flex space-x-6">
+            <div className="hidden md:flex space-x-8">
               <button
                 onClick={() => scrollToSection("infrastructure")}
-                className="text-verto-gray-600 hover:text-verto-blue transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
                 data-testid="nav-infrastructure"
               >
                 Infrastructure
               </button>
               <button
                 onClick={() => scrollToSection("ai")}
-                className="text-verto-gray-600 hover:text-verto-blue transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
                 data-testid="nav-ai"
               >
-                AI
+                AI Platform
               </button>
               <button
                 onClick={() => scrollToSection("pilot")}
-                className="text-verto-gray-600 hover:text-verto-blue transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
                 data-testid="nav-pilot"
               >
-                Pilot
+                90-Day Pilot
               </button>
               <button
                 onClick={() => scrollToSection("team")}
-                className="text-verto-gray-600 hover:text-verto-blue transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
                 data-testid="nav-team"
               >
-                Team
+                Leadership
               </button>
             </div>
           </div>
           <div className="flex items-center space-x-4">
             <button
               onClick={() => scrollToSection("contact")}
-              className="hidden sm:block px-4 py-2 text-verto-gray-600 hover:text-verto-blue transition-colors"
+              className="hidden sm:block px-4 py-2 text-slate-600 hover:text-slate-900 font-medium transition-colors"
               data-testid="nav-contact"
             >
               Contact
             </button>
-            <Button
+            <button
               onClick={() => scrollToSection("pilot-cta")}
-              className="px-6 py-2 bg-verto-purple text-white rounded-lg hover:bg-verto-purple/90 transition-all transform hover:scale-105"
+              className="px-6 py-3 verto-gradient text-white rounded-xl hover:opacity-90 transition-all transform hover:scale-105 font-semibold shadow-lg"
               data-testid="nav-get-started"
             >
-              Get Started
-            </Button>
+              Free Pilot Strategy
+            </button>
             <button
               className="md:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

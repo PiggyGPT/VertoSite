@@ -24,7 +24,7 @@ export default function Footer() {
               className="px-10 py-5 bg-verto-purple text-white text-xl font-semibold rounded-xl hover:bg-verto-purple/90 transition-all transform hover:scale-105 shadow-xl"
               data-testid="button-final-primary"
             >
-              Get Your Live Pilot Blueprint →
+              Free 90-day Pilot Strategy →
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="text-3xl font-bold mb-4" data-testid="footer-logo">VERTO</div>
+              <div className="text-3xl font-bold verto-gradient-text mb-4" data-testid="footer-logo">verto</div>
               <p className="text-blue-200 mb-6" data-testid="footer-description">
                 Institutional stablecoin rails from concept to live. As seamless as Stripe, as compliant as SWIFT, as local as M‑Pesa.
               </p>
