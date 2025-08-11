@@ -15,12 +15,9 @@ export default function PilotSection() {
       <section id="pilot" className="py-20 bg-verto-gray-50 animate-slide-up">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-verto-blue mb-6" data-testid="pilot-title">
-              What a Successful Pilot Delivers
+            <h2 className="text-3xl font-medium text-slate-900 mb-4" data-testid="pilot-title">
+              You could spend years stitching together fractured point solutions — or 90 days with live, compliant stablecoin rails
             </h2>
-            <p className="text-xl text-verto-gray-600" data-testid="pilot-subtitle">
-              Proven stablecoin operations on public chain rails, regulator aligned, scale‑ready.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -62,14 +59,18 @@ export default function PilotSection() {
             </Card>
           </div>
 
-          <div className="text-center">
-            <Button
-              onClick={() => scrollToSection("pilot-cta")}
-              className="inline-flex items-center px-8 py-4 bg-verto-purple text-white text-lg font-semibold rounded-xl hover:bg-verto-purple/90 transition-all transform hover:scale-105 shadow-lg"
-              data-testid="button-pilot-blueprint"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              className="px-8 py-3 verto-gradient text-white font-medium rounded-lg hover:opacity-90 transition-all shadow-md"
+              data-testid="button-pilot-cta"
             >
-              Free 90-day Pilot Strategy
-              <ArrowRight className="ml-2" />
+              Free 90-day Pilot Strategy →
+            </Button>
+            <Button 
+              className="px-8 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all"
+              data-testid="button-risk-review"
+            >
+              Free Risk & Compliance Review →
             </Button>
           </div>
         </div>

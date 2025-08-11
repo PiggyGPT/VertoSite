@@ -4,6 +4,9 @@ export default function BoardChecklistSection() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-medium text-slate-900 mb-4">Successful Pilot in 90 Days</h2>
+        </div>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Column */}
           <div>
