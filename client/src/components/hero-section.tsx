@@ -25,7 +25,7 @@ export default function HeroSection() {
             className="px-8 py-3 verto-gradient text-white font-medium rounded-lg hover:opacity-90 transition-all shadow-md"
             data-testid="button-primary-cta"
           >
-            Free 90 day pilot
+            Launch Pilot in 90 days
           </button>
           <button
             onClick={() => scrollToSection("risk-review")}
@@ -39,13 +39,37 @@ export default function HeroSection() {
         {/* Trust Band */}
         <div className="bg-slate-50 rounded-xl p-6 mb-16 border border-slate-200" data-testid="trust-band">
           <p className="text-slate-600 mb-4 text-sm">Built by leaders at:</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center justify-items-center">
-            <div className="w-8 h-8 bg-slate-400 rounded opacity-60" title="Fed Reserve"></div>
-            <div className="w-8 h-8 bg-slate-400 rounded opacity-60" title="DTCC"></div>
-            <div className="w-8 h-8 bg-slate-400 rounded opacity-60" title="Moody's"></div>
-            <div className="w-8 h-8 bg-slate-400 rounded opacity-60" title="PayPal"></div>
-            <div className="w-8 h-8 bg-slate-400 rounded opacity-60" title="Google"></div>
-            <div className="w-8 h-8 bg-slate-400 rounded opacity-60" title="Microsoft"></div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
+            <div className="flex items-center justify-center h-12" title="Fed Reserve">
+              <svg width="60" height="24" viewBox="0 0 60 24" className="text-slate-600">
+                <text x="30" y="16" textAnchor="middle" className="text-xs font-semibold fill-current">FED</text>
+              </svg>
+            </div>
+            <div className="flex items-center justify-center h-12" title="DTCC">
+              <svg width="60" height="24" viewBox="0 0 60 24" className="text-slate-600">
+                <text x="30" y="16" textAnchor="middle" className="text-xs font-semibold fill-current">DTCC</text>
+              </svg>
+            </div>
+            <div className="flex items-center justify-center h-12" title="Moody's">
+              <svg width="60" height="24" viewBox="0 0 60 24" className="text-slate-600">
+                <text x="30" y="16" textAnchor="middle" className="text-xs font-semibold fill-current">Moody's</text>
+              </svg>
+            </div>
+            <div className="flex items-center justify-center h-12" title="PayPal">
+              <svg width="60" height="24" viewBox="0 0 60 24" className="text-slate-600">
+                <text x="30" y="16" textAnchor="middle" className="text-xs font-semibold fill-current">PayPal</text>
+              </svg>
+            </div>
+            <div className="flex items-center justify-center h-12" title="Google">
+              <svg width="60" height="24" viewBox="0 0 60 24" className="text-slate-600">
+                <text x="30" y="16" textAnchor="middle" className="text-xs font-semibold fill-current">Google</text>
+              </svg>
+            </div>
+            <div className="flex items-center justify-center h-12" title="Microsoft">
+              <svg width="60" height="24" viewBox="0 0 60 24" className="text-slate-600">
+                <text x="30" y="16" textAnchor="middle" className="text-xs font-semibold fill-current">Microsoft</text>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
