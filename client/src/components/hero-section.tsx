@@ -18,14 +18,14 @@ export default function HeroSection() {
       
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-slate-900 mb-8 tracking-tight" data-testid="hero-title">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 mb-6 tracking-tight" data-testid="hero-title">
             Institutional rails to mint, move & monitor stablecoins
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed font-light" data-testid="hero-subtitle">
+          <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed" data-testid="hero-subtitle">
             As locally as M‑Pesa. As seamlessly as Stripe. As compliantly as SWIFT.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <button
               onClick={() => scrollToSection("pilot-cta")}
               className="group px-10 py-4 verto-gradient text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"

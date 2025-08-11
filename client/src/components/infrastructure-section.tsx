@@ -3,13 +3,13 @@ import { Coins, CreditCard, ArrowLeftRight, Check } from "lucide-react";
 export default function InfrastructureSection() {
 
   return (
-    <section id="infrastructure" className="py-28 bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight" data-testid="infrastructure-title">
+    <section id="infrastructure" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 tracking-tight" data-testid="infrastructure-title">
             Verto Infrastructure
           </h2>
-          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light" data-testid="infrastructure-subtitle">
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
             Verto brings 3 proven models into a self-hosted, blockchain‑native stack
           </p>
         </div>
@@ -17,18 +17,18 @@ export default function InfrastructureSection() {
 
 
         {/* Infrastructure Pillars - Full Width Sections */}
-        <div className="space-y-24">
+        <div className="space-y-16">
           {/* Pillar 1: Issuance */}
-          <div className="bg-gradient-to-r from-verto-green/5 to-verto-green/10 border-l-4 border-verto-green rounded-2xl p-12 shadow-sm" data-testid="pillar-minting">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="bg-gradient-to-r from-verto-green/5 to-verto-green/10 border-l-4 border-verto-green rounded-lg p-8" data-testid="pillar-minting">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-verto-green/10 rounded-xl flex items-center justify-center mr-6">
-                    <Coins className="w-8 h-8 text-verto-green" />
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mr-4">
+                    <Coins className="w-6 h-6 text-verto-green" />
                   </div>
                   <div>
-                    <h3 className="text-4xl font-semibold text-slate-900 mb-2">1. Issuance</h3>
-                    <p className="text-xl text-slate-600 font-light">Cash‑to‑stablecoins through existing retail agents</p>
+                    <h3 className="text-2xl font-medium text-slate-900 mb-1">1. Issuance</h3>
+                    <p className="text-lg text-slate-600">Cash‑to‑stablecoins through existing retail agents</p>
                   </div>
                 </div>
                 
