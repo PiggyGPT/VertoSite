@@ -1,7 +1,14 @@
-import { Smartphone, Zap, Globe, Coins, Store, CreditCard, ShoppingCart, ArrowLeftRight, Network, Check } from "lucide-react";
+import { Smartphone, Zap, Globe, Coins, Store, CreditCard, ShoppingCart, ArrowLeftRight, Network, Check, ChevronDown, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
 
 export default function InfrastructureSection() {
+  const [expandedPillar, setExpandedPillar] = useState<string | null>(null);
+
+  const togglePillar = (pillarId: string) => {
+    setExpandedPillar(expandedPillar === pillarId ? null : pillarId);
+  };
+
   return (
     <section id="infrastructure" className="py-20 bg-white animate-slide-up">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -21,27 +28,27 @@ export default function InfrastructureSection() {
               <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Smartphone className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">M‑Pesa Model</h3>
-              <p className="text-slate-600 leading-relaxed">Cash‑to‑digital access anywhere through existing retail agents</p>
-              <div className="mt-6 text-sm font-semibold text-green-600">→ Minting Infrastructure</div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">M‑Pesa Model</h3>
+              <p className="text-slate-600 leading-relaxed text-sm">Cash‑to‑digital access anywhere through existing retail agents</p>
+              <div className="mt-4 text-sm font-medium text-green-600">→ Minting Infrastructure</div>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 text-center group hover:shadow-xl transition-all" data-testid="reference-stripe">
               <div className="w-20 h-20 verto-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Zap className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">Stripe Model</h3>
-              <p className="text-slate-600 leading-relaxed">Instant merchant onboarding and payments with developer‑first APIs</p>
-              <div className="mt-6 text-sm font-semibold text-purple-600">→ Payment Infrastructure</div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Stripe Model</h3>
+              <p className="text-slate-600 leading-relaxed text-sm">Instant merchant onboarding and payments with developer‑first APIs</p>
+              <div className="mt-4 text-sm font-medium text-purple-600">→ Payment Infrastructure</div>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 text-center group hover:shadow-xl transition-all" data-testid="reference-swift">
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Globe className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">SWIFT Model</h3>
-              <p className="text-slate-600 leading-relaxed">Trusted multi‑currency routing, reconciliation, and compliance</p>
-              <div className="mt-6 text-sm font-semibold text-blue-600">→ Settlement Infrastructure</div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">SWIFT Model</h3>
+              <p className="text-slate-600 leading-relaxed text-sm">Trusted multi‑currency routing, reconciliation, and compliance</p>
+              <div className="mt-4 text-sm font-medium text-blue-600">→ Settlement Infrastructure</div>
             </div>
           </div>
 
@@ -54,158 +61,129 @@ export default function InfrastructureSection() {
           </div>
         </div>
 
-        {/* Infrastructure Pillars */}
-        <div className="space-y-24">
+        {/* Toggleable Infrastructure Pillars */}
+        <div className="space-y-4">
           {/* Pillar 1: Minting */}
-          <div className="mb-24" data-testid="pillar-minting">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-verto-green rounded-xl flex items-center justify-center mr-4">
-                    <Coins className="text-white text-xl" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-verto-blue">Minting — M‑Pesa‑Style Edge Issuance</h3>
-                </div>
-                <p className="text-lg text-verto-gray-600 mb-6">
-                  The fastest way to grow a stablecoin network is by making <strong>cash‑to‑digital minting available everywhere</strong> — without new hardware or costly roll‑outs.
-                </p>
-                <ul className="space-y-3 text-verto-gray-600">
-                  <li className="flex items-start">
-                    <Check className="text-verto-green mr-3 mt-1 flex-shrink-0" />
-                    Any existing kiosk, agent, or bank API can mint or burn stablecoins in seconds
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-green mr-3 mt-1 flex-shrink-0" />
-                    <strong>Zero treasury float</strong> — each token backed 1:1, with proof posted on‑chain in real time
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-green mr-3 mt-1 flex-shrink-0" />
-                    Compliance checks run at the exact point of transaction
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-green mr-3 mt-1 flex-shrink-0" />
-                    No central bottlenecks — scale country‑wide using your existing distribution network
-                  </li>
-                </ul>
+          <div className="border border-slate-200 rounded-lg" data-testid="pillar-minting">
+            <button
+              onClick={() => togglePillar('minting')}
+              className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
+            >
+              <div className="flex items-center">
+                <Smartphone className="w-6 h-6 text-slate-600 mr-4" />
+                <h3 className="text-xl font-semibold text-slate-900">Minting — M‑Pesa‑Style Edge Issuance</h3>
               </div>
-              <Card>
-                <CardContent className="p-8">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-verto-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Store className="text-3xl text-verto-green" />
-                    </div>
-                    <h4 className="text-xl font-semibold text-verto-blue mb-4">Outcome</h4>
-                    <p className="text-verto-gray-600 leading-relaxed">
-                      Cash becomes compliant digital dollars instantly — the same ubiquitous access model that made M‑Pesa part of 60% of Kenya's GDP, now extended to public blockchains with cryptographic proofs.
-                    </p>
+              {expandedPillar === 'minting' ? 
+                <ChevronDown className="w-5 h-5 text-slate-500" /> : 
+                <ChevronRight className="w-5 h-5 text-slate-500" />
+              }
+            </button>
+            {expandedPillar === 'minting' && (
+              <div className="px-6 pb-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium text-slate-900 mb-3">Edge Distribution</h4>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• Retail agent networks</li>
+                      <li>• Kiosks & ATMs</li>
+                      <li>• Mobile app integration</li>
+                      <li>• POS terminal support</li>
+                    </ul>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium text-slate-900 mb-3">Multi‑Chain Support</h4>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• Ethereum mainnet</li>
+                      <li>• Polygon & L2s</li>
+                      <li>• Cross‑chain bridges</li>
+                      <li>• Future protocol support</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Pillar 2: Payments */}
-          <div className="mb-24" data-testid="pillar-payments">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="lg:order-2">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-verto-purple rounded-xl flex items-center justify-center mr-4">
-                    <CreditCard className="text-white text-xl" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-verto-blue">Payments — Stripe‑Style Seamlessness</h3>
-                </div>
-                <p className="text-lg text-verto-gray-600 mb-6">
-                  Merchants and PSPs onboard in days — accepting stablecoins should feel as easy as adding a Stripe checkout button.
-                </p>
-                <ul className="space-y-3 text-verto-gray-600">
-                  <li className="flex items-start">
-                    <Check className="text-verto-purple mr-3 mt-1 flex-shrink-0" />
-                    Developer‑first APIs and SDKs for integration with any POS, app, or checkout flow
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-purple mr-3 mt-1 flex-shrink-0" />
-                    Instant creation of payment links or QR codes for in‑store and online use
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-purple mr-3 mt-1 flex-shrink-0" />
-                    Accept from <strong>any wallet or CEX</strong> — token and chain differences handled automatically
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-purple mr-3 mt-1 flex-shrink-0" />
-                    <strong>Custody‑free flow</strong> — funds move directly to merchant wallets on‑chain
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-purple mr-3 mt-1 flex-shrink-0" />
-                    Gas sponsorship removes blockchain fee friction for customers
-                  </li>
-                </ul>
+          <div className="border border-slate-200 rounded-lg" data-testid="pillar-payments">
+            <button
+              onClick={() => togglePillar('payments')}
+              className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
+            >
+              <div className="flex items-center">
+                <Zap className="w-6 h-6 text-slate-600 mr-4" />
+                <h3 className="text-xl font-semibold text-slate-900">Payments — Stripe‑Style Seamlessness</h3>
               </div>
-              <Card className="lg:order-1">
-                <CardContent className="p-8">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-verto-purple/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <ShoppingCart className="text-3xl text-verto-purple" />
-                    </div>
-                    <h4 className="text-xl font-semibold text-verto-blue mb-4">Outcome</h4>
-                    <p className="text-verto-gray-600 leading-relaxed">
-                      Merchants integrate fast, customers pay from anywhere, and accounting teams see instant, automated reconciliation — matching the ease and speed that made Stripe indispensable.
-                    </p>
+              {expandedPillar === 'payments' ? 
+                <ChevronDown className="w-5 h-5 text-slate-500" /> : 
+                <ChevronRight className="w-5 h-5 text-slate-500" />
+              }
+            </button>
+            {expandedPillar === 'payments' && (
+              <div className="px-6 pb-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium text-slate-900 mb-3">Merchant Tools</h4>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• Online checkout widgets</li>
+                      <li>• POS system integration</li>
+                      <li>• Invoice & billing APIs</li>
+                      <li>• Real‑time reporting</li>
+                    </ul>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium text-slate-900 mb-3">Consumer Access</h4>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• Any wallet support</li>
+                      <li>• Exchange integrations</li>
+                      <li>• QR code payments</li>
+                      <li>• Mobile‑first design</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Pillar 3: Liquidity */}
-          <div className="mb-16" data-testid="pillar-liquidity">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-verto-blue rounded-xl flex items-center justify-center mr-4">
-                    <ArrowLeftRight className="text-white text-xl" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-verto-blue">Liquidity — SWIFT‑Grade On‑Chain Settlement</h3>
-                </div>
-                <p className="text-lg text-verto-gray-600 mb-6">
-                  Cross‑chain settlement with the trust and control of the global FX system — adapted for open blockchain networks.
-                </p>
-                <ul className="space-y-3 text-verto-gray-600">
-                  <li className="flex items-start">
-                    <Check className="text-verto-blue mr-3 mt-1 flex-shrink-0" />
-                    Accept any token on any public chain, settle in your preferred operating currency
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-blue mr-3 mt-1 flex-shrink-0" />
-                    <strong>AI‑driven routing</strong> finds the safest, lowest‑slippage path across public LPs and bridges
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-blue mr-3 mt-1 flex-shrink-0" />
-                    FX rates locked pre‑trade to protect margins
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-blue mr-3 mt-1 flex-shrink-0" />
-                    KYC/AML and jurisdictional policies enforced automatically at every hop
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="text-verto-blue mr-3 mt-1 flex-shrink-0" />
-                    Instant, explainable reconciliation stored immutably on‑chain
-                  </li>
-                </ul>
+          {/* Pillar 3: Settlement */}
+          <div className="border border-slate-200 rounded-lg" data-testid="pillar-settlement">
+            <button
+              onClick={() => togglePillar('settlement')}
+              className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
+            >
+              <div className="flex items-center">
+                <Globe className="w-6 h-6 text-slate-600 mr-4" />
+                <h3 className="text-xl font-semibold text-slate-900">Liquidity — SWIFT‑Style Settlement</h3>
               </div>
-              <Card>
-                <CardContent className="p-8">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-verto-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Network className="text-3xl text-verto-blue" />
-                    </div>
-                    <h4 className="text-xl font-semibold text-verto-blue mb-4">Outcome</h4>
-                    <p className="text-verto-gray-600 leading-relaxed">
-                      Predictable, regulator‑safe settlement across the blockchain ecosystem — DeFi reach with SWIFT‑grade precision and oversight.
-                    </p>
+              {expandedPillar === 'settlement' ? 
+                <ChevronDown className="w-5 h-5 text-slate-500" /> : 
+                <ChevronRight className="w-5 h-5 text-slate-500" />
+              }
+            </button>
+            {expandedPillar === 'settlement' && (
+              <div className="px-6 pb-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium text-slate-900 mb-3">Cross‑Chain Routing</h4>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• Optimal path selection</li>
+                      <li>• Risk‑weighted routing</li>
+                      <li>• MEV protection</li>
+                      <li>• Slippage minimization</li>
+                    </ul>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <div className="bg-slate-50 p-4 rounded-lg">
+                    <h4 className="font-medium text-slate-900 mb-3">Settlement Assurance</h4>
+                    <ul className="text-sm text-slate-600 space-y-1">
+                      <li>• Real‑time finality</li>
+                      <li>• Atomic swaps</li>
+                      <li>• Escrow protection</li>
+                      <li>• Dispute resolution</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
