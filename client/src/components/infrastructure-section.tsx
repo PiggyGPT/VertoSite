@@ -10,7 +10,7 @@ export default function InfrastructureSection() {
             Verto Infrastructure
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
-            Verto brings 3 proven models into a self-hosted, blockchain‑native stack
+            Verto unifies 3 proven models into a blockchain-native stack that's trusted by regulators and loved by customers.
           </p>
         </div>
 
@@ -19,12 +19,13 @@ export default function InfrastructureSection() {
         {/* Infrastructure Pillars - Full Width Sections */}
         <div className="space-y-16">
           {/* Pillar 1: Issuance */}
-          <div className="bg-gradient-to-r from-verto-green/5 to-verto-green/10 border-l-4 border-verto-green rounded-lg p-8" data-testid="pillar-minting">
+          <div className="bg-slate-50 rounded-lg p-8" data-testid="pillar-minting">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mr-4">
-                    <Coins className="w-6 h-6 text-verto-green" />
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mr-4 shadow-sm">
+                    {/* M-Pesa Logo Placeholder */}
+                    <div className="text-green-600 font-bold text-xs">M-PESA</div>
                   </div>
                   <div>
                     <h3 className="text-2xl font-medium text-slate-900 mb-1">1. Issuance</h3>
@@ -54,15 +55,7 @@ export default function InfrastructureSection() {
                 </div>
               </div>
               
-              <div className="bg-white/80 backdrop-blur p-8 rounded-xl border border-verto-green/30 shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-verto-green/20 rounded-lg flex items-center justify-center mr-4">
-                    <svg width="24" height="24" viewBox="0 0 24 24" className="text-verto-green">
-                      <text x="12" y="16" textAnchor="middle" className="text-xs font-bold fill-current">M-PESA</text>
-                    </svg>
-                  </div>
-                  <p className="font-bold text-lg text-slate-900">Proven Model: M‑Pesa</p>
-                </div>
+              <div className="bg-white/80 backdrop-blur p-8 rounded-xl shadow-lg">
                 <p className="text-slate-600 leading-relaxed">
                   Leverage the same distribution model that made M‑Pesa part of 60% of Kenya's GDP for stablecoins. 
                   Turn every kiosk and agent into a digital currency gateway.
@@ -72,15 +65,16 @@ export default function InfrastructureSection() {
           </div>
 
           {/* Pillar 2: Payments */}
-          <div className="bg-gradient-to-r from-verto-purple/5 to-verto-purple/10 border-l-4 border-verto-purple rounded-lg p-10" data-testid="pillar-payments">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="bg-slate-50 rounded-lg p-8" data-testid="pillar-payments">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-verto-purple/10 rounded-xl flex items-center justify-center mr-6">
-                    <CreditCard className="w-8 h-8 text-verto-purple" />
+                <div className="flex items-center mb-4">
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mr-4 shadow-sm">
+                    {/* Stripe Logo Placeholder */}
+                    <div className="text-purple-600 font-bold text-xs">STRIPE</div>
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold text-slate-900">2. Payments</h3>
+                    <h3 className="text-2xl font-medium text-slate-900 mb-1">2. Payments</h3>
                     <p className="text-lg text-slate-600">Seamless one-tap payments with developer‑first APIs</p>
                   </div>
                 </div>
@@ -107,15 +101,7 @@ export default function InfrastructureSection() {
                 </div>
               </div>
               
-              <div className="bg-white/80 backdrop-blur p-8 rounded-xl border border-verto-purple/30 shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-verto-purple/20 rounded-lg flex items-center justify-center mr-4">
-                    <svg width="24" height="24" viewBox="0 0 24 24" className="text-verto-purple">
-                      <text x="12" y="16" textAnchor="middle" className="text-xs font-bold fill-current">STRIPE</text>
-                    </svg>
-                  </div>
-                  <p className="font-bold text-lg text-slate-900">Proven Model: Stripe</p>
-                </div>
+              <div className="bg-white/80 backdrop-blur p-8 rounded-xl shadow-lg">
                 <p className="text-slate-600 leading-relaxed">
                   Merchants integrate fast, customers pay from anywhere, and accounting teams see instant, automated reconciliation — 
                   matching the ease and speed that made Stripe indispensable.
@@ -125,15 +111,16 @@ export default function InfrastructureSection() {
           </div>
 
           {/* Pillar 3: Liquidity */}
-          <div className="bg-gradient-to-r from-verto-blue/5 to-verto-blue/10 border-l-4 border-verto-blue rounded-lg p-10" data-testid="pillar-settlement">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="bg-slate-50 rounded-lg p-8" data-testid="pillar-settlement">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-verto-blue/10 rounded-xl flex items-center justify-center mr-6">
-                    <ArrowLeftRight className="w-8 h-8 text-verto-blue" />
+                <div className="flex items-center mb-4">
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mr-4 shadow-sm">
+                    {/* SWIFT Logo Placeholder */}
+                    <div className="text-blue-600 font-bold text-xs">SWIFT</div>
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold text-slate-900">3. Liquidity</h3>
+                    <h3 className="text-2xl font-medium text-slate-900 mb-1">3. Liquidity</h3>
                     <p className="text-lg text-slate-600">Multi-chain routing with built-in compliance</p>
                   </div>
                 </div>
@@ -156,15 +143,7 @@ export default function InfrastructureSection() {
                 </div>
               </div>
               
-              <div className="bg-white/80 backdrop-blur p-8 rounded-xl border border-verto-blue/30 shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-verto-blue/20 rounded-lg flex items-center justify-center mr-4">
-                    <svg width="24" height="24" viewBox="0 0 24 24" className="text-verto-blue">
-                      <text x="12" y="16" textAnchor="middle" className="text-xs font-bold fill-current">SWIFT</text>
-                    </svg>
-                  </div>
-                  <p className="font-bold text-lg text-slate-900">Proven Model: SWIFT</p>
-                </div>
+              <div className="bg-white/80 backdrop-blur p-8 rounded-xl shadow-lg">
                 <p className="text-slate-600 leading-relaxed">
                   Tap into public blockchain liquidity by routing across public chain bridges and DEXs — 
                   with the risk management and compliance of SWIFT's correspondent bank payments.

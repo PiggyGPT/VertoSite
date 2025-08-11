@@ -15,16 +15,10 @@ export default function AiSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 tracking-tight" data-testid="ai-title">
-            Verto AI: Risk & Compliance on Public Chains
+            Agentic AI Risk & Compliance on Public Chains
           </h2>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed" data-testid="ai-subtitle">
-            Bank-grade governance powered by explainable AI.
-          </p>
-        </div>
-
-        <div className="mb-12">
-          <p className="text-lg text-slate-700 max-w-4xl mx-auto text-center leading-relaxed mb-12">
-            How do you operate with institutional rigor on open blockchains? You need intelligent systems that assess, route, and audit every transaction component in real time.
+          <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed" data-testid="ai-subtitle">
+            Enforce institutional-grade risk management and compliance on public blockchains with agents that rate, route, and report every payment in real time.
           </p>
         </div>
 
@@ -57,19 +51,28 @@ export default function AiSection() {
 
         {/* Outcome Summary */}
         <div className="bg-white rounded-lg p-8 border border-slate-200 text-center mb-8" data-testid="ai-outcome">
-          <h4 className="text-xl font-semibold text-slate-900 mb-6">Outcome</h4>
-          <div className="grid md:grid-cols-3 gap-6 text-sm">
-            <div>
-              <div className="font-semibold text-slate-900 mb-1">Your CISO</div>
-              <div className="text-slate-600">gets explainable decisions</div>
+          <h4 className="text-xl font-semibold text-slate-900 mb-6">Outcomes</h4>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Shield className="w-6 h-6 text-verto-blue" />
+              </div>
+              <div className="font-semibold text-slate-900 mb-2">CISO Confidence</div>
+              <div className="text-slate-600 text-sm">Explainable risk decisions with full audit transparency</div>
             </div>
-            <div>
-              <div className="font-semibold text-slate-900 mb-1">Your CCO</div>
-              <div className="text-slate-600">gets bulletproof audit trails</div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-verto-green" />
+              </div>
+              <div className="font-semibold text-slate-900 mb-2">CCO Assurance</div>
+              <div className="text-slate-600 text-sm">Bulletproof compliance records ready for any audit</div>
             </div>
-            <div>
-              <div className="font-semibold text-slate-900 mb-1">Your users</div>
-              <div className="text-slate-600">get invisible compliance</div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-verto-purple/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Zap className="w-6 h-6 text-verto-purple" />
+              </div>
+              <div className="font-semibold text-slate-900 mb-2">User Delight</div>
+              <div className="text-slate-600 text-sm">Seamless experience with invisible compliance guardrails</div>
             </div>
           </div>
         </div>
