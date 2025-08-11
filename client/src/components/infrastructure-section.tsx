@@ -17,7 +17,7 @@ export default function InfrastructureSection() {
             Verto Infrastructure
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
-            Unifies 3 key operational workflows using proven models
+            Verto brings 3 proven models into a self-hosted, blockchain‑native stack
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function InfrastructureSection() {
 
         {/* Toggleable Infrastructure Pillars */}
         <div className="space-y-4">
-          {/* Pillar 1: Minting */}
+          {/* Pillar 1: Cash Minting */}
           <div className="border border-slate-200 rounded-lg" data-testid="pillar-minting">
             <button
               onClick={() => togglePillar('minting')}
@@ -61,7 +61,10 @@ export default function InfrastructureSection() {
             >
               <div className="flex items-center">
                 <Smartphone className="w-6 h-6 text-slate-600 mr-4" />
-                <h3 className="text-xl font-semibold text-slate-900">Minting — M‑Pesa‑Style Edge Issuance</h3>
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900">1. Cash Minting</h3>
+                  <p className="text-sm text-slate-600">Cash‑to‑stablecoins through existing retail agents.</p>
+                </div>
               </div>
               {expandedPillar === 'minting' ? 
                 <ChevronDown className="w-5 h-5 text-slate-500" /> : 
@@ -70,24 +73,16 @@ export default function InfrastructureSection() {
             </button>
             {expandedPillar === 'minting' && (
               <div className="px-6 pb-6">
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <ul className="text-sm text-slate-700 space-y-2">
+                    <li>• Any existing kiosk, agent, or bank API can mint or burn stablecoins with no additional hardware costs</li>
+                    <li>• Zero treasury float — each token backed 1:1, with tokens minted directly to user wallets</li>
+                    <li>• Compliance checks run at the exact point of transaction.</li>
+                    <li>• No central bottlenecks — scale country‑wide using your existing distribution network.</li>
+                  </ul>
                   <div className="bg-slate-50 p-4 rounded-lg">
-                    <h4 className="font-medium text-slate-900 mb-3">Edge Distribution</h4>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Retail agent networks</li>
-                      <li>• Kiosks & ATMs</li>
-                      <li>• Mobile app integration</li>
-                      <li>• POS terminal support</li>
-                    </ul>
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded-lg">
-                    <h4 className="font-medium text-slate-900 mb-3">Multi‑Chain Support</h4>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Ethereum mainnet</li>
-                      <li>• Polygon & L2s</li>
-                      <li>• Cross‑chain bridges</li>
-                      <li>• Future protocol support</li>
-                    </ul>
+                    <p className="font-medium text-slate-900 mb-2">Proven model: M‑Pesa</p>
+                    <p className="text-sm text-slate-600">Leverage the same distribution model that made M‑Pesa part of 60% of Kenya's GDP for stablecoins</p>
                   </div>
                 </div>
               </div>
@@ -102,7 +97,10 @@ export default function InfrastructureSection() {
             >
               <div className="flex items-center">
                 <Zap className="w-6 h-6 text-slate-600 mr-4" />
-                <h3 className="text-xl font-semibold text-slate-900">Payments — Stripe‑Style Seamlessness</h3>
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900">2. Payments</h3>
+                  <p className="text-sm text-slate-600">seamless one-tap payments with developer‑first APIs.</p>
+                </div>
               </div>
               {expandedPillar === 'payments' ? 
                 <ChevronDown className="w-5 h-5 text-slate-500" /> : 
@@ -111,31 +109,23 @@ export default function InfrastructureSection() {
             </button>
             {expandedPillar === 'payments' && (
               <div className="px-6 pb-6">
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <ul className="text-sm text-slate-700 space-y-2">
+                    <li>• Developer‑first APIs and SDKs for integration with any POS, app, or checkout flow.</li>
+                    <li>• Instant creation of payment links or QR codes for in‑store and online payments from any wallet or CEX</li>
+                    <li>• Custody‑free flow — funds move directly to merchant wallets on‑chain.</li>
+                    <li>• Gas sponsorship removes blockchain fee friction for customers.</li>
+                  </ul>
                   <div className="bg-slate-50 p-4 rounded-lg">
-                    <h4 className="font-medium text-slate-900 mb-3">Merchant Tools</h4>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Online checkout widgets</li>
-                      <li>• POS system integration</li>
-                      <li>• Invoice & billing APIs</li>
-                      <li>• Real‑time reporting</li>
-                    </ul>
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded-lg">
-                    <h4 className="font-medium text-slate-900 mb-3">Consumer Access</h4>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Any wallet support</li>
-                      <li>• Exchange integrations</li>
-                      <li>• QR code payments</li>
-                      <li>• Mobile‑first design</li>
-                    </ul>
+                    <p className="font-medium text-slate-900 mb-2">Proven model: Stripe</p>
+                    <p className="text-sm text-slate-600">Merchants integrate fast, customers pay from anywhere, and accounting teams see instant, automated reconciliation — matching the ease and speed that made Stripe indispensable.</p>
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Pillar 3: Settlement */}
+          {/* Pillar 3: Liquidity */}
           <div className="border border-slate-200 rounded-lg" data-testid="pillar-settlement">
             <button
               onClick={() => togglePillar('settlement')}
@@ -143,7 +133,10 @@ export default function InfrastructureSection() {
             >
               <div className="flex items-center">
                 <Globe className="w-6 h-6 text-slate-600 mr-4" />
-                <h3 className="text-xl font-semibold text-slate-900">Liquidity — SWIFT‑Style Settlement</h3>
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900">3. Liquidity — SWIFT‑Grade Routing</h3>
+                  <p className="text-sm text-slate-600">Multi‑currency routing with built-in compliance.</p>
+                </div>
               </div>
               {expandedPillar === 'settlement' ? 
                 <ChevronDown className="w-5 h-5 text-slate-500" /> : 
@@ -152,25 +145,12 @@ export default function InfrastructureSection() {
             </button>
             {expandedPillar === 'settlement' && (
               <div className="px-6 pb-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-slate-50 p-4 rounded-lg">
-                    <h4 className="font-medium text-slate-900 mb-3">Cross‑Chain Routing</h4>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Optimal path selection</li>
-                      <li>• Risk‑weighted routing</li>
-                      <li>• MEV protection</li>
-                      <li>• Slippage minimization</li>
-                    </ul>
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded-lg">
-                    <h4 className="font-medium text-slate-900 mb-3">Settlement Assurance</h4>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      <li>• Real‑time finality</li>
-                      <li>• Atomic swaps</li>
-                      <li>• Escrow protection</li>
-                      <li>• Dispute resolution</li>
-                    </ul>
-                  </div>
+                <div className="space-y-4">
+                  <ul className="text-sm text-slate-700 space-y-2">
+                    <li>• Accept any token on any public chain, settle in your preferred operating currency.</li>
+                    <li>• AI‑driven routing finds the safest, lowest‑slippage path across public LPs, bridges, and FX pairs.</li>
+                    <li>• real-time audit trails for every on-chain payment</li>
+                  </ul>
                 </div>
               </div>
             )}

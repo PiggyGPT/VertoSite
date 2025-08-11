@@ -64,7 +64,7 @@ export default function PilotSection() {
               className="px-8 py-3 verto-gradient text-white font-medium rounded-lg hover:opacity-90 transition-all shadow-md"
               data-testid="button-pilot-cta"
             >
-              Free 90-day Pilot Strategy →
+              Free 90 day pilot
             </Button>
             <Button 
               className="px-8 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all"

@@ -26,8 +26,8 @@ export default function ProblemSection() {
                 <p className="text-sm text-slate-500">Regional Bank</p>
               </div>
             </div>
-            <blockquote className="text-slate-700 leading-relaxed">
-              The revenue upside is huge — but how do I explain an unquantifiable risk to my board when no major bank has ever run a stablecoin at scale on a public blockchain?
+            <blockquote className="text-slate-700 leading-relaxed italic text-lg font-medium border-l-4 border-verto-purple pl-4 bg-gradient-to-r from-slate-50 to-white p-4 rounded-r-lg shadow-sm">
+              "The revenue upside is huge — but how do I explain an unquantifiable risk to my board when no major bank has ever run a stablecoin at scale on a public blockchain?"
             </blockquote>
           </div>
 
@@ -42,8 +42,8 @@ export default function ProblemSection() {
                 <p className="text-sm text-slate-500">Global Payment Firm</p>
               </div>
             </div>
-            <blockquote className="text-slate-700 leading-relaxed">
-              Who actually controls the keys? How do we enforce our risk policies across multiple public chains in real time — and prove it to regulators without hiring an army?
+            <blockquote className="text-slate-700 leading-relaxed italic text-lg font-medium border-l-4 border-verto-blue pl-4 bg-gradient-to-r from-slate-50 to-white p-4 rounded-r-lg shadow-sm">
+              "Who actually controls the keys? How do we enforce our risk policies across multiple public chains in real time — and prove it to regulators without hiring an army?"
             </blockquote>
           </div>
 
@@ -58,8 +58,8 @@ export default function ProblemSection() {
                 <p className="text-sm text-slate-500">Multinational PSP</p>
               </div>
             </div>
-            <blockquote className="text-slate-700 leading-relaxed">
-              Integrating PSPs to accept stablecoins takes months. Public‑chain reconciliation is a nightmare, and every latency spike or FX loss hits my margins.
+            <blockquote className="text-slate-700 leading-relaxed italic text-lg font-medium border-l-4 border-verto-green pl-4 bg-gradient-to-r from-slate-50 to-white p-4 rounded-r-lg shadow-sm">
+              "Integrating PSPs to accept stablecoins takes months. Public‑chain reconciliation is a nightmare, and every latency spike or FX loss hits my margins."
             </blockquote>
           </div>
         </div>
