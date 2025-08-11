@@ -23,8 +23,8 @@ export default function InfrastructureSection() {
             <div className="grid lg:grid-cols-3 gap-8 items-start">
               <div className="lg:col-span-2">
                 <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-green-50 border border-green-200 rounded-lg flex items-center justify-center mr-4">
-                    <div className="text-green-700 font-semibold text-sm">M-PESA</div>
+                  <div className="w-14 h-14 bg-verto-green/10 border border-verto-green/30 rounded-lg flex items-center justify-center mr-4">
+                    <div className="text-verto-green font-semibold text-sm">M-PESA</div>
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-slate-900 mb-2">Issuance</h3>
@@ -34,19 +34,19 @@ export default function InfrastructureSection() {
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Any existing kiosk, agent, or bank API can mint or burn stablecoins</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Zero treasury float — each token backed 1:1</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Compliance checks at transaction point</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Scale using existing distribution network</span>
                   </div>
                 </div>
@@ -66,8 +66,8 @@ export default function InfrastructureSection() {
             <div className="grid lg:grid-cols-3 gap-8 items-start">
               <div className="lg:col-span-2">
                 <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-purple-50 border border-purple-200 rounded-lg flex items-center justify-center mr-4">
-                    <div className="text-purple-700 font-semibold text-sm">STRIPE</div>
+                  <div className="w-14 h-14 bg-verto-purple/10 border border-verto-purple/30 rounded-lg flex items-center justify-center mr-4">
+                    <div className="text-verto-purple font-semibold text-sm">STRIPE</div>
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-slate-900 mb-2">Payments</h3>
@@ -77,19 +77,19 @@ export default function InfrastructureSection() {
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Developer‑first APIs and SDKs for any POS or checkout</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Instant payment links and QR codes</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Custody‑free flow to merchant wallets</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Gas sponsorship removes blockchain friction</span>
                   </div>
                 </div>
@@ -109,8 +109,8 @@ export default function InfrastructureSection() {
             <div className="grid lg:grid-cols-3 gap-8 items-start">
               <div className="lg:col-span-2">
                 <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-blue-50 border border-blue-200 rounded-lg flex items-center justify-center mr-4">
-                    <div className="text-blue-700 font-semibold text-sm">SWIFT</div>
+                  <div className="w-14 h-14 bg-verto-blue/10 border border-verto-blue/30 rounded-lg flex items-center justify-center mr-4">
+                    <div className="text-verto-blue font-semibold text-sm">SWIFT</div>
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-slate-900 mb-2">Liquidity</h3>
@@ -120,19 +120,19 @@ export default function InfrastructureSection() {
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Accept any token, settle in preferred currency</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">AI‑driven routing across public LPs and bridges</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">Real-time audit trails for every payment</span>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
                     <span className="text-sm text-slate-700">SWIFT-grade risk management and compliance</span>
                   </div>
                 </div>

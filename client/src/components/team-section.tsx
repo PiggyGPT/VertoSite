@@ -17,7 +17,7 @@ export default function TeamSection() {
               <User className="text-verto-blue w-8 h-8" />
             </div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">David Cass</h3>
-            <p className="text-verto-purple font-medium mb-3">CEO</p>
+            <p className="text-verto-blue font-medium mb-3">CEO</p>
             <p className="text-sm text-slate-600">Former Fed regulator; ex‑CISO for $50B+ crypto desk</p>
           </div>
           <div className="bg-white p-6 rounded-lg border border-slate-200 text-center" data-testid="team-daniel">
@@ -25,7 +25,7 @@ export default function TeamSection() {
               <Gavel className="text-verto-green w-8 h-8" />
             </div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Daniel Garrie</h3>
-            <p className="text-verto-purple font-medium mb-3">General Counsel</p>
+            <p className="text-verto-green font-medium mb-3">General Counsel</p>
             <p className="text-sm text-slate-600">DOJ/DTCC compliance advisor in 200+ federal cases</p>
           </div>
           <div className="bg-white p-6 rounded-lg border border-slate-200 text-center" data-testid="team-hisham">
@@ -33,7 +33,7 @@ export default function TeamSection() {
               <Code className="text-verto-orange w-8 h-8" />
             </div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Hisham Anwar</h3>
-            <p className="text-verto-purple font-medium mb-3">CTO</p>
+            <p className="text-verto-orange font-medium mb-3">CTO</p>
             <p className="text-sm text-slate-600">Built Google Classroom to 150M users; MIT engineer</p>
           </div>
           <div className="bg-white p-6 rounded-lg border border-slate-200 text-center" data-testid="team-nilesh">
