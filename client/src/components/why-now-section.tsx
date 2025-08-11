@@ -11,7 +11,7 @@ export default function WhyNowSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 tracking-tight leading-tight" data-testid="why-now-title">
-            Spend years stitching together fractured point solutions — or 90 days with Verto
+            Spend years stitching together fractured point solutions... <br className="hidden sm:inline" />or 90 days with Verto.
           </h2>
         </div>
 

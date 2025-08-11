@@ -15,10 +15,10 @@ export default function AiSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 tracking-tight" data-testid="ai-title">
-            Agentic AI Risk & Compliance on Public Chains
+            AI-Powered Risk Management & Compliance
           </h2>
           <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed" data-testid="ai-subtitle">
-            Enforce institutional-grade risk management and compliance on public blockchains with agents that rate, route, and report every payment in real time.
+            Enforce institutional-grade policies for every payment on public blockchains.
           </p>
         </div>
 
