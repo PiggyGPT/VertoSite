@@ -20,7 +20,6 @@ export default function Home() {
       <BoardChecklistSection />
       <TeamSection />
       <WhyNowSection />
-      <PilotSection />
       <Footer />
     </div>
   );

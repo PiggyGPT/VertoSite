@@ -1,51 +1,74 @@
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <>
-      {/* Final CTA */}
-      <section id="pilot-cta" className="py-20 animate-slide-up">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center">
-          <h2 className="text-2xl font-medium text-slate-900 mb-6 leading-relaxed" data-testid="final-cta-title">
-            You could spend years stitching together fractured point solutions — or 90 days with live, compliant stablecoin rails
-          </h2>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="px-8 py-3 verto-gradient text-white font-medium rounded-lg hover:opacity-90 transition-all shadow-md"
-              data-testid="button-final-primary"
-            >
-              Free 90-day Pilot Strategy →
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="px-8 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all"
-              data-testid="button-final-secondary"
-            >
-              Free Risk & Compliance Review →
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer id="contact" className="bg-slate-100 text-slate-600 py-12" data-testid="footer">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center">
-          <div className="border-t border-slate-200 pt-8">
-            <p className="text-sm" data-testid="footer-copyright">
-              © 2025 Verto. All rights reserved.
+    <footer id="contact" className="bg-slate-900 text-white py-16" data-testid="footer">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {/* Company Info */}
+          <div className="md:col-span-2">
+            <div className="text-2xl font-bold verto-gradient-text mb-4">verto</div>
+            <p className="text-slate-300 mb-6 leading-relaxed">
+              Institutional rails to mint, move & monitor stablecoins. 
+              As local as M‑Pesa. As seamless as Stripe. As compliant as SWIFT.
             </p>
+            <div className="space-y-3">
+              <div className="flex items-center text-slate-300">
+                <Mail className="w-4 h-4 mr-3" />
+                <span>contact@verto.com</span>
+              </div>
+              <div className="flex items-center text-slate-300">
+                <Phone className="w-4 h-4 mr-3" />
+                <span>+1 (555) 123-4567</span>
+              </div>
+              <div className="flex items-center text-slate-300">
+                <MapPin className="w-4 h-4 mr-3" />
+                <span>San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Solutions */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Solutions</h4>
+            <ul className="space-y-2 text-slate-300">
+              <li><a href="#infrastructure" className="hover:text-white transition-colors">Issuance Infrastructure</a></li>
+              <li><a href="#infrastructure" className="hover:text-white transition-colors">Payment Rails</a></li>
+              <li><a href="#infrastructure" className="hover:text-white transition-colors">Liquidity Management</a></li>
+              <li><a href="#ai" className="hover:text-white transition-colors">AI Platform</a></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Company</h4>
+            <ul className="space-y-2 text-slate-300">
+              <li><a href="#team" className="hover:text-white transition-colors">Leadership</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Press</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
+            </ul>
           </div>
         </div>
-      </footer>
-    </>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-slate-400 text-sm mb-4 md:mb-0">
+            © 2025 Verto Technologies Inc. All rights reserved.
+          </div>
+          <div className="flex items-center space-x-6">
+            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+              Terms of Service
+            </a>
+            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

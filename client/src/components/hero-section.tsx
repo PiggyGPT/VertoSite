@@ -12,8 +12,8 @@ export default function HeroSection() {
   return (
     <section id="hero" className="pt-32 pb-20 px-6 sm:px-8 animate-fade-in">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 leading-tight" data-testid="hero-title">
-          Institutional rails to<br />mint, move & monitor stablecoins
+        <h1 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6" data-testid="hero-title">
+          Institutional rails to mint, move & monitor stablecoins
         </h1>
         <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed" data-testid="hero-subtitle">
           As local as M‑Pesa. As seamless as Stripe. As compliant as SWIFT.
