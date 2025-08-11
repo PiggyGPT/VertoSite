@@ -16,11 +16,11 @@ export default function Home() {
       <HeroSection />
       <ProblemSection />
       <InfrastructureSection />
-      <BoardChecklistSection />
-      <WhyNowSection />
       <AiSection />
-      <PilotSection />
+      <BoardChecklistSection />
       <TeamSection />
+      <WhyNowSection />
+      <PilotSection />
       <Footer />
     </div>
   );

@@ -16,7 +16,7 @@ export default function PilotSection() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-medium text-slate-900 mb-4" data-testid="pilot-title">
-              You could spend years stitching together fractured point solutions — or 90 days with live, compliant stablecoin rails
+              Complete Enterprise Solution in 90 Days
             </h2>
           </div>
 

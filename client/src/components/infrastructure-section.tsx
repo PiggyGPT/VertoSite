@@ -93,8 +93,8 @@ export default function InfrastructureSection() {
             <div className="w-16 h-16 bg-verto-blue/10 rounded-xl flex items-center justify-center mb-6">
               <ArrowLeftRight className="w-8 h-8 text-verto-blue" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">3. Liquidity — SWIFT‑Grade Routing</h3>
-            <p className="text-slate-600 mb-6">Multi‑currency routing with built-in compliance.</p>
+            <h3 className="text-2xl font-bold text-slate-900 mb-3">3. Liquidity</h3>
+            <p className="text-slate-600 mb-6">Multi-chain routing with built-in compliance.</p>
             
             <div className="space-y-4">
               <ul className="text-sm text-slate-700 space-y-3">
@@ -111,6 +111,11 @@ export default function InfrastructureSection() {
                   Real-time audit trails for every on-chain payment
                 </li>
               </ul>
+              
+              <div className="bg-white/50 backdrop-blur p-4 rounded-lg border border-verto-blue/20">
+                <p className="font-semibold text-slate-900 mb-2">Proven model: SWIFT</p>
+                <p className="text-sm text-slate-600">Tap into public blockchain liquidity by routing across public chain bridges and DEXs — with the risk management and compliance of SWIFT's correspondent bank payments</p>
+              </div>
             </div>
           </div>
         </div>
