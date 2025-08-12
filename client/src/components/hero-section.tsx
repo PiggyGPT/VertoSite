@@ -52,14 +52,26 @@ export default function HeroSection() {
 
           {/* Trust Logos - Balanced Spacing */}
           <div className="max-w-4xl mx-auto" data-testid="trust-logos">
-            <p className="text-center text-slate-600 dark:text-slate-400 mb-4 text-sm font-medium">Built by leaders at</p>
-            <div className="flex justify-center items-center gap-x-6 md:gap-x-8 lg:gap-x-10 flex-wrap">
-              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
-              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">DTCC</div>
-              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Moody's</div>
-              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">PayPal</div>
-              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Google</div>
-              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Microsoft</div>
+            <p className="text-center text-slate-600 dark:text-slate-400 mb-6 text-sm font-medium">Built by leaders at</p>
+            <div className="flex justify-center items-center gap-x-8 md:gap-x-10 lg:gap-x-12 flex-wrap gap-y-4">
+              <div className="flex items-center justify-center h-8">
+                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Federal Reserve</span>
+              </div>
+              <div className="flex items-center justify-center h-8">
+                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">DTCC</span>
+              </div>
+              <div className="flex items-center justify-center h-8">
+                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Moody's</span>
+              </div>
+              <div className="flex items-center justify-center h-8">
+                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">PayPal</span>
+              </div>
+              <div className="flex items-center justify-center h-8">
+                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Google</span>
+              </div>
+              <div className="flex items-center justify-center h-8">
+                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Microsoft</span>
+              </div>
             </div>
           </div>
         </div>

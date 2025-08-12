@@ -37,11 +37,11 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 py-4">
           <div className="flex items-center space-x-10">
             <div 
-              className="cursor-pointer"
+              className="cursor-pointer flex items-center"
               onClick={() => scrollToSection("hero")}
               data-testid="logo"
             >
-              <img src={logoSvg} alt="Verto" className="h-8" />
+              <img src={logoSvg} alt="Verto" className="h-7" />
             </div>
             <div className="hidden md:flex space-x-8">
               <button
@@ -76,16 +76,15 @@ export default function Navigation() {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="hidden sm:block" data-testid="nav-twitter">
-              <a 
-                href="https://twitter.com/Verto_AI?ref_src=twsrc%5Etfw" 
-                className="twitter-follow-button" 
-                data-size="large" 
-                data-show-count="false"
-              >
-                Follow @Verto_AI
-              </a>
-            </div>
+            <a
+              href="https://twitter.com/Verto_AI?ref_src=twsrc%5Etfw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:block px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
+              data-testid="nav-twitter"
+            >
+              Follow @Verto_AI
+            </a>
             <button
               onClick={() => scrollToSection("pilot")}
               className="px-7 py-2.5 verto-gradient text-white rounded-lg hover:shadow-md transition-all duration-300 font-semibold text-sm tracking-wide"
