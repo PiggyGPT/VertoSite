@@ -81,7 +81,7 @@ export default function InfrastructureSection() {
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Instant payment links and QR codes for any POS or checkout</span>
+                    <span className="text-sm text-slate-700">One Tap Payment UX via QR codes for any POS or online checkout</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>

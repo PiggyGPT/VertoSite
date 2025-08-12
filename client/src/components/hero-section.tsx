@@ -49,51 +49,17 @@ export default function HeroSection() {
           <div className="mb-16" data-testid="trust-logos">
             <p className="text-center text-slate-600 mb-6 text-sm font-medium">Built by leaders at:</p>
             <div className="flex justify-center items-center gap-x-6 md:gap-x-8 lg:gap-x-10 flex-wrap">
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Goldman Sachs</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">FED</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">DTCC</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Moody's</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">PayPal</div>
               <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Google</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">M-Kopa</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">MIT</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Microsoft</div>
             </div>
           </div>
         </div>
 
-        {/* Trust Band */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-slate-200/50 shadow-sm" data-testid="trust-band">
-          <p className="text-slate-500 mb-8 text-sm font-medium text-center tracking-wide uppercase">Built by leaders at:</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            <div className="flex items-center justify-center h-16 px-4 hover:scale-105 transition-transform" title="Fed Reserve">
-              <svg width="80" height="32" viewBox="0 0 80 32" className="text-slate-400 hover:text-slate-600 transition-colors">
-                <text x="40" y="20" textAnchor="middle" className="text-sm font-bold fill-current">FED</text>
-              </svg>
-            </div>
-            <div className="flex items-center justify-center h-16 px-4 hover:scale-105 transition-transform" title="DTCC">
-              <svg width="80" height="32" viewBox="0 0 80 32" className="text-slate-400 hover:text-slate-600 transition-colors">
-                <text x="40" y="20" textAnchor="middle" className="text-sm font-bold fill-current">DTCC</text>
-              </svg>
-            </div>
-            <div className="flex items-center justify-center h-16 px-4 hover:scale-105 transition-transform" title="Moody's">
-              <svg width="80" height="32" viewBox="0 0 80 32" className="text-slate-400 hover:text-slate-600 transition-colors">
-                <text x="40" y="20" textAnchor="middle" className="text-sm font-bold fill-current">Moody's</text>
-              </svg>
-            </div>
-            <div className="flex items-center justify-center h-16 px-4 hover:scale-105 transition-transform" title="PayPal">
-              <svg width="80" height="32" viewBox="0 0 80 32" className="text-slate-400 hover:text-slate-600 transition-colors">
-                <text x="40" y="20" textAnchor="middle" className="text-sm font-bold fill-current">PayPal</text>
-              </svg>
-            </div>
-            <div className="flex items-center justify-center h-16 px-4 hover:scale-105 transition-transform" title="Google">
-              <svg width="80" height="32" viewBox="0 0 80 32" className="text-slate-400 hover:text-slate-600 transition-colors">
-                <text x="40" y="20" textAnchor="middle" className="text-sm font-bold fill-current">Google</text>
-              </svg>
-            </div>
-            <div className="flex items-center justify-center h-16 px-4 hover:scale-105 transition-transform" title="Microsoft">
-              <svg width="80" height="32" viewBox="0 0 80 32" className="text-slate-400 hover:text-slate-600 transition-colors">
-                <text x="40" y="20" textAnchor="middle" className="text-sm font-bold fill-current">Microsoft</text>
-              </svg>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );
