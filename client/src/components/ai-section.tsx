@@ -28,7 +28,7 @@ export default function AiSection() {
             <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mb-4">
               <BarChart3 className="w-6 h-6 text-verto-blue" />
             </div>
-            <h4 className="text-lg font-semibold text-slate-900 mb-3">Explainable Risk Scoring</h4>
+            <h4 className="text-lg font-semibold text-slate-900 mb-3">Explainable, Institutional-Grade Risk Management</h4>
             <p className="text-slate-600 text-sm leading-relaxed">Generate Moody's-style ratings for every wallet, token, bridge, and protocol with full decision transparency. Risk factors are quantified and auditable, not black-boxed.</p>
           </div>
 
@@ -36,7 +36,7 @@ export default function AiSection() {
             <div className="w-12 h-12 bg-verto-purple/10 rounded-lg flex items-center justify-center mb-4">
               <ArrowLeftRight className="w-6 h-6 text-verto-purple" />
             </div>
-            <h4 className="text-lg font-semibold text-slate-900 mb-3">Intelligent Multi-Chain Routing</h4>
+            <h4 className="text-lg font-semibold text-slate-900 mb-3">Policy-Driven Multi-Chain Routing</h4>
             <p className="text-slate-600 text-sm leading-relaxed">Balance risk, latency, and slippage across liquidity pools, bridges, and counterparties. Every path decision is custodian-key signed and executed with sponsored gas for seamless UX.</p>
           </div>
 

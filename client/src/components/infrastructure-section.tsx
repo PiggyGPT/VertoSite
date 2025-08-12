@@ -35,19 +35,19 @@ export default function InfrastructureSection() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Any existing kiosk, agent, or bank API can mint or burn stablecoins</span>
+                    <span className="text-sm text-slate-700">Any kiosk or retail agent can convert cash to stablecoins directly into consumer wallets</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Zero treasury float — each token backed 1:1</span>
+                    <span className="text-sm text-slate-700">Tap into existing retail distribution networks without additional hardware costs</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Compliance checks at transaction point</span>
+                    <span className="text-sm text-slate-700">Zero treasury float — each token backed 1:1 with real-time minting</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Scale using existing distribution network</span>
+                    <span className="text-sm text-slate-700">Scale nationwide using your existing distribution network</span>
                   </div>
                 </div>
               </div>
@@ -78,19 +78,19 @@ export default function InfrastructureSection() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Developer‑first APIs and SDKs for any POS or checkout</span>
+                    <span className="text-sm text-slate-700">Accept payments from any wallet or CEX with developer‑first APIs</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Instant payment links and QR codes</span>
+                    <span className="text-sm text-slate-700">Instant payment links and QR codes for any POS or checkout</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Custody‑free flow to merchant wallets</span>
+                    <span className="text-sm text-slate-700">Custody‑free flow — funds move directly to merchant wallets</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Gas sponsorship removes blockchain friction</span>
+                    <span className="text-sm text-slate-700">Gas sponsorship removes blockchain friction for customers</span>
                   </div>
                 </div>
               </div>
@@ -121,11 +121,11 @@ export default function InfrastructureSection() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Accept any token, settle in preferred currency</span>
+                    <span className="text-sm text-slate-700">Accept any token from any chain, settle in preferred currency</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">AI‑driven routing across public LPs and bridges</span>
+                    <span className="text-sm text-slate-700">Policy‑driven routing across public LPs and bridges</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
