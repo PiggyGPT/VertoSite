@@ -16,97 +16,91 @@ export default function InfrastructureSection() {
 
 
 
-        {/* Infrastructure Pillars - Story Format */}
-        <div className="space-y-12">
+        {/* Infrastructure Pillars - Clean 2-Column Format */}
+        <div className="space-y-8">
           {/* Pillar 1: Issuance */}
           <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-2xl p-8 shadow-sm" data-testid="pillar-minting">
-            <div className="flex items-start space-x-6">
-              <div className="w-16 h-16 bg-verto-green/10 border-2 border-verto-green/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Coins className="w-8 h-8 text-verto-green" />
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mr-4">
+                    <Coins className="w-6 h-6 text-verto-green" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Issuance</h3>
+                </div>
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                  Issue or burn stablecoins the instant cash changes hands—at kiosks, agents, bank APIs, or vouchers. Enforce KYC/AML with real-time compliance trails.
+                </p>
               </div>
               
-              <div className="flex-1">
-                <div className="flex items-center mb-4">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mr-4">Issuance</h3>
-                  <div className="px-3 py-1 bg-verto-green/10 border border-verto-green/30 rounded-full">
-                    <span className="text-verto-green font-semibold text-sm">M-PESA MODEL</span>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 border border-green-200 dark:border-green-700 rounded-xl p-6">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-xs">M</span>
                   </div>
+                  <span className="font-semibold text-slate-900 dark:text-white">M-Pesa Distribution Model</span>
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
-                      Issue or burn stablecoins the instant cash changes hands—at kiosks, agents, bank APIs, or vouchers. Enforce KYC/AML with real-time compliance trails.
-                    </p>
-                  </div>
-                  <div className="bg-slate-50 dark:bg-gray-700 p-4 rounded-lg">
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      <strong>Leveraging M-Pesa's Distribution Model</strong> removes treasury float and slashes on-ramp cost vs. bank flows through 200,000+ retail agents.
-                    </p>
-                  </div>
-                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Removes treasury float and slashes on-ramp cost vs. bank flows through 200,000+ retail agents.
+                </p>
               </div>
             </div>
           </div>
 
           {/* Pillar 2: Payments */}
           <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-2xl p-8 shadow-sm" data-testid="pillar-payments">
-            <div className="flex items-start space-x-6">
-              <div className="w-16 h-16 bg-verto-purple/10 border-2 border-verto-purple/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <CreditCard className="w-8 h-8 text-verto-purple" />
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-verto-purple/10 rounded-lg flex items-center justify-center mr-4">
+                    <CreditCard className="w-6 h-6 text-verto-purple" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Payments</h3>
+                </div>
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                  Drop-in SDKs, QR codes, and APIs power a one-tap UX to accept payments from any wallet, CEX or bank.
+                </p>
               </div>
               
-              <div className="flex-1">
-                <div className="flex items-center mb-4">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mr-4">Payments</h3>
-                  <div className="px-3 py-1 bg-verto-purple/10 border border-verto-purple/30 rounded-full">
-                    <span className="text-verto-purple font-semibold text-sm">STRIPE MODEL</span>
+              <div className="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/10 dark:to-violet-900/10 border border-purple-200 dark:border-purple-700 rounded-xl p-6">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-xs">S</span>
                   </div>
+                  <span className="font-semibold text-slate-900 dark:text-white">Stripe UX & APIs</span>
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
-                      Drop-in SDKs, QR codes, and APIs power a one-tap UX to accept payments from any wallet, CEX or bank.
-                    </p>
-                  </div>
-                  <div className="bg-slate-50 dark:bg-gray-700 p-4 rounded-lg">
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      <strong>Leveraging Stripe's merchant APIs and consumer UX</strong> makes your stablecoin the easiest way to get paid in any POS or app.
-                    </p>
-                  </div>
-                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Makes your stablecoin the easiest way to get paid in any POS or app with merchant-grade developer experience.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Pillar 3: Global Liquidity */}
+          {/* Pillar 3: Liquidity */}
           <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-2xl p-8 shadow-sm" data-testid="pillar-settlement">
-            <div className="flex items-start space-x-6">
-              <div className="w-16 h-16 bg-verto-blue/10 border-2 border-verto-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <ArrowLeftRight className="w-8 h-8 text-verto-blue" />
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-4">
+                    <ArrowLeftRight className="w-6 h-6 text-verto-blue" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Liquidity</h3>
+                </div>
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                  Accept any token on any chain, settle in your stablecoin via policy-routed liquidity pools with real-time audit trails.
+                </p>
               </div>
               
-              <div className="flex-1">
-                <div className="flex items-center mb-4">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mr-4">Global Liquidity</h3>
-                  <div className="px-3 py-1 bg-verto-blue/10 border border-verto-blue/30 rounded-full">
-                    <span className="text-verto-blue font-semibold text-sm">SWIFT MODEL</span>
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 border border-blue-200 dark:border-blue-700 rounded-xl p-6">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-xs">SW</span>
                   </div>
+                  <span className="font-semibold text-slate-900 dark:text-white">SWIFT Routing & Compliance</span>
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
-                      Accept any token on any chain, settle in your stablecoin via policy-routed liquidity pools with real-time audit trails.
-                    </p>
-                  </div>
-                  <div className="bg-slate-50 dark:bg-gray-700 p-4 rounded-lg">
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      <strong>Leveraging SWIFT's correspondent bank routing & compliance</strong> to access public blockchain liquidity pools with institutional trust.
-                    </p>
-                  </div>
-                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Accesses public blockchain liquidity pools with correspondent banking-grade trust and institutional compliance.
+                </p>
               </div>
             </div>
           </div>
