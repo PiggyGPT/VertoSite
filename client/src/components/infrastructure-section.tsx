@@ -138,7 +138,7 @@ export default function InfrastructureSection() {
               
               <div className="bg-slate-50 p-6 rounded-lg border border-slate-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  SWIFT handles $150T+ annually with bulletproof compliance across 11,000+ institutions. Verto brings that same institutional trust to public blockchain liquidity routing.
+                  SWIFT handles $150T+ annually with bulletproof compliance across 11,000+ institutions. Verto brings that same correspondent banking trust to public blockchain liquidity routing.
                 </p>
               </div>
             </div>

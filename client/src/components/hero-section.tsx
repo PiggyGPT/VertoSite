@@ -25,19 +25,7 @@ export default function HeroSection() {
             As locally as M‑Pesa. As seamlessly as Stripe. As compliantly as SWIFT.
           </p>
 
-          {/* Trust Logos - Single Row without Borders */}
-          <div className="mb-10" data-testid="trust-logos">
-            <p className="text-center text-slate-600 mb-6 text-sm font-medium">Built by leaders at:</p>
-            <div className="flex justify-center items-center gap-x-6 md:gap-x-8 lg:gap-x-10 flex-wrap">
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Goldman Sachs</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Google</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">M-Kopa</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">MIT</div>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
               onClick={() => scrollToSection("pilot-cta")}
               className="group px-10 py-4 verto-gradient text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
@@ -55,6 +43,18 @@ export default function HeroSection() {
             >
               Free Risk & Compliance Review
             </button>
+          </div>
+
+          {/* Trust Logos - Single Row without Borders */}
+          <div className="mb-16" data-testid="trust-logos">
+            <p className="text-center text-slate-600 mb-6 text-sm font-medium">Built by leaders at:</p>
+            <div className="flex justify-center items-center gap-x-6 md:gap-x-8 lg:gap-x-10 flex-wrap">
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Goldman Sachs</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Google</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">M-Kopa</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
+              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">MIT</div>
+            </div>
           </div>
         </div>
 
