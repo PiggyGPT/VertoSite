@@ -17,9 +17,20 @@ export default function AiSection() {
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="ai-title">
             AI Risk Management that scales
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="ai-subtitle">
-            Enforce institutional-grade policies for every payment on public blockchains with real-time transparency.
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8" data-testid="ai-subtitle">
+            Enforce institutional-grade policies on public blockchains with real-time transparency.
           </p>
+          
+          {/* CTA moved up */}
+          <div className="text-center mb-8">
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="px-8 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-medium rounded-lg hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              data-testid="button-risk-review-cta"
+            >
+              Free Risk & Compliance Review →
+            </button>
+          </div>
         </div>
 
         {/* Capabilities Grid */}
@@ -37,7 +48,7 @@ export default function AiSection() {
               <ArrowLeftRight className="w-6 h-6 text-verto-purple" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Policy-Driven Routing</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Balance risk, latency, and slippage across liquidity pools, bridges, and counterparties. Every path decision is custodian-key signed and executed with sponsored gas for seamless UX.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Balance risk, latency, and slippage across liquidity pools, bridges, and counterparties. Every path decision is custodian-key signed and executed with sponsored gas.</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-audit-trails">
@@ -45,7 +56,7 @@ export default function AiSection() {
               <FileText className="w-6 h-6 text-verto-green" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Real-Time Audit Trails</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Every transaction generates an immutable compliance record linking fiat-in to settlement-out. Risk decisions, routing choices, and counterparty approvals are cryptographically signed and instantly available for regulatory review.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Every transaction generates an immutable compliance record linking fiat-in to settlement-out. Risk decisions, routing choices, and counterparty approvals are cryptographically signed.</p>
           </div>
         </div>
 
@@ -75,16 +86,7 @@ export default function AiSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="px-8 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-medium rounded-lg hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
-            data-testid="button-risk-review-cta"
-          >
-            Free Risk & Compliance Review →
-          </button>
-        </div>
+
 
 
       </div>

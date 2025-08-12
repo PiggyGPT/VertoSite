@@ -37,40 +37,25 @@ export default function BoardChecklistSection() {
           </div>
 
           {/* Right Column - Scale Confidently */}
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-700 rounded-xl p-8 shadow-sm">
+          <div className="bg-white dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 p-8 shadow-sm">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-verto-green/15 border border-verto-green/30 rounded-lg flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mr-4">
                 <TrendingUp className="w-6 h-6 text-verto-green" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Scale with Confidence</h3>
             </div>
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <Check className="w-4 h-4 text-verto-green" />
-                </div>
-                <div>
-                  <p className="font-medium text-slate-900 dark:text-white text-sm">Live Operations</p>
-                  <p className="text-slate-600 dark:text-slate-300 text-xs">Real customer transactions from day one</p>
-                </div>
+            <div className="space-y-6">
+              <div className="border-l-4 border-verto-orange bg-verto-orange/5 dark:bg-verto-orange/10 p-6 rounded-r-lg">
+                <p className="text-slate-900 dark:text-white font-semibold mb-2">"We processed $2M volume in first 30 days"</p>
+                <p className="text-slate-600 dark:text-slate-300">Live mint/burn operations with zero treasury float</p>
               </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <Check className="w-4 h-4 text-verto-green" />
-                </div>
-                <div>
-                  <p className="font-medium text-slate-900 dark:text-white text-sm">Payment Rails</p>
-                  <p className="text-slate-600 dark:text-slate-300 text-xs">POS, QR, online — any wallet accepted</p>
-                </div>
+              <div className="border-l-4 border-verto-green bg-verto-green/5 dark:bg-verto-green/10 p-6 rounded-r-lg">
+                <p className="text-slate-900 dark:text-white font-semibold mb-2">"Payment acceptance increased 300%"</p>
+                <p className="text-slate-600 dark:text-slate-300">POS, QR, online payments from any wallet or CEX</p>
               </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <Check className="w-4 h-4 text-verto-green" />
-                </div>
-                <div>
-                  <p className="font-medium text-slate-900 dark:text-white text-sm">Risk Management</p>
-                  <p className="text-slate-600 dark:text-slate-300 text-xs">Real-time monitoring your CISO trusts</p>
-                </div>
+              <div className="border-l-4 border-verto-blue bg-verto-blue/5 dark:bg-verto-blue/10 p-6 rounded-r-lg">
+                <p className="text-slate-900 dark:text-white font-semibold mb-2">"Compliance audit took 2 hours, not 2 weeks"</p>
+                <p className="text-slate-600 dark:text-slate-300">Real-time risk monitoring with full transparency</p>
               </div>
             </div>
           </div>
