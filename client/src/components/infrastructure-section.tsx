@@ -38,7 +38,7 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">M</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">M-Pesa Distribution Model</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">MPesa-like Distribution Network</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   Removes treasury float and slashes on-ramp cost vs. bank flows through 200,000+ retail agents.
@@ -67,10 +67,10 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">S</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">Stripe UX & APIs</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">Stripe-like UX & APIs</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Makes your stablecoin the easiest way to get paid in any POS or app with merchant-grade developer experience.
+                  Makes your stablecoin the easiest way to get paid in any POS or app with a frictionless experience.
                 </p>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">SW</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">SWIFT Routing & Compliance</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">SWIFT-like Routing Infrastructure</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   Accesses public blockchain liquidity pools with correspondent banking-grade trust and institutional compliance.

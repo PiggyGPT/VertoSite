@@ -55,7 +55,7 @@ export default function Navigation() {
                 className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-ai"
               >
-                AI Platform
+                AI
               </button>
               <button
                 onClick={() => scrollToSection("pilot")}
@@ -69,7 +69,7 @@ export default function Navigation() {
                 className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-team"
               >
-                Leadership
+                Team
               </button>
             </div>
           </div>

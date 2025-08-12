@@ -26,14 +26,14 @@ export default function WhyNowSection() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700">
             <h4 className="font-semibold text-slate-900 dark:text-white mb-3">First-Mover Window</h4>
             <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-              Stablecoin regulation clarity in US/EU creates 18-month window for first-mover advantage.
+              Stablecoin regulation clarity with the recent GENIUS Act creates an 18-month window for first-mover advantage.
             </p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700">
             <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Cost Imperative</h4>
             <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-              Cross-border payment costs must drop 75% to remain competitive (McKinsey, 2024).
+              Cross-border payment costs must drop 75% to remain competitive (McKinsey, 2024), which stablecoins can offer at scale.
             </p>
           </div>
         </div>

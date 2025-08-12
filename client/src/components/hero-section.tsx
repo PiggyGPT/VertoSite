@@ -10,11 +10,13 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative pt-32 pb-24 px-6 sm:px-8 overflow-hidden bg-white dark:bg-gray-900">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-verto-purple/5 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/5"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-verto-blue/10 dark:bg-verto-blue/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-verto-green/10 dark:bg-verto-green/20 rounded-full blur-3xl"></div>
+    <section id="hero" className="relative pt-32 pb-24 px-6 sm:px-8 overflow-hidden">
+      {/* Vibrant Brand Color Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-verto-purple/20 via-verto-blue/15 to-verto-green/20 dark:from-verto-purple/30 dark:via-verto-blue/25 dark:to-verto-green/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-verto-orange/10 via-transparent to-verto-purple/15 dark:from-verto-orange/20 dark:via-transparent dark:to-verto-purple/25"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-verto-blue/20 dark:bg-verto-blue/30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-verto-green/20 dark:bg-verto-green/30 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-verto-orange/15 dark:bg-verto-orange/25 rounded-full blur-3xl"></div>
       
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center max-w-4xl mx-auto mb-16">
@@ -49,7 +51,7 @@ export default function HeroSection() {
           <div className="mb-16" data-testid="trust-logos">
             <p className="text-center text-slate-600 dark:text-slate-400 mb-6 text-sm font-medium">Built by leaders at:</p>
             <div className="flex justify-center items-center gap-x-6 md:gap-x-8 lg:gap-x-10 flex-wrap">
-              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">FED</div>
+              <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
               <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">DTCC</div>
               <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Moody's</div>
               <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">PayPal</div>
