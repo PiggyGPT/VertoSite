@@ -15,10 +15,12 @@ export default function AiSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="ai-title">
-            AI Risk Management that scales
+            AI-Powered Risk Management that scales
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8" data-testid="ai-subtitle">
-          Verto AI secures your operations with auditable, institutional-grade risk management on public blockchains.</p>
+          Verto AI secures your operations with auditable, institutional-grade risk management on public blockchains, turning ambiguity into quantifiable confidence.
+
+</p>
           
           {/* CTA moved up */}
           <div className="text-center mb-8">
@@ -39,7 +41,7 @@ export default function AiSection() {
               <BarChart3 className="w-6 h-6 text-verto-blue" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Explainable Risk Ratings</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Transforms manual 3-week audits for any wallet, token, bridge, and protocol into minutes - with Moody's-style ratings explainable by AI.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Transforms manual, multi-week audits of any wallet, token, or protocol into AI-generated Moody's style risk ratings that are fully explainable and tailored to your risk appetite.</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-routing">
@@ -55,27 +57,27 @@ export default function AiSection() {
               <FileText className="w-6 h-6 text-verto-green" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Real-Time Audit Trails</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Generates an explainable compliance record outlining risk ratings, routing decisions, and counterparty approvals for every transaction - in real time.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Generates an explainable compliance record detailing risk ratings, routing decisions, and counterparty approvals for any regulator - in real time.</p>
           </div>
         </div>
 
-        {/* Outcome Summary - Responsive */}
+        {/* Outcome Summary */}
         <div className="text-center mb-8" data-testid="ai-outcome">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-2xl sm:rounded-full px-6 py-4 max-w-4xl mx-auto">
+          <div className="inline-flex items-center space-x-8 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-full px-8 py-4">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-verto-blue/10 rounded-full flex items-center justify-center">
                 <Shield className="w-4 h-4 text-verto-blue" />
               </div>
               <span className="font-medium text-slate-900 dark:text-white">CISO Trust</span>
             </div>
-            <div className="hidden sm:block w-px h-6 bg-slate-200 dark:bg-gray-600"></div>
+            <div className="w-px h-6 bg-slate-200 dark:bg-gray-600"></div>
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center">
                 <CheckCircle className="w-4 h-4 text-verto-green" />
               </div>
               <span className="font-medium text-slate-900 dark:text-white">Regulatory Approval</span>
             </div>
-            <div className="hidden sm:block w-px h-6 bg-slate-200 dark:bg-gray-600"></div>
+            <div className="w-px h-6 bg-slate-200 dark:bg-gray-600"></div>
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-verto-orange/10 rounded-full flex items-center justify-center">
                 <Zap className="w-4 h-4 text-verto-orange" />

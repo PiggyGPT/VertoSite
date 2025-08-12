@@ -63,14 +63,14 @@ export default function Navigation() {
                 className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-team"
               >
-                Team
+                About Us
               </button>
               <button
                 onClick={() => scrollToSection("pilot")}
                 className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-pilot"
               >
-                Pilot
+                90 Day Pilot
               </button>
 
             </div>

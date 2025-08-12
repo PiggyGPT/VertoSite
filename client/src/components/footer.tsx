@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="text-2xl font-bold verto-gradient-text mb-4">verto</div>
             <p className="text-slate-300 mb-6 leading-relaxed">
-              Institutional rails to mint, move & monitor stablecoins.
+              The Institutional OS to mint, move & monitor stablecoins.
             </p>
             <div className="space-y-3">
               <div className="flex items-center text-slate-300">

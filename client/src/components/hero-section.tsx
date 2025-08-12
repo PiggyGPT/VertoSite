@@ -22,7 +22,8 @@ export default function HeroSection() {
         <div className="text-center">
           <div className="max-w-2xl mx-auto mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-              Stablecoin Operating System
+              The Institutional Operating System for Stablecoins
+
             </h1>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -45,14 +46,14 @@ export default function HeroSection() {
               className="px-10 py-4 border-2 border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-xl hover:border-slate-300 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:shadow-sm transition-all duration-300"
               data-testid="button-secondary-cta"
             >
-              Free Risk & Compliance Review
+              Free Operations Review
               
             </button>
           </div>
 
           {/* Trust Logos - Balanced Spacing */}
           <div className="max-w-4xl mx-auto" data-testid="trust-logos">
-            <p className="text-center text-slate-600 dark:text-slate-400 mb-6 text-sm font-medium">Built by leaders at</p>
+            <p className="text-center text-slate-600 dark:text-slate-400 mb-4 text-sm font-medium">Built by leaders at</p>
             <div className="flex justify-center items-center gap-x-8 md:gap-x-10 lg:gap-x-12 flex-wrap gap-y-4">
               <div className="flex items-center justify-center h-8">
                 <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Federal Reserve</span>

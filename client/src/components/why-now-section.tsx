@@ -11,22 +11,25 @@ export default function WhyNowSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight leading-tight" data-testid="why-now-title">
-            Years of Integration... or a 90-Day Path to Market?
+            Your window for market leadership is open.
           </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            A strategic, 90-day pilot is the most efficient path to securing a first-mover advantage.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700">
             <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Regulatory Timeline</h4>
             <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-              Major banks are required to have digital asset strategies by 2026 (Basel III), but few banks have operationalized them at scale.
+              Major banks are required by Basel III to have digital asset strategies by 2026, but few have operationalized them at scale.
             </p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700">
             <h4 className="font-semibold text-slate-900 dark:text-white mb-3">First-Mover Window</h4>
             <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-              Regulatory tailwinds with the recent GENIUS Act create an 18-month window to capture first-mover advantage.
+              Recent regulatory tailwinds like the GENIUS Act create a critical 18-month window to capture market share before its crowded.
             </p>
           </div>
 
