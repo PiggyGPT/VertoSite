@@ -58,7 +58,7 @@ export default function Navigation() {
                 AI
               </button>
               <button
-                onClick={() => scrollToSection("pilot")}
+                onClick={() => scrollToSection("pilot-cta")}
                 className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-pilot"
               >
@@ -66,7 +66,7 @@ export default function Navigation() {
               </button>
               <button
                 onClick={() => scrollToSection("team")}
-                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-team"
               >
                 Team
@@ -76,7 +76,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => scrollToSection("contact")}
-              className="hidden sm:block px-4 py-2 text-slate-600 hover:text-slate-900 font-medium transition-colors"
+              className="hidden sm:block px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors"
               data-testid="nav-contact"
             >
               Contact

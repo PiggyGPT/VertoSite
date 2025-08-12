@@ -11,7 +11,7 @@ export default function AiSection() {
   };
 
   return (
-    <section id="ai" className="py-20 bg-gradient-to-br from-verto-blue/10 via-blue-50/40 to-indigo-50/30 dark:from-gray-800/60 dark:via-blue-900/20 dark:to-indigo-900/10">
+    <section id="ai" className="py-20 bg-gradient-to-br from-blue-50/60 via-indigo-50/50 to-violet-50/40 dark:from-gray-800/60 dark:via-blue-900/20 dark:to-indigo-900/10">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="ai-title">
