@@ -9,11 +9,8 @@ export default function TeamSection() {
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="team-title">
             Built by the people you trust
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
             Former Fed regulators, DOJ advisors, and engineers who built products for millions.
-          </p>
-          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
-            Experience that boards recognize and CISOs approve.
           </p>
         </div>
 

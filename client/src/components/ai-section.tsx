@@ -15,13 +15,10 @@ export default function AiSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="ai-title">
-            Risk management that scales
+            AI Risk Management that scales
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4" data-testid="ai-subtitle">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="ai-subtitle">
             Enforce institutional-grade policies for every payment on public blockchains with real-time transparency.
-          </p>
-          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
-            Move fast without breaking compliance.
           </p>
         </div>
 
@@ -32,7 +29,7 @@ export default function AiSection() {
               <BarChart3 className="w-6 h-6 text-verto-blue" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Explainable Risk Ratings</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Generate Moody's-style ratings for every wallet, token, bridge, and protocol with full decision transparency. Risk factors are quantified and auditable, not black-boxed.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Generate Moody's-style ratings for every wallet, token, bridge, and protocol with full decision transparency. Turn manual 3-week audits into real-time assessments in minutes.</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-routing">

@@ -11,14 +11,8 @@ export default function WhyNowSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight leading-tight" data-testid="why-now-title">
-            Why now
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
             Spend years stitching together fractured point solutions... or 90 days with Verto.
-          </p>
-          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
-            The regulatory window is open. The technology is ready. Your competitors are already building.
-          </p>
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">

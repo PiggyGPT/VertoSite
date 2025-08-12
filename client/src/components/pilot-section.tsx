@@ -18,11 +18,8 @@ export default function PilotSection() {
             <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="pilot-title">
               Ship in 90 days
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Launch your complete stablecoin infrastructure with real customer transactions, not just POCs.
-            </p>
-            <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
-              From whiteboard to revenue-generating operations.
             </p>
           </div>
 

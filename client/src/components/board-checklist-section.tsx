@@ -5,12 +5,9 @@ export default function BoardChecklistSection() {
     <section className="py-20 bg-gradient-to-br from-white via-slate-50/40 to-blue-50/10 dark:from-gray-900 dark:via-gray-800/40 dark:to-blue-900/10">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">Prove it works</h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">Launch Pilot in 90 days</h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
             Go from board presentation to live stablecoin operations with quantifiable results your stakeholders trust.
-          </p>
-          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
-            Real metrics. Real customers. Real revenue.
           </p>
         </div>
         

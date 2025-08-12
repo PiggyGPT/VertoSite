@@ -9,11 +9,8 @@ export default function InfrastructureSection() {
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="infrastructure-title">
             Three pillars. One platform.
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4" data-testid="infrastructure-subtitle">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
             Verto unifies 3 proven operational models into a blockchain-native stack that's trusted by regulators and loved by customers.
-          </p>
-          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
-            Start processing real transactions in 90 days, not 18 months.
           </p>
         </div>
 

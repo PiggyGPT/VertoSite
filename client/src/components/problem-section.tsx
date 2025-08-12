@@ -7,12 +7,9 @@ export default function ProblemSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="problem-title">
-            The stablecoin challenge
+            Stablecoins are an operational nightmare
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4" data-testid="problem-subtitle">
-            Revenue opportunity is massive. Operational complexity is the roadblock.
-          </p>
-          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="problem-subtitle">
             These aren't just blockchain problems — they're institutional orchestration challenges.
           </p>
         </div>
