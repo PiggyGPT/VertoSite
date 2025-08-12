@@ -20,9 +20,9 @@ export default function HeroSection() {
       
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center">
-          <div className="max-w-3xl mx-auto mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-              Institutional rails to mint, move & monitor stablecoins
+          <div className="max-w-2xl mx-auto mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 dark:text-white tracking-tight leading-tight md:leading-tight lg:leading-tight" data-testid="hero-title">
+              Institutional rails to mint, move and monitor stablecoins
             </h1>
           </div>
           <div className="max-w-4xl mx-auto">
