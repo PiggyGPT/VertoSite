@@ -28,14 +28,14 @@ export default function InfrastructureSection() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-slate-900 mb-2">Issuance</h3>
-                    <p className="text-slate-600">Cash‑to‑stablecoins through existing retail agents</p>
+                    <p className="text-slate-600">Cash to stablecoin ramps via existing distribution network</p>
                   </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Any kiosk or retail agent can convert cash to stablecoins directly into consumer wallets</span>
+                    <span className="text-sm text-slate-700">Any kiosk or retail agent can issue stablecoins directly into consumer wallets</span>
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
@@ -47,15 +47,14 @@ export default function InfrastructureSection() {
                   </div>
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">Scale nationwide using your existing distribution network</span>
+                    <span className="text-sm text-slate-700">Maintain full compliance trails for each issuance transaction</span>
                   </div>
                 </div>
               </div>
               
               <div className="bg-slate-50 p-6 rounded-lg border border-slate-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Leverage the same distribution model that made M‑Pesa part of 60% of Kenya's GDP for stablecoins. 
-                  Turn every kiosk and agent into a digital currency gateway.
+                  M‑Pesa processes 60% of Kenya's GDP through 200,000+ agents. Use the same proven retail distribution model for stablecoin issuance at institutional scale.
                 </p>
               </div>
             </div>
@@ -97,8 +96,7 @@ export default function InfrastructureSection() {
               
               <div className="bg-slate-50 p-6 rounded-lg border border-slate-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Merchants integrate fast, customers pay from anywhere, and accounting teams see instant, automated reconciliation — 
-                  matching the ease and speed that made Stripe indispensable.
+                  Stripe's $1T+ payment volume proves seamless developer experience drives adoption. Verto delivers the same simplicity for stablecoin payments across any blockchain.
                 </p>
               </div>
             </div>
@@ -140,8 +138,7 @@ export default function InfrastructureSection() {
               
               <div className="bg-slate-50 p-6 rounded-lg border border-slate-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Access deep liquidity across all major blockchains with institutional-grade routing and settlement. 
-                  Every cross-chain transaction maintains the compliance rigor of traditional correspondent banking.
+                  SWIFT handles $150T+ annually with bulletproof compliance across 11,000+ institutions. Verto brings that same institutional trust to public blockchain liquidity routing.
                 </p>
               </div>
             </div>
