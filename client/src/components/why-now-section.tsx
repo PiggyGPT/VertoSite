@@ -11,7 +11,7 @@ export default function WhyNowSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight leading-tight" data-testid="why-now-title">
-            Spend years stitching together fractured point solutions... or 90 days with Verto.
+            Years of Integration... or a 90-Day Path to Market?
           </h2>
         </div>
 
@@ -26,14 +26,15 @@ export default function WhyNowSection() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700">
             <h4 className="font-semibold text-slate-900 dark:text-white mb-3">First-Mover Window</h4>
             <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-              Stablecoin regulation clarity with the recent GENIUS Act creates an 18-month window for first-mover advantage.
+              Regulatory tailwinds with the recent GENIUS Act create an 18-month window to capture first-mover advantage.
             </p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700">
             <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Cost Imperative</h4>
             <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-              Cross-border payment costs must drop 75% to remain competitive (McKinsey, 2024), which stablecoins can offer at scale.
+              McKinsey estimates cross-border payment costs must drop 75% to remain competitive, a target achievable with stablecoins.
+
             </p>
           </div>
         </div>

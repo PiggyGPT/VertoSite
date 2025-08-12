@@ -7,7 +7,7 @@ export default function BoardChecklistSection() {
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">Launch Pilot in 90 days</h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Go from board presentation to live stablecoin operations with quantifiable results your stakeholders require.
+            Our program is designed to deliver quantifiable data your stakeholders need to scale with confidence.
           </p>
         </div>
         

@@ -7,10 +7,10 @@ export default function ProblemSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="problem-title">
-            Stablecoins are an operational nightmare
+            Stablecoin operations can't scale
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="problem-subtitle">
-            These aren't just blockchain problems — they're institutional orchestration challenges.
+          You know the opportunity is massive, but the operational risks are unquantifiable. You’re not alone.
           </p>
         </div>
 
@@ -18,7 +18,7 @@ export default function ProblemSection() {
           {/* CEO Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-ceo">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "The revenue upside is huge — but how do I explain unquantifiable risks to my board when no major bank has ever run a stablecoin at scale on a public blockchain?"
+              "We're betting our reputation on this. How do I prove to my board we have a viable path to market leadership—not just a science experiment with unmanageable headline risk?"
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
@@ -34,7 +34,7 @@ export default function ProblemSection() {
           {/* CCO Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-cco">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "Who actually controls the keys? How do we enforce our risk policies across multiple public chains in real time  and prove it to regulators — without hiring an army?"
+              "Our security posture is built for centralized systems. How do we prevent a catastrophic loss on a public chain we don't control and produce an audit trail a regulator will accept?"
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-purple/10 rounded-lg flex items-center justify-center mr-3">
@@ -50,7 +50,7 @@ export default function ProblemSection() {
           {/* Head of Payments Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-head-payments">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "Integrating PSPs to accept stablecoins can take months. Multi‑chain payments UX and reconciliation is a nightmare, with manual delays and errors hitting our margins."
+              "Multi‑chain payments UX and reconciliation are broken. How can we scale adoption without seamless merchant onboarding and robust PSP integrations that just work?"
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-green/10 rounded-lg flex items-center justify-center mr-3">

@@ -10,10 +10,9 @@ export default function TeamSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="team-title">
-            Built by the people you trust
-          </h2>
+          Built for Institutions, by Institutional Leaders.          </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Former Fed regulators, DOJ advisors, and engineers who built products for millions.
+           We built Verto to meet the uncompromising standards we demanded in our own careers.
           </p>
         </div>
 

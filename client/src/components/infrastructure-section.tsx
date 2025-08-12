@@ -9,8 +9,8 @@ export default function InfrastructureSection() {
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="infrastructure-title">
             Three operations. One platform.
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
-            Verto orchestrates 3 critical stablecoin operations on any chain with a unified, self-hosted stack that's trusted by regulators and loved by customers.
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-6xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
+            Verto orchestrates 3 mission-critical stablecoin operations with a single, self-hosted stack.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">M</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">MPesa-like Cash Ramps</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">MPesa-like Reach</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   Remove treasury float, slash on-ramp costs to scale via your retail distribution channels.
@@ -67,7 +67,7 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">S</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">Stripe-like UX & APIs</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">Stripe-like Experience</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   Make your stablecoin the easiest way to get paid in any POS or app with frictionless onboarding.
@@ -96,7 +96,7 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">SW</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">SWIFT-like Reconciliation</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">SWIFT-like Assurance</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   Accesses public blockchain liquidity pools with correspondent banking-grade routing and compliance.

@@ -22,12 +22,12 @@ export default function HeroSection() {
         <div className="text-center">
           <div className="max-w-2xl mx-auto mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-              Institutional rails to mint, move and monitor stablecoins
+              Stablecoin Operating System
             </h1>
           </div>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed" data-testid="hero-subtitle">
-              As locally as M‑Pesa. As seamlessly as Stripe. As compliantly as SWIFT.
+            Mint, move and monitor stablecoins on any chain — with retail reach and institutional trust.
             </p>
           </div>
 
