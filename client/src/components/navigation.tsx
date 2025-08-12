@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { SiX } from "react-icons/si";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,9 +79,12 @@ export default function Navigation() {
               href="https://x.com/Verto_AI"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:block px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors"
+              className="hidden sm:flex items-center px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors"
               data-testid="nav-twitter"
             >
+              <div className="w-5 h-5 bg-white dark:bg-black rounded flex items-center justify-center mr-2">
+                <SiX className="w-3 h-3 text-black dark:text-white" />
+              </div>
               Follow on X
             </a>
             <button
@@ -137,9 +141,12 @@ export default function Navigation() {
               href="https://x.com/Verto_AI"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
+              className="flex items-center w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
               data-testid="mobile-nav-twitter"
             >
+              <div className="w-5 h-5 bg-white dark:bg-black rounded flex items-center justify-center mr-3">
+                <SiX className="w-3 h-3 text-black dark:text-white" />
+              </div>
               Follow on X
             </a>
           </div>

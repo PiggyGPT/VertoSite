@@ -41,7 +41,7 @@ export default function ProblemSection() {
                 <Shield className="text-verto-purple w-4 h-4" />
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-900 dark:text-white">Chief Compliance Officer</p>
+                <p className="text-sm font-medium text-slate-900 dark:text-white">CISO</p>
                 <p className="text-xs text-slate-500 dark:text-slate-400">Global Payment Firm</p>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function ProblemSection() {
           {/* Head of Payments Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-head-payments">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "Integrating PSPs to accept stablecoins can take months. Multi‑chain payments UX and reconciliation is a nightmare, while latency and slippage hit margins."
+              "Integrating PSPs to accept stablecoins can take months. Multi‑chain payments UX and reconciliation is a nightmare, with manual delays and slippage hitting our margins."
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-green/10 rounded-lg flex items-center justify-center mr-3">

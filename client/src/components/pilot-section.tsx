@@ -30,7 +30,7 @@ export default function PilotSection() {
                   <Coins className="text-verto-green text-xl" />
                 </div>
                 <h3 className="text-lg font-semibold text-verto-blue dark:text-blue-400 mb-3">Cash Infrastructure</h3>
-                <p className="text-slate-600 dark:text-slate-300 text-sm">Live mint/burn at kiosks, agents, and bank APIs — zero float, proof on‑chain</p>
+                <p className="text-slate-600 dark:text-slate-300 text-sm">Live mint/burn at kiosks, agents, and banks — zero float, proof on‑chain</p>
               </CardContent>
             </Card>
             <Card data-testid="deliverable-payments">

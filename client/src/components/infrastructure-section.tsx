@@ -29,7 +29,7 @@ export default function InfrastructureSection() {
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Issuance</h3>
                 </div>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Issue or burn stablecoins the instant cash changes hands—at kiosks, agents, bank APIs, or vouchers. Enforce KYC/AML with real-time compliance trails.
+                  Issue or burn stablecoins the instant cash changes hands — at banks, kiosks, agents, or vouchers. Enforce KYC/AML with real-time compliance trails.
                 </p>
               </div>
               
