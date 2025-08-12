@@ -11,56 +11,56 @@ export default function AiSection() {
   };
 
   return (
-    <section id="ai" className="py-20 bg-gradient-to-br from-purple-50/30 to-blue-50/40">
+    <section id="ai" className="py-20 bg-gradient-to-br from-purple-50/30 to-blue-50/40 dark:from-purple-900/30 dark:to-blue-900/40">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 tracking-tight" data-testid="ai-title">
+          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="ai-title">
             AI-Powered Risk Management & Compliance
           </h2>
-          <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed" data-testid="ai-subtitle">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="ai-subtitle">
             Enforce institutional-grade policies for every payment on public blockchains.
           </p>
         </div>
 
         {/* Capabilities Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white p-6 rounded-lg border border-slate-200" data-testid="capability-risk-scoring">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-risk-scoring">
             <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mb-4">
               <BarChart3 className="w-6 h-6 text-verto-blue" />
             </div>
-            <h4 className="text-lg font-semibold text-slate-900 mb-3">Explainable Risk Ratings</h4>
-            <p className="text-slate-600 text-sm leading-relaxed">Generate Moody's-style ratings for every wallet, token, bridge, and protocol with full decision transparency. Risk factors are quantified and auditable, not black-boxed.</p>
+            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Explainable Risk Ratings</h4>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Generate Moody's-style ratings for every wallet, token, bridge, and protocol with full decision transparency. Risk factors are quantified and auditable, not black-boxed.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg border border-slate-200" data-testid="capability-routing">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-routing">
             <div className="w-12 h-12 bg-verto-purple/10 rounded-lg flex items-center justify-center mb-4">
               <ArrowLeftRight className="w-6 h-6 text-verto-purple" />
             </div>
-            <h4 className="text-lg font-semibold text-slate-900 mb-3">Policy-Driven Multi-Chain Routing</h4>
-            <p className="text-slate-600 text-sm leading-relaxed">Balance risk, latency, and slippage across liquidity pools, bridges, and counterparties. Every path decision is custodian-key signed and executed with sponsored gas for seamless UX.</p>
+            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Policy-Driven Routing</h4>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Balance risk, latency, and slippage across liquidity pools, bridges, and counterparties. Every path decision is custodian-key signed and executed with sponsored gas for seamless UX.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg border border-slate-200" data-testid="capability-audit-trails">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-audit-trails">
             <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mb-4">
               <FileText className="w-6 h-6 text-verto-green" />
             </div>
-            <h4 className="text-lg font-semibold text-slate-900 mb-3">Real-Time Audit Trails</h4>
-            <p className="text-slate-600 text-sm leading-relaxed">Every transaction generates an immutable compliance record linking fiat-in to settlement-out. Risk decisions, routing choices, and counterparty approvals are cryptographically signed and instantly available for regulatory review.</p>
+            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Real-Time Audit Trails</h4>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Every transaction generates an immutable compliance record linking fiat-in to settlement-out. Risk decisions, routing choices, and counterparty approvals are cryptographically signed and instantly available for regulatory review.</p>
           </div>
         </div>
 
         {/* Outcome Summary */}
-        <div className="bg-white rounded-lg p-8 border border-slate-200 text-center mb-8" data-testid="ai-outcome">
-          <h4 className="text-xl font-semibold text-slate-900 mb-6">Outcomes</h4>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-8 border border-slate-200 dark:border-gray-700 text-center mb-8" data-testid="ai-outcome">
+          <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Outcomes</h4>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="bg-slate-50 p-6 rounded-lg">
+            <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg">
               <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                 <Shield className="w-6 h-6 text-verto-blue" />
               </div>
-              <div className="font-semibold text-slate-900 mb-2">CISO Confidence</div>
-              <div className="text-slate-600 text-sm">Explainable risk decisions with full audit transparency</div>
+              <div className="font-semibold text-slate-900 dark:text-white mb-2">CISO Confidence</div>
+              <div className="text-slate-600 dark:text-slate-300 text-sm">Explainable risk decisions with full audit transparency</div>
             </div>
-            <div className="bg-slate-50 p-6 rounded-lg">
+            <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg">
               <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                 <CheckCircle className="w-6 h-6 text-verto-green" />
               </div>

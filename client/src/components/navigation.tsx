@@ -27,8 +27,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
-          : "bg-white/80 backdrop-blur-sm border-b border-slate-100"
+          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-slate-200 dark:border-gray-700 shadow-sm"
+          : "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-slate-100 dark:border-gray-800"
       }`}
       data-testid="navigation"
     >
@@ -45,21 +45,21 @@ export default function Navigation() {
             <div className="hidden md:flex space-x-8">
               <button
                 onClick={() => scrollToSection("infrastructure")}
-                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-infrastructure"
               >
                 Infrastructure
               </button>
               <button
                 onClick={() => scrollToSection("ai")}
-                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-ai"
               >
                 AI Platform
               </button>
               <button
                 onClick={() => scrollToSection("pilot")}
-                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-pilot"
               >
                 90-Day Pilot
