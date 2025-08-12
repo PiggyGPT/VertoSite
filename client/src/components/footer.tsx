@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { SiX } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -9,13 +10,12 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="text-2xl font-bold verto-gradient-text mb-4">verto</div>
             <p className="text-slate-300 mb-6 leading-relaxed">
-              Institutional rails to mint, move & monitor stablecoins. 
-              As local as M‑Pesa. As seamless as Stripe. As compliant as SWIFT.
+              Institutional rails to mint, move & monitor stablecoins.
             </p>
             <div className="space-y-3">
               <div className="flex items-center text-slate-300">
                 <Mail className="w-4 h-4 mr-3" />
-                <span>contact@verto.com</span>
+                <span>info@vertoai.net</span>
               </div>
               <div className="flex items-center text-slate-300">
                 <Phone className="w-4 h-4 mr-3" />
@@ -62,6 +62,9 @@ export default function Footer() {
             </a>
             <a href="#" className="text-slate-400 hover:text-white transition-colors">
               Terms of Service
+            </a>
+            <a href="https://x.com/Verto_AI" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
+              <SiX className="w-5 h-5" />
             </a>
             <a href="#" className="text-slate-400 hover:text-white transition-colors">
               <Linkedin className="w-5 h-5" />

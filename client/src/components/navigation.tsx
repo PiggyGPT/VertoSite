@@ -74,13 +74,15 @@ export default function Navigation() {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <button
-              onClick={() => scrollToSection("contact")}
+            <a
+              href="https://x.com/Verto_AI"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:block px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors"
-              data-testid="nav-contact"
+              data-testid="nav-twitter"
             >
-              Contact
-            </button>
+              Follow on X
+            </a>
             <button
               onClick={() => scrollToSection("pilot-cta")}
               className="px-7 py-2.5 verto-gradient text-white rounded-lg hover:shadow-md transition-all duration-300 font-semibold text-sm tracking-wide"
@@ -131,13 +133,15 @@ export default function Navigation() {
             >
               Team
             </button>
-            <button
-              onClick={() => scrollToSection("contact")}
+            <a
+              href="https://x.com/Verto_AI"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
-              data-testid="mobile-nav-contact"
+              data-testid="mobile-nav-twitter"
             >
-              Contact
-            </button>
+              Follow on X
+            </a>
           </div>
         </div>
       )}
