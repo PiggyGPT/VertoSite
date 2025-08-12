@@ -17,8 +17,8 @@ export default function Home() {
       <ProblemSection />
       <InfrastructureSection />
       <AiSection />
-      <BoardChecklistSection />
       <TeamSection />
+      <BoardChecklistSection />
       <WhyNowSection />
       <Footer />
     </div>

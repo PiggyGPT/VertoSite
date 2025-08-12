@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { SiX } from "react-icons/si";
+import logoSvg from "@assets/logo.svg";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,11 +37,11 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 py-4">
           <div className="flex items-center space-x-10">
             <div 
-              className="text-2xl font-semibold verto-gradient-text cursor-pointer tracking-tight"
+              className="cursor-pointer"
               onClick={() => scrollToSection("hero")}
               data-testid="logo"
             >
-              verto
+              <img src={logoSvg} alt="Verto" className="h-8" />
             </div>
             <div className="hidden md:flex space-x-8">
               <button
@@ -49,7 +49,7 @@ export default function Navigation() {
                 className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-infrastructure"
               >
-                Infrastructure
+                Platform
               </button>
               <button
                 onClick={() => scrollToSection("ai")}
@@ -59,36 +59,35 @@ export default function Navigation() {
                 AI
               </button>
               <button
-                onClick={() => scrollToSection("pilot-cta")}
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
-                data-testid="nav-pilot"
-              >
-                90-Day Pilot
-              </button>
-              <button
                 onClick={() => scrollToSection("team")}
                 className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-team"
               >
                 Team
               </button>
+              <button
+                onClick={() => scrollToSection("pilot")}
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
+                data-testid="nav-pilot"
+              >
+                Pilot
+              </button>
+
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <a
-              href="https://x.com/Verto_AI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors"
-              data-testid="nav-twitter"
-            >
-              Follow on 
-              <div className="w-5 h-5 bg-white dark:bg-black rounded flex items-center justify-center ml-2">
-                <SiX className="w-3 h-3 text-black dark:text-white" />
-              </div>
-            </a>
+            <div className="hidden sm:block" data-testid="nav-twitter">
+              <a 
+                href="https://twitter.com/Verto_AI?ref_src=twsrc%5Etfw" 
+                className="twitter-follow-button" 
+                data-size="large" 
+                data-show-count="false"
+              >
+                Follow @Verto_AI
+              </a>
+            </div>
             <button
-              onClick={() => scrollToSection("pilot-cta")}
+              onClick={() => scrollToSection("pilot")}
               className="px-7 py-2.5 verto-gradient text-white rounded-lg hover:shadow-md transition-all duration-300 font-semibold text-sm tracking-wide"
               data-testid="nav-get-started"
             >
@@ -138,16 +137,13 @@ export default function Navigation() {
               Team
             </button>
             <a
-              href="https://x.com/Verto_AI"
+              href="https://twitter.com/Verto_AI?ref_src=twsrc%5Etfw"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
+              className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
               data-testid="mobile-nav-twitter"
             >
-              Follow on 
-              <div className="w-5 h-5 bg-white dark:bg-black rounded flex items-center justify-center ml-2">
-                <SiX className="w-3 h-3 text-black dark:text-white" />
-              </div>
+              Follow @Verto_AI
             </a>
           </div>
         </div>

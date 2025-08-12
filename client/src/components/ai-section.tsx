@@ -18,7 +18,7 @@ export default function AiSection() {
             AI Risk Management that scales
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8" data-testid="ai-subtitle">
-            Enforce institutional-grade policies on public blockchains with real-time transparency.
+            Enforce institutional-grade risk policies on public blockchains with real-time transparency.
           </p>
           
           {/* CTA moved up */}

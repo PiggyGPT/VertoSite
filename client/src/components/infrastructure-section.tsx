@@ -1,4 +1,4 @@
-import { Coins, CreditCard, ArrowLeftRight, Check } from "lucide-react";
+import { Coins, CreditCard, FileCheck2 } from "lucide-react";
 
 export default function InfrastructureSection() {
 
@@ -7,10 +7,10 @@ export default function InfrastructureSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="infrastructure-title">
-            Three pillars. One platform.
+            Three operations. One platform.
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
-            Verto unifies 3 core stablecoin operations into a self-hosted, modular stack that's trusted by regulators and loved by customers.
+            Verto orchestrates 3 critical stablecoin operations on any chain with a unified, self-hosted stack that's trusted by regulators and loved by customers.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export default function InfrastructureSection() {
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Issuance</h3>
                 </div>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Issue or burn stablecoins the instant cash changes hands — at banks, kiosks, agents, or vouchers. Enforce KYC/AML with real-time compliance trails.
+                  Issue stablecoins against cash deposits at any bank, kiosk or agent — with KYC/AML policies enforced in real time.
                 </p>
               </div>
               
@@ -41,7 +41,7 @@ export default function InfrastructureSection() {
                   <span className="font-semibold text-slate-900 dark:text-white">MPesa-like Cash Ramps</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Removes treasury float and slashes on-ramp cost vs. bank flows through 200,000+ retail agents.
+                  Remove treasury float, slash on-ramp costs to scale via your retail distribution channels.
                 </p>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function InfrastructureSection() {
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Payments</h3>
                 </div>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Drop-in SDKs, QR codes, and APIs power a one-tap UX to accept payments from any wallet, CEX or bank.
+                  Enable a one-tap UX to accept stablecoin payments from any wallet, CEX or bank via plug-and-play APIs.
                 </p>
               </div>
               
@@ -70,24 +70,24 @@ export default function InfrastructureSection() {
                   <span className="font-semibold text-slate-900 dark:text-white">Stripe-like UX & APIs</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Makes your stablecoin the easiest way to get paid in any POS or app with a frictionless experience.
+                  Make your stablecoin the easiest way to get paid in any POS or app with frictionless onboarding.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Pillar 3: Liquidity */}
+          {/* Pillar 3: Compliance */}
           <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-2xl p-8 shadow-sm" data-testid="pillar-settlement">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-4">
-                    <ArrowLeftRight className="w-6 h-6 text-verto-blue" />
+                    <FileCheck2 className="w-6 h-6 text-verto-blue" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Liquidity</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Compliance</h3>
                 </div>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Trade any digital asset on any chain with your stablecoin via policy-routed liquidity pools.
+                  Report stablecoin transactions on any chain with real-time, regulator-approved audit trails.
                 </p>
               </div>
               
@@ -96,10 +96,10 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">SW</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">SWIFT-like Routing Infrastructure</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">SWIFT-like Reconciliation</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Accesses public blockchain liquidity pools with correspondent banking-grade trust and institutional compliance.
+                  Accesses public blockchain liquidity pools with correspondent banking-grade routing and compliance.
                 </p>
               </div>
             </div>

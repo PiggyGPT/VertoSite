@@ -7,7 +7,7 @@ export default function BoardChecklistSection() {
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">Launch Pilot in 90 days</h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Go from board presentation to live stablecoin operations with quantifiable results your stakeholders trust.
+            Go from board presentation to live stablecoin operations with quantifiable results your stakeholders require.
           </p>
         </div>
         
@@ -23,7 +23,7 @@ export default function BoardChecklistSection() {
             <div className="space-y-6">
               <div className="border-l-4 border-verto-green bg-verto-green/5 dark:bg-verto-green/10 p-6 rounded-r-lg">
                 <p className="text-slate-900 dark:text-white font-semibold mb-2">"How much volume can we handle?"</p>
-                <p className="text-slate-600 dark:text-slate-300">Stress-tested to 10,000 TPS with real transaction data</p>
+                <p className="text-slate-600 dark:text-slate-300">Stress-tested results and audits with real transaction data</p>
               </div>
               <div className="border-l-4 border-verto-purple bg-verto-purple/5 dark:bg-verto-purple/10 p-6 rounded-r-lg">
                 <p className="text-slate-900 dark:text-white font-semibold mb-2">"What if regulators audit us?"</p>

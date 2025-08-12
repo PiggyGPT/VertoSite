@@ -19,7 +19,7 @@ export default function WhyNowSection() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700">
             <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Regulatory Timeline</h4>
             <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-              Major banks are required to have digital asset strategies by 2026 (Basel III), but zero banks have operationalized them at scale.
+              Major banks are required to have digital asset strategies by 2026 (Basel III), but few banks have operationalized them at scale.
             </p>
           </div>
 

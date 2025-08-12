@@ -52,7 +52,7 @@ export default function HeroSection() {
 
           {/* Trust Logos - Balanced Spacing */}
           <div className="max-w-4xl mx-auto" data-testid="trust-logos">
-            <p className="text-center text-slate-600 dark:text-slate-400 mb-8 text-sm font-medium">Built by leaders at</p>
+            <p className="text-center text-slate-600 dark:text-slate-400 mb-4 text-sm font-medium">Built by leaders at</p>
             <div className="flex justify-center items-center gap-x-6 md:gap-x-8 lg:gap-x-10 flex-wrap">
               <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
               <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">DTCC</div>
