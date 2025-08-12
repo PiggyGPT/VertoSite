@@ -40,7 +40,7 @@ export default function AiSection() {
               <BarChart3 className="w-6 h-6 text-verto-blue" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Explainable Risk Ratings</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Generate Moody's-style ratings for every wallet, token, bridge, and protocol with full decision transparency. Turn manual 3-week audits into real-time assessments in minutes.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Transform manual 3-week audits for any wallet, token, bridge, and protocol into minutes - with Moody's-style ratings explainable by AI.</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-routing">
@@ -48,7 +48,7 @@ export default function AiSection() {
               <ArrowLeftRight className="w-6 h-6 text-verto-purple" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Policy-Driven Routing</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Balance risk, latency, and slippage across liquidity pools, bridges, and counterparties. Every path decision is custodian-key signed and executed with sponsored gas.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Balance risk, latency, and slippage across liquidity pools and bridges. Every path is custodian-key signed and executed with sponsored gas.</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-audit-trails">
@@ -56,7 +56,7 @@ export default function AiSection() {
               <FileText className="w-6 h-6 text-verto-green" />
             </div>
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Real-Time Audit Trails</h4>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Every transaction generates an immutable compliance record linking fiat-in to settlement-out. Risk decisions, routing choices, and counterparty approvals are cryptographically signed.</p>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Generate an explainable compliance record outlining risk ratings, routing decisions, and counterparty approvals for every transaction - in real time.</p>
           </div>
         </div>
 

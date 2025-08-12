@@ -34,7 +34,7 @@ export default function ProblemSection() {
           {/* CCO Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-cco">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "Who actually controls the keys? How do we enforce our risk policies across multiple public chains in real time — and prove it to regulators without hiring an army?"
+              "Who actually controls the keys? How do we enforce our risk policies across multiple public chains in real time  and prove it to regulators — without hiring an army?"
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-purple/10 rounded-lg flex items-center justify-center mr-3">
@@ -50,7 +50,7 @@ export default function ProblemSection() {
           {/* Head of Payments Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-head-payments">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "Integrating PSPs to accept stablecoins can take months. Public‑chain UX and reconciliation is a nightmare, while latency and slippage on DEXs hit my margins."
+              "Integrating PSPs to accept stablecoins can take months. Multi‑chain payments UX and reconciliation is a nightmare, while latency and slippage hit margins."
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-green/10 rounded-lg flex items-center justify-center mr-3">

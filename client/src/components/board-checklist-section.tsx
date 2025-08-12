@@ -47,15 +47,15 @@ export default function BoardChecklistSection() {
             <div className="space-y-6">
               <div className="border-l-4 border-verto-orange bg-verto-orange/5 dark:bg-verto-orange/10 p-6 rounded-r-lg">
                 <p className="text-slate-900 dark:text-white font-semibold mb-2">"We processed $2M volume in first 30 days"</p>
-                <p className="text-slate-600 dark:text-slate-300">Live mint/burn operations with zero treasury float</p>
+                <p className="text-slate-600 dark:text-slate-300">Live cash mint/burn operations at select kiosks, ATMs and apps.</p>
               </div>
               <div className="border-l-4 border-verto-green bg-verto-green/5 dark:bg-verto-green/10 p-6 rounded-r-lg">
                 <p className="text-slate-900 dark:text-white font-semibold mb-2">"Payment acceptance increased 300%"</p>
-                <p className="text-slate-600 dark:text-slate-300">POS, QR, online payments from any wallet or CEX</p>
+                <p className="text-slate-600 dark:text-slate-300">Live POS & online payments from any wallet or CEX available at select merchants.</p>
               </div>
               <div className="border-l-4 border-verto-blue bg-verto-blue/5 dark:bg-verto-blue/10 p-6 rounded-r-lg">
                 <p className="text-slate-900 dark:text-white font-semibold mb-2">"Compliance audit took 2 hours, not 2 weeks"</p>
-                <p className="text-slate-600 dark:text-slate-300">Real-time risk monitoring with full transparency</p>
+                <p className="text-slate-600 dark:text-slate-300">Real-time risk monitoring with full transparency and explainability available to select regulators.</p>
               </div>
             </div>
           </div>
