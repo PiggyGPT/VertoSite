@@ -3,7 +3,7 @@ import { Coins, CreditCard, ArrowLeftRight, Check } from "lucide-react";
 export default function InfrastructureSection() {
 
   return (
-    <section id="infrastructure" className="py-20 bg-white">
+    <section id="infrastructure" className="py-20 bg-gradient-to-br from-white to-orange-50/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 tracking-tight" data-testid="infrastructure-title">

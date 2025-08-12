@@ -25,17 +25,7 @@ export default function HeroSection() {
             As locally as M‑Pesa. As seamlessly as Stripe. As compliantly as SWIFT.
           </p>
 
-          {/* Trust Logos - Single Line */}
-          <div className="mb-10" data-testid="trust-logos">
-            <p className="text-center text-slate-600 mb-6 text-sm font-medium">Built by leaders at:</p>
-            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 opacity-70">
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Goldman Sachs</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Google</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">M-Kopa</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
-              <div className="text-slate-700 font-semibold text-sm whitespace-nowrap">MIT</div>
-            </div>
-          </div>
+
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <button

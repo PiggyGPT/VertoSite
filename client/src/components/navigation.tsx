@@ -33,7 +33,7 @@ export default function Navigation() {
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="flex items-center justify-between h-18">
+        <div className="flex items-center justify-between h-16 py-4">
           <div className="flex items-center space-x-10">
             <div 
               className="text-2xl font-semibold verto-gradient-text cursor-pointer tracking-tight"

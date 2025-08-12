@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function ProblemSection() {
   return (
-    <section className="py-16 bg-slate-50">
+    <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50/30">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 tracking-tight" data-testid="problem-title">
@@ -50,7 +50,7 @@ export default function ProblemSection() {
           {/* Head of Payments Quote */}
           <div className="bg-white p-6 rounded-lg border border-slate-200" data-testid="quote-head-payments">
             <blockquote className="text-slate-700 leading-relaxed text-base mb-4 italic">
-              "Integrating PSPs to accept stablecoins takes months. Public‑chain reconciliation is a nightmare, and every latency spike or FX loss hits my margins."
+              "Integrating PSPs to accept stablecoins can take months. Public‑chain UX and reconciliation is a nightmare, and every latency spike or DEX slippage hits my margins."
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-green/10 rounded-lg flex items-center justify-center mr-3">

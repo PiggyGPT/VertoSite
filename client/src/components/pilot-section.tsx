@@ -12,9 +12,9 @@ export default function PilotSection() {
 
   return (
     <>
-      <section id="pilot" className="py-20 bg-verto-gray-50 animate-slide-up">
+      <section id="pilot" className="py-12 bg-slate-50 animate-slide-up">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-3xl font-medium text-slate-900 mb-4" data-testid="pilot-title">
               Complete Enterprise Solution in 90 Days
             </h2>
