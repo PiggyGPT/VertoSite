@@ -7,7 +7,7 @@ export default function WhyNowSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-slate-50/40 to-gray-50/20 dark:from-gray-900 dark:via-gray-800/40 dark:to-gray-700/20">
+    <section className="py-20 bg-gradient-to-br from-indigo-50/40 via-blue-50/30 to-cyan-50/20 dark:from-gray-900 dark:via-gray-800/40 dark:to-gray-700/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight leading-tight" data-testid="why-now-title">

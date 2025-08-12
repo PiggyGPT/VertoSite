@@ -86,7 +86,7 @@ export default function Navigation() {
               className="px-7 py-2.5 verto-gradient text-white rounded-lg hover:shadow-md transition-all duration-300 font-semibold text-sm tracking-wide"
               data-testid="nav-get-started"
             >
-              Launch Pilot in 90 days
+              Launch Pilot
             </button>
             <button
               className="md:hidden p-2"

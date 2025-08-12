@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function ProblemSection() {
   return (
-    <section className="py-16 bg-gradient-to-br from-white via-slate-50/30 to-gray-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
+    <section className="py-16 bg-gradient-to-br from-red-50/40 via-orange-50/30 to-yellow-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="problem-title">

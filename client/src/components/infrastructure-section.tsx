@@ -3,14 +3,14 @@ import { Coins, CreditCard, ArrowLeftRight, Check } from "lucide-react";
 export default function InfrastructureSection() {
 
   return (
-    <section id="infrastructure" className="py-20 bg-gradient-to-br from-white via-slate-50/40 to-gray-50/20 dark:from-gray-900 dark:via-gray-800/40 dark:to-gray-700/20">
+    <section id="infrastructure" className="py-20 bg-gradient-to-br from-verto-green/10 via-emerald-50/40 to-green-50/30 dark:from-gray-900 dark:via-gray-800/40 dark:to-gray-700/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="infrastructure-title">
             Three pillars. One platform.
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
-            Verto unifies 3 proven operational models into a blockchain-native stack that's trusted by regulators and loved by customers.
+            Verto unifies 3 core stablecoin operations into a self-hosted, modular stack that's trusted by regulators and loved by customers.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function InfrastructureSection() {
                   <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-xs">M</span>
                   </div>
-                  <span className="font-semibold text-slate-900 dark:text-white">MPesa-like Distribution Network</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">MPesa-like Cash Ramps</span>
                 </div>
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   Removes treasury float and slashes on-ramp cost vs. bank flows through 200,000+ retail agents.
@@ -87,7 +87,7 @@ export default function InfrastructureSection() {
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Liquidity</h3>
                 </div>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Accept any token on any chain, settle in your stablecoin via policy-routed liquidity pools with real-time audit trails.
+                  Trade any digital asset on any chain with your stablecoin via policy-routed liquidity pools.
                 </p>
               </div>
               

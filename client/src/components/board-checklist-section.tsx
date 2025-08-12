@@ -2,7 +2,7 @@ import { Check, TrendingUp, Shield, BarChart3 } from "lucide-react";
 
 export default function BoardChecklistSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-slate-50/40 to-blue-50/10 dark:from-gray-900 dark:via-gray-800/40 dark:to-blue-900/10">
+    <section className="py-20 bg-gradient-to-br from-verto-orange/10 via-orange-50/40 to-yellow-50/30 dark:from-gray-900 dark:via-gray-800/40 dark:to-blue-900/10">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">Launch Pilot in 90 days</h2>

@@ -21,7 +21,7 @@ export default function HeroSection() {
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center">
           <div className="max-w-2xl mx-auto mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 dark:text-white tracking-tight leading-tight md:leading-tight lg:leading-tight" data-testid="hero-title">
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
               Institutional rails to mint, move and monitor stablecoins
             </h1>
           </div>
@@ -38,9 +38,7 @@ export default function HeroSection() {
               data-testid="button-primary-cta"
             >
               <span>Launch Pilot in 90 days</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+
             </button>
             <button
               onClick={() => scrollToSection("risk-review")}
@@ -48,12 +46,13 @@ export default function HeroSection() {
               data-testid="button-secondary-cta"
             >
               Free Risk & Compliance Review
+              
             </button>
           </div>
 
           {/* Trust Logos - Balanced Spacing */}
           <div className="max-w-4xl mx-auto" data-testid="trust-logos">
-            <p className="text-center text-slate-600 dark:text-slate-400 mb-8 text-sm font-medium">Built by former leaders at</p>
+            <p className="text-center text-slate-600 dark:text-slate-400 mb-8 text-sm font-medium">Built by leaders at</p>
             <div className="flex justify-center items-center gap-x-6 md:gap-x-8 lg:gap-x-10 flex-wrap">
               <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">Federal Reserve</div>
               <div className="text-slate-700 dark:text-slate-300 font-semibold text-sm whitespace-nowrap">DTCC</div>
