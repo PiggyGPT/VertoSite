@@ -12,10 +12,10 @@ export default function PilotSection() {
 
   return (
     <>
-      <section id="pilot" className="py-12 bg-slate-50 animate-slide-up">
+      <section id="pilot" className="py-24 bg-gradient-to-br from-green-50/40 via-blue-50/30 to-purple-50/20 dark:from-green-900/40 dark:via-blue-900/30 dark:to-purple-900/20 animate-slide-up">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-medium text-slate-900 mb-4" data-testid="pilot-title">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-medium text-slate-900 dark:text-white mb-4" data-testid="pilot-title">
               Complete Enterprise Solution in 90 Days
             </h2>
           </div>
@@ -26,8 +26,8 @@ export default function PilotSection() {
                 <div className="w-12 h-12 bg-verto-green/10 rounded-xl flex items-center justify-center mb-4">
                   <Coins className="text-verto-green text-xl" />
                 </div>
-                <h3 className="text-lg font-semibold text-verto-blue mb-3">Cash Infrastructure</h3>
-                <p className="text-verto-gray-600 text-sm">Live mint/burn at kiosks, agents, and bank APIs — zero float, proof on‑chain</p>
+                <h3 className="text-lg font-semibold text-verto-blue dark:text-blue-400 mb-3">Cash Infrastructure</h3>
+                <p className="text-slate-600 dark:text-slate-300 text-sm">Live mint/burn at kiosks, agents, and bank APIs — zero float, proof on‑chain</p>
               </CardContent>
             </Card>
             <Card data-testid="deliverable-payments">
@@ -35,8 +35,8 @@ export default function PilotSection() {
                 <div className="w-12 h-12 bg-verto-purple/10 rounded-xl flex items-center justify-center mb-4">
                   <CreditCard className="text-verto-purple text-xl" />
                 </div>
-                <h3 className="text-lg font-semibold text-verto-blue mb-3">Payment Acceptance</h3>
-                <p className="text-verto-gray-600 text-sm">POS, QR, and online checkout — any wallet, CEX, token, chain accepted</p>
+                <h3 className="text-lg font-semibold text-verto-blue dark:text-blue-400 mb-3">Payment Acceptance</h3>
+                <p className="text-slate-600 dark:text-slate-300 text-sm">POS, QR, and online checkout — any wallet, CEX, token, chain accepted</p>
               </CardContent>
             </Card>
             <Card data-testid="deliverable-liquidity">
@@ -44,8 +44,8 @@ export default function PilotSection() {
                 <div className="w-12 h-12 bg-verto-blue/10 rounded-xl flex items-center justify-center mb-4">
                   <ArrowLeftRight className="text-verto-blue text-xl" />
                 </div>
-                <h3 className="text-lg font-semibold text-verto-blue mb-3">Liquidity & Reconciliation</h3>
-                <p className="text-verto-gray-600 text-sm">AI‑routed, FX‑locked multi‑chain settlement with full audit transparency</p>
+                <h3 className="text-lg font-semibold text-verto-blue dark:text-blue-400 mb-3">Liquidity & Reconciliation</h3>
+                <p className="text-slate-600 dark:text-slate-300 text-sm">AI‑routed, FX‑locked multi‑chain settlement with full audit transparency</p>
               </CardContent>
             </Card>
             <Card data-testid="deliverable-control">
@@ -53,8 +53,8 @@ export default function PilotSection() {
                 <div className="w-12 h-12 bg-verto-orange/10 rounded-xl flex items-center justify-center mb-4">
                   <Gauge className="text-verto-orange text-xl" />
                 </div>
-                <h3 className="text-lg font-semibold text-verto-blue mb-3">Command & Control</h3>
-                <p className="text-verto-gray-600 text-sm">Unified dashboards for risk, volume, and compliance — with board‑ready reports</p>
+                <h3 className="text-lg font-semibold text-verto-blue dark:text-blue-400 mb-3">Command & Control</h3>
+                <p className="text-slate-600 dark:text-slate-300 text-sm">Unified dashboards for risk, volume, and compliance — with board‑ready reports</p>
               </CardContent>
             </Card>
           </div>
@@ -67,7 +67,7 @@ export default function PilotSection() {
               Launch Pilot in 90 days
             </Button>
             <Button 
-              className="px-8 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all"
+              className="px-8 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-medium rounded-lg hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
               data-testid="button-risk-review"
             >
               Free Risk & Compliance Review →

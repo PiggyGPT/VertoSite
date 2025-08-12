@@ -3,14 +3,14 @@ import { Coins, CreditCard, ArrowLeftRight, Check } from "lucide-react";
 export default function InfrastructureSection() {
 
   return (
-    <section id="infrastructure" className="py-20 bg-gradient-to-br from-white to-orange-50/20 dark:from-gray-900 dark:to-orange-900/20">
+    <section id="infrastructure" className="py-24 bg-gradient-to-br from-white via-orange-50/30 to-purple-50/20 dark:from-gray-900 dark:via-orange-900/30 dark:to-purple-900/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="infrastructure-title">
             Verto Infrastructure
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="infrastructure-subtitle">
-            Verto unifies 3 proven models into a blockchain-native stack that's trusted by regulators and loved by customers.
+            Verto unifies 3 proven operational models into a blockchain-native stack that's trusted by regulators and loved by customers.
           </p>
         </div>
 

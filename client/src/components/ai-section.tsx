@@ -11,7 +11,7 @@ export default function AiSection() {
   };
 
   return (
-    <section id="ai" className="py-20 bg-gradient-to-br from-purple-50/30 to-blue-50/40 dark:from-purple-900/30 dark:to-blue-900/40">
+    <section id="ai" className="py-24 bg-gradient-to-br from-purple-50/40 via-blue-50/30 to-green-50/20 dark:from-purple-900/40 dark:via-blue-900/30 dark:to-green-900/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="ai-title">
@@ -64,15 +64,15 @@ export default function AiSection() {
               <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                 <CheckCircle className="w-6 h-6 text-verto-green" />
               </div>
-              <div className="font-semibold text-slate-900 mb-2">CCO Assurance</div>
-              <div className="text-slate-600 text-sm">Bulletproof compliance records ready for any audit</div>
+              <div className="font-semibold text-slate-900 dark:text-white mb-2">Regulatory Confidence</div>
+              <div className="text-slate-600 dark:text-slate-300 text-sm">Real-time compliance with full transparency</div>
             </div>
-            <div className="bg-slate-50 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-verto-purple/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Zap className="w-6 h-6 text-verto-purple" />
+            <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-verto-orange/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Zap className="w-6 h-6 text-verto-orange" />
               </div>
-              <div className="font-semibold text-slate-900 mb-2">User Delight</div>
-              <div className="text-slate-600 text-sm">Seamless experience with invisible compliance guardrails</div>
+              <div className="font-semibold text-slate-900 dark:text-white mb-2">User Delight</div>
+              <div className="text-slate-600 dark:text-slate-300 text-sm">Seamless experience with invisible compliance guardrails</div>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function AiSection() {
         <div className="text-center">
           <button
             onClick={() => scrollToSection("contact")}
-            className="px-8 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all"
+            className="px-8 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-medium rounded-lg hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
             data-testid="button-risk-review-cta"
           >
             Free Risk & Compliance Review →
