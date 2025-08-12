@@ -12,12 +12,18 @@ export default function PilotSection() {
 
   return (
     <>
-      <section id="pilot" className="py-24 bg-gradient-to-br from-green-50/40 via-blue-50/30 to-purple-50/20 dark:from-green-900/40 dark:via-blue-900/30 dark:to-purple-900/20 animate-slide-up">
+      <section id="pilot" className="py-20 bg-gradient-to-br from-slate-50/50 via-blue-50/20 to-indigo-50/10 dark:from-gray-800/50 dark:via-blue-900/20 dark:to-indigo-900/10 animate-slide-up">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-medium text-slate-900 dark:text-white mb-4" data-testid="pilot-title">
-              Complete Enterprise Solution in 90 Days
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="pilot-title">
+              Ship in 90 days
             </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
+              Launch your complete stablecoin infrastructure with real customer transactions, not just POCs.
+            </p>
+            <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+              From whiteboard to revenue-generating operations.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">

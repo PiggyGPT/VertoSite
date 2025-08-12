@@ -11,14 +11,17 @@ export default function AiSection() {
   };
 
   return (
-    <section id="ai" className="py-24 bg-gradient-to-br from-purple-50/40 via-blue-50/30 to-green-50/20 dark:from-purple-900/40 dark:via-blue-900/30 dark:to-green-900/20">
+    <section id="ai" className="py-20 bg-gradient-to-br from-slate-50/60 via-blue-50/20 to-indigo-50/10 dark:from-gray-800/60 dark:via-blue-900/20 dark:to-indigo-900/10">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="ai-title">
-            AI-Powered Risk Management & Compliance
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="ai-title">
+            Risk management that scales
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="ai-subtitle">
-            Enforce institutional-grade policies for every payment on public blockchains.
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4" data-testid="ai-subtitle">
+            Enforce institutional-grade policies for every payment on public blockchains with real-time transparency.
+          </p>
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+            Move fast without breaking compliance.
           </p>
         </div>
 

@@ -3,14 +3,17 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function ProblemSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-purple-50/20 dark:from-slate-800/50 dark:via-blue-900/30 dark:to-purple-900/20">
+    <section className="py-16 bg-gradient-to-br from-white via-slate-50/30 to-gray-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="problem-title">
-            "Stablecoins are an Operational Nightmare"
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="problem-title">
+            The stablecoin challenge
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="problem-subtitle">
-            These aren't just blockchain problems — they're operational orchestration and institutionalisation challenges.
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4" data-testid="problem-subtitle">
+            Revenue opportunity is massive. Operational complexity is the roadblock.
+          </p>
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+            These aren't just blockchain problems — they're institutional orchestration challenges.
           </p>
         </div>
 
@@ -50,7 +53,7 @@ export default function ProblemSection() {
           {/* Head of Payments Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-head-payments">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "Integrating PSPs to accept stablecoins can take months. Public‑chain UX and reconciliation is a nightmare, and every latency spike or DEX slippage hits my margins."
+              "Integrating PSPs to accept stablecoins can take months. Public‑chain UX and reconciliation is a nightmare, while latency and slippage hit my margins."
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-green/10 rounded-lg flex items-center justify-center mr-3">

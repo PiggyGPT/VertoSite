@@ -3,12 +3,18 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function TeamSection() {
   return (
-    <section id="team" className="py-24 bg-gradient-to-br from-white via-green-50/30 to-blue-50/20 dark:from-gray-900 dark:via-green-900/30 dark:to-blue-900/20">
+    <section id="team" className="py-20 bg-gradient-to-br from-white via-slate-50/30 to-gray-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
-            Leadership That Lands Credibility
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="team-title">
+            Built by the people you trust
           </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
+            Former Fed regulators, DOJ advisors, and engineers who built products for millions.
+          </p>
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+            Experience that boards recognize and CISOs approve.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">

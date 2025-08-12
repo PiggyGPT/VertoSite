@@ -7,12 +7,18 @@ export default function WhyNowSection() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50/60 via-orange-50/30 to-purple-50/20 dark:from-slate-800/60 dark:via-orange-900/30 dark:to-purple-900/20">
+    <section className="py-20 bg-gradient-to-br from-white via-slate-50/40 to-gray-50/20 dark:from-gray-900 dark:via-gray-800/40 dark:to-gray-700/20">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white mb-4 tracking-tight leading-tight" data-testid="why-now-title">
-            Spend years stitching together fractured point solutions... <br className="hidden sm:inline" />or 90 days with Verto.
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight leading-tight" data-testid="why-now-title">
+            Why now
           </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
+            Spend years stitching together fractured point solutions... or 90 days with Verto.
+          </p>
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+            The regulatory window is open. The technology is ready. Your competitors are already building.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">

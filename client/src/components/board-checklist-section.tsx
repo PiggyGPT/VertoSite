@@ -2,12 +2,15 @@ import { Check, TrendingUp, Shield, BarChart3 } from "lucide-react";
 
 export default function BoardChecklistSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50/60 via-green-50/30 to-blue-50/20 dark:from-slate-800/60 dark:via-green-900/30 dark:to-blue-900/20">
+    <section className="py-20 bg-gradient-to-br from-white via-slate-50/40 to-blue-50/10 dark:from-gray-900 dark:via-gray-800/40 dark:to-blue-900/10">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-medium text-slate-900 dark:text-white mb-4">Successful Pilot in 90 Days</h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">Prove it works</h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-4">
             Go from board presentation to live stablecoin operations with quantifiable results your stakeholders trust.
+          </p>
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+            Real metrics. Real customers. Real revenue.
           </p>
         </div>
         
@@ -18,7 +21,7 @@ export default function BoardChecklistSection() {
               <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-4">
                 <BarChart3 className="w-6 h-6 text-verto-blue" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">You Can Answer Your Board:</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Answer Your Board</h3>
             </div>
             <div className="space-y-6">
               <div className="border-l-4 border-verto-green bg-verto-green/5 dark:bg-verto-green/10 p-6 rounded-r-lg">
@@ -42,7 +45,7 @@ export default function BoardChecklistSection() {
               <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mr-4">
                 <TrendingUp className="w-6 h-6 text-verto-green" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">You Can Scale Confidently:</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Scale Confidently</h3>
             </div>
             <div className="space-y-6">
               <div className="flex items-start p-6 bg-slate-50 dark:bg-gray-700 rounded-lg">
