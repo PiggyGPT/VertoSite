@@ -50,7 +50,7 @@ export default function ProblemSection() {
           {/* Head of Payments Quote */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-head-payments">
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "Integrating PSPs to accept stablecoins can take months. Public‑chain UX and reconciliation is a nightmare, while latency and slippage hit my margins."
+              "Integrating PSPs to accept stablecoins can take months. Public‑chain UX and reconciliation is a nightmare, while latency and slippage on DEXs hit my margins."
             </blockquote>
             <div className="flex items-center">
               <div className="w-8 h-8 bg-verto-green/10 rounded-lg flex items-center justify-center mr-3">

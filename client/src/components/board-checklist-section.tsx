@@ -37,25 +37,40 @@ export default function BoardChecklistSection() {
           </div>
 
           {/* Right Column - Scale Confidently */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 p-8 shadow-sm">
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-700 rounded-xl p-8 shadow-sm">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-verto-green/15 border border-verto-green/30 rounded-lg flex items-center justify-center mr-4">
                 <TrendingUp className="w-6 h-6 text-verto-green" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Scale Confidently</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Scale with Confidence</h3>
             </div>
-            <div className="space-y-6">
-              <div className="flex items-start p-6 bg-slate-50 dark:bg-gray-700 rounded-lg">
-                <Check className="w-5 h-5 text-verto-green mt-1 mr-3 flex-shrink-0" />
-                <p className="text-slate-700 dark:text-slate-300">Live mint/burn at select kiosks, agents, and apps — zero float, proof on‑chain</p>
+            <div className="space-y-4">
+              <div className="flex items-center">
+                <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <Check className="w-4 h-4 text-verto-green" />
+                </div>
+                <div>
+                  <p className="font-medium text-slate-900 dark:text-white text-sm">Live Operations</p>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs">Real customer transactions from day one</p>
+                </div>
               </div>
-              <div className="flex items-start p-6 bg-slate-50 dark:bg-gray-700 rounded-lg">
-                <Check className="w-5 h-5 text-verto-green mt-1 mr-3 flex-shrink-0" />
-                <p className="text-slate-700 dark:text-slate-300">Live POS and online payments from any wallet, CEX, token — integrated with your existing core banking stack</p>
+              <div className="flex items-center">
+                <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <Check className="w-4 h-4 text-verto-green" />
+                </div>
+                <div>
+                  <p className="font-medium text-slate-900 dark:text-white text-sm">Payment Rails</p>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs">POS, QR, online — any wallet accepted</p>
+                </div>
               </div>
-              <div className="flex items-start p-6 bg-slate-50 dark:bg-gray-700 rounded-lg">
-                <Check className="w-5 h-5 text-verto-green mt-1 mr-3 flex-shrink-0" />
-                <p className="text-slate-700 dark:text-slate-300">Real-time risk & compliance monitoring that your CISO trusts</p>
+              <div className="flex items-center">
+                <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <Check className="w-4 h-4 text-verto-green" />
+                </div>
+                <div>
+                  <p className="font-medium text-slate-900 dark:text-white text-sm">Risk Management</p>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs">Real-time monitoring your CISO trusts</p>
+                </div>
               </div>
             </div>
           </div>

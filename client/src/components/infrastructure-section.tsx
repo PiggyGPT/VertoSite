@@ -16,130 +16,91 @@ export default function InfrastructureSection() {
 
 
 
-        {/* Infrastructure Pillars - Clean Professional Layout */}
-        <div className="space-y-12">
+        {/* Infrastructure Pillars - Visual Impact Design */}
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Pillar 1: Issuance */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-xl p-10 shadow-sm hover:shadow-md transition-shadow" data-testid="pillar-minting">
-            <div className="grid lg:grid-cols-3 gap-8 items-start">
-              <div className="lg:col-span-2">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-verto-green/10 border border-verto-green/30 rounded-lg flex items-center justify-center mr-4">
-                    <div className="text-verto-green font-semibold text-sm">M-PESA</div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Issuance</h3>
-                    <p className="text-slate-600 dark:text-slate-300">Cash to stablecoin ramps via existing distribution network</p>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Any kiosk or retail agent can issue stablecoins directly into consumer wallets</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Tap into existing retail distribution networks without additional hardware costs</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Zero treasury float — each token backed 1:1 with real-time minting</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Maintain full compliance trails for each issuance transaction</span>
-                  </div>
-                </div>
+          <div className="group relative overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300" data-testid="pillar-minting">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-100/50 to-emerald-100/50 dark:from-green-800/30 dark:to-emerald-800/30 rounded-full -translate-y-16 translate-x-16"></div>
+            
+            <div className="relative">
+              <div className="w-16 h-16 bg-verto-green/15 border-2 border-verto-green/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Coins className="w-8 h-8 text-verto-green" />
               </div>
               
-              <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg border border-slate-100 dark:border-gray-600">
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  M‑Pesa processes 60% of Kenya's GDP through 200,000+ agents. Use the same proven retail distribution model for stablecoin issuance at institutional scale.
-                </p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Issuance</h3>
+              <p className="text-slate-600 dark:text-slate-300 mb-6 font-medium">M-Pesa distribution model for stablecoins</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-green rounded-full mr-3"></div>
+                  <span>200,000+ agent network ready</span>
+                </div>
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-green rounded-full mr-3"></div>
+                  <span>Zero treasury float</span>
+                </div>
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-green rounded-full mr-3"></div>
+                  <span>Real-time compliance trails</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Pillar 2: Payments */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-xl p-10 shadow-sm hover:shadow-md transition-shadow" data-testid="pillar-payments">
-            <div className="grid lg:grid-cols-3 gap-8 items-start">
-              <div className="lg:col-span-2">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-verto-purple/10 border border-verto-purple/30 rounded-lg flex items-center justify-center mr-4">
-                    <div className="text-verto-purple font-semibold text-sm">STRIPE</div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Payments</h3>
-                    <p className="text-slate-600 dark:text-slate-300">Seamless one-tap payments with developer‑first APIs</p>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Accept payments from any wallet or CEX with developer‑first APIs</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">One Tap Payment UX via QR codes for any POS or online checkout</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Custody‑free flow — funds move directly to merchant wallets</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Gas sponsorship removes blockchain friction for customers</span>
-                  </div>
-                </div>
+          <div className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 border border-purple-200 dark:border-purple-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300" data-testid="pillar-payments">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100/50 to-violet-100/50 dark:from-purple-800/30 dark:to-violet-800/30 rounded-full -translate-y-16 translate-x-16"></div>
+            
+            <div className="relative">
+              <div className="w-16 h-16 bg-verto-purple/15 border-2 border-verto-purple/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <CreditCard className="w-8 h-8 text-verto-purple" />
               </div>
               
-              <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg border border-slate-100 dark:border-gray-600">
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Stripe's $1T+ payment volume proves seamless developer experience drives adoption. Verto delivers the same simplicity for stablecoin payments across any blockchain.
-                </p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Payments</h3>
+              <p className="text-slate-600 dark:text-slate-300 mb-6 font-medium">Stripe simplicity for blockchain payments</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-purple rounded-full mr-3"></div>
+                  <span>One-tap QR payments</span>
+                </div>
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-purple rounded-full mr-3"></div>
+                  <span>Developer-first APIs</span>
+                </div>
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-purple rounded-full mr-3"></div>
+                  <span>Gas-free UX</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Pillar 3: Liquidity */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-xl p-10 shadow-sm hover:shadow-md transition-shadow" data-testid="pillar-settlement">
-            <div className="grid lg:grid-cols-3 gap-8 items-start">
-              <div className="lg:col-span-2">
-                <div className="flex items-center mb-6">
-                  <div className="w-14 h-14 bg-verto-blue/10 border border-verto-blue/30 rounded-lg flex items-center justify-center mr-4">
-                    <div className="text-verto-blue font-semibold text-sm">SWIFT</div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Liquidity</h3>
-                    <p className="text-slate-600 dark:text-slate-300">Multi-chain routing with built-in compliance</p>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Accept any token from any chain, settle in preferred currency</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Policy‑driven routing across public LPs and bridges</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">Real-time audit trails for every payment</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-verto-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">SWIFT-grade risk management and compliance</span>
-                  </div>
-                </div>
+          <div className="group relative overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300" data-testid="pillar-settlement">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/50 to-indigo-100/50 dark:from-blue-800/30 dark:to-indigo-800/30 rounded-full -translate-y-16 translate-x-16"></div>
+            
+            <div className="relative">
+              <div className="w-16 h-16 bg-verto-blue/15 border-2 border-verto-blue/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <ArrowLeftRight className="w-8 h-8 text-verto-blue" />
               </div>
               
-              <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg border border-slate-100 dark:border-gray-600">
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  SWIFT handles $150T+ annually with bulletproof compliance across 11,000+ institutions. Verto brings that same correspondent banking trust to public blockchain liquidity routing.
-                </p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Liquidity</h3>
+              <p className="text-slate-600 dark:text-slate-300 mb-6 font-medium">SWIFT reliability for blockchain routing</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-blue rounded-full mr-3"></div>
+                  <span>Multi-chain settlement</span>
+                </div>
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-blue rounded-full mr-3"></div>
+                  <span>Policy-driven routing</span>
+                </div>
+                <div className="flex items-center text-sm text-slate-700 dark:text-slate-300">
+                  <div className="w-1.5 h-1.5 bg-verto-blue rounded-full mr-3"></div>
+                  <span>Real-time audit trails</span>
+                </div>
               </div>
             </div>
           </div>

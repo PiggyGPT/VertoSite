@@ -50,29 +50,27 @@ export default function AiSection() {
         </div>
 
         {/* Outcome Summary */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-8 border border-slate-200 dark:border-gray-700 text-center mb-8" data-testid="ai-outcome">
-          <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Outcomes</h4>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Shield className="w-6 h-6 text-verto-blue" />
+        <div className="text-center mb-8" data-testid="ai-outcome">
+          <div className="inline-flex items-center space-x-8 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-full px-8 py-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-verto-blue/10 rounded-full flex items-center justify-center">
+                <Shield className="w-4 h-4 text-verto-blue" />
               </div>
-              <div className="font-semibold text-slate-900 dark:text-white mb-2">CISO Confidence</div>
-              <div className="text-slate-600 dark:text-slate-300 text-sm">Explainable risk decisions with full audit transparency</div>
+              <span className="font-medium text-slate-900 dark:text-white">CISO Trust</span>
             </div>
-            <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-verto-green" />
+            <div className="w-px h-6 bg-slate-200 dark:bg-gray-600"></div>
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-verto-green/10 rounded-full flex items-center justify-center">
+                <CheckCircle className="w-4 h-4 text-verto-green" />
               </div>
-              <div className="font-semibold text-slate-900 dark:text-white mb-2">Regulatory Confidence</div>
-              <div className="text-slate-600 dark:text-slate-300 text-sm">Real-time compliance with full transparency</div>
+              <span className="font-medium text-slate-900 dark:text-white">Regulatory Approval</span>
             </div>
-            <div className="bg-slate-50 dark:bg-gray-700 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-verto-orange/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Zap className="w-6 h-6 text-verto-orange" />
+            <div className="w-px h-6 bg-slate-200 dark:bg-gray-600"></div>
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-verto-orange/10 rounded-full flex items-center justify-center">
+                <Zap className="w-4 h-4 text-verto-orange" />
               </div>
-              <div className="font-semibold text-slate-900 dark:text-white mb-2">User Delight</div>
-              <div className="text-slate-600 dark:text-slate-300 text-sm">Seamless experience with invisible compliance guardrails</div>
+              <span className="font-medium text-slate-900 dark:text-white">User Delight</span>
             </div>
           </div>
         </div>
