@@ -140,8 +140,8 @@ export default function InfrastructureSection() {
               
               <div className="bg-slate-50 p-6 rounded-lg border border-slate-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Tap into public blockchain liquidity by routing across public chain bridges and DEXs — 
-                  with the risk management and compliance of SWIFT's correspondent bank payments.
+                  Access deep liquidity across all major blockchains with institutional-grade routing and settlement. 
+                  Every cross-chain transaction maintains the compliance rigor of traditional correspondent banking.
                 </p>
               </div>
             </div>

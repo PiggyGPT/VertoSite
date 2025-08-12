@@ -46,44 +46,7 @@ export default function TeamSection() {
           </div>
         </div>
 
-        {/* Trust Logos - Single Row */}
-        <div className="mb-12" data-testid="trust-logos">
-          <p className="text-center text-slate-600 mb-8 text-lg font-medium">Built by leaders at:</p>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-4 opacity-60">
-            <div className="text-slate-700 font-bold text-lg whitespace-nowrap">Goldman Sachs</div>
-            <div className="text-slate-700 font-bold text-lg whitespace-nowrap">Google</div>
-            <div className="text-slate-700 font-bold text-lg whitespace-nowrap">M-Kopa</div>
-            <div className="text-slate-700 font-bold text-lg whitespace-nowrap">Federal Reserve</div>
-            <div className="text-slate-700 font-bold text-lg whitespace-nowrap">MIT</div>
-          </div>
-        </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={() => {
-              const element = document.getElementById("pilot-cta");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="group px-10 py-4 verto-gradient text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-            data-testid="button-primary-cta"
-          >
-            <span>Launch Pilot in 90 days</span>
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
-          <button
-            onClick={() => {
-              const element = document.getElementById("risk-review");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="px-10 py-4 border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm transition-all duration-300"
-            data-testid="button-secondary-cta"
-          >
-            Free Risk & Compliance Review
-          </button>
-        </div>
       </div>
     </section>
   );

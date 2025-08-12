@@ -33,10 +33,10 @@ export default function Navigation() {
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-8">
+        <div className="flex items-center justify-between h-18">
+          <div className="flex items-center space-x-10">
             <div 
-              className="text-2xl font-bold verto-gradient-text cursor-pointer"
+              className="text-2xl font-semibold verto-gradient-text cursor-pointer tracking-tight"
               onClick={() => scrollToSection("hero")}
               data-testid="logo"
             >
@@ -45,28 +45,28 @@ export default function Navigation() {
             <div className="hidden md:flex space-x-8">
               <button
                 onClick={() => scrollToSection("infrastructure")}
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-infrastructure"
               >
                 Infrastructure
               </button>
               <button
                 onClick={() => scrollToSection("ai")}
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-ai"
               >
                 AI Platform
               </button>
               <button
                 onClick={() => scrollToSection("pilot")}
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-pilot"
               >
                 90-Day Pilot
               </button>
               <button
                 onClick={() => scrollToSection("team")}
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
+                className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors tracking-wide"
                 data-testid="nav-team"
               >
                 Leadership
@@ -83,10 +83,10 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection("pilot-cta")}
-              className="px-6 py-3 verto-gradient text-white rounded-xl hover:opacity-90 transition-all transform hover:scale-105 font-semibold shadow-lg"
+              className="px-7 py-2.5 verto-gradient text-white rounded-lg hover:shadow-md transition-all duration-300 font-semibold text-sm tracking-wide"
               data-testid="nav-get-started"
             >
-              Launch Pilot in 90 days
+              Launch Pilot
             </button>
             <button
               className="md:hidden p-2"
