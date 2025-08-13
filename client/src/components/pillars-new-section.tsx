@@ -26,17 +26,10 @@ export default function PillarsSection() {
             {/* Content */}
             <div className="lg:col-span-7">
               <div className="mb-8">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-verto-green rounded-xl flex items-center justify-center mr-4">
-                    <Coins className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Distribution</h3>
-                </div>
-                <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-                  Instant On-Ramps. No Treasury Float.
-                </h4>
+                <h3 className="text-3xl font-semibold text-slate-900 dark:text-white mb-2">Distribution</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">Instant on-ramps</p>
                 <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  Our system enables cash-to-stablecoin minting at any point of value-in. We empower Agent Partners—from retail kiosks to mobile operators—to serve as cash-in points for your stablecoin.
+                  Cash-to-stablecoin minting at any point of value-in. Agent Partners—from retail kiosks to mobile operators—serve as cash-in points for your stablecoin.
                 </p>
               </div>
 
@@ -96,27 +89,31 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-6 mb-8 bg-slate-50/50 dark:bg-slate-800/50">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Mass Adoption</h6>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <Users className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">Mass Adoption</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Scale distribution by leveraging existing retail networks</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Zero Float</h6>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">Zero Float</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">On-demand minting eliminates pre-funded treasury</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Low Cost</h6>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">Low Cost</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Integrate with existing infrastructure</p>
                   </div>
                 </div>
@@ -199,17 +196,10 @@ export default function PillarsSection() {
             {/* Content */}
             <div className="lg:col-span-7">
               <div className="mb-8">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-verto-purple rounded-xl flex items-center justify-center mr-4">
-                    <CreditCard className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Payments</h3>
-                </div>
-                <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-                  One-Tap Payments. Universal Acceptance.
-                </h4>
+                <h3 className="text-3xl font-semibold text-slate-900 dark:text-white mb-2">Payments</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">One-tap payments. Universal acceptance</p>
                 <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  Our payment stack removes all blockchain friction from the checkout process. A single API integration lets Merchant Partners accept payments from any wallet, credit card, or exchange—from any chain and with any token.
+                  Payment stack removes all blockchain friction from checkout. Single API integration lets merchants accept payments from any wallet, credit card, or exchange.
                 </p>
               </div>
 
@@ -287,27 +277,31 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-6 mb-8 bg-slate-50/50 dark:bg-slate-800/50">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-purple rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Boost Conversion</h6>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">Boost Conversion</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">One-tap UX and sponsored gas drive completion rates</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-purple rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <Store className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Drive Adoption</h6>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <Store className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">Drive Adoption</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Single API opens universal payment ecosystem</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-purple rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <FileText className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Automated Back-Office</h6>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <FileText className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">Automated Back-Office</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Handle reconciliation and reporting automatically</p>
                   </div>
                 </div>
@@ -383,17 +377,10 @@ export default function PillarsSection() {
             {/* Content */}
             <div className="lg:col-span-7">
               <div className="mb-8">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-verto-blue rounded-xl flex items-center justify-center mr-4">
-                    <Shield className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Compliance</h3>
-                </div>
-                <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-                  AI-Powered Risk & Compliance for Institutional Scale.
-                </h4>
+                <h3 className="text-3xl font-semibold text-slate-900 dark:text-white mb-2">Compliance</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">AI-powered risk & compliance</p>
                 <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  Our AI-powered compliance system turns the open blockchain into a regulator-ready operational backbone. It replaces manual, multi-week reviews with continuous, auditable automation.
+                  AI-powered compliance system turns open blockchain into regulator-ready operational backbone. Replaces manual, multi-week reviews with continuous, auditable automation.
                 </p>
               </div>
 
@@ -488,27 +475,31 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-6 mb-8 bg-slate-50/50 dark:bg-slate-800/50">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-blue rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">CISO Trust</h6>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <Shield className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">CISO Trust</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Enterprise-grade security and risk management</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Regulatory Approval</h6>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">Regulatory Approval</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Audit-ready compliance and transparent controls</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-verto-orange rounded-lg mx-auto mb-3 flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">User Delight</h6>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                    <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                  </div>
+                  <div>
+                    <h6 className="font-medium text-slate-900 dark:text-white mb-1">User Delight</h6>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Seamless experience without compliance friction</p>
                   </div>
                 </div>
