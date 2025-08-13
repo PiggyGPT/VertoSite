@@ -1,0 +1,464 @@
+import { Coins, CreditCard, Shield, CheckCircle, Users, Store, QrCode, Smartphone, ArrowRight, Database, FileText, Zap } from "lucide-react";
+
+export default function PillarsSection() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="space-y-0">
+      <div className="text-center py-20 bg-white dark:bg-gray-900">
+        <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">
+          The Three Pillars of Adoption. One Unified OS.
+        </h2>
+        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed px-6">
+          Drive real-world usage with a complete operational stack for distribution, payments, and compliance.
+        </p>
+      </div>
+
+      {/* Section 1: Distribution */}
+      <section className="py-20 bg-gradient-to-br from-emerald-50/60 via-green-50/50 to-teal-50/40 dark:from-emerald-900/20 dark:via-green-900/10 dark:to-teal-900/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Content */}
+            <div className="lg:col-span-7">
+              <div className="mb-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-verto-green rounded-xl flex items-center justify-center mr-4">
+                    <Coins className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-semibold text-verto-green uppercase tracking-wider">Section 1</span>
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Distribution</h3>
+                  </div>
+                </div>
+                <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
+                  Instant On-Ramps. No Treasury Float.
+                </h4>
+                <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                  Our system enables cash-to-stablecoin minting at any point of value-in. We empower Agent Partners—from retail kiosks to mobile operators—to serve as cash-in points for your stablecoin.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                    <Users className="w-5 h-5 text-verto-green mr-2" />
+                    Agent Experience
+                  </h5>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-green/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-green">1</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Pre-fund:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Establish deposit-backed credit line</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-green/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-green">2</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Create QR:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Generate unique QR code for cash amount</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                    <Smartphone className="w-5 h-5 text-verto-green mr-2" />
+                    Customer Experience
+                  </h5>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-green/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-green">1</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Deposit & Scan:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Hand over cash and scan QR code</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-green/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-green">2</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Confirm:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">One tap, instant wallet & minting</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="px-4 py-2 bg-verto-green/10 text-verto-green rounded-full font-medium text-sm">Mass Adoption</span>
+                <span className="px-4 py-2 bg-verto-green/10 text-verto-green rounded-full font-medium text-sm">Zero Float</span>
+                <span className="px-4 py-2 bg-verto-green/10 text-verto-green rounded-full font-medium text-sm">Low Cost</span>
+              </div>
+
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-6 py-3 bg-verto-green hover:bg-verto-green/90 text-white font-semibold rounded-lg transition-colors"
+              >
+                Get Distribution Playbook
+              </button>
+            </div>
+
+            {/* User Journey Diagram */}
+            <div className="lg:col-span-5">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Distribution Flow</h5>
+                
+                <div className="space-y-6">
+                  {/* Agent Setup */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                        <Users className="w-8 h-8 text-blue-600" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Agent</span>
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-slate-400" />
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-verto-green/10 rounded-xl flex items-center justify-center">
+                        <QrCode className="w-8 h-8 text-verto-green" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">QR Code</span>
+                    </div>
+                  </div>
+
+                  {/* Customer Flow */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center">
+                        <span className="text-2xl">💵</span>
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Cash In</span>
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-slate-400" />
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-verto-green/10 rounded-xl flex items-center justify-center">
+                        <Coins className="w-8 h-8 text-verto-green" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Mint</span>
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-slate-400" />
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center">
+                        <Smartphone className="w-8 h-8 text-purple-600" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Wallet</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Payments */}
+      <section className="py-20 bg-gradient-to-br from-purple-50/60 via-violet-50/50 to-fuchsia-50/40 dark:from-purple-900/20 dark:via-violet-900/10 dark:to-fuchsia-900/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Content */}
+            <div className="lg:col-span-7">
+              <div className="mb-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-verto-purple rounded-xl flex items-center justify-center mr-4">
+                    <CreditCard className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-semibold text-verto-purple uppercase tracking-wider">Section 2</span>
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Payments</h3>
+                  </div>
+                </div>
+                <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
+                  One-Tap Payments. Universal Acceptance.
+                </h4>
+                <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                  Our payment stack removes all blockchain friction from the checkout process. A single API integration lets Merchant Partners accept payments from any wallet, credit card, or exchange—from any chain and with any token.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                    <Store className="w-5 h-5 text-verto-purple mr-2" />
+                    Merchant Experience
+                  </h5>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-purple/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-purple">1</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Integrate Once:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Single API for web, POS, mobile</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-purple/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-purple">2</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Create Link:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Instant QR or payment link generation</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-purple/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-purple">3</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Receive Funds:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Instant routing and settlement</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                    <Smartphone className="w-5 h-5 text-verto-purple mr-2" />
+                    Customer Experience
+                  </h5>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-purple/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-purple">1</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Tap to Pay:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Scan QR or click payment link</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-purple/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-purple">2</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">Universal Funding:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Any token, any chain, one tap</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-verto-purple/20 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="text-xs font-bold text-verto-purple">3</span>
+                      </div>
+                      <div>
+                        <span className="font-medium text-slate-900 dark:text-white">No Gas Fees:</span>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Sponsored gas, seamless experience</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="px-4 py-2 bg-verto-purple/10 text-verto-purple rounded-full font-medium text-sm">Boost Conversion</span>
+                <span className="px-4 py-2 bg-verto-purple/10 text-verto-purple rounded-full font-medium text-sm">Drive Adoption</span>
+                <span className="px-4 py-2 bg-verto-purple/10 text-verto-purple rounded-full font-medium text-sm">Automated Back-Office</span>
+              </div>
+
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-6 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white font-semibold rounded-lg transition-colors"
+              >
+                See Payments Demo
+              </button>
+            </div>
+
+            {/* User Journey Diagram */}
+            <div className="lg:col-span-5">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Payment Flow</h5>
+                
+                <div className="space-y-6">
+                  {/* Payment Initiation */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                        <Smartphone className="w-8 h-8 text-blue-600" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">User Tap</span>
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-slate-400" />
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-verto-purple/10 rounded-xl flex items-center justify-center">
+                        <Zap className="w-8 h-8 text-verto-purple" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Smart Route</span>
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-slate-400" />
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                        <Store className="w-8 h-8 text-green-600" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Merchant</span>
+                    </div>
+                  </div>
+
+                  {/* Settlement Process */}
+                  <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-verto-purple/10 rounded-lg mx-auto flex items-center justify-center mb-2">
+                        <CheckCircle className="w-6 h-6 text-verto-purple" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Instant Settlement</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Compliance */}
+      <section className="py-20 bg-gradient-to-br from-blue-50/60 via-indigo-50/50 to-cyan-50/40 dark:from-blue-900/20 dark:via-indigo-900/10 dark:to-cyan-900/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Content */}
+            <div className="lg:col-span-7">
+              <div className="mb-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-verto-blue rounded-xl flex items-center justify-center mr-4">
+                    <Shield className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-semibold text-verto-blue uppercase tracking-wider">Section 3</span>
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Compliance</h3>
+                  </div>
+                </div>
+                <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
+                  AI-Powered Risk & Compliance for Institutional Scale.
+                </h4>
+                <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                  Our AI-powered compliance system turns the open blockchain into a regulator-ready operational backbone. It replaces manual, multi-week reviews with continuous, auditable automation.
+                </p>
+              </div>
+
+              <div className="space-y-6 mb-8">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
+                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                    <Database className="w-5 h-5 text-verto-blue mr-2" />
+                    Explainable Risk Ratings
+                  </h5>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">AI-generated Moody's-style risk scores for wallets, tokens, and protocols with full transparency and configurable risk appetites.</p>
+                </div>
+
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
+                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                    <Zap className="w-5 h-5 text-verto-blue mr-2" />
+                    Policy-Driven Routing
+                  </h5>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">Define compliance policies once. Routes are automatically evaluated against your policy engine and executed with sponsored gas.</p>
+                </div>
+
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
+                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                    <FileText className="w-5 h-5 text-verto-blue mr-2" />
+                    Real-Time Audit Trails
+                  </h5>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">End-to-end, time-stamped provenance for every risk decision, route choice, and counterparty approval—human-readable and cryptographically verifiable.</p>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 mb-8">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+                  <div className="flex items-center space-x-2">
+                    <Shield className="w-5 h-5 text-verto-blue" />
+                    <span className="font-medium text-slate-900 dark:text-white">CISO Trust</span>
+                  </div>
+                  <div className="hidden sm:block w-px h-6 bg-slate-300 dark:bg-gray-600"></div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-5 h-5 text-verto-green" />
+                    <span className="font-medium text-slate-900 dark:text-white">Regulatory Approval</span>
+                  </div>
+                  <div className="hidden sm:block w-px h-6 bg-slate-300 dark:bg-gray-600"></div>
+                  <div className="flex items-center space-x-2">
+                    <Zap className="w-5 h-5 text-verto-orange" />
+                    <span className="font-medium text-slate-900 dark:text-white">User Delight</span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-6 py-3 bg-verto-blue hover:bg-verto-blue/90 text-white font-semibold rounded-lg transition-colors"
+              >
+                Free Risk & Compliance Review →
+              </button>
+            </div>
+
+            {/* Compliance Dashboard Diagram */}
+            <div className="lg:col-span-5">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Compliance Dashboard</h5>
+                
+                <div className="space-y-4">
+                  {/* Issuance Transaction */}
+                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <Coins className="w-6 h-6 text-verto-green" />
+                      <div>
+                        <div className="font-medium text-slate-900 dark:text-white text-sm">Distribution Mint</div>
+                        <div className="text-xs text-slate-600 dark:text-slate-300">$10,000 • KYC Verified</div>
+                      </div>
+                    </div>
+                    <CheckCircle className="w-5 h-5 text-verto-green" />
+                  </div>
+
+                  {/* Payment Transaction */}
+                  <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <CreditCard className="w-6 h-6 text-verto-purple" />
+                      <div>
+                        <div className="font-medium text-slate-900 dark:text-white text-sm">Payment Route</div>
+                        <div className="text-xs text-slate-600 dark:text-slate-300">$500 • Risk Score: A+</div>
+                      </div>
+                    </div>
+                    <CheckCircle className="w-5 h-5 text-verto-green" />
+                  </div>
+
+                  {/* Trading Transaction */}
+                  <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <Database className="w-6 h-6 text-verto-blue" />
+                      <div>
+                        <div className="font-medium text-slate-900 dark:text-white text-sm">Liquidity Trade</div>
+                        <div className="text-xs text-slate-600 dark:text-slate-300">$25,000 • Policy Compliant</div>
+                      </div>
+                    </div>
+                    <CheckCircle className="w-5 h-5 text-verto-green" />
+                  </div>
+
+                  {/* Audit Report */}
+                  <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 mt-6">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-verto-blue/10 rounded-lg mx-auto flex items-center justify-center mb-2">
+                        <FileText className="w-6 h-6 text-verto-blue" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Single Auditable Report</span>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Real-time, regulator-ready</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -13,7 +13,7 @@ export default function PillarsSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="pillars-title">
-            The Three Pillars of Adoption. One Unified OS.
+            Three Pillars of Adoption. One Unified OS.
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed" data-testid="pillars-subtitle">
             Drive real-world usage with a complete operational stack for distribution, payments, and compliance.

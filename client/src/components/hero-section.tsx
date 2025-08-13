@@ -22,12 +22,12 @@ export default function HeroSection() {
         <div className="text-center">
           <div className="max-w-2xl mx-auto mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-               Institutional Infrastructure for Stablecoin Adoption
+              0 → Live Stablecoin Usage. <br/>In 90 days.
             </h1>
           </div>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed" data-testid="hero-subtitle">
-            Enable seamless distribution and payments across your network <br/> with fully automated compliance.</p>
+            Enable seamless distribution and payments across your network with fully automated compliance.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
