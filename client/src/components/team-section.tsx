@@ -10,12 +10,33 @@ export default function TeamSection() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="team-title">
-          Built for Institutions, by Institutional Leaders.          </h2>
+          Built by Money-Moving Experts</h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-           We built Verto to meet the uncompromising standards we demanded in our own careers.
-          </p>
+          We have built and secured the world's largest financial and technology networks.
+</p> 
         </div>
-
+        <div className="max-w-4xl mx-auto" data-testid="trust-logos">
+          <div className="flex justify-center items-center gap-x-8 md:gap-x-10 lg:gap-x-12 flex-wrap gap-y-10">
+            <div className="flex items-center justify-center h-8">
+              <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Federal Reserve</span>
+            </div>
+            <div className="flex items-center justify-center h-8">
+              <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">DTCC</span>
+            </div>
+            <div className="flex items-center justify-center h-8">
+              <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Moody's</span>
+            </div>
+            <div className="flex items-center justify-center h-8">
+              <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">PayPal</span>
+            </div>
+            <div className="flex items-center justify-center h-8">
+              <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Google</span>
+            </div>
+            <div className="flex items-center justify-center h-8">
+              <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Microsoft</span>
+            </div>
+          </div>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg text-center border border-slate-200 dark:border-gray-700" data-testid="team-david">
             <div className="w-16 h-16 rounded-lg overflow-hidden mx-auto mb-4">

@@ -22,14 +22,12 @@ export default function HeroSection() {
         <div className="text-center">
           <div className="max-w-2xl mx-auto mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-              The Institutional Operating System for Stablecoins
-
+               Institutional Infrastructure for Stablecoin Adoption
             </h1>
           </div>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed" data-testid="hero-subtitle">
-            Mint, move and monitor stablecoins on any chain — with retail reach and institutional trust.
-            </p>
+            Enable seamless distribution and payments across your network <br/> with fully automated compliance.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -49,31 +47,6 @@ export default function HeroSection() {
               Free Operations Review
               
             </button>
-          </div>
-
-          {/* Trust Logos - Balanced Spacing */}
-          <div className="max-w-4xl mx-auto" data-testid="trust-logos">
-            <p className="text-center text-slate-600 dark:text-slate-400 mb-4 text-sm font-medium">Built by leaders at</p>
-            <div className="flex justify-center items-center gap-x-8 md:gap-x-10 lg:gap-x-12 flex-wrap gap-y-4">
-              <div className="flex items-center justify-center h-8">
-                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Federal Reserve</span>
-              </div>
-              <div className="flex items-center justify-center h-8">
-                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">DTCC</span>
-              </div>
-              <div className="flex items-center justify-center h-8">
-                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Moody's</span>
-              </div>
-              <div className="flex items-center justify-center h-8">
-                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">PayPal</span>
-              </div>
-              <div className="flex items-center justify-center h-8">
-                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Google</span>
-              </div>
-              <div className="flex items-center justify-center h-8">
-                <span className="text-slate-700 dark:text-slate-300 font-semibold text-sm">Microsoft</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
