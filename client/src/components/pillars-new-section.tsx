@@ -99,10 +99,28 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-4 py-2 bg-verto-green/10 text-verto-green rounded-full font-medium text-sm">Mass Adoption</span>
-                <span className="px-4 py-2 bg-verto-green/10 text-verto-green rounded-full font-medium text-sm">Zero Float</span>
-                <span className="px-4 py-2 bg-verto-green/10 text-verto-green rounded-full font-medium text-sm">Low Cost</span>
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 mb-8">
+                <h5 className="font-semibold text-slate-900 dark:text-white mb-4">Key Benefits:</h5>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-verto-green/20 rounded-lg flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-verto-green" />
+                    </div>
+                    <span className="font-medium text-slate-900 dark:text-white">Mass Adoption: Scale distribution by leveraging existing retail networks</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-verto-green/20 rounded-lg flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-verto-green" />
+                    </div>
+                    <span className="font-medium text-slate-900 dark:text-white">Zero Float: Stablecoins minted on-demand, eliminating pre-funded treasury</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-verto-green/20 rounded-lg flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-verto-green" />
+                    </div>
+                    <span className="font-medium text-slate-900 dark:text-white">Low Cost: Integrate with existing infrastructure, no costly new hardware</span>
+                  </div>
+                </div>
               </div>
 
               <button
@@ -119,20 +137,29 @@ export default function PillarsSection() {
                 <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Distribution Flow</h5>
                 
                 <div className="space-y-6">
-                  {/* Agent Setup */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                        <Users className="w-8 h-8 text-blue-600" />
+                  {/* Agent Setup with Credit Line */}
+                  <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                          <Users className="w-7 h-7 text-blue-600" />
+                        </div>
+                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Agent</span>
                       </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Agent</span>
-                    </div>
-                    <ArrowRight className="w-6 h-6 text-slate-400" />
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-verto-green/10 rounded-xl flex items-center justify-center">
-                        <QrCode className="w-8 h-8 text-verto-green" />
+                      <ArrowRight className="w-5 h-5 text-slate-400" />
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                          <span className="text-lg">💰</span>
+                        </div>
+                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Credit Line</span>
                       </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">QR Code</span>
+                      <ArrowRight className="w-5 h-5 text-slate-400" />
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className="w-14 h-14 bg-verto-green/10 rounded-xl flex items-center justify-center">
+                          <QrCode className="w-7 h-7 text-verto-green" />
+                        </div>
+                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">QR Code</span>
+                      </div>
                     </div>
                   </div>
 
@@ -264,10 +291,28 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-4 py-2 bg-verto-purple/10 text-verto-purple rounded-full font-medium text-sm">Boost Conversion</span>
-                <span className="px-4 py-2 bg-verto-purple/10 text-verto-purple rounded-full font-medium text-sm">Drive Adoption</span>
-                <span className="px-4 py-2 bg-verto-purple/10 text-verto-purple rounded-full font-medium text-sm">Automated Back-Office</span>
+              <div className="bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-xl p-6 mb-8">
+                <h5 className="font-semibold text-slate-900 dark:text-white mb-4">Key Benefits:</h5>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-verto-purple/20 rounded-lg flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-verto-purple" />
+                    </div>
+                    <span className="font-medium text-slate-900 dark:text-white">Boost Conversion: One-tap user experience and sponsored gas fees drive higher completion rates</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-verto-purple/20 rounded-lg flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-verto-purple" />
+                    </div>
+                    <span className="font-medium text-slate-900 dark:text-white">Drive Adoption: Single API opens merchants to universal payment ecosystem</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-verto-purple/20 rounded-lg flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-verto-purple" />
+                    </div>
+                    <span className="font-medium text-slate-900 dark:text-white">Automated Back-Office: Handle reconciliation, chargebacks, and reporting automatically</span>
+                  </div>
+                </div>
               </div>
 
               <button
@@ -284,37 +329,46 @@ export default function PillarsSection() {
                 <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Payment Flow</h5>
                 
                 <div className="space-y-6">
-                  {/* Payment Initiation */}
+                  {/* Merchant Creates Payment */}
+                  <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 mb-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                          <Store className="w-7 h-7 text-blue-600" />
+                        </div>
+                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Merchant</span>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-slate-400" />
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className="w-14 h-14 bg-verto-purple/10 rounded-xl flex items-center justify-center">
+                          <QrCode className="w-7 h-7 text-verto-purple" />
+                        </div>
+                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Creates QR</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Customer Payment Flow */}
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                        <Smartphone className="w-8 h-8 text-blue-600" />
+                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                        <Smartphone className="w-8 h-8 text-green-600" />
                       </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">User Tap</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">User Scans</span>
                     </div>
                     <ArrowRight className="w-6 h-6 text-slate-400" />
                     <div className="flex flex-col items-center space-y-2">
                       <div className="w-16 h-16 bg-verto-purple/10 rounded-xl flex items-center justify-center">
-                        <Zap className="w-8 h-8 text-verto-purple" />
+                        <span className="text-2xl">👆</span>
                       </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Smart Route</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">One Tap</span>
                     </div>
                     <ArrowRight className="w-6 h-6 text-slate-400" />
                     <div className="flex flex-col items-center space-y-2">
                       <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
-                        <Store className="w-8 h-8 text-green-600" />
+                        <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Merchant</span>
-                    </div>
-                  </div>
-
-                  {/* Settlement Process */}
-                  <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-verto-purple/10 rounded-lg mx-auto flex items-center justify-center mb-2">
-                        <CheckCircle className="w-6 h-6 text-verto-purple" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Instant Settlement</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Payment Done</span>
                     </div>
                   </div>
                 </div>
@@ -354,7 +408,10 @@ export default function PillarsSection() {
                     <Database className="w-5 h-5 text-verto-blue mr-2" />
                     Explainable Risk Ratings
                   </h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">AI-generated Moody's-style risk scores for wallets, tokens, and protocols with full transparency and configurable risk appetites.</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">AI-generated Moody's-style risk scores for wallets, tokens, and protocols with full transparency and configurable risk appetites.</p>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                    <strong>What We Secure:</strong> Minting & On-Ramps - ensure compliant cash-to-stablecoin minting by enforcing KYC and AML policies at the point of cash-in.
+                  </div>
                 </div>
 
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
@@ -362,7 +419,10 @@ export default function PillarsSection() {
                     <Zap className="w-5 h-5 text-verto-blue mr-2" />
                     Policy-Driven Routing
                   </h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">Define compliance policies once. Routes are automatically evaluated against your policy engine and executed with sponsored gas.</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">Define compliance policies once. Routes are automatically evaluated against your policy engine and executed with sponsored gas.</p>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                    <strong>What We Secure:</strong> Payments - securely accept payments from any wallet on any chain. All payment routes evaluated against compliance policies in real-time.
+                  </div>
                 </div>
 
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
@@ -370,7 +430,10 @@ export default function PillarsSection() {
                     <FileText className="w-5 h-5 text-verto-blue mr-2" />
                     Real-Time Audit Trails
                   </h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">End-to-end, time-stamped provenance for every risk decision, route choice, and counterparty approval—human-readable and cryptographically verifiable.</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">End-to-end, time-stamped provenance for every risk decision, route choice, and counterparty approval—human-readable and cryptographically verifiable.</p>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                    <strong>What We Secure:</strong> Trading - facilitate compliant trading of stablecoins to and from any digital asset on any chain through policy-driven routing.
+                  </div>
                 </div>
               </div>
 

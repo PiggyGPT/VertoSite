@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div className="text-center">
           <div className="max-w-2xl mx-auto mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-              0 → Live Stablecoin Usage. <br/>In 90 days.
+              0 → Live Stablecoin Operations. <br/>In 90 days.
             </h1>
           </div>
           <div className="max-w-4xl mx-auto">
