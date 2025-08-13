@@ -19,8 +19,8 @@ export default function PillarsSection() {
         </p>
       </div>
 
-      {/* Section 1: Distribution */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50/60 via-green-50/50 to-teal-50/40 dark:from-emerald-900/20 dark:via-green-900/10 dark:to-teal-900/10">
+      {/* Distribution */}
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Content */}
@@ -30,10 +30,7 @@ export default function PillarsSection() {
                   <div className="w-12 h-12 bg-verto-green rounded-xl flex items-center justify-center mr-4">
                     <Coins className="w-6 h-6 text-white" />
                   </div>
-                  <div>
-                    <span className="text-sm font-semibold text-verto-green uppercase tracking-wider">Section 1</span>
-                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Distribution</h3>
-                  </div>
+                  <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Distribution</h3>
                 </div>
                 <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
                   Instant On-Ramps. No Treasury Float.
@@ -195,8 +192,8 @@ export default function PillarsSection() {
         </div>
       </section>
 
-      {/* Section 2: Payments */}
-      <section className="py-20 bg-gradient-to-br from-purple-50/60 via-violet-50/50 to-fuchsia-50/40 dark:from-purple-900/20 dark:via-violet-900/10 dark:to-fuchsia-900/10">
+      {/* Payments */}
+      <section className="py-24 bg-slate-50/50 dark:bg-gray-800/30">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Content */}
@@ -206,10 +203,7 @@ export default function PillarsSection() {
                   <div className="w-12 h-12 bg-verto-purple rounded-xl flex items-center justify-center mr-4">
                     <CreditCard className="w-6 h-6 text-white" />
                   </div>
-                  <div>
-                    <span className="text-sm font-semibold text-verto-purple uppercase tracking-wider">Section 2</span>
-                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Payments</h3>
-                  </div>
+                  <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Payments</h3>
                 </div>
                 <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
                   One-Tap Payments. Universal Acceptance.
@@ -382,8 +376,8 @@ export default function PillarsSection() {
         </div>
       </section>
 
-      {/* Section 3: Compliance */}
-      <section className="py-20 bg-gradient-to-br from-blue-50/60 via-indigo-50/50 to-cyan-50/40 dark:from-blue-900/20 dark:via-indigo-900/10 dark:to-cyan-900/10">
+      {/* Compliance */}
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Content */}
@@ -393,10 +387,7 @@ export default function PillarsSection() {
                   <div className="w-12 h-12 bg-verto-blue rounded-xl flex items-center justify-center mr-4">
                     <Shield className="w-6 h-6 text-white" />
                   </div>
-                  <div>
-                    <span className="text-sm font-semibold text-verto-blue uppercase tracking-wider">Section 3</span>
-                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Compliance</h3>
-                  </div>
+                  <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Compliance</h3>
                 </div>
                 <h4 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
                   AI-Powered Risk & Compliance for Institutional Scale.
