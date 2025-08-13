@@ -26,7 +26,7 @@ export default function PillarsSection() {
             {/* Content */}
             <div className="lg:col-span-7">
               <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-medium text-slate-900 dark:text-white mb-6">Instant on-ramps</h3>
+                <h3 className="text-4xl font-semibold text-slate-900 dark:text-white mb-6">Instant on-ramps</h3>
                 <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                   Cash-to-stablecoin minting at any point of value-in. Agent Partners—from retail kiosks to mobile operators—serve as cash-in points for your stablecoin.
                 </p>
@@ -88,32 +88,53 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <Users className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              <div className="mb-8">
+                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">What We Do Behind the Scenes</h5>
+                <div className="space-y-4 mb-8">
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Full Stack Integration</h6>
+                    <p className="text-slate-600 dark:text-slate-300">Our SDK embeds into terminals and apps, connecting to bank/cash APIs and your funding/reconciliation systems for real-time reconciliation.</p>
                   </div>
                   <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Mass Adoption</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Scale distribution by leveraging existing retail networks</p>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Orchestration</h6>
+                    <p className="text-slate-600 dark:text-slate-300">We create the deposit-backed credit token and link it to the single-use QR code.</p>
+                  </div>
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Compliance & Audit</h6>
+                    <p className="text-slate-600 dark:text-slate-300">Our platform enforces real-time KYC, counterparty limits, and records a cryptographic audit trail for every mint event.</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              </div>
+
+              <div className="mb-8">
+                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Key Benefits</h5>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <Users className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Mass Adoption</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Scale distribution by leveraging existing retail networks</p>
+                    </div>
                   </div>
-                  <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Zero Float</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">On-demand minting eliminates pre-funded treasury</p>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Zero Float</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">On-demand minting eliminates pre-funded treasury</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                  </div>
-                  <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Low Cost</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Integrate with existing infrastructure</p>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Low Cost</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Integrate with existing infrastructure</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -195,7 +216,7 @@ export default function PillarsSection() {
             {/* Content */}
             <div className="lg:col-span-7">
               <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-medium text-slate-900 dark:text-white mb-6">One-tap payments</h3>
+                <h3 className="text-4xl font-semibold text-slate-900 dark:text-white mb-6">One-tap payments</h3>
                 <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                   Payment stack removes all blockchain friction from checkout. Single API integration lets merchants accept payments from any wallet, credit card, or exchange.
                 </p>
@@ -275,32 +296,53 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              <div className="mb-8">
+                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">What We Do Behind the Scenes</h5>
+                <div className="space-y-4 mb-8">
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Payment Orchestration</h6>
+                    <p className="text-slate-600 dark:text-slate-300">Our system handles the entire payment journey, including instant routing, cross-chain conversions, and gas-free execution. This ensures a seamless flow from the user's payment to the merchant's settlement with automated reconciliation.</p>
                   </div>
                   <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Boost Conversion</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">One-tap UX and sponsored gas drive completion rates</p>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Non-Custodial</h6>
+                    <p className="text-slate-600 dark:text-slate-300">We never hold user funds, maintaining a secure and trustless system.</p>
+                  </div>
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Compliance & Audit</h6>
+                    <p className="text-slate-600 dark:text-slate-300">All payment routes and conversions are evaluated against your compliance policies in real-time. This ensures every transaction is safe and fully auditable from end to end.</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <Store className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              </div>
+
+              <div className="mb-8">
+                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Key Benefits</h5>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Boost Conversion</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">One-tap UX and sponsored gas drive completion rates</p>
+                    </div>
                   </div>
-                  <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Drive Adoption</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Single API opens universal payment ecosystem</p>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <Store className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Drive Adoption</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Single API opens universal payment ecosystem</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <FileText className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                  </div>
-                  <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Automated Back-Office</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Handle reconciliation and reporting automatically</p>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <FileText className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Automated Back-Office</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Handle reconciliation and reporting automatically</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -375,7 +417,7 @@ export default function PillarsSection() {
             {/* Content */}
             <div className="lg:col-span-7">
               <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-medium text-slate-900 dark:text-white mb-6">AI-powered compliance</h3>
+                <h3 className="text-4xl font-semibold text-slate-900 dark:text-white mb-6">AI-powered compliance</h3>
                 <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                   AI-powered compliance system turns open blockchain into regulator-ready operational backbone. Replaces manual, multi-week reviews with continuous, auditable automation.
                 </p>
@@ -472,32 +514,35 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <Shield className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              <div className="mb-8">
+                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Key Benefits</h5>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <Shield className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">CISO Trust</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Enterprise-grade security and risk management</p>
+                    </div>
                   </div>
-                  <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">CISO Trust</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Enterprise-grade security and risk management</p>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Regulatory Approval</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Audit-ready compliance and transparent controls</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                  </div>
-                  <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Regulatory Approval</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Audit-ready compliance and transparent controls</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                    <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                  </div>
-                  <div>
-                    <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">User Delight</h6>
-                    <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Seamless experience without compliance friction</p>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
+                      <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                    </div>
+                    <div>
+                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">User Delight</h6>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Seamless experience without compliance friction</p>
+                    </div>
                   </div>
                 </div>
               </div>
