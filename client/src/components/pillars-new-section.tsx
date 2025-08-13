@@ -99,26 +99,28 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 mb-8">
-                <h5 className="font-semibold text-slate-900 dark:text-white mb-4">Key Benefits:</h5>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-verto-green/20 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-verto-green" />
+              <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-6 mb-8 bg-slate-50/50 dark:bg-slate-800/50">
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <Users className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-medium text-slate-900 dark:text-white">Mass Adoption: Scale distribution by leveraging existing retail networks</span>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Mass Adoption</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Scale distribution by leveraging existing retail networks</p>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-verto-green/20 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-verto-green" />
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-medium text-slate-900 dark:text-white">Zero Float: Stablecoins minted on-demand, eliminating pre-funded treasury</span>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Zero Float</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">On-demand minting eliminates pre-funded treasury</p>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-verto-green/20 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-verto-green" />
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-medium text-slate-900 dark:text-white">Low Cost: Integrate with existing infrastructure, no costly new hardware</span>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Low Cost</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Integrate with existing infrastructure</p>
                   </div>
                 </div>
               </div>
@@ -291,26 +293,28 @@ export default function PillarsSection() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-xl p-6 mb-8">
-                <h5 className="font-semibold text-slate-900 dark:text-white mb-4">Key Benefits:</h5>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-verto-purple/20 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-verto-purple" />
+              <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-6 mb-8 bg-slate-50/50 dark:bg-slate-800/50">
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-purple rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-medium text-slate-900 dark:text-white">Boost Conversion: One-tap user experience and sponsored gas fees drive higher completion rates</span>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Boost Conversion</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">One-tap UX and sponsored gas drive completion rates</p>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-verto-purple/20 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-verto-purple" />
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-purple rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <Store className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-medium text-slate-900 dark:text-white">Drive Adoption: Single API opens merchants to universal payment ecosystem</span>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Drive Adoption</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Single API opens universal payment ecosystem</p>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-verto-purple/20 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-verto-purple" />
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-purple rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <FileText className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-medium text-slate-900 dark:text-white">Automated Back-Office: Handle reconciliation, chargebacks, and reporting automatically</span>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Automated Back-Office</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Handle reconciliation and reporting automatically</p>
                   </div>
                 </div>
               </div>
@@ -402,56 +406,119 @@ export default function PillarsSection() {
                 </p>
               </div>
 
-              <div className="space-y-6 mb-8">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
-                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
-                    <Database className="w-5 h-5 text-verto-blue mr-2" />
-                    Explainable Risk Ratings
-                  </h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">AI-generated Moody's-style risk scores for wallets, tokens, and protocols with full transparency and configurable risk appetites.</p>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
-                    <strong>What We Secure:</strong> Minting & On-Ramps - ensure compliant cash-to-stablecoin minting by enforcing KYC and AML policies at the point of cash-in.
+              <div className="mb-8">
+                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">How We Ensure Safe Operations</h5>
+                <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                  Our system integrates directly into your business logic, ensuring every transaction—from a cash deposit to a payment—is compliant from the start.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
+                        <Database className="w-4 h-4 text-verto-blue" />
+                      </div>
+                      Explainable Risk Ratings
+                    </h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Our AI generates clear, Moody's-style risk scores for wallets, tokens, and protocols. This model is fully transparent, providing the data lineage and rationale behind every score.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
+                        <Zap className="w-4 h-4 text-verto-blue" />
+                      </div>
+                      Policy-Driven Routing
+                    </h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Define your compliance policies once. Our system automatically enforces them by routing payments and trades to balance risk, latency, and slippage.
+                    </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
-                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
-                    <Zap className="w-5 h-5 text-verto-blue mr-2" />
-                    Policy-Driven Routing
-                  </h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">Define compliance policies once. Routes are automatically evaluated against your policy engine and executed with sponsored gas.</p>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
-                    <strong>What We Secure:</strong> Payments - securely accept payments from any wallet on any chain. All payment routes evaluated against compliance policies in real-time.
+                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">Auditability and Oversight</h5>
+                <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                  We provide the tools needed to satisfy regulators and build an ironclad audit trail.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
+                        <FileText className="w-4 h-4 text-verto-blue" />
+                      </div>
+                      Real-Time Audit Trails
+                    </h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Every decision, from a route choice to a counterparty approval, is logged in a time-stamped provenance. This record is human-readable and cryptographically verifiable.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
+                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
+                        <Shield className="w-4 h-4 text-verto-blue" />
+                      </div>
+                      Operational Controls
+                    </h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      Automate approvals, overrides, whitelists/blacklists, and escalation paths directly into your compliance dashboards.
+                    </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
-                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
-                    <FileText className="w-5 h-5 text-verto-blue mr-2" />
-                    Real-Time Audit Trails
-                  </h5>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">End-to-end, time-stamped provenance for every risk decision, route choice, and counterparty approval—human-readable and cryptographically verifiable.</p>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
-                    <strong>What We Secure:</strong> Trading - facilitate compliant trading of stablecoins to and from any digital asset on any chain through policy-driven routing.
+                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">What We Secure</h5>
+                <div className="grid md:grid-cols-3 gap-4 mb-8">
+                  <div className="bg-green-50 dark:bg-green-900/10 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                    <div className="flex items-center mb-2">
+                      <Coins className="w-5 h-5 text-verto-green mr-2" />
+                      <span className="font-medium text-slate-900 dark:text-white text-sm">Minting & On-Ramps</span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-300">Compliant cash-to-stablecoin minting with KYC and AML enforcement at point of cash-in</p>
+                  </div>
+                  
+                  <div className="bg-purple-50 dark:bg-purple-900/10 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
+                    <div className="flex items-center mb-2">
+                      <CreditCard className="w-5 h-5 text-verto-purple mr-2" />
+                      <span className="font-medium text-slate-900 dark:text-white text-sm">Payments</span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-300">Secure payments from any wallet on any chain with real-time compliance evaluation</p>
+                  </div>
+                  
+                  <div className="bg-blue-50 dark:bg-blue-900/10 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                    <div className="flex items-center mb-2">
+                      <Database className="w-5 h-5 text-verto-blue mr-2" />
+                      <span className="font-medium text-slate-900 dark:text-white text-sm">Trading</span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-300">Compliant stablecoin trading to any digital asset through policy-driven routing</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 mb-8">
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                  <div className="flex items-center space-x-2">
-                    <Shield className="w-5 h-5 text-verto-blue" />
-                    <span className="font-medium text-slate-900 dark:text-white">CISO Trust</span>
+              <div className="border border-slate-200 dark:border-slate-700 rounded-lg p-6 mb-8 bg-slate-50/50 dark:bg-slate-800/50">
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-blue rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-white" />
+                    </div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">CISO Trust</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Enterprise-grade security and risk management</p>
                   </div>
-                  <div className="hidden sm:block w-px h-6 bg-slate-300 dark:bg-gray-600"></div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-5 h-5 text-verto-green" />
-                    <span className="font-medium text-slate-900 dark:text-white">Regulatory Approval</span>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-green rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Regulatory Approval</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Audit-ready compliance and transparent controls</p>
                   </div>
-                  <div className="hidden sm:block w-px h-6 bg-slate-300 dark:bg-gray-600"></div>
-                  <div className="flex items-center space-x-2">
-                    <Zap className="w-5 h-5 text-verto-orange" />
-                    <span className="font-medium text-slate-900 dark:text-white">User Delight</span>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-verto-orange rounded-lg mx-auto mb-3 flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-white" />
+                    </div>
+                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">User Delight</h6>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Seamless experience without compliance friction</p>
                   </div>
                 </div>
               </div>
