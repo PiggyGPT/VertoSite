@@ -1,0 +1,51 @@
+Instant On-Ramps. No Treasury Float.
+
+Our system enables cash-to-stablecoin minting at any point of value-in. We empower Agent Partners—from retail kiosks to mobile operators—to serve as cash-in points for your stablecoin.
+
+How It Works: The Agent Onboarding Flow
+
+Agent Experience
+* Pre-fund: The agent establishes a deposit-backed credit line with you.
+* Create QR: The agent enters a cash amount on their terminal or app, instantly generating a unique QR code against their credit line.
+Customer Experience
+* Deposit & Scan: The customer hands over cash and scans the QR code.
+* Confirm: A single tap confirms the transaction. Wallet creation and minting happen simultaneously, gas-free, ensuring a seamless experience.
+What We Do Behind the Scenes
+* Full Stack Integration: Our SDK embeds into terminals and apps, connecting to bank/cash APIs and your funding/reconciliation systems for real-time reconciliation.
+* Orchestration: We create the deposit-backed credit token and link it to the single-use QR code.
+* Compliance & Audit: Our platform enforces real-time KYC, counterparty limits, and records a cryptographic audit trail for every mint event.
+
+Key Benefits
+
+* Mass Adoption: Scale distribution by leveraging existing retail networks.
+* Zero Float: Stablecoins are minted on-demand, eliminating the need for a massive, pre-funded treasury.
+* Low Cost: Integrate with existing infrastructure, requiring no costly new hardware.
+
+
+Section 2: Payments
+
+
+One-Tap Payments. Universal Acceptance.
+
+Our payment stack removes all blockchain friction from the checkout process. A single API integration lets Merchant Partners accept payments from any wallet, credit card, or exchange—from any chain and with any token.
+
+How It Works: The Merchant Payment Flow
+
+Merchant Experience
+* Integrate Once: A single API connects to the merchant's web, POS, or mobile app.
+* Create Link: The system instantly generates a dynamic QR code or payment link.
+* Receive Funds: Funds are instantly routed and settled.
+Customer Experience
+* Tap to Pay: The user scans the QR or clicks the payment link.
+* Universal Funding: They pay with their preferred method (any token, any chain) with a single tap.
+* No Gas Fees: We sponsor gas fees on every chain, making the experience truly seamless.
+What We Do Behind the Scenes
+* Payment Orchestration: Our system handles the entire payment journey, including instant routing, cross-chain conversions, and gas-free execution. This ensures a seamless flow from the user's payment to the merchant's settlement with automated reconciliation.
+* Non-Custodial: We never hold user funds, maintaining a secure and trustless system.
+* Compliance & Audit: All payment routes and conversions are evaluated against your compliance policies in real-time. This ensures every transaction is safe and fully auditable from end to end.
+
+Key Benefits
+
+* Boost Conversion: A one-tap user experience and sponsored gas fees drive higher completion rates.
+* Drive Adoption: A single API opens merchants to a universal payment ecosystem.
+* Automated Back-Office: We handle reconciliation, chargebacks, and reporting, saving time and money.
