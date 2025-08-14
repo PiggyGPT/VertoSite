@@ -1,207 +1,180 @@
-import { useState } from "react";
-import { 
-    Users, Rocket, Terminal, 
-    Zap, Store, FileText, 
-    ShieldCheck, BarChart3, SlidersHorizontal, 
-    ArrowRightLeft, Database, GitBranch,
-    Clock, Globe, LifeBuoy, CreditCard, Lock, ArrowRight, Coins, Shield
+import { useState, useEffect } from "react";
+import {
+    Users, Rocket, Terminal,
+    Zap, Store, Archive,
+    ShieldCheck, BarChart3, SlidersHorizontal,
+    Database, GitBranch,
+    LifeBuoy, Lock, ArrowRight, Coins, Shield, MessageCircle,
+    CheckCircle2, Landmark, History, Link, Clock, Plus,
+    Settings, Gauge, Network, Server, Globe
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
-// --- Polished Visual Components ---
-
-// Helper component for styled feature list items
-const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) => (
-  <div className="flex items-start space-x-4 group">
-    <div className="flex-shrink-0 w-11 h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center
-      transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20">
-      <Icon className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-all duration-300 group-hover:text-verto-blue" />
-    </div>
-    <div>
-      <h4 className="text-md font-semibold text-slate-900 dark:text-white">{title}</h4>
-      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p>
-    </div>
-  </div>
-);
-
-/**
- * A reusable, high-fidelity iPhone mockup frame to ensure a consistent, premium look.
- */
-const IphoneFrame = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
-    <div className={`relative aspect-[9/19.5] w-[280px] bg-black rounded-[44px] shadow-2xl p-1.5 border-2 border-gray-800 group ${className}`}>
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-b-xl z-20"></div>
-        <div className="absolute -left-1 top-24 w-1 h-20 bg-gray-800 rounded-l-md"></div>
-        <div className="absolute -right-1 top-28 w-1 h-24 bg-gray-800 rounded-r-md"></div>
-        <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[36px] overflow-hidden">
+// --- Foundational Visual Component ---
+const VisualContainer = ({ children }: { children: React.ReactNode }) => (
+    <div className="relative bg-slate-50 dark:bg-slate-900/50 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden min-h-[480px] flex items-center justify-center perspective-1000">
+        <div className="absolute inset-0 bg-[radial-gradient(theme(colors.slate.200),transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] dark:bg-[radial-gradient(theme(colors.slate.700),transparent_1px)]"></div>
+        <div className="relative w-full">
             {children}
         </div>
     </div>
 );
 
-/**
- * VISUAL 1: Polished Distribution Flow
- * Features two detailed iPhone mockups for the Agent and Customer sides of the minting process.
- */
-const PolishedDistributionFlow = () => (
-    <div className="flex justify-center items-center gap-6 lg:gap-8 flex-col sm:flex-row perspective-1000">
-        <IphoneFrame className="transition-transform duration-500 transform-style-3d group-hover:-translate-x-2 group-hover:-rotate-y-4">
-            <div className="p-4 bg-slate-50 dark:bg-slate-900 h-full text-slate-800 dark:text-slate-200 flex flex-col font-sans">
-                <h3 className="font-bold text-center text-lg">Agent Terminal</h3>
-                <div className="my-8 text-center">
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
-                    <p className="text-5xl font-bold text-verto-green tracking-tight">$4,950.00</p>
-                </div>
-                <button className="w-full mt-4 py-3 bg-verto-green/10 text-verto-green font-semibold rounded-lg hover:bg-verto-green/20 transition-colors text-lg">
-                    Deposit Funds
-                </button>
-                <div className="mt-auto">
-                    <h4 className="font-semibold text-sm mb-2">Transaction History</h4>
-                    <div className="space-y-2 text-xs">
-                        <div className="flex justify-between p-2.5 bg-white dark:bg-slate-800 rounded-md shadow-sm"><span className="font-medium">Mint #3456</span><span className="font-mono text-green-500 font-semibold">+ $50.00</span></div>
-                        <div className="flex justify-between p-2.5 bg-white dark:bg-slate-800 rounded-md shadow-sm"><span className="font-medium">Mint #3455</span><span className="font-mono text-green-500 font-semibold">+ $100.00</span></div>
-                    </div>
-                </div>
-            </div>
-        </IphoneFrame>
-        <IphoneFrame className="transition-transform duration-500 transform-style-3d group-hover:translate-x-2 group-hover:rotate-y-4">
-            <div className="p-4 bg-white dark:bg-slate-900 h-full flex flex-col items-center justify-center text-center font-sans">
-                 <h3 className="font-bold text-2xl text-slate-800 dark:text-slate-200">Mint Stablecoin</h3>
-                 <div className="my-6 p-4 bg-white rounded-2xl shadow-lg border">
-                     <QRCodeSVG value="https://verto.exchange/mint?amount=50.00" size={160} fgColor="#059669" />
-                 </div>
-                 <p className="text-4xl font-bold text-slate-900 dark:text-white">$50.00</p>
-                 <p className="text-md text-slate-500 dark:text-slate-400 mt-1">Scan to receive USDC</p>
-            </div>
-        </IphoneFrame>
-    </div>
-);
 
-/**
- * VISUAL 2: Polished Payments Flow
- * Meticulously crafted based on your CSS to create a premium, Stripe-like checkout experience.
- */
-const PolishedPaymentsFlow = () => (
-    <div className="flex justify-center items-center gap-6 lg:gap-8 flex-col sm:flex-row perspective-1000">
-        <IphoneFrame className="transition-transform duration-500 transform-style-3d group-hover:-translate-x-2 group-hover:-rotate-y-4">
-            <div className="p-4 bg-white dark:bg-slate-900 h-full flex flex-col items-center justify-center text-center font-sans">
-                 <h3 className="font-bold text-2xl text-slate-800 dark:text-slate-200">Merchant POS</h3>
-                 <p className="text-md text-slate-500 dark:text-slate-400 mt-2">Requesting Payment</p>
-                 <p className="text-7xl font-bold text-slate-900 dark:text-white my-8 tracking-tight">$25.99</p>
-                 <div className="p-3 bg-white rounded-xl shadow-lg border">
-                     <QRCodeSVG value="https://verto.exchange/pay?merchant=acme&amount=25.99" size={140} fgColor="#7c3aed" />
-                 </div>
-            </div>
-        </IphoneFrame>
-        <IphoneFrame className="w-[375px] h-[812px] transition-transform duration-500 transform-style-3d group-hover:translate-x-2 group-hover:rotate-y-4">
-            <div className="h-full flex flex-col bg-white font-['Montserrat']">
-                {/* Header Section */}
-                <div className="relative h-[292px] bg-[#034DE5] flex flex-col items-center justify-center text-white rounded-b-[20px]">
-                    <div className="absolute inset-0 bg-black/10" style={{backdropFilter: 'blur(2px)'}}></div>
-                    <div className="relative flex items-center gap-5">
-                        <img src="/logo-placeholder-white.svg" alt="Verto Logo" className="h-[70px] w-[70px] rounded-full bg-white/20 p-2 ring-4 ring-white/30" />
-                        <div className="text-left">
-                            <p className="font-semibold text-sm leading-tight">Pay Verto Inc.</p>
-                            <p className="text-4xl font-bold tracking-tight">$25.99</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Body / Payment Selection */}
-                <div className="flex-grow p-5 flex flex-col gap-5">
-                    <div>
-                        <label className="pl-1 font-semibold text-sm text-black/60">Pay with</label>
-                        <div className="mt-2 p-3 bg-[#E9EDFC] rounded-xl flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <div className="p-2 bg-black/5 rounded-lg">
-                                    <Coins className="w-6 h-6 text-[#006DFF]" />
-                                </div>
-                                <span className="font-semibold text-sm text-[#13142B]">USDC Wallet</span>
-                            </div>
-                            <span className="font-bold text-2xl text-[#13142B]">25.99</span>
-                        </div>
-                         <p className="text-right text-xs mt-1 pr-1 text-black/60">Balance: 5,102.50 USDC</p>
-                    </div>
-
-                    <div className="p-3 bg-slate-100 rounded-xl flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <div className="p-2 bg-black/5 rounded-lg">
-                                <CreditCard className="w-6 h-6 text-slate-500" />
-                            </div>
-                            <span className="font-semibold text-sm text-[#13142B]">Credit Card</span>
-                        </div>
-                        <span className="font-semibold text-sm text-slate-400">···4242</span>
-                    </div>
-
-                    <div className="flex-grow"></div>
-
-                    <button className="w-full py-4 bg-[#4E71E4] text-white font-semibold rounded-xl text-lg hover:bg-opacity-90 transition-all duration-300 shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_0_rgb(0,118,255,23%)]">
-                        Pay $25.99
-                    </button>
-                    <p className="text-center text-xs text-slate-400 mt-3 flex items-center justify-center gap-2">
-                        <Lock className="w-3 h-3"/> Secured by Verto
-                    </p>
-                </div>
-            </div>
-        </IphoneFrame>
-    </div>
-);
-
-/**
- * VISUAL 3: Polished Liquidity Flow
- * A clean, intuitive diagram showing Verto's smart routing capabilities.
- */
-const PolishedLiquidityFlow = () => {
-    const protocols = [
-        { name: 'Uniswap', icon: '🦄' },
-        { name: 'Curve', icon: ' Curve' },
-        { name: 'Aave', icon: '👻' },
-        { name: '1inch', icon: '🦄' },
-    ];
+// --- REVISED VISUAL 1: Distribution (Stripe-like Polish) ---
+const ExecutiveDistributionFlow = () => {
     return (
-        <div className="relative bg-slate-100/50 dark:bg-slate-800/30 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(#d1d5db,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] dark:bg-[radial-gradient(#475569,transparent_1px)]"></div>
-            <div className="relative flex flex-col md:flex-row items-center justify-around gap-8 text-center">
-                
-                {/* Left Side: Your Stack */}
-                <div className="flex flex-col items-center gap-4">
-                    <div className="p-4 bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 w-48">
-                        <Database className="w-8 h-8 mx-auto text-verto-blue"/>
-                        <h4 className="font-semibold mt-2">Your Application</h4>
-                        <p className="text-xs font-mono mt-1 text-slate-500 dark:text-slate-400">swap(ETH, USDC)</p>
-                    </div>
-                </div>
-
-                {/* Middle: Arrow and Router */}
-                <div className="flex flex-col items-center">
-                    <ArrowRight className="w-12 h-12 text-slate-300 dark:text-slate-600 my-4 md:my-0 md:mx-6 transform md:-rotate-0 rotate-90" />
-                </div>
-                
-                <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 flex flex-col items-center w-64">
-                    <div className="p-3 bg-verto-blue/10 rounded-full">
-                        <GitBranch className="w-10 h-10 text-verto-blue"/>
-                    </div>
-                    <h3 className="text-xl font-bold mt-3 text-verto-blue">Verto Smart Router</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Routes to best-price execution venue</p>
-                </div>
-
-                {/* Right Side: Protocols */}
-                <div className="grid grid-cols-2 gap-4">
-                     {protocols.map((p, i) => (
-                        <div key={p.name} className={`p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg border-2 transition-all duration-300 ${i === 0 ? 'border-verto-blue' : 'border-slate-200 dark:border-slate-700'}`}>
-                            <span className="text-2xl">{p.icon}</span>
-                            <p className="font-semibold text-sm mt-1">{p.name}</p>
+        <VisualContainer>
+            <div className="flex justify-center items-stretch gap-4 lg:gap-6 flex-col md:flex-row">
+                {/* Panel 1: Agent Dashboard */}
+                <div className="bg-white dark:bg-slate-900 w-full md:w-3/5 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2">
+                    <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+                        <div>
+                            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Agent Portal</h3>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">Mayflower Corner Store</p>
                         </div>
-                     ))}
+                        <Settings className="w-5 h-5 text-slate-400" />
+                    </div>
+                    <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
+                                <p className="text-2xl font-bold text-verto-green tracking-tight">$4,950.00</p>
+                            </div>
+                            <button className="p-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 rounded-full transition-colors">
+                                <Plus className="w-5 h-5" />
+                            </button>
+                        </div>
+                    </div>
+                    <button className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform hover:scale-105">
+                        <Zap className="w-4 h-4" />
+                        <span>Create Payment Voucher</span>
+                    </button>
+                    <div className="flex-grow">
+                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4"/> Recent Transactions</p>
+                        <div className="space-y-2 text-sm">
+                             <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                 <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
+                                 <span className="font-mono font-medium text-green-500">+ $5,000</span>
+                             </div>
+                             <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                 <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
+                                 <span className="font-mono font-medium text-slate-700 dark:text-slate-300">- $50.00</span>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+
+                {/* Panel 2: POS Voucher */}
+                <div className="bg-white w-full md:w-2/5 rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center text-black transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 font-mono">
+                     <h3 className="font-bold text-lg">Mayflower Corner Store</h3>
+                     <p className="text-xs text-slate-500">14 AUG 2025, 09:48:12</p>
+                     <p className="text-xs text-slate-500">VOUCHER #8721</p>
+                     <div className="my-4 border-t border-dashed border-slate-300 w-full"></div>
+                     <p className="text-sm">AMOUNT</p>
+                     <p className="text-4xl font-bold my-2">$50.00</p>
+                     <p className="text-sm font-sans font-semibold">Scan to Claim Digital Dollars</p>
+                     <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200">
+                         <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} />
+                     </div>
+                     <div className="mt-4 border-t border-dashed border-slate-300 w-full"></div>
+                     <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
                 </div>
             </div>
-        </div>
+        </VisualContainer>
     );
 };
 
-/**
- * VISUAL 4: Polished Compliance Flow
- * A sophisticated compliance dashboard showing AI-powered risk analysis.
- */
+
+// --- REVISED VISUAL 2: Payments (Stripe-like Polish) ---
+const PolishedPaymentsFlow = () => (
+    <div className="w-full max-w-sm mx-auto bg-slate-100 dark:bg-black rounded-[40px] shadow-2xl p-4 border-8 border-slate-300 dark:border-slate-700 transform-style-3d hover:-translate-y-2 transition-transform duration-500">
+        <div className="bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden">
+            <div className="p-6 text-center border-b border-slate-200 dark:border-slate-800">
+                <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Pay Mayflower Corner Store</p>
+                <p className="text-5xl font-bold text-slate-900 dark:text-white mt-2">12,000<span className="text-3xl text-slate-400 ml-1">BOBC</span></p>
+            </div>
+            <div className="p-6 space-y-4">
+                <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border-2 border-verto-purple/50">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm">MS</div>
+                        <div>
+                            <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">BOBC Balance</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">11,203.10 Available</p>
+                        </div>
+                    </div>
+                    <CheckCircle2 className="w-5 h-5 text-verto-purple" />
+                </div>
+                <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                        <Landmark className="w-8 h-8 text-slate-400 dark:text-slate-500 p-1" />
+                        <div>
+                            <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">HSBC Bank</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">SEPA Transfer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="p-6 bg-slate-50 dark:bg-slate-900/50">
+                <button className="w-full py-4 bg-verto-purple hover:bg-verto-purple/90 text-white font-bold rounded-xl transition-transform hover:scale-105 text-lg">
+                    <div className="flex items-center justify-center">
+                        <Lock className="w-4 h-4 mr-2" />
+                        <span>Confirm & Pay 12,000 BOBC</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+);
+
+
+// --- REVISED VISUAL 3: Liquidity (Dynamic Pipeline) ---
+const ExecutiveLiquidityFlow = () => {
+    const FlowStep = ({ icon: Icon, title, children, status }: { icon: React.ElementType, title: string, children: React.ReactNode, status?: 'complete' | 'active' | 'pending' }) => (
+        <div className="flex flex-col items-center text-center">
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${status === 'complete' ? 'bg-verto-blue/10 border-verto-blue' : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
+                <Icon className={`w-6 h-6 ${status === 'complete' ? 'text-verto-blue' : 'text-slate-400'}`} />
+            </div>
+            <h4 className="font-semibold text-sm text-slate-900 dark:text-white mt-3">{title}</h4>
+            <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{children}</div>
+        </div>
+    );
+
+    return (
+        <VisualContainer>
+            <div className="flex items-start justify-between space-x-4 md:space-x-8 relative w-full px-4">
+                {/* Connector Lines */}
+                <div className="absolute top-6 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-700">
+                    <div className="absolute top-0 left-0 h-0.5 bg-verto-blue w-2/3 animate-pulse"></div>
+                </div>
+
+                <div className="relative z-10 w-1/4">
+                    <FlowStep icon={Terminal} title="Request" status="complete">
+                        25,000 USDC → BOBC
+                    </FlowStep>
+                </div>
+                <div className="relative z-10 w-1/4">
+                    <FlowStep icon={GitBranch} title="Smart Route" status="complete">
+                        Path: CCTP → CoW Swap
+                    </FlowStep>
+                </div>
+                <div className="relative z-10 w-1/4">
+                     <FlowStep icon={ShieldCheck} title="Signatures" status="active">
+                        2 of 3 Approved
+                    </FlowStep>
+                </div>
+                <div className="relative z-10 w-1/4">
+                    <FlowStep icon={CheckCircle2} title="Execution" status="pending">
+                        Pending...
+                    </FlowStep>
+                </div>
+            </div>
+        </VisualContainer>
+    );
+};
+
+
+// --- VISUAL 4: Compliance (Unchanged but included for completeness) ---
 const PolishedComplianceFlow = () => (
     <div className="relative bg-slate-100/50 dark:bg-slate-800/30 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#d1d5db,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] dark:bg-[radial-gradient(#475569,transparent_1px)]"></div>
@@ -215,19 +188,17 @@ const PolishedComplianceFlow = () => (
                     <p className="text-sm text-slate-500 dark:text-slate-400">Real-time risk assessment and policy enforcement</p>
                 </div>
             </div>
-            
-            {/* Risk Assessment Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700">
                     <div className="flex items-center justify-between mb-4">
-                        <h4 className="font-semibold text-slate-900 dark:text-white">Transaction Analysis</h4>
+                        <h4 className="font-semibold text-slate-900 dark:text-white">Risk Review</h4>
                         <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded-full">LOW RISK</span>
                     </div>
                     <div className="space-y-3">
                         <div>
                             <div className="flex justify-between text-sm mb-1">
-                                <span className="text-slate-600 dark:text-slate-400">Wallet Score</span>
-                                <span className="font-mono text-green-600 dark:text-green-400">A+</span>
+                                <span className="text-slate-600 dark:text-slate-400">Transaction Score</span>
+                                <span className="font-mono text-green-600 dark:text-green-400">AA</span>
                             </div>
                             <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
                                 <div className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full" style={{width: '92%'}}></div>
@@ -236,228 +207,155 @@ const PolishedComplianceFlow = () => (
                         <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                             0x1a2b...3c4d • $25,000 • Clean History
                         </div>
+                        <div className="pt-2">
+                            <button className="flex items-center justify-center w-full space-x-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200">
+                                <MessageCircle className="w-5 h-5 text-verto-blue"/>
+                                <span>Chat with AI</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                
                 <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700">
                     <div className="flex items-center justify-between mb-4">
                         <h4 className="font-semibold text-slate-900 dark:text-white">Policy Engine</h4>
                         <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold rounded-full">APPROVED</span>
                     </div>
                     <div className="space-y-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                        <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded">
-                            IF amount &gt; $10k AND risk &gt; B+
-                        </div>
-                        <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded">
-                            THEN require_manual_approval
-                        </div>
+                        <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded">IF amount > $10k AND risk > BBB</div>
+                        <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded">THEN require_manual_approval</div>
                         <div className="text-green-600 dark:text-green-400 font-semibold">✓ Conditions satisfied</div>
                     </div>
                 </div>
             </div>
-            
-            {/* Audit Trail */}
-            <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700">
-                <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Compliance Audit Trail</h4>
-                <div className="space-y-3">
-                    {[
-                        { id: 'TXN_45b31', action: 'Risk Assessment', status: 'VERIFIED', time: '14:32:15' },
-                        { id: 'POL_92a83', action: 'Policy Check', status: 'PASSED', time: '14:32:16' },
-                        { id: 'AUD_73c91', action: 'Audit Log', status: 'RECORDED', time: '14:32:17' }
-                    ].map(item => (
-                        <div key={item.id} className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                            <div className="flex items-center space-x-3">
-                                <FileText className="w-4 h-4 text-verto-blue"/>
-                                <div>
-                                    <span className="font-medium text-sm text-slate-900 dark:text-white">{item.action}</span>
-                                    <p className="text-xs font-mono text-slate-500 dark:text-slate-400">{item.id}</p>
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <span className="text-xs font-bold text-green-600 dark:text-green-400">{item.status}</span>
-                                <p className="text-xs text-slate-500 dark:text-slate-400">{item.time}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
         </div>
     </div>
 );
 
-/**
- * VISUAL 5: Polished Service Flow
- * A sophisticated global view with animated clocks to showcase 24/7 operations.
- */
-const PolishedServiceFlow = () => (
-    <div className="relative bg-slate-100/50 dark:bg-slate-800/30 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-        <img src="/world-map.svg" alt="World map" className="absolute inset-0 w-full h-full object-cover opacity-10 dark:opacity-20" />
-        <div className="relative z-10 text-center">
-            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Follow-the-Sun Global Operations</h3>
-            <p className="mt-1 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Our embedded experts provide 24/7 strategic intelligence and platform monitoring across all time zones.</p>
-            
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
-                {[
-                    { city: 'New York', time: '09:30', offset: 165 }, 
-                    { city: 'Barcelona', time: '15:30', offset: 270 }, 
-                    { city: 'Singapore', time: '21:30', offset: 30 }
-                ].map(loc => (
-                    <div key={loc.city} className="flex flex-col items-center p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl shadow-lg backdrop-blur-sm border border-white/50 dark:border-slate-700/50">
-                        <div className="relative w-28 h-28">
-                            <div className="w-full h-full rounded-full bg-white dark:bg-slate-800 border-4 border-slate-200 dark:border-slate-700 flex items-center justify-center">
-                                 <div className="absolute w-0.5 h-10 bg-slate-400 rounded-full origin-bottom" style={{ transform: `rotate(${loc.offset}deg)` }}></div>
-                                 <div className="absolute w-1 h-8 bg-slate-700 dark:bg-slate-200 rounded-full origin-bottom" style={{ transform: `rotate(${loc.offset * 2}deg)` }}></div>
-                                 <div className="w-2 h-2 bg-slate-800 dark:bg-white rounded-full z-10"></div>
-                            </div>
-                        </div>
-                        <p className="mt-4 font-semibold text-lg text-slate-800 dark:text-slate-200">{loc.city}</p>
-                        <p className="text-xl font-bold text-verto-cyan">{loc.time}</p>
-                    </div>
-                ))}
+
+// --- REVISED VISUAL 5: Service (Dynamic Monitoring) ---
+const ServiceTeamPod = ({ region, timeZone, position }: { region: string, timeZone: string, position: React.CSSProperties }) => {
+    const [time, setTime] = useState("00:00");
+    useEffect(() => {
+        const timerId = setInterval(() => {
+            setTime(new Date().toLocaleTimeString("en-GB", { timeZone, hour: '2-digit', minute: '2-digit' }));
+        }, 1000 * 60);
+        setTime(new Date().toLocaleTimeString("en-GB", { timeZone, hour: '2-digit', minute: '2-digit' }));
+        return () => clearInterval(timerId);
+    }, [timeZone]);
+
+    return (
+        <div className="absolute z-20 w-40" style={position}>
+            <div className="flex flex-col items-center text-center p-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200/50 dark:border-slate-700/50 transform-style-3d transition-transform duration-500 hover:scale-110">
+                <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">{region}</p>
+                <p className="font-mono text-2xl font-bold text-slate-900 dark:text-white">{time}</p>
+                <span className="text-xs text-verto-cyan font-semibold flex items-center gap-1.5 mt-1">
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-verto-cyan opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-verto-cyan"></span>
+                    </span>
+                    Monitoring
+                </span>
             </div>
         </div>
-    </div>
+    );
+};
+const ExecutiveServiceFlow = () => (
+    <VisualContainer>
+        <div className="relative w-full h-[500px] flex items-center justify-center">
+            <div className="absolute flex items-center justify-center">
+                <div className="absolute w-48 h-48 bg-verto-cyan/5 rounded-full animate-pulse"></div>
+                <div className="absolute w-72 h-72 bg-verto-cyan/5 rounded-full animate-pulse [animation-delay:0.5s]"></div>
+                <div className="absolute w-96 h-96 bg-verto-cyan/5 rounded-full animate-pulse [animation-delay:1s]"></div>
+                <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-56 h-40 transform-style-3d hover:scale-105 transition-transform">
+                    <div className="p-3 bg-verto-cyan/10 rounded-full w-fit mb-2"><ShieldCheck className="w-10 h-10 text-verto-cyan" /></div>
+                    <h3 className="font-bold text-slate-900 dark:text-white">Sovereign Infrastructure</h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">On-Prem / Private Cloud</p>
+                </div>
+            </div>
+            <ServiceTeamPod region="New York" timeZone="America/New_York" position={{ top: '10%', left: '5%' }} />
+            <ServiceTeamPod region="Barcelona" timeZone="Europe/Amsterdam" position={{ top: '10%', right: '5%' }} />
+            <ServiceTeamPod region="Singapore" timeZone="Asia/Singapore" position={{ bottom: '10%', left: '50%', transform: 'translateX(-50%)' }} />
+        </div>
+    </VisualContainer>
+);
+
+
+// --- Main Section Component ---
+const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) => (
+    <div className="flex items-start space-x-4 group"><div className="flex-shrink-0 w-11 h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20"><Icon className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-all duration-300 group-hover:text-verto-blue" /></div><div><h4 className="text-md font-semibold text-slate-900 dark:text-white">{title}</h4><p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p></div></div>
 );
 
 export default function PillarsSection() {
-  const [activeTab, setActiveTab] = useState("distribution");
+    const [activeTab, setActiveTab] = useState("distribution");
 
-  const pillars = {
-    distribution: {
-      label: "Distribution",
-      color: "verto-green",
-      title: "On-Demand Minting",
-      description: "Instantly turn cash into stablecoins at any retail point. Our platform equips agent partners, from kiosks to mobile operators, to serve as on-ramps for your digital currency.",
-      visual: <PolishedDistributionFlow />,
-      features: [
-        { icon: Users, title: "Leverage Existing Networks", description: "Scale adoption by activating vast, pre-existing retail and agent networks without new infrastructure." },
-        { icon: Rocket, title: "Zero Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." },
-        { icon: Terminal, title: "Unified SDKs", description: "A single, simple integration for agent terminals, mobile apps, and backend reconciliation systems." },
-      ],
-      cta: "Get Distribution Playbook",
-    },
-    payments: {
-      label: "Payments",
-      color: "verto-purple",
-      title: "Frictionless Checkout",
-      description: "Our stack removes all blockchain complexity from payments. A single API lets merchants accept your stablecoin from any wallet, bank, or exchange, seamlessly.",
-      visual: <PolishedPaymentsFlow />,
-      features: [
-        { icon: Zap, title: "Boost Conversion Rates", description: "One-tap UX with sponsored gas fees removes friction and dramatically increases payment completion rates." },
-        { icon: Store, title: "Universal Acceptance", description: "A single API unlocks a universal payment ecosystem, driving utility and adoption for your stablecoin." },
-        { icon: FileText, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically, reducing operational overhead." },
-      ],
-      cta: "Explore Payments API",
-    },
-    liquidity: {
-      label: "Liquidity",
-      color: "verto-blue",
-      title: "Universal Liquidity Access",
-      description: "The on-chain market is complex and fragmented. Our single API provides a unified entry point to the entire ecosystem, automatically routing requests for optimal price, latency, and risk.",
-      visual: <PolishedLiquidityFlow />,
-      features: [
-        { icon: GitBranch, title: "Smart Order Routing", description: "Our engine automatically routes every request to the best liquidity source across multiple protocols and chains." },
-        { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Our self-hosted layer integrates with your existing custody stack, so your assets and keys never leave your control." },
-        { icon: FileText, title: "Compliant, Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that enforces your predefined policies." },
-      ],
-      cta: "Integrate Liquidity API",
-    },
-    compliance: {
-      label: "Compliance",
-      color: "verto-blue",
-      title: "AI-Powered Compliance",
-      description: "Verto's AI engine replaces manual, periodic counterparty audits with continuous, explainable, and automated oversight across your entire ecosystem.",
-      visual: <PolishedComplianceFlow />,
-      features: [
-        { icon: BarChart3, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every wallet, token, and protocol, with full data lineage." },
-        { icon: SlidersHorizontal, title: "Policy-Driven Routing", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." },
-        { icon: Shield, title: "Compliance Automation", description: "Generate human-readable, cryptographically verifiable logs of every compliance decision for regulators." },
-      ],
-      cta: "Request Compliance Demo",
-    },
-    service: {
-      label: "Service",
-      color: "verto-cyan",
-      title: "24/7 Global Operations",
-      description: "Our unique service model provides continuous vigilance on top of your self-hosted platform. You control your infrastructure; our expert teams ensure your operational integrity.",
-      visual: <PolishedServiceFlow />,
-      features: [
-        { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment (on-prem or cloud) so your keys and data never leave your secure perimeter." },
-        { icon: Globe, title: "Embedded Global Expertise", description: "Our Security Operations Centers in New York, Barcelona, and Singapore provide continuous, round-the-clock monitoring." },
-        { icon: LifeBuoy, title: "TradFi Rigor, Digital-Native", description: "Leadership from the Federal Reserve, Google, and Venmo translates institutional risk management to digital assets." },
-      ],
-      cta: "Learn About Our Service Model",
-    },
-  };
+    const pillars = {
+        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Leveraging David Cass’s expertise from the Federal Reserve, our platform mirrors central bank issuance, allowing you to mint digital currency on-demand through trusted agent networks and scale with capital efficiency.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
+        payments: { label: "Payments", color: "verto-purple", title: "Frictionless Checkout", description: "Inspired by Nilesh Khaitan's work scaling products to over 90 million users at PayPal, our API delivers a frictionless checkout experience that abstracts away all blockchain complexity for merchants and users alike.", visual: <PolishedPaymentsFlow />, features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your stablecoin." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], cta: "Explore Payments API" },
+        liquidity: { label: "Liquidity", color: "verto-blue", title: "Compliant Swaps", description: "Informed by David Cass's experience managing institutional-scale trading at GSR, our smart-order router navigates the complex DeFi and CeFi ecosystem to find the optimal execution path for every trade.", visual: <ExecutiveLiquidityFlow />, features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Our engine automatically finds the best execution path for every trade across multiple protocols and chains." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Our self-hosted layer integrates with your existing custody, so your assets and keys never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that enforces your predefined policies." }, ], cta: "Integrate Liquidity API" },
+        compliance: { label: "Compliance", color: "verto-blue", title: "AI-Powered Compliance", description: "Architected by Daniel Garrie, who has designed compliance frameworks for top-tier institutions like the DOJ and DTCC, our AI engine transforms compliance from a manual burden into an automated, strategic advantage.", visual: <PolishedComplianceFlow />, features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], cta: "Request Compliance Demo" },
+        service: { label: "Service", color: "verto-cyan", title: "24/7 Global Operations", description: "Built to the enterprise-grade standards of Google and Microsoft, where Hisham Anwar scaled secure systems, our global service model provides 24/7/365 monitoring to ensure your self-hosted infrastructure is always operational.", visual: <ExecutiveServiceFlow />, features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], cta: "Learn About Our Service Model" },
+    };
 
-  const activePillar = pillars[activeTab as keyof typeof pillars];
+    const colorMap = {
+        'verto-green': { border: 'border-verto-green', text: 'text-verto-green', bg: 'bg-verto-green' },
+        'verto-purple': { border: 'border-verto-purple', text: 'text-verto-purple', bg: 'bg-verto-purple' },
+        'verto-blue': { border: 'border-verto-blue', text: 'text-verto-blue', bg: 'bg-verto-blue' },
+        'verto-cyan': { border: 'border-verto-cyan', text: 'text-verto-cyan', bg: 'bg-verto-cyan' },
+    };
 
-  return (
-    <div className="bg-white dark:bg-gray-900">
-      <div className="text-center pt-20 pb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-          The Operational Pillars
-        </h2>
-        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-          Five critical capabilities that transform your stablecoin from a technical achievement into a market-dominating force.
-        </p>
-      </div>
+    const activePillar = pillars[activeTab as keyof typeof pillars];
+    const activeColors = colorMap[activePillar.color as keyof typeof colorMap];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-b border-slate-200 dark:border-slate-700">
-          <nav className="-mb-px flex justify-center space-x-4 sm:space-x-6 overflow-x-auto" aria-label="Tabs">
-            {Object.keys(pillars).map((key) => (
-              <button
-                key={key}
-                onClick={() => setActiveTab(key)}
-                className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200
-                  ${
-                    activeTab === key
-                      ? `border-${pillars[key as keyof typeof pillars].color} text-${pillars[key as keyof typeof pillars].color}`
-                      : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"
-                  }`}
-              >
-                {pillars[key as keyof typeof pillars].label}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      <div className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 lg:gap-16 items-center">
-            <div className="lg:col-span-5">
-              <div className="mb-8">
-                <p className={`text-sm font-semibold uppercase tracking-wider text-${activePillar.color}`}>{activePillar.label}</p>
-                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
-                <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                  {activePillar.description}
-                </p>
-              </div>
-
-              <div className="space-y-6 mb-10">
-                {activePillar.features.map((feature: any) => (
-                  <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>
-                    {feature.description}
-                  </FeatureItem>
-                ))}
-              </div>
-
-              <button
-                className={`inline-flex items-center px-6 py-3 bg-${activePillar.color} hover:bg-${activePillar.color}/90 text-white font-semibold rounded-lg transition-colors shadow-${activePillar.color}/30 shadow-lg`}
-              >
-                {activePillar.cta}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+    return (
+        <div className="bg-white dark:bg-slate-950">
+            <div className="text-center pt-20 pb-12">
+                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">The Operational Pillars</h2>
+                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">Five critical capabilities that transform your stablecoin from a technical achievement into a market-dominating force.</p>
             </div>
-
-            <div className="lg:col-span-7 mt-12 lg:mt-0">
-              {activePillar.visual}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="border-b border-slate-200 dark:border-slate-700">
+                    <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8" aria-label="Tabs">
+                        {Object.keys(pillars).map((key) => {
+                             const pillar = pillars[key as keyof typeof pillars];
+                             const colors = colorMap[pillar.color as keyof typeof colorMap];
+                             return (
+                                <button
+                                    key={key}
+                                    onClick={() => setActiveTab(key)}
+                                    className={`flex-shrink-0 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
+                                >
+                                    {pillar.label}
+                                </button>
+                             )
+                        })}
+                    </nav>
+                </div>
             </div>
-          </div>
+            <div className="py-16 md:py-24">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-12 lg:gap-16 items-center">
+                        <div className="lg:col-span-5">
+                            <div className="mb-8">
+                                <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
+                                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
+                                <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
+                            </div>
+                            <div className="space-y-6 mb-10">
+                                {activePillar.features.map((feature: any) => (
+                                    <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
+                                ))}
+                            </div>
+                            <button className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}>
+                                <span>{activePillar.cta}</span>
+                                <ArrowRight className="w-4 h-4 ml-2" />
+                            </button>
+                        </div>
+                        <div className="lg:col-span-7 mt-12 lg:mt-0">
+                            {activePillar.visual}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
