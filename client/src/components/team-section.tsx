@@ -8,11 +8,7 @@ import nileshImage from "@assets/nilesh_1754986415369.png";
 // Reusable Logo Cloud Component
 const LogoCloud = () => {
     const logos = [
-        { 
-            name: "Federal Reserve", 
-            textLogo: true,
-            text: "Federal Reserve"
-        },
+        { name: "Federal Reserve", svg: "/logos/fed-logo.svg" },
         { name: "DTCC", image: "/logos/dtcc-logo.png" },
         { name: "Moody's", image: "/logos/moodys-logo.png" },
         { name: "PayPal", image: "/logos/paypal-logo.png" },
@@ -25,10 +21,12 @@ const LogoCloud = () => {
             <div className="flex justify-center items-center gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 flex-wrap gap-y-4">
                 {logos.map(logo => (
                     <div key={logo.name} className="flex items-center justify-center h-4 md:h-5 lg:h-6">
-                        {logo.textLogo ? (
-                            <span className="text-slate-600 dark:text-slate-400 font-semibold text-xs md:text-sm opacity-60 hover:opacity-80 transition-opacity duration-200 whitespace-nowrap">
-                                {logo.text}
-                            </span>
+                        {logo.svg ? (
+                            <img 
+                                src={logo.svg} 
+                                alt={logo.name}
+                                className="h-full w-auto object-contain opacity-60 dark:opacity-40 hover:opacity-80 dark:hover:opacity-60 transition-opacity duration-200 text-slate-600 dark:text-slate-400"
+                            />
                         ) : logo.image ? (
                             <img 
                                 src={logo.image} 
