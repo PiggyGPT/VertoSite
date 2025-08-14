@@ -6,12 +6,12 @@ import {
     Zap, Store, FileText, 
     Shield, BarChart3, SlidersHorizontal, 
     ArrowRightLeft, Database, GitBranch,
-    Clock, Globe, LifeBuoy
+    Clock, Globe, LifeBuoy, Coins, CreditCard, ArrowRight
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
 // Helper component for styled feature list items
-const FeatureItem = ({ icon: Icon, title, children }) => (
+const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) => (
   <div className="flex items-start space-x-4 group">
     <div className="flex-shrink-0 w-11 h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center
       transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20">
@@ -27,7 +27,7 @@ const FeatureItem = ({ icon: Icon, title, children }) => (
 // --- NEW & REDESIGNED VISUAL COMPONENTS ---
 
 // Generic iPhone Mockup Frame
-const IphoneFrame = ({ children, className = '' }) => (
+const IphoneFrame = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
     <div className={`relative w-[280px] h-[570px] bg-slate-800 dark:bg-black rounded-[40px] shadow-2xl p-3 border-4 border-slate-700 dark:border-slate-800 ${className}`}>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 dark:bg-black rounded-b-xl"></div>
         <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[28px] overflow-hidden">
@@ -162,7 +162,7 @@ const NewLiquidityFlow = () => (
 );
 
 // 4. NEW Service Visual
-const ServiceClock = ({ city, time, offset }) => (
+const ServiceClock = ({ city, time, offset }: { city: string; time: string; offset: number }) => (
     <div className="flex flex-col items-center">
         <div className="relative w-24 h-24 rounded-full bg-white/50 dark:bg-slate-700/50 border-2 border-white/80 dark:border-slate-600 flex items-center justify-center">
              <div className="absolute w-1 h-8 bg-slate-600 dark:bg-slate-300 rounded-full origin-bottom" style={{ transform: 'rotate(180deg)' }}></div>
@@ -192,7 +192,7 @@ const NewServiceFlow = () => (
 
 // --- MAIN COMPONENT ---
 export default function PlatformAndServicesSection() {
-  const [activeTab, setActiveTab] = useState("distribution");
+  const [activeTab, setActiveTab] = useState<string>("distribution");
 
   // NOTE: If you get errors about colors like `border-verto-red`, 
   // ensure they are defined in your `tailwind.config.js` file, possibly in a safelist.
@@ -264,7 +264,7 @@ export default function PlatformAndServicesSection() {
     },
   };
 
-  const activePillar = TABS[activeTab];
+  const activePillar = TABS[activeTab as keyof typeof TABS];
 
   return (
     <div id="infrastructure" className="bg-white dark:bg-gray-900">
@@ -287,11 +287,11 @@ export default function PlatformAndServicesSection() {
                 className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200
                   ${
                     activeTab === key
-                      ? `border-${TABS[key].color} text-${TABS[key].color}`
+                      ? `border-${TABS[key as keyof typeof TABS].color} text-${TABS[key as keyof typeof TABS].color}`
                       : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"
                   }`}
               >
-                {TABS[key].label}
+                {TABS[key as keyof typeof TABS].label}
               </button>
             ))}
           </nav>
@@ -311,7 +311,7 @@ export default function PlatformAndServicesSection() {
                     </div>
 
                     <div className="space-y-6 mb-10">
-                       {activePillar.features.map(feature => (
+                       {activePillar.features.map((feature: any) => (
                            <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>
                                {feature.description}
                            </FeatureItem>
