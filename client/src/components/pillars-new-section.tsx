@@ -221,7 +221,7 @@ const PolishedComplianceFlow = () => (
                         <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold rounded-full">APPROVED</span>
                     </div>
                     <div className="space-y-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                        <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded">IF amount &gt; $10k AND risk &gt; BBB</div>
+                        <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded">IF amount > $10k AND risk > BBB</div>
                         <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded">THEN require_manual_approval</div>
                         <div className="text-green-600 dark:text-green-400 font-semibold">✓ Conditions satisfied</div>
                     </div>
