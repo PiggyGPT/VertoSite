@@ -84,11 +84,17 @@ Preferred communication style: Simple, everyday language.
 - Backend bundled with esbuild for Node.js production environment
 - Environment variables properly configured for production deployment
 
-### Known Deployment Issue (January 2025)
+### Deployment Fix Required (January 2025)
 - **Issue**: Replit deployment blocked due to .replit file using development command (`npm run dev`)
 - **Root Cause**: The .replit file deployment configuration points to development script instead of production
-- **Required Fix**: Update .replit deployment section to use production commands
-- **Status**: Unable to modify .replit file directly through agent - requires manual update or platform configuration change
+- **Manual Fix Required**: Update the .replit file deployment section:
+  ```
+  [deployment]
+  deploymentTarget = "autoscale"
+  run = ["sh", "-c", "npm run build && npm start"]
+  ```
+- **Additional Workflow Fix**: Update the workflow task in .replit from `npm run dev` to production command if needed for deployment
+- **Status**: Requires manual update to .replit file - agent cannot modify this file directly
 
 ## External Dependencies
 
