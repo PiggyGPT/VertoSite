@@ -14,19 +14,17 @@ export default function Home() {
       <div id="hero">
         <HeroSection />
       </div>
-      <div id="infrastructure">
-        <PillarsSection />
-      </div>
-      <div id="ai">
-        <BoardChecklistSection />
-      </div>
       <div id="team">
         <TeamSection />
+      </div>
+      <div id="infrastructure">
+        <PillarsSection />
       </div>
       <div id="pilot">
         <WhyNowSection />
       </div>
       <ProblemSection />
+      <BoardChecklistSection />
       <Footer />
     </div>
   );

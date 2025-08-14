@@ -18,9 +18,8 @@ const SocialXIcon = ({ className }: { className?: string }) => (
 
 // Define navigation links in an array to avoid repetition.
 const navLinks = [
-  { href: "infrastructure", label: "Platform" },
-  { href: "ai", label: "AI" },
   { href: "team", label: "About Us" },
+  { href: "infrastructure", label: "Platform" },
   { href: "pilot", label: "90 Day Pilot" },
 ];
 
