@@ -8,7 +8,7 @@ import nileshImage from "@assets/nilesh_1754986415369.png";
 // Reusable Logo Cloud Component
 const LogoCloud = () => {
     const logos = [
-        { name: "Federal Reserve", svg: "/logos/fed-logo.svg" },
+        { name: "Federal Reserve", svg: "/logos/fed-logo.png" },
         { name: "DTCC", image: "/logos/dtcc-logo.png" },
         { name: "Moody's", image: "/logos/moodys-logo.png" },
         { name: "PayPal", image: "/logos/paypal-logo.png" },
