@@ -16,15 +16,15 @@ export default function Home() {
       </div>
       <div id="team">
         <TeamSection />
+        <ProblemSection />
       </div>
       <div id="infrastructure">
         <PillarsSection />
       </div>
       <div id="pilot">
+        <BoardChecklistSection />
         <WhyNowSection />
       </div>
-      <ProblemSection />
-      <BoardChecklistSection />
       <Footer />
     </div>
   );
