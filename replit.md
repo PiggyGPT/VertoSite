@@ -71,6 +71,25 @@ Preferred communication style: Simple, everyday language.
 - **Trust Indicators**: Updated trust logos to FED, DTCC, Moody's, PayPal, Google, Microsoft for enhanced credibility
 - **Dark Mode Enhancement**: Complete dark mode implementation with system preference detection and theme persistence
 
+## Deployment Configuration
+
+### Production Build Setup
+- **Build Script**: `npm run build` - Builds both frontend (Vite) and backend (esbuild) for production
+- **Start Script**: `npm start` - Runs the production server using the compiled output
+- **Production Bundle**: Backend compiled to `dist/index.js` with external packages bundled appropriately
+
+### Deployment Notes
+- The project includes production-ready scripts in package.json
+- Frontend built with Vite optimization for production assets
+- Backend bundled with esbuild for Node.js production environment
+- Environment variables properly configured for production deployment
+
+### Known Deployment Issue (January 2025)
+- **Issue**: Replit deployment blocked due to .replit file using development command (`npm run dev`)
+- **Root Cause**: The .replit file deployment configuration points to development script instead of production
+- **Required Fix**: Update .replit deployment section to use production commands
+- **Status**: Unable to modify .replit file directly through agent - requires manual update or platform configuration change
+
 ## External Dependencies
 
 ### Database & Infrastructure
