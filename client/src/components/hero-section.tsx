@@ -20,8 +20,8 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto text-center">
         <h1 className="font-bold text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
           {/* FIX: Title now uses the correct brand gradient colors. */}
-          <span className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-verto-purple via-verto-blue to-verto-orange bg-clip-text text-transparent">
-            Live Stablecoin Operations
+          <span className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent">
+            Stablecoin Operations Platform
           </span>
           <br />
           {/* FIX: Separated sub-headline for better responsive font control. */}
@@ -40,7 +40,7 @@ export default function HeroSection() {
             className="group inline-flex items-center justify-center px-7 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
             data-testid="button-primary-cta"
           >
-            <span>Launch a Pilot</span>
+            <span>Launch Your Pilot</span>
             <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
           </button>
           <button

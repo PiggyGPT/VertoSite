@@ -76,7 +76,7 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
-              Built by Leading Experts in Global Finance
+              Built by Leading Experts in Finance & Technology
 
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -91,6 +91,14 @@ export default function TeamSection() {
           {teamMembers.map(member => <TeamMemberCard key={member.name} {...member} />)}
         </div>
       </div>
+
+          {/* --- NEW MISSION STATEMENT --- */}
+          <blockquote className="mt-10 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed italic">
+              “Creating a safer, more open financial future by making digital assets accessible, trusted, and usable for everyone, everywhere.”
+            </p>
+          </blockquote>
+          {/* --------------------------- */}
     </section>
   );
 }

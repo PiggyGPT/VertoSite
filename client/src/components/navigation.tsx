@@ -95,7 +95,7 @@ export default function Navigation() {
               className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 verto-gradient text-white rounded-lg font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
-              Launch Pilot
+              Launch Your Pilot
             </button>
             <button
               className="md:hidden p-2"

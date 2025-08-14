@@ -48,9 +48,9 @@ export default function ProblemSection() {
                     {/* Central Title */}
                     <div className="lg:col-span-1 text-center lg:text-left pt-8">
                         <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight" data-testid="problem-title">
-                            Minting is easy.
+                            From Minting
                             <br />
-                            <span className="text-slate-500 dark:text-slate-400">Adoption is hard.</span>
+                            <span className="text-slate-500 dark:text-slate-400">to Adoption</span>
                         </h2>
                         <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed" data-testid="problem-subtitle">
                            Stablecoins succeed when they’re widely held, actively spent, and deeply trusted.

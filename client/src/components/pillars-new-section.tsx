@@ -1,6 +1,24 @@
 import { useState } from "react";
-import { Coins, CreditCard, Shield, CheckCircle, Users, Store, QrCode, Smartphone, ArrowRight, Database, FileText, Zap, Rocket, BarChart3, Terminal, SlidersHorizontal } from "lucide-react";
+import { Coins, CreditCard, Globe, Shield, CheckCircle, Users, Store, QrCode, Smartphone, ArrowRight, Database, FileText, Zap, Rocket, BarChart3, Terminal, SlidersHorizontal } from "lucide-react";
 
+function GlobalPresenceSection() {
+  return (
+    <section className="bg-slate-100 dark:bg-slate-800/50 py-16 sm:py-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 text-center">
+        <Globe className="mx-auto h-10 w-10 text-verto-blue" />
+        <h2 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-white tracking-tight">
+          Global Presence
+        </h2>
+        <p className="mt-4 text-2xl font-medium text-slate-700 dark:text-slate-200 tracking-wide">
+          New York • Barcelona • Singapore
+        </p>
+        <p className="mt-3 max-w-2xl mx-auto text-md text-slate-600 dark:text-slate-400">
+          Round-the-clock monitoring and support for your digital asset operations, ensuring uptime and security across all time zones.
+        </p>
+      </div>
+    </section>
+  );
+}
 // Helper component for styled feature list items
 const FeatureItem = ({ icon: Icon, title, children }) => (
   <div className="flex items-start space-x-4">
@@ -27,11 +45,11 @@ const DistributionFlow = () => (
         <div className="space-y-3 flex-grow">
           <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
             <p className="font-mono text-slate-500 dark:text-slate-400">1. Prefund Credit Line</p>
-            <p className="font-semibold text-slate-700 dark:text-slate-300">✓ Balance: $5,000.00</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">✓ Balance: 5,000.00 BOB</p>
           </div>
           <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
             <p className="font-mono text-slate-500 dark:text-slate-400">2. Generate Minting QR</p>
-            <p className="font-semibold text-slate-700 dark:text-slate-300">Amount: $50.00 USDC</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">Amount: 50.00 BOBC</p>
           </div>
         </div>
         <div className="mt-4 flex justify-center">
@@ -48,7 +66,7 @@ const DistributionFlow = () => (
         <div className="space-y-3 flex-grow">
           <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
             <p className="font-mono text-slate-500 dark:text-slate-400">1. Deposit Cash</p>
-            <p className="font-semibold text-slate-700 dark:text-slate-300">Handed over $50.00</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">Handed over 50.00 BOB</p>
           </div>
           <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
             <p className="font-mono text-slate-500 dark:text-slate-400">2. Scan & Mint</p>
@@ -57,7 +75,7 @@ const DistributionFlow = () => (
         </div>
         <div className="mt-4 p-3 bg-verto-green/10 rounded-lg text-center">
           <p className="text-sm font-bold text-verto-green">Success!</p>
-          <p className="text-xs text-verto-green/80">50.00 USDC minted to wallet.</p>
+          <p className="text-xs text-verto-green/80">50.00 BOBC minted to wallet.</p>
         </div>
       </div>
     </div>
@@ -125,7 +143,7 @@ const ComplianceFlow = () => (
                 <div className="flex items-center space-x-3">
                     <FileText className="w-5 h-5 text-verto-blue"/>
                     <div>
-                        <p className="font-semibold text-verto-blue text-sm">Real-time Audit Trail</p>
+                        <p className="font-semibold text-verto-blue text-sm">Compliance Report</p>
                         <p className="text-xs text-verto-blue/80">Every action is logged and verifiable.</p>
                     </div>
                 </div>
@@ -160,7 +178,7 @@ export default function PillarsSection() {
       description: "Our stack removes all blockchain complexity from payments. A single API lets merchants accept your stablecoin from any wallet, bank, or exchange, seamlessly.",
       visual: <PaymentsFlow />,
       features: [
-        { icon: Zap, title: "Boost Conversion Rates", description: "One-tap UX with sponsored gas fees removes friction and dramatically increases payment completion rates." },
+        { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas fees removes friction and dramatically increases payment completion rates." },
         { icon: Store, title: "Universal Acceptance", description: "A single API unlocks a universal payment ecosystem, driving utility and adoption for your stablecoin." },
         { icon: FileText, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically, reducing operational overhead." },
       ],
@@ -174,8 +192,8 @@ export default function PillarsSection() {
       visual: <ComplianceFlow />,
       features: [
         { icon: BarChart3, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every wallet, token, and protocol, with full data lineage." },
-        { icon: SlidersHorizontal, title: "Policy-Driven Automation", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." },
-        { icon: Shield, title: "Ironclad Audit Trails", description: "Generate human-readable, cryptographically verifiable logs of every compliance decision for regulators." },
+        { icon: SlidersHorizontal, title: "Policy-Driven Routing", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." },
+        { icon: Shield, title: "Compliance Automation", description: "Generate human-readable, cryptographically verifiable logs of every compliance decision for regulators." },
       ],
       cta: "Request Compliance Demo",
     },
@@ -190,7 +208,7 @@ export default function PillarsSection() {
             One Unified Platform
         </h2>
         <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-         Self-hosted stablecoin stack for distribution, payments, and compliance. Monitored 24×7 by global experts.
+         Self-hosted stablecoin stack for distribution, payments, and compliance. Monitored 24×7 by a global team.
         </p>
       </div>
 
