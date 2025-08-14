@@ -10,13 +10,8 @@ const LogoCloud = () => {
     const logos = [
         { 
             name: "Federal Reserve", 
-            svg: (
-                <svg viewBox="0 0 100 24" className="h-6 text-slate-600 dark:text-slate-400">
-                    <text x="0" y="16" fontFamily="serif" fontSize="14" fontWeight="600" fill="currentColor">
-                        Federal Reserve
-                    </text>
-                </svg>
-            )
+            textLogo: true,
+            text: "Federal Reserve"
         },
         { name: "DTCC", image: "/logos/dtcc-logo.png" },
         { name: "Moody's", image: "/logos/moodys-logo.png" },
@@ -26,14 +21,14 @@ const LogoCloud = () => {
     ];
     
     return (
-        <div className="max-w-5xl mx-auto" data-testid="trust-logos">
-            <div className="flex justify-center items-center gap-x-8 md:gap-x-12 lg:gap-x-16 flex-wrap gap-y-8">
+        <div className="max-w-7xl mx-auto" data-testid="trust-logos">
+            <div className="flex justify-center items-center gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 flex-wrap gap-y-4">
                 {logos.map(logo => (
-                    <div key={logo.name} className="flex items-center justify-center h-8 md:h-10">
-                        {logo.svg ? (
-                            <div className="opacity-60 dark:opacity-40 hover:opacity-80 dark:hover:opacity-60 transition-opacity duration-200">
-                                {logo.svg}
-                            </div>
+                    <div key={logo.name} className="flex items-center justify-center h-4 md:h-5 lg:h-6">
+                        {logo.textLogo ? (
+                            <span className="text-slate-600 dark:text-slate-400 font-semibold text-xs md:text-sm opacity-60 hover:opacity-80 transition-opacity duration-200 whitespace-nowrap">
+                                {logo.text}
+                            </span>
                         ) : logo.image ? (
                             <img 
                                 src={logo.image} 
