@@ -31,7 +31,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="mt-6 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="hero-subtitle">
-          Activate your network with our complete operational stack for stablecoin distribution, payments, and AI-powered compliance.
+          Activate your network with Verto's complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

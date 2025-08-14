@@ -53,7 +53,7 @@ export default function ProblemSection() {
                             <span className="text-slate-500 dark:text-slate-400">Adoption is hard.</span>
                         </h2>
                         <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed" data-testid="problem-subtitle">
-                           Value is only created when your coin is held, spent, and trusted.
+                           Stablecoins succeed when they’re widely held, actively spent, and deeply trusted.
                         </p>
                     </div>
 

@@ -23,11 +23,10 @@ export default function WhyNowSection() {
                 {/* Left Side: Headline */}
                 <div className="text-center lg:text-left">
                     <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight" data-testid="why-now-title">
-                        Your window for market leadership is closing.
+                        Capitalize on the Next Wave of Digital Asset Growth.
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Recent regulatory tailwinds and market demand have created a critical but temporary window to establish a first-mover advantage.
-                    </p>
+                    Regulatory clarity and accelerating demand make this the ideal moment to capture market share.                    </p>
                 </div>
 
                 {/* Right Side: Reasons */}

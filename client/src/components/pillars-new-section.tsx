@@ -190,7 +190,7 @@ export default function PillarsSection() {
             One Unified Platform
         </h2>
         <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-          A complete self-hosted operational stack for stablecoin distribution, payments, and compliance, designed to drive real-world adoption.
+         Self-hosted stablecoin stack for distribution, payments, and compliance. Monitored 24×7 by global experts.
         </p>
       </div>
 
