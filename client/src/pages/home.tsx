@@ -11,12 +11,22 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <Navigation />
-      <HeroSection />
-      <TeamSection />
+      <div id="hero">
+        <HeroSection />
+      </div>
+      <div id="infrastructure">
+        <PillarsSection />
+      </div>
+      <div id="ai">
+        <BoardChecklistSection />
+      </div>
+      <div id="team">
+        <TeamSection />
+      </div>
+      <div id="pilot">
+        <WhyNowSection />
+      </div>
       <ProblemSection />
-      <PillarsSection />
-      <BoardChecklistSection />
-      <WhyNowSection />
       <Footer />
     </div>
   );

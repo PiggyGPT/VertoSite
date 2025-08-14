@@ -8,12 +8,21 @@ import nileshImage from "@assets/nilesh_1754986415369.png";
 // Reusable Logo Cloud Component
 const LogoCloud = () => {
     const logos = [
-        { name: "Federal Reserve", image: null, text: "Federal Reserve" },
-        { name: "DTCC", image: "/logos/dtcc-logo.png", text: "DTCC" },
-        { name: "Moody's", image: "/logos/moodys-logo.png", text: "Moody's" },
-        { name: "PayPal", image: "/logos/paypal-logo.png", text: "PayPal" },
-        { name: "Google", image: "/logos/google-logo.png", text: "Google" },
-        { name: "Microsoft", image: "/logos/microsoft-logo.png", text: "Microsoft" },
+        { 
+            name: "Federal Reserve", 
+            svg: (
+                <svg viewBox="0 0 100 24" className="h-6 text-slate-600 dark:text-slate-400">
+                    <text x="0" y="16" fontFamily="serif" fontSize="14" fontWeight="600" fill="currentColor">
+                        Federal Reserve
+                    </text>
+                </svg>
+            )
+        },
+        { name: "DTCC", image: "/logos/dtcc-logo.png" },
+        { name: "Moody's", image: "/logos/moodys-logo.png" },
+        { name: "PayPal", image: "/logos/paypal-logo.png" },
+        { name: "Google", image: "/logos/google-logo.png" },
+        { name: "Microsoft", image: "/logos/microsoft-logo.png" },
     ];
     
     return (
@@ -21,7 +30,11 @@ const LogoCloud = () => {
             <div className="flex justify-center items-center gap-x-8 md:gap-x-12 lg:gap-x-16 flex-wrap gap-y-8">
                 {logos.map(logo => (
                     <div key={logo.name} className="flex items-center justify-center h-8 md:h-10">
-                        {logo.image ? (
+                        {logo.svg ? (
+                            <div className="opacity-60 dark:opacity-40 hover:opacity-80 dark:hover:opacity-60 transition-opacity duration-200">
+                                {logo.svg}
+                            </div>
+                        ) : logo.image ? (
                             <img 
                                 src={logo.image} 
                                 alt={logo.name}
@@ -29,7 +42,7 @@ const LogoCloud = () => {
                             />
                         ) : (
                             <span className="text-slate-600 dark:text-slate-400 font-medium text-sm opacity-60 hover:opacity-80 transition-opacity duration-200">
-                                {logo.text}
+                                {logo.name}
                             </span>
                         )}
                     </div>
