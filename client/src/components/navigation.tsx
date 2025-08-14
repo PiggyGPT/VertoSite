@@ -1,7 +1,28 @@
+// src/components/Navigation.tsx
+
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logoSvg from "@assets/logo.svg";
+
+// It's good practice to create a dedicated component for custom icons.
+const SocialXIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+  </svg>
+);
+
+// Define navigation links in an array to avoid repetition.
+const navLinks = [
+  { href: "infrastructure", label: "Platform" },
+  { href: "ai", label: "AI" },
+  { href: "team", label: "About Us" },
+  { href: "pilot", label: "90 Day Pilot" },
+];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,85 +30,70 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      // Use a smaller threshold for a quicker effect
+      setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
+
+  // Base classes for nav links for consistency
+  const navLinkClasses = "font-medium text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue transition-colors duration-200";
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-slate-200 dark:border-gray-700 shadow-sm"
-          : "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-slate-100 dark:border-gray-800"
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-gray-800 shadow-sm"
+          : "bg-transparent border-b border-transparent"
       }`}
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="flex items-center justify-between h-16 py-4">
-          <div className="flex items-center space-x-10">
-            <div 
-              className="cursor-pointer flex items-center"
+        <div className="flex items-center justify-between h-20">
+          <div className="flex items-center">
+            <button
               onClick={() => scrollToSection("hero")}
+              className="flex-shrink-0"
               data-testid="logo"
             >
-              <img src={logoSvg} alt="Verto" className="h-7" />
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <button
-                onClick={() => scrollToSection("infrastructure")}
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
-                data-testid="nav-infrastructure"
-              >
-                Platform
-              </button>
-              <button
-                onClick={() => scrollToSection("ai")}
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
-                data-testid="nav-ai"
-              >
-                AI
-              </button>
-              <button
-                onClick={() => scrollToSection("team")}
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
-                data-testid="nav-team"
-              >
-                About Us
-              </button>
-              <button
-                onClick={() => scrollToSection("pilot")}
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
-                data-testid="nav-pilot"
-              >
-                90 Day Pilot
-              </button>
-
-            </div>
+              <img src={logoSvg} alt="Verto Logo" className="h-7 w-auto" />
+            </button>
           </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => scrollToSection(link.href)}
+                className={navLinkClasses}
+                data-testid={`nav-${link.href}`}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+
           <div className="flex items-center space-x-4">
             <a
-              href="https://twitter.com/Verto_AI?ref_src=twsrc%5Etfw"
+              href="https://x.com/Verto_AI"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:block px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors tracking-wide"
+              className={`${navLinkClasses} hidden sm:block p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800`}
+              aria-label="Follow Verto AI on X"
               data-testid="nav-twitter"
             >
-              Follow @Verto_AI
+              <SocialXIcon className="h-5 w-5" />
             </a>
             <button
               onClick={() => scrollToSection("pilot")}
-              className="px-7 py-2.5 verto-gradient text-white rounded-lg hover:shadow-md transition-all duration-300 font-semibold text-sm tracking-wide"
+              className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 verto-gradient text-white rounded-lg font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
               Launch Pilot
@@ -96,6 +102,7 @@ export default function Navigation() {
               className="md:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="mobile-menu-toggle"
+              aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -105,44 +112,27 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-verto-gray-100" data-testid="mobile-menu">
-          <div className="px-6 py-4 space-y-4">
-            <button
-              onClick={() => scrollToSection("infrastructure")}
-              className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
-              data-testid="mobile-nav-infrastructure"
-            >
-              Infrastructure
-            </button>
-            <button
-              onClick={() => scrollToSection("ai")}
-              className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
-              data-testid="mobile-nav-ai"
-            >
-              AI
-            </button>
-            <button
-              onClick={() => scrollToSection("pilot")}
-              className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
-              data-testid="mobile-nav-pilot"
-            >
-              Pilot
-            </button>
-            <button
-              onClick={() => scrollToSection("team")}
-              className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
-              data-testid="mobile-nav-team"
-            >
-              Team
-            </button>
-            <a
-              href="https://twitter.com/Verto_AI?ref_src=twsrc%5Etfw"
+        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800" data-testid="mobile-menu">
+          <div className="px-6 py-5 space-y-4">
+            {navLinks.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => scrollToSection(link.href)}
+                className="block w-full text-left text-lg text-slate-700 dark:text-slate-200 py-2"
+                data-testid={`mobile-nav-${link.href}`}
+              >
+                {link.label}
+              </button>
+            ))}
+             <a
+              href="https://x.com/Verto_AI"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-left text-verto-gray-600 hover:text-verto-blue transition-colors"
+              className="flex items-center w-full text-left text-lg text-slate-700 dark:text-slate-200 py-2"
               data-testid="mobile-nav-twitter"
             >
-              Follow @Verto_AI
+              <SocialXIcon className="h-5 w-5 mr-3" />
+              Follow on X
             </a>
           </div>
         </div>

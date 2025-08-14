@@ -1,68 +1,72 @@
-import { Bus, Shield, CreditCard } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Users, Shield, CreditCard } from "lucide-react";
+
+// Reusable Pain Point Card Component
+const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId }) => (
+    <div className="relative p-6 rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 shadow-lg backdrop-blur-lg" data-testid={testId}>
+        <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-5 italic">
+            "{quote}"
+        </blockquote>
+        <div className="flex items-center">
+            <div className={`flex-shrink-0 w-10 h-10 bg-${color}/10 rounded-lg flex items-center justify-center mr-4`}>
+                <Icon className={`text-${color} w-5 h-5`} />
+            </div>
+            <div>
+                <p className="font-semibold text-slate-900 dark:text-white">{persona}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{company}</p>
+            </div>
+        </div>
+    </div>
+);
+
 
 export default function ProblemSection() {
-  return (
-    <section className="py-16 bg-gradient-to-br from-red-50/40 via-orange-50/30 to-yellow-50/20 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-700/20">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="problem-title">
-            Minting is easy. Adoption is hard.</h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-5xl mx-auto leading-relaxed" data-testid="problem-subtitle">
-            Your coins only create value when customers hold them, merchants accept them, and regulators trust them.
-          </p>
-        </div>
+    const painPoints = [
+        {
+            icon: Users, color: 'verto-green', persona: 'CEO', company: 'Regional Bank',
+            quote: 'We\'re a cash-first country. How do we put stablecoins in every customer’s hands through the agents they already trust?',
+            testId: 'quote-ceo'
+        },
+        {
+            icon: Shield, color: 'verto-blue', persona: 'CISO', company: 'Global Payment Firm',
+            quote: 'How do we deliver regulator-proof audits on public ledgers when our systems are built on centralized control?',
+            testId: 'quote-ciso'
+        },
+        {
+            icon: CreditCard, color: 'verto-purple', persona: 'Head of Payments', company: 'Multinational PSP',
+            quote: 'How do we scale when wallet pop-ups kill checkout conversion and merchants can’t reconcile our coin?',
+            testId: 'quote-head-payments'
+        },
+    ];
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* CEO Quote */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-ceo">
-            <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "We're a cash-first country — how do we put stablecoins in every customer’s hands instantly through the kiosks and agents they already trust?"
-            </blockquote>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
-                <Bus className="text-verto-blue w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-slate-900 dark:text-white">CEO</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Regional Bank</p>
-              </div>
-            </div>
-          </div>
+    return (
+        <section className="relative py-24 px-6 sm:px-8 overflow-hidden bg-white dark:bg-gray-900">
+             {/* Background Gradient Aura */}
+            <div className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-slate-50 dark:from-slate-800/30 to-transparent"></div>
 
-          {/* CCO Quote */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-cco">
-            <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "How do we prevent irreversible theft and deliver regulator-proof audits on public ledgers when our systems are built entirely on centralized control?"
-            </blockquote>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-verto-purple/10 rounded-lg flex items-center justify-center mr-3">
-                <Shield className="text-verto-purple w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-slate-900 dark:text-white">CISO</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Global Payment Firm</p>
-              </div>
-            </div>
-          </div>
+            <div className="relative max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-3 gap-8 items-start">
+                    {/* Central Title */}
+                    <div className="lg:col-span-1 text-center lg:text-left pt-8">
+                        <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight" data-testid="problem-title">
+                            Minting is easy.
+                            <br />
+                            <span className="text-slate-500 dark:text-slate-400">Adoption is hard.</span>
+                        </h2>
+                        <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed" data-testid="problem-subtitle">
+                           Value is only created when your coin is held, spent, and trusted.
+                        </p>
+                    </div>
 
-          {/* Head of Payments Quote */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="quote-head-payments">
-            <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4 italic">
-              "How do we scale when wallet pop-ups murder checkout conversion and merchants can’t reconcile stablecoin payments?"
-            </blockquote>
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-verto-green/10 rounded-lg flex items-center justify-center mr-3">
-                <CreditCard className="text-verto-green w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-slate-900 dark:text-white">Head of Payments</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Multinational PSP</p>
-              </div>
+                    {/* Pain Points Grid */}
+                    <div className="lg:col-span-2 grid md:grid-cols-1 gap-8">
+                        {painPoints.map((point, index) => (
+                           <div key={index} className={index === 1 ? 'md:pl-12' : ''}>
+                                <PainPointCard {...point} />
+                           </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 }

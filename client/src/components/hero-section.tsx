@@ -1,54 +1,60 @@
-import { Button } from "@/components/ui/button";
-import { University, TrendingUp, Blocks } from "lucide-react";
+// src/components/HeroSection.tsx
+
+import { ArrowRight, BookOpen } from "lucide-react";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="hero" className="relative pt-32 pb-16 px-6 sm:px-8 overflow-hidden">
-      {/* Vibrant Brand Color Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-verto-purple/20 via-verto-blue/15 to-verto-green/20 dark:from-verto-purple/30 dark:via-verto-blue/25 dark:to-verto-green/30"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-verto-orange/10 via-transparent to-verto-purple/15 dark:from-verto-orange/20 dark:via-transparent dark:to-verto-purple/25"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-verto-blue/20 dark:bg-verto-blue/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-verto-green/20 dark:bg-verto-green/30 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-verto-orange/15 dark:bg-verto-orange/25 rounded-full blur-3xl"></div>
-      
-      <div className="relative max-w-6xl mx-auto">
-        <div className="text-center">
-          <div className="max-w-2xl mx-auto mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-5xl font-medium text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-              0 → Live Stablecoin Operations. <br/>In 90 days.
-            </h1>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed" data-testid="hero-subtitle">
-            Enable seamless distribution and payments across your network with fully automated compliance.</p>
-          </div>
+    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-36 pb-24 px-6 sm:px-8 overflow-hidden">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button
-              onClick={() => scrollToSection("pilot-cta")}
-              className="group px-10 py-4 verto-gradient text-white font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-              data-testid="button-primary-cta"
-            >
-              <span>Launch Pilot in 90 days</span>
+      {/* Gradient Aura for visual effect */}
+      <div className="absolute top-0 left-1/4 -translate-y-1/2">
+        <div className="w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] bg-gradient-to-tr from-verto-purple/20 via-verto-blue/10 to-verto-green/20 dark:from-verto-purple/30 dark:via-verto-blue/20 dark:to-verto-green/30 blur-[150px] rounded-full"></div>
+      </div>
 
-            </button>
-            <button
-              onClick={() => scrollToSection("risk-review")}
-              className="px-10 py-4 border-2 border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-xl hover:border-slate-300 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:shadow-sm transition-all duration-300"
-              data-testid="button-secondary-cta"
-            >
-              Free Operations Review
-              
-            </button>
-          </div>
+      <div className="relative max-w-7xl mx-auto text-center">
+        <h1 className="font-bold text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
+          {/* FIX: Title now uses the correct brand gradient colors. */}
+          <span className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-verto-purple via-verto-blue to-verto-orange bg-clip-text text-transparent">
+            Live Stablecoin Operations
+          </span>
+          <br />
+          {/* FIX: Separated sub-headline for better responsive font control. */}
+          <span className="mt-4 block text-3xl md:text-4xl lg:text-5xl text-slate-800 dark:text-slate-200">
+            Zero → Launch in 90 Days.
+          </span>
+        </h1>
+
+        <p className="mt-6 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="hero-subtitle">
+          Activate your network with our complete operational stack for stablecoin distribution, payments, and AI-powered compliance.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={() => scrollToSection("pilot")}
+            className="group inline-flex items-center justify-center px-7 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
+            data-testid="button-primary-cta"
+          >
+            <span>Launch a Pilot</span>
+            <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button
+            onClick={() => scrollToSection("infrastructure")}
+            className="group inline-flex items-center justify-center px-7 py-3.5 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+            data-testid="button-secondary-cta"
+          >
+             <BookOpen className="w-5 h-5 mr-2 text-slate-500" />
+            <span>Read Documentation</span>
+          </button>
         </div>
+
+        {/* FIX: Removed the redundant logo section from the hero. */}
+
       </div>
     </section>
   );

@@ -1,618 +1,257 @@
-import { Coins, CreditCard, Shield, CheckCircle, Users, Store, QrCode, Smartphone, ArrowRight, Database, FileText, Zap } from "lucide-react";
+import { useState } from "react";
+import { Coins, CreditCard, Shield, CheckCircle, Users, Store, QrCode, Smartphone, ArrowRight, Database, FileText, Zap, Rocket, BarChart3, Terminal, SlidersHorizontal } from "lucide-react";
+
+// Helper component for styled feature list items
+const FeatureItem = ({ icon: Icon, title, children }) => (
+  <div className="flex items-start space-x-4">
+    <div className="flex-shrink-0 w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center">
+      <Icon className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+    </div>
+    <div>
+      <h4 className="text-md font-semibold text-slate-900 dark:text-white">{title}</h4>
+      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p>
+    </div>
+  </div>
+);
+
+// Visual component for the Distribution Flow
+const DistributionFlow = () => (
+  <div className="w-full h-full bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-900/70 dark:to-slate-900 rounded-2xl p-6 lg:p-8 shadow-xl border border-slate-200/80 dark:border-slate-800">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+      {/* Agent Side */}
+      <div className="bg-white dark:bg-slate-800/50 rounded-lg p-4 flex flex-col">
+        <div className="flex items-center space-x-2 mb-4">
+          <Users className="w-5 h-5 text-verto-green" />
+          <h3 className="font-semibold text-slate-800 dark:text-slate-200">Agent Terminal</h3>
+        </div>
+        <div className="space-y-3 flex-grow">
+          <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
+            <p className="font-mono text-slate-500 dark:text-slate-400">1. Prefund Credit Line</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">✓ Balance: $5,000.00</p>
+          </div>
+          <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
+            <p className="font-mono text-slate-500 dark:text-slate-400">2. Generate Minting QR</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">Amount: $50.00 USDC</p>
+          </div>
+        </div>
+        <div className="mt-4 flex justify-center">
+
+        </div>
+      </div>
+
+      {/* Customer Side */}
+      <div className="bg-white dark:bg-slate-800/50 rounded-lg p-4 flex flex-col">
+        <div className="flex items-center space-x-2 mb-4">
+          <Smartphone className="w-5 h-5 text-verto-green" />
+          <h3 className="font-semibold text-slate-800 dark:text-slate-200">Customer App</h3>
+        </div>
+        <div className="space-y-3 flex-grow">
+          <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
+            <p className="font-mono text-slate-500 dark:text-slate-400">1. Deposit Cash</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">Handed over $50.00</p>
+          </div>
+          <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50">
+            <p className="font-mono text-slate-500 dark:text-slate-400">2. Scan & Mint</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">Tap to confirm mint...</p>
+          </div>
+        </div>
+        <div className="mt-4 p-3 bg-verto-green/10 rounded-lg text-center">
+          <p className="text-sm font-bold text-verto-green">Success!</p>
+          <p className="text-xs text-verto-green/80">50.00 USDC minted to wallet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Visual component for the Payments Flow
+const PaymentsFlow = () => (
+    <div className="w-full h-full bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-900/70 dark:to-slate-900 rounded-2xl p-6 lg:p-8 shadow-xl border border-slate-200/80 dark:border-slate-800">
+        <div className="flex flex-col h-full space-y-4">
+            <div className="flex items-center space-x-2">
+                <Store className="w-5 h-5 text-verto-purple"/>
+                <h3 className="font-semibold text-slate-800 dark:text-slate-200">Merchant Checkout</h3>
+            </div>
+            {/* Mock UI for POS */}
+            <div className="bg-white dark:bg-slate-800/50 rounded-lg p-4 flex-grow flex flex-col items-center justify-center space-y-4">
+                <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">$25.99</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Present QR Code to Customer</p>
+                <div className="p-2 bg-white rounded-lg"></div>
+            </div>
+            {/* Mock UI for Customer Confirmation */}
+            <div className="bg-verto-purple/10 rounded-lg p-4 flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                    <Smartphone className="w-5 h-5 text-verto-purple"/>
+                    <div>
+                        <p className="font-semibold text-verto-purple text-sm">Customer Payment</p>
+                        <p className="text-xs text-verto-purple/80">Scan, tap, and go. Gas sponsored.</p>
+                    </div>
+                </div>
+                <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-green-500/20">
+                    <CheckCircle className="w-4 h-4 text-green-500"/>
+                    <span className="text-xs font-medium text-green-500">Confirmed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+// Visual component for the Compliance Flow
+const ComplianceFlow = () => (
+    <div className="w-full h-full bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-900/70 dark:to-slate-900 rounded-2xl p-6 lg:p-8 shadow-xl border border-slate-200/80 dark:border-slate-800">
+        <div className="flex flex-col h-full space-y-4">
+            <div className="flex items-center space-x-2">
+                <Shield className="w-5 h-5 text-verto-blue"/>
+                <h3 className="font-semibold text-slate-800 dark:text-slate-200">Verto AI Compliance Dashboard</h3>
+            </div>
+            {/* Mock UI for Compliance Dashboard */}
+            <div className="bg-white dark:bg-slate-800/50 rounded-lg p-4 flex-grow space-y-4">
+                <div>
+                    <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Counterparty Risk Analysis</label>
+                    <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5 mt-1">
+                        <div className="bg-gradient-to-r from-green-400 to-blue-500 h-2.5 rounded-full" style={{width: '75%'}}></div>
+                    </div>
+                    <p className="text-xs text-right font-mono text-slate-500 dark:text-slate-400 mt-1">Wallet 0x1a2b... <span className="text-green-500 font-bold">Score: A+</span></p>
+                </div>
+                 <div>
+                    <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Policy Engine</label>
+                     <div className="text-xs p-2 rounded-md bg-slate-100 dark:bg-slate-700/50 mt-1">
+                        <p className="font-mono text-slate-500 dark:text-slate-400">IF risk &gt; B+ AND amount &gt; $10k</p>
+                        <p className="font-semibold text-slate-700 dark:text-slate-300">THEN require manual_approval</p>
+                    </div>
+                </div>
+            </div>
+             <div className="bg-verto-blue/10 rounded-lg p-4 flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                    <FileText className="w-5 h-5 text-verto-blue"/>
+                    <div>
+                        <p className="font-semibold text-verto-blue text-sm">Real-time Audit Trail</p>
+                        <p className="text-xs text-verto-blue/80">Every action is logged and verifiable.</p>
+                    </div>
+                </div>
+                 <span className="text-xs font-mono text-slate-500">TXN_45b31... VERIFIED</span>
+            </div>
+        </div>
+    </div>
+);
+
 
 export default function PillarsSection() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const [activeTab, setActiveTab] = useState("distribution");
+
+  const pillars = {
+    distribution: {
+      label: "Distribution",
+      color: "verto-green",
+      title: "On-Demand Minting",
+      description: "Instantly turn cash into stablecoins at any retail point. Our platform equips agent partners, from kiosks to mobile operators, to serve as on-ramps for your digital currency.",
+      visual: <DistributionFlow />,
+      features: [
+        { icon: Users, title: "Leverage Existing Networks", description: "Scale adoption by activating vast, pre-existing retail and agent networks without new infrastructure." },
+        { icon: Rocket, title: "Zero Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." },
+        { icon: Terminal, title: "Unified SDKs", description: "A single, simple integration for agent terminals, mobile apps, and backend reconciliation systems." },
+      ],
+      cta: "Get Distribution Playbook",
+    },
+    payments: {
+      label: "Payments",
+      color: "verto-purple",
+      title: "Frictionless Checkout",
+      description: "Our stack removes all blockchain complexity from payments. A single API lets merchants accept your stablecoin from any wallet, bank, or exchange, seamlessly.",
+      visual: <PaymentsFlow />,
+      features: [
+        { icon: Zap, title: "Boost Conversion Rates", description: "One-tap UX with sponsored gas fees removes friction and dramatically increases payment completion rates." },
+        { icon: Store, title: "Universal Acceptance", description: "A single API unlocks a universal payment ecosystem, driving utility and adoption for your stablecoin." },
+        { icon: FileText, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically, reducing operational overhead." },
+      ],
+      cta: "Explore Payments API",
+    },
+    compliance: {
+      label: "Compliance",
+      color: "verto-blue",
+      title: "AI-Powered Compliance",
+      description: "Verto's AI engine replaces manual, periodic counterparty audits with continuous, explainable, and automated oversight across your entire ecosystem.",
+      visual: <ComplianceFlow />,
+      features: [
+        { icon: BarChart3, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every wallet, token, and protocol, with full data lineage." },
+        { icon: SlidersHorizontal, title: "Policy-Driven Automation", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." },
+        { icon: Shield, title: "Ironclad Audit Trails", description: "Generate human-readable, cryptographically verifiable logs of every compliance decision for regulators." },
+      ],
+      cta: "Request Compliance Demo",
+    },
   };
 
+  const activePillar = pillars[activeTab];
+
   return (
-    <div className="space-y-0">
-      <div className="text-center py-20 bg-white dark:bg-gray-900">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight">
-          The Three Pillars of Adoption. One Unified OS.
+    <div className="bg-white dark:bg-gray-900">
+      <div className="text-center pt-20 pb-12">
+          <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
+            One Unified Platform
         </h2>
-        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed px-6">
-          Drive real-world usage with a complete operational stack for distribution, payments, and compliance.
+        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
+          A complete self-hosted operational stack for stablecoin distribution, payments, and compliance, designed to drive real-world adoption.
         </p>
       </div>
 
-      {/* Distribution */}
-      <section className="py-24 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Content */}
-            <div className="lg:col-span-7">
-              <div className="mb-8">
-                <h3 className="text-4xl font-semibold text-slate-900 dark:text-white mb-6">Instant on-ramps</h3>
-                <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  Cash-to-stablecoin minting at any point of value-in. Agent Partners—from retail kiosks to mobile operators—serve as cash-in points for your stablecoin.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div>
-                  <h5 className="text-base md:text-lg font-medium text-slate-900 dark:text-white mb-4 flex items-center">
-                    <Users className="w-4 h-4 md:w-5 md:h-5 text-slate-600 dark:text-slate-400 mr-2" />
-                    Agent Experience
-                  </h5>
-                  <div className="space-y-3">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">1</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Pre-fund:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Establish deposit-backed credit line</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">2</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Create QR:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Generate unique QR code for cash amount</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h5 className="text-base md:text-lg font-medium text-slate-900 dark:text-white mb-4 flex items-center">
-                    <Smartphone className="w-4 h-4 md:w-5 md:h-5 text-slate-600 dark:text-slate-400 mr-2" />
-                    Customer Experience
-                  </h5>
-                  <div className="space-y-3">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">1</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Deposit & Scan:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Hand over cash and scan QR code</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">2</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Confirm:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">One tap, instant wallet & minting</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">What We Do Behind the Scenes</h5>
-                <div className="space-y-4 mb-8">
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Full Stack Integration</h6>
-                    <p className="text-slate-600 dark:text-slate-300">Our SDK embeds into terminals and apps, connecting to bank/cash APIs and your funding/reconciliation systems for real-time reconciliation.</p>
-                  </div>
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Orchestration</h6>
-                    <p className="text-slate-600 dark:text-slate-300">We create the deposit-backed credit token and link it to the single-use QR code.</p>
-                  </div>
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Compliance & Audit</h6>
-                    <p className="text-slate-600 dark:text-slate-300">Our platform enforces real-time KYC, counterparty limits, and records a cryptographic audit trail for every mint event.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Key Benefits</h5>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <Users className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Mass Adoption</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Scale distribution by leveraging existing retail networks</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Zero Float</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">On-demand minting eliminates pre-funded treasury</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Low Cost</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Integrate with existing infrastructure</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Tab Navigation */}
+        <div className="border-b border-slate-200 dark:border-slate-700">
+          <nav className="-mb-px flex justify-center space-x-6" aria-label="Tabs">
+            {Object.keys(pillars).map((key) => (
               <button
-                onClick={() => scrollToSection("contact")}
-                className="px-6 py-3 bg-verto-green hover:bg-verto-green/90 text-white font-semibold rounded-lg transition-colors"
+                key={key}
+                onClick={() => setActiveTab(key)}
+                className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200
+                  ${
+                    activeTab === key
+                      ? `border-${pillars[key].color} text-${pillars[key].color}`
+                      : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"
+                  }`}
               >
-                Get Distribution Playbook
+                {pillars[key].label}
               </button>
-            </div>
-
-            {/* User Journey Diagram */}
-            <div className="lg:col-span-5">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Distribution Flow</h5>
-                
-                <div className="space-y-6">
-                  {/* Agent Setup with Credit Line */}
-                  <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                          <Users className="w-7 h-7 text-blue-600" />
-                        </div>
-                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Agent</span>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-slate-400" />
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
-                          <span className="text-lg">💰</span>
-                        </div>
-                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Credit Line</span>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-slate-400" />
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="w-14 h-14 bg-verto-green/10 rounded-xl flex items-center justify-center">
-                          <QrCode className="w-7 h-7 text-verto-green" />
-                        </div>
-                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">QR Code</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Customer Flow */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center">
-                        <span className="text-2xl">💵</span>
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Cash In</span>
-                    </div>
-                    <ArrowRight className="w-6 h-6 text-slate-400" />
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-verto-green/10 rounded-xl flex items-center justify-center">
-                        <Coins className="w-8 h-8 text-verto-green" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Mint</span>
-                    </div>
-                    <ArrowRight className="w-6 h-6 text-slate-400" />
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center">
-                        <Smartphone className="w-8 h-8 text-purple-600" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Wallet</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            ))}
+          </nav>
         </div>
-      </section>
+      </div>
 
-      {/* Payments */}
-      <section className="py-24 bg-slate-50/50 dark:bg-gray-800/30">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Content */}
-            <div className="lg:col-span-7">
-              <div className="mb-8">
-                <h3 className="text-4xl font-semibold text-slate-900 dark:text-white mb-6">One-tap payments</h3>
-                <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  Payment stack removes all blockchain friction from checkout. Single API integration lets merchants accept payments from any wallet, credit card, or exchange.
-                </p>
-              </div>
+      {/* Tab Content */}
+      <div className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-12 lg:gap-16 items-center">
+                {/* Left Side: Content */}
+                <div className="lg:col-span-6 xl:col-span-5">
+                    <div className="mb-8">
+                        <p className={`text-sm font-semibold uppercase tracking-wider text-${activePillar.color}`}>{activePillar.label}</p>
+                        <h3 className="text-3xl lg:text-4xl font-semibold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
+                        <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                            {activePillar.description}
+                        </p>
+                    </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div>
-                  <h5 className="text-base md:text-lg font-medium text-slate-900 dark:text-white mb-4 flex items-center">
-                    <Store className="w-4 h-4 md:w-5 md:h-5 text-slate-600 dark:text-slate-400 mr-2" />
-                    Merchant Experience
-                  </h5>
-                  <div className="space-y-3">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">1</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Integrate Once:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Single API for web, POS, mobile</p>
-                      </div>
+                    <div className="space-y-6 mb-10">
+                       {activePillar.features.map(feature => (
+                           <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>
+                               {feature.description}
+                           </FeatureItem>
+                       ))}
                     </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">2</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Create Link:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Instant QR or payment link generation</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">3</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Receive Funds:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Instant routing and settlement</p>
-                      </div>
-                    </div>
-                  </div>
+
+                    <button
+                        className={`px-6 py-3 bg-${activePillar.color} hover:bg-${activePillar.color}/90 text-white font-semibold rounded-lg transition-colors shadow-${activePillar.color}/30 shadow-lg`}
+                    >
+                        {activePillar.cta}
+                    </button>
                 </div>
 
-                <div>
-                  <h5 className="text-base md:text-lg font-medium text-slate-900 dark:text-white mb-4 flex items-center">
-                    <Smartphone className="w-4 h-4 md:w-5 md:h-5 text-slate-600 dark:text-slate-400 mr-2" />
-                    Customer Experience
-                  </h5>
-                  <div className="space-y-3">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">1</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Tap to Pay:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Scan QR or click payment link</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">2</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">Universal Funding:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Any token, any chain, one tap</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mt-0.5">
-                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">3</span>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-medium text-slate-900 dark:text-white">No Gas Fees:</span>
-                        <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Sponsored gas, seamless experience</p>
-                      </div>
-                    </div>
-                  </div>
+                {/* Right Side: Visual Flow Diagram */}
+                <div className="lg:col-span-6 xl:col-span-7 mt-12 lg:mt-0">
+                    {activePillar.visual}
                 </div>
-              </div>
-
-              <div className="mb-8">
-                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">What We Do Behind the Scenes</h5>
-                <div className="space-y-4 mb-8">
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Payment Orchestration</h6>
-                    <p className="text-slate-600 dark:text-slate-300">Our system handles the entire payment journey, including instant routing, cross-chain conversions, and gas-free execution. This ensures a seamless flow from the user's payment to the merchant's settlement with automated reconciliation.</p>
-                  </div>
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Non-Custodial</h6>
-                    <p className="text-slate-600 dark:text-slate-300">We never hold user funds, maintaining a secure and trustless system.</p>
-                  </div>
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-2">Compliance & Audit</h6>
-                    <p className="text-slate-600 dark:text-slate-300">All payment routes and conversions are evaluated against your compliance policies in real-time. This ensures every transaction is safe and fully auditable from end to end.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Key Benefits</h5>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Boost Conversion</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">One-tap UX and sponsored gas drive completion rates</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <Store className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Drive Adoption</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Single API opens universal payment ecosystem</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <FileText className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Automated Back-Office</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Handle reconciliation and reporting automatically</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="px-6 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white font-semibold rounded-lg transition-colors"
-              >
-                See Payments Demo
-              </button>
             </div>
-
-            {/* User Journey Diagram */}
-            <div className="lg:col-span-5">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Payment Flow</h5>
-                
-                <div className="space-y-6">
-                  {/* Merchant Creates Payment */}
-                  <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 mb-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                          <Store className="w-7 h-7 text-blue-600" />
-                        </div>
-                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Merchant</span>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-slate-400" />
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="w-14 h-14 bg-verto-purple/10 rounded-xl flex items-center justify-center">
-                          <QrCode className="w-7 h-7 text-verto-purple" />
-                        </div>
-                        <span className="text-xs font-medium text-slate-700 dark:text-slate-300">Creates QR</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Customer Payment Flow */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
-                        <Smartphone className="w-8 h-8 text-green-600" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">User Scans</span>
-                    </div>
-                    <ArrowRight className="w-6 h-6 text-slate-400" />
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-verto-purple/10 rounded-xl flex items-center justify-center">
-                        <span className="text-2xl">👆</span>
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">One Tap</span>
-                    </div>
-                    <ArrowRight className="w-6 h-6 text-slate-400" />
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
-                        <CheckCircle className="w-8 h-8 text-green-600" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Payment Done</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-
-      {/* Compliance */}
-      <section className="py-24 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Content */}
-            <div className="lg:col-span-7">
-              <div className="mb-8">
-                <h3 className="text-4xl font-semibold text-slate-900 dark:text-white mb-6">AI-powered compliance</h3>
-                <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  AI-powered compliance system turns open blockchain into regulator-ready operational backbone. Replaces manual, multi-week reviews with continuous, auditable automation.
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h5 className="text-base md:text-lg font-medium text-slate-900 dark:text-white mb-6">How We Ensure Safe Operations</h5>
-                <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  Our system integrates directly into your business logic, ensuring every transaction—from a cash deposit to a payment—is compliant from the start.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
-                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
-                        <Database className="w-4 h-4 text-verto-blue" />
-                      </div>
-                      Explainable Risk Ratings
-                    </h6>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      Our AI generates clear, Moody's-style risk scores for wallets, tokens, and protocols. This model is fully transparent, providing the data lineage and rationale behind every score.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
-                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
-                        <Zap className="w-4 h-4 text-verto-blue" />
-                      </div>
-                      Policy-Driven Routing
-                    </h6>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      Define your compliance policies once. Our system automatically enforces them by routing payments and trades to balance risk, latency, and slippage.
-                    </p>
-                  </div>
-                </div>
-
-                <h5 className="text-base md:text-lg font-medium text-slate-900 dark:text-white mb-6">Auditability and Oversight</h5>
-                <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                  We provide the tools needed to satisfy regulators and build an ironclad audit trail.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
-                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
-                        <FileText className="w-4 h-4 text-verto-blue" />
-                      </div>
-                      Real-Time Audit Trails
-                    </h6>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      Every decision, from a route choice to a counterparty approval, is logged in a time-stamped provenance. This record is human-readable and cryptographically verifiable.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h6 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
-                      <div className="w-8 h-8 bg-verto-blue/10 rounded-lg flex items-center justify-center mr-3">
-                        <Shield className="w-4 h-4 text-verto-blue" />
-                      </div>
-                      Operational Controls
-                    </h6>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      Automate approvals, overrides, whitelists/blacklists, and escalation paths directly into your compliance dashboards.
-                    </p>
-                  </div>
-                </div>
-
-                <h5 className="text-base md:text-lg font-medium text-slate-900 dark:text-white mb-6">What We Secure</h5>
-                <div className="grid md:grid-cols-3 gap-4 mb-8">
-                  <div className="bg-green-50 dark:bg-green-900/10 rounded-lg p-4 border border-green-200 dark:border-green-800">
-                    <div className="flex items-center mb-2">
-                      <Coins className="w-5 h-5 text-verto-green mr-2" />
-                      <span className="font-medium text-slate-900 dark:text-white text-sm">Minting & On-Ramps</span>
-                    </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-300">Compliant cash-to-stablecoin minting with KYC and AML enforcement at point of cash-in</p>
-                  </div>
-                  
-                  <div className="bg-purple-50 dark:bg-purple-900/10 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
-                    <div className="flex items-center mb-2">
-                      <CreditCard className="w-5 h-5 text-verto-purple mr-2" />
-                      <span className="font-medium text-slate-900 dark:text-white text-sm">Payments</span>
-                    </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-300">Secure payments from any wallet on any chain with real-time compliance evaluation</p>
-                  </div>
-                  
-                  <div className="bg-blue-50 dark:bg-blue-900/10 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
-                    <div className="flex items-center mb-2">
-                      <Database className="w-5 h-5 text-verto-blue mr-2" />
-                      <span className="font-medium text-slate-900 dark:text-white text-sm">Trading</span>
-                    </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-300">Compliant stablecoin trading to any digital asset through policy-driven routing</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Key Benefits</h5>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <Shield className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">CISO Trust</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Enterprise-grade security and risk management</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <CheckCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">Regulatory Approval</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Audit-ready compliance and transparent controls</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mt-0.5">
-                      <Zap className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div>
-                      <h6 className="text-sm md:text-base font-medium text-slate-900 dark:text-white mb-1">User Delight</h6>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300">Seamless experience without compliance friction</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="px-6 py-3 bg-verto-blue hover:bg-verto-blue/90 text-white font-semibold rounded-lg transition-colors"
-              >
-                Free Risk & Compliance Review →
-              </button>
-            </div>
-
-            {/* Compliance Dashboard Diagram */}
-            <div className="lg:col-span-5">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-                <h5 className="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center">Compliance Dashboard</h5>
-                
-                <div className="space-y-4">
-                  {/* Issuance Transaction */}
-                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <Coins className="w-6 h-6 text-verto-green" />
-                      <div>
-                        <div className="font-medium text-slate-900 dark:text-white text-sm">Distribution Mint</div>
-                        <div className="text-xs text-slate-600 dark:text-slate-300">$10,000 • KYC Verified</div>
-                      </div>
-                    </div>
-                    <CheckCircle className="w-5 h-5 text-verto-green" />
-                  </div>
-
-                  {/* Payment Transaction */}
-                  <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <CreditCard className="w-6 h-6 text-verto-purple" />
-                      <div>
-                        <div className="font-medium text-slate-900 dark:text-white text-sm">Payment Route</div>
-                        <div className="text-xs text-slate-600 dark:text-slate-300">$500 • Risk Score: A+</div>
-                      </div>
-                    </div>
-                    <CheckCircle className="w-5 h-5 text-verto-green" />
-                  </div>
-
-                  {/* Trading Transaction */}
-                  <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <Database className="w-6 h-6 text-verto-blue" />
-                      <div>
-                        <div className="font-medium text-slate-900 dark:text-white text-sm">Liquidity Trade</div>
-                        <div className="text-xs text-slate-600 dark:text-slate-300">$25,000 • Policy Compliant</div>
-                      </div>
-                    </div>
-                    <CheckCircle className="w-5 h-5 text-verto-green" />
-                  </div>
-
-                  {/* Audit Report */}
-                  <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 mt-6">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-verto-blue/10 rounded-lg mx-auto flex items-center justify-center mb-2">
-                        <FileText className="w-6 h-6 text-verto-blue" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Single Auditable Report</span>
-                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">Real-time, regulator-ready</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 }

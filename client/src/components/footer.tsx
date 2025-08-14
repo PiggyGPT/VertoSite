@@ -1,77 +1,94 @@
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { ArrowRight, Mail, Linkedin } from "lucide-react";
 import { SiX } from "react-icons/si";
 
-export default function Footer() {
-  return (
-    <footer id="contact" className="bg-gradient-to-br from-slate-900 via-gray-900/90 to-slate-800/80 dark:from-black dark:via-gray-900/90 dark:to-slate-900/80 text-white py-16" data-testid="footer">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <div className="text-2xl font-bold verto-gradient-text mb-4">verto</div>
-            <p className="text-slate-300 mb-6 leading-relaxed">
-              The Institutional OS to mint, move & monitor stablecoins.
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-center text-slate-300">
-                <Mail className="w-4 h-4 mr-3" />
-                <span>info@vertoai.net</span>
-              </div>
-              <div className="flex items-center text-slate-300">
-                <Phone className="w-4 h-4 mr-3" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center text-slate-300">
-                <MapPin className="w-4 h-4 mr-3" />
-                <span>San Francisco, CA</span>
-              </div>
+// Verto Logo Component (replace with your actual SVG if you have one)
+const VertoLogo = () => (
+    <span className="text-2xl font-bold bg-gradient-to-r from-verto-purple via-verto-blue to-verto-green bg-clip-text text-transparent">
+        verto
+    </span>
+);
+
+// This is the new, dedicated Call-to-Action section that lives right above the footer.
+export function PilotCtaSection() {
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    return (
+        <section id="pilot-cta" className="bg-slate-100 dark:bg-gray-800/60">
+            <div className="max-w-5xl mx-auto px-6 sm:px-8 py-16 text-center">
+                 <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
+                    Ready to Build the Future of Finance?
+                </h2>
+                <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                    Let's design a 90-day pilot that provides the data you need and the confidence your stakeholders demand.
+                </p>
+                 <button
+                    onClick={() => scrollToSection("contact")}
+                    className="group mt-8 inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
+                >
+                    <span>Schedule a Consultation</span>
+                    <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                </button>
             </div>
-          </div>
+        </section>
+    );
+}
 
-          {/* Solutions */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Solutions</h4>
-            <ul className="space-y-2 text-slate-300">
-              <li><a href="#infrastructure" className="hover:text-white transition-colors">Issuance Infrastructure</a></li>
-              <li><a href="#infrastructure" className="hover:text-white transition-colors">Payment Rails</a></li>
-              <li><a href="#infrastructure" className="hover:text-white transition-colors">Liquidity Management</a></li>
-              <li><a href="#ai" className="hover:text-white transition-colors">AI Platform</a></li>
-            </ul>
-          </div>
+// The new, refined footer component.
+export default function Footer() {
+    const footerLinks = {
+        "Platform": ["Distribution", "Payments", "Compliance"],
+        "Company": ["About Us", "Careers", "Press"],
+        "Resources": ["Blog", "Security", "Contact Us"]
+    };
 
-          {/* Company */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Company</h4>
-            <ul className="space-y-2 text-slate-300">
-              <li><a href="#team" className="hover:text-white transition-colors">Leadership</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Press</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
-            </ul>
-          </div>
-        </div>
+    return (
+        <footer id="contact" className="bg-slate-900 dark:bg-black text-white">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 py-16">
+                <div className="grid md:grid-cols-12 gap-8">
+                    {/* Company Info */}
+                    <div className="md:col-span-4">
+                        <VertoLogo />
+                        <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
+                            The Institutional OS to mint, move, and monitor stablecoins with AI-powered compliance.
+                        </p>
+                    </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-slate-400 text-sm mb-4 md:mb-0">
-            © 2025 Verto Technologies Inc. All rights reserved.
-          </div>
-          <div className="flex items-center space-x-6">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
-              Terms of Service
-            </a>
-            <a href="https://x.com/Verto_AI" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
-              <SiX className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+                    {/* Links */}
+                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+                        {Object.entries(footerLinks).map(([title, links]) => (
+                             <div key={title}>
+                                <h4 className="font-semibold text-white tracking-wider uppercase text-sm mb-4">{title}</h4>
+                                <ul className="space-y-3">
+                                    {links.map(link => (
+                                        <li key={link}>
+                                            <a href="#" className="text-slate-400 hover:text-white transition-colors duration-200">
+                                                {link}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="mt-16 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <p className="text-slate-500 text-sm mb-4 md:mb-0">
+                        &copy; {new Date().getFullYear()} Verto Technologies Inc. All rights reserved.
+                    </p>
+                    <div className="flex items-center space-x-5">
+                         <a href="mailto:info@verto.ai" aria-label="Email" className="text-slate-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
+                         <a href="#" aria-label="X (formerly Twitter)" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
+                         <a href="#" aria-label="LinkedIn" className="text-slate-500 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
 }
