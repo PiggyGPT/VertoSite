@@ -10,13 +10,10 @@ import {
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
-// --- Foundational Visual Component ---
+// --- Simplified Visual Container - No Background Interference ---
 const VisualContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="relative bg-slate-50 dark:bg-slate-900/50 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 min-h-[480px] flex items-center justify-center">
-        <div className="absolute inset-0 bg-[radial-gradient(theme(colors.slate.200),transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] dark:bg-[radial-gradient(theme(colors.slate.700),transparent_1px)]"></div>
-        <div className="relative w-full">
-            {children}
-        </div>
+    <div className="relative min-h-[480px] flex items-center justify-center p-4">
+        {children}
     </div>
 );
 
@@ -25,10 +22,10 @@ const ExecutiveDistributionFlow = () => {
     const [isVoucherVisible, setIsVoucherVisible] = useState(false);
 
     // Define static classes for Tailwind's JIT compiler
-    const panelBaseClasses = "absolute inset-0 transition-all duration-500 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-y-0 scale-100";
-    const panelHiddenClasses = "opacity-0 -translate-y-4 scale-95";
-    const panelVoucherHiddenClasses = "opacity-0 translate-y-4 scale-95";
+    const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
+    const panelVisibleClasses = "opacity-100 translate-y-0 scale-100 rotate-0";
+    const panelHiddenClasses = "opacity-0 -translate-y-8 scale-90 -rotate-1";
+    const panelVoucherHiddenClasses = "opacity-0 translate-y-8 scale-90 rotate-1";
 
     return (
         <VisualContainer>
@@ -36,6 +33,7 @@ const ExecutiveDistributionFlow = () => {
                 {/* Panel 1: Agent Dashboard */}
                 <div
                     className={`${panelBaseClasses} ${isVoucherVisible ? panelHiddenClasses : panelVisibleClasses}`}
+                    style={{ zIndex: isVoucherVisible ? 1 : 2 }}
                 >
                     <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
                         <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
@@ -82,6 +80,7 @@ const ExecutiveDistributionFlow = () => {
                 {/* Panel 2: POS Voucher */}
                 <div
                      className={`${panelBaseClasses} ${isVoucherVisible ? panelVisibleClasses : panelVoucherHiddenClasses}`}
+                     style={{ zIndex: isVoucherVisible ? 2 : 1 }}
                 >
                      <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 cursor-pointer" onClick={() => setIsVoucherVisible(false)}>
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
@@ -108,10 +107,10 @@ const PolishedPaymentsFlow = () => {
     const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
     // Define static classes for Tailwind's JIT compiler
-    const panelBaseClasses = "absolute inset-0 transition-all duration-500 ease-in-out";
-    const panelVisibleClasses = "opacity-100 scale-100";
-    const panelHiddenClasses = "opacity-0 scale-95";
-    const panelCheckoutHiddenClasses = "opacity-0 scale-105";
+    const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
+    const panelVisibleClasses = "opacity-100 scale-100 rotate-0";
+    const panelHiddenClasses = "opacity-0 scale-90 -rotate-1";
+    const panelCheckoutHiddenClasses = "opacity-0 scale-110 rotate-1";
 
     return (
         <VisualContainer>
@@ -119,6 +118,7 @@ const PolishedPaymentsFlow = () => {
                 {/* Panel 1: Payment Request / QR Code */}
                 <div
                     className={`${panelBaseClasses} ${isCheckoutVisible ? panelHiddenClasses : panelVisibleClasses}`}
+                    style={{ zIndex: isCheckoutVisible ? 1 : 2 }}
                 >
                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
@@ -147,6 +147,7 @@ const PolishedPaymentsFlow = () => {
                 {/* Panel 2: Checkout UI */}
                 <div
                     className={`${panelBaseClasses} ${isCheckoutVisible ? panelVisibleClasses : panelCheckoutHiddenClasses}`}
+                    style={{ zIndex: isCheckoutVisible ? 2 : 1 }}
                 >
                     <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
                          <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
