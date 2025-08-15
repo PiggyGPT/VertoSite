@@ -977,47 +977,149 @@ const PolishedComplianceFlow = () => {
 
 
 // --- VISUAL 5: Service (Animated Flow) ---
-const ExecutiveServiceFlow = () => (
-    <VisualContainer>
-        <div className="relative w-full h-[500px] flex items-center justify-center">
-            {/* Central Client Infrastructure */}
-            <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-56 h-40">
-                <div className="p-3 bg-verto-cyan/10 rounded-full w-fit mb-2"><Database className="w-10 h-10 text-verto-cyan" /></div>
-                <h3 className="font-bold text-slate-900 dark:text-white">Self-Hosted Platform</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">On-Prem / Private Cloud</p>
-            </div>
+import React, { useState, useEffect } from 'react';
+import { Monitor, ShieldCheck, Server, Clock, CheckCircle, Cpu } from 'lucide-react';
 
-            {/* Animated Shields */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="absolute w-64 h-64 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-full animate-spin-slow"></div>
-                 <div className="absolute w-80 h-80 border border-slate-200 dark:border-slate-800 rounded-full"></div>
-            </div>
-
-            {/* SOC Team Pods */}
-            <div className="absolute w-32 h-32 top-1/2 left-1/2 -mt-16 -ml-52 z-20">
-                 <div className="flex flex-col items-center text-center p-3 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-xl shadow-lg border border-white/30 dark:border-slate-700/50">
-                     <p className="font-semibold text-sm">New York</p>
-                     <ShieldCheck className="w-5 h-5 text-verto-cyan my-1"/>
-                     <span className="text-xs">SOC Team</span>
-                 </div>
-            </div>
-            <div className="absolute w-32 h-32 top-1/2 left-1/2 -mt-52 -ml-16 z-20">
-                 <div className="flex flex-col items-center text-center p-3 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-xl shadow-lg border border-white/30 dark:border-slate-700/50">
-                     <p className="font-semibold text-sm">Barcelona</p>
-                     <ShieldCheck className="w-5 h-5 text-verto-cyan my-1"/>
-                     <span className="text-xs">SOC Team</span>
-                 </div>
-            </div>
-             <div className="absolute w-32 h-32 top-1/2 left-1/2 -mt-16 ml-20 z-20">
-                 <div className="flex flex-col items-center text-center p-3 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-xl shadow-lg border border-white/30 dark:border-slate-700/50">
-                     <p className="font-semibold text-sm">Singapore</p>
-                     <ShieldCheck className="w-5 h-5 text-verto-cyan my-1"/>
-                     <span className="text-xs">SOC Team</span>
-                 </div>
-            </div>
-        </div>
-    </VisualContainer>
+// A simple container to hold the visual, providing consistent padding and a dark/light mode bg.
+const VisualContainer = ({ children }) => (
+  <div className="flex items-center justify-center min-h-screen bg-slate-200 dark:bg-slate-900 p-4 font-sans text-slate-800 dark:text-slate-200">
+    {children}
+  </div>
 );
+
+// CSS for the pulsing green dot animation
+const animationStyles = `
+  @keyframes pulse-green {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    }
+  }
+  .animate-pulse-green {
+    animation: pulse-green 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  }
+`;
+
+// A reusable header component for consistent styling within the dashboard
+const Header = ({ title, icon }) => (
+    <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
+        {icon && React.cloneElement(icon, { className: 'w-3 h-3' })}
+        <span>{title}</span>
+    </div>
+);
+
+// --- Main Dashboard Component ---
+const ExecutiveServiceFlow = () => {
+    // State for the active SOC location and the simulated time
+    const [activeSOC, setActiveSOC] = useState('New York');
+    const [timeData, setTimeData] = useState({ hours: 6, minutes: 0 }); // Start at 06:00
+
+    useEffect(() => {
+        const locations = ['New York', 'Barcelona', 'Singapore'];
+
+        // Interval to update the clock every 50ms for a smooth animation
+        const clockInterval = setInterval(() => {
+            setTimeData(prevTime => {
+                let newMinutes = prevTime.minutes + 1;
+                let newHours = prevTime.hours;
+
+                if (newMinutes >= 60) {
+                    newMinutes = 0;
+                    newHours = (newHours + 1) % 24;
+                }
+
+                // Change active SOC based on 8-hour shifts
+                // 06:00 - 14:00 -> New York
+                // 14:00 - 22:00 -> Barcelona
+                // 22:00 - 06:00 -> Singapore
+                if (newHours >= 6 && newHours < 14) {
+                    setActiveSOC(locations[0]); // New York
+                } else if (newHours >= 14 && newHours < 22) {
+                    setActiveSOC(locations[1]); // Barcelona
+                } else {
+                    setActiveSOC(locations[2]); // Singapore
+                }
+
+                return { hours: newHours, minutes: newMinutes };
+            });
+        }, 50); // Faster interval for smoother clock
+
+        return () => clearInterval(clockInterval);
+    }, []);
+
+    // Format the time for display with leading zeros
+    const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
+
+    return (
+        <VisualContainer>
+            <style>{animationStyles}</style>
+            <div className="w-full max-w-sm p-6 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-6">
+
+                {/* Dashboard Header */}
+                <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-700">
+                    <h1 className="text-lg font-bold text-slate-600 dark:text-slate-300">Service Dashboard</h1>
+                    <div className="flex items-center space-x-2 px-3 py-1 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 rounded-full">
+                        <ShieldCheck className="w-3 h-3" />
+                        <span className="text-xs font-semibold uppercase tracking-wider">24/7 SOC</span>
+                    </div>
+                </div>
+
+                {/* Section 1: Cluster & Environment */}
+                <div>
+                    <Header title="Cluster & Environment" icon={<Server />} />
+                    <div className="p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                        <div className="flex justify-between items-center mb-4">
+                            <div>
+                                <p className="text-xs font-medium text-slate-400 dark:text-slate-500">Operational Status</p>
+                                <div className="flex items-center gap-2 mt-1">
+                                    <CheckCircle className="w-3 h-3 text-green-500" />
+                                    <p className="text-xl font-bold text-green-500 tracking-tight">99.99%</p>
+                                </div>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                                <Cpu className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                            </div>
+                        </div>
+                        <div className="flex justify-between items-center text-sm">
+                            <div className="flex-1">
+                                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Platform</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Self-Hosted</p>
+                            </div>
+                            <div className="flex-1 text-right">
+                                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Location</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">sa-east1 / Siloed-CLT-1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Section 2: Active SOC Monitoring */}
+                <div>
+                    <Header title="Active SOC Monitoring" icon={<Monitor />} />
+                    <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                        <div className="flex items-center gap-4">
+                            <div className="relative p-2 rounded-full bg-green-500 animate-pulse-green">
+                                <Monitor className="w-4 h-4 text-white" />
+                            </div>
+                            <div className="flex flex-col">
+                                <p className="text-base font-semibold text-slate-600 dark:text-slate-300">{activeSOC}</p>
+                                <span className="text-xs font-bold text-green-500 uppercase">Active</span>
+                            </div>
+                        </div>
+                        {/* Digital clock displaying the time */}
+                        <div className="flex items-center gap-2">
+                             <Clock className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                             <span className="text-xl font-mono font-semibold text-slate-600 dark:text-slate-300 tracking-tight">{formattedTime}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </VisualContainer>
+    );
+};
 
 
 // --- Main Section Component ---
