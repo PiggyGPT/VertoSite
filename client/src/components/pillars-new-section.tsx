@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     User, Users, Rocket, Terminal,
@@ -8,7 +8,7 @@ import {
     LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
     ChevronDown, Landmark, History, Link, Clock, Plus,
     Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-    Cpu
+    Cpu, Keyboard
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -18,11 +18,6 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
         {children}
     </div>
 );
-
-// --- VISUAL 1: Distribution (Animated Flow) ---
-import React, { useState, useEffect } from 'react';
-import { Settings, Plus, Zap, History, User, Keyboard } from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
 
 // CSS for the typing cursor animation
 const cursorStyle = `
@@ -40,15 +35,13 @@ const cursorStyle = `
   }
 `;
 
-// A simple container to hold the visual, providing consistent padding and a dark/light mode bg.
-const VisualContainer = ({ children }) => (
-  <div className="flex items-center justify-center min-h-screen bg-slate-200 dark:bg-slate-900 p-4 font-sans text-slate-800 dark:text-slate-200">
-    {children}
-  </div>
-);
-
 // Reusable Header component for consistent styling
-const Header = ({ title, subtitle, icon, badgeText }) => (
+const Header = ({ title, subtitle, icon, badgeText }: { 
+  title: string; 
+  subtitle?: string; 
+  icon: React.ReactNode; 
+  badgeText?: string 
+}) => (
   <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
     <div>
       <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">{title}</h3>
@@ -66,7 +59,7 @@ const Header = ({ title, subtitle, icon, badgeText }) => (
 );
 
 // Component to display the core voucher content with the new, professional design.
-const VoucherContent = ({ voucherId, amount }) => {
+const VoucherContent = ({ voucherId, amount }: { voucherId: string; amount: string }) => {
     return (
         <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
             <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
@@ -103,9 +96,9 @@ const ExecutiveDistributionFlow = () => {
     const voucherId = '8721';
 
     useEffect(() => {
-      let timeout;
+      let timeout: NodeJS.Timeout;
 
-      const runAnimationStep = (step) => {
+      const runAnimationStep = (step: number) => {
         switch (step) {
           case 0:
             // Initial state: Dashboard visible. Reset all other states.
@@ -171,7 +164,9 @@ const ExecutiveDistributionFlow = () => {
 
       // Start the sequence and clean up on unmount
       runAnimationStep(animationStep);
-      return () => clearTimeout(timeout);
+      return () => {
+        if (timeout) clearTimeout(timeout);
+      };
     }, [animationStep, amount]);
 
     // Define static classes for intentional left-to-right panning workflow
@@ -342,7 +337,7 @@ const ExecutiveDistributionFlow = () => {
     );
 };
 
-export default ExecutiveDistributionFlow;
+// ExecutiveDistributionFlow component defined above
 
 
 // --- VISUAL 2: Payments (Animated Flow) ---
