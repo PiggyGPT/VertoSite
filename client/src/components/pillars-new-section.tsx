@@ -22,20 +22,32 @@ const ExecutiveDistributionFlow = () => {
     const [currentPanel, setCurrentPanel] = useState(0); // 0: dashboard, 1: voucher, 2: confirmation
     const [buttonClicked, setButtonClicked] = useState(false);
 
-    // Auto animation cycle with 3 panels
+    // Auto animation cycle with 3 panels and button click timing
     useEffect(() => {
         const cycle = setInterval(() => {
             setCurrentPanel(prev => {
                 if (prev === 0) {
-                    // Simulate Generate QR button click
+                    // Show button click animation before transition
                     setButtonClicked(true);
-                    setTimeout(() => setButtonClicked(false), 300);
-                    return 1;
+                    setTimeout(() => {
+                        setButtonClicked(false);
+                    }, 500);
+                    // Delay panel transition to show button click
+                    setTimeout(() => {
+                        setCurrentPanel(1);
+                    }, 600);
+                    return prev; // Don't change panel immediately
                 } else if (prev === 1) {
-                    // Simulate claim button click
+                    // Show button click animation before transition
                     setButtonClicked(true);
-                    setTimeout(() => setButtonClicked(false), 300);
-                    return 2;
+                    setTimeout(() => {
+                        setButtonClicked(false);
+                    }, 500);
+                    // Delay panel transition to show button click
+                    setTimeout(() => {
+                        setCurrentPanel(2);
+                    }, 600);
+                    return prev; // Don't change panel immediately
                 } else {
                     return 0; // Reset to beginning
                 }
@@ -190,20 +202,32 @@ const PolishedPaymentsFlow = () => {
     const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
     const [buttonClicked, setButtonClicked] = useState(false);
 
-    // Auto animation cycle - 3 panels with intentional workflow timing
+    // Auto animation cycle - 3 panels with button click timing
     useEffect(() => {
         const cycle = setInterval(() => {
             setCurrentPanel(prev => {
                 if (prev === 0) {
-                    // Simulate Pay Now button click
+                    // Show button click animation before transition
                     setButtonClicked(true);
-                    setTimeout(() => setButtonClicked(false), 300);
-                    return 1;
+                    setTimeout(() => {
+                        setButtonClicked(false);
+                    }, 500);
+                    // Delay panel transition to show button click
+                    setTimeout(() => {
+                        setCurrentPanel(1);
+                    }, 600);
+                    return prev; // Don't change panel immediately
                 } else if (prev === 1) {
-                    // Simulate Pay button click in checkout
+                    // Show button click animation before transition
                     setButtonClicked(true);
-                    setTimeout(() => setButtonClicked(false), 300);
-                    return 2;
+                    setTimeout(() => {
+                        setButtonClicked(false);
+                    }, 500);
+                    // Delay panel transition to show button click
+                    setTimeout(() => {
+                        setCurrentPanel(2);
+                    }, 600);
+                    return prev; // Don't change panel immediately
                 } else {
                     return 0; // Reset to beginning
                 }
