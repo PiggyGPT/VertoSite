@@ -1206,8 +1206,8 @@ export default function PillarsSection() {
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </button>
                         </div>
-                        <div className="lg:col-span-1 mt-6 lg:mt-0 flex justify-center">
-                            <div className="w-full max-w-sm md:max-w-md">
+                        <div className="hidden lg:flex lg:col-span-1 lg:mt-0 justify-center">
+                            <div className="w-full max-w-md">
                                 {activePillar.visual}
                             </div>
                         </div>
