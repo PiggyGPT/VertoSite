@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import {
-    Users, Rocket, Terminal,
+    User, Users, Rocket, Terminal,
     Zap, Store, Archive,
-    ShieldCheck, BarChart3, SlidersHorizontal,
+    ShieldCheck, Banknote, SlidersHorizontal,
     Database, GitBranch,
-    LifeBuoy, Lock, ArrowRight, Coins, Shield, MessageCircle,
-    CheckCircle2, Landmark, History, Link, Clock, Plus,
-    Settings, Gauge, Network, Server, Globe
+    LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
+    ChevronDown, Landmark, History, Link, Clock, Plus,
+    Settings, Gauge, Network, Server, Globe, FileText
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -48,130 +48,182 @@ const ExecutiveDistributionFlow = () => {
                     </div>
                     <button className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform hover:scale-105">
                         <Zap className="w-4 h-4" />
-                        <span>Create Payment Voucher</span>
+                        <span>Issue QR Code</span>
                     </button>
                     <div className="flex-grow">
                         <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4"/> Recent Transactions</p>
                         <div className="space-y-2 text-sm">
-                             <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
-                                 <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
-                                 <span className="font-mono font-medium text-green-500">+ $5,000</span>
-                             </div>
-                             <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
-                                 <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
-                                 <span className="font-mono font-medium text-slate-700 dark:text-slate-300">- $50.00</span>
-                             </div>
-                         </div>
+                            <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
+                                <span className="font-mono font-medium text-green-500">+ $5,000</span>
+                            </div>
+                            <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
+                                <span className="font-mono font-medium text-slate-700 dark:text-slate-300">- $50.00</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 {/* Panel 2: POS Voucher */}
-                <div className="bg-white w-full md:w-2/5 rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center text-black transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 font-mono">
-                     <h3 className="font-bold text-lg">Mayflower Corner Store</h3>
-                     <p className="text-xs text-slate-500">14 AUG 2025, 09:48:12</p>
-                     <p className="text-xs text-slate-500">VOUCHER #8721</p>
-                     <div className="my-4 border-t border-dashed border-slate-300 w-full"></div>
-                     <p className="text-sm">AMOUNT</p>
-                     <p className="text-4xl font-bold my-2">$50.00</p>
-                     <p className="text-sm font-sans font-semibold">Scan to Claim Digital Dollars</p>
-                     <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200">
-                         <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} />
-                     </div>
-                     <div className="mt-4 border-t border-dashed border-slate-300 w-full"></div>
-                     <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
+                <div className="bg-white dark:bg-slate-900 w-full md:w-2/5 rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 font-mono border border-slate-200 dark:border-slate-700">
+                    <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Mayflower Corner Store</h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #8721</p>
+                    <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
+                    <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">$50.00</p>
+                    <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim Digital Dollars</p>
+                    <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
+                        <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} fgColor="#000000" />
+                    </div>
+                    <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                    <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
                 </div>
             </div>
         </VisualContainer>
     );
 };
 
-
-// --- REVISED VISUAL 2: Payments (Stripe-like Polish) ---
 const PolishedPaymentsFlow = () => (
-    <div className="w-full max-w-sm mx-auto bg-slate-100 dark:bg-black rounded-[40px] shadow-2xl p-4 border-8 border-slate-300 dark:border-slate-700 transform-style-3d hover:-translate-y-2 transition-transform duration-500">
-        <div className="bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden">
-            <div className="p-6 text-center border-b border-slate-200 dark:border-slate-800">
-                <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Pay Mayflower Corner Store</p>
-                <p className="text-5xl font-bold text-slate-900 dark:text-white mt-2">12,000<span className="text-3xl text-slate-400 ml-1">BOBC</span></p>
+    <VisualContainer>
+        <div className="flex flex-col md:flex-row justify-center items-stretch gap-4 lg:gap-6 w-full">
+            {/* Left Panel (unchanged) */}
+            <div className="bg-white dark:bg-slate-900 w-full md:w-2/5 rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 font-mono border border-slate-200 dark:border-slate-700 order-1">
+                <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Mayflower Corner Store</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">PAYMENT #4928</p>
+                <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT DUE</p>
+                <div className="flex items-baseline gap-2">
+                    <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">12,000</p>
+                    <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
+                </div>
+                <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
+                    <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
+                </div>
+                <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200 mt-2">Scan to Pay</p>
+                <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
             </div>
-            <div className="p-6 space-y-4">
-                <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border-2 border-verto-purple/50">
+
+            {/* Right Panel - The Cleanest Checkout UI */}
+            <div className="bg-white dark:bg-slate-900 w-full md:w-3/5 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 order-2 mt-6 md:mt-0">
+
+                {/* User Header Section */}
+                <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm">MS</div>
-                        <div>
-                            <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">BOBC Balance</p>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">11,203.10 Available</p>
+                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                            <User className="w-5 h-5 text-slate-500" />
+                        </div>
+                        <p className="font-bold text-lg text-slate-800 dark:text-slate-200">John Doe</p>
+                    </div>
+                    <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
+                </div>
+
+                {/* "Pay With" (Coinbase Account) - Primary, actionable section */}
+                <div className="flex flex-col space-y-2">
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay with</p>
+                    <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <div className="flex items-center gap-3">
+                            <img src="https://example.com/coinbase-logo.svg" alt="Coinbase Logo" className="w-8 h-8"/>
+                            <div>
+                                <p className="font-semibold text-slate-800 dark:text-slate-200">Coinbase Account</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">Balance: 12,500.50 USDC</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <span className="font-bold text-slate-800 dark:text-slate-200">120.00 USDC</span>
+                            <ChevronDown className="w-5 h-5 text-slate-400" />
                         </div>
                     </div>
-                    <CheckCircle2 className="w-5 h-5 text-verto-purple" />
                 </div>
-                <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
-                    <div className="flex items-center gap-3">
-                        <Landmark className="w-8 h-8 text-slate-400 dark:text-slate-500 p-1" />
-                        <div>
-                            <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">HSBC Bank</p>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">SEPA Transfer</p>
+
+                {/* "To" (Merchant) - Secondary, informational section */}
+                <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">To</p>
+                    <div className="relative p-2 rounded-lg flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                            <div>
+                                <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Mayflower Corner Store</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
+                            </div>
                         </div>
+                        <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
                     </div>
                 </div>
-            </div>
-            <div className="p-6 bg-slate-50 dark:bg-slate-900/50">
-                <button className="w-full py-4 bg-verto-purple hover:bg-verto-purple/90 text-white font-bold rounded-xl transition-transform hover:scale-105 text-lg">
-                    <div className="flex items-center justify-center">
-                        <Lock className="w-4 h-4 mr-2" />
-                        <span>Confirm & Pay 12,000 BOBC</span>
-                    </div>
+
+                {/* Fine Print */}
+                <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
+                    <span>Rate: 1 BOBC ≈ 0.01 USDC</span>
+                    <span>Fees: 0.00 USDC</span>
+                </div>
+
+                {/* Action Button */}
+                <button className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform hover:scale-105">
+                    <Zap className="w-4 h-4" />
+                    <span>Confirm & Pay 120.00 USDC</span>
                 </button>
+
+                <p className="text-center text-xs text-slate-400 mt-2 flex items-center justify-center gap-1.5"><Lock className="w-3 h-3"/> Secured by Verto</p>
             </div>
         </div>
-    </div>
+    </VisualContainer>
 );
-
-
 // --- REVISED VISUAL 3: Liquidity (Dynamic Pipeline) ---
-const ExecutiveLiquidityFlow = () => {
-    const FlowStep = ({ icon: Icon, title, children, status }: { icon: React.ElementType, title: string, children: React.ReactNode, status?: 'complete' | 'active' | 'pending' }) => (
-        <div className="flex flex-col items-center text-center">
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${status === 'complete' ? 'bg-verto-blue/10 border-verto-blue' : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700'}`}>
-                <Icon className={`w-6 h-6 ${status === 'complete' ? 'text-verto-blue' : 'text-slate-400'}`} />
+const ExecutiveLiquidityFlow = () => (
+    <VisualContainer>
+        <div className="bg-white dark:bg-slate-900 w-full max-w-xl mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2">
+            {/* Request Header */}
+            <div className="flex items-center space-x-3 pb-4 border-b border-slate-200 dark:border-slate-700">
+                <Terminal className="w-5 h-5 text-verto-blue" />
+                <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">Trade Request: a4f8-b3c1-9e2d</h4>
             </div>
-            <h4 className="font-semibold text-sm text-slate-900 dark:text-white mt-3">{title}</h4>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{children}</div>
+            {/* Request Details */}
+            <div className="p-4 text-xs font-mono text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700">
+                <p><strong>FROM:</strong> Maria Silva</p>
+                <p><strong>TRADE:</strong>  25,000.00 USDC &rarr; BOBC</p>
+                <p><strong>DATE:</strong> August 14, 2025</p>
+            </div>
+            {/* Executed Route */}
+            <div className="space-y-3 text-xs pt-4 border-b border-slate-200 dark:border-slate-700">
+                <p className="font-semibold text-slate-600 dark:text-slate-300">Executed Route:</p>
+                <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-md">
+                    <p className="font-mono text-slate-500 dark:text-slate-400">1. Bridge (CCTP) | Solana &rarr; Arbitrum</p>
+                    <div className="flex items-center gap-1.5 text-blue-500 truncate">
+                        <Link className="w-3 h-3 flex-shrink-0" />
+                        <span>So1...fhB</span>
+                    </div>
+                </div>
+                <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-md mb-4">
+                    <p className="font-mono text-slate-500 dark:text-slate-400">2. Swap (CoW) | USDC &rarr; BOBC</p>
+                    <div className="flex items-center gap-1.5 text-blue-500 truncate">
+                        <Link className="w-3 h-3 flex-shrink-0" />
+                        <span>0x1A...dE7F</span>
+                    </div>
+                </div>
+            </div>
+            {/* Signatures */}
+            <div className="pt-4">
+                <p className="text-sm font-semibold text-slate-600 dark:text-slate-300 mb-2">Signatures (2/3)</p>
+                <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                        <ShieldCheck className="w-4 h-4 text-green-500" />
+                        <span>Maria Silva (Fireblocks)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <ShieldCheck className="w-4 h-4 text-green-500" />
+                        <span>David Cass (Fireblocks)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <ShieldCheck className="w-4 h-4 text-slate-400 opacity-60" />
+                        <span>Automated Treasury (Copper)</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    );
-
-    return (
-        <VisualContainer>
-            <div className="flex items-start justify-between space-x-4 md:space-x-8 relative w-full px-4">
-                {/* Connector Lines */}
-                <div className="absolute top-6 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-700">
-                    <div className="absolute top-0 left-0 h-0.5 bg-verto-blue w-2/3 animate-pulse"></div>
-                </div>
-
-                <div className="relative z-10 w-1/4">
-                    <FlowStep icon={Terminal} title="Request" status="complete">
-                        25,000 USDC → BOBC
-                    </FlowStep>
-                </div>
-                <div className="relative z-10 w-1/4">
-                    <FlowStep icon={GitBranch} title="Smart Route" status="complete">
-                        Path: CCTP → CoW Swap
-                    </FlowStep>
-                </div>
-                <div className="relative z-10 w-1/4">
-                     <FlowStep icon={ShieldCheck} title="Signatures" status="active">
-                        2 of 3 Approved
-                    </FlowStep>
-                </div>
-                <div className="relative z-10 w-1/4">
-                    <FlowStep icon={CheckCircle2} title="Execution" status="pending">
-                        Pending...
-                    </FlowStep>
-                </div>
-            </div>
-        </VisualContainer>
-    );
-};
+    </VisualContainer>
+);
 
 
 // --- VISUAL 4: Compliance (Unchanged but included for completeness) ---
@@ -227,54 +279,74 @@ const PolishedComplianceFlow = () => (
                     </div>
                 </div>
             </div>
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700">
+                <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Compliance Audit Trail</h4>
+                <div className="space-y-3">
+                    {[
+                        { id: 'TXN_45b31', action: 'Risk Assessment', status: 'VERIFIED', time: '14:32:15' },
+                        { id: 'POL_92a83', action: 'Policy Check', status: 'PASSED', time: '14:32:16' }
+                    ].map(item => (
+                        <div key={item.id} className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <div className="flex items-center space-x-3">
+                                <FileText className="w-4 h-4 text-verto-blue"/>
+                                <div>
+                                    <span className="font-medium text-sm text-slate-900 dark:text-white">{item.action}</span>
+                                    <p className="text-xs font-mono text-slate-500 dark:text-slate-400">{item.id}</p>
+                                </div>
+                            </div>
+                            <div className="text-right">
+                                <span className="text-xs font-bold text-green-600 dark:text-green-400">{item.status}</span>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">{item.time}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     </div>
 );
 
 
 // --- REVISED VISUAL 5: Service (Dynamic Monitoring) ---
-const ServiceTeamPod = ({ region, timeZone, position }: { region: string, timeZone: string, position: React.CSSProperties }) => {
+const ServiceTeamPod = ({ region, timeZone, className }: { region: string, timeZone: string, className?:string }) => {
     const [time, setTime] = useState("00:00");
+
     useEffect(() => {
-        const timerId = setInterval(() => {
+        const updateClock = () => {
             setTime(new Date().toLocaleTimeString("en-GB", { timeZone, hour: '2-digit', minute: '2-digit' }));
-        }, 1000 * 60);
-        setTime(new Date().toLocaleTimeString("en-GB", { timeZone, hour: '2-digit', minute: '2-digit' }));
+        };
+        updateClock();
+        const timerId = setInterval(updateClock, 1000 * 60); // Update every minute
         return () => clearInterval(timerId);
     }, [timeZone]);
 
     return (
-        <div className="absolute z-20 w-40" style={position}>
-            <div className="flex flex-col items-center text-center p-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200/50 dark:border-slate-700/50 transform-style-3d transition-transform duration-500 hover:scale-110">
+        <div className={`absolute ${className} w-40 transform-style-3d transition-transform duration-500 hover:scale-110`}>
+            <div className="relative flex flex-col items-center text-center p-3 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-xl shadow-lg border border-white/30 dark:border-slate-700/50">
                 <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">{region}</p>
                 <p className="font-mono text-2xl font-bold text-slate-900 dark:text-white">{time}</p>
-                <span className="text-xs text-verto-cyan font-semibold flex items-center gap-1.5 mt-1">
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-verto-cyan opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-verto-cyan"></span>
-                    </span>
-                    Monitoring
+                <span className="relative flex h-2 w-2 mt-1">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-verto-cyan opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-verto-cyan"></span>
                 </span>
             </div>
         </div>
     );
 };
+
 const ExecutiveServiceFlow = () => (
     <VisualContainer>
         <div className="relative w-full h-[500px] flex items-center justify-center">
-            <div className="absolute flex items-center justify-center">
-                <div className="absolute w-48 h-48 bg-verto-cyan/5 rounded-full animate-pulse"></div>
-                <div className="absolute w-72 h-72 bg-verto-cyan/5 rounded-full animate-pulse [animation-delay:0.5s]"></div>
-                <div className="absolute w-96 h-96 bg-verto-cyan/5 rounded-full animate-pulse [animation-delay:1s]"></div>
-                <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-56 h-40 transform-style-3d hover:scale-105 transition-transform">
-                    <div className="p-3 bg-verto-cyan/10 rounded-full w-fit mb-2"><ShieldCheck className="w-10 h-10 text-verto-cyan" /></div>
-                    <h3 className="font-bold text-slate-900 dark:text-white">Sovereign Infrastructure</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">On-Prem / Private Cloud</p>
-                </div>
+            {/* Central Client Infrastructure */}
+            <div className="relative z-10 flex flex-col items-center justify-center text-center p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-56 h-40">
+                <div className="p-3 bg-verto-cyan/10 rounded-full w-fit mb-2"><Database className="w-10 h-10 text-verto-cyan" /></div>
+                <h3 className="font-bold text-slate-900 dark:text-white">Self-Hosted Platform</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">On-Prem / Private Cloud</p>
             </div>
-            <ServiceTeamPod region="New York" timeZone="America/New_York" position={{ top: '10%', left: '5%' }} />
-            <ServiceTeamPod region="Barcelona" timeZone="Europe/Amsterdam" position={{ top: '10%', right: '5%' }} />
-            <ServiceTeamPod region="Singapore" timeZone="Asia/Singapore" position={{ bottom: '10%', left: '50%', transform: 'translateX(-50%)' }} />
+            {/* Service Pods with "halo" */}
+            <ServiceTeamPod region="New York" timeZone="America/New_York" className="bottom-0 left-0" />
+            <ServiceTeamPod region="Barcelona" timeZone="Europe/Amsterdam" className="top-0 inset-x-0 mx-auto" />
+            <ServiceTeamPod region="Singapore" timeZone="Asia/Singapore" className="bottom-0 right-0" />
         </div>
     </VisualContainer>
 );
@@ -282,7 +354,15 @@ const ExecutiveServiceFlow = () => (
 
 // --- Main Section Component ---
 const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) => (
-    <div className="flex items-start space-x-4 group"><div className="flex-shrink-0 w-11 h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20"><Icon className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-all duration-300 group-hover:text-verto-blue" /></div><div><h4 className="text-md font-semibold text-slate-900 dark:text-white">{title}</h4><p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p></div></div>
+    <div className="flex items-start space-x-4 group">
+        <div className="flex-shrink-0 w-11 h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20">
+            <Icon className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-all duration-300 group-hover:text-verto-blue" />
+        </div>
+        <div>
+            <h4 className="text-md font-semibold text-slate-900 dark:text-white">{title}</h4>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p>
+        </div>
+    </div>
 );
 
 export default function PillarsSection() {
@@ -316,9 +396,9 @@ export default function PillarsSection() {
                 <div className="border-b border-slate-200 dark:border-slate-700">
                     <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8" aria-label="Tabs">
                         {Object.keys(pillars).map((key) => {
-                             const pillar = pillars[key as keyof typeof pillars];
-                             const colors = colorMap[pillar.color as keyof typeof colorMap];
-                             return (
+                            const pillar = pillars[key as keyof typeof pillars];
+                            const colors = colorMap[pillar.color as keyof typeof colorMap];
+                            return (
                                 <button
                                     key={key}
                                     onClick={() => setActiveTab(key)}
@@ -326,7 +406,7 @@ export default function PillarsSection() {
                                 >
                                     {pillar.label}
                                 </button>
-                             )
+                            )
                         })}
                     </nav>
                 </div>
