@@ -20,44 +20,159 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 // --- VISUAL 1: Distribution (Animated Flow) ---
+import React, { useState, useEffect } from 'react';
+import { Settings, Plus, Zap, History, User, Keyboard } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
+
+// CSS for the typing cursor animation
+const cursorStyle = `
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  .typing-cursor {
+    animation: blink 1s step-end infinite;
+    width: 4px;
+    height: 3rem;
+    background-color: #22c55e;
+    display: inline-block;
+    vertical-align: sub;
+    margin-left: 4px;
+  }
+`;
+
+// A simple container to hold the visual, providing consistent padding and a dark/light mode bg.
+const VisualContainer = ({ children }) => (
+  <div className="flex items-center justify-center min-h-screen bg-slate-200 dark:bg-slate-900 p-4 font-sans text-slate-800 dark:text-slate-200">
+    {children}
+  </div>
+);
+
+// Reusable Header component for consistent styling
+const Header = ({ title, subtitle, icon, badgeText }) => (
+  <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+    <div>
+      <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">{title}</h3>
+      {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</p>}
+    </div>
+    <div className="flex items-center gap-2">
+      {badgeText && (
+        <span className="text-sm font-medium px-2 py-1 bg-green-200 text-green-700 rounded-full dark:bg-green-700 dark:text-green-200">
+          {badgeText}
+        </span>
+      )}
+      {icon}
+    </div>
+  </div>
+);
+
+// Component to display the core voucher content with the new, professional design.
+const VoucherContent = ({ voucherId, amount }) => {
+    return (
+        <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #{voucherId}</p>
+            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+            <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
+            <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">${amount}.00</p>
+            <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
+            <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
+            </div>
+            <div className="mt-2 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+            <p className="text-xs text-slate-400 mt-2">Powered by Verto</p>
+        </div>
+    );
+};
+
+
+// --- VISUAL 1: Distribution (Animated Flow) ---
 const ExecutiveDistributionFlow = () => {
-    const [currentPanel, setCurrentPanel] = useState(0); // 0: dashboard, 1: voucher, 2: confirmation
-    const [buttonClicked, setButtonClicked] = useState(false);
+    // State to control the flow between two main panels: 0: dashboard, 1: voucher, 2: wallet
+    const [currentPanel, setCurrentPanel] = useState(0); 
+    // State to control the visibility of the single popup container
+    const [showKeypadPopup, setShowKeypadPopup] = useState(false);
+    const [amount, setAmount] = useState(''); // Dynamic amount for the input
+    const [voucherAmount, setVoucherAmount] = useState('');
+    // New state to manage the visual "click" effect on the button
+    const [isIssueButtonClicked, setIssueButtonClicked] = useState(false);
+    const [isEnterButtonClicked, setEnterButtonClicked] = useState(false);
 
-    // Auto animation cycle with 3 panels and button click timing
+    // Use a step-based state machine for robust animation timing
+    const [animationStep, setAnimationStep] = useState(0);
+    const voucherId = '8721';
+
     useEffect(() => {
-        const cycle = setInterval(() => {
-            setCurrentPanel(prev => {
-                if (prev === 0) {
-                    // Show button click animation before transition
-                    setButtonClicked(true);
-                    setTimeout(() => {
-                        setButtonClicked(false);
-                    }, 500);
-                    // Delay panel transition to show button click
-                    setTimeout(() => {
-                        setCurrentPanel(1);
-                    }, 600);
-                    return prev; // Don't change panel immediately
-                } else if (prev === 1) {
-                    // Show button click animation before transition
-                    setButtonClicked(true);
-                    setTimeout(() => {
-                        setButtonClicked(false);
-                    }, 500);
-                    // Delay panel transition to show button click
-                    setTimeout(() => {
-                        setCurrentPanel(2);
-                    }, 600);
-                    return prev; // Don't change panel immediately
-                } else {
-                    return 0; // Reset to beginning
-                }
-            });
-        }, 4000); // Switch every 4 seconds
+      let timeout;
 
-        return () => clearInterval(cycle);
-    }, []);
+      const runAnimationStep = (step) => {
+        switch (step) {
+          case 0:
+            // Initial state: Dashboard visible. Reset all other states.
+            setCurrentPanel(0);
+            setShowKeypadPopup(false);
+            setAmount('');
+            setVoucherAmount('');
+            setIssueButtonClicked(false);
+            setEnterButtonClicked(false);
+            timeout = setTimeout(() => setAnimationStep(1), 2000);
+            break;
+          case 1:
+            // Animate button click.
+            setIssueButtonClicked(true);
+            timeout = setTimeout(() => setAnimationStep(2), 300);
+            break;
+          case 2:
+            // Show popup.
+            setIssueButtonClicked(false);
+            setShowKeypadPopup(true);
+            timeout = setTimeout(() => setAnimationStep(3), 500);
+            break;
+          case 3:
+            // Simulate user typing on the input.
+            setAmount('50');
+            timeout = setTimeout(() => setAnimationStep(4), 1500);
+            break;
+          case 4:
+            // Simulate enter button click.
+            setEnterButtonClicked(true);
+            timeout = setTimeout(() => setAnimationStep(5), 300);
+            break;
+          case 5:
+            // Hide popup.
+            setEnterButtonClicked(false);
+            setShowKeypadPopup(false);
+            // Store the final amount to be displayed on the voucher
+            setVoucherAmount(amount);
+            timeout = setTimeout(() => setAnimationStep(6), 700);
+            break;
+          case 6:
+            // Pan to the voucher view.
+            setCurrentPanel(1);
+            timeout = setTimeout(() => setAnimationStep(7), 1000);
+            break;
+          case 7:
+            // Wait for voucher to be seen.
+            timeout = setTimeout(() => setAnimationStep(8), 2500);
+            break;
+          case 8:
+            // Pan to the wallet view.
+            setCurrentPanel(2);
+            timeout = setTimeout(() => setAnimationStep(9), 1000);
+            break;
+          case 9:
+            // Wait on wallet view, then restart the loop.
+            timeout = setTimeout(() => setAnimationStep(0), 1000);
+            break;
+          default:
+            break;
+        }
+      };
+
+      // Start the sequence and clean up on unmount
+      runAnimationStep(animationStep);
+      return () => clearTimeout(timeout);
+    }, [animationStep, amount]);
 
     // Define static classes for intentional left-to-right panning workflow
     const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
@@ -66,107 +181,91 @@ const ExecutiveDistributionFlow = () => {
     const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
     // Panel class assignments for intentional workflow panning
-    const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
-    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel < 1 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
-    const panel3Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
+    const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+    const panel1Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel === 0 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
+    const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
+
+    // Popup classes for controlling its visibility and animation
+    const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800
+      ${showKeypadPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
+    const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showKeypadPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
 
     return (
         <VisualContainer>
-            <div className="relative w-full max-w-lg mx-auto h-96 overflow-x-hidden">
-                {/* Panel 1: Agent Dashboard */}
+            <style>{cursorStyle}</style>
+            <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+                {/* Panel 0: Agent Dashboard */}
                 <div
-                    className={panel1Classes}
-                    style={{ zIndex: currentPanel === 0 ? 2 : 1 }}
+                    className={panel0Classes}
+                    style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
                 >
-                    <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
-                        <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-                            <div>
-                                <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400">Agent Dashboard</p>
-                            </div>
-                            <Settings className="w-5 h-5 text-slate-400" />
-                        </div>
+                    <div className="bg-white dark:bg-slate-900 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                        {/* Dashboard header with relevant Settings icon */}
+                        <Header title="Tia Store" subtitle="Agent Dashboard" icon={<Settings className="w-5 h-5 text-slate-400" />} />
+
                         <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
-                                    <p className="text-2xl font-bold text-verto-green tracking-tight">$4,950.00</p>
+                                    <p className="text-2xl font-bold text-green-500 tracking-tight">4,950.00 BOBC</p>
                                 </div>
                                 <button className="p-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 rounded-full transition-colors">
                                     <Plus className="w-5 h-5" />
                                 </button>
                             </div>
                         </div>
+
+                        {/* Button that triggers the popup directly with typing animation */}
                         <button
-                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 mb-2 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-green/60 shadow-lg ring-4 ring-verto-green/30' : 'scale-100 bg-verto-green hover:bg-verto-green/90'} hover:scale-105`}
+                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500
+                                ${isIssueButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}
+                            `}
+                            onClick={() => {}} // Disabled for the animation loop
                         >
                             <Zap className="w-4 h-4" />
                             <span>Issue QR Code</span>
                         </button>
-                        <button className="w-full py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                            Top Up Credit
-                        </button>
-                        <div className="flex-grow overflow-hidden">
+
+
+                        {/* Transaction history area */}
+                        <div className="flex-grow mt-4 overflow-hidden flex flex-col">
                             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Transactions</p>
-                            <div className="space-y-2 text-sm max-h-20 overflow-y-auto">
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                            <div className="space-y-2 text-sm overflow-y-auto">
+                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
                                     <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
-                                    <span className="font-mono font-medium text-green-500">+ $5,000</span>
+                                    <span className="font-medium text-green-500">+ 5,000 BOBC</span>
                                 </div>
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
                                     <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
-                                    <span className="font-mono font-medium text-slate-700 dark:text-slate-300">- $50.00</span>
+                                    <span className="font-medium text-slate-700 dark:text-slate-300">- 50.00 BOBC</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Panel 2: POS Voucher */}
+                {/* Panel 1: Voucher Issued View */}
                 <div
-                     className={panel2Classes}
-                     style={{ zIndex: currentPanel === 1 ? 2 : 1 }}
+                    className={panel1Classes}
+                    style={{ zIndex: currentPanel === 1 ? 3 : 2 }}
                 >
-                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700">
-                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #8721</p>
-                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
-                        <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">$50.00</p>
-                        <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
-                        <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
-                            <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} fgColor="#000000" />
-                        </div>
-                        <button
-                            className={`w-full mt-4 py-2 px-4 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-green/60 shadow-lg ring-4 ring-verto-green/30' : 'scale-100 bg-verto-green hover:bg-verto-green/90'} hover:scale-105`}
-                        >
-                            Claim Voucher
-                        </button>
-                        <div className="mt-2 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                        <p className="text-xs text-slate-400 mt-2">Powered by Verto</p>
-                    </div>
+                    <VoucherContent voucherId={voucherId} amount={voucherAmount} />
                 </div>
 
-                {/* Panel 3: Maria Silva Wallet View */}
+                {/* Panel 2: Maria Silva Wallet View */}
                 <div
-                     className={panel3Classes}
-                     style={{ zIndex: currentPanel === 2 ? 2 : 1 }}
+                    className={panel2Classes}
+                    style={{ zIndex: currentPanel === 2 ? 3 : 2 }}
                 >
-                     <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
-                        <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-                            <div>
-                                <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Maria Silva</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400">Wallet</p>
-                            </div>
-                            <Settings className="w-5 h-5 text-slate-400" />
-                        </div>
+                    <div className="bg-white dark:bg-slate-900 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                        {/* Wallet header with relevant User icon */}
+                        <Header title="Maria Silva" subtitle="Wallet" icon={<User className="w-5 h-5 text-slate-400" />} />
 
                         <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Balance</p>
-                                    <p className="text-2xl font-bold text-verto-green tracking-tight">50.00 BOBC</p>
+                                    <p className="text-2xl font-bold text-green-500 tracking-tight">50.00 BOBC</p>
                                 </div>
                                 <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
                                     <User className="w-5 h-5 text-slate-500" />
@@ -174,8 +273,8 @@ const ExecutiveDistributionFlow = () => {
                             </div>
                         </div>
 
-                        <div className="flex gap-2">
-                            <button className="flex-1 py-2 px-4 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-colors">
+                        <div className="flex gap-2 my-4">
+                            <button className="flex-1 py-2 px-4 bg-green-500 hover:bg-green-500/90 text-white text-sm font-semibold rounded-lg transition-colors">
                                 Pay
                             </button>
                             <button className="flex-1 py-2 px-4 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-sm font-semibold rounded-lg transition-colors">
@@ -183,24 +282,58 @@ const ExecutiveDistributionFlow = () => {
                             </button>
                         </div>
 
-                        <div className="flex-grow overflow-hidden">
+                        {/* Activity history area */}
+                        <div className="flex-grow overflow-hidden flex flex-col">
                             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Activity</p>
-                            <div className="space-y-2 text-sm max-h-32 overflow-y-auto">
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                            <div className="space-y-2 text-sm overflow-y-auto">
+                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
                                     <div>
                                         <span className="text-slate-600 dark:text-slate-400">Claimed Voucher</span> 
                                         <p className="text-xs text-slate-400">14 Aug 2025, 09:51</p>
                                     </div>
-                                    <span className="font-mono font-medium text-green-500">+ 50.00 BOBC</span>
+                                    <span className="font-medium text-green-500">+ 50.00 BOBC</span>
                                 </div>
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
                                     <div>
                                         <span className="text-slate-600 dark:text-slate-400">Wallet Created</span>
                                         <p className="text-xs text-slate-400">14 Aug 2025, 09:48</p>
                                     </div>
-                                    <span className="font-mono font-medium text-slate-700 dark:text-slate-300">--</span>
+                                    <span className="font-medium text-slate-700 dark:text-slate-300">--</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Pop-up for amount input */}
+                <div className={keypadPopupContainerClasses}>
+                    <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4`}>
+                        {/* Voucher amount header with relevant Keyboard icon */}
+                        <Header title="Voucher Amount" subtitle="Enter the amount to issue." icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
+                        <div className="flex-grow flex flex-col items-center justify-center text-center">
+                          <div className="flex items-center justify-center gap-2">
+                              <p className="text-6xl font-bold my-2 text-green-500 tracking-tight">
+                                  {amount || '0'}
+                                  <span className="text-4xl font-normal">.00</span>
+                                  <span className="typing-cursor"></span>
+                                  {/* Added subtle BOBC after the cursor */}
+                                  <span className="ml-2 text-3xl font-normal text-slate-500 dark:text-slate-400">BOBC</span>
+                              </p>
+                          </div>
+                          {/* Added "Available Credit" under the amount */}
+                          <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                            Available Credit: 4,950.00 BOBC
+                          </div>
+                          {/* Issue Button now replaces the keypad and right arrow button */}
+                          <button 
+                            onClick={() => {}} // Disabled for animation
+                            className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500
+                                ${isEnterButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}
+                            `}
+                          >
+                            <Zap className="w-5 h-5" />
+                            <span>Issue QR Code</span>
+                          </button>
                         </div>
                     </div>
                 </div>
@@ -208,6 +341,9 @@ const ExecutiveDistributionFlow = () => {
         </VisualContainer>
     );
 };
+
+export default ExecutiveDistributionFlow;
+
 
 // --- VISUAL 2: Payments (Animated Flow) ---
 const PolishedPaymentsFlow = () => {
@@ -306,20 +442,8 @@ const PolishedPaymentsFlow = () => {
                             </div>
                             <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
                         </div>
-                        <div className="flex flex-col space-y-1">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay</p>
-                            <div className="relative p-2 rounded-lg flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                    <div>
-                                        <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
-                                        <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
-                                    </div>
-                                </div>
-                                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
-                            </div>
-                        </div>
                         <div className="flex flex-col space-y-2">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">With</p>
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay with</p>
                             <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
                                 <div className="flex items-center gap-3">
                                     <div>
@@ -333,6 +457,20 @@ const PolishedPaymentsFlow = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="flex flex-col space-y-1">
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">To</p>
+                            <div className="relative p-2 rounded-lg flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <div>
+                                        <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
+                                    </div>
+                                </div>
+                                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
+                            </div>
+                        </div>
+                        
                         <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
                             <span>Rate: 1 BOBC ≈ 0.01 USDC</span>
                             <span>Fees: 0.00 USDC</span>
