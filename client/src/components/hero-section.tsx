@@ -21,7 +21,7 @@ export default function HeroSection() {
         <h1 className="font-bold text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
           {/* FIX: Title now uses the correct brand gradient colors. */}
           <span className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent">
-            Stablecoin Operations Platform
+            Digital Assets Operations Platform
           </span>
           <br />
           {/* FIX: Separated sub-headline for better responsive font control. */}
