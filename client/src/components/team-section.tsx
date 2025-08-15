@@ -66,7 +66,7 @@ testId: string;
 
 export default function TeamSection() {
 const teamMembers = [
-{ name: "David Cass", role: "CEO", roleColor: "verto-blue", image: davidImage, description: "Former Fed regulator; ex‑CISO for $50B+ crypto desk", testId: "team-david" },
+{ name: "David Cass", role: "CEO", roleColor: "verto-blue", image: davidImage, description: "CISO at GSR and IBM with 25+ years in security leadership. Harvard faculty, former Federal Reserve regulator. Wharton and MIT graduate.", testId: "team-david" },
 { name: "Daniel Garrie", role: "General Counsel", roleColor: "verto-green", image: danielImage, description: "DOJ/DTCC compliance advisor in 200+ federal cases", testId: "team-daniel" },
 { name: "Hisham Anwar", role: "CTO", roleColor: "verto-orange", image: hishamImage, description: "Serial entrepreneur with successful exits to Microsoft and Google. Former Head of Product at Google and CEO of BrightBytes. Holds an Masters from MIT.", testId: "team-hisham" },
 { name: "Nilesh Khaitan", role: "CPO", roleColor: "verto-purple", image: nileshImage, description: "Scaled Venmo/PayPal crypto & P2P to 90M+ users", testId: "team-nilesh" },
