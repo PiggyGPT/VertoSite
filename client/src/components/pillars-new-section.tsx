@@ -467,7 +467,7 @@ const ExecutiveLiquidityFlow = () => {
                                 <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 text-sm">Fireblocks (Solana) - USDC</div>
                             </div>
                         </div>
-                        <button className="mt-auto w-full py-3 bg-verto-blue text-white font-semibold rounded-lg hover:bg-verto-blue/90 transition-colors">
+                        <button className={`mt-auto w-full py-3 text-white font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-blue/60 shadow-lg ring-4 ring-verto-blue/30' : 'scale-100 bg-verto-blue hover:bg-verto-blue/90'} hover:scale-105`}>
                             Generate Route
                         </button>
                     </div>
@@ -526,11 +526,6 @@ const ExecutiveLiquidityFlow = () => {
                 {/* Panel 3: Trade Executed */}
                 <div className={getPanelClasses(2)} style={{ zIndex: currentPanel === 2 ? 4 : 1 }}>
                     <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col h-full">
-                        <div className="flex items-center gap-2 mb-4">
-                            <CheckCircle className="w-6 h-6 text-green-500" />
-                            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Trade Executed</h3>
-                        </div>
-                        
                         <div className="space-y-3 text-sm flex-grow">
                             <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
                                 <p className="font-semibold text-green-700 dark:text-green-300">✓ Transaction Complete</p>
@@ -538,11 +533,11 @@ const ExecutiveLiquidityFlow = () => {
                             </div>
                             
                             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2 text-xs">Transaction Details</p>
+                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2 text-xs">Details</p>
                                 <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
                                     <div className="flex justify-between">
                                         <span>Rate:</span>
-                                        <span>1:0.9984 USDC</span>
+                                        <span>1:0.9984 USDC/BOBC</span>
                                     </div>
                                     <div className="flex justify-between">
                                         <span>Time:</span>
@@ -556,7 +551,7 @@ const ExecutiveLiquidityFlow = () => {
                             </div>
                             
                             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-xs">Transaction Hashes</p>
+                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-xs">Hashes</p>
                                 <div className="space-y-1 text-xs">
                                     <div>
                                         <span className="text-slate-500 dark:text-slate-400">Solana:</span>
@@ -568,12 +563,6 @@ const ExecutiveLiquidityFlow = () => {
                                     </div>
                                 </div>
                             </div>
-                            
-
-                        </div>
-                        
-                        <div className="mt-4 text-xs font-mono text-slate-400 dark:text-slate-500 break-all p-2 bg-slate-50 dark:bg-slate-800 rounded text-center">
-                            Tx: 0x8a2f...b9d1
                         </div>
                     </div>
                 </div>
