@@ -48,6 +48,7 @@ export default {
         'verto-blue': "var(--verto-blue)",
         'verto-green': "var(--verto-green)",
         'verto-orange': "var(--verto-orange)",
+        'verto-cyan': "var(--verto-cyan)",
         'verto-gray': {
           50: "var(--verto-gray-50)",
           100: "var(--verto-gray-100)",
@@ -82,6 +83,17 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      transformStyle: {
+        "3d": "preserve-3d",
+      },
+      perspective: {
+        "1000": "1000px",
+      },
+      rotate: {
+        "x-10": "rotateX(10deg)",
+        "-x-10": "rotateX(-10deg)",
+        "x-0": "rotateX(0deg)",
       },
     },
   },
