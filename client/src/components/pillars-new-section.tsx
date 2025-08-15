@@ -396,179 +396,361 @@ const PolishedPaymentsFlow = () => {
     );
 };
 
-// --- VISUAL 3: Liquidity (Animated Flow) ---
+// A wrapper component for consistent styling.
+const VisualContainer = ({ children }) => (
+  <div className="bg-slate-50 dark:bg-slate-950 p-4 sm:p-8 rounded-2xl flex items-center justify-center">
+    {children}
+  </div>
+);
+
+// Custom hook for the typing animation effect.
+const useTypingAnimation = (text, start, duration = 50) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (start && currentIndex < text.length) {
+      const timeoutId = setTimeout(() => {
+        setDisplayedText(text.slice(0, currentIndex + 1));
+        setCurrentIndex(prev => prev + 1);
+      }, duration);
+      return () => clearTimeout(timeoutId);
+    } else if (!start) {
+      setDisplayedText('');
+      setCurrentIndex(0);
+    }
+  }, [text, start, duration, currentIndex]);
+
+  return displayedText;
+};
+
+
+// --- Main Component: ExecutiveLiquidityFlow ---
 const ExecutiveLiquidityFlow = () => {
-    const [currentPanel, setCurrentPanel] = useState(0); // 0: request, 1: route, 2: executed
-    const [signed, setSigned] = useState({ maria: false, john: false, ciso: false });
-    const [buttonClicked, setButtonClicked] = useState(false);
+  const [currentPanel, setCurrentPanel] = useState(0);
+  // Centralized state object for all animations within the panels
+  const [animationState, setAnimationState] = useState({
+    typingSource: false,
+    typingSourceToken: false,
+    typingDestination: false,
+    typingDestinationToken: false,
+    isGenerating: false,
+    showToast: false,
+    signatures: { maria: false, john: false },
+    isExecuting: false,
+    visibleSteps: [],
+  });
 
-    useEffect(() => {
-        const cycle = setInterval(() => {
-            setCurrentPanel(prev => {
-                if (prev === 0) {
-                    // Show button click animation before transition
-                    setButtonClicked(true);
-                    setTimeout(() => {
-                        setButtonClicked(false);
-                    }, 500);
-                    // Delay panel transition to show button click
-                    setTimeout(() => {
-                        setCurrentPanel(1);
-                        // Start signing animations when moving to route panel
-                        setTimeout(() => setSigned(s => ({ ...s, maria: true })), 500);
-                        setTimeout(() => setSigned(s => ({ ...s, john: true })), 1000);
-                        setTimeout(() => setSigned(s => ({ ...s, ciso: true })), 1500);
-                    }, 600);
-                    return prev; // Don't change panel immediately
-                } else if (prev === 1) {
-                    return 2; // Move to executed panel
-                } else {
-                    // Reset signatures when cycle restarts
-                    setSigned({ maria: false, john: false, ciso: false });
-                    return 0; // Reset to beginning
-                }
-            });
-        }, 3000); // Switch every 3 seconds for better visibility
+  // This effect controls the main animation cycle between the three panels.
+  useEffect(() => {
+    // Reset all states when the panel cycle begins
+    if (currentPanel === 0) {
+      setAnimationState({
+        typingSource: false,
+        typingSourceToken: false,
+        typingDestination: false,
+        typingDestinationToken: false,
+        isGenerating: false,
+        showToast: false,
+        signatures: { maria: false, john: false },
+        isExecuting: false,
+        visibleSteps: [],
+      });
+      // Sequence of typing animations for Panel 0
+      const timers = [
+        setTimeout(() => setAnimationState(s => ({ ...s, typingSource: true })), 500),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingSourceToken: true })), 2100),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingDestination: true })), 2500),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingDestinationToken: true })), 4100),
+        setTimeout(() => setAnimationState(s => ({ ...s, isGenerating: true })), 4500),
+      ];
+      // Cleanup timers when the panel changes
+      return () => timers.forEach(clearTimeout);
+    } else if (currentPanel === 1) {
+      // Sequence of animations for Panel 1
+      const timers = [
+        setTimeout(() => {
+          setAnimationState(s => ({ ...s, showToast: true }));
+        }, 4000),
+        setTimeout(() => {
+          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, maria: true } }));
+        }, 4500),
+        setTimeout(() => {
+          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, john: true } }));
+        }, 5000),
+        setTimeout(() => {
+          setAnimationState(s => ({ ...s, showToast: false }));
+        }, 6000),
+        setTimeout(() => {
+          setAnimationState(s => ({ ...s, isExecuting: true }));
+        }, 6500),
+      ];
+      return () => timers.forEach(clearTimeout);
+    }
+  }, [currentPanel]);
 
-        return () => clearInterval(cycle);
-    }, []);
 
-    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-x-0";
-    const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
-    const panelHiddenRightClasses = "opacity-0 translate-x-full";
-
-    const getPanelClasses = (panelIndex: number) => {
-        if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
-        if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
-        return `${panelBaseClasses} ${panelHiddenRightClasses}`;
+  // Effect to manage the cycling of panels
+  useEffect(() => {
+    const cyclePanels = () => {
+      setCurrentPanel(prev => (prev + 1) % 3);
     };
+    const intervalId = setInterval(cyclePanels, 10000); // Cycle every 10 seconds
+    return () => clearInterval(intervalId);
+  }, []);
 
-    return (
-        <VisualContainer>
-            <div className="relative w-full max-w-lg mx-auto h-[480px] overflow-x-hidden">
-                {/* Panel 1: Payment Request */}
-                <div className={getPanelClasses(0)} style={{ zIndex: currentPanel === 0 ? 4 : 1 }}>
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col h-full">
-                        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Initiate Trade</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">Arbitrum Network</p>
+  // --- Panel Class Management for Left-to-Right Pan ---
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-                        <div className="space-y-3">
-                            <div>
-                                <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">Pay To</label>
-                                <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 text-sm">Tia Store</div>
-                            </div>
-                            <div>
-                                <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">Amount</label>
-                                <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 font-mono text-sm">25,000.00 BOBC</div>
-                            </div>
-                             <div>
-                                <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">From</label>
-                                <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 text-sm">Fireblocks (Solana) - USDC</div>
-                            </div>
-                        </div>
-                        <button className={`mt-auto w-full py-3 text-white font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-blue/60 shadow-lg ring-4 ring-verto-blue/30' : 'scale-100 bg-verto-blue hover:bg-verto-blue/90'} hover:scale-105`}>
-                            Generate Route
-                        </button>
-                    </div>
+  const getPanelClasses = (panelIndex) => {
+    if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
+    if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
+    return `${panelBaseClasses} ${panelHiddenRightClasses}`;
+  };
+
+  return (
+    <VisualContainer>
+      <div className="relative w-full max-w-md mx-auto h-[480px] font-sans overflow-hidden">
+        {/* Panel 1: API Payment Request */}
+        <div className={getPanelClasses(0)}>
+          <ApiRequestPanel
+            typingState={{
+              source: animationState.typingSource,
+              sourceToken: animationState.typingSourceToken,
+              destination: animationState.typingDestination,
+              destinationToken: animationState.typingDestinationToken,
+            }}
+            isGenerating={animationState.isGenerating}
+          />
+        </div>
+
+        {/* Panel 2: Route Creation & Signatures */}
+        <div className={getPanelClasses(1)}>
+          <RouteCreationPanel
+            signatures={animationState.signatures}
+            showSignatureToast={animationState.showToast}
+            isExecuting={animationState.isExecuting}
+            currentPanel={currentPanel}
+          />
+        </div>
+
+        {/* Panel 3: Compliance & Execution Report */}
+        <div className={getPanelClasses(2)}>
+          <ComplianceReportPanel />
+        </div>
+      </div>
+    </VisualContainer>
+  );
+};
+
+// --- Sub-component for Panel 1: API Request ---
+const ApiRequestPanel = ({ typingState, isGenerating }) => {
+  const sourceText = useTypingAnimation(`"fb_solana_wallet_0x1a2b"`, typingState.source);
+  const sourceTokenText = useTypingAnimation(`"USDC"`, typingState.sourceToken);
+  const destinationText = useTypingAnimation(`"merchant_tia_store_0x3c4d"`, typingState.destination);
+  const destinationTokenText = useTypingAnimation(`"25000.00 BOBC"`, typingState.destinationToken);
+
+  return (
+    <div className="bg-slate-900 w-full h-full mx-auto rounded-2xl shadow-2xl border border-slate-700 p-6 flex flex-col font-mono text-sm">
+      <div className="flex items-center mb-4">
+        <div className="flex space-x-1.5">
+          <div className="w-3 h-3 rounded-full bg-red-500"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        </div>
+        <span className="flex-1 text-center text-slate-400 text-xs">POST /v1/trades</span>
+      </div>
+      <div className="text-slate-300 flex-grow">
+        <span className="text-purple-400">{'{'}</span>
+        <div className="pl-4 space-y-1">
+          <div>
+            <span className="text-cyan-400">"source_wallet"</span>: <span className="text-amber-300">{sourceText}</span>
+            {typingState.source && !typingState.sourceToken && <motion.span className="animate-pulse">|</motion.span>}
+          </div>
+          <div>
+            <span className="text-cyan-400">"source_token"</span>: <span className="text-amber-300">{sourceTokenText}</span>
+            {typingState.sourceToken && !typingState.destination && <motion.span className="animate-pulse">|</motion.span>}
+          </div>
+          <div>
+            <span className="text-cyan-400">"destination_wallet"</span>: <span className="text-amber-300">{destinationText}</span>
+            {typingState.destination && !typingState.destinationToken && <motion.span className="animate-pulse">|</motion.span>}
+          </div>
+          <div>
+            <span className="text-cyan-400">"destination_amount"</span>: <span className="text-amber-300">{destinationTokenText}</span>
+            {typingState.destinationToken && !isGenerating && <motion.span className="animate-pulse">|</motion.span>}
+          </div>
+        </div>
+        <span className="text-purple-400">{'}'}</span>
+      </div>
+      <div className={`mt-auto text-center pt-4 transition-opacity duration-500 ${isGenerating ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="inline-flex items-center gap-2 text-slate-400 text-xs">
+          <Cpu className="w-4 h-4 animate-spin" />
+          <span>Generating optimal route...</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- Sub-component for Panel 2: Route Creation ---
+const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, currentPanel }) => {
+  const routeSteps = useMemo(() => [
+    { id: 1, title: 'Withdraw from Fireblocks', subtitle: '250.00 USDC', network: 'Solana' },
+    { id: 2, title: 'Bridge via CCTP', subtitle: '250.00 USDC', network: 'Solana' },
+    { id: 3, title: 'Swap on Curve Finance', subtitle: '250.00 USDC to 25,000 BOBC', network: 'Arbitrum' },
+    { id: 4, title: 'Pay Tia Store', subtitle: '0x3h5h..4243', network: 'Arbitrum' },
+  ], []);
+
+  const signatureItems = useMemo(() => [
+    { key: 'maria', name: 'Maria Silva', role: 'Fireblocks', signed: signatures.maria },
+    { key: 'john', name: 'John Doe', role: 'Copper', signed: signatures.john },
+  ], [signatures]);
+
+  // Framer Motion variants for staggered list items
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Staggers the children's animations by 0.2 seconds
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
+  return (
+    <div className="bg-white dark:bg-slate-900 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative">
+      <div className="flex items-start justify-between mb-4">
+        <div>
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Batched Transaction Route</h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">TXID: 9e3b...a8c5</p>
+        </div>
+        <FileText className="w-6 h-6 text-slate-400" />
+      </div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={currentPanel === 1 ? "show" : "hidden"} // Animate only when this panel is active
+        className={`space-y-3 mb-5 flex-grow transition-all duration-500 ${showSignatureToast ? 'blur-sm' : ''}`}
+      >
+        <AnimatePresence>
+          {routeSteps.map((step) => (
+            <motion.div
+              key={step.id}
+              variants={itemVariants}
+              className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 transition-all duration-500 bg-slate-50 dark:bg-slate-800"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-lg text-slate-700 dark:text-slate-200 w-6 text-center">{step.id}.</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">{step.title}</span>
                 </div>
+                <span className="text-xs text-slate-400 dark:text-slate-600 font-mono italic">{step.network}</span>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-500 ml-8 mt-1">{step.subtitle}</p>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
-                {/* Panel 2: Route Creation */}
-                <div className={getPanelClasses(1)} style={{ zIndex: currentPanel === 1 ? 4 : 1 }}>
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col h-full">
-                        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Route Creation</h3>
-                        <div className="space-y-2">
-                            <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">1. Fireblocks (Solana)</p>
-                            </div>
-                             <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">2. Bridge via CCTP</p>
-                            </div>
-                             <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">3. Curve Finance (Arbitrum)</p>
-                            </div>
-                             <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">4. Pay to Tia Store</p>
-                            </div>
-                        </div>
-                        <div className="mt-3 mb-3">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Required Signatures (2/3)</p>
-                            <div className="space-y-2 text-sm">
-                                <div className={`flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 1 && signed.maria ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : ''}`}>
-                                    <div className="flex items-center gap-3">
-                                        <CheckCircle className={`w-5 h-5 transition-colors ${currentPanel === 1 && signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className={`text-sm transition-colors ${currentPanel === 1 && signed.maria ? 'text-green-700 dark:text-green-300 font-medium' : 'text-slate-600 dark:text-slate-400'}`}>Maria Silva</span>
-                                    </div>
-                                    <span className="text-sm text-slate-500 dark:text-slate-400">Fireblocks</span>
-                                </div>
-                                <div className={`flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 1 && signed.john ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : ''}`}>
-                                    <div className="flex items-center gap-3">
-                                        <CheckCircle className={`w-5 h-5 transition-colors ${currentPanel === 1 && signed.john ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className={`text-sm transition-colors ${currentPanel === 1 && signed.john ? 'text-green-700 dark:text-green-300 font-medium' : 'text-slate-600 dark:text-slate-400'}`}>John Doe</span>
-                                    </div>
-                                    <span className="text-sm text-slate-500 dark:text-slate-400">Treasury</span>
-                                </div>
-                                <div className={`flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 1 && signed.ciso ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : ''}`}>
-                                    <div className="flex items-center gap-3">
-                                        <CheckCircle className={`w-5 h-5 transition-colors ${currentPanel === 1 && signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className={`text-sm transition-colors ${currentPanel === 1 && signed.ciso ? 'text-green-700 dark:text-green-300 font-medium' : 'text-slate-600 dark:text-slate-400'}`}>CISO Auto-Sign</span>
-                                    </div>
-                                    <span className="text-sm text-slate-500 dark:text-slate-400">Policy</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button className={`mt-auto w-full py-3 text-white font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-blue/60 shadow-lg ring-4 ring-verto-blue/30' : 'scale-100 bg-verto-blue hover:bg-verto-blue/90'} hover:scale-105`}>
-                            Generate Route
-                        </button>
-                    </div>
-                </div>
-
-                {/* Panel 3: Trade Executed */}
-                <div className={getPanelClasses(2)} style={{ zIndex: currentPanel === 2 ? 4 : 1 }}>
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col h-full">
-                        <div className="space-y-3 text-sm flex-grow">
-                            <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                                <p className="font-semibold text-green-700 dark:text-green-300">✓ Transaction Complete</p>
-                                <p className="text-xs text-green-600 dark:text-green-400">25,000 BOBC → Tia Store</p>
-                            </div>
-                            
-                            <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2 text-xs">Details</p>
-                                <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
-                                    <div className="flex justify-between">
-                                        <span>Rate:</span>
-                                        <span>1:0.9984 USDC/BOBC</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span>Time:</span>
-                                        <span>3.2s</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span>Cost:</span>
-                                        <span>25,022.50 USDC</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-xs">Hashes</p>
-                                <div className="space-y-1 text-xs">
-                                    <div>
-                                        <span className="text-slate-500 dark:text-slate-400">Solana:</span>
-                                        <p className="font-mono text-slate-600 dark:text-slate-400 break-all">4x7f...9c2d</p>
-                                    </div>
-                                    <div>
-                                        <span className="text-slate-500 dark:text-slate-400">Arbitrum:</span>
-                                        <p className="font-mono text-slate-600 dark:text-slate-400 break-all">0x8a2f...b9d1</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <AnimatePresence>
+        {showSignatureToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ type: "spring", damping: 20, stiffness: 80 }}
+            className="absolute bottom-4 left-4 right-4 p-5 bg-slate-950 shadow-xl shadow-slate-900/50 rounded-2xl border border-slate-700"
+          >
+            <div className="flex items-center mb-3">
+              <Signature className="w-6 h-6 text-slate-400 mr-3" />
+              <p className="text-lg font-bold text-slate-200">Awaiting Signatures (2/2)</p>
             </div>
-        </VisualContainer>
-    );
+            <div className="space-y-2">
+              {signatureItems.map(item => (
+                <div key={item.key} className={`flex items-center justify-between p-3 rounded-lg transition-all duration-500 ${item.signed ? 'bg-green-900/30 border border-green-700' : 'bg-slate-800/50'}`}>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className={`w-6 h-6 transition-colors duration-300 ${item.signed ? 'text-green-500' : 'text-slate-600'}`} />
+                    <span className={`text-base font-medium ${item.signed ? 'text-green-300' : 'text-slate-400'}`}>{item.name}</span>
+                  </div>
+                  <span className={`font-bold text-sm ${item.signed ? 'text-blue-400' : 'text-slate-600'}`}>{item.role}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {isExecuting && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm"
+          >
+            <div className="inline-flex items-center gap-2 text-slate-300 text-sm">
+              <Cpu className="w-5 h-5 animate-spin" />
+              <span>Executing route...</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// --- Sub-component for Panel 3: Compliance Report ---
+const ComplianceReportPanel = () => {
+  return (
+    <div className="bg-white dark:bg-slate-900 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
+      <div className="flex items-start justify-between mb-4">
+        <div>
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Compliant Audit Trail</h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">TXID: 4a7f...9d1b</p>
+        </div>
+        <FileText className="w-6 h-6 text-slate-400" />
+      </div>
+
+      <div className="p-3 bg-green-50 dark:bg-green-900/30 rounded-lg border border-green-200 dark:border-green-700 flex items-center gap-3 mb-5">
+        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+        <p className="font-semibold text-green-800 dark:text-green-200">Execution Successful</p>
+      </div>
+
+      <div className="mb-5">
+        <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Compliance Checks</p>
+        <div className="space-y-2">
+          <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-md text-sm">
+            <span className="text-slate-600 dark:text-slate-300">Sanctions & AML</span>
+            <span className="font-medium text-green-600 dark:text-green-400">Passed</span>
+          </div>
+          <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-md text-sm">
+            <span className="text-slate-600 dark:text-slate-300">Counterparty</span>
+            <span className="font-medium text-green-600 dark:text-green-400">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-auto">
+        <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Execution Details</p>
+        <div className="text-xs space-y-1 text-slate-600 dark:text-slate-400 p-3 bg-slate-50 dark:bg-slate-800 rounded-md font-mono">
+          <div className="flex justify-between"><span>Net Cost:</span> <span>25,022.50 USDC</span></div>
+          <div className="flex justify-between"><span>Price:</span> <span>1 BOBC = 0.999 USDC</span></div>
+          <div className="flex justify-between"><span>Duration:</span> <span>3.2 seconds</span></div>
+          <div className="flex justify-between"><span>Solana Hash:</span> <span className="overflow-hidden overflow-ellipsis whitespace-nowrap">4Fv8...a1b4</span></div>
+          <div className="flex justify-between"><span>Arbitrum Hash:</span> <span className="overflow-hidden overflow-ellipsis whitespace-nowrap">0x9cE4...d7a8</span></div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 // --- VISUAL 4: Compliance (Animated Flow) ---
