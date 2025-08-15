@@ -14,7 +14,7 @@ import { QRCodeSVG } from 'qrcode.react';
 
 // --- Simplified Visual Container - No Background Interference ---
 const VisualContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="relative min-h-[480px] flex items-center justify-center p-4 overflow-hidden">
+    <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
         {children}
     </div>
 );
@@ -1053,9 +1053,9 @@ const ExecutiveServiceFlow = () => {
     const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
 
     return (
-        <div className="relative min-h-[480px] flex items-center justify-center p-4 overflow-hidden">
+        <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
             <style>{animationStyles}</style>
-            <div className="w-full max-w-xs p-5 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-5">
+            <div className="w-full max-w-xs md:max-w-sm p-4 md:p-5 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-4 md:space-y-5">
 
                 {/* Dashboard Header */}
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
@@ -1124,13 +1124,13 @@ const ExecutiveServiceFlow = () => {
 
 // --- Main Section Component ---
 const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) => (
-    <div className="flex items-start space-x-4 group">
-        <div className="flex-shrink-0 w-11 h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20">
-            <Icon className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-all duration-300 group-hover:text-verto-blue" />
+    <div className="flex items-start space-x-3 md:space-x-4 group">
+        <div className="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20">
+            <Icon className="w-4 h-4 md:w-5 md:h-5 text-slate-500 dark:text-slate-400 transition-all duration-300 group-hover:text-verto-blue" />
         </div>
         <div>
-            <h4 className="text-md font-semibold text-slate-900 dark:text-white">{title}</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p>
+            <h4 className="text-sm md:text-md font-semibold text-slate-900 dark:text-white">{title}</h4>
+            <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p>
         </div>
     </div>
 );
@@ -1181,21 +1181,18 @@ export default function PillarsSection() {
                     </nav>
                 </div>
             </div>
-            <div className="py-16 md:py-24">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+            <div className="py-12 md:py-20">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 lg:items-center">
                         <div className="lg:col-span-1">
-                            <div className="mb-8">
+                            <div className="mb-6 md:mb-8">
                                 <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
-                                <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
-                                <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
+                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-3 md:mb-4">{activePillar.title}</h3>
+                                <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
                             </div>
                             
-                            {/* Mobile Animation - Between description and features */}
-                            <div className="lg:hidden mb-8">
-                                {activePillar.visual}
-                            </div>
-                            <div className="space-y-6 mb-10">
+
+                            <div className="space-y-4 md:space-y-6 mb-8 md:mb-10">
                                 {activePillar.features.map((feature: any) => (
                                     <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
                                 ))}
@@ -1205,8 +1202,8 @@ export default function PillarsSection() {
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </button>
                         </div>
-                        <div className="lg:col-span-1 mt-12 lg:mt-0 flex justify-center">
-                            <div className="w-full max-w-md">
+                        <div className="lg:col-span-1 mt-6 lg:mt-0 flex justify-center">
+                            <div className="w-full max-w-sm md:max-w-md">
                                 {activePillar.visual}
                             </div>
                         </div>
