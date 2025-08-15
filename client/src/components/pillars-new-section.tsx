@@ -68,12 +68,12 @@ const VoucherContent = ({ voucherId, amount }: { voucherId: string; amount: stri
             <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
             <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
             <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">${amount}.00</p>
+            <p className="text-xs text-slate-400 mt-2">Powered by Verto</p>
             <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
             <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
                 <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
             </div>
             <div className="mt-2 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-            <p className="text-xs text-slate-400 mt-2">Powered by Verto</p>
         </div>
     );
 };
@@ -1051,7 +1051,7 @@ const ExecutiveServiceFlow = () => {
     const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
 
     return (
-        <ServiceVisualContainer>
+        <>
             <style>{animationStyles}</style>
             <div className="w-full max-w-sm p-6 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-6">
 
@@ -1115,7 +1115,7 @@ const ExecutiveServiceFlow = () => {
                 </div>
 
             </div>
-        </ServiceVisualContainer>
+        </>
     );
 };
 
