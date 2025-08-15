@@ -21,8 +21,14 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
 const ExecutiveDistributionFlow = () => {
     const [isVoucherVisible, setIsVoucherVisible] = useState(false);
 
-    // Debug logging
-    console.log("Distribution: isVoucherVisible =", isVoucherVisible);
+    // Auto animation cycle
+    useEffect(() => {
+        const cycle = setInterval(() => {
+            setIsVoucherVisible(prev => !prev);
+        }, 3000); // Switch every 3 seconds
+
+        return () => clearInterval(cycle);
+    }, []);
 
     // Define static classes for Tailwind's JIT compiler
     const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
@@ -30,21 +36,9 @@ const ExecutiveDistributionFlow = () => {
     const panelHiddenClasses = "opacity-0 -translate-y-8 scale-90 -rotate-1";
     const panelVoucherHiddenClasses = "opacity-0 translate-y-8 scale-90 rotate-1";
 
-    const handleVoucherClick = () => {
-        console.log("Issue QR Code clicked, changing state from", isVoucherVisible, "to", !isVoucherVisible);
-        setIsVoucherVisible(true);
-    };
-
-    const handlePanelClick = () => {
-        console.log("Panel clicked, changing state from", isVoucherVisible, "to", !isVoucherVisible);
-        setIsVoucherVisible(false);
-    };
-
     // Debug class names
     const panel1Classes = `${panelBaseClasses} ${isVoucherVisible ? panelHiddenClasses : panelVisibleClasses}`;
     const panel2Classes = `${panelBaseClasses} ${isVoucherVisible ? panelVisibleClasses : panelVoucherHiddenClasses}`;
-    console.log("Panel 1 classes:", panel1Classes);
-    console.log("Panel 2 classes:", panel2Classes);
 
     return (
         <VisualContainer>
@@ -74,7 +68,6 @@ const ExecutiveDistributionFlow = () => {
                             </div>
                         </div>
                         <button
-                            onClick={handleVoucherClick}
                             className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 hover:scale-105"
                         >
                             <Zap className="w-4 h-4" />
@@ -101,7 +94,7 @@ const ExecutiveDistributionFlow = () => {
                      className={panel2Classes}
                      style={{ zIndex: isVoucherVisible ? 2 : 1 }}
                 >
-                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 cursor-pointer" onClick={handlePanelClick}>
+                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700">
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
                         <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
                         <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #8721</p>
@@ -125,19 +118,20 @@ const ExecutiveDistributionFlow = () => {
 const PolishedPaymentsFlow = () => {
     const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
-    // Debug logging
-    console.log("Payments: isCheckoutVisible =", isCheckoutVisible);
+    // Auto animation cycle with different timing than Distribution
+    useEffect(() => {
+        const cycle = setInterval(() => {
+            setIsCheckoutVisible(prev => !prev);
+        }, 3500); // Switch every 3.5 seconds (slightly different from Distribution)
+
+        return () => clearInterval(cycle);
+    }, []);
 
     // Define static classes for Tailwind's JIT compiler
     const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
     const panelVisibleClasses = "opacity-100 scale-100 rotate-0";
     const panelHiddenClasses = "opacity-0 scale-90 -rotate-1";
     const panelCheckoutHiddenClasses = "opacity-0 scale-110 rotate-1";
-
-    const handlePayNowClick = () => {
-        console.log("Pay Now clicked, changing state from", isCheckoutVisible, "to", !isCheckoutVisible);
-        setIsCheckoutVisible(true);
-    };
 
     return (
         <VisualContainer>
@@ -161,7 +155,6 @@ const PolishedPaymentsFlow = () => {
                             <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
                         </div>
                         <button
-                            onClick={handlePayNowClick}
                             className="w-full mt-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 font-sans"
                         >
                             Pay Now
@@ -221,7 +214,7 @@ const PolishedPaymentsFlow = () => {
                             <Zap className="w-4 h-4" />
                             <span>Pay 120.00 USDC</span>
                         </button>
-                        <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5"><Lock className="w-3 h-3" /> Secured by Verto</p>
+                        <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-2"><Lock className="w-3 h-3" /> Secured by Verto</p>
                     </div>
                 </div>
             </div>
