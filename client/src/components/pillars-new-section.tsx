@@ -19,26 +19,36 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
 
 // --- REVISED VISUAL 1: Distribution (Animated Flow) ---
 const ExecutiveDistributionFlow = () => {
-    const [isVoucherVisible, setIsVoucherVisible] = useState(false);
+    const [currentPanel, setCurrentPanel] = useState(0); // 0: dashboard, 1: voucher
+    const [buttonClicked, setButtonClicked] = useState(false);
 
     // Auto animation cycle
     useEffect(() => {
         const cycle = setInterval(() => {
-            setIsVoucherVisible(prev => !prev);
-        }, 3000); // Switch every 3 seconds
+            setCurrentPanel(prev => {
+                if (prev === 0) {
+                    // Simulate button click before transition
+                    setButtonClicked(true);
+                    setTimeout(() => setButtonClicked(false), 200);
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+        }, 3500); // Switch every 3.5 seconds
 
         return () => clearInterval(cycle);
     }, []);
 
-    // Define static classes for Tailwind's JIT compiler
+    // Define static classes for Tailwind's JIT compiler - Left to Right animation
     const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-y-0 scale-100 rotate-0";
-    const panelHiddenClasses = "opacity-0 -translate-y-8 scale-90 -rotate-1";
-    const panelVoucherHiddenClasses = "opacity-0 translate-y-8 scale-90 rotate-1";
+    const panelVisibleClasses = "opacity-100 translate-x-0 scale-100";
+    const panelHiddenLeftClasses = "opacity-0 -translate-x-8 scale-95";
+    const panelHiddenRightClasses = "opacity-0 translate-x-8 scale-95";
 
-    // Debug class names
-    const panel1Classes = `${panelBaseClasses} ${isVoucherVisible ? panelHiddenClasses : panelVisibleClasses}`;
-    const panel2Classes = `${panelBaseClasses} ${isVoucherVisible ? panelVisibleClasses : panelVoucherHiddenClasses}`;
+    // Panel class assignments
+    const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
     return (
         <VisualContainer>
@@ -46,7 +56,7 @@ const ExecutiveDistributionFlow = () => {
                 {/* Panel 1: Agent Dashboard */}
                 <div
                     className={panel1Classes}
-                    style={{ zIndex: isVoucherVisible ? 1 : 2 }}
+                    style={{ zIndex: currentPanel === 0 ? 2 : 1 }}
                 >
                     <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
                         <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
@@ -68,7 +78,7 @@ const ExecutiveDistributionFlow = () => {
                             </div>
                         </div>
                         <button
-                            className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 hover:scale-105"
+                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 ${buttonClicked ? 'scale-95 bg-verto-green/80' : 'scale-100'} hover:scale-105`}
                         >
                             <Zap className="w-4 h-4" />
                             <span>Issue QR Code</span>
@@ -92,7 +102,7 @@ const ExecutiveDistributionFlow = () => {
                 {/* Panel 2: POS Voucher */}
                 <div
                      className={panel2Classes}
-                     style={{ zIndex: isVoucherVisible ? 2 : 1 }}
+                     style={{ zIndex: currentPanel === 1 ? 2 : 1 }}
                 >
                      <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700">
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
@@ -116,30 +126,50 @@ const ExecutiveDistributionFlow = () => {
 
 // --- REVISED VISUAL 2: Payments (Animated Flow) ---
 const PolishedPaymentsFlow = () => {
-    const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
+    const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
+    const [buttonClicked, setButtonClicked] = useState(false);
 
-    // Auto animation cycle with different timing than Distribution
+    // Auto animation cycle - 3 panels with different timing
     useEffect(() => {
         const cycle = setInterval(() => {
-            setIsCheckoutVisible(prev => !prev);
-        }, 3500); // Switch every 3.5 seconds (slightly different from Distribution)
+            setCurrentPanel(prev => {
+                if (prev === 0) {
+                    // Simulate Pay Now button click
+                    setButtonClicked(true);
+                    setTimeout(() => setButtonClicked(false), 200);
+                    return 1;
+                } else if (prev === 1) {
+                    // Simulate Pay button click in checkout
+                    setButtonClicked(true);
+                    setTimeout(() => setButtonClicked(false), 200);
+                    return 2;
+                } else {
+                    return 0; // Reset to beginning
+                }
+            });
+        }, 2500); // Switch every 2.5 seconds
 
         return () => clearInterval(cycle);
     }, []);
 
-    // Define static classes for Tailwind's JIT compiler
+    // Define static classes for Tailwind's JIT compiler - Left to Right animation
     const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
-    const panelVisibleClasses = "opacity-100 scale-100 rotate-0";
-    const panelHiddenClasses = "opacity-0 scale-90 -rotate-1";
-    const panelCheckoutHiddenClasses = "opacity-0 scale-110 rotate-1";
+    const panelVisibleClasses = "opacity-100 translate-x-0 scale-100";
+    const panelHiddenLeftClasses = "opacity-0 -translate-x-8 scale-95";
+    const panelHiddenRightClasses = "opacity-0 translate-x-8 scale-95";
+
+    // Panel class assignments
+    const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : panelHiddenRightClasses}`;
+    const panel3Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
     return (
         <VisualContainer>
             <div className="relative w-full max-w-lg mx-auto h-[410px]">
                 {/* Panel 1: Payment Request / QR Code */}
                 <div
-                    className={`${panelBaseClasses} ${isCheckoutVisible ? panelHiddenClasses : panelVisibleClasses}`}
-                    style={{ zIndex: isCheckoutVisible ? 1 : 2 }}
+                    className={panel1Classes}
+                    style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
                 >
                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
@@ -155,7 +185,7 @@ const PolishedPaymentsFlow = () => {
                             <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
                         </div>
                         <button
-                            className="w-full mt-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 font-sans"
+                            className={`w-full mt-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 font-sans ${buttonClicked && currentPanel === 0 ? 'scale-95 bg-verto-purple/80' : 'scale-100'} hover:scale-105`}
                         >
                             Pay Now
                         </button>
@@ -166,8 +196,8 @@ const PolishedPaymentsFlow = () => {
 
                 {/* Panel 2: Checkout UI */}
                 <div
-                    className={`${panelBaseClasses} ${isCheckoutVisible ? panelVisibleClasses : panelCheckoutHiddenClasses}`}
-                    style={{ zIndex: isCheckoutVisible ? 2 : 1 }}
+                    className={panel2Classes}
+                    style={{ zIndex: currentPanel === 1 ? 3 : 1 }}
                 >
                     <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
                          <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
@@ -177,7 +207,7 @@ const PolishedPaymentsFlow = () => {
                                 </div>
                                 <p className="font-bold text-lg text-slate-800 dark:text-slate-200">John Doe</p>
                             </div>
-                            <Settings className="w-5 h-5 text-slate-400 cursor-pointer" onClick={() => setIsCheckoutVisible(false)} />
+                            <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
                         </div>
                         <div className="flex flex-col space-y-1">
                             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay</p>
@@ -210,11 +240,57 @@ const PolishedPaymentsFlow = () => {
                             <span>Rate: 1 BOBC ≈ 0.01 USDC</span>
                             <span>Fees: 0.00 USDC</span>
                         </div>
-                        <button className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform hover:scale-105 active:scale-95">
+                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 ${buttonClicked && currentPanel === 1 ? 'scale-95 bg-verto-purple/80' : 'scale-100'} hover:scale-105`}>
                             <Zap className="w-4 h-4" />
                             <span>Pay 120.00 USDC</span>
                         </button>
                         <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-2"><Lock className="w-3 h-3" /> Secured by Verto</p>
+                    </div>
+                </div>
+
+                {/* Panel 3: Payment Confirmation */}
+                <div
+                    className={panel3Classes}
+                    style={{ zIndex: currentPanel === 2 ? 3 : 1 }}
+                >
+                    <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Payment Confirmed</h3>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:52:34</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">TXN #8721-CONF</p>
+                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        
+                        <div className="w-full space-y-3 text-left flex-grow">
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">From:</span>
+                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">John Doe</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">To:</span>
+                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">Tia Store</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Amount:</span>
+                                <span className="text-xs font-semibold text-verto-green">120.00 USDC</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
+                                <span className="text-xs font-semibold text-verto-green flex items-center gap-1">
+                                    <ShieldCheck className="w-3 h-3" />
+                                    Confirmed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <div className="w-full p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <p className="text-xs text-slate-600 dark:text-slate-400 text-center">
+                                Transaction Hash
+                            </p>
+                            <p className="text-xs font-mono text-slate-800 dark:text-slate-200 text-center break-all">
+                                0x7c8f9a2b...d4e5
+                            </p>
+                        </div>
+                        <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
                     </div>
                 </div>
             </div>
