@@ -70,7 +70,7 @@ const ExecutiveDistributionFlow = () => {
 
     return (
         <VisualContainer>
-            <div className="relative w-full max-w-lg mx-auto h-[480px] overflow-x-hidden">
+            <div className="relative w-full max-w-lg mx-auto h-96 overflow-x-hidden">
                 {/* Panel 1: Agent Dashboard */}
                 <div
                     className={panel1Classes}
@@ -400,21 +400,33 @@ const PolishedPaymentsFlow = () => {
 const ExecutiveLiquidityFlow = () => {
     const [currentPanel, setCurrentPanel] = useState(0); // 0: request, 1: route, 2: executed
     const [signed, setSigned] = useState({ maria: false, john: false, ciso: false });
+    const [buttonClicked, setButtonClicked] = useState(false);
 
     useEffect(() => {
         const cycle = setInterval(() => {
             setCurrentPanel(prev => {
-                const next = (prev + 1) % 3;
-                if (next === 2) {
-                    // Trigger signing animations when moving to executed panel
-                    setTimeout(() => setSigned(s => ({ ...s, maria: true })), 300);
-                    setTimeout(() => setSigned(s => ({ ...s, john: true })), 600);
-                    setTimeout(() => setSigned(s => ({ ...s, ciso: true })), 900);
-                } else if (next === 0) {
+                if (prev === 0) {
+                    // Show button click animation before transition
+                    setButtonClicked(true);
+                    setTimeout(() => {
+                        setButtonClicked(false);
+                    }, 500);
+                    // Delay panel transition to show button click
+                    setTimeout(() => {
+                        setCurrentPanel(1);
+                        // Start signing animations when moving to route panel
+                        setTimeout(() => setSigned(s => ({ ...s, maria: true })), 500);
+                        setTimeout(() => setSigned(s => ({ ...s, john: true })), 1000);
+                        setTimeout(() => setSigned(s => ({ ...s, ciso: true })), 1500);
+                    }, 600);
+                    return prev; // Don't change panel immediately
+                } else if (prev === 1) {
+                    return 2; // Move to executed panel
+                } else {
                     // Reset signatures when cycle restarts
                     setSigned({ maria: false, john: false, ciso: false });
+                    return 0; // Reset to beginning
                 }
-                return next;
             });
         }, 3000); // Switch every 3 seconds for better visibility
 
@@ -480,33 +492,33 @@ const ExecutiveLiquidityFlow = () => {
                             </div>
                         </div>
                         <div className="mt-3 mb-3">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Required Signatures (2/3)</p>
-                            <div className="space-y-1 text-sm">
-                                <div className={`flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.maria ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
-                                    <div className="flex items-center gap-2">
-                                        <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className={`text-xs transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>Maria Silva</span>
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Required Signatures (2/3)</p>
+                            <div className="space-y-2 text-sm">
+                                <div className={`flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 1 && signed.maria ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : ''}`}>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle className={`w-5 h-5 transition-colors ${currentPanel === 1 && signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className={`text-sm transition-colors ${currentPanel === 1 && signed.maria ? 'text-green-700 dark:text-green-300 font-medium' : 'text-slate-600 dark:text-slate-400'}`}>Maria Silva</span>
                                     </div>
-                                    <span className="text-xs text-slate-500 dark:text-slate-400">Fireblocks</span>
+                                    <span className="text-sm text-slate-500 dark:text-slate-400">Fireblocks</span>
                                 </div>
-                                <div className={`flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.john ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
-                                    <div className="flex items-center gap-2">
-                                        <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.john ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className={`text-xs transition-colors ${currentPanel === 2 && signed.john ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>John Doe</span>
+                                <div className={`flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 1 && signed.john ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : ''}`}>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle className={`w-5 h-5 transition-colors ${currentPanel === 1 && signed.john ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className={`text-sm transition-colors ${currentPanel === 1 && signed.john ? 'text-green-700 dark:text-green-300 font-medium' : 'text-slate-600 dark:text-slate-400'}`}>John Doe</span>
                                     </div>
-                                    <span className="text-xs text-slate-500 dark:text-slate-400">Treasury</span>
+                                    <span className="text-sm text-slate-500 dark:text-slate-400">Treasury</span>
                                 </div>
-                                <div className={`flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.ciso ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
-                                    <div className="flex items-center gap-2">
-                                        <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className={`text-xs transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>CISO Auto-Sign</span>
+                                <div className={`flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 1 && signed.ciso ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : ''}`}>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle className={`w-5 h-5 transition-colors ${currentPanel === 1 && signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className={`text-sm transition-colors ${currentPanel === 1 && signed.ciso ? 'text-green-700 dark:text-green-300 font-medium' : 'text-slate-600 dark:text-slate-400'}`}>CISO Auto-Sign</span>
                                     </div>
-                                    <span className="text-xs text-slate-500 dark:text-slate-400">Policy</span>
+                                    <span className="text-sm text-slate-500 dark:text-slate-400">Policy</span>
                                 </div>
                             </div>
                         </div>
-                        <button className="mt-auto w-full py-3 bg-verto-blue text-white font-semibold rounded-lg hover:bg-verto-blue/90 transition-colors">
-                            Execute Route
+                        <button className={`mt-auto w-full py-3 text-white font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-blue/60 shadow-lg ring-4 ring-verto-blue/30' : 'scale-100 bg-verto-blue hover:bg-verto-blue/90'} hover:scale-105`}>
+                            Generate Route
                         </button>
                     </div>
                 </div>
@@ -557,14 +569,7 @@ const ExecutiveLiquidityFlow = () => {
                                 </div>
                             </div>
                             
-                            <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-xs">Signatures</p>
-                                <div className="flex gap-1">
-                                    <div className={`w-2 h-2 rounded-full transition-colors ${signed.maria ? 'bg-green-500' : 'bg-slate-400'}`}></div>
-                                    <div className={`w-2 h-2 rounded-full transition-colors ${signed.john ? 'bg-green-500' : 'bg-slate-400'}`}></div>
-                                    <div className={`w-2 h-2 rounded-full transition-colors ${signed.ciso ? 'bg-green-500' : 'bg-slate-400'}`}></div>
-                                </div>
-                            </div>
+
                         </div>
                         
                         <div className="mt-4 text-xs font-mono text-slate-400 dark:text-slate-500 break-all p-2 bg-slate-50 dark:bg-slate-800 rounded text-center">
