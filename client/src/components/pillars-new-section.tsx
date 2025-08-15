@@ -84,7 +84,7 @@ const ExecutiveDistributionFlow = () => {
                             </div>
                         </div>
                         <button
-                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 ${buttonClicked ? 'scale-95 bg-verto-green/80' : 'scale-100'} hover:scale-105`}
+                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-green/60 shadow-lg ring-4 ring-verto-green/30' : 'scale-100 bg-verto-green hover:bg-verto-green/90'} hover:scale-105`}
                         >
                             <Zap className="w-4 h-4" />
                             <span>Issue QR Code</span>
@@ -118,11 +118,11 @@ const ExecutiveDistributionFlow = () => {
                         <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
                         <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">$50.00</p>
                         <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
-                        <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
+                        <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
                             <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} fgColor="#000000" />
                         </div>
                         <button
-                            className={`w-full mt-4 py-2 px-4 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 ${buttonClicked && currentPanel === 1 ? 'scale-95 bg-verto-green/80' : 'scale-100'} hover:scale-105`}
+                            className={`w-full mt-4 py-2 px-4 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-green/60 shadow-lg ring-4 ring-verto-green/30' : 'scale-100 bg-verto-green hover:bg-verto-green/90'} hover:scale-105`}
                         >
                             Claim Voucher
                         </button>
@@ -246,7 +246,7 @@ const PolishedPaymentsFlow = () => {
                             <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
                         </div>
                         <button
-                            className={`w-full mt-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 font-sans ${buttonClicked && currentPanel === 0 ? 'scale-95 bg-verto-purple/80' : 'scale-100'} hover:scale-105`}
+                            className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}
                         >
                             Pay Now
                         </button>
@@ -301,7 +301,7 @@ const PolishedPaymentsFlow = () => {
                             <span>Rate: 1 BOBC ≈ 0.01 USDC</span>
                             <span>Fees: 0.00 USDC</span>
                         </div>
-                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 ${buttonClicked && currentPanel === 1 ? 'scale-95 bg-verto-purple/80' : 'scale-100'} hover:scale-105`}>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}>
                             <Zap className="w-4 h-4" />
                             <span>Pay 120.00 USDC</span>
                         </button>
