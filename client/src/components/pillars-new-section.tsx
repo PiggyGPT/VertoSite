@@ -67,9 +67,10 @@ const VoucherContent = ({ voucherId, amount }: { voucherId: string; amount: stri
             <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #{voucherId}</p>
             <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
             <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
-            <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">{amount}.00</p>
-            <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-            <p className="text-xs text-slate-400 mt-2">Powered by Verto</p>
+            <div className="flex items-baseline justify-center gap-2 my-2">
+                <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">{amount}.00</p>
+                <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
+            </div>
             <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
             <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
                 <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
