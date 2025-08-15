@@ -73,7 +73,7 @@ const ExecutiveDistributionFlow = () => {
                     <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
                     <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
                     <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">$50.00</p>
-                    <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim Digital Dollars</p>
+                    <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
                     <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
                         <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} fgColor="#000000" />
                     </div>
@@ -120,13 +120,25 @@ const PolishedPaymentsFlow = () => (
                     </div>
                     <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
                 </div>
-
+                
+                {/* "To" (Merchant) - Secondary, informational section */}
+                <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay</p>
+                    <div className="relative p-2 rounded-lg flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                            <div>
+                                <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
+                            </div>
+                        </div>
+                        <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
+                    </div>
+                </div>
                 {/* "Pay With" (Coinbase Account) - Primary, actionable section */}
                 <div className="flex flex-col space-y-2">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay with</p>
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">With</p>
                     <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
                         <div className="flex items-center gap-3">
-                            <img src="https://example.com/coinbase-logo.svg" alt="Coinbase Logo" className="w-8 h-8"/>
                             <div>
                                 <p className="font-semibold text-slate-800 dark:text-slate-200">Coinbase Account</p>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">Balance: 12,500.50 USDC</p>
@@ -136,20 +148,6 @@ const PolishedPaymentsFlow = () => (
                             <span className="font-bold text-slate-800 dark:text-slate-200">120.00 USDC</span>
                             <ChevronDown className="w-5 h-5 text-slate-400" />
                         </div>
-                    </div>
-                </div>
-
-                {/* "To" (Merchant) - Secondary, informational section */}
-                <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">To</p>
-                    <div className="relative p-2 rounded-lg flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <div>
-                                <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
-                                <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
-                            </div>
-                        </div>
-                        <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
                     </div>
                 </div>
 
@@ -369,11 +367,11 @@ export default function PillarsSection() {
     const [activeTab, setActiveTab] = useState("distribution");
 
     const pillars = {
-        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Instantly turn cash into stablecoins at any retail point. Our platform equips agent partners, from kiosks to mobile operators, to serve as on-ramps for your digital currency.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
-        payments: { label: "Payments", color: "verto-purple", title: "Frictionless Checkout", description: "Our stack removes all blockchain complexity from payments. A single API lets merchants accept your stablecoin from any wallet, bank, or exchange, seamlessly.", visual: <PolishedPaymentsFlow />, features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your stablecoin." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], cta: "Explore Payments API" },
-        liquidity: { label: "Liquidity", color: "verto-blue", title: "Compliant Swaps", description: "The on-chain market is complex and fragmented. Our single API provides a unified entry point to the entire ecosystem, automatically routing requests for optimal price, latency, and risk.", visual: <ExecutiveLiquidityFlow />, features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Our engine automatically finds the best execution path for every trade across multiple protocols and chains." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Our self-hosted layer integrates with your existing custody, so your assets and keys never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that enforces your predefined policies." }, ], cta: "Integrate Liquidity API" },
-        compliance: { label: "Compliance", color: "verto-blue", title: "AI-Powered Compliance", description: "Verto's AI engine replaces manual, periodic counterparty audits with continuous, explainable, and automated oversight across your entire ecosystem.", visual: <PolishedComplianceFlow />, features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], cta: "Request Compliance Demo" },
-        service: { label: "Service", color: "verto-cyan", title: "24/7 Global Operations", description: "The on-chain market is complex and fragmented. Our single API provides a unified entry point to the entire ecosystem, automatically routing requests for optimal price, latency, and risk.", visual: <ExecutiveServiceFlow />, features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], cta: "Learn About Our Service Model" },
+        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Enable any retail point, from kiosks to mobile operators, to issue stablecoins against cash deposits in real time.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
+        payments: { label: "Payments", color: "verto-purple", title: "Frictionless Checkout", description: "Enable merchants to easily accept your stablecoin from any wallet, bank, or exchange with a single click.", visual: <PolishedPaymentsFlow />, features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your stablecoin." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], cta: "Explore Payments API" },
+        liquidity: { label: "Liquidity", color: "verto-blue", title: "Compliant Swaps", description: "Execute trades across complex, fragmented decentralized exchanges with full operational integrity.", visual: <ExecutiveLiquidityFlow />, features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Our engine automatically finds the best execution path for every trade across multiple protocols and chains." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Our self-hosted layer integrates with your existing custody, so your assets and keys never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that enforces your predefined policies." }, ], cta: "Integrate Liquidity API" },
+        compliance: { label: "Compliance", color: "verto-blue", title: "AI-Powered Compliance", description: "Replace manual, periodic counterparty audits with continuous, explainable, and automated oversight across your operations.", visual: <PolishedComplianceFlow />, features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], cta: "Request Compliance Demo" },
+        service: { label: "Service", color: "verto-cyan", title: "24/7 Global Operations", description: "Maintain 24/7 operational integrity with our global SOC teams for your self-hosted environment.", visual: <ExecutiveServiceFlow />, features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], cta: "Learn About Our Service Model" },
     };
 
     const colorMap = {
