@@ -96,10 +96,13 @@ const ExecutiveDistributionFlow = () => {
                             </div>
                         </div>
                         <button
-                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-green/60 shadow-lg ring-4 ring-verto-green/30' : 'scale-100 bg-verto-green hover:bg-verto-green/90'} hover:scale-105`}
+                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 mb-2 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-green/60 shadow-lg ring-4 ring-verto-green/30' : 'scale-100 bg-verto-green hover:bg-verto-green/90'} hover:scale-105`}
                         >
                             <Zap className="w-4 h-4" />
                             <span>Issue QR Code</span>
+                        </button>
+                        <button className="w-full py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+                            Top Up Credit
                         </button>
                         <div className="flex-grow overflow-hidden">
                             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Transactions</p>
@@ -479,17 +482,26 @@ const ExecutiveLiquidityFlow = () => {
                         <div className="mt-3 mb-3">
                             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Required Signatures (2/3)</p>
                             <div className="space-y-1 text-sm">
-                                <div className={`flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.maria ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
-                                    <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
-                                    <span className={`text-xs transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>Maria Silva (Fireblocks)</span>
+                                <div className={`flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.maria ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className={`text-xs transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>Maria Silva</span>
+                                    </div>
+                                    <span className="text-xs text-slate-500 dark:text-slate-400">Fireblocks</span>
                                 </div>
-                                <div className={`flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.john ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
-                                    <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.john ? 'text-green-500' : 'text-slate-400'}`} />
-                                    <span className={`text-xs transition-colors ${currentPanel === 2 && signed.john ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>John Doe (Treasury)</span>
+                                <div className={`flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.john ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.john ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className={`text-xs transition-colors ${currentPanel === 2 && signed.john ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>John Doe</span>
+                                    </div>
+                                    <span className="text-xs text-slate-500 dark:text-slate-400">Treasury</span>
                                 </div>
-                                <div className={`flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.ciso ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
-                                    <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
-                                    <span className={`text-xs transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>CISO Auto-Sign (Policy)</span>
+                                <div className={`flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.ciso ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className={`text-xs transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>CISO Auto-Sign</span>
+                                    </div>
+                                    <span className="text-xs text-slate-500 dark:text-slate-400">Policy</span>
                                 </div>
                             </div>
                         </div>
@@ -509,8 +521,40 @@ const ExecutiveLiquidityFlow = () => {
                         
                         <div className="space-y-3 text-sm flex-grow">
                             <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                                <p className="font-semibold text-green-700 dark:text-green-300">✓ Trade Complete</p>
+                                <p className="font-semibold text-green-700 dark:text-green-300">✓ Transaction Complete</p>
                                 <p className="text-xs text-green-600 dark:text-green-400">25,000 BOBC → Tia Store</p>
+                            </div>
+                            
+                            <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2 text-xs">Transaction Details</p>
+                                <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
+                                    <div className="flex justify-between">
+                                        <span>Rate:</span>
+                                        <span>1:0.9984 USDC</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span>Time:</span>
+                                        <span>3.2s</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span>Cost:</span>
+                                        <span>25,022.50 USDC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-xs">Transaction Hashes</p>
+                                <div className="space-y-1 text-xs">
+                                    <div>
+                                        <span className="text-slate-500 dark:text-slate-400">Solana:</span>
+                                        <p className="font-mono text-slate-600 dark:text-slate-400 break-all">4x7f...9c2d</p>
+                                    </div>
+                                    <div>
+                                        <span className="text-slate-500 dark:text-slate-400">Arbitrum:</span>
+                                        <p className="font-mono text-slate-600 dark:text-slate-400 break-all">0x8a2f...b9d1</p>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
