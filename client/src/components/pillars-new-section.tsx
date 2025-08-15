@@ -1053,14 +1053,14 @@ const ExecutiveServiceFlow = () => {
     const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
 
     return (
-        <>
+        <div className="relative min-h-[480px] flex items-center justify-center p-4 overflow-hidden">
             <style>{animationStyles}</style>
-            <div className="w-full max-w-sm p-6 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-6">
+            <div className="w-full max-w-xs p-5 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-5">
 
                 {/* Dashboard Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-700">
-                    <h1 className="text-lg font-bold text-slate-600 dark:text-slate-300">Service Dashboard</h1>
-                    <div className="flex items-center space-x-2 px-3 py-1 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 rounded-full">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+                    <h1 className="text-base font-bold text-slate-600 dark:text-slate-300">Service Dashboard</h1>
+                    <div className="flex items-center space-x-1.5 px-2.5 py-1 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 rounded-full">
                         <ShieldCheck className="w-3 h-3" />
                         <span className="text-xs font-semibold uppercase tracking-wider">24/7 SOC</span>
                     </div>
@@ -1069,8 +1069,8 @@ const ExecutiveServiceFlow = () => {
                 {/* Section 1: Cluster & Environment */}
                 <div>
                     <ServiceHeader title="Cluster & Environment" icon={<Server />} />
-                    <div className="p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                        <div className="flex justify-between items-center mb-4">
+                    <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                        <div className="flex justify-between items-center mb-3">
                             <div>
                                 <p className="text-xs font-medium text-slate-400 dark:text-slate-500">Operational Status</p>
                                 <div className="flex items-center gap-2 mt-1">
@@ -1098,7 +1098,7 @@ const ExecutiveServiceFlow = () => {
                 {/* Section 2: Active SOC Monitoring */}
                 <div>
                     <ServiceHeader title="Active SOC Monitoring" icon={<Monitor />} />
-                    <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
                         <div className="flex items-center gap-4">
                             <div className="relative p-2 rounded-full bg-green-500 animate-pulse-green">
                                 <Monitor className="w-4 h-4 text-white" />
@@ -1117,7 +1117,7 @@ const ExecutiveServiceFlow = () => {
                 </div>
 
             </div>
-        </>
+        </div>
     );
 };
 
@@ -1183,8 +1183,8 @@ export default function PillarsSection() {
             </div>
             <div className="py-16 md:py-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-12 lg:gap-16 lg:items-center">
-                        <div className="lg:col-span-5">
+                    <div className="grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+                        <div className="lg:col-span-1">
                             <div className="mb-8">
                                 <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
                                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
@@ -1205,8 +1205,10 @@ export default function PillarsSection() {
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </button>
                         </div>
-                        <div className="lg:col-span-7 mt-12 lg:mt-0">
-                            {activePillar.visual}
+                        <div className="lg:col-span-1 mt-12 lg:mt-0 flex justify-center">
+                            <div className="w-full max-w-md">
+                                {activePillar.visual}
+                            </div>
                         </div>
                     </div>
                 </div>
