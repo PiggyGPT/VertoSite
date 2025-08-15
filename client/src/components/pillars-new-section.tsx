@@ -8,7 +8,7 @@ import {
     LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
     ChevronDown, Landmark, History, Link, Clock, Plus,
     Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-    Cpu, Keyboard
+    Cpu, Keyboard, Monitor
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -977,11 +977,9 @@ const PolishedComplianceFlow = () => {
 
 
 // --- VISUAL 5: Service (Animated Flow) ---
-import React, { useState, useEffect } from 'react';
-import { Monitor, ShieldCheck, Server, Clock, CheckCircle, Cpu } from 'lucide-react';
 
 // A simple container to hold the visual, providing consistent padding and a dark/light mode bg.
-const VisualContainer = ({ children }) => (
+const ServiceVisualContainer = ({ children }: { children: React.ReactNode }) => (
   <div className="flex items-center justify-center min-h-screen bg-slate-200 dark:bg-slate-900 p-4 font-sans text-slate-800 dark:text-slate-200">
     {children}
   </div>
@@ -1003,9 +1001,9 @@ const animationStyles = `
 `;
 
 // A reusable header component for consistent styling within the dashboard
-const Header = ({ title, icon }) => (
+const ServiceHeader = ({ title, icon }: { title: string; icon: React.ReactNode }) => (
     <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
-        {icon && React.cloneElement(icon, { className: 'w-3 h-3' })}
+        {icon && React.cloneElement(icon as React.ReactElement, { className: 'w-3 h-3' })}
         <span>{title}</span>
     </div>
 );
@@ -1053,7 +1051,7 @@ const ExecutiveServiceFlow = () => {
     const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
 
     return (
-        <VisualContainer>
+        <ServiceVisualContainer>
             <style>{animationStyles}</style>
             <div className="w-full max-w-sm p-6 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-6">
 
@@ -1068,7 +1066,7 @@ const ExecutiveServiceFlow = () => {
 
                 {/* Section 1: Cluster & Environment */}
                 <div>
-                    <Header title="Cluster & Environment" icon={<Server />} />
+                    <ServiceHeader title="Cluster & Environment" icon={<Server />} />
                     <div className="p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">
                         <div className="flex justify-between items-center mb-4">
                             <div>
@@ -1097,7 +1095,7 @@ const ExecutiveServiceFlow = () => {
 
                 {/* Section 2: Active SOC Monitoring */}
                 <div>
-                    <Header title="Active SOC Monitoring" icon={<Monitor />} />
+                    <ServiceHeader title="Active SOC Monitoring" icon={<Monitor />} />
                     <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">
                         <div className="flex items-center gap-4">
                             <div className="relative p-2 rounded-full bg-green-500 animate-pulse-green">
@@ -1117,7 +1115,7 @@ const ExecutiveServiceFlow = () => {
                 </div>
 
             </div>
-        </VisualContainer>
+        </ServiceVisualContainer>
     );
 };
 
