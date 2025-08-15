@@ -21,18 +21,37 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
 const ExecutiveDistributionFlow = () => {
     const [isVoucherVisible, setIsVoucherVisible] = useState(false);
 
+    // Debug logging
+    console.log("Distribution: isVoucherVisible =", isVoucherVisible);
+
     // Define static classes for Tailwind's JIT compiler
     const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
     const panelVisibleClasses = "opacity-100 translate-y-0 scale-100 rotate-0";
     const panelHiddenClasses = "opacity-0 -translate-y-8 scale-90 -rotate-1";
     const panelVoucherHiddenClasses = "opacity-0 translate-y-8 scale-90 rotate-1";
 
+    const handleVoucherClick = () => {
+        console.log("Issue QR Code clicked, changing state from", isVoucherVisible, "to", !isVoucherVisible);
+        setIsVoucherVisible(true);
+    };
+
+    const handlePanelClick = () => {
+        console.log("Panel clicked, changing state from", isVoucherVisible, "to", !isVoucherVisible);
+        setIsVoucherVisible(false);
+    };
+
+    // Debug class names
+    const panel1Classes = `${panelBaseClasses} ${isVoucherVisible ? panelHiddenClasses : panelVisibleClasses}`;
+    const panel2Classes = `${panelBaseClasses} ${isVoucherVisible ? panelVisibleClasses : panelVoucherHiddenClasses}`;
+    console.log("Panel 1 classes:", panel1Classes);
+    console.log("Panel 2 classes:", panel2Classes);
+
     return (
         <VisualContainer>
             <div className="relative w-full max-w-lg mx-auto h-96">
                 {/* Panel 1: Agent Dashboard */}
                 <div
-                    className={`${panelBaseClasses} ${isVoucherVisible ? panelHiddenClasses : panelVisibleClasses}`}
+                    className={panel1Classes}
                     style={{ zIndex: isVoucherVisible ? 1 : 2 }}
                 >
                     <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
@@ -55,15 +74,15 @@ const ExecutiveDistributionFlow = () => {
                             </div>
                         </div>
                         <button
-                            onClick={() => setIsVoucherVisible(true)}
+                            onClick={handleVoucherClick}
                             className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 hover:scale-105"
                         >
                             <Zap className="w-4 h-4" />
                             <span>Issue QR Code</span>
                         </button>
-                        <div className="flex-grow">
+                        <div className="flex-grow overflow-hidden">
                             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Transactions</p>
-                            <div className="space-y-2 text-sm">
+                            <div className="space-y-2 text-sm max-h-20 overflow-y-auto">
                                 <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
                                     <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
                                     <span className="font-mono font-medium text-green-500">+ $5,000</span>
@@ -79,10 +98,10 @@ const ExecutiveDistributionFlow = () => {
 
                 {/* Panel 2: POS Voucher */}
                 <div
-                     className={`${panelBaseClasses} ${isVoucherVisible ? panelVisibleClasses : panelVoucherHiddenClasses}`}
+                     className={panel2Classes}
                      style={{ zIndex: isVoucherVisible ? 2 : 1 }}
                 >
-                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 cursor-pointer" onClick={() => setIsVoucherVisible(false)}>
+                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 cursor-pointer" onClick={handlePanelClick}>
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
                         <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
                         <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #8721</p>
@@ -106,11 +125,19 @@ const ExecutiveDistributionFlow = () => {
 const PolishedPaymentsFlow = () => {
     const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
+    // Debug logging
+    console.log("Payments: isCheckoutVisible =", isCheckoutVisible);
+
     // Define static classes for Tailwind's JIT compiler
     const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
     const panelVisibleClasses = "opacity-100 scale-100 rotate-0";
     const panelHiddenClasses = "opacity-0 scale-90 -rotate-1";
     const panelCheckoutHiddenClasses = "opacity-0 scale-110 rotate-1";
+
+    const handlePayNowClick = () => {
+        console.log("Pay Now clicked, changing state from", isCheckoutVisible, "to", !isCheckoutVisible);
+        setIsCheckoutVisible(true);
+    };
 
     return (
         <VisualContainer>
@@ -134,7 +161,7 @@ const PolishedPaymentsFlow = () => {
                             <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
                         </div>
                         <button
-                            onClick={() => setIsCheckoutVisible(true)}
+                            onClick={handlePayNowClick}
                             className="w-full mt-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 font-sans"
                         >
                             Pay Now
