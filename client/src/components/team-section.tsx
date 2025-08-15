@@ -96,11 +96,11 @@ We've scaled initiatives at the world's leading financial and technology institu
 {/* --- REVISED MISSION STATEMENT --- */}
 <blockquote className="mt-20 max-w-4xl mx-auto px-6 sm:px-8 text-center">
 <div className="relative">
-<Quote className="absolute -top-4 -left-4 w-8 h-8 md:w-12 md:h-12 text-verto-blue/30 dark:text-verto-blue/20 transform rotate-180" />
+<Quote className="absolute -top-4 -left-4 w-6 h-6 md:w-9 md:h-9 text-verto-blue/30 dark:text-verto-blue/20 transform rotate-180" />
 <p className="text-1xl md:text-2xl font-light text-slate-700 dark:text-slate-300 leading-tight md:leading-snug italic px-8 md:px-12">
 Creating a safer, more open financial future by making digital assets accessible, trusted, and usable for everyone, everywhere.
 </p>
-<Quote className="absolute -bottom-4 -right-4 w-8 h-8 md:w-12 md:h-12 text-verto-blue/30 dark:text-verto-blue/20" />
+<Quote className="absolute -bottom-4 -right-4 w-6 h-6 md:w-9 md:h-9 text-verto-blue/30 dark:text-verto-blue/20" />
 </div>
 </blockquote>
 {/* --------------------------- */}
