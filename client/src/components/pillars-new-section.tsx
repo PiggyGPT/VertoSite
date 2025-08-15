@@ -588,11 +588,11 @@ const ExecutiveLiquidityFlow = () => {
       });
       // Sequence of typing animations for Panel 0
       const timers = [
-        setTimeout(() => setAnimationState(s => ({ ...s, typingSource: true })), 500),
-        setTimeout(() => setAnimationState(s => ({ ...s, typingSourceToken: true })), 2100),
-        setTimeout(() => setAnimationState(s => ({ ...s, typingDestination: true })), 2500),
-        setTimeout(() => setAnimationState(s => ({ ...s, typingDestinationToken: true })), 4100),
-        setTimeout(() => setAnimationState(s => ({ ...s, isGenerating: true })), 4500),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingSource: true })), 300),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingSourceToken: true })), 1200),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingDestination: true })), 1500),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingDestinationToken: true })), 2400),
+        setTimeout(() => setAnimationState(s => ({ ...s, isGenerating: true })), 2700),
       ];
       // Cleanup timers when the panel changes
       return () => timers.forEach(clearTimeout);
@@ -601,19 +601,19 @@ const ExecutiveLiquidityFlow = () => {
       const timers = [
         setTimeout(() => {
           setAnimationState(s => ({ ...s, showToast: true }));
-        }, 4000),
+        }, 1000),
         setTimeout(() => {
           setAnimationState(s => ({ ...s, signatures: { ...s.signatures, maria: true } }));
-        }, 4500),
+        }, 1500),
         setTimeout(() => {
           setAnimationState(s => ({ ...s, signatures: { ...s.signatures, john: true } }));
-        }, 5000),
+        }, 2000),
         setTimeout(() => {
           setAnimationState(s => ({ ...s, showToast: false }));
-        }, 6000),
+        }, 3000),
         setTimeout(() => {
           setAnimationState(s => ({ ...s, isExecuting: true }));
-        }, 6500),
+        }, 3500),
       ];
       return () => timers.forEach(clearTimeout);
     }
@@ -625,7 +625,7 @@ const ExecutiveLiquidityFlow = () => {
     const cyclePanels = () => {
       setCurrentPanel(prev => (prev + 1) % 3);
     };
-    const intervalId = setInterval(cyclePanels, 10000); // Cycle every 10 seconds
+    const intervalId = setInterval(cyclePanels, 7000); // Cycle every 7 seconds
     return () => clearInterval(intervalId);
   }, []);
 
@@ -1191,6 +1191,10 @@ export default function PillarsSection() {
                                 <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
                             </div>
                             
+                            {/* Mobile Animation - Between description and features */}
+                            <div className="lg:hidden mb-6 md:mb-8">
+                                {activePillar.visual}
+                            </div>
 
                             <div className="space-y-4 md:space-y-6 mb-8 md:mb-10">
                                 {activePillar.features.map((feature: any) => (
