@@ -19,36 +19,42 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
 
 // --- REVISED VISUAL 1: Distribution (Animated Flow) ---
 const ExecutiveDistributionFlow = () => {
-    const [currentPanel, setCurrentPanel] = useState(0); // 0: dashboard, 1: voucher
+    const [currentPanel, setCurrentPanel] = useState(0); // 0: dashboard, 1: voucher, 2: confirmation
     const [buttonClicked, setButtonClicked] = useState(false);
 
-    // Auto animation cycle
+    // Auto animation cycle with 3 panels
     useEffect(() => {
         const cycle = setInterval(() => {
             setCurrentPanel(prev => {
                 if (prev === 0) {
-                    // Simulate button click before transition
+                    // Simulate Generate QR button click
                     setButtonClicked(true);
-                    setTimeout(() => setButtonClicked(false), 200);
+                    setTimeout(() => setButtonClicked(false), 300);
                     return 1;
+                } else if (prev === 1) {
+                    // Simulate claim button click
+                    setButtonClicked(true);
+                    setTimeout(() => setButtonClicked(false), 300);
+                    return 2;
                 } else {
-                    return 0;
+                    return 0; // Reset to beginning
                 }
             });
-        }, 3500); // Switch every 3.5 seconds
+        }, 4000); // Switch every 4 seconds
 
         return () => clearInterval(cycle);
     }, []);
 
-    // Define static classes for Tailwind's JIT compiler - Left to Right animation
-    const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-x-0 scale-100";
-    const panelHiddenLeftClasses = "opacity-0 -translate-x-8 scale-95";
-    const panelHiddenRightClasses = "opacity-0 translate-x-8 scale-95";
+    // Define static classes for intentional left-to-right panning workflow
+    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+    const panelVisibleClasses = "opacity-100 translate-x-0";
+    const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+    const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-    // Panel class assignments
+    // Panel class assignments for intentional workflow panning
     const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
-    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : panelHiddenRightClasses}`;
+    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel < 1 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
+    const panel3Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
     return (
         <VisualContainer>
@@ -115,7 +121,62 @@ const ExecutiveDistributionFlow = () => {
                         <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
                             <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} fgColor="#000000" />
                         </div>
-                        <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <button
+                            className={`w-full mt-4 py-2 px-4 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform duration-200 ${buttonClicked && currentPanel === 1 ? 'scale-95 bg-verto-green/80' : 'scale-100'} hover:scale-105`}
+                        >
+                            Claim Voucher
+                        </button>
+                        <div className="mt-2 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <p className="text-xs text-slate-400 mt-2">Powered by Verto</p>
+                    </div>
+                </div>
+
+                {/* Panel 3: Minting Confirmation */}
+                <div
+                     className={panel3Classes}
+                     style={{ zIndex: currentPanel === 2 ? 2 : 1 }}
+                >
+                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Voucher Claimed</h3>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:51:45</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">CLAIM #8721-MINT</p>
+                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        
+                        <div className="w-full space-y-3 text-left flex-grow">
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Agent:</span>
+                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">Tia Store</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Customer:</span>
+                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">John Doe</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Minted:</span>
+                                <span className="text-xs font-semibold text-verto-green">120,000 BOBC</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Cash Paid:</span>
+                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">$50.00 USD</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
+                                <span className="text-xs font-semibold text-verto-green flex items-center gap-1">
+                                    <ShieldCheck className="w-3 h-3" />
+                                    Confirmed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <div className="w-full p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <p className="text-xs text-slate-600 dark:text-slate-400 text-center">
+                                Transaction Hash
+                            </p>
+                            <p className="text-xs font-mono text-slate-800 dark:text-slate-200 text-center break-all">
+                                0x9f4a8c2e...b7d1
+                            </p>
+                        </div>
                         <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
                     </div>
                 </div>
@@ -129,38 +190,38 @@ const PolishedPaymentsFlow = () => {
     const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
     const [buttonClicked, setButtonClicked] = useState(false);
 
-    // Auto animation cycle - 3 panels with different timing
+    // Auto animation cycle - 3 panels with intentional workflow timing
     useEffect(() => {
         const cycle = setInterval(() => {
             setCurrentPanel(prev => {
                 if (prev === 0) {
                     // Simulate Pay Now button click
                     setButtonClicked(true);
-                    setTimeout(() => setButtonClicked(false), 200);
+                    setTimeout(() => setButtonClicked(false), 300);
                     return 1;
                 } else if (prev === 1) {
                     // Simulate Pay button click in checkout
                     setButtonClicked(true);
-                    setTimeout(() => setButtonClicked(false), 200);
+                    setTimeout(() => setButtonClicked(false), 300);
                     return 2;
                 } else {
                     return 0; // Reset to beginning
                 }
             });
-        }, 2500); // Switch every 2.5 seconds
+        }, 3500); // Switch every 3.5 seconds
 
         return () => clearInterval(cycle);
     }, []);
 
-    // Define static classes for Tailwind's JIT compiler - Left to Right animation
-    const panelBaseClasses = "absolute inset-0 transition-all duration-700 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-x-0 scale-100";
-    const panelHiddenLeftClasses = "opacity-0 -translate-x-8 scale-95";
-    const panelHiddenRightClasses = "opacity-0 translate-x-8 scale-95";
+    // Define static classes for intentional left-to-right panning workflow
+    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+    const panelVisibleClasses = "opacity-100 translate-x-0";
+    const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+    const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-    // Panel class assignments
+    // Panel class assignments for intentional workflow panning
     const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
-    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : panelHiddenRightClasses}`;
+    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel < 1 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
     const panel3Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
     return (
@@ -259,6 +320,13 @@ const PolishedPaymentsFlow = () => {
                         <p className="text-xs text-slate-500 dark:text-slate-400">TXN #8721-CONF</p>
                         <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
                         
+                        <div className="w-full text-center mb-4">
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">RECEIVED</p>
+                            <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">120,000</p>
+                            <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Paid 120.00 USDC</p>
+                        </div>
+
                         <div className="w-full space-y-3 text-left flex-grow">
                             <div className="flex justify-between">
                                 <span className="text-xs text-slate-500 dark:text-slate-400">From:</span>
@@ -267,10 +335,6 @@ const PolishedPaymentsFlow = () => {
                             <div className="flex justify-between">
                                 <span className="text-xs text-slate-500 dark:text-slate-400">To:</span>
                                 <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">Tia Store</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span className="text-xs text-slate-500 dark:text-slate-400">Amount:</span>
-                                <span className="text-xs font-semibold text-verto-green">120.00 USDC</span>
                             </div>
                             <div className="flex justify-between">
                                 <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
