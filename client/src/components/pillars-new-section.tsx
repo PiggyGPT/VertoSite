@@ -70,7 +70,7 @@ const ExecutiveDistributionFlow = () => {
 
     return (
         <VisualContainer>
-            <div className="relative w-full max-w-lg mx-auto h-96 overflow-x-hidden">
+            <div className="relative w-full max-w-lg mx-auto h-[480px] overflow-x-hidden">
                 {/* Panel 1: Agent Dashboard */}
                 <div
                     className={panel1Classes}
@@ -438,18 +438,18 @@ const ExecutiveLiquidityFlow = () => {
                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Initiate Trade</h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">Arbitrum Network</p>
 
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             <div>
                                 <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">Pay To</label>
-                                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1">Tia Store</div>
+                                <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 text-sm">Tia Store</div>
                             </div>
                             <div>
                                 <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">Amount</label>
-                                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 font-mono">25,000.00 BOBC</div>
+                                <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 font-mono text-sm">25,000.00 BOBC</div>
                             </div>
                              <div>
                                 <label className="text-xs font-semibold text-slate-600 dark:text-slate-300">From</label>
-                                <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1">Fireblocks (Solana Wallet) - USDC</div>
+                                <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg mt-1 text-sm">Fireblocks (Solana) - USDC</div>
                             </div>
                         </div>
                         <button className="mt-auto w-full py-3 bg-verto-blue text-white font-semibold rounded-lg hover:bg-verto-blue/90 transition-colors">
@@ -462,34 +462,34 @@ const ExecutiveLiquidityFlow = () => {
                 <div className={getPanelClasses(1)} style={{ zIndex: currentPanel === 1 ? 4 : 1 }}>
                     <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col h-full">
                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Route Creation</h3>
-                        <div className="space-y-3">
-                            <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-sm text-slate-500 dark:text-slate-400">1. Fireblocks (Solana)</p>
+                        <div className="space-y-2">
+                            <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">1. Fireblocks (Solana)</p>
                             </div>
-                             <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-sm text-slate-500 dark:text-slate-400">2. Bridge via CCTP</p>
+                             <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">2. Bridge via CCTP</p>
                             </div>
-                             <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-sm text-slate-500 dark:text-slate-400">3. Swap on Curve (Arbitrum)</p>
+                             <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">3. Curve Finance (Arbitrum)</p>
                             </div>
-                             <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                                <p className="font-mono text-sm text-slate-500 dark:text-slate-400">4. Pay to Tia Store</p>
+                             <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">4. Pay to Tia Store</p>
                             </div>
                         </div>
-                        <div className="mt-4 mb-4">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Required Signatures (2/3)</p>
-                            <div className="space-y-2 text-sm">
-                                <div className="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                    <CheckCircle className="w-4 h-4 text-slate-400" />
-                                    <span className="text-slate-600 dark:text-slate-400">Maria Silva (Fireblocks)</span>
+                        <div className="mt-3 mb-3">
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Required Signatures (2/3)</p>
+                            <div className="space-y-1 text-sm">
+                                <div className={`flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.maria ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
+                                    <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
+                                    <span className={`text-xs transition-colors ${currentPanel === 2 && signed.maria ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>Maria Silva (Fireblocks)</span>
                                 </div>
-                                <div className="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                    <CheckCircle className="w-4 h-4 text-slate-400" />
-                                    <span className="text-slate-600 dark:text-slate-400">John Doe (Treasury)</span>
+                                <div className={`flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.john ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
+                                    <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.john ? 'text-green-500' : 'text-slate-400'}`} />
+                                    <span className={`text-xs transition-colors ${currentPanel === 2 && signed.john ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>John Doe (Treasury)</span>
                                 </div>
-                                <div className="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                    <CheckCircle className="w-4 h-4 text-slate-400" />
-                                    <span className="text-slate-600 dark:text-slate-400">CISO Auto-Sign (Policy)</span>
+                                <div className={`flex items-center gap-2 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg transition-all duration-500 ${currentPanel === 2 && signed.ciso ? 'bg-green-50 dark:bg-green-900/20' : ''}`}>
+                                    <CheckCircle className={`w-4 h-4 transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
+                                    <span className={`text-xs transition-colors ${currentPanel === 2 && signed.ciso ? 'text-green-700 dark:text-green-300' : 'text-slate-600 dark:text-slate-400'}`}>CISO Auto-Sign (Policy)</span>
                                 </div>
                             </div>
                         </div>
@@ -509,34 +509,16 @@ const ExecutiveLiquidityFlow = () => {
                         
                         <div className="space-y-3 text-sm flex-grow">
                             <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                                <p className="font-semibold text-green-700 dark:text-green-300 mb-1">25,000.00 BOBC → Tia Store</p>
-                                <p className="text-xs text-green-600 dark:text-green-400">Cost: 25,022.50 USDC</p>
+                                <p className="font-semibold text-green-700 dark:text-green-300">✓ Trade Complete</p>
+                                <p className="text-xs text-green-600 dark:text-green-400">25,000 BOBC → Tia Store</p>
                             </div>
                             
-                            <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Route Summary</p>
-                                <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
-                                    <p>1. Fireblocks (Solana) → CCTP Bridge</p>
-                                    <p>2. Bridge → Curve Finance (Arbitrum)</p>
-                                    <p>3. Swap → Final Transfer</p>
-                                </div>
-                            </div>
-                            
-                            <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Signatures Verified</p>
-                                <div className="space-y-1 text-xs">
-                                    <div className={`flex items-center gap-2 transition-all duration-500 ${signed.maria ? 'opacity-100' : 'opacity-50'}`}>
-                                        <CheckCircle className={`w-3 h-3 transition-colors ${signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className="text-slate-600 dark:text-slate-400">Maria Silva</span>
-                                    </div>
-                                    <div className={`flex items-center gap-2 transition-all duration-500 ${signed.john ? 'opacity-100' : 'opacity-50'}`}>
-                                        <CheckCircle className={`w-3 h-3 transition-colors ${signed.john ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className="text-slate-600 dark:text-slate-400">John Doe</span>
-                                    </div>
-                                    <div className={`flex items-center gap-2 transition-all duration-500 ${signed.ciso ? 'opacity-100' : 'opacity-50'}`}>
-                                        <CheckCircle className={`w-3 h-3 transition-colors ${signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
-                                        <span className="text-slate-600 dark:text-slate-400">CISO Auto-Sign</span>
-                                    </div>
+                            <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-1 text-xs">Signatures</p>
+                                <div className="flex gap-1">
+                                    <div className={`w-2 h-2 rounded-full transition-colors ${signed.maria ? 'bg-green-500' : 'bg-slate-400'}`}></div>
+                                    <div className={`w-2 h-2 rounded-full transition-colors ${signed.john ? 'bg-green-500' : 'bg-slate-400'}`}></div>
+                                    <div className={`w-2 h-2 rounded-full transition-colors ${signed.ciso ? 'bg-green-500' : 'bg-slate-400'}`}></div>
                                 </div>
                             </div>
                         </div>
