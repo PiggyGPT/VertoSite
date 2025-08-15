@@ -395,12 +395,25 @@ const PolishedPaymentsFlow = () => {
 
 // --- VISUAL 3: Liquidity (Animated Flow) ---
 const ExecutiveLiquidityFlow = () => {
-    const [currentPanel, setCurrentPanel] = useState(0); // 0: request, 1: route, 2: compliance, 3: complete
+    const [currentPanel, setCurrentPanel] = useState(0); // 0: request, 1: route, 2: executed
+    const [signed, setSigned] = useState({ maria: false, john: false, ciso: false });
 
     useEffect(() => {
         const cycle = setInterval(() => {
-            setCurrentPanel(prev => (prev + 1) % 4);
-        }, 2000); // Switch every 2 seconds
+            setCurrentPanel(prev => {
+                const next = (prev + 1) % 3;
+                if (next === 2) {
+                    // Trigger signing animations when moving to executed panel
+                    setTimeout(() => setSigned(s => ({ ...s, maria: true })), 300);
+                    setTimeout(() => setSigned(s => ({ ...s, john: true })), 600);
+                    setTimeout(() => setSigned(s => ({ ...s, ciso: true })), 900);
+                } else if (next === 0) {
+                    // Reset signatures when cycle restarts
+                    setSigned({ maria: false, john: false, ciso: false });
+                }
+                return next;
+            });
+        }, 3000); // Switch every 3 seconds for better visibility
 
         return () => clearInterval(cycle);
     }, []);
@@ -463,8 +476,22 @@ const ExecutiveLiquidityFlow = () => {
                                 <p className="font-mono text-sm text-slate-500 dark:text-slate-400">4. Pay to Tia Store</p>
                             </div>
                         </div>
-                        <div className="mt-4 mb-4 text-center text-sm text-slate-500 dark:text-slate-400">
-                            Awaiting signatures...
+                        <div className="mt-4 mb-4">
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Required Signatures (2/3)</p>
+                            <div className="space-y-2 text-sm">
+                                <div className="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                    <CheckCircle className="w-4 h-4 text-slate-400" />
+                                    <span className="text-slate-600 dark:text-slate-400">Maria Silva (Fireblocks)</span>
+                                </div>
+                                <div className="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                    <CheckCircle className="w-4 h-4 text-slate-400" />
+                                    <span className="text-slate-600 dark:text-slate-400">John Doe (Treasury)</span>
+                                </div>
+                                <div className="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                    <CheckCircle className="w-4 h-4 text-slate-400" />
+                                    <span className="text-slate-600 dark:text-slate-400">CISO Auto-Sign (Policy)</span>
+                                </div>
+                            </div>
                         </div>
                         <button className="mt-auto w-full py-3 bg-verto-blue text-white font-semibold rounded-lg hover:bg-verto-blue/90 transition-colors">
                             Execute Route
@@ -472,53 +499,49 @@ const ExecutiveLiquidityFlow = () => {
                     </div>
                 </div>
 
-                {/* Panel 3: Compliance Report */}
+                {/* Panel 3: Trade Executed */}
                 <div className={getPanelClasses(2)} style={{ zIndex: currentPanel === 2 ? 4 : 1 }}>
                     <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col h-full">
-                        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Compliance Report</h3>
+                        <div className="flex items-center gap-2 mb-4">
+                            <CheckCircle className="w-6 h-6 text-green-500" />
+                            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Trade Executed</h3>
+                        </div>
+                        
                         <div className="space-y-3 text-sm flex-grow">
                             <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <CheckCircle className="w-4 h-4 text-green-500" />
-                                    <span className="font-semibold text-green-700 dark:text-green-300">Route Verified</span>
-                                </div>
-                                <p className="text-xs text-green-600 dark:text-green-400">CCTP Bridge: AAA Rating</p>
-                                <p className="text-xs text-green-600 dark:text-green-400">Curve Finance: AA Rating</p>
+                                <p className="font-semibold text-green-700 dark:text-green-300 mb-1">25,000.00 BOBC → Tia Store</p>
+                                <p className="text-xs text-green-600 dark:text-green-400">Cost: 25,022.50 USDC</p>
                             </div>
                             
                             <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Price Conversion</p>
+                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Route Summary</p>
                                 <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
-                                    <div className="flex justify-between">
-                                        <span>USDC → BOBC Rate:</span>
-                                        <span className="font-mono">1:0.9984</span>
+                                    <p>1. Fireblocks (Solana) → CCTP Bridge</p>
+                                    <p>2. Bridge → Curve Finance (Arbitrum)</p>
+                                    <p>3. Swap → Final Transfer</p>
+                                </div>
+                            </div>
+                            
+                            <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Signatures Verified</p>
+                                <div className="space-y-1 text-xs">
+                                    <div className={`flex items-center gap-2 transition-all duration-500 ${signed.maria ? 'opacity-100' : 'opacity-50'}`}>
+                                        <CheckCircle className={`w-3 h-3 transition-colors ${signed.maria ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className="text-slate-600 dark:text-slate-400">Maria Silva</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span>Bridge Fee:</span>
-                                        <span className="font-mono">0.05%</span>
+                                    <div className={`flex items-center gap-2 transition-all duration-500 ${signed.john ? 'opacity-100' : 'opacity-50'}`}>
+                                        <CheckCircle className={`w-3 h-3 transition-colors ${signed.john ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className="text-slate-600 dark:text-slate-400">John Doe</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span>Swap Fee:</span>
-                                        <span className="font-mono">0.04%</span>
-                                    </div>
-                                    <div className="flex justify-between font-semibold border-t pt-1">
-                                        <span>Total Cost:</span>
-                                        <span className="font-mono">25,022.50 USDC</span>
+                                    <div className={`flex items-center gap-2 transition-all duration-500 ${signed.ciso ? 'opacity-100' : 'opacity-50'}`}>
+                                        <CheckCircle className={`w-3 h-3 transition-colors ${signed.ciso ? 'text-green-500' : 'text-slate-400'}`} />
+                                        <span className="text-slate-600 dark:text-slate-400">CISO Auto-Sign</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p className="text-xs text-center text-slate-400 mt-2">Processing transaction...</p>
-                    </div>
-                </div>
-
-                {/* Panel 4: Processing and Completion */}
-                <div className={getPanelClasses(3)} style={{ zIndex: currentPanel === 3 ? 4 : 1 }}>
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col h-full items-center justify-center text-center">
-                        <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
-                        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">Trade Complete</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">25,000.00 BOBC sent to Tia Store.</p>
-                        <div className="mt-4 text-xs font-mono text-slate-400 dark:text-slate-500 break-all p-2 bg-slate-50 dark:bg-slate-800 rounded">
+                        
+                        <div className="mt-4 text-xs font-mono text-slate-400 dark:text-slate-500 break-all p-2 bg-slate-50 dark:bg-slate-800 rounded text-center">
                             Tx: 0x8a2f...b9d1
                         </div>
                     </div>
@@ -728,12 +751,17 @@ export default function PillarsSection() {
             </div>
             <div className="py-16 md:py-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-12 lg:gap-16 items-center">
-                        <div className="lg:col-span-5 lg:order-2 order-last">
+                    <div className="grid lg:grid-cols-12 lg:gap-16 lg:items-center">
+                        <div className="lg:col-span-5">
                             <div className="mb-8">
                                 <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
                                 <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
                                 <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
+                            </div>
+                            
+                            {/* Mobile Animation - Between description and features */}
+                            <div className="lg:hidden mb-8">
+                                {activePillar.visual}
                             </div>
                             <div className="space-y-6 mb-10">
                                 {activePillar.features.map((feature: any) => (
@@ -745,13 +773,8 @@ export default function PillarsSection() {
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </button>
                         </div>
-                        <div className="lg:col-span-7 mt-12 lg:mt-0 lg:order-1 order-first">
-                            <div className="lg:hidden mb-8">
-                                {activePillar.visual}
-                            </div>
-                            <div className="hidden lg:block">
-                                {activePillar.visual}
-                            </div>
+                        <div className="lg:col-span-7 mt-12 lg:mt-0">
+                            {activePillar.visual}
                         </div>
                     </div>
                 </div>
