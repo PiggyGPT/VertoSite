@@ -20,154 +20,189 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
     </div>
 );
 
-
-// --- REVISED VISUAL 1: Distribution (Stripe-like Polish) ---
+// --- REVISED VISUAL 1: Distribution (Animated Flow) ---
 const ExecutiveDistributionFlow = () => {
+    const [isVoucherVisible, setIsVoucherVisible] = useState(false);
+
+    // Define static classes for Tailwind's JIT compiler
+    const panelBaseClasses = "absolute inset-0 transition-all duration-500 ease-in-out transform-style-3d";
+    const panelVisibleClasses = "opacity-100 translate-y-0 rotate-x-0";
+    const panelHiddenClasses = "opacity-0 -translate-y-4 -rotate-x-10";
+
     return (
         <VisualContainer>
-            <div className="flex justify-center items-stretch gap-4 lg:gap-6 flex-col md:flex-row">
+            <div className="relative w-full max-w-lg mx-auto h-96">
                 {/* Panel 1: Agent Dashboard */}
-                <div className="bg-white dark:bg-slate-900 w-full md:w-3/5 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2">
-                    <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-                        <div>
-                            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Agent Portal</h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">Tia Store</p>
-                        </div>
-                        <Settings className="w-5 h-5 text-slate-400" />
-                    </div>
-                    <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                        <div className="flex items-center justify-between">
+                <div
+                    className={`${panelBaseClasses} ${isVoucherVisible ? panelHiddenClasses : panelVisibleClasses}`}
+                    style={{ backfaceVisibility: 'hidden' }}
+                >
+                    <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
+                        <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
                             <div>
-                                <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
-                                <p className="text-2xl font-bold text-verto-green tracking-tight">$4,950.00</p>
+                                <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">Agent Dashboard</p>
                             </div>
-                            <button className="p-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 rounded-full transition-colors">
-                                <Plus className="w-5 h-5" />
-                            </button>
+                            <Settings className="w-5 h-5 text-slate-400" />
                         </div>
-                    </div>
-                    <button className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform hover:scale-105">
-                        <Zap className="w-4 h-4" />
-                        <span>Issue QR Code</span>
-                    </button>
-                    <div className="flex-grow">
-                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4"/> Recent Transactions</p>
-                        <div className="space-y-2 text-sm">
-                            <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
-                                <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
-                                <span className="font-mono font-medium text-green-500">+ $5,000</span>
+                        <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
+                                    <p className="text-2xl font-bold text-verto-green tracking-tight">$4,950.00</p>
+                                </div>
+                                <button className="p-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 rounded-full transition-colors">
+                                    <Plus className="w-5 h-5" />
+                                </button>
                             </div>
-                            <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
-                                <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
-                                <span className="font-mono font-medium text-slate-700 dark:text-slate-300">- $50.00</span>
+                        </div>
+                        <button
+                            onClick={() => setIsVoucherVisible(true)}
+                            className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-green hover:bg-verto-green/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 hover:scale-105"
+                        >
+                            <Zap className="w-4 h-4" />
+                            <span>Issue QR Code</span>
+                        </button>
+                        <div className="flex-grow">
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Transactions</p>
+                            <div className="space-y-2 text-sm">
+                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                    <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
+                                    <span className="font-mono font-medium text-green-500">+ $5,000</span>
+                                </div>
+                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md">
+                                    <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
+                                    <span className="font-mono font-medium text-slate-700 dark:text-slate-300">- $50.00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Panel 2: POS Voucher */}
-                <div className="bg-white dark:bg-slate-900 w-full md:w-2/5 rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 font-mono border border-slate-200 dark:border-slate-700">
-                    <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #8721</p>
-                    <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
-                    <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">$50.00</p>
-                    <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
-                    <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
-                        <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} fgColor="#000000" />
+                <div
+                     className={`${panelBaseClasses} ${isVoucherVisible ? panelVisibleClasses : panelHiddenClasses.replace('-translate-y-4', 'translate-y-4')}`}
+                     style={{ backfaceVisibility: 'hidden' }}
+                >
+                     <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 cursor-pointer" onClick={() => setIsVoucherVisible(false)}>
+                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #8721</p>
+                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
+                        <p className="text-4xl font-bold my-2 text-slate-800 dark:text-slate-200">$50.00</p>
+                        <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
+                        <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
+                            <QRCodeSVG value="https://verto.exchange/claim?id=8721" size={120} fgColor="#000000" />
+                        </div>
+                        <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
                     </div>
-                    <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                    <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
                 </div>
             </div>
         </VisualContainer>
     );
 };
 
-const PolishedPaymentsFlow = () => (
-    <VisualContainer>
-        <div className="flex flex-col md:flex-row justify-center items-stretch gap-4 lg:gap-6 w-full">
-            {/* Left Panel (unchanged) */}
-            <div className="bg-white dark:bg-slate-900 w-full md:w-2/5 rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 font-mono border border-slate-200 dark:border-slate-700 order-1">
-                <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">PAYMENT #4928</p>
-                <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT DUE</p>
-                <div className="flex items-baseline gap-2">
-                    <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">12,000</p>
-                    <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-                </div>
-                <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
-                    <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
-                </div>
-                <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200 mt-2">Scan to Pay</p>
-                <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
-            </div>
+// --- REVISED VISUAL 2: Payments (Animated Flow) ---
+const PolishedPaymentsFlow = () => {
+    const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
 
-            {/* Right Panel - The Cleanest Checkout UI */}
-            <div className="bg-white dark:bg-slate-900 w-full md:w-3/5 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 transform-style-3d transition-transform duration-500 hover:-translate-y-1 hover:rotate-x-2 order-2 mt-6 md:mt-0">
+    // Define static classes for Tailwind's JIT compiler
+    const panelBaseClasses = "absolute inset-0 transition-all duration-500 ease-in-out transform-style-3d";
+    const panelVisibleClasses = "opacity-100 scale-100";
+    const panelHiddenClasses = "opacity-0 scale-95";
 
-                {/* User Header Section */}
-                <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-                    <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                            <User className="w-5 h-5 text-slate-500" />
+    return (
+        <VisualContainer>
+            <div className="relative w-full max-w-lg mx-auto h-[410px]">
+                {/* Panel 1: Payment Request / QR Code */}
+                <div
+                    className={`${panelBaseClasses} ${isCheckoutVisible ? panelHiddenClasses : panelVisibleClasses}`}
+                    style={{ backfaceVisibility: 'hidden' }}
+                >
+                    <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">PAYMENT #4928</p>
+                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT DUE</p>
+                        <div className="flex items-baseline gap-2">
+                            <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">12,000</p>
+                            <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
                         </div>
-                        <p className="font-bold text-lg text-slate-800 dark:text-slate-200">John Doe</p>
+                        <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
+                            <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
+                        </div>
+                        <button
+                            onClick={() => setIsCheckoutVisible(true)}
+                            className="w-full mt-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform active:scale-95 font-sans"
+                        >
+                            Pay Now
+                        </button>
+                        <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+                        <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
                     </div>
-                    <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
                 </div>
-                
-                {/* "To" (Merchant) - Secondary, informational section */}
-                <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay</p>
-                    <div className="relative p-2 rounded-lg flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <div>
-                                <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
-                                <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
+
+                {/* Panel 2: Checkout UI */}
+                <div
+                    className={`${panelBaseClasses} ${isCheckoutVisible ? panelVisibleClasses : panelHiddenClasses.replace('scale-95', 'scale-105')}`}
+                    style={{ backfaceVisibility: 'hidden' }}
+                >
+                    <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
+                         <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+                            <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                                    <User className="w-5 h-5 text-slate-500" />
+                                </div>
+                                <p className="font-bold text-lg text-slate-800 dark:text-slate-200">John Doe</p>
+                            </div>
+                            <Settings className="w-5 h-5 text-slate-400 cursor-pointer" onClick={() => setIsCheckoutVisible(false)} />
+                        </div>
+                        <div className="flex flex-col space-y-1">
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay</p>
+                            <div className="relative p-2 rounded-lg flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <div>
+                                        <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
+                                    </div>
+                                </div>
+                                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
                             </div>
                         </div>
-                        <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
-                    </div>
-                </div>
-                {/* "Pay With" (Coinbase Account) - Primary, actionable section */}
-                <div className="flex flex-col space-y-2">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">With</p>
-                    <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                        <div className="flex items-center gap-3">
-                            <div>
-                                <p className="font-semibold text-slate-800 dark:text-slate-200">Coinbase Account</p>
-                                <p className="text-xs text-slate-500 dark:text-slate-400">Balance: 12,500.50 USDC</p>
+                        <div className="flex flex-col space-y-2">
+                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">With</p>
+                            <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                                <div className="flex items-center gap-3">
+                                    <div>
+                                        <p className="text-s font-semibold text-slate-800 dark:text-slate-200">Coinbase</p>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400">12,500.50 USDC</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="font-bold text-slate-800 dark:text-slate-200">120.00 USDC</span>
+                                    <ChevronDown className="w-5 h-5 text-slate-400" />
+                                </div>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <span className="font-bold text-slate-800 dark:text-slate-200">120.00 USDC</span>
-                            <ChevronDown className="w-5 h-5 text-slate-400" />
+                        <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
+                            <span>Rate: 1 BOBC ≈ 0.01 USDC</span>
+                            <span>Fees: 0.00 USDC</span>
                         </div>
+                        <button className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform hover:scale-105 active:scale-95">
+                            <Zap className="w-4 h-4" />
+                            <span>Pay 120.00 USDC</span>
+                        </button>
+                        <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5"><Lock className="w-3 h-3" /> Secured by Verto</p>
                     </div>
                 </div>
-
-                {/* Fine Print */}
-                <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
-                    <span>Rate: 1 BOBC ≈ 0.01 USDC</span>
-                    <span>Fees: 0.00 USDC</span>
-                </div>
-
-                {/* Action Button */}
-                <button className="flex items-center justify-center w-full space-x-2 px-4 py-3 bg-verto-purple hover:bg-verto-purple/90 text-white text-sm font-semibold rounded-lg transition-transform hover:scale-105">
-                    <Zap className="w-4 h-4" />
-                    <span>Confirm & Pay 120.00 USDC</span>
-                </button>
-
-                <p className="text-center text-xs text-slate-400 mt-2 flex items-center justify-center gap-1.5"><Lock className="w-3 h-3"/> Secured by Verto</p>
             </div>
-        </div>
-    </VisualContainer>
-);
+        </VisualContainer>
+    );
+};
+
 // --- REVISED VISUAL 3: Liquidity (Dynamic Pipeline) ---
 const ExecutiveLiquidityFlow = () => (
     <VisualContainer>
@@ -367,11 +402,11 @@ export default function PillarsSection() {
     const [activeTab, setActiveTab] = useState("distribution");
 
     const pillars = {
-        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Enable any retail point, from kiosks to mobile operators, to issue stablecoins against cash deposits in real time.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
+        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Enable any retail point, from kiosks to mobile operators, to issue stablecoins against deposits in real time.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
         payments: { label: "Payments", color: "verto-purple", title: "Frictionless Checkout", description: "Enable merchants to easily accept your stablecoin from any wallet, bank, or exchange with a single click.", visual: <PolishedPaymentsFlow />, features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your stablecoin." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], cta: "Explore Payments API" },
         liquidity: { label: "Liquidity", color: "verto-blue", title: "Compliant Swaps", description: "Execute trades across complex, fragmented decentralized exchanges with full operational integrity.", visual: <ExecutiveLiquidityFlow />, features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Our engine automatically finds the best execution path for every trade across multiple protocols and chains." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Our self-hosted layer integrates with your existing custody, so your assets and keys never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that enforces your predefined policies." }, ], cta: "Integrate Liquidity API" },
         compliance: { label: "Compliance", color: "verto-blue", title: "AI-Powered Compliance", description: "Replace manual, periodic counterparty audits with continuous, explainable, and automated oversight across your operations.", visual: <PolishedComplianceFlow />, features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], cta: "Request Compliance Demo" },
-        service: { label: "Service", color: "verto-cyan", title: "24/7 Global Operations", description: "Maintain 24/7 operational integrity with our global SOC teams for your self-hosted environment.", visual: <ExecutiveServiceFlow />, features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], cta: "Learn About Our Service Model" },
+        service: { label: "Service", color: "verto-cyan", title: "24/7 Global Operations", description: "Maintain operational integrity with our global SOC teams for your self-hosted environment.", visual: <ExecutiveServiceFlow />, features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], cta: "Learn About Our Service Model" },
     };
 
     const colorMap = {
