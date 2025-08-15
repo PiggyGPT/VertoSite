@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     User, Users, Rocket, Terminal,
     Zap, Store, Archive,
@@ -6,7 +7,8 @@ import {
     Database, GitBranch,
     LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
     ChevronDown, Landmark, History, Link, Clock, Plus,
-    Settings, Gauge, Network, Server, Globe, FileText, CheckCircle
+    Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
+    Cpu
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -396,15 +398,8 @@ const PolishedPaymentsFlow = () => {
     );
 };
 
-// A wrapper component for consistent styling.
-const VisualContainer = ({ children }) => (
-  <div className="bg-slate-50 dark:bg-slate-950 p-4 sm:p-8 rounded-2xl flex items-center justify-center">
-    {children}
-  </div>
-);
-
 // Custom hook for the typing animation effect.
-const useTypingAnimation = (text, start, duration = 50) => {
+const useTypingAnimation = (text: string, start: boolean, duration = 50) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -505,7 +500,7 @@ const ExecutiveLiquidityFlow = () => {
   const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
   const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-  const getPanelClasses = (panelIndex) => {
+  const getPanelClasses = (panelIndex: number) => {
     if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
     if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
     return `${panelBaseClasses} ${panelHiddenRightClasses}`;
@@ -547,7 +542,7 @@ const ExecutiveLiquidityFlow = () => {
 };
 
 // --- Sub-component for Panel 1: API Request ---
-const ApiRequestPanel = ({ typingState, isGenerating }) => {
+const ApiRequestPanel = ({ typingState, isGenerating }: { typingState: any, isGenerating: boolean }) => {
   const sourceText = useTypingAnimation(`"fb_solana_wallet_0x1a2b"`, typingState.source);
   const sourceTokenText = useTypingAnimation(`"USDC"`, typingState.sourceToken);
   const destinationText = useTypingAnimation(`"merchant_tia_store_0x3c4d"`, typingState.destination);
@@ -596,7 +591,7 @@ const ApiRequestPanel = ({ typingState, isGenerating }) => {
 };
 
 // --- Sub-component for Panel 2: Route Creation ---
-const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, currentPanel }) => {
+const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, currentPanel }: { signatures: any, showSignatureToast: boolean, isExecuting: boolean, currentPanel: number }) => {
   const routeSteps = useMemo(() => [
     { id: 1, title: 'Withdraw from Fireblocks', subtitle: '250.00 USDC', network: 'Solana' },
     { id: 2, title: 'Bridge via CCTP', subtitle: '250.00 USDC', network: 'Solana' },
@@ -671,11 +666,11 @@ const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, curre
             className="absolute bottom-4 left-4 right-4 p-5 bg-slate-950 shadow-xl shadow-slate-900/50 rounded-2xl border border-slate-700"
           >
             <div className="flex items-center mb-3">
-              <Signature className="w-6 h-6 text-slate-400 mr-3" />
+              <FileText className="w-6 h-6 text-slate-400 mr-3" />
               <p className="text-lg font-bold text-slate-200">Awaiting Signatures (2/2)</p>
             </div>
             <div className="space-y-2">
-              {signatureItems.map(item => (
+              {signatureItems.map((item: any) => (
                 <div key={item.key} className={`flex items-center justify-between p-3 rounded-lg transition-all duration-500 ${item.signed ? 'bg-green-900/30 border border-green-700' : 'bg-slate-800/50'}`}>
                   <div className="flex items-center gap-3">
                     <CheckCircle className={`w-6 h-6 transition-colors duration-300 ${item.signed ? 'text-green-500' : 'text-slate-600'}`} />
