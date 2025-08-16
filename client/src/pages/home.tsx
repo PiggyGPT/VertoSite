@@ -14,7 +14,7 @@ const homepageWhyNowReasons = [
   {
     icon: Shield,
     title: "Regulatory Clarity Creates Competitive Windows",
-    description: "With frameworks like MiCA providing clear operational guidelines, the excuse to wait is gone. First movers will capture infrastructure-level network effects and lock in the most valuable institutional relationships."
+    description: "With frameworks like GENIUS and MiCA providing clear regulatory guidelines, the excuse to wait is gone. First movers will capture infrastructure-level network effects and lock in the most valuable institutional relationships."
   },
   {
     icon: Target,

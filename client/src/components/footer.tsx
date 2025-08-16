@@ -38,7 +38,7 @@ export function PilotCtaSection() {
 // The new, refined footer component.
 export default function Footer() {
     const footerLinks = {
-        "For": ["Financial Institutions", "Exchanges", "Trading Firms"],
+        "Solutions": ["Financial Institutions", "Exchanges", "Trading Firms"],
         "Company": ["About Us", "Careers", "Platform"],
         "Contact Us": ["Email", "X", "Telegram"]
     };
@@ -53,7 +53,7 @@ export default function Footer() {
                             <img src={logoSvg} alt="Verto Logo" className="h-6 w-auto" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
-                            Digital Asset Operations Platform for trading, payments, and distribution on any chain.
+                            Digital Asset Operations Platform for compliant trading, payments, and distribution on any chain.
                         </p>
                     </div>
 
