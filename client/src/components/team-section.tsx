@@ -64,7 +64,24 @@ testId: string;
 );
 
 
-export default function TeamSection() {
+interface CustomInsight {
+  name: string;
+  role: string;
+  insight: string;
+  image: string;
+}
+
+interface TeamSectionProps {
+  title?: string;
+  subtitle?: string;
+  customInsights?: CustomInsight[];
+}
+
+export default function TeamSection({ 
+  title = "Built by experts who've been there", 
+  subtitle = "Our team has architected blockchain infrastructure for the world's largest institutions.",
+  customInsights
+}: TeamSectionProps = {}) {
 const teamMembers = [
 { name: "David Cass", role: "CEO", roleColor: "verto-blue", image: davidImage, description: "CISO at GSR and IBM with 25+ years in security leadership. Harvard faculty, former Federal Reserve regulator. Wharton and MIT graduate.", testId: "team-david" },
 { name: "Daniel Garrie", role: "General Counsel", roleColor: "verto-green", image: danielImage, description: "Harvard professor with 20+ years in compliance frameworks for DOJ and DTCC. Built and exited three tech companies. JD from Rutgers.", testId: "team-daniel" },

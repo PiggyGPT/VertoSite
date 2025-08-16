@@ -68,14 +68,14 @@ export default function SecureDefiOps() {
               color: "verto-purple", 
               persona: "Head of Investments",
               company: "Hedge Fund",
-              quote: "Multi-day manual reviews and inefficient operational processes are causing us to miss time-sensitive DeFi opportunities. We need automated, compliant execution at institutional scale."
+              quote: "Multi-day manual reviews and inefficient operational processes are causing us to miss time-sensitive DeFi opportunities. We need automated, compliant execution to secure our deal flows."
             },
             {
               icon: "Shield",
               color: "verto-green",
               persona: "CISO", 
               company: "Investment Fund",
-              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without exposing ourselves to smart contract exploits?"
+              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without exposing ourselves to exploits?"
             }
           ]}
         />
