@@ -1,5 +1,5 @@
 import { ArrowRight, BookOpen, Landmark, ArrowRightLeft, CandlestickChart } from "lucide-react";
-import Link from 'next/link'; // Using Next.js Link for semantic navigation
+import { Link } from "wouter";
 
 export default function HeroSection() {
 
@@ -51,7 +51,7 @@ export default function HeroSection() {
           {/* On mobile, buttons stack vertically. On larger screens, they go side-by-side. */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {personaCTAs.map((cta) => (
-              <Link key={cta.name} href={cta.href} passHref>
+              <Link key={cta.name} href={cta.href}>
                 <a className="group flex items-center justify-center gap-x-3 px-4 py-3 bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-100 transition-all duration-200 hover:border-verto-blue hover:dark:border-verto-cyan hover:-translate-y-1 hover:shadow-lg">
                   <cta.icon className="w-5 h-5 text-slate-500 dark:text-slate-400 group-hover:text-verto-blue dark:group-hover:text-verto-cyan transition-colors" />
                   <span>{cta.name.replace("For ", "")}</span> {/* Shorten name for mobile */}
@@ -62,7 +62,7 @@ export default function HeroSection() {
 
           {/* SECONDARY CTA: A subtle link for technical users that doesn't clutter the main actions. */}
           <div className="mt-6">
-            <Link href="/documentation" passHref>
+            <Link href="/documentation">
                <a className="group inline-flex items-center text-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">
                  <span>Or explore the documentation</span>
                  <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" />

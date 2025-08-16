@@ -8,7 +8,8 @@ import {
     LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
     ChevronDown, Landmark, History, Link, Clock, Plus,
     Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-    Cpu, Keyboard, Monitor
+    Cpu, Keyboard, Monitor,
+    type LucideProps
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -1126,7 +1127,19 @@ const ExecutiveServiceFlow = () => {
 
 // DESIGN CHANGE: Create a dedicated "Insight Banner" for the founder quotes.
 // This new component creates the full-width, colored banner style.
-const FounderInsightBanner = ({ quote, name, title, image, colorClasses }) => (
+interface FounderInsightBannerProps {
+  quote: string;
+  name: string;
+  title: string;
+  image: string;
+  colorClasses: {
+    bg: string;
+    border: string;
+    text: string;
+  };
+}
+
+const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: FounderInsightBannerProps) => (
     <div className={`rounded-xl p-6 md:p-8 my-12 ${colorClasses.bg}/10`}>
         <div className="flex flex-col md:flex-row items-start gap-6">
             <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
