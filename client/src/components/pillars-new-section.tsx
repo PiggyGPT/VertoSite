@@ -1131,16 +1131,93 @@ const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string
         </div>
     </div>
 );
+// Make sure to import these at the top of your file
+import { useState } from 'react';
+import { ArrowRight, Zap, Globe, Server, GitBranch, ShieldCheck, Archive, Users, Terminal, Gauge, SlidersHorizontal, Shield, Database, LifeBuoy } from 'lucide-react';
+// And your visual components
+// import PolishedPaymentsFlow from './visuals/PolishedPaymentsFlow';
+// ... etc
+
+// ADDED: A small component to render the founder quotes for clarity and reusability
+const FounderQuote = ({ quote, name, title }) => (
+    <div className="mt-6 mb-8 p-4 border-l-4 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/30 rounded-r-lg">
+        <blockquote className="italic text-slate-600 dark:text-slate-300">
+            "{quote}"
+        </blockquote>
+        <footer className="mt-3">
+            <p className="font-semibold text-slate-800 dark:text-slate-100">{name}</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">{title}</p>
+        </footer>
+    </div>
+);
+
 
 export default function PillarsSection() {
     const [activeTab, setActiveTab] = useState("distribution");
 
+    // UPDATED: Added a `founderQuote` object to each pillar
     const pillars = {
-        payments: { label: "Payments", color: "verto-purple", title: "Frictionless Checkout", description: "Enable merchants to easily accept your stablecoin from any wallet, bank, or exchange with a single click.", visual: <PolishedPaymentsFlow />, features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your stablecoin." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], cta: "Explore Payments API" },
-        liquidity: { label: "Trading", color: "verto-blue", title: "Compliant Liquidity", description: "Access liquidity from complex, fragmented decentralized exchanges with full operational integrity.", visual: <ExecutiveLiquidityFlow />, features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], cta: "Integrate Liquidity API" },
-        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Enable any retail point, from kiosks to mobile operators, to issue stablecoins against deposits in real time.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
-        compliance: { label: "Compliance", color: "verto-blue", title: "AI-Powered Compliance", description: "Replace manual, periodic counterparty audits with continuous, explainable, and automated oversight across your operations.", visual: <PolishedComplianceFlow />, features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], cta: "Request Compliance Demo" },
-        service: { label: "Service", color: "verto-cyan", title: "24/7 Global Operations", description: "Maintain operational integrity with our global SOC teams for your self-hosted environment.", visual: <ExecutiveServiceFlow />, features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], cta: "Learn About Our Service Model" },
+        distribution: { 
+            label: "Distribution", color: "verto-green", title: "On-Demand Minting & Issuance", 
+            description: "Enable any retail point, financial partner, or on-chain application to issue and distribute digital assets against deposits in real time.", 
+            visual: <ExecutiveDistributionFlow />, 
+            founderQuote: { 
+                quote: "At the Federal Reserve, we learned that trust is paramount. We designed Verto’s distribution model for banks to safely reach their entire customer base with the same regulatory rigor they apply to physical currency.",
+                name: "David Cass",
+                title: "CEO | Former Federal Reserve Regulator"
+            },
+            features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Partner Portal & APIs", description: "A powerful, simple interface for partners to manage credit, issue assets, and monitor earnings." }, ], 
+            cta: "Get Distribution Playbook" 
+        },
+        payments: { 
+            label: "Payments", color: "verto-purple", title: "Frictionless On-Chain Payments", 
+            description: "Enable merchants to easily accept your digital asset from any wallet, bank, or exchange with a single click, driving real-world utility.", 
+            visual: <PolishedPaymentsFlow />, 
+            founderQuote: { 
+                quote: "Launching crypto at PayPal taught me that a 1% drop in conversion is a multi-million dollar problem. We built Verto's payment stack to be invisible—gasless, one-tap, and simple for merchants to reconcile.",
+                name: "Nilesh Khaitan",
+                title: "CPO | Ex-Venmo/PayPal Crypto"
+            },
+            features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], 
+            cta: "Explore Payments API" 
+        },
+        liquidity: { 
+            label: "Trading", color: "verto-blue", title: "Institutional DeFi Access", 
+            description: "Access fragmented on-chain liquidity and execute trading strategies with institutional-grade controls, security, and compliance.", 
+            visual: <ExecutiveLiquidityFlow />,
+            founderQuote: { 
+                quote: "As CISO at GSR, I saw the operational risks of on-chain trading firsthand. Verto embeds security from the start—policy-driven controls, transaction simulation, and key sovereignty—so your assets never leave your control.",
+                name: "David Cass",
+                title: "CEO | Former CISO at GSR Trading"
+            },
+            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
+            cta: "Integrate Liquidity API" 
+        },
+        compliance: { 
+            label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance Engine", 
+            description: "Replace manual, periodic audits with continuous, explainable, and automated oversight across all your on-chain operations.", 
+            visual: <PolishedComplianceFlow />,
+            founderQuote: { 
+                quote: "Working with the DOJ and DTCC, it was clear that proactive compliance is the only way forward. Verto’s AI engine doesn’t just flag risk—it prevents non-compliant transactions before they happen, giving you a defensible audit trail.",
+                name: "Daniel Garrie",
+                title: "General Counsel | Harvard Law"
+            },
+            features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], 
+            cta: "Request Compliance Demo" 
+        },
+        service: { 
+            label: "Service", color: "verto-orange", // Changed color for better distinction
+            title: "24/7 Global Operations", 
+            description: "Maintain operational integrity with our global SOC teams providing monitoring and support for your self-hosted environment.", 
+            visual: <ExecutiveServiceFlow />,
+            founderQuote: { 
+                quote: "At Google, we lived by the principle of 'Site Reliability Engineering.' We've embedded that SRE DNA into Verto, offering a self-hosted platform with the resilience of a cloud service, so you own your data and we ensure your uptime.",
+                name: "Hisham Anwar",
+                title: "CTO | Ex-Google Head of Product"
+            },
+            features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], 
+            cta: "Learn About Our Service Model" 
+        },
     };
 
     const colorMap = {
@@ -1148,16 +1225,17 @@ export default function PillarsSection() {
         'verto-purple': { border: 'border-verto-purple', text: 'text-verto-purple', bg: 'bg-verto-purple' },
         'verto-blue': { border: 'border-verto-blue', text: 'text-verto-blue', bg: 'bg-verto-blue' },
         'verto-cyan': { border: 'border-verto-cyan', text: 'text-verto-cyan', bg: 'bg-verto-cyan' },
+        'verto-orange': { border: 'border-verto-orange', text: 'text-verto-orange', bg: 'bg-verto-orange' },
     };
 
     const activePillar = pillars[activeTab as keyof typeof pillars];
     const activeColors = colorMap[activePillar.color as keyof typeof colorMap];
 
     return (
-        <div className="bg-white dark:bg-slate-950">
+        <div id="infrastructure" className="bg-white dark:bg-slate-950">
             <div className="text-center pt-20 pb-12">
                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">One Unified Platform</h2>
-                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">Self-hosted stack for payments, trading and asset distribution.<br/>Monitored 24×7 by global experts with AI-automated compliance.</p>
+                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">A self-hosted stack for payments, trading and asset distribution.<br/>Monitored 24×7 by global experts with AI-automated compliance.</p>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="border-b border-slate-200 dark:border-slate-700">
@@ -1185,9 +1263,12 @@ export default function PillarsSection() {
                             <div className="mb-6 md:mb-8">
                                 <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
                                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-3 md:mb-4">{activePillar.title}</h3>
-                                <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
+                                <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
                             </div>
-                            
+
+                            {/* ADDED: FounderQuote component rendered here */}
+                            {activePillar.founderQuote && <FounderQuote {...activePillar.founderQuote} />}
+
                             {/* Mobile Animation - Between description and features */}
                             <div className="lg:hidden mb-6 md:mb-8">
                                 {activePillar.visual}

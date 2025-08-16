@@ -43,21 +43,21 @@ export default function ProblemSection() {
     const painPoints = [
         {
             icon: Landmark, color: 'verto-green', persona: 'Head of Innovation', company: 'Global Bank',
-            quote: 'How do we launch a compliant, tokenized asset and ensure it can be safely distributed and used at scale by our existing customers?',
+            quote: 'How do we launch a compliant stablecoin on public chains and ensure it can be safely distributed and used at scale by our existing customers?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
         },
         {
             icon: Repeat, color: 'verto-blue', persona: 'Chief Operating Officer', company: 'Digital Asset Exchange',
-            quote: 'We need to offer users access to assets on new chains, but managing the security, compliance, and fragmented liquidity is an operational nightmare.',
+            quote: 'We need to offer assets only on public chains, but managing the security, compliance, and fragmented liquidity is an operational nightmare.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
             ctaLink: '/solutions/exchanges'
         },
         {
             icon: BarChart3, color: 'verto-purple', persona: 'Head of Trading', company: 'Quantitative Hedge Fund',
-            quote: 'Executing our strategies on-chain requires institutional-grade controls. How do we manage treasury, enforce policies, and create a bulletproof audit trail?',
+            quote: 'How do we enforce our risk policies, and produce bulletproof audit trails for every transaction on public chains?',
             testId: 'quote-trading',
             ctaText: 'Explore Trading Solutions',
             ctaLink: '/solutions/trading'
@@ -75,7 +75,7 @@ export default function ProblemSection() {
                         Purpose-Built for Your Operations
                      </h2>
                      <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="problem-subtitle">
-                        We understand the unique operational, security, and compliance challenges institutions face when moving on-chain. Verto was designed to solve them.
+                        We understand the unique operational, security, and compliance challenges institutions face when accessing public chains. 
                      </p>
                 </div>
 
