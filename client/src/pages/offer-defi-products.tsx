@@ -77,7 +77,7 @@ export default function OfferDefiProducts() {
       <div id="hero">
         <HeroSection 
           title="Launch DeFi Products in 90 Days"
-          subtitle="Securely expand your digital asset offerings and access multi-chain liquidity, while maintaining full regulatory compliance and risk controls."
+          subtitle="Securely access multi-chain liquidity and expand your digital asset offerings, while maintaining full regulatory compliance and risk controls."
           customCTAs={defiProductsCTAs}
         />
       </div>
@@ -92,7 +92,7 @@ export default function OfferDefiProducts() {
               color: "verto-blue",
               persona: "CEO",
               company: "Digital Asset Exchange",
-              quote: "We're losing business to DEXs through customer withdrawals. Our users want DeFi yields and exotic assets, but we can't offer them without compromising our institutional security standards."
+              quote: "Our biggest threat is the 'withdraw to wallet' button. We've become a low-margin on-ramp to a high-margin ecosystem we don't control, all because we can't offer these products safely ourselves."
             },
             {
               icon: "Target",
@@ -118,21 +118,28 @@ export default function OfferDefiProducts() {
           customFounderQuotes={[
             {
               pillarKey: "liquidity",
-              quote: "Every Head of Trading at a major exchange knows the problem: your biggest clients want DeFi yields, but your risk team won't approve direct protocol access. At GSR, we missed billions in opportunities because we couldn't safely access on-chain liquidity. Verto solves the custody and risk management gap.",
+              quote: "Offering long-tail assets require accessing DeFi liquidity, but your risk teams can't approve direct smart contract exposure without extensive audits.",
               name: "David Cass",
               title: "CEO | Former CISO at GSR Trading",
               image: davidImage
             },
             {
               pillarKey: "payments",
-              quote: "Your Head of Product is asking for DeFi integration, but your Head of Operations is worried about settlement complexity. At PayPal, I learned that successful fintech products hide blockchain complexity from operations teams. Verto makes DeFi feel like traditional payment rails to your back office.",
+              quote: "Offering stablecoin commerce requires perfecting both the user and merchant experience - Automated reconciliation with every one tap payment.",
               name: "Nilesh Khaitan",
               title: "CPO | Former Venmo/PayPal Crypto Lead",
               image: nileshImage
             },
             {
+              pillarKey: "distribution",
+              quote: "Your tokenization offerings are only as valuable to your clients as your ability to distribute them across your network.",
+              name: "David Cass",
+              title: "CEO | Former Federal Reserve Regulator",
+              image: davidImage
+            },
+            {
               pillarKey: "compliance", 
-              quote: "When your Chief Compliance Officer asks about DeFi risk controls, they want to see the same monitoring capabilities they use for traditional securities. Every smart contract call needs pre-trade compliance checks and post-trade audit trails that satisfy exchange regulators.",
+              quote: "From pre-trade policy checks to post-trade audit trails, regulators require compliance proofs for every customer DeFi trade made on your platform.",
               name: "Daniel Garrie",
               title: "General Counsel | Former DOJ & DTCC Advisor",
               image: danielImage

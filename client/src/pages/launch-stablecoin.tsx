@@ -118,21 +118,21 @@ export default function LaunchStablecoin() {
           customFounderQuotes={[
             {
               pillarKey: "distribution",
-              quote: "Every bank CEO launching a stablecoin faces the same question: 'How do we scale beyond our branch network?' The answer isn't more branches—it's turning your correspondent banking relationships into digital asset distribution channels. That's exactly how the Fed scaled dollar distribution globally.",
+              quote: "The Fed systems securely distribute dollars through a global network across thousands of institutions. Stablecoin issuers face the exact same challenge.",
               name: "David Cass",
               title: "CEO | Former Federal Reserve Regulator",
               image: davidImage
             },
             {
               pillarKey: "payments",
-              quote: "Your CFO cares about one thing: settlement risk. At Venmo, I learned that successful payment rails aren't about user experience—they're about treasury operations. Instant finality, automated reconciliation, and audit trails that make your accounting team happy.",
+              quote: "Successful payment rails require perfecting both the user and merchant experience - Automated reconciliation with every one tap payment.",
               name: "Nilesh Khaitan", 
               title: "CPO | Former Venmo/PayPal Crypto Lead",
               image: nileshImage
             },
             {
               pillarKey: "compliance",
-              quote: "When bank regulators ask about your stablecoin compliance program, they want to see controls that look familiar. At the DOJ, I learned regulators trust systems that mirror traditional banking oversight—automated monitoring, exception reporting, and audit trails they can understand.",
+              quote: "A blockchain explorer is not an audit trail. The DOJ needs to understand the intent and enforced policies behind every transaction, not just the hash.",
               name: "Daniel Garrie",
               title: "General Counsel | Former DOJ & DTCC Advisor", 
               image: danielImage

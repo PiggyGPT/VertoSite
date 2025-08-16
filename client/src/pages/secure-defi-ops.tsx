@@ -118,21 +118,21 @@ export default function SecureDefiOps() {
           customFounderQuotes={[
             {
               pillarKey: "liquidity",
-              quote: "Your Chief Investment Officer wants DeFi alpha, but your CISO won't approve direct protocol exposure. At GSR, we built custom infrastructure to access on-chain markets safely, but it took 50 engineers and $20M. Verto gives you the same institutional-grade DeFi access without the development overhead.",
+              quote: "For investment teams to quickly act on DeFi alpha, you need to expedite extensive manual audits to approve direct protocol exposure.",
               name: "David Cass", 
               title: "CEO | Former CISO at GSR Trading",
               image: davidImage
             },
             {
               pillarKey: "compliance",
-              quote: "When your Chief Compliance Officer reviews DeFi trading activity, they need the same controls they use for traditional OTC markets. Every transaction needs pre-trade policy checks, real-time monitoring, and documentation that explains the 'why' behind every trade decision to fund regulators.",
+              quote: "From pre-trade policy checks to post-trade audit trails, regulators require compliance proofs for every DeFi trade made by your trading desks.",
               name: "Daniel Garrie",
               title: "General Counsel | Former DOJ & DTCC Advisor",
               image: danielImage
             },
             {
               pillarKey: "service",
-              quote: "Your CTO's biggest fear isn't technology failure—it's explaining a $100M loss to the board because your DeFi monitoring failed at 3 AM Singapore time. At Google, we solved this with Site Reliability Engineering. Verto applies that same discipline to protect your fund's DeFi operations 24/7.",
+              quote: "Imagine explaining a $100M loss to your LPs because your operations failed at 3 AM. You need Google's 24/7 SRE standards to protect your DeFi treasury.",
               name: "Hisham Anwar",
               title: "CTO | Former Google Head of Product",
               image: hishamImage

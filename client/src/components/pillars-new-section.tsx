@@ -1196,13 +1196,13 @@ export default function PillarsSection({
     // Founder images are now included.
     const defaultPillars = {
         liquidity: { 
-            label: "Trading", color: "verto-blue", title: "Institutional DeFi Liquidity", 
-            description: "Access fragmented on-chain liquidity and execute trading strategies with institutional-grade controls, security, and compliance.", 
+            label: "Trading", color: "verto-blue", title: "Institutional Liquidity", 
+            description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "DeFi has the deepest liquidity pools, but accessing them with instittuional-grade risk managament is impossible with current tools. Verto gives institutional desks what I wish we had—pre-trade risk controls that work across every chain and protocol.",
+                quote: "At GSR, we built complex proprietary operations just to interact with DeFi protocols safely. I wonder how other institutions can participate without recreating them.",
                 name: "David Cass",
-                title: "CEO | Former CISO at GSR Trading",
+                title: "CEO | Former CISO at GSR",
                 image: davidImage
             },
             features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
@@ -1210,10 +1210,10 @@ export default function PillarsSection({
         },
         payments: { 
             label: "Payments", color: "verto-purple", title: "Frictionless Checkout", 
-            description: "Enable institutional clients and merchants to accept your digital assets with enterprise-grade settlement, reconciliation, and reporting.", 
+            description: "Enable institutional clients and merchants to accept digital assets with industry-leading conversion, security and compliance.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "At Venmo, I learned that enterprise payments success isn't about the consumer—it's about the merchant. They need instant settlement, automated reconciliation, and audit-ready reporting. Verto handles the blockchain complexity so your treasury operations stay familiar.",
+                quote: "At PayPal, every extra click in checkout cost us millions. The current crypto UX is an absolute conversion killer. For stablecoins to work, customers need a familiar, simple tap to pay.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
                 image: nileshImage
@@ -1226,7 +1226,7 @@ export default function PillarsSection({
             description: "Scale your digital asset through existing financial partnerships—banks, payment processors, and institutional networks—without pre-funded treasury risk.", 
             visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
-                quote: "At the Federal Reserve, I saw how currency distribution makes or breaks monetary policy. Every bank CEO knows their biggest risk isn't technology—it's operational scale. Verto turns your existing correspondent banking network into a digital asset distribution engine.",
+                quote: "Your tokenization offerings are only as valuable to your clients as your ability to distribute them across your network with Fed-like security.",
                 name: "David Cass",
                 title: "CEO | Former Federal Reserve Regulator",
                 image: davidImage
@@ -1239,7 +1239,7 @@ export default function PillarsSection({
             description: "Transform regulatory compliance from a cost center into a competitive advantage with continuous monitoring and automated reporting that satisfies bank regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
-                quote: "Every Chief Compliance Officer knows the nightmare: explaining crypto transactions to bank examiners. At the DOJ, I learned regulators want transparency, not excuses. Verto provides what every CCO needs—real-time compliance monitoring that speaks the regulator's language.",
+                quote: "The DOJ wants evidence, not excuses. Every CCO needs real-time audit trails that speaks the regulator's language.",
                 name: "Daniel Garrie",
                 title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
                 image: danielImage
@@ -1253,7 +1253,7 @@ export default function PillarsSection({
             description: "Maintain operational integrity with our global SOC teams providing monitoring and support for your self-hosted environment.", 
             visual: <ExecutiveServiceFlow />,
             founderQuote: { 
-                quote: "Google’s reliability isn't magic; it's a culture of engineering that prevents the 3 AM fire-drill. We embedded that SRE DNA into Verto's service model. You maintain data sovereignty on your servers; we give your engineers their weekends back.",
+                quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. You need Google's 24/7 SRE standards to protect your DeFi treasury.",
                 name: "Hisham Anwar",
                 title: "CTO | Ex-Google Head of Product",
                 image: hishamImage
