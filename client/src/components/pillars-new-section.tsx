@@ -8,8 +8,7 @@ import {
     LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
     ChevronDown, Landmark, History, Link, Clock, Plus,
     Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-    Cpu, Keyboard, Monitor,
-    type LucideProps
+    Cpu, Keyboard, Monitor
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -1127,19 +1126,7 @@ const ExecutiveServiceFlow = () => {
 
 // DESIGN CHANGE: Create a dedicated "Insight Banner" for the founder quotes.
 // This new component creates the full-width, colored banner style.
-interface FounderInsightBannerProps {
-  quote: string;
-  name: string;
-  title: string;
-  image: string;
-  colorClasses: {
-    bg: string;
-    border: string;
-    text: string;
-  };
-}
-
-const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: FounderInsightBannerProps) => (
+const FounderInsightBanner = ({ quote, name, title, image, colorClasses }) => (
     <div className={`rounded-xl p-6 md:p-8 my-12 ${colorClasses.bg}/10`}>
         <div className="flex flex-col md:flex-row items-start gap-6">
             <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
@@ -1222,7 +1209,7 @@ export default function PillarsSection() {
             description: "Replace manual, periodic audits with continuous, explainable, and automated oversight across all your on-chain operations.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
-                quote: "When you stand in front of the DOJ, they don't want a spreadsheet; they want an irrefutable story. We built Verto's AI to provide exactly that: human-readable audit trails that prove not just *what* happened, but that your policies were enforced at every step.",
+                quote: "When you stand in front of the DOJ, they don't want a spreadsheet; they want an irrefutable story. We built Verto's AI to provide exactly that: human-readable audit trail that proves not just *what* happened, but that your policies were enforced at every step.",
                 name: "Daniel Garrie",
                 title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
                 image: danielImage

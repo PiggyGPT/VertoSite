@@ -43,8 +43,8 @@ export default function ProblemSection() {
             ctaLink: '/solutions/banking'
         },
         {
-            icon: Repeat, color: 'verto-blue', persona: 'Chief Operating Officer', company: 'Centralized Exchange',
-            quote: 'We need to offer assets only available on public chains. But accesing their fragmented liquidity in a secure, compliant way has been.  an operational nightmare.',
+            icon: Repeat, color: 'verto-blue', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
+            quote: 'We need to offer assets only available on public chains. But accesing their fragmented liquidity in a secure, compliant way has been an operational nightmare.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
             ctaLink: '/solutions/exchanges'
