@@ -101,6 +101,11 @@ Preferred communication style: Simple, everyday language.
   - **Distribution**: Leverage Existing Networks, Zero-Float Operations, Partner Portal & APIs
   - **Compliance**: Explainable Risk Ratings, Policy-Driven Controls, Automated Audit Trails
   - **Service**: Data Sovereignty & Control, Embedded Global Expertise, Institutional Rigor
+- **Executive-Targeted Why Now Urgency**: Customized Why Now sections for each landing page with CEO-to-CEO language addressing specific institutional pain points:
+  - **Stablecoin Page (Financial Institutions)**: "Battle for the Deposit" (defending core franchise), "Payments Revolution" (retaining treasury clients), "Regulatory Green Light" (first-mover network effects)
+  - **DeFi Products Page (Exchanges)**: "Great AUM Migration" (stopping asset outflow), "Zero-Fee Gravity Well" (building high-margin business), "Trusted Institutional On-Ramp" (capturing institutional capital)
+  - **Secure DeFi Ops Page (Trading Firms)**: "Rapid Decay of Alpha" (time-sensitive opportunities), "Irreversible Error Imperative" (operational risk management), "New Mandate for Fundraising" (LP differentiation)
+- **Enhanced Pillar Navigation**: Added auto-scroll functionality to infrastructure section ribbon - clicking any pillar tab automatically scrolls to top of infrastructure section for seamless navigation
 
 ### Bug Fixes (August 2025)
 - **Component Name Conflicts**: Fixed duplicate component names (VisualContainer, Header) in pillars-new-section.tsx causing compilation errors

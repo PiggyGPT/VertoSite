@@ -1,6 +1,6 @@
 import { CalendarDays, Rocket, TrendingDown } from "lucide-react";
 
-const ReasonCard = ({ icon: Icon, title, children }) => (
+const ReasonCard = ({ icon: Icon, title, children }: { icon: any, title: string, children: React.ReactNode }) => (
     <div className="bg-white/50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 backdrop-blur-lg shadow-lg">
         <div className="flex items-center space-x-3 mb-3">
             <Icon className="w-5 h-5 text-verto-blue" />
@@ -12,7 +12,17 @@ const ReasonCard = ({ icon: Icon, title, children }) => (
     </div>
 );
 
-export default function WhyNowSection() {
+interface WhyNowProps {
+  customReasons?: Array<{
+    icon: React.ComponentType<any>;
+    title: string;
+    description: string;
+  }>;
+  customTitle?: string;
+  customSubtitle?: string;
+}
+
+export default function WhyNowSection({ customReasons, customTitle, customSubtitle }: WhyNowProps = {}) {
   return (
     <section id="why-now" className="relative py-24 px-6 sm:px-8 overflow-hidden bg-white dark:bg-gray-900">
         {/* Background Aura */}
@@ -23,23 +33,34 @@ export default function WhyNowSection() {
                 {/* Left Side: Headline */}
                 <div className="text-center lg:text-left">
                     <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight" data-testid="why-now-title">
-                        Capitalize on the Next Wave of Digital Asset Growth.
+                        {customTitle || "Capitalize on the Next Wave of Digital Asset Growth."}
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                    Regulatory clarity and accelerating demand make this the ideal moment to capture market share.                    </p>
+                        {customSubtitle || "Regulatory clarity and accelerating demand make this the ideal moment to capture market share."}
+                    </p>
                 </div>
 
                 {/* Right Side: Reasons */}
                 <div className="space-y-6">
-                    <ReasonCard icon={CalendarDays} title="Regulatory Deadlines">
-                        Major financial institutions are expected to have digital asset strategies operational by 2026 under new global standards, creating a clear timeline for action.
-                    </ReasonCard>
-                     <ReasonCard icon={Rocket} title="First-Mover Advantage">
-                        The current landscape offers a rare opportunity to capture significant market and brand share before the space becomes saturated by established players.
-                    </ReasonCard>
-                     <ReasonCard icon={TrendingDown} title="The Cost Imperative">
-                        With cross-border payment costs needing to drop by up to 75% to remain competitive, stablecoins offer the most viable path to achieving necessary efficiency.
-                    </ReasonCard>
+                    {customReasons ? (
+                        customReasons.map((reason, index) => (
+                            <ReasonCard key={index} icon={reason.icon} title={reason.title}>
+                                {reason.description}
+                            </ReasonCard>
+                        ))
+                    ) : (
+                        <>
+                            <ReasonCard icon={CalendarDays} title="Regulatory Deadlines">
+                                Major financial institutions are expected to have digital asset strategies operational by 2026 under new global standards, creating a clear timeline for action.
+                            </ReasonCard>
+                            <ReasonCard icon={Rocket} title="First-Mover Advantage">
+                                The current landscape offers a rare opportunity to capture significant market and brand share before the space becomes saturated by established players.
+                            </ReasonCard>
+                            <ReasonCard icon={TrendingDown} title="The Cost Imperative">
+                                With cross-border payment costs needing to drop by up to 75% to remain competitive, stablecoins offer the most viable path to achieving necessary efficiency.
+                            </ReasonCard>
+                        </>
+                    )}
                 </div>
             </div>
         </div>

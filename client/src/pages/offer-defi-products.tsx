@@ -7,7 +7,7 @@ import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
-import { ShieldCheck, Store, Bot } from "lucide-react";
+import { ShieldCheck, Store, Bot, Waves, Target, Building } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png";
 import nileshImage from "@assets/nilesh_1754986415369.png";
@@ -40,6 +40,25 @@ const defiProductsCTAs = [
     pillarKey: "compliance",
     bgColorClass: "bg-verto-cyan/15 dark:bg-verto-cyan/20 hover:bg-verto-cyan/25 dark:hover:bg-verto-cyan/35",
     iconColor: "text-verto-cyan dark:text-verto-cyan group-hover:text-verto-cyan-dark dark:group-hover:text-verto-cyan-light"
+  }
+];
+
+// Custom Why Now content for DeFi products page targeting exchanges
+const defiProductsWhyNowReasons = [
+  {
+    icon: Waves,
+    title: "The Great AUM Migration",
+    description: "Your sophisticated users withdraw assets daily to chase higher on-chain yields you cannot offer. This isn't just lost trading fees—it's permanent loss of Assets Under Management."
+  },
+  {
+    icon: Target,
+    title: "Escaping the Zero-Fee Gravity Well", 
+    description: "Spot trading is commoditized. DeFi-powered offerings like institutional staking and yield products create sticky, recurring revenue and significantly increase customer lifetime value."
+  },
+  {
+    icon: Building,
+    title: "Becoming the Trusted Institutional On-Ramp",
+    description: "A trillion-dollar wave of institutional capital wants DeFi exposure but needs a regulated partner. There's a brief window to become this trusted gateway before specialized neobanks do."
   }
 ];
 
@@ -123,7 +142,11 @@ export default function OfferDefiProducts() {
       </div>
       <div id="pilot">
         <BoardChecklistSection />
-        <WhyNowSection />
+        <WhyNowSection 
+          customTitle="Why Now?"
+          customSubtitle="The business of simple spot trading is in a race to the bottom. Sustainable profitability lies in higher-margin, value-added DeFi products."
+          customReasons={defiProductsWhyNowReasons}
+        />
       </div>
       <Footer />
     </div>

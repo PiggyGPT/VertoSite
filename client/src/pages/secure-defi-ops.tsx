@@ -7,7 +7,7 @@ import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
-import { ShieldCheck, Bot, Headphones } from "lucide-react";
+import { ShieldCheck, Bot, Headphones, Clock, AlertTriangle, Briefcase } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png";
 import hishamImage from "@assets/hisham_1754986415368.png";
@@ -40,6 +40,25 @@ const secureOpsCTAs = [
     pillarKey: "service",
     bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
     iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
+  }
+];
+
+// Custom Why Now content for secure DeFi ops page targeting trading firms & funds
+const secureOpsWhyNowReasons = [
+  {
+    icon: Clock,
+    title: "The Rapid Decay of On-Chain Alpha",
+    description: "The most profitable arbitrage and yield opportunities have short half-lives. Every day you wait because operations are too manual is quantifiable, unrecoverable alpha lost."
+  },
+  {
+    icon: AlertTriangle,
+    title: "The 'Irreversible Error' Imperative",
+    description: "On-chain, every manual transaction is absolute risk. As you scale strategies, the probability of a critical manual error approaches 100%. Automating operations is existential risk management."
+  },
+  {
+    icon: Briefcase,
+    title: "The New Mandate for Fundraising",
+    description: "LPs are asking 'How are you securing digital asset operations?' Being the first fund with provably secure, institutional-grade operational infrastructure attracts new capital allocations."
   }
 ];
 
@@ -123,7 +142,11 @@ export default function SecureDefiOps() {
       </div>
       <div id="pilot">
         <BoardChecklistSection />
-        <WhyNowSection />
+        <WhyNowSection 
+          customTitle="Why Now?"
+          customSubtitle="For trading firms, the lack of institutional-grade DeFi infrastructure is a direct and escalating drag on P&L and operational liability."
+          customReasons={secureOpsWhyNowReasons}
+        />
       </div>
       <Footer />
     </div>

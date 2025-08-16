@@ -7,7 +7,7 @@ import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
-import { Zap, Store, ShieldCheck } from "lucide-react";
+import { Zap, Store, ShieldCheck, Crown, Rocket, CheckCircle } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png"; 
 import nileshImage from "@assets/nilesh_1754986415369.png";
@@ -40,6 +40,25 @@ const stablecoinCTAs = [
     pillarKey: "liquidity",
     bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
     iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
+  }
+];
+
+// Custom Why Now content for stablecoin page targeting financial institutions
+const stablecoinWhyNowReasons = [
+  {
+    icon: Crown,
+    title: "The Battle for the Deposit",
+    description: "Non-bank entities are already issuing stablecoins, creating private payment rails that threaten your core product. Acting now defends your fundamental business model."
+  },
+  {
+    icon: Rocket,
+    title: "The Payments Revolution is Already Here",
+    description: "Your most valuable corporate clients are being pitched daily on 24/7 real-time settlement using stablecoins. This is an immediate imperative to retain treasury business."
+  },
+  {
+    icon: CheckCircle,
+    title: "The Regulatory Green Light is a Starting Gun",
+    description: "With frameworks like MiCA providing clarity, the first banks to market will capture infrastructure-level network effects and lock in the most valuable clients."
   }
 ];
 
@@ -123,7 +142,11 @@ export default function LaunchStablecoin() {
       </div>
       <div id="pilot">
         <BoardChecklistSection />
-        <WhyNowSection />
+        <WhyNowSection 
+        customTitle="Why Now?"
+        customSubtitle="The window to defend your deposit franchise and capture corporate payment flows is narrowing rapidly."
+        customReasons={stablecoinWhyNowReasons}
+      />
       </div>
       <Footer />
     </div>

@@ -1196,11 +1196,11 @@ export default function PillarsSection({
     // Founder images are now included.
     const defaultPillars = {
         liquidity: { 
-            label: "Trading", color: "verto-blue", title: "Institutional DeFi Access", 
+            label: "Trading", color: "verto-blue", title: "Institutional DeFi Liquidity", 
             description: "Access fragmented on-chain liquidity and execute trading strategies with institutional-grade controls, security, and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "Every Head of Trading knows the pain: DeFi has the deepest liquidity pools, but accessing them safely is impossible with current tools. At GSR, we lost millions learning this lesson. Verto gives institutional desks what I wish we had—pre-trade risk controls that work across every chain and protocol.",
+                quote: "DeFi has the deepest liquidity pools, but accessing them with instittuional-grade risk managament is impossible with current tools. Verto gives institutional desks what I wish we had—pre-trade risk controls that work across every chain and protocol.",
                 name: "David Cass",
                 title: "CEO | Former CISO at GSR Trading",
                 image: davidImage
@@ -1209,11 +1209,11 @@ export default function PillarsSection({
             cta: "Integrate Liquidity API" 
         },
         payments: { 
-            label: "Payments", color: "verto-purple", title: "Enterprise Payment Infrastructure", 
+            label: "Payments", color: "verto-purple", title: "Frictionless Checkout", 
             description: "Enable institutional clients and merchants to accept your digital assets with enterprise-grade settlement, reconciliation, and reporting.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "At Venmo, I learned that enterprise payments success isn't about the consumer—it's about the CFO. They need instant settlement, automated reconciliation, and audit-ready reporting. Verto handles the blockchain complexity so your treasury operations stay familiar.",
+                quote: "At Venmo, I learned that enterprise payments success isn't about the consumer—it's about the merchant. They need instant settlement, automated reconciliation, and audit-ready reporting. Verto handles the blockchain complexity so your treasury operations stay familiar.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
                 image: nileshImage
@@ -1222,7 +1222,7 @@ export default function PillarsSection({
             cta: "Explore Payments API" 
         },
         distribution: { 
-            label: "Distribution", color: "verto-green", title: "Institutional Distribution Network", 
+            label: "Distribution", color: "verto-green", title: "On-Demand Issuance", 
             description: "Scale your digital asset through existing financial partnerships—banks, payment processors, and institutional networks—without pre-funded treasury risk.", 
             visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
@@ -1235,7 +1235,7 @@ export default function PillarsSection({
             cta: "Get Distribution Playbook" 
         },
         compliance: { 
-            label: "Compliance", color: "verto-cyan", title: "Regulatory Compliance Automation", 
+            label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance", 
             description: "Transform regulatory compliance from a cost center into a competitive advantage with continuous monitoring and automated reporting that satisfies bank regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
@@ -1319,7 +1319,14 @@ export default function PillarsSection({
                             return (
                                 <button
                                     key={key}
-                                    onClick={() => setActiveTab(key)}
+                                    onClick={() => {
+                                        setActiveTab(key);
+                                        // Auto-scroll to top of infrastructure section
+                                        const element = document.getElementById('infrastructure');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
                                     className={`flex-shrink-0 whitespace-nowrap py-2 px-4 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
                                 >
                                     {pillar.label}
