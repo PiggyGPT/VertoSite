@@ -1,26 +1,37 @@
 import { ArrowRight, Landmark, ArrowRightLeft, CandlestickChart, Rocket } from "lucide-react";
 import { Link } from "wouter";
 
+interface CTAItem {
+  title: string;
+  subtitle: string;
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
+  bgColorClass: string;
+  iconColor: string;
+  pillarKey?: string; // For scrolling to specific pillars
+}
+
 interface HeroSectionProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  customCTAs?: CTAItem[];
 }
 
 export default function HeroSection({ 
   title = "The Institutional OS for Blockchain Operations", 
   subtitle = "Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack.",
-  description = "Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack."
+  description = "Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack.",
+  customCTAs
 }: HeroSectionProps = {}) {
 
-  // UPDATED: CTAs now have more colorful styling aligned with Verto's brand colors and link to Calendly
-  const actionCTAs = [
+  // Default CTAs for homepage - link to landing pages
+  const defaultCTAs = [
     {
       title: "Launch Stablecoin",
       subtitle: "For Financial Institutions",
       icon: Landmark,
-      href: "https://calendly.com/nilesh-vertoai/30min",
-      // Colored background with low opacity, gets brighter on hover
+      href: "/launch-stablecoin",
       bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
       iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
     },
@@ -28,8 +39,7 @@ export default function HeroSection({
       title: "Offer DeFi Products",
       subtitle: "For Digital Asset Exchanges",
       icon: ArrowRightLeft,
-      href: "https://calendly.com/nilesh-vertoai/30min",
-      // Colored background with low opacity, gets brighter on hover
+      href: "/offer-defi-products",
       bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/25 dark:hover:bg-verto-purple/35",
       iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
     },
@@ -37,12 +47,28 @@ export default function HeroSection({
       title: "Secure DeFi Ops",
       subtitle: "For Trading Firms & Funds",
       icon: CandlestickChart,
-      href: "https://calendly.com/nilesh-vertoai/30min",
-      // Colored background with low opacity, gets brighter on hover
+      href: "/secure-defi-ops",
       bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
       iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
     },
   ];
+
+  const actionCTAs = customCTAs || defaultCTAs;
+
+  const handleCTAClick = (cta: CTAItem) => {
+    if (cta.pillarKey) {
+      // Scroll to pillars section and activate the specific pillar
+      const pillarsSection = document.getElementById('infrastructure');
+      if (pillarsSection) {
+        pillarsSection.scrollIntoView({ behavior: 'smooth' });
+        // Trigger pillar activation after scroll
+        setTimeout(() => {
+          const event = new CustomEvent('activatePillar', { detail: cta.pillarKey });
+          window.dispatchEvent(event);
+        }, 800);
+      }
+    }
+  };
 
   return (
     <section id="hero" className="relative bg-white dark:bg-gray-900 pt-24 md:pt-28 pb-12 md:pb-16 px-6 sm:px-8 overflow-hidden">
@@ -67,18 +93,35 @@ export default function HeroSection({
         <div className="mt-10 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {actionCTAs.map((cta) => (
-              <a key={cta.title} href={cta.href} target="_blank" rel="noopener noreferrer">
-                {/* UPDATED: Enhanced colorful styling with solid colored backgrounds */}
-                <div className={`group flex flex-col justify-center text-center h-full p-6 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${cta.bgColorClass}`}>
-                  <div className="flex items-center justify-center gap-x-2">
-                      <cta.icon className={`w-6 h-6 transition-colors ${cta.iconColor}`} />
-                      <span className="text-base font-semibold text-slate-900 dark:text-slate-100">{cta.title}</span>
+              cta.pillarKey ? (
+                <button 
+                  key={cta.title} 
+                  onClick={() => handleCTAClick(cta)}
+                  className="w-full"
+                >
+                  <div className={`group flex flex-col justify-center text-center h-full p-6 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${cta.bgColorClass}`}>
+                    <div className="flex items-center justify-center gap-x-2">
+                        <cta.icon className={`w-6 h-6 transition-colors ${cta.iconColor}`} />
+                        <span className="text-base font-semibold text-slate-900 dark:text-slate-100">{cta.title}</span>
+                    </div>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                        {cta.subtitle}
+                    </p>
                   </div>
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                      {cta.subtitle}
-                  </p>
-                </div>
-              </a>
+                </button>
+              ) : (
+                <Link key={cta.title} href={cta.href}>
+                  <div className={`group flex flex-col justify-center text-center h-full p-6 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${cta.bgColorClass}`}>
+                    <div className="flex items-center justify-center gap-x-2">
+                        <cta.icon className={`w-6 h-6 transition-colors ${cta.iconColor}`} />
+                        <span className="text-base font-semibold text-slate-900 dark:text-slate-100">{cta.title}</span>
+                    </div>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                        {cta.subtitle}
+                    </p>
+                  </div>
+                </Link>
+              )
             ))}
           </div>
 

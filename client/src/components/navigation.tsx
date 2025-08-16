@@ -42,7 +42,7 @@ export default function Navigation() {
   };
 
   // Base classes for nav links for consistency
-  const navLinkClasses = "font-medium text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue transition-colors duration-200";
+  const navLinkClasses = "font-small text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue transition-colors duration-200";
 
   return (
     <nav

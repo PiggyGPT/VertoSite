@@ -71,6 +71,13 @@ Preferred communication style: Simple, everyday language.
 - **Trust Indicators**: Updated trust logos to FED, DTCC, Moody's, PayPal, Google, Microsoft for enhanced credibility
 - **Dark Mode Enhancement**: Complete dark mode implementation with system preference detection and theme persistence
 
+### Recent Updates (August 2025)
+- **Dynamic CTA System**: Implemented dynamic hero CTAs that adapt to each landing page with pillar-specific functionality
+- **Interactive Navigation**: Hero CTAs on landing pages scroll to and activate specific pillars (Distribution, Payments, Compliance, etc.)
+- **Page-Specific Content**: Each landing page features targeted CTAs relevant to the use case (stablecoins, DeFi products, trading ops)
+- **Compact Navigation**: Reduced navigation height and spacing for better mobile compatibility
+- **Consistent Branding**: Updated footer to use same SVG logo as navigation header for brand consistency
+
 ### Bug Fixes (August 2025)
 - **Component Name Conflicts**: Fixed duplicate component names (VisualContainer, Header) in pillars-new-section.tsx causing compilation errors
 - **Import Issues**: Resolved duplicate React imports and missing Monitor icon import from lucide-react

@@ -1170,6 +1170,18 @@ export default function PillarsSection({
 }: PillarsSectionProps = {}) {
     const [activeTab, setActiveTab] = useState("distribution");
 
+    // Listen for pillar activation events from hero CTAs
+    useEffect(() => {
+        const handleActivatePillar = (event: CustomEvent) => {
+            setActiveTab(event.detail);
+        };
+
+        window.addEventListener('activatePillar', handleActivatePillar as EventListener);
+        return () => {
+            window.removeEventListener('activatePillar', handleActivatePillar as EventListener);
+        };
+    }, []);
+
     // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
     // Founder images are now included.
     const pillars = {
