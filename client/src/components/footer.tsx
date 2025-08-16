@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, Linkedin } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { SiX, SiTelegram } from "react-icons/si";
 import { Link } from "wouter";
 import logoSvg from "@assets/logo.svg";
@@ -38,9 +38,9 @@ export function PilotCtaSection() {
 // The new, refined footer component.
 export default function Footer() {
     const footerLinks = {
-        "Platform": ["Distribution", "Payments", "Compliance"],
-        "Company": ["About Us", "Careers", "Press"],
-        "Resources": ["Blog", "Security", "Contact Us"]
+        "For": ["Financial Institutions", "Exchanges", "Trading Firms"],
+        "Company": ["About Us", "Careers", "Platform"],
+        "Contact Us": ["Email", "X", "Telegram"]
     };
 
     return (
@@ -53,7 +53,7 @@ export default function Footer() {
                             <img src={logoSvg} alt="Verto Logo" className="h-6 w-auto" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
-                            The Institutional OS to mint, move, and monitor stablecoins with AI-powered compliance.
+                            Digital Asset Operations Platform for trading, payments, and distribution on any chain.
                         </p>
                     </div>
 
@@ -85,7 +85,7 @@ export default function Footer() {
                          <a href="mailto:info@verto.ai" aria-label="Email" className="text-slate-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
                          <a href="https://x.com/Verto_AI" target="_blank" rel="noopener noreferrer" aria-label="Follow Verto AI on X" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
                          <a href="https://t.me/VertoAI" target="_blank" rel="noopener noreferrer" aria-label="Join Verto AI on Telegram" className="text-slate-500 hover:text-white transition-colors"><SiTelegram className="w-4 h-4" /></a>
-                         <a href="#" aria-label="LinkedIn" className="text-slate-500 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+
                     </div>
                 </div>
             </div>
