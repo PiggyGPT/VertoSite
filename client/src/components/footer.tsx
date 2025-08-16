@@ -19,7 +19,7 @@ export function PilotCtaSection() {
 
     return (
         <section id="pilot-cta" className="bg-slate-100 dark:bg-gray-800/60">
-            <div className="max-w-5xl mx-auto px-6 sm:px-8 py-16 text-center">
+            <div className="max-w-5xl mx-auto px-6 sm:px-8 py-12 text-center">
                  <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
                     Ready to Build the Future of Finance?
                 </h2>
@@ -50,7 +50,7 @@ export default function Footer() {
 
     return (
         <footer id="contact" className="bg-slate-900 dark:bg-black text-white">
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 py-16">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 py-12">
                 <div className="grid md:grid-cols-12 gap-8">
                     {/* Company Info */}
                     <div className="md:col-span-4">

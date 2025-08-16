@@ -59,7 +59,7 @@ export default function ProblemSection() {
     ];
 
     return (
-        <section className="relative py-24 px-6 sm:px-8 overflow-hidden bg-white dark:bg-gray-900">
+        <section className="relative py-16 md:py-20 px-6 sm:px-8 overflow-hidden bg-white dark:bg-gray-900">
              {/* Background Gradient Aura */}
             <div className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-slate-50 dark:from-slate-800/30 to-transparent"></div>
 

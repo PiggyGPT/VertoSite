@@ -30,9 +30,9 @@ export default function PilotProgramSection() {
   return (
     <>
       {/* <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
-      <section id="pilot" className="py-24 bg-slate-50 dark:bg-gray-900/50">
+      <section id="pilot" className="py-16 md:py-20 bg-slate-50 dark:bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
               Launch Your Pilot in 90 Days
             </h2>
@@ -57,7 +57,7 @@ export default function PilotProgramSection() {
           </div>
 
           {/* --- NEW CTA SECTION --- */}
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <a
               href="https://calendly.com/nilesh-vertoai/30min"
               target="_blank"

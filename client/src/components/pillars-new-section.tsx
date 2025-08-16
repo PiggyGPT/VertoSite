@@ -1127,7 +1127,7 @@ const ExecutiveServiceFlow = () => {
 // DESIGN CHANGE: Create a dedicated "Insight Banner" for the founder quotes.
 // This new component creates the full-width, colored banner style.
 const FounderInsightBanner = ({ quote, name, title, image, colorClasses }) => (
-    <div className={`rounded-xl p-6 md:p-8 my-12 ${colorClasses.bg}/10`}>
+    <div className={`rounded-xl p-6 md:p-8 my-6 ${colorClasses.bg}/10`}>
         <div className="flex flex-col md:flex-row items-start gap-6">
             <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
             <div>
@@ -1246,7 +1246,7 @@ export default function PillarsSection() {
 
     return (
         <div id="infrastructure" className="bg-white dark:bg-slate-950">
-            <div className="text-center pt-20 pb-12">
+            <div className="text-center pt-16 pb-8">
                 <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
                 One Unified Platform
                 </h2>
@@ -1255,7 +1255,7 @@ export default function PillarsSection() {
                 </p>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="border-b border-slate-200 dark:border-slate-700">
+                <div className="sticky top-20 z-10 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-700 pb-2">
                     <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8" aria-label="Tabs">
                         {Object.keys(pillars).map((key) => {
                             const pillar = pillars[key as keyof typeof pillars];
@@ -1275,7 +1275,7 @@ export default function PillarsSection() {
             </div>
 
             {/* DESIGN CHANGE: The main content container now has more consistent padding */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
                 {/* DESIGN CHANGE: Founder Insight Banner is rendered here, outside the grid, for a full-width feel. */}
                 {activePillar.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
 
