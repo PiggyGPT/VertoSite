@@ -1178,7 +1178,7 @@ export default function PillarsSection({
   subtitle = "A self-hosted stack for trading, payments, and asset distribution on any chain.\nMonitored 24×7 by global experts with AI-automated compliance.",
   customFounderQuotes
 }: PillarsSectionProps = {}) {
-    const [activeTab, setActiveTab] = useState("distribution");
+    const [activeTab, setActiveTab] = useState("liquidity");
 
     // Listen for pillar activation events from hero CTAs
     useEffect(() => {
@@ -1294,7 +1294,7 @@ export default function PillarsSection({
     const activeColors = colorMap[activePillar.color as keyof typeof colorMap];
 
     return (
-        <div id="infrastructure" className="bg-white dark:bg-slate-950 relative">
+        <div id="infrastructure" className="bg-white dark:bg-slate-950">
             <div className="text-center pt-16 pb-8">
                 <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
                 {title}
@@ -1308,9 +1308,11 @@ export default function PillarsSection({
                 ))}
                 </p>
             </div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="sticky top-16 z-20 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 pb-2 pt-2">
-                    <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8" aria-label="Tabs">
+            
+            {/* Sticky Navigation Bar */}
+            <div className="sticky top-16 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8 py-4" aria-label="Tabs">
                         {Object.keys(pillars).map((key) => {
                             const pillar = pillars[key as keyof typeof pillars];
                             const colors = colorMap[pillar.color as keyof typeof colorMap];
@@ -1318,7 +1320,7 @@ export default function PillarsSection({
                                 <button
                                     key={key}
                                     onClick={() => setActiveTab(key)}
-                                    className={`flex-shrink-0 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
+                                    className={`flex-shrink-0 whitespace-nowrap py-2 px-4 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
                                 >
                                     {pillar.label}
                                 </button>
