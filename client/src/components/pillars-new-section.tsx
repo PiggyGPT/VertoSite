@@ -1205,7 +1205,7 @@ export default function PillarsSection({
                 title: "CEO | Former CISO at GSR",
                 image: davidImage
             },
-            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
+            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Non-Custodial", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
             cta: "Integrate Liquidity API" 
         },
         payments: { 

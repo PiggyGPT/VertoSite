@@ -85,7 +85,7 @@ export default function HeroSection({
           </span>
         </h1>
 
-        <p className="mt-10 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="hero-subtitle">
+        <p className="mt-8 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed" data-testid="hero-subtitle">
           {subtitle}
         </p>
 
