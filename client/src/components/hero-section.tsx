@@ -15,7 +15,7 @@ export default function HeroSection() {
       iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
     },
     {
-      title: "Offer On-Chain Products",
+      title: "Offer DeFi Products",
       subtitle: "For Digital Asset Exchanges",
       icon: ArrowRightLeft,
       href: "https://calendly.com/nilesh-vertoai/30min",
@@ -24,7 +24,7 @@ export default function HeroSection() {
       iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
     },
     {
-      title: "Secure On-Chain Ops",
+      title: "Secure DeFi Ops",
       subtitle: "For Trading Firms & Funds",
       icon: CandlestickChart,
       href: "https://calendly.com/nilesh-vertoai/30min",
