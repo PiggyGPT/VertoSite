@@ -1127,7 +1127,7 @@ const ExecutiveServiceFlow = () => {
 // DESIGN CHANGE: Create a dedicated "Insight Banner" for the founder quotes.
 // This new component creates the full-width, colored banner style.
 const FounderInsightBanner = ({ quote, name, title, image, colorClasses }) => (
-    <div className={`rounded-xl p-6 md:p-8 my-6 ${colorClasses.bg}/10`}>
+    <div className={`rounded-xl p-6 md:p-8 mt-4 mb-6 ${colorClasses.bg}/10`}>
         <div className="flex flex-col md:flex-row items-start gap-6">
             <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
             <div>
@@ -1245,7 +1245,7 @@ export default function PillarsSection() {
     const activeColors = colorMap[activePillar.color as keyof typeof colorMap];
 
     return (
-        <div id="infrastructure" className="bg-white dark:bg-slate-950">
+        <div id="infrastructure" className="bg-white dark:bg-slate-950 relative">
             <div className="text-center pt-16 pb-8">
                 <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
                 One Unified Platform
@@ -1255,7 +1255,7 @@ export default function PillarsSection() {
                 </p>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="sticky top-20 z-10 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-700 pb-2">
+                <div className="sticky top-0 z-20 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 pb-2 pt-2">
                     <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8" aria-label="Tabs">
                         {Object.keys(pillars).map((key) => {
                             const pillar = pillars[key as keyof typeof pillars];

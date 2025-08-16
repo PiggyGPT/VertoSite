@@ -11,7 +11,7 @@ export default function HeroSection() {
       icon: Landmark,
       href: "https://calendly.com/nilesh-vertoai/30min",
       // Colored background with low opacity, gets brighter on hover
-      bgColorClass: "bg-verto-blue/10 dark:bg-verto-blue/15 hover:bg-verto-blue/20 dark:hover:bg-verto-blue/25",
+      bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
       iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
     },
     {
@@ -20,7 +20,7 @@ export default function HeroSection() {
       icon: ArrowRightLeft,
       href: "https://calendly.com/nilesh-vertoai/30min",
       // Colored background with low opacity, gets brighter on hover
-      bgColorClass: "bg-verto-purple/10 dark:bg-verto-purple/15 hover:bg-verto-purple/20 dark:hover:bg-verto-purple/25",
+      bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/25 dark:hover:bg-verto-purple/35",
       iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
     },
     {
@@ -29,7 +29,7 @@ export default function HeroSection() {
       icon: CandlestickChart,
       href: "https://calendly.com/nilesh-vertoai/30min",
       // Colored background with low opacity, gets brighter on hover
-      bgColorClass: "bg-verto-orange/10 dark:bg-verto-orange/15 hover:bg-verto-orange/20 dark:hover:bg-verto-orange/25",
+      bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
       iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
     },
   ];
@@ -56,8 +56,8 @@ export default function HeroSection() {
         </p>
 
         {/* --- REVISED CTA BLOCK: Action-oriented buttons --- */}
-        <div className="mt-6 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="mt-10 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {actionCTAs.map((cta) => (
               <a key={cta.title} href={cta.href} target="_blank" rel="noopener noreferrer">
                 {/* UPDATED: Enhanced colorful styling with solid colored backgrounds */}
@@ -75,7 +75,7 @@ export default function HeroSection() {
           </div>
 
           {/* UPDATED: "Launch Pilot in 90 Days" now links to Calendly */}
-          <div className="mt-6">
+          <div className="mt-10">
               <a 
                 href="https://calendly.com/nilesh-vertoai/30min" 
                 target="_blank" 
