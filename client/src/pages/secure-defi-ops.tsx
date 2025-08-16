@@ -7,6 +7,9 @@ import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
 import { ShieldCheck, Bot, Headphones } from "lucide-react";
+import davidImage from "@assets/david_1754986415369.png";
+import danielImage from "@assets/daniel_1754986415369.png";
+import hishamImage from "@assets/hisham_1754986415368.png";
 
 // Define custom CTAs for secure DeFi ops landing page
 const secureOpsCTAs = [
@@ -84,6 +87,29 @@ export default function SecureDefiOps() {
         <PillarsSection 
           title="Institutional DeFi Security Platform"
           subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
+          customFounderQuotes={[
+            {
+              pillarKey: "liquidity",
+              quote: "Trading desks are missing massive DeFi opportunities because they can't safely access on-chain markets. We built Verto to bring institutional-grade security to DeFi trading—your keys, your custody, our expertise.",
+              name: "David Cass", 
+              title: "CEO | Former CISO at GSR Trading",
+              image: davidImage
+            },
+            {
+              pillarKey: "compliance",
+              quote: "Every DeFi transaction creates compliance risk that most funds aren't prepared for. We built AI that automatically documents every trade decision for regulators while ensuring your risk policies are never violated.",
+              name: "Daniel Garrie",
+              title: "General Counsel | Former DOJ & DTCC Advisor",
+              image: danielImage
+            },
+            {
+              pillarKey: "service",
+              quote: "At Google, we learned that 99.9% uptime isn't enough when billions are at stake. DeFi never sleeps, and neither do the opportunities—or the risks. That's why we built 24/7 monitoring into Verto's DNA.",
+              name: "Hisham Anwar",
+              title: "CTO | Former Google Head of Product",
+              image: hishamImage
+            }
+          ]}
         />
       </div>
       <div id="pilot">

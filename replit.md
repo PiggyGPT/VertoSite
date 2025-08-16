@@ -81,6 +81,10 @@ Preferred communication style: Simple, everyday language.
   - **Stablecoin Page**: CEO (distribution scaling), Head of Payments (checkout conversion), CISO (regulatory compliance)
   - **DeFi Products Page**: CEO (DEX competition), Head of Liquidity (DeFi access), CISO (security controls)
   - **Secure DeFi Ops Page**: CEO (CeFi vs DeFi), Head of Investments (operational efficiency), CISO (risk management)
+- **Tailored Co-Founder Insights**: Customized infrastructure section quotes for each landing page with offering-specific messaging:
+  - **Stablecoin Page**: David on distribution challenges, Nilesh on payment convenience, Daniel on compliance automation
+  - **DeFi Products Page**: David on institutional DeFi access, Nilesh on DeFi user experience, Daniel on exchange compliance
+  - **Secure DeFi Ops Page**: David on trading security, Daniel on transaction compliance, Hisham on operational reliability
 
 ### Bug Fixes (August 2025)
 - **Component Name Conflicts**: Fixed duplicate component names (VisualContainer, Header) in pillars-new-section.tsx causing compilation errors

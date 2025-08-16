@@ -1,8 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
 
+interface CustomFounderQuote {
+  pillarKey: string;
+  quote: string;
+  name: string;
+  title: string;
+  image: string;
+}
+
 interface PillarsSectionProps {
   title?: string;
   subtitle?: string;
+  customFounderQuotes?: CustomFounderQuote[];
 }
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -1166,7 +1175,8 @@ const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentTyp
 
 export default function PillarsSection({ 
   title = "One Unified Platform",
-  subtitle = "A self-hosted stack for trading, payments, and asset distribution on any chain.\nMonitored 24×7 by global experts with AI-automated compliance."
+  subtitle = "A self-hosted stack for trading, payments, and asset distribution on any chain.\nMonitored 24×7 by global experts with AI-automated compliance.",
+  customFounderQuotes
 }: PillarsSectionProps = {}) {
     const [activeTab, setActiveTab] = useState("distribution");
 
@@ -1184,7 +1194,7 @@ export default function PillarsSection({
 
     // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
     // Founder images are now included.
-    const pillars = {
+    const defaultPillars = {
         liquidity: { 
             label: "Trading", color: "verto-blue", title: "Institutional DeFi Access", 
             description: "Access fragmented on-chain liquidity and execute trading strategies with institutional-grade controls, security, and compliance.", 
@@ -1252,6 +1262,25 @@ export default function PillarsSection({
             cta: "Learn About Our Service Model" 
         },
     };
+
+    // Override founder quotes if custom ones provided
+    const pillars = customFounderQuotes ? {
+        ...defaultPillars,
+        ...Object.fromEntries(
+            customFounderQuotes.map(customQuote => [
+                customQuote.pillarKey,
+                {
+                    ...defaultPillars[customQuote.pillarKey as keyof typeof defaultPillars],
+                    founderQuote: {
+                        quote: customQuote.quote,
+                        name: customQuote.name,
+                        title: customQuote.title,
+                        image: customQuote.image
+                    }
+                }
+            ])
+        )
+    } : defaultPillars;
 
     const colorMap = {
         'verto-green': { border: 'border-verto-green', text: 'text-verto-green', bg: 'bg-verto-green' },

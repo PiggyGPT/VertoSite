@@ -7,6 +7,9 @@ import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
 import { Zap, Store, ShieldCheck } from "lucide-react";
+import davidImage from "@assets/david_1754986415369.png";
+import danielImage from "@assets/daniel_1754986415369.png"; 
+import nileshImage from "@assets/nilesh_1754986415369.png";
 
 // Define custom CTAs for stablecoin landing page
 const stablecoinCTAs = [
@@ -84,6 +87,29 @@ export default function LaunchStablecoin() {
         <PillarsSection 
           title="One Unified Platform"
           subtitle="A self-hosted stack for stablecoin trading, payments, and asset distribution. Monitored 24×7 by global experts with AI-automated compliance."
+          customFounderQuotes={[
+            {
+              pillarKey: "distribution",
+              quote: "Every major stablecoin fails at the same place: distribution. You can mint billions, but if people can't easily get and spend it, you've built an expensive database. We designed Verto to turn every corner store into a stablecoin on-ramp.",
+              name: "David Cass",
+              title: "CEO | Former Federal Reserve Regulator",
+              image: davidImage
+            },
+            {
+              pillarKey: "payments",
+              quote: "At Venmo, we learned that payments live or die by convenience. Your stablecoin needs to feel as easy as cash but work globally like the internet. That's why we built one-tap checkout with zero wallet friction.",
+              name: "Nilesh Khaitan", 
+              title: "CPO | Former Venmo/PayPal Crypto Lead",
+              image: nileshImage
+            },
+            {
+              pillarKey: "compliance",
+              quote: "Banks launching stablecoins face a compliance nightmare: every transaction must be auditable, every policy must be enforceable. We built Verto's AI to make compliance automatic, not an afterthought.",
+              name: "Daniel Garrie",
+              title: "General Counsel | Former DOJ & DTCC Advisor", 
+              image: danielImage
+            }
+          ]}
         />
       </div>
       <div id="pilot">

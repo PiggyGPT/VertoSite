@@ -7,6 +7,9 @@ import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
 import { ShieldCheck, Store, Bot } from "lucide-react";
+import davidImage from "@assets/david_1754986415369.png";
+import danielImage from "@assets/daniel_1754986415369.png";
+import nileshImage from "@assets/nilesh_1754986415369.png";
 
 // Define custom CTAs for DeFi products landing page
 const defiProductsCTAs = [
@@ -84,6 +87,29 @@ export default function OfferDefiProducts() {
         <PillarsSection 
           title="One Unified Platform"
           subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
+          customFounderQuotes={[
+            {
+              pillarKey: "liquidity",
+              quote: "Exchanges are losing customers to DeFi because they can't access the deep liquidity pools where the real opportunities exist. We built Verto to give exchanges institutional-grade DeFi access without the operational nightmares.",
+              name: "David Cass",
+              title: "CEO | Former CISO at GSR Trading",
+              image: davidImage
+            },
+            {
+              pillarKey: "payments",
+              quote: "DeFi yields are meaningless if users can't easily move money in and out. The best DeFi products feel like traditional finance but with crypto's global reach and programmability.",
+              name: "Nilesh Khaitan",
+              title: "CPO | Former Venmo/PayPal Crypto Lead",
+              image: nileshImage
+            },
+            {
+              pillarKey: "compliance", 
+              quote: "Offering DeFi products without proper compliance is like playing Russian roulette with your exchange license. Every smart contract interaction needs the same audit trail as traditional securities trading.",
+              name: "Daniel Garrie",
+              title: "General Counsel | Former DOJ & DTCC Advisor",
+              image: danielImage
+            }
+          ]}
         />
       </div>
       <div id="pilot">
