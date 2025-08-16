@@ -90,21 +90,21 @@ export default function OfferDefiProducts() {
           customFounderQuotes={[
             {
               pillarKey: "liquidity",
-              quote: "Exchanges are losing customers to DeFi because they can't access the deep liquidity pools where the real opportunities exist. We built Verto to give exchanges institutional-grade DeFi access without the operational nightmares.",
+              quote: "Every Head of Trading at a major exchange knows the problem: your biggest clients want DeFi yields, but your risk team won't approve direct protocol access. At GSR, we missed billions in opportunities because we couldn't safely access on-chain liquidity. Verto solves the custody and risk management gap.",
               name: "David Cass",
               title: "CEO | Former CISO at GSR Trading",
               image: davidImage
             },
             {
               pillarKey: "payments",
-              quote: "DeFi yields are meaningless if users can't easily move money in and out. The best DeFi products feel like traditional finance but with crypto's global reach and programmability.",
+              quote: "Your Head of Product is asking for DeFi integration, but your Head of Operations is worried about settlement complexity. At PayPal, I learned that successful fintech products hide blockchain complexity from operations teams. Verto makes DeFi feel like traditional payment rails to your back office.",
               name: "Nilesh Khaitan",
               title: "CPO | Former Venmo/PayPal Crypto Lead",
               image: nileshImage
             },
             {
               pillarKey: "compliance", 
-              quote: "Offering DeFi products without proper compliance is like playing Russian roulette with your exchange license. Every smart contract interaction needs the same audit trail as traditional securities trading.",
+              quote: "When your Chief Compliance Officer asks about DeFi risk controls, they want to see the same monitoring capabilities they use for traditional securities. Every smart contract call needs pre-trade compliance checks and post-trade audit trails that satisfy exchange regulators.",
               name: "Daniel Garrie",
               title: "General Counsel | Former DOJ & DTCC Advisor",
               image: danielImage

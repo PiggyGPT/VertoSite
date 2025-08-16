@@ -1200,7 +1200,7 @@ export default function PillarsSection({
             description: "Access fragmented on-chain liquidity and execute trading strategies with institutional-grade controls, security, and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "A CISO's worst nightmare is a nine-figure mistake from one fat-fingered trade or a compromised key. At GSR, I lived that risk. Verto is the pre-flight check I wish we had—enforcing policies *before* a transaction is signed, not just logging the disaster after.",
+                quote: "Every Head of Trading knows the pain: DeFi has the deepest liquidity pools, but accessing them safely is impossible with current tools. At GSR, we lost millions learning this lesson. Verto gives institutional desks what I wish we had—pre-trade risk controls that work across every chain and protocol.",
                 name: "David Cass",
                 title: "CEO | Former CISO at GSR Trading",
                 image: davidImage
@@ -1209,11 +1209,11 @@ export default function PillarsSection({
             cta: "Integrate Liquidity API" 
         },
         payments: { 
-            label: "Payments", color: "verto-purple", title: "Frictionless On-Chain Payments", 
-            description: "Enable merchants to easily accept your digital asset from any wallet, bank, or exchange with a single click, driving real-world utility.", 
+            label: "Payments", color: "verto-purple", title: "Enterprise Payment Infrastructure", 
+            description: "Enable institutional clients and merchants to accept your digital assets with enterprise-grade settlement, reconciliation, and reporting.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "At PayPal, I learnt that checkout can die with one extra click. Be it credit cards or stablecoins, when the user taps 'Pay', it should just work. Period.",
+                quote: "At Venmo, I learned that enterprise payments success isn't about the consumer—it's about the CFO. They need instant settlement, automated reconciliation, and audit-ready reporting. Verto handles the blockchain complexity so your treasury operations stay familiar.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
                 image: nileshImage
@@ -1222,11 +1222,11 @@ export default function PillarsSection({
             cta: "Explore Payments API" 
         },
         distribution: { 
-            label: "Distribution", color: "verto-green", title: "On-Demand Issuance", 
-            description: "Enable any retail point, financial partner, or on-chain application to issue and distribute digital assets against deposits in real time.", 
+            label: "Distribution", color: "verto-green", title: "Institutional Distribution Network", 
+            description: "Scale your digital asset through existing financial partnerships—banks, payment processors, and institutional networks—without pre-funded treasury risk.", 
             visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
-                quote: "When a bank creates currency, a single point of failure could risk the system. I built Verto to help banks globally scale their currency with same resilience as we enforced at the Fed.",
+                quote: "At the Federal Reserve, I saw how currency distribution makes or breaks monetary policy. Every bank CEO knows their biggest risk isn't technology—it's operational scale. Verto turns your existing correspondent banking network into a digital asset distribution engine.",
                 name: "David Cass",
                 title: "CEO | Former Federal Reserve Regulator",
                 image: davidImage
@@ -1235,11 +1235,11 @@ export default function PillarsSection({
             cta: "Get Distribution Playbook" 
         },
         compliance: { 
-            label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance Engine", 
-            description: "Replace manual, periodic audits with continuous, explainable, and automated oversight across all your on-chain operations.", 
+            label: "Compliance", color: "verto-cyan", title: "Regulatory Compliance Automation", 
+            description: "Transform regulatory compliance from a cost center into a competitive advantage with continuous monitoring and automated reporting that satisfies bank regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
-                quote: "When you stand in front of the DOJ, they don't want a spreadsheet; they want an irrefutable story. We built Verto's AI to provide exactly that: human-readable audit trail that proves not just *what* happened, but that your policies were enforced at every step.",
+                quote: "Every Chief Compliance Officer knows the nightmare: explaining crypto transactions to bank examiners. At the DOJ, I learned regulators want transparency, not excuses. Verto provides what every CCO needs—real-time compliance monitoring that speaks the regulator's language.",
                 name: "Daniel Garrie",
                 title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
                 image: danielImage

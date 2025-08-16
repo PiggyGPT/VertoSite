@@ -90,21 +90,21 @@ export default function LaunchStablecoin() {
           customFounderQuotes={[
             {
               pillarKey: "distribution",
-              quote: "Every major stablecoin fails at the same place: distribution. You can mint billions, but if people can't easily get and spend it, you've built an expensive database. We designed Verto to turn every corner store into a stablecoin on-ramp.",
+              quote: "Every bank CEO launching a stablecoin faces the same question: 'How do we scale beyond our branch network?' The answer isn't more branches—it's turning your correspondent banking relationships into digital asset distribution channels. That's exactly how the Fed scaled dollar distribution globally.",
               name: "David Cass",
               title: "CEO | Former Federal Reserve Regulator",
               image: davidImage
             },
             {
               pillarKey: "payments",
-              quote: "At Venmo, we learned that payments live or die by convenience. Your stablecoin needs to feel as easy as cash but work globally like the internet. That's why we built one-tap checkout with zero wallet friction.",
+              quote: "Your CFO cares about one thing: settlement risk. At Venmo, I learned that successful payment rails aren't about user experience—they're about treasury operations. Instant finality, automated reconciliation, and audit trails that make your accounting team happy.",
               name: "Nilesh Khaitan", 
               title: "CPO | Former Venmo/PayPal Crypto Lead",
               image: nileshImage
             },
             {
               pillarKey: "compliance",
-              quote: "Banks launching stablecoins face a compliance nightmare: every transaction must be auditable, every policy must be enforceable. We built Verto's AI to make compliance automatic, not an afterthought.",
+              quote: "When bank regulators ask about your stablecoin compliance program, they want to see controls that look familiar. At the DOJ, I learned regulators trust systems that mirror traditional banking oversight—automated monitoring, exception reporting, and audit trails they can understand.",
               name: "Daniel Garrie",
               title: "General Counsel | Former DOJ & DTCC Advisor", 
               image: danielImage

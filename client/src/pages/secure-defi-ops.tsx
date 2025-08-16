@@ -90,21 +90,21 @@ export default function SecureDefiOps() {
           customFounderQuotes={[
             {
               pillarKey: "liquidity",
-              quote: "Trading desks are missing massive DeFi opportunities because they can't safely access on-chain markets. We built Verto to bring institutional-grade security to DeFi trading—your keys, your custody, our expertise.",
+              quote: "Your Chief Investment Officer wants DeFi alpha, but your CISO won't approve direct protocol exposure. At GSR, we built custom infrastructure to access on-chain markets safely, but it took 50 engineers and $20M. Verto gives you the same institutional-grade DeFi access without the development overhead.",
               name: "David Cass", 
               title: "CEO | Former CISO at GSR Trading",
               image: davidImage
             },
             {
               pillarKey: "compliance",
-              quote: "Every DeFi transaction creates compliance risk that most funds aren't prepared for. We built AI that automatically documents every trade decision for regulators while ensuring your risk policies are never violated.",
+              quote: "When your Chief Compliance Officer reviews DeFi trading activity, they need the same controls they use for traditional OTC markets. Every transaction needs pre-trade policy checks, real-time monitoring, and documentation that explains the 'why' behind every trade decision to fund regulators.",
               name: "Daniel Garrie",
               title: "General Counsel | Former DOJ & DTCC Advisor",
               image: danielImage
             },
             {
               pillarKey: "service",
-              quote: "At Google, we learned that 99.9% uptime isn't enough when billions are at stake. DeFi never sleeps, and neither do the opportunities—or the risks. That's why we built 24/7 monitoring into Verto's DNA.",
+              quote: "Your CTO's biggest fear isn't technology failure—it's explaining a $100M loss to the board because your DeFi monitoring failed at 3 AM Singapore time. At Google, we solved this with Site Reliability Engineering. Verto applies that same discipline to protect your fund's DeFi operations 24/7.",
               name: "Hisham Anwar",
               title: "CTO | Former Google Head of Product",
               image: hishamImage
