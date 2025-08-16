@@ -90,13 +90,15 @@ export default function Navigation() {
             >
               <SocialXIcon className="h-5 w-5" />
             </a>
-            <button
-              onClick={() => scrollToSection("pilot")}
+            <a
+              href="https://calendly.com/nilesh-vertoai/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 verto-gradient text-white rounded-lg font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
               Launch Your Pilot
-            </button>
+            </a>
             <button
               className="md:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

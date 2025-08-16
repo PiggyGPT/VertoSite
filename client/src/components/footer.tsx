@@ -1,5 +1,5 @@
 import { ArrowRight, Mail, Linkedin } from "lucide-react";
-import { SiX } from "react-icons/si";
+import { SiX, SiTelegram } from "react-icons/si";
 
 // Verto Logo Component (replace with your actual SVG if you have one)
 const VertoLogo = () => (
@@ -26,13 +26,15 @@ export function PilotCtaSection() {
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
                     Let's design a 90-day pilot that provides the data you need and the confidence your stakeholders demand.
                 </p>
-                 <button
-                    onClick={() => scrollToSection("contact")}
+                 <a
+                    href="https://calendly.com/nilesh-vertoai/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group mt-8 inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
                 >
                     <span>Schedule a Consultation</span>
                     <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
             </div>
         </section>
     );
@@ -84,7 +86,8 @@ export default function Footer() {
                     </p>
                     <div className="flex items-center space-x-5">
                          <a href="mailto:info@verto.ai" aria-label="Email" className="text-slate-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
-                         <a href="#" aria-label="X (formerly Twitter)" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
+                         <a href="https://x.com/Verto_AI" target="_blank" rel="noopener noreferrer" aria-label="Follow Verto AI on X" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
+                         <a href="https://t.me/VertoAI" target="_blank" rel="noopener noreferrer" aria-label="Join Verto AI on Telegram" className="text-slate-500 hover:text-white transition-colors"><SiTelegram className="w-4 h-4" /></a>
                          <a href="#" aria-label="LinkedIn" className="text-slate-500 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
                     </div>
                 </div>

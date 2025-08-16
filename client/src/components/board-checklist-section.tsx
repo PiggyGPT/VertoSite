@@ -58,13 +58,15 @@ export default function PilotProgramSection() {
 
           {/* --- NEW CTA SECTION --- */}
           <div className="mt-16 text-center">
-            <button
-              onClick={() => setIsModalOpen(true)}
+            <a
+              href="https://calendly.com/nilesh-vertoai/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
             >
               <span>Apply for the Pilot Program</span>
               <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">Limited spots available for our next cohort.</p>
           </div>
 
