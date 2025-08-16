@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import ProblemSection from "@/components/problem-section";
@@ -43,6 +44,14 @@ const defiProductsCTAs = [
 ];
 
 export default function OfferDefiProducts() {
+  useEffect(() => {
+    document.title = "Launch DeFi Products in 90 Days - Verto";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Securely expand your digital asset offerings and access multi-chain liquidity, while maintaining full regulatory compliance and risk controls.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <Navigation />

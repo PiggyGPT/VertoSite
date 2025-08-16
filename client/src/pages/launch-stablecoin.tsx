@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import ProblemSection from "@/components/problem-section";
@@ -43,6 +44,14 @@ const stablecoinCTAs = [
 ];
 
 export default function LaunchStablecoin() {
+  useEffect(() => {
+    document.title = "Launch Your Stablecoin in 90 Days - Verto";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Activate your network with Verto\'s complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <Navigation />

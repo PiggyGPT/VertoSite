@@ -77,6 +77,15 @@ Preferred communication style: Simple, everyday language.
 - **Page-Specific Content**: Each landing page features targeted CTAs relevant to the use case (stablecoins, DeFi products, trading ops)
 - **Compact Navigation**: Reduced navigation height and spacing for better mobile compatibility
 - **Consistent Branding**: Updated footer to use same SVG logo as navigation header for brand consistency
+- **Updated Footer Structure**: Redesigned footer with new positioning: "Digital Asset Operations Platform for trading, payments, and distribution on any chain"
+  - **Contact Section**: Replaced Resources with Contact Us (Email, X, Telegram)
+  - **Use Case Categories**: Replaced Platform with "For" section targeting Financial Institutions, Exchanges, Trading Firms
+  - **Company Updates**: Replaced Press with Platform, removed LinkedIn social link
+- **SEO Optimization**: Implemented dynamic SEO metadata that matches hero section content on each page:
+  - **Home Page**: "VERTO — Launch your stablecoin in 90 days." / "Digital Asset Operations Platform for trading, payments, and distribution on any chain."
+  - **Stablecoin Page**: "Launch Your Stablecoin in 90 Days - Verto" / "Activate your network with Verto's complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance."
+  - **DeFi Products Page**: "Launch DeFi Products in 90 Days - Verto" / "Securely expand your digital asset offerings and access multi-chain liquidity, while maintaining full regulatory compliance and risk controls."
+  - **Secure DeFi Ops Page**: "Secure DeFi Operations in 90 Days - Verto" / "Enable your trading desk to securely execute trading opportunities on any chain, with AI-powered risk management and compliance."
 - **Stakeholder-Specific Problem Sections**: Created unique, authentic quotes from key institutional stakeholders for each landing page:
   - **Stablecoin Page**: CEO (distribution scaling), Head of Payments (checkout conversion), CISO (regulatory compliance)
   - **DeFi Products Page**: CEO (DEX competition), Head of Liquidity (DeFi access), CISO (security controls)

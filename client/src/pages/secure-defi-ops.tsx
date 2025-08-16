@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import ProblemSection from "@/components/problem-section";
@@ -43,6 +44,14 @@ const secureOpsCTAs = [
 ];
 
 export default function SecureDefiOps() {
+  useEffect(() => {
+    document.title = "Secure DeFi Operations in 90 Days - Verto";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Enable your trading desk to securely execute trading opportunities on any chain, with AI-powered risk management and compliance.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <Navigation />
