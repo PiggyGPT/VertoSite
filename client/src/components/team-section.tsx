@@ -77,7 +77,7 @@ return (
 <div className="max-w-7xl mx-auto px-6 sm:px-8">
 <div className="text-center mb-16">
 <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
-Built by Leading Experts in Finance & Technology
+Built by Leaders in Finance & Technology
 </h2>
 <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
 We've scaled initiatives at the world's leading financial and technology institutions.

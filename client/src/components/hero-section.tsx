@@ -1,5 +1,3 @@
-// src/components/HeroSection.tsx
-
 import { ArrowRight, BookOpen } from "lucide-react";
 
 export default function HeroSection() {
@@ -19,19 +17,18 @@ export default function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto text-center">
         <h1 className="font-bold text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-          {/* FIX: Title now uses the correct brand gradient colors. */}
+          {/* Using a more modern "Operating System" framing */}
           <span className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent">
-            Digital Assets Operations Platform
+            Digital Asset Operations Platform
           </span>
           <br />
-          {/* FIX: Separated sub-headline for better responsive font control. */}
           <span className="mt-4 block text-3xl md:text-4xl lg:text-5xl text-slate-800 dark:text-slate-200">
             Zero → Launch in 90 Days.
           </span>
         </h1>
 
         <p className="mt-6 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="hero-subtitle">
-          Activate your network with Verto's complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance.
+          Securely access public chains for payments, trading, and asset distribution with AI-powered security & compliance.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -44,16 +41,28 @@ export default function HeroSection() {
             <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
           </button>
           <button
-            onClick={() => scrollToSection("infrastructure")}
+            onClick={() => scrollToSection("infrastructure")} // This might need to link to the pillars section now
             className="group inline-flex items-center justify-center px-7 py-3.5 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
             data-testid="button-secondary-cta"
           >
-             <BookOpen className="w-5 h-5 mr-2 text-slate-500" />
+              <BookOpen className="w-5 h-5 mr-2 text-slate-500" />
             <span>Read Documentation</span>
           </button>
         </div>
 
-        {/* FIX: Removed the redundant logo section from the hero. */}
+        {/* ADDED: "Designed For" section to clearly state the target audience */}
+        <div className="mt-12 text-center" data-testid="designed-for">
+            <p className="text-sm text-slate-500 dark:text-slate-400 tracking-widest uppercase font-semibold">
+                Designed For
+            </p>
+            <div className="mt-4 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-slate-700 dark:text-slate-300 font-medium">
+                <span>Financial Institutions</span>
+                <span className="text-slate-300 dark:text-slate-600">&bull;</span>
+                <span>Digital Asset Exchanges</span>
+                <span className="text-slate-300 dark:text-slate-600">&bull;</span>
+                <span>Trading Firms</span>
+            </div>
+        </div>
 
       </div>
     </section>

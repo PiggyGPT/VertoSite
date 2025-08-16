@@ -59,23 +59,21 @@ const Header = ({ title, subtitle, icon, badgeText }: {
 );
 
 // Component to display the core voucher content with the new, professional design.
-const VoucherContent = ({ voucherId, amount }: { voucherId: string; amount: string }) => {
+const MintContent = ({ voucherId, amount }: { voucherId: string; amount: string }) => {
     return (
         <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
             <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
             <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">VOUCHER #{voucherId}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">MINT #{voucherId}</p>
             <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-            <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">SCAN TO CLAIM</p>
             <div className="flex items-baseline justify-center gap-2 my-2">
                 <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">{amount}.00</p>
                 <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
             </div>
-            <p className="text-sm font-sans font-semibold text-slate-800 dark:text-slate-200">Scan to Claim</p>
             <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
                 <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
             </div>
-            <div className="mt-2 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
         </div>
     );
 };
@@ -88,7 +86,7 @@ const ExecutiveDistributionFlow = () => {
     // State to control the visibility of the single popup container
     const [showKeypadPopup, setShowKeypadPopup] = useState(false);
     const [amount, setAmount] = useState(''); // Dynamic amount for the input
-    const [voucherAmount, setVoucherAmount] = useState('');
+    const [voucherAmount, setMintAmount] = useState('');
     // New state to manage the visual "click" effect on the button
     const [isIssueButtonClicked, setIssueButtonClicked] = useState(false);
     const [isEnterButtonClicked, setEnterButtonClicked] = useState(false);
@@ -107,7 +105,7 @@ const ExecutiveDistributionFlow = () => {
             setCurrentPanel(0);
             setShowKeypadPopup(false);
             setAmount('');
-            setVoucherAmount('');
+            setMintAmount('');
             setIssueButtonClicked(false);
             setEnterButtonClicked(false);
             timeout = setTimeout(() => setAnimationStep(1), 2000);
@@ -138,7 +136,7 @@ const ExecutiveDistributionFlow = () => {
             setEnterButtonClicked(false);
             setShowKeypadPopup(false);
             // Store the final amount to be displayed on the voucher
-            setVoucherAmount(amount);
+            setMintAmount(amount);
             timeout = setTimeout(() => setAnimationStep(6), 700);
             break;
           case 6:
@@ -220,7 +218,7 @@ const ExecutiveDistributionFlow = () => {
                             onClick={() => {}} // Disabled for the animation loop
                         >
                             <Zap className="w-4 h-4" />
-                            <span>Issue QR Code</span>
+                            <span>Issue BOBC</span>
                         </button>
 
 
@@ -241,12 +239,12 @@ const ExecutiveDistributionFlow = () => {
                     </div>
                 </div>
 
-                {/* Panel 1: Voucher Issued View */}
+                {/* Panel 1: Mint Issued View */}
                 <div
                     className={panel1Classes}
                     style={{ zIndex: currentPanel === 1 ? 3 : 2 }}
                 >
-                    <VoucherContent voucherId={voucherId} amount={voucherAmount} />
+                    <MintContent voucherId={voucherId} amount={voucherAmount} />
                 </div>
 
                 {/* Panel 2: Maria Silva Wallet View */}
@@ -285,7 +283,7 @@ const ExecutiveDistributionFlow = () => {
                             <div className="space-y-2 text-sm overflow-y-auto">
                                 <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
                                     <div>
-                                        <span className="text-slate-600 dark:text-slate-400">Claimed Voucher</span> 
+                                        <span className="text-slate-600 dark:text-slate-400">Claimed BOBC</span> 
                                         <p className="text-xs text-slate-400">14 Aug 2025, 09:51</p>
                                     </div>
                                     <span className="font-medium text-green-500">+ 50.00 BOBC</span>
@@ -305,8 +303,8 @@ const ExecutiveDistributionFlow = () => {
                 {/* Pop-up for amount input */}
                 <div className={keypadPopupContainerClasses}>
                     <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4`}>
-                        {/* Voucher amount header with relevant Keyboard icon */}
-                        <Header title="Voucher Amount" subtitle="Enter the amount to issue." icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
+                        {/* Mint amount header with relevant Keyboard icon */}
+                        <Header title="Mint Amount" subtitle="Enter the amount to issue." icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
                         <div className="flex-grow flex flex-col items-center justify-center text-center">
                           <div className="flex items-center justify-center gap-2">
                               <p className="text-6xl font-bold my-2 text-green-500 tracking-tight">
@@ -329,7 +327,7 @@ const ExecutiveDistributionFlow = () => {
                             `}
                           >
                             <Zap className="w-5 h-5" />
-                            <span>Issue QR Code</span>
+                            <span>Issue BOBC</span>
                           </button>
                         </div>
                     </div>
@@ -419,8 +417,7 @@ const PolishedPaymentsFlow = () => {
                         >
                             Pay Now
                         </button>
-                        <div className="mt-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                        <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
+                        <p className="text-xs text-slate-400 mt-6">Powered by Verto</p>
                     </div>
                 </div>
 
@@ -476,7 +473,7 @@ const PolishedPaymentsFlow = () => {
                             <Zap className="w-4 h-4" />
                             <span>Pay 120.00 USDC</span>
                         </button>
-                        <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-2"><Lock className="w-3 h-3" /> Secured by Verto</p>
+                        <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Verto</p>
                     </div>
                 </div>
 
@@ -601,19 +598,19 @@ const ExecutiveLiquidityFlow = () => {
       const timers = [
         setTimeout(() => {
           setAnimationState(s => ({ ...s, showToast: true }));
-        }, 1000),
-        setTimeout(() => {
-          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, maria: true } }));
-        }, 1500),
-        setTimeout(() => {
-          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, john: true } }));
         }, 2000),
         setTimeout(() => {
+          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, maria: true } }));
+        }, 2500),
+        setTimeout(() => {
+          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, john: true } }));
+        }, 4000),
+        setTimeout(() => {
           setAnimationState(s => ({ ...s, showToast: false }));
-        }, 3000),
+        }, 6000),
         setTimeout(() => {
           setAnimationState(s => ({ ...s, isExecuting: true }));
-        }, 3500),
+        }, 4500),
       ];
       return () => timers.forEach(clearTimeout);
     }
@@ -691,7 +688,7 @@ const ApiRequestPanel = ({ typingState, isGenerating }: { typingState: any, isGe
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
-        <span className="flex-1 text-center text-slate-400 text-xs">POST /v1/trades</span>
+        <span className="flex-1 text-center text-slate-400 text-xs">POST /v1/pay</span>
       </div>
       <div className="text-slate-300 flex-grow">
         <span className="text-purple-400">{'{'}</span>
@@ -1022,7 +1019,7 @@ const ExecutiveServiceFlow = () => {
         // Interval to update the clock every 50ms for a smooth animation
         const clockInterval = setInterval(() => {
             setTimeData(prevTime => {
-                let newMinutes = prevTime.minutes + 1;
+                let newMinutes = prevTime.minutes + 10;
                 let newHours = prevTime.hours;
 
                 if (newMinutes >= 60) {
@@ -1068,7 +1065,7 @@ const ExecutiveServiceFlow = () => {
 
                 {/* Section 1: Cluster & Environment */}
                 <div>
-                    <ServiceHeader title="Cluster & Environment" icon={<Server />} />
+                    <ServiceHeader title="Self-Hosted Deployment" icon={<Server />} />
                     <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
                         <div className="flex justify-between items-center mb-3">
                             <div>
@@ -1084,12 +1081,12 @@ const ExecutiveServiceFlow = () => {
                         </div>
                         <div className="flex justify-between items-center text-sm">
                             <div className="flex-1">
-                                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Platform</p>
-                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Self-Hosted</p>
+                                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Environment</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Production</p>
                             </div>
                             <div className="flex-1 text-right">
                                 <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Location</p>
-                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">sa-east1 / Siloed-CLT-1</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">sa-east1-siloed</p>
                             </div>
                         </div>
                     </div>
@@ -1139,9 +1136,9 @@ export default function PillarsSection() {
     const [activeTab, setActiveTab] = useState("distribution");
 
     const pillars = {
-        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Enable any retail point, from kiosks to mobile operators, to issue stablecoins against deposits in real time.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
         payments: { label: "Payments", color: "verto-purple", title: "Frictionless Checkout", description: "Enable merchants to easily accept your stablecoin from any wallet, bank, or exchange with a single click.", visual: <PolishedPaymentsFlow />, features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your stablecoin." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], cta: "Explore Payments API" },
-        liquidity: { label: "Liquidity", color: "verto-blue", title: "Compliant Swaps", description: "Access liquidity from complex, fragmented decentralized exchanges with full operational integrity.", visual: <ExecutiveLiquidityFlow />, features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Our engine automatically finds the best execution path for every trade across multiple protocols and chains." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key g, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], cta: "Integrate Liquidity API" },
+        liquidity: { label: "Trading", color: "verto-blue", title: "Compliant Liquidity", description: "Access liquidity from complex, fragmented decentralized exchanges with full operational integrity.", visual: <ExecutiveLiquidityFlow />, features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], cta: "Integrate Liquidity API" },
+        distribution: { label: "Distribution", color: "verto-green", title: "On-Demand Minting", description: "Enable any retail point, from kiosks to mobile operators, to issue stablecoins against deposits in real time.", visual: <ExecutiveDistributionFlow />, features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Agent Portal & APIs", description: "A powerful, simple interface for agents to manage credit, issue currency, and monitor earnings." }, ], cta: "Get Distribution Playbook" },
         compliance: { label: "Compliance", color: "verto-blue", title: "AI-Powered Compliance", description: "Replace manual, periodic counterparty audits with continuous, explainable, and automated oversight across your operations.", visual: <PolishedComplianceFlow />, features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], cta: "Request Compliance Demo" },
         service: { label: "Service", color: "verto-cyan", title: "24/7 Global Operations", description: "Maintain operational integrity with our global SOC teams for your self-hosted environment.", visual: <ExecutiveServiceFlow />, features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], cta: "Learn About Our Service Model" },
     };
@@ -1160,7 +1157,7 @@ export default function PillarsSection() {
         <div className="bg-white dark:bg-slate-950">
             <div className="text-center pt-20 pb-12">
                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">One Unified Platform</h2>
-                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">Self-hosted stack for distribution, payments, and liquidity.<br/>Monitored 24×7 by global experts with AI-automated compliance.</p>
+                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">Self-hosted stack for payments, trading and asset distribution.<br/>Monitored 24×7 by global experts with AI-automated compliance.</p>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="border-b border-slate-200 dark:border-slate-700">
