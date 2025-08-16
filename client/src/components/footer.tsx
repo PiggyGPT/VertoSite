@@ -1,5 +1,6 @@
 import { ArrowRight, Mail, Linkedin } from "lucide-react";
 import { SiX, SiTelegram } from "react-icons/si";
+import { Link } from "wouter";
 
 // Verto Logo Component (replace with your actual SVG if you have one)
 const VertoLogo = () => (
@@ -54,7 +55,9 @@ export default function Footer() {
                 <div className="grid md:grid-cols-12 gap-8">
                     {/* Company Info */}
                     <div className="md:col-span-4">
-                        <VertoLogo />
+                        <Link href="/">
+                            <VertoLogo />
+                        </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
                             The Institutional OS to mint, move, and monitor stablecoins with AI-powered compliance.
                         </p>

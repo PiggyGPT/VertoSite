@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "wouter";
 import logoSvg from "@assets/logo.svg";
 
 // It's good practice to create a dedicated component for custom icons.
@@ -16,11 +17,11 @@ const SocialXIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Define navigation links in an array to avoid repetition.
+// Define navigation links for the new landing pages
 const navLinks = [
-  { href: "team", label: "About Us" },
-  { href: "infrastructure", label: "Platform" },
-  { href: "pilot", label: "90 Day Pilot" },
+  { href: "/launch-stablecoin", label: "Launch Stablecoin" },
+  { href: "/offer-defi-products", label: "Offer DeFi Products" },
+  { href: "/secure-defi-ops", label: "Secure DeFi Ops" },
 ];
 
 export default function Navigation() {
@@ -36,8 +37,7 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
@@ -56,26 +56,22 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="flex-shrink-0"
-              data-testid="logo"
-            >
+            <Link href="/" className="flex-shrink-0" data-testid="logo">
               <img src={logoSvg} alt="Verto Logo" className="h-7 w-auto" />
-            </button>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
+                href={link.href}
                 className={navLinkClasses}
                 data-testid={`nav-${link.href}`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -116,14 +112,15 @@ export default function Navigation() {
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800" data-testid="mobile-menu">
           <div className="px-6 py-5 space-y-4">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
+                href={link.href}
+                onClick={closeMobileMenu}
                 className="block w-full text-left text-lg text-slate-700 dark:text-slate-200 py-2"
                 data-testid={`mobile-nav-${link.href}`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
              <a
               href="https://x.com/Verto_AI"
