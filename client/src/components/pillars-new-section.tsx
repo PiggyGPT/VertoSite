@@ -1309,7 +1309,7 @@ export default function PillarsSection({
                 </p>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="sticky top-0 z-20 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 pb-2 pt-2">
+                <div className="sticky top-16 z-20 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 pb-2 pt-2">
                     <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8" aria-label="Tabs">
                         {Object.keys(pillars).map((key) => {
                             const pillar = pillars[key as keyof typeof pillars];
