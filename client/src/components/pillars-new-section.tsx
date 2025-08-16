@@ -11,6 +11,11 @@ import {
     Cpu, Keyboard, Monitor
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
+import davidImage from "@assets/david_1754986415369.png";
+import danielImage from "@assets/daniel_1754986415369.png";
+import hishamImage from "@assets/hisham_1754986415368.png";
+import nileshImage from "@assets/nilesh_1754986415369.png";
+import { Quote } from "lucide-react";
 
 // --- Simplified Visual Container - No Background Interference ---
 const VisualContainer = ({ children }: { children: React.ReactNode }) => (
@@ -1119,30 +1124,37 @@ const ExecutiveServiceFlow = () => {
 };
 
 
-// --- Main Section Component ---
-const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) => (
-    <div className="flex items-start space-x-3 md:space-x-4 group">
-        <div className="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-verto-blue/10 dark:group-hover:bg-verto-blue/20">
-            <Icon className="w-4 h-4 md:w-5 md:h-5 text-slate-500 dark:text-slate-400 transition-all duration-300 group-hover:text-verto-blue" />
-        </div>
-        <div>
-            <h4 className="text-sm md:text-md font-semibold text-slate-900 dark:text-white">{title}</h4>
-            <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 mt-1">{children}</p>
+// DESIGN CHANGE: Create a dedicated "Insight Banner" for the founder quotes.
+// This new component creates the full-width, colored banner style.
+const FounderInsightBanner = ({ quote, name, title, image, colorClasses }) => (
+    <div className={`rounded-xl p-6 md:p-8 my-12 ${colorClasses.bg}/10`}>
+        <div className="flex flex-col md:flex-row items-start gap-6">
+            <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
+            <div>
+                <blockquote className={`text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 ${colorClasses.border} pl-5`}>
+                    <p>"{quote}"</p>
+                </blockquote>
+                <footer className="mt-4">
+                    <p className="font-semibold text-slate-900 dark:text-white">{name}</p>
+                    <p className={`text-sm font-medium ${colorClasses.text}`}>{title}</p>
+                </footer>
+            </div>
         </div>
     </div>
 );
 
-
-// ADDED: A small component to render the founder quotes for clarity and reusability
-const FounderQuote = ({ quote, name, title }: { quote: string; name: string; title: string }) => (
-    <div className="mt-6 mb-8 p-4 border-l-4 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/30 rounded-r-lg">
-        <blockquote className="italic text-slate-600 dark:text-slate-300">
-            "{quote}"
-        </blockquote>
-        <footer className="mt-3">
-            <p className="font-semibold text-slate-800 dark:text-slate-100">{name}</p>
-            <p className="text-sm text-slate-500 dark:text-slate-400">{title}</p>
-        </footer>
+// DESIGN CHANGE: Define the FeatureItem with larger text and better spacing.
+const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentType<LucideProps>, title: string, children: React.ReactNode }) => (
+    <div className="flex items-start">
+        <div className="flex-shrink-0">
+            <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
+                <Icon className="w-6 h-6 text-verto-blue" />
+            </div>
+        </div>
+        <div className="ml-4">
+            <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
+            <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{children}</p>
+        </div>
     </div>
 );
 
@@ -1150,65 +1162,71 @@ const FounderQuote = ({ quote, name, title }: { quote: string; name: string; tit
 export default function PillarsSection() {
     const [activeTab, setActiveTab] = useState("distribution");
 
-    // UPDATED: Added a `founderQuote` object to each pillar
+    // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
+    // Founder images are now included.
     const pillars = {
-        distribution: { 
-            label: "Distribution", color: "verto-green", title: "On-Demand Minting & Issuance", 
-            description: "Enable any retail point, financial partner, or on-chain application to issue and distribute digital assets against deposits in real time.", 
-            visual: <ExecutiveDistributionFlow />, 
+        liquidity: { 
+            label: "Trading", color: "verto-blue", title: "Institutional DeFi Access", 
+            description: "Access fragmented on-chain liquidity and execute trading strategies with institutional-grade controls, security, and compliance.", 
+            visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "At the Federal Reserve, we learned that trust is paramount. We designed Verto’s distribution model for banks to safely reach their entire customer base with the same regulatory rigor they apply to physical currency.",
+                quote: "A CISO's worst nightmare is a nine-figure mistake from one fat-fingered trade or a compromised key. At GSR, I lived that risk. Verto is the pre-flight check I wish we had—enforcing policies *before* a transaction is signed, not just logging the disaster after.",
                 name: "David Cass",
-                title: "CEO | Former Federal Reserve Regulator"
+                title: "CEO | Former CISO at GSR Trading",
+                image: davidImage
             },
-            features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Partner Portal & APIs", description: "A powerful, simple interface for partners to manage credit, issue assets, and monitor earnings." }, ], 
-            cta: "Get Distribution Playbook" 
+            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
+            cta: "Integrate Liquidity API" 
         },
         payments: { 
             label: "Payments", color: "verto-purple", title: "Frictionless On-Chain Payments", 
             description: "Enable merchants to easily accept your digital asset from any wallet, bank, or exchange with a single click, driving real-world utility.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "Launching crypto at PayPal taught me that a 1% drop in conversion is a multi-million dollar problem. We built Verto's payment stack to be invisible—gasless, one-tap, and simple for merchants to reconcile.",
+                quote: "At PayPal, I learnt that checkout can die with one extra click. Be it credit cards or stablecoins, when the user taps 'Pay', it should just work. Period.",
                 name: "Nilesh Khaitan",
-                title: "CPO | Ex-Venmo/PayPal Crypto"
+                title: "CPO | Ex-Venmo/PayPal Crypto",
+                image: nileshImage
             },
             features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], 
             cta: "Explore Payments API" 
         },
-        liquidity: { 
-            label: "Trading", color: "verto-blue", title: "Institutional DeFi Access", 
-            description: "Access fragmented on-chain liquidity and execute trading strategies with institutional-grade controls, security, and compliance.", 
-            visual: <ExecutiveLiquidityFlow />,
+        distribution: { 
+            label: "Distribution", color: "verto-green", title: "On-Demand Issuance", 
+            description: "Enable any retail point, financial partner, or on-chain application to issue and distribute digital assets against deposits in real time.", 
+            visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
-                quote: "As CISO at GSR, I saw the operational risks of on-chain trading firsthand. Verto embeds security from the start—policy-driven controls, transaction simulation, and key sovereignty—so your assets never leave your control.",
+                quote: "When a bank creates currency, a single point of failure could risk the system. I built Verto to help banks globally scale their currency with same resilience as we enforced at the Fed.",
                 name: "David Cass",
-                title: "CEO | Former CISO at GSR Trading"
+                title: "CEO | Former Federal Reserve Regulator",
+                image: davidImage
             },
-            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Uncompromised Sovereignty", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
-            cta: "Integrate Liquidity API" 
+            features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Partner Portal & APIs", description: "A powerful, simple interface for partners to manage credit, issue assets, and monitor earnings." }, ], 
+            cta: "Get Distribution Playbook" 
         },
         compliance: { 
             label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance Engine", 
             description: "Replace manual, periodic audits with continuous, explainable, and automated oversight across all your on-chain operations.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
-                quote: "Working with the DOJ and DTCC, it was clear that proactive compliance is the only way forward. Verto’s AI engine doesn’t just flag risk—it prevents non-compliant transactions before they happen, giving you a defensible audit trail.",
+                quote: "When you stand in front of the DOJ, they don't want a spreadsheet; they want an irrefutable story. We built Verto's AI to provide exactly that: human-readable audit trails that prove not just *what* happened, but that your policies were enforced at every step.",
                 name: "Daniel Garrie",
-                title: "General Counsel | Harvard Law"
+                title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
+                image: danielImage
             },
             features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], 
             cta: "Request Compliance Demo" 
         },
         service: { 
-            label: "Service", color: "verto-orange", // Changed color for better distinction
+            label: "Service", color: "verto-orange",
             title: "24/7 Global Operations", 
             description: "Maintain operational integrity with our global SOC teams providing monitoring and support for your self-hosted environment.", 
             visual: <ExecutiveServiceFlow />,
             founderQuote: { 
-                quote: "At Google, we lived by the principle of 'Site Reliability Engineering.' We've embedded that SRE DNA into Verto, offering a self-hosted platform with the resilience of a cloud service, so you own your data and we ensure your uptime.",
+                quote: "Google’s reliability isn't magic; it's a culture of engineering that prevents the 3 AM fire-drill. We embedded that SRE DNA into Verto's service model. You maintain data sovereignty on your servers; we give your engineers their weekends back.",
                 name: "Hisham Anwar",
-                title: "CTO | Ex-Google Head of Product"
+                title: "CTO | Ex-Google Head of Product",
+                image: hishamImage
             },
             features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], 
             cta: "Learn About Our Service Model" 
@@ -1229,8 +1247,12 @@ export default function PillarsSection() {
     return (
         <div id="infrastructure" className="bg-white dark:bg-slate-950">
             <div className="text-center pt-20 pb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">One Unified Platform</h2>
-                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">A self-hosted stack for payments, trading and asset distribution.<br/>Monitored 24×7 by global experts with AI-automated compliance.</p>
+                <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
+                One Unified Platform
+                </h2>
+                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
+                A self-hosted stack for trading, payments, and asset distribution on any chain.<br/>Monitored 24×7 by global experts with AI-automated compliance.
+                </p>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="border-b border-slate-200 dark:border-slate-700">
@@ -1251,38 +1273,41 @@ export default function PillarsSection() {
                     </nav>
                 </div>
             </div>
-            <div className="py-12 md:py-20">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 lg:items-center">
-                        <div className="lg:col-span-1">
-                            <div className="mb-6 md:mb-8">
-                                <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
-                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-3 md:mb-4">{activePillar.title}</h3>
-                                <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
-                            </div>
 
-                            {/* ADDED: FounderQuote component rendered here */}
-                            {activePillar.founderQuote && <FounderQuote {...activePillar.founderQuote} />}
+            {/* DESIGN CHANGE: The main content container now has more consistent padding */}
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+                {/* DESIGN CHANGE: Founder Insight Banner is rendered here, outside the grid, for a full-width feel. */}
+                {activePillar.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
 
-                            {/* Mobile Animation - Between description and features */}
-                            <div className="lg:hidden mb-6 md:mb-8">
-                                {activePillar.visual}
-                            </div>
-
-                            <div className="space-y-4 md:space-y-6 mb-8 md:mb-10">
-                                {activePillar.features.map((feature: any) => (
-                                    <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
-                                ))}
-                            </div>
-                            <button className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}>
-                                <span>{activePillar.cta}</span>
-                                <ArrowRight className="w-4 h-4 ml-2" />
-                            </button>
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
+                    {/* Left Column: Text Content */}
+                    <div className="lg:col-span-1">
+                        <div>
+                            <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
+                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
+                            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
                         </div>
-                        <div className="hidden lg:flex lg:col-span-1 lg:mt-0 justify-center">
-                            <div className="w-full max-w-md">
-                                {activePillar.visual}
-                            </div>
+
+                        {/* Mobile Animation - Renders below description on small screens */}
+                        <div className="lg:hidden my-10">
+                            {activePillar.visual}
+                        </div>
+
+                        <div className="space-y-6 md:space-y-8 mt-10 mb-10">
+                            {activePillar.features.map((feature: any) => (
+                                <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
+                            ))}
+                        </div>
+                        <button className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}>
+                            <span>{activePillar.cta}</span>
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                        </button>
+                    </div>
+
+                    {/* Right Column: Visual */}
+                    <div className="hidden lg:flex lg:col-span-1 justify-center">
+                        <div className="w-full max-w-md">
+                            {activePillar.visual}
                         </div>
                     </div>
                 </div>

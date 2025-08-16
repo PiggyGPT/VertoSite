@@ -24,18 +24,12 @@ const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, cta
                     <Icon className={`text-${color} w-5 h-5`} />
                 </div>
                 <div>
-                    <p className="font-semibold text-slate-900 dark:text-white">{persona}</p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{company}</p>
+                    <p className="font-semibold text-slate-900 dark:text-white">{company}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{persona}</p>
                 </div>
             </div>
         </div>
-        {/* ADDED: CTA Link/Button to direct users to specific solution pages */}
-        <div className="mt-6">
-            <Link href={ctaLink} className="group inline-flex items-center text-sm font-semibold text-verto-blue dark:text-verto-cyan hover:text-verto-purple dark:hover:text-verto-blue">
-                <span>{ctaText}</span>
-                <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" />
-            </Link>
-        </div>
+
     </div>
 );
 
@@ -43,21 +37,21 @@ export default function ProblemSection() {
     const painPoints = [
         {
             icon: Landmark, color: 'verto-green', persona: 'Head of Innovation', company: 'Global Bank',
-            quote: 'How do we launch a compliant stablecoin on public chains and ensure it can be safely distributed and used at scale by our existing customers?',
+            quote: 'We need to launch a compliant stablecoin on public chains. How can we ensure it can be safely distributed and accepted for payments by our existing customers?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
         },
         {
-            icon: Repeat, color: 'verto-blue', persona: 'Chief Operating Officer', company: 'Digital Asset Exchange',
-            quote: 'We need to offer assets only on public chains, but managing the security, compliance, and fragmented liquidity is an operational nightmare.',
+            icon: Repeat, color: 'verto-blue', persona: 'Chief Operating Officer', company: 'Centralized Exchange',
+            quote: 'We need to offer assets only available on public chains. But accesing their fragmented liquidity in a secure, compliant way has been.  an operational nightmare.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
             ctaLink: '/solutions/exchanges'
         },
         {
-            icon: BarChart3, color: 'verto-purple', persona: 'Head of Trading', company: 'Quantitative Hedge Fund',
-            quote: 'How do we enforce our risk policies, and produce bulletproof audit trails for every transaction on public chains?',
+            icon: BarChart3, color: 'verto-purple', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
+            quote: 'Our systems are built on centralized control. How do we enforce our risk policies, and deliver regulator-proof audit trails for every transaction on public chains?',
             testId: 'quote-trading',
             ctaText: 'Explore Trading Solutions',
             ctaLink: '/solutions/trading'
