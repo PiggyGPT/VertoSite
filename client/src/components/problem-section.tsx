@@ -33,7 +33,17 @@ const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, cta
     </div>
 );
 
-export default function ProblemSection() {
+interface ProblemSectionProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+export default function ProblemSection({ 
+  title = "Breaking Down the Biggest Barriers to Public Chain Adoption",
+  subtitle = "Financial institutions face significant challenges when trying to access public blockchain networks safely and compliantly.",
+  description = "Traditional financial infrastructure wasn't built for the complexities of multi-chain operations, real-time compliance monitoring, and institutional-grade security controls required for public blockchain access."
+}: ProblemSectionProps = {}) {
     const painPoints = [
         {
             icon: Landmark, color: 'verto-green', persona: 'Head of Innovation', company: 'Global Bank',
@@ -66,10 +76,10 @@ export default function ProblemSection() {
             <div className="relative max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                      <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight" data-testid="problem-title">
-                        Purpose-Built for Your Operations
+                        {title}
                      </h2>
                      <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="problem-subtitle">
-                        We understand the unique operational, security, and compliance challenges institutions face when accessing public chains. 
+                        {subtitle} 
                      </p>
                 </div>
 

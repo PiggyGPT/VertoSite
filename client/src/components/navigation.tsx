@@ -54,15 +54,15 @@ export default function Navigation() {
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0" data-testid="logo">
-              <img src={logoSvg} alt="Verto Logo" className="h-7 w-auto" />
+              <img src={logoSvg} alt="Verto Logo" className="h-6 w-auto" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -90,7 +90,7 @@ export default function Navigation() {
               href="https://calendly.com/nilesh-vertoai/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 verto-gradient text-white rounded-lg font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 verto-gradient text-white rounded-lg font-medium text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
               Launch Your Pilot

@@ -1,7 +1,17 @@
 import { ArrowRight, Landmark, ArrowRightLeft, CandlestickChart, Rocket } from "lucide-react";
 import { Link } from "wouter";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+export default function HeroSection({ 
+  title = "The Institutional OS for Blockchain Operations", 
+  subtitle = "Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack.",
+  description = "Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack."
+}: HeroSectionProps = {}) {
 
   // UPDATED: CTAs now have more colorful styling aligned with Verto's brand colors and link to Calendly
   const actionCTAs = [
@@ -43,16 +53,14 @@ export default function HeroSection() {
       </div>
 
       <div className="relative max-w-5xl mx-auto text-center">
-        {/* ORIGINAL HEADLINE: Retained as requested. */}
         <h1 className="font-bold text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
           <span className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent">
-            Digital Asset Operations Platform
+            {title}
           </span>
         </h1>
 
-        {/* ORIGINAL SUBTITLE: Retained as requested. */}
         <p className="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="hero-subtitle">
-          Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack.
+          {subtitle}
         </p>
 
         {/* --- REVISED CTA BLOCK: Action-oriented buttons --- */}

@@ -1,4 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
+
+interface PillarsSectionProps {
+  title?: string;
+  subtitle?: string;
+}
 import { motion, AnimatePresence } from "framer-motion";
 import {
     User, Users, Rocket, Terminal,
@@ -1159,7 +1164,10 @@ const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentTyp
 );
 
 
-export default function PillarsSection() {
+export default function PillarsSection({ 
+  title = "One Unified Platform",
+  subtitle = "A self-hosted stack for trading, payments, and asset distribution on any chain.\nMonitored 24×7 by global experts with AI-automated compliance."
+}: PillarsSectionProps = {}) {
     const [activeTab, setActiveTab] = useState("distribution");
 
     // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
@@ -1248,10 +1256,15 @@ export default function PillarsSection() {
         <div id="infrastructure" className="bg-white dark:bg-slate-950 relative">
             <div className="text-center pt-16 pb-8">
                 <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
-                One Unified Platform
+                {title}
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-                A self-hosted stack for trading, payments, and asset distribution on any chain.<br/>Monitored 24×7 by global experts with AI-automated compliance.
+                {subtitle.split('\n').map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < subtitle.split('\n').length - 1 && <br/>}
+                  </React.Fragment>
+                ))}
                 </p>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

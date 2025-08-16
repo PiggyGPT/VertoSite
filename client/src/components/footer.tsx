@@ -1,13 +1,7 @@
 import { ArrowRight, Mail, Linkedin } from "lucide-react";
 import { SiX, SiTelegram } from "react-icons/si";
 import { Link } from "wouter";
-
-// Verto Logo Component (replace with your actual SVG if you have one)
-const VertoLogo = () => (
-    <span className="text-2xl font-bold bg-gradient-to-r from-verto-purple via-verto-blue to-verto-green bg-clip-text text-transparent">
-        verto
-    </span>
-);
+import logoSvg from "@assets/logo.svg";
 
 // This is the new, dedicated Call-to-Action section that lives right above the footer.
 export function PilotCtaSection() {
@@ -55,8 +49,8 @@ export default function Footer() {
                 <div className="grid md:grid-cols-12 gap-8">
                     {/* Company Info */}
                     <div className="md:col-span-4">
-                        <Link href="/">
-                            <VertoLogo />
+                        <Link href="/" className="inline-block">
+                            <img src={logoSvg} alt="Verto Logo" className="h-6 w-auto" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
                             The Institutional OS to mint, move, and monitor stablecoins with AI-powered compliance.
