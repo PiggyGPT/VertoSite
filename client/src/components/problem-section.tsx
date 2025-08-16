@@ -1,8 +1,19 @@
 import { Landmark, Repeat, BarChart3, ArrowRight } from "lucide-react";
-import Link from 'next/link'; // Assuming you use Next.js for routing
+import { Link } from "wouter";
 
 // Reusable Pain Point Card Component - Now with a CTA
-const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }) => (
+interface PainPointCardProps {
+    icon: React.ComponentType<{ className?: string }>;
+    color: string;
+    persona: string;
+    company: string;
+    quote: string;
+    testId: string;
+    ctaText: string;
+    ctaLink: string;
+}
+
+const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }: PainPointCardProps) => (
     <div className="relative p-6 h-full flex flex-col justify-between rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 shadow-lg backdrop-blur-lg" data-testid={testId}>
         <div>
             <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-5 italic">
@@ -20,11 +31,9 @@ const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, cta
         </div>
         {/* ADDED: CTA Link/Button to direct users to specific solution pages */}
         <div className="mt-6">
-            <Link href={ctaLink} passHref>
-                <a className="group inline-flex items-center text-sm font-semibold text-verto-blue dark:text-verto-cyan hover:text-verto-purple dark:hover:text-verto-blue">
-                    <span>{ctaText}</span>
-                    <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" />
-                </a>
+            <Link href={ctaLink} className="group inline-flex items-center text-sm font-semibold text-verto-blue dark:text-verto-cyan hover:text-verto-purple dark:hover:text-verto-blue">
+                <span>{ctaText}</span>
+                <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" />
             </Link>
         </div>
     </div>
