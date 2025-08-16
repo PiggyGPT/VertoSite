@@ -1131,15 +1131,10 @@ const FeatureItem = ({ icon: Icon, title, children }: { icon: any; title: string
         </div>
     </div>
 );
-// Make sure to import these at the top of your file
-import { useState } from 'react';
-import { ArrowRight, Zap, Globe, Server, GitBranch, ShieldCheck, Archive, Users, Terminal, Gauge, SlidersHorizontal, Shield, Database, LifeBuoy } from 'lucide-react';
-// And your visual components
-// import PolishedPaymentsFlow from './visuals/PolishedPaymentsFlow';
-// ... etc
+
 
 // ADDED: A small component to render the founder quotes for clarity and reusability
-const FounderQuote = ({ quote, name, title }) => (
+const FounderQuote = ({ quote, name, title }: { quote: string; name: string; title: string }) => (
     <div className="mt-6 mb-8 p-4 border-l-4 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/30 rounded-r-lg">
         <blockquote className="italic text-slate-600 dark:text-slate-300">
             "{quote}"
