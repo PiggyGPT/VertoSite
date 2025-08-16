@@ -45,8 +45,8 @@ export default function SecureDefiOps() {
       <Navigation />
       <div id="hero">
         <HeroSection 
-          title="Secure On-Chain Operations for Trading Firms"
-          subtitle="Institutional-grade security and compliance for DeFi trading, yield farming, and asset management. Enable your trading desk to safely access on-chain opportunities with enterprise security controls, real-time compliance monitoring, and institutional custody integration."
+          title="Secure DeFi Operations in 90 Days"
+          subtitle="Enable your trading desk to securely execute trading opportunities on any chain, with AI-powered risk management and compliance."
           customCTAs={secureOpsCTAs}
         />
       </div>
@@ -54,13 +54,36 @@ export default function SecureDefiOps() {
         <TeamSection />
         <ProblemSection 
           title="The DeFi Security Challenge"
-          subtitle="Trading firms face significant security and compliance risks in DeFi operations. Traditional trading infrastructure lacks the specialized security and compliance controls needed for safe DeFi operations at institutional scale."
+          subtitle="Traditional infrastructure lacks the specialized security and compliance controls needed for safe DeFi operations at institutional scale."
+          customQuotes={[
+            {
+              icon: "BarChart3",
+              color: "verto-blue",
+              persona: "CEO",
+              company: "Trading Desk",
+              quote: "We're caught between CeFi's limited opportunities and DeFi's unlimited risks. Our traditional centralized systems can't safely access the yield and arbitrage opportunities that exist on-chain."
+            },
+            {
+              icon: "Users",
+              color: "verto-purple", 
+              persona: "Head of Investments",
+              company: "Hedge Fund",
+              quote: "Multi-day manual reviews and inefficient operational processes are causing us to miss time-sensitive DeFi opportunities. We need automated, compliant execution at institutional scale."
+            },
+            {
+              icon: "Shield",
+              color: "verto-green",
+              persona: "CISO", 
+              company: "Investment Fund",
+              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without exposing ourselves to smart contract exploits?"
+            }
+          ]}
         />
       </div>
       <div id="infrastructure">
         <PillarsSection 
           title="Institutional DeFi Security Platform"
-          subtitle="A hardened platform for secure DeFi operations with real-time compliance monitoring and institutional custody integration.\nZero security incidents across $2.4B in managed assets with 60% better risk-adjusted returns."
+          subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
         />
       </div>
       <div id="pilot">

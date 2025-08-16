@@ -1,5 +1,17 @@
-import { Landmark, Repeat, BarChart3, ArrowRight } from "lucide-react";
+import { Landmark, Repeat, BarChart3, ArrowRight, CreditCard, Shield, TrendingDown, Users, Target } from "lucide-react";
 import { Link } from "wouter";
+
+// Icon mapping for custom quotes
+const iconMap = {
+  Landmark,
+  Repeat,
+  BarChart3, 
+  CreditCard,
+  Shield,
+  TrendingDown,
+  Users,
+  Target
+};
 
 // Reusable Pain Point Card Component - Now with a CTA
 interface PainPointCardProps {
@@ -33,18 +45,29 @@ const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, cta
     </div>
 );
 
+interface CustomQuote {
+  icon: string;
+  color: string;
+  persona: string;
+  company: string;
+  quote: string;
+}
+
 interface ProblemSectionProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  customQuotes?: CustomQuote[];
 }
 
 export default function ProblemSection({ 
-  title = "Breaking Down the Biggest Barriers to Public Chain Adoption",
-  subtitle = "Financial institutions face significant challenges when trying to access public blockchain networks safely and compliantly.",
-  description = "Traditional financial infrastructure wasn't built for the complexities of multi-chain operations, real-time compliance monitoring, and institutional-grade security controls required for public blockchain access."
+  title = "Purpose-Built for Your Operations",
+  subtitle = "We understand the unique operational, security, and compliance challenges institutions face when accessing public chains.",
+  description = "We understand the unique operational, security, and compliance challenges institutions face when accessing public chains.",
+  customQuotes
 }: ProblemSectionProps = {}) {
-    const painPoints = [
+    
+    const defaultPainPoints = [
         {
             icon: Landmark, color: 'verto-green', persona: 'Head of Innovation', company: 'Global Bank',
             quote: 'We need to launch a compliant stablecoin on public chains. How can we ensure it can be safely distributed and accepted for payments by our existing customers?',
@@ -67,6 +90,18 @@ export default function ProblemSection({
             ctaLink: '/solutions/trading'
         },
     ];
+
+    // Convert custom quotes to pain points format if provided
+    const painPoints = customQuotes ? customQuotes.map((quote, index) => ({
+        icon: iconMap[quote.icon as keyof typeof iconMap] || Landmark,
+        color: quote.color,
+        persona: quote.persona,
+        company: quote.company,
+        quote: quote.quote,
+        testId: `quote-${index}`,
+        ctaText: 'Learn More',
+        ctaLink: '#'
+    })) : defaultPainPoints;
 
     return (
         <section className="relative py-16 md:py-20 px-6 sm:px-8 overflow-hidden bg-white dark:bg-gray-900">

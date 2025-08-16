@@ -19,9 +19,9 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ 
-  title = "The Institutional OS for Blockchain Operations", 
-  subtitle = "Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack.",
-  description = "Securely access public chains for trading, payments, and asset distribution with an AI-powered compliance and security stack.",
+  title = "Digital Asset Operations Platform", 
+  subtitle = "Securely access public chains for trading, payments, and asset distribution with AI-powered security and compliance.",
+  description = "Securely access public chains for trading, payments, and asset distribution with AI-powered security and compliance.",
   customCTAs
 }: HeroSectionProps = {}) {
 

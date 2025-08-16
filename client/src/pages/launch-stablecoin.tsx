@@ -45,22 +45,45 @@ export default function LaunchStablecoin() {
       <Navigation />
       <div id="hero">
         <HeroSection 
-          title="Launch Your Institutional Stablecoin"
-          subtitle="Deploy a compliant, scalable stablecoin with enterprise-grade infrastructure in 90 days. Transform your financial institution with a fully regulated stablecoin platform built for banks, payment processors, and fintech companies."
+          title="Launch Your Stablecoin in 90 Days"
+          subtitle="Activate your network with Verto's complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance."
           customCTAs={stablecoinCTAs}
         />
       </div>
       <div id="team">
         <TeamSection />
         <ProblemSection 
-          title="The Stablecoin Distribution Challenge"
-          subtitle="Traditional banking rails limit your stablecoin's reach and growth potential. Scaling stablecoin adoption through legacy infrastructure is slow, capital-intensive, and fails to reach mass markets while maintaining institutional compliance standards."
+          title="From Minting to Market Adoption"
+          subtitle="Stablecoins succeed when they're widely held, actively spent, and deeply trusted."
+          customQuotes={[
+            {
+              icon: "Landmark",
+              color: "verto-blue",
+              persona: "CEO",
+              company: "National Bank",
+              quote: "We're a cash-first economy serving 50 million customers. How do we scale stablecoin distribution and usage across our entire agent network with minimal friction while maintaining the trust our customers have in physical cash?"
+            },
+            {
+              icon: "CreditCard",
+              color: "verto-purple", 
+              persona: "Head of Payments",
+              company: "Regional Bank",
+              quote: "Merchants can't reconcile stablecoin transactions like traditional card payments, and wallet pop-ups are killing our checkout conversion rates. We need payment rails that work like Stripe but with stablecoins."
+            },
+            {
+              icon: "Shield",
+              color: "verto-green",
+              persona: "CISO", 
+              company: "Digital Bank",
+              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without compromising security?"
+            }
+          ]}
         />
       </div>
       <div id="infrastructure">
         <PillarsSection 
-          title="Enterprise Stablecoin Infrastructure"
-          subtitle="A complete stack for minting, distributing, and managing institutional stablecoins across any blockchain network.\nFull regulatory compliance with real-time monitoring and automated policy enforcement."
+          title="One Unified Platform"
+          subtitle="A self-hosted stack for stablecoin trading, payments, and asset distribution. Monitored 24×7 by global experts with AI-automated compliance."
         />
       </div>
       <div id="pilot">

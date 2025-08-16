@@ -45,8 +45,8 @@ export default function OfferDefiProducts() {
       <Navigation />
       <div id="hero">
         <HeroSection 
-          title="Offer DeFi Products to Your Customers"
-          subtitle="Launch compliant on-chain trading, lending, and yield products for digital asset exchanges. Enable your exchange customers to access institutional-grade DeFi opportunities while maintaining full regulatory compliance and risk controls."
+          title="Launch DeFi Products in 90 Days"
+          subtitle="Securely expand your digital asset offerings and access multi-chain liquidity, while maintaining full regulatory compliance and risk controls."
           customCTAs={defiProductsCTAs}
         />
       </div>
@@ -54,13 +54,36 @@ export default function OfferDefiProducts() {
         <TeamSection />
         <ProblemSection 
           title="The DeFi Integration Challenge"
-          subtitle="Exchanges struggle to offer DeFi products without compromising security or compliance. Traditional exchanges lack the infrastructure to safely integrate DeFi protocols while meeting institutional risk management and regulatory requirements."
+          subtitle="Exchanges struggle to expand DeFi offerings at scale without compromising on security or regulatory compliance."
+          customQuotes={[
+            {
+              icon: "TrendingDown",
+              color: "verto-blue",
+              persona: "CEO",
+              company: "Digital Asset Exchange",
+              quote: "We're losing business to DEXs through customer withdrawals. Our users want DeFi yields and exotic assets, but we can't offer them without compromising our institutional security standards."
+            },
+            {
+              icon: "Target",
+              color: "verto-purple", 
+              persona: "Head of Liquidity",
+              company: "Crypto Exchange",
+              quote: "DeFi has the deepest liquidity pools for long-tail assets, but accessing them securely is nearly impossible. We need institutional-grade infrastructure to tap into these markets safely."
+            },
+            {
+              icon: "Shield",
+              color: "verto-green",
+              persona: "CISO", 
+              company: "Trading Platform",
+              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every DeFi transaction without exposing our customers to smart contract risks?"
+            }
+          ]}
         />
       </div>
       <div id="infrastructure">
         <PillarsSection 
-          title="Institutional DeFi Infrastructure"
-          subtitle="A secure, compliant platform for offering DeFi trading, lending, and yield products to exchange customers.\nBattle-tested security with institutional-grade compliance and risk management controls."
+          title="One Unified Platform"
+          subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
         />
       </div>
       <div id="pilot">
