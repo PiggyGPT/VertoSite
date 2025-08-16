@@ -106,7 +106,7 @@ export default function SecureDefiOps() {
               color: "verto-green",
               persona: "CISO", 
               company: "Investment Fund",
-              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without exposing ourselves to exploits?"
+              quote: "How can we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without exposing ourselves to smart contract exploits?"
             }
           ]}
         />

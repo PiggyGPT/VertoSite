@@ -58,7 +58,7 @@ const stablecoinWhyNowReasons = [
   {
     icon: CheckCircle,
     title: "The Regulatory Green Light is a Starting Gun",
-    description: "With frameworks like MiCA providing clarity, the first banks to market will capture infrastructure-level network effects and lock in the most valuable clients."
+    description: "With frameworks like GENIUS and MiCA providing clarity, the first banks to market will capture infrastructure-level network effects and lock in the most valuable clients."
   }
 ];
 
