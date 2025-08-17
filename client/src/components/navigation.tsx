@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import logoSvg from "@assets/logo.svg";
 
 // It's good practice to create a dedicated component for custom icons.
@@ -19,6 +19,7 @@ const SocialXIcon = ({ className }: { className?: string }) => (
 
 // Define navigation links for the new landing pages
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/launch-stablecoin", label: "Launch Stablecoin" },
   { href: "/offer-defi-products", label: "Offer DeFi Products" },
   { href: "/secure-defi-ops", label: "Secure DeFi Ops" },
@@ -27,6 +28,7 @@ const navLinks = [
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,8 +43,19 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  // Base classes for nav links for consistency
-  const navLinkClasses = "font-small text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue transition-colors duration-200";
+  // Function to get nav link classes with active state
+  const getNavLinkClasses = (href: string) => {
+    const isActive = location === href;
+    const baseClasses = "font-small relative transition-all duration-200";
+    const colorClasses = isActive 
+      ? "text-verto-blue dark:text-verto-blue" 
+      : "text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue";
+    const underlineClasses = isActive 
+      ? "after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:h-0.5 after:bg-verto-blue after:rounded-full" 
+      : "";
+    
+    return `${baseClasses} ${colorClasses} ${underlineClasses}`;
+  };
 
   return (
     <nav
@@ -67,7 +80,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={navLinkClasses}
+                className={getNavLinkClasses(link.href)}
                 data-testid={`nav-${link.href}`}
                 onClick={() => {
                   window.scrollTo(0, 0);
@@ -83,7 +96,7 @@ export default function Navigation() {
               href="https://x.com/Verto_AI"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${navLinkClasses} hidden sm:block p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800`}
+              className="text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue transition-colors duration-200 hidden sm:block p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
               aria-label="Follow Verto AI on X"
               data-testid="nav-twitter"
             >
@@ -114,20 +127,27 @@ export default function Navigation() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800" data-testid="mobile-menu">
           <div className="px-6 py-5 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => {
-                  closeMobileMenu();
-                  window.scrollTo(0, 0);
-                }}
-                className="block w-full text-left text-lg text-slate-700 dark:text-slate-200 py-2"
-                data-testid={`mobile-nav-${link.href}`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => {
+                    closeMobileMenu();
+                    window.scrollTo(0, 0);
+                  }}
+                  className={`block w-full text-left text-lg py-2 transition-colors duration-200 ${
+                    isActive 
+                      ? "text-verto-blue dark:text-verto-blue font-medium border-l-2 border-verto-blue pl-3" 
+                      : "text-slate-700 dark:text-slate-200"
+                  }`}
+                  data-testid={`mobile-nav-${link.href}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
              <a
               href="https://x.com/Verto_AI"
               target="_blank"
