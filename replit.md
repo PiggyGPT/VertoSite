@@ -61,3 +61,15 @@ Preferred communication style: Simple, everyday language.
 
 ### Third-Party Integrations
 - **Fonts**: Google Fonts (General Sans).
+
+## Deployment Configuration
+
+### Static Deployment Fix (August 17, 2025)
+- **Issue**: Replit static deployment failed due to missing `index.html` in `dist/` root directory
+- **Root Cause**: Vite configuration outputs files to `dist/public/` instead of `dist/`
+- **Solution**: Created deployment workflow that copies built files from `dist/public/` to `dist/` root
+- **Files Added**:
+  - `build-static.sh`: Automated script for preparing static deployment structure
+  - `DEPLOYMENT_README.md`: Comprehensive deployment guide with troubleshooting
+- **Current Structure**: Static files now properly located in `dist/` for Replit deployment
+- **Build Process**: `npm run build` generates files, manual copy step required for deployment
