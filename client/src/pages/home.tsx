@@ -8,6 +8,7 @@ import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
 import { Shield, Target, Clock } from "lucide-react";
+import { updatePageSEO } from "@/lib/seo";
 
 // Optimized Why Now content for homepage - cross-cutting institutional urgency
 const homepageWhyNowReasons = [
@@ -30,11 +31,7 @@ const homepageWhyNowReasons = [
 
 export default function Home() {
   useEffect(() => {
-    document.title = "VERTO — Launch your stablecoin in 90 days.";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Digital Asset Operations Platform for trading, payments, and distribution on any chain.');
-    }
+    updatePageSEO('home');
   }, []);
 
   return (

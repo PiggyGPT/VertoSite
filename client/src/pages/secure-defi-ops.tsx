@@ -11,6 +11,7 @@ import { ShieldCheck, Bot, Headphones, Clock, AlertTriangle, Briefcase } from "l
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png";
 import hishamImage from "@assets/hisham_1754986415368.png";
+import { updatePageSEO } from "@/lib/seo";
 
 // Define custom CTAs for secure DeFi ops landing page
 const secureOpsCTAs = [
@@ -64,11 +65,7 @@ const secureOpsWhyNowReasons = [
 
 export default function SecureDefiOps() {
   useEffect(() => {
-    document.title = "Secure DeFi Operations in 90 Days - Verto";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Enable your trading desk to securely execute trading opportunities on any chain, with AI-powered risk management and compliance.');
-    }
+    updatePageSEO('secure-defi-ops');
   }, []);
 
   return (

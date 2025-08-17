@@ -11,6 +11,7 @@ import { ShieldCheck, Store, Bot, Waves, Target, Building } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png";
 import nileshImage from "@assets/nilesh_1754986415369.png";
+import { updatePageSEO } from "@/lib/seo";
 
 // Define custom CTAs for DeFi products landing page
 const defiProductsCTAs = [
@@ -64,11 +65,7 @@ const defiProductsWhyNowReasons = [
 
 export default function OfferDefiProducts() {
   useEffect(() => {
-    document.title = "Launch DeFi Products in 90 Days - Verto";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Securely expand your digital asset offerings and access multi-chain liquidity, while maintaining full regulatory compliance and risk controls.');
-    }
+    updatePageSEO('offer-defi-products');
   }, []);
 
   return (

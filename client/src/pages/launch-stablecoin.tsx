@@ -11,6 +11,7 @@ import { Zap, Store, ShieldCheck, Crown, Rocket, CheckCircle } from "lucide-reac
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png"; 
 import nileshImage from "@assets/nilesh_1754986415369.png";
+import { updatePageSEO } from "@/lib/seo";
 
 // Define custom CTAs for stablecoin landing page
 const stablecoinCTAs = [
@@ -64,11 +65,7 @@ const stablecoinWhyNowReasons = [
 
 export default function LaunchStablecoin() {
   useEffect(() => {
-    document.title = "Launch Your Stablecoin in 90 Days - Verto";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Activate your network with Verto\'s complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance.');
-    }
+    updatePageSEO('launch-stablecoin');
   }, []);
 
   return (
