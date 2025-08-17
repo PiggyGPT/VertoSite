@@ -63,6 +63,22 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                     )}
                 </div>
             </div>
+            
+            {/* Call to Action */}
+            <div className="relative max-w-7xl mx-auto mt-12 text-center">
+                <a
+                    href="https://calendly.com/nilesh-vertoai/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 shadow-lg"
+                    data-testid="launch-pilot-cta"
+                >
+                    Launch Pilot in 90 Days
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
   );

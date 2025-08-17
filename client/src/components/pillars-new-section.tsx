@@ -22,7 +22,7 @@ import {
     LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
     ChevronDown, Landmark, History, Link, Clock, Plus,
     Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-    Cpu, Keyboard, Monitor
+    Cpu, Keyboard, Monitor, Coins, CreditCard
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -1178,7 +1178,7 @@ export default function PillarsSection({
   subtitle = "A self-hosted stack for trading, payments, and asset distribution on any chain.\nMonitored 24×7 by global experts with AI-automated compliance.",
   customFounderQuotes
 }: PillarsSectionProps = {}) {
-    const [activeTab, setActiveTab] = useState("liquidity");
+    const [activeTab, setActiveTab] = useState("distribution");
 
     // Listen for pillar activation events from hero CTAs
     useEffect(() => {
@@ -1195,18 +1195,18 @@ export default function PillarsSection({
     // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
     // Founder images are now included.
     const defaultPillars = {
-        liquidity: { 
-            label: "Trading", color: "verto-blue", title: "Institutional Liquidity", 
-            description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
-            visual: <ExecutiveLiquidityFlow />,
+        distribution: { 
+            label: "Distribution", color: "verto-green", title: "Instant On-Ramps", 
+            description: "Enable instant-on-demand minting where value is deposited, no pre-funding required.", 
+            visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
-                quote: "At GSR, we built complex proprietary operations just to interact with DeFi protocols safely. I wonder how other institutions can participate without recreating them.",
+                quote: "Every bank CEO launching a stablecoin faces the same question: 'How do we scale beyond our branch network?' The answer isn't more branches—it's turning your correspondent banking relationships into digital asset distribution channels. That's exactly how the Fed scaled dollar distribution globally.",
                 name: "David Cass",
-                title: "CEO | Former CISO at GSR",
+                title: "CEO | Former Federal Reserve Regulator",
                 image: davidImage
             },
-            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Non-Custodial", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
-            cta: "Integrate Liquidity API" 
+            features: [ { icon: Coins, title: "Leverage Existing Networks", description: "Activate your correspondent banking network and business partnerships as instant digital asset distribution channels." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant minting at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." }, ], 
+            cta: "Scale Distribution Network" 
         },
         payments: { 
             label: "Payments", color: "verto-purple", title: "Frictionless Checkout", 
@@ -1221,18 +1221,18 @@ export default function PillarsSection({
             features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], 
             cta: "Explore Payments API" 
         },
-        distribution: { 
-            label: "Distribution", color: "verto-green", title: "On-Demand Issuance", 
-            description: "Scale your digital asset through existing financial partnerships—banks, payment processors, and institutional networks—without pre-funded treasury risk.", 
-            visual: <ExecutiveDistributionFlow />, 
+        trading: { 
+            label: "Trading", color: "verto-blue", title: "Institutional Liquidity", 
+            description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
+            visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "Your tokenization offerings are only as valuable to your clients as your ability to distribute them across your network with Fed-like security.",
+                quote: "At GSR, we built complex proprietary operations just to interact with DeFi protocols safely. I wonder how other institutions can participate without recreating them.",
                 name: "David Cass",
-                title: "CEO | Former Federal Reserve Regulator",
+                title: "CEO | Former CISO at GSR",
                 image: davidImage
             },
-            features: [ { icon: Users, title: "Leverage Existing Networks", description: "Activate vast, pre-existing retail and agent networks to scale adoption without new infrastructure." }, { icon: Zap, title: "Zero-Float Operations", description: "On-demand minting is backed by real-time deposits, eliminating the need for a costly, pre-funded treasury." }, { icon: Terminal, title: "Partner Portal & APIs", description: "A powerful, simple interface for partners to manage credit, issue assets, and monitor earnings." }, ], 
-            cta: "Get Distribution Playbook" 
+            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: ShieldCheck, title: "Non-Custodial", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: Archive, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
+            cta: "Integrate Liquidity API" 
         },
         compliance: { 
             label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance", 

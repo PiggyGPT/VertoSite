@@ -63,13 +63,37 @@ export default function Footer() {
                              <div key={title}>
                                 <h4 className="font-semibold text-white tracking-wider uppercase text-sm mb-4">{title}</h4>
                                 <ul className="space-y-3">
-                                    {links.map(link => (
-                                        <li key={link}>
-                                            <a href="#" className="text-slate-400 hover:text-white transition-colors duration-200">
-                                                {link}
-                                            </a>
-                                        </li>
-                                    ))}
+                                    {links.map(link => {
+                                        let href = "#";
+                                        if (link === "Financial Institutions") href = "/launch-stablecoin";
+                                        else if (link === "Exchanges") href = "/offer-defi-products";
+                                        else if (link === "Trading Firms") href = "/secure-defi-ops";
+                                        else if (link === "Platform") href = "#infrastructure";
+                                        else if (link === "Email") href = "mailto:info@verto.ai";
+                                        else if (link === "X") href = "https://x.com/Verto_AI";
+                                        else if (link === "Telegram") href = "https://t.me/VertoAI";
+                                        
+                                        return (
+                                            <li key={link}>
+                                                <a 
+                                                    href={href} 
+                                                    className="text-slate-400 hover:text-white transition-colors duration-200"
+                                                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                                                    {...(href === "#infrastructure" ? { 
+                                                        onClick: (e) => {
+                                                            e.preventDefault();
+                                                            const element = document.getElementById('infrastructure');
+                                                            if (element) {
+                                                                element.scrollIntoView({ behavior: 'smooth' });
+                                                            }
+                                                        }
+                                                    } : {})}
+                                                >
+                                                    {link}
+                                                </a>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             </div>
                         ))}

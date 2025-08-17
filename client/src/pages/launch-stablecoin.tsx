@@ -37,7 +37,7 @@ const stablecoinCTAs = [
     subtitle: "Institutional trading access",
     icon: ShieldCheck,
     href: "#infrastructure",
-    pillarKey: "liquidity",
+    pillarKey: "trading",
     bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
     iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
   }
