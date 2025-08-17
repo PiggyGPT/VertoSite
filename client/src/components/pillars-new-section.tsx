@@ -1208,7 +1208,7 @@ export default function PillarsSection({
             description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "At GSR, we built complex proprietary operations just to interact with DeFi protocols safely. I wonder how other institutions can participate without recreating them.",
+                quote: "At GSR, we had to build complex proprietary operations to securely access DeFi protocols. Every other institution needs a similar model.",
                 name: "David Cass",
                 title: "CEO | Former CISO at GSR",
                 image: davidImage
@@ -1234,7 +1234,7 @@ export default function PillarsSection({
             description: "Enable instant-on-demand minting where value is deposited, no pre-funding required.", 
             visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
-                quote: "Every bank CEO launching a stablecoin faces the same question: 'How do we scale beyond our branch network?' The answer isn't more branches—it's turning your correspondent banking relationships into digital asset distribution channels. That's exactly how the Fed scaled dollar distribution globally.",
+                quote: "The Fed needs to securely distribute dollars through its global banking network across thousands of institutions. A bank-issued stablecoin faces the exact same challenge.",
                 name: "David Cass",
                 title: "CEO | Former Federal Reserve Regulator",
                 image: davidImage
@@ -1247,7 +1247,7 @@ export default function PillarsSection({
             description: "Transform regulatory compliance from a cost center into a competitive advantage with continuous monitoring and automated reporting that satisfies bank regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
-                quote: "The DOJ wants evidence, not excuses. Every CCO needs real-time audit trails that speaks the regulator's language.",
+                quote: "DOJ audits require you to report the 'why' behind every transaction, not just the 'what' from blockchain data — current tools aren't built to solve this.",
                 name: "Daniel Garrie",
                 title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
                 image: danielImage
@@ -1261,7 +1261,7 @@ export default function PillarsSection({
             description: "Maintain operational integrity with our global SOC teams providing monitoring and support for your self-hosted environment.", 
             visual: <ExecutiveServiceFlow />,
             founderQuote: { 
-                quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. You need Google's 24/7 SRE standards to protect your DeFi treasury.",
+                quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. You need Google's 24/7 SRE standards to protect your treasury.",
                 name: "Hisham Anwar",
                 title: "CTO | Ex-Google Head of Product",
                 image: hishamImage
