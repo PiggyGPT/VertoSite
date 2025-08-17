@@ -69,6 +69,9 @@ export default function Navigation() {
                 href={link.href}
                 className={navLinkClasses}
                 data-testid={`nav-${link.href}`}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
               >
                 {link.label}
               </Link>
@@ -115,7 +118,10 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={closeMobileMenu}
+                onClick={() => {
+                  closeMobileMenu();
+                  window.scrollTo(0, 0);
+                }}
                 className="block w-full text-left text-lg text-slate-700 dark:text-slate-200 py-2"
                 data-testid={`mobile-nav-${link.href}`}
               >

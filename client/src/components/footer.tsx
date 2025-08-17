@@ -87,6 +87,10 @@ export default function Footer() {
                                                                 element.scrollIntoView({ behavior: 'smooth' });
                                                             }
                                                         }
+                                                    } : href.startsWith("/") ? {
+                                                        onClick: () => {
+                                                            setTimeout(() => window.scrollTo(0, 0), 100);
+                                                        }
                                                     } : {})}
                                                 >
                                                     {link}
