@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useCalendlyModal } from "./calendly-modal";
 
 interface CustomFounderQuote {
   pillarKey: string;
@@ -1187,6 +1188,7 @@ export default function PillarsSection({
   customOrder
 }: PillarsSectionProps = {}) {
     const [activeTab, setActiveTab] = useState(customOrder ? customOrder[0] : "trading");
+    const { openModal, CalendlyModal } = useCalendlyModal();
 
     // Listen for pillar activation events from hero CTAs
     useEffect(() => {
@@ -1371,7 +1373,10 @@ export default function PillarsSection({
                                 <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
                             ))}
                         </div>
-                        <button className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}>
+                        <button 
+                            onClick={openModal}
+                            className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}
+                        >
                             <span>{activePillar.cta}</span>
                             <ArrowRight className="w-4 h-4 ml-2" />
                         </button>
@@ -1388,6 +1393,8 @@ export default function PillarsSection({
                 {/* DESIGN CHANGE: Founder Insight Banner moved to bottom, after benefits and UX slideshow */}
                 {activePillar.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
             </div>
+            
+            <CalendlyModal title={`Get Started with ${activePillar.label}`} />
         </div>
     );
 }

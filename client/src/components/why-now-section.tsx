@@ -1,4 +1,5 @@
 import { CalendarDays, Rocket, TrendingDown } from "lucide-react";
+import { useCalendlyModal } from "./calendly-modal";
 
 const ReasonCard = ({ icon: Icon, title, children }: { icon: any, title: string, children: React.ReactNode }) => (
     <div className="bg-white/50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 backdrop-blur-lg shadow-lg">
@@ -23,6 +24,7 @@ interface WhyNowProps {
 }
 
 export default function WhyNowSection({ customReasons, customTitle, customSubtitle }: WhyNowProps = {}) {
+  const { openModal, CalendlyModal } = useCalendlyModal();
   return (
     <section id="why-now" className="relative py-24 px-6 sm:px-8 overflow-hidden bg-white dark:bg-gray-900">
         {/* Background Aura */}
@@ -66,10 +68,8 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
             
             {/* Call to Action */}
             <div className="relative max-w-7xl mx-auto mt-12 text-center">
-                <a
-                    href="https://calendly.com/nilesh-vertoai/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button
+                    onClick={openModal}
                     className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 shadow-lg"
                     data-testid="launch-pilot-cta"
                 >
@@ -77,9 +77,11 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                </a>
+                </button>
             </div>
         </div>
+        
+        <CalendlyModal title="Launch Pilot in 90 Days" />
     </section>
   );
 }

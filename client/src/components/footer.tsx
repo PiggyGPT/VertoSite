@@ -2,15 +2,11 @@ import { ArrowRight, Mail } from "lucide-react";
 import { SiX, SiTelegram } from "react-icons/si";
 import { Link } from "wouter";
 import logoSvg from "@assets/logo.svg";
+import { useCalendlyModal } from "./calendly-modal";
 
 // This is the new, dedicated Call-to-Action section that lives right above the footer.
 export function PilotCtaSection() {
-    const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    const { openModal, CalendlyModal } = useCalendlyModal();
 
     return (
         <section id="pilot-cta" className="bg-slate-100 dark:bg-gray-800/60">
@@ -21,16 +17,16 @@ export function PilotCtaSection() {
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
                     Let's design a 90-day pilot that provides the data you need and the confidence your stakeholders demand.
                 </p>
-                 <a
-                    href="https://calendly.com/nilesh-vertoai/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                 <button
+                    onClick={openModal}
                     className="group mt-8 inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
                 >
                     <span>Schedule a Consultation</span>
                     <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </a>
+                </button>
             </div>
+            
+            <CalendlyModal title="Schedule a Consultation" />
         </section>
     );
 }

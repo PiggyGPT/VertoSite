@@ -1,11 +1,11 @@
 // src/components/PilotProgramSection.tsx
 
-import { useState } from "react";
+
 import { Check, Rocket, BarChart3, Target, ArrowRight } from "lucide-react";
-//import ContactModal from "./ContactModal"; // Import the new modal
+import { useCalendlyModal } from "./calendly-modal";
 
 // Helper component for a timeline item (no changes here)
-const TimelineItem = ({ phase, title, icon: Icon, color, children }) => (
+const TimelineItem = ({ phase, title, icon: Icon, color, children }: { phase: string, title: string, icon: any, color: string, children: React.ReactNode }) => (
   <div className="relative pl-8 sm:pl-12 py-6 group">
     {/* Styling remains the same */}
     <div className={`absolute left-0 top-11 h-full w-0.5 bg-slate-200 dark:bg-slate-700 group-last:h-0`}></div>
@@ -25,7 +25,7 @@ const TimelineItem = ({ phase, title, icon: Icon, color, children }) => (
 );
 
 export default function PilotProgramSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal, CalendlyModal } = useCalendlyModal();
 
   return (
     <>
@@ -58,20 +58,20 @@ export default function PilotProgramSection() {
 
           {/* --- NEW CTA SECTION --- */}
           <div className="mt-12 text-center">
-            <a
-              href="https://calendly.com/nilesh-vertoai/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={openModal}
               className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
             >
               <span>Apply for the Pilot Program</span>
               <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">Limited spots available for our next cohort.</p>
           </div>
 
         </div>
       </section>
+      
+      <CalendlyModal title="Apply for the Pilot Program" />
     </>
   );
 }

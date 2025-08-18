@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import logoSvg from "@assets/logo.svg";
+import { useCalendlyModal } from "./calendly-modal";
 
 // It's good practice to create a dedicated component for custom icons.
 const SocialXIcon = ({ className }: { className?: string }) => (
@@ -29,6 +30,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { openModal, CalendlyModal } = useCalendlyModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,15 +104,13 @@ export default function Navigation() {
             >
               <SocialXIcon className="h-5 w-5" />
             </a>
-            <a
-              href="https://calendly.com/nilesh-vertoai/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={openModal}
               className="hidden sm:inline-flex items-center justify-center px-4 py-2 verto-gradient text-white rounded-lg font-xs text-xs hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
               Launch Pilot
-            </a>
+            </button>
             <button
               className="md:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -158,9 +158,21 @@ export default function Navigation() {
               <SocialXIcon className="h-5 w-5 mr-3" />
               Follow on X
             </a>
+            <button
+              onClick={() => {
+                openModal();
+                closeMobileMenu();
+              }}
+              className="w-full mt-4 inline-flex items-center justify-center px-4 py-3 verto-gradient text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-all duration-300"
+              data-testid="mobile-nav-get-started"
+            >
+              Launch Pilot
+            </button>
           </div>
         </div>
       )}
+      
+      <CalendlyModal title="Launch Your Pilot Program" />
     </nav>
   );
 }
