@@ -6,16 +6,16 @@ import { useCalendlyModal } from "./calendly-modal";
 
 // Helper component for a timeline item (no changes here)
 const TimelineItem = ({ phase, title, icon: Icon, color, children }: { phase: string, title: string, icon: any, color: string, children: React.ReactNode }) => (
-  <div className="relative pl-8 sm:pl-12 py-6 group">
+  <div className="relative pl-8 sm:pl-12 py-4 sm:py-6 group">
     {/* Styling remains the same */}
-    <div className={`absolute left-0 top-11 h-full w-0.5 bg-slate-200 dark:bg-slate-700 group-last:h-0`}></div>
-<div className={`absolute left-0 top-11 w-0.5 bg-${color} transition-all duration-500 scale-y-0 group-hover:scale-y-100`}></div>
-<div className="absolute left-[-9px] sm:left-[-11px] top-8 flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-slate-800 ring-4 ring-white dark:ring-slate-800">
+    <div className={`absolute left-0 top-9 sm:top-11 h-full w-0.5 bg-slate-200 dark:bg-slate-700 group-last:h-0`}></div>
+<div className={`absolute left-0 top-9 sm:top-11 w-0.5 bg-${color} transition-all duration-500 scale-y-0 group-hover:scale-y-100`}></div>
+<div className="absolute left-[-9px] sm:left-[-11px] top-6 sm:top-8 flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-slate-800 ring-4 ring-white dark:ring-slate-800">
 <div className={`w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-${color} transition-colors`}></div>
 </div>
-<p className={`text-sm font-semibold uppercase tracking-wider text-${color}`}>{phase}</p>
-<h4 className="mt-1 text-xl font-semibold text-slate-800 dark:text-slate-100 flex items-center">
-<Icon className="w-5 h-5 mr-3 text-slate-500 dark:text-slate-400" />
+<p className={`text-xs sm:text-sm font-semibold uppercase tracking-wider text-${color}`}>{phase}</p>
+<h4 className="mt-1 text-lg sm:text-xl font-semibold text-slate-800 dark:text-slate-100 flex items-center">
+<Icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-slate-500 dark:text-slate-400" />
 {title}
 </h4>
 <div className="mt-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -30,13 +30,13 @@ export default function PilotProgramSection() {
   return (
     <>
       {/* <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
-      <section id="pilot" className="py-16 md:py-20 bg-slate-50 dark:bg-gray-900/50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
+      <section id="pilot" className="py-12 sm:py-16 md:py-20 bg-slate-50 dark:bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
               Launch Your Pilot in 90 Days
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed px-2">
               Our program is structured to deliver the quantifiable data your board and regulators need to scale with confidence.
             </p>
           </div>
@@ -57,13 +57,13 @@ export default function PilotProgramSection() {
           </div>
 
           {/* --- NEW CTA SECTION --- */}
-          <div className="mt-12 text-center">
+          <div className="mt-10 sm:mt-12 text-center">
             <button
               onClick={openModal}
-              className="group inline-flex items-center justify-center px-8 py-4 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-verto-blue/20"
+              className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-verto-blue/20 text-sm sm:text-base"
             >
               <span>Apply for the Pilot Program</span>
-              <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 group-hover:text-verto-blue transition-all" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-1 group-hover:text-verto-blue transition-all" />
             </button>
              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">Limited spots available for our next cohort.</p>
           </div>

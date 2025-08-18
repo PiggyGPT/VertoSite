@@ -107,7 +107,7 @@ export default function Navigation() {
             </a>
             <button
               onClick={openModal}
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 verto-gradient text-white rounded-lg font-xs text-xs hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 verto-gradient text-white rounded-lg font-md text-md hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
               Launch Pilot
@@ -127,7 +127,7 @@ export default function Navigation() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800" data-testid="mobile-menu">
-          <div className="px-6 py-5 space-y-4">
+          <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
             {navLinks.map((link) => {
               const isActive = location === link.href;
               return (
@@ -138,7 +138,7 @@ export default function Navigation() {
                     closeMobileMenu();
                     window.scrollTo(0, 0);
                   }}
-                  className={`flex items-center gap-3 w-full text-left text-sm py-2 transition-colors duration-200 ${
+                  className={`flex items-center gap-3 w-full text-left text-sm sm:text-base py-2 sm:py-3 transition-colors duration-200 ${
                     isActive 
                       ? "text-verto-blue dark:text-verto-blue font-xs border-l-2 border-verto-blue pl-3" 
                       : "text-slate-700 dark:text-slate-200"
@@ -165,7 +165,7 @@ export default function Navigation() {
                 openModal();
                 closeMobileMenu();
               }}
-              className="w-full mt-4 inline-flex items-center justify-center px-4 py-3 verto-gradient text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-all duration-300"
+              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center px-4 py-3 verto-gradient text-white rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300"
               data-testid="mobile-nav-get-started"
             >
               Launch Pilot

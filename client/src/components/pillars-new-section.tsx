@@ -427,7 +427,7 @@ const PolishedPaymentsFlow = () => {
                         <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
                         <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT DUE</p>
                         <div className="flex items-baseline gap-2">
-                            <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">12,000</p>
+                            <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
                             <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
                         </div>
                         <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
@@ -467,7 +467,7 @@ const PolishedPaymentsFlow = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <span className="font-bold text-slate-800 dark:text-slate-200">120.00 USDC</span>
+                                    <span className="font-bold text-slate-800 dark:text-slate-200">12.00 USDC</span>
                                     <ChevronDown className="w-5 h-5 text-slate-400" />
                                 </div>
                             </div>
@@ -482,17 +482,17 @@ const PolishedPaymentsFlow = () => {
                                         <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
                                     </div>
                                 </div>
-                                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">12,000 BOBC</span>
+                                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">120.00 BOBC</span>
                             </div>
                         </div>
                         
                         <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
-                            <span>Rate: 1 BOBC ≈ 0.01 USDC</span>
+                            <span>Rate: 1 BOBC ≈ 0.10 USDC</span>
                             <span>Fees: 0.00 USDC</span>
                         </div>
                         <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}>
                             <Zap className="w-4 h-4" />
-                            <span>Pay 120.00 USDC</span>
+                            <span>Pay 12.00 USDC</span>
                         </button>
                         <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Verto</p>
                     </div>
@@ -511,9 +511,9 @@ const PolishedPaymentsFlow = () => {
 
                         <div className="w-full text-center mb-4">
                             <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">RECEIVED</p>
-                            <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">120,000</p>
+                            <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
                             <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Paid 120.00 USDC</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Paid 12.00 USDC</p>
                         </div>
 
                         <div className="w-full space-y-3 text-left flex-grow">

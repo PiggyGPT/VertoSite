@@ -10,19 +10,19 @@ export function PilotCtaSection() {
 
     return (
         <section id="pilot-cta" className="bg-slate-100 dark:bg-gray-800/60">
-            <div className="max-w-5xl mx-auto px-6 sm:px-8 py-12 text-center">
-                 <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 text-center">
+                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
                     Ready to Build the Future of Finance?
                 </h2>
-                <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto px-2">
                     Let's design a 90-day pilot that provides the data you need and the confidence your stakeholders demand.
                 </p>
                  <button
                     onClick={openModal}
-                    className="group mt-8 inline-flex items-center justify-center px-8 py-4 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-verto-blue/20"
+                    className="group mt-6 sm:mt-8 inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-verto-blue/20 text-sm sm:text-base"
                 >
                     <span>Schedule a Consultation</span>
-                    <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 group-hover:text-verto-blue transition-all" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-1 group-hover:text-verto-blue transition-all" />
                 </button>
             </div>
             
@@ -41,8 +41,8 @@ export default function Footer() {
 
     return (
         <footer id="contact" className="bg-slate-900 dark:bg-black text-white">
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 py-12">
-                <div className="grid md:grid-cols-12 gap-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12">
+                <div className="grid md:grid-cols-12 gap-6 sm:gap-8">
                     {/* Company Info */}
                     <div className="md:col-span-4">
                         <Link href="/" className="inline-block">
@@ -54,7 +54,7 @@ export default function Footer() {
                     </div>
 
                     {/* Links */}
-                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                         {Object.entries(footerLinks).map(([title, links]) => (
                              <div key={title}>
                                 <h4 className="font-semibold text-white tracking-wider uppercase text-sm mb-4">{title}</h4>
