@@ -131,12 +131,12 @@ export default function HeroSection({
           <div className="mt-10">
               <button 
                 onClick={openModal}
-                className="group inline-flex items-center gap-x-2 bg-gradient-to-r from-verto-green/15 via-verto-blue/15 to-verto-purple/15 dark:from-verto-green/25 dark:via-verto-blue/25 dark:to-verto-purple/25 hover:from-verto-green/25 hover:via-verto-blue/25 hover:to-verto-purple/25 dark:hover:from-verto-green/35 dark:hover:via-verto-blue/35 dark:hover:to-verto-purple/35 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-full text-base transition-all duration-300 hover:shadow-lg hover:scale-105"
+                className="group inline-flex items-center gap-x-2 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold px-6 py-3 rounded-lg text-base transition-all duration-300 hover:shadow-lg hover:scale-105"
                 data-testid="hero-pilot-cta"
               >
-                  <Rocket className="w-5 h-5 text-verto-green" />
+                  <Rocket className="w-5 h-5 text-verto-green group-hover:text-verto-blue transition-colors" />
                   <span>Launch Pilot in 90 Days</span>
-                <ArrowRight className="w-4 h-4 ml-0 transform group-hover:translate-x-1 transition-transform text-verto-blue" />
+                <ArrowRight className="w-4 h-4 ml-0 transform group-hover:translate-x-1 transition-all text-verto-blue" />
               </button>
           </div>
         </div>

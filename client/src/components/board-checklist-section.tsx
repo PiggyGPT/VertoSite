@@ -60,10 +60,10 @@ export default function PilotProgramSection() {
           <div className="mt-12 text-center">
             <button
               onClick={openModal}
-              className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
+              className="group inline-flex items-center justify-center px-8 py-4 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-verto-blue/20"
             >
               <span>Apply for the Pilot Program</span>
-              <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 group-hover:text-verto-blue transition-all" />
             </button>
              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">Limited spots available for our next cohort.</p>
           </div>
