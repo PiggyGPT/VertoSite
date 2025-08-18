@@ -19,10 +19,10 @@ export function PilotCtaSection() {
                 </p>
                  <button
                     onClick={openModal}
-                    className="group mt-6 sm:mt-8 inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-verto-blue/20 text-sm sm:text-base"
+                    className="group mt-6 sm:mt-8 inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm sm:text-base"
                 >
                     <span>Schedule a Consultation</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-1 group-hover:text-verto-blue transition-all" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
                 </button>
             </div>
             

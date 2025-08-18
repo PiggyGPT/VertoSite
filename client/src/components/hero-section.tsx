@@ -131,12 +131,12 @@ export default function HeroSection({
           <div className="mt-8 sm:mt-10">
               <button 
                 onClick={openModal}
-                className="group inline-flex items-center gap-x-2 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:scale-105"
+                className="group inline-flex items-center gap-x-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
                 data-testid="hero-pilot-cta"
               >
-                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-verto-green group-hover:text-verto-blue transition-colors" />
+                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Launch Pilot in 90 Days</span>
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-0 transform group-hover:translate-x-1 transition-all text-verto-blue" />
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-0 transform group-hover:translate-x-1 transition-all" />
               </button>
           </div>
         </div>
