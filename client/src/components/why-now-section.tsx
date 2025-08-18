@@ -35,10 +35,10 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                 {/* Left Side: Headline */}
                 <div className="text-center lg:text-left">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight" data-testid="why-now-title">
-                        {customTitle || "The Business Case is Clear."}
+                        {customTitle || "Capitalize on the Next Wave of Digital Asset Growth."}
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        {customSubtitle || "Three key market drivers create immediate opportunity for institutional stablecoin adoption."}
+                        {customSubtitle || "Regulatory clarity and accelerating demand make this the ideal moment to capture market share."}
                     </p>
                 </div>
 
@@ -52,14 +52,14 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                         ))
                     ) : (
                         <>
-                            <ReasonCard icon={CalendarDays} title="New Regulations Take Effect 2026">
-                                Financial institutions must have digital asset compliance frameworks operational by January 2026. Deploy now to ensure readiness.
+                            <ReasonCard icon={CalendarDays} title="Regulatory Deadlines">
+                                Major financial institutions are expected to have digital asset strategies operational by 2026 under new global standards, creating a clear timeline for action.
                             </ReasonCard>
-                            <ReasonCard icon={Rocket} title="Market Position">
-                                87% of banks plan stablecoin pilots within 24 months. Launch your pilot now to establish market leadership before competitors scale.
+                            <ReasonCard icon={Rocket} title="First-Mover Advantage">
+                                The current landscape offers a rare opportunity to capture significant market and brand share before the space becomes saturated by established players.
                             </ReasonCard>
-                            <ReasonCard icon={TrendingDown} title="Cost Reduction Requirement">
-                                Cross-border payments must reduce costs by 75% to remain competitive. Stablecoins achieve this target while maintaining regulatory compliance.
+                            <ReasonCard icon={TrendingDown} title="The Cost Imperative">
+                                With cross-border payment costs needing to drop by up to 75% to remain competitive, stablecoins offer the most viable path to achieving necessary efficiency.
                             </ReasonCard>
                         </>
                     )}
@@ -70,11 +70,11 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
             <div className="relative max-w-7xl mx-auto mt-10 sm:mt-12 text-center">
                 <button
                     onClick={openModal}
-                    className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 shadow-lg text-sm sm:text-base"
+                    className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-verto-blue hover:border-verto-green bg-transparent hover:bg-verto-blue/5 dark:hover:bg-verto-blue/10 text-slate-800 dark:text-slate-200 hover:text-verto-blue dark:hover:text-verto-blue font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-verto-blue/20 shadow-lg text-sm sm:text-base"
                     data-testid="launch-pilot-cta"
                 >
                     Launch Pilot in 90 Days
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:text-verto-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </button>

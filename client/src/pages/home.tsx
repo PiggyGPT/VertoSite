@@ -14,18 +14,18 @@ import { updatePageSEO } from "@/lib/seo";
 const homepageWhyNowReasons = [
   {
     icon: Shield,
-    title: "New Digital Asset Regulations Active January 2026",
-    description: "EU MiCA and other frameworks require operational compliance by January 2026. Deploy infrastructure now to meet regulatory deadlines and avoid last-minute implementation costs."
+    title: "Regulatory Clarity Creates Competitive Windows",
+    description: "With frameworks like GENIUS and MiCA providing clear regulatory guidelines, the excuse to wait is gone. First movers will capture infrastructure-level network effects and lock in the most valuable institutional relationships."
   },
   {
     icon: Target,
-    title: "87% of Institutional Clients Plan Digital Asset Adoption", 
-    description: "Banks report losing $2.3B in corporate treasury deposits to stablecoin issuers in 2024. Exchanges see 40% of AUM withdraw for DeFi yields they cannot offer."
+    title: "Your Most Valuable Clients Are Being Pitched Daily", 
+    description: "Whether it's banks losing deposits to non-bank stablecoins, exchanges bleeding AUM to DeFi yields, or funds missing alpha due to manual operations—your competitors are already solving these problems."
   },
   {
     icon: Clock,
-    title: "First-Mover Advantage Window Closes Q2 2025",
-    description: "Market research shows institutional digital asset infrastructure contracts have 3-year average terms. The window to secure these relationships closes in Q2 2025."
+    title: "The Cost of Waiting Is the Opportunity Itself",
+    description: "Every day spent building in-house infrastructure or managing operational risk manually is quantifiable lost revenue. The market is moving to institutional-grade digital asset operations now."
   }
 ];
 

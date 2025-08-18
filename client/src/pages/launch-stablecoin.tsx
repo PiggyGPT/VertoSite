@@ -48,18 +48,18 @@ const stablecoinCTAs = [
 const stablecoinWhyNowReasons = [
   {
     icon: Crown,
-    title: "Banks Lost $2.3B in Deposits to Non-Bank Stablecoins in 2024",
-    description: "Corporate treasuries moved $2.3B from traditional bank deposits to stablecoin issuers for 24/7 settlement capabilities. Launch your stablecoin to retain deposit base."
+    title: "The Battle for the Deposit",
+    description: "Non-bank entities are already issuing stablecoins, creating private payment rails that threaten your core product. Acting now defends your fundamental business model."
   },
   {
     icon: Rocket,
-    title: "Corporate Clients Demand 24/7 Real-Time Settlement",
-    description: "73% of corporate treasurers evaluate stablecoin payment solutions for international transfers. Banks without stablecoin offerings lose treasury relationships."
+    title: "The Payments Revolution is Already Here",
+    description: "Your most valuable corporate clients are being pitched daily on 24/7 real-time settlement using stablecoins. This is an immediate imperative to retain treasury business."
   },
   {
     icon: CheckCircle,
-    title: "MiCA Framework Provides Regulatory Certainty for EU Launch",
-    description: "EU MiCA regulations create clear compliance pathway for bank-issued stablecoins. First movers capture infrastructure partnerships before competitors scale operations."
+    title: "The Regulatory Green Light is a Starting Gun",
+    description: "With frameworks like GENIUS and MiCA providing clarity, the first banks to market will capture infrastructure-level network effects and lock in the most valuable clients."
   }
 ];
 
