@@ -48,19 +48,19 @@ const stablecoinCTAs = [
 const stablecoinWhyNowReasons = [
   {
     icon: Crown,
-    title: "Banks Lost $2.3B in Deposits to Non-Bank Stablecoins in 2024",
-    description: "Corporate treasuries moved $2.3B from traditional bank deposits to stablecoin issuers for 24/7 settlement capabilities. Launch your stablecoin to retain deposit base."
-  },
-  {
-    icon: Rocket,
-    title: "Corporate Clients Demand 24/7 Real-Time Settlement",
-    description: "73% of corporate treasurers evaluate stablecoin payment solutions for international transfers. Banks without stablecoin offerings lose treasury relationships."
+    title: "Your Competitors Are Offering Stablecoins",
+    description: "The race to own the infrastructure for 24/7 commerce has begun. Rival banks and fintechs are actively using stablecoins to solve your corporate clients' biggest pain point: instant, round-the-clock B2B payments."
   },
   {
     icon: CheckCircle,
-    title: "MiCA Framework Provides Regulatory Certainty for EU Launch",
-    description: "EU MiCA regulations create clear compliance pathway for bank-issued stablecoins. First movers capture infrastructure partnerships before competitors scale operations."
-  }
+    title: "The GENIUS Act is Your Starting Gun",
+    description: "The GENIUS Act gives you the regulatory certainty to act now. Waiting means allowing a competitor's stablecoin to become embedded in your clients' operations, and competing for leftover market share."
+  },
+  {
+    icon: Rocket,
+    title: "First-Mover Advantage is Absolute",
+    description: "The first banks to market with a trusted stablecoin will own the foundational layer for a new generation of commerce, locking in clients who build their operations around it. That window is closing."
+  } 
 ];
 
 export default function LaunchStablecoin() {
@@ -142,7 +142,7 @@ export default function LaunchStablecoin() {
         <BoardChecklistSection />
         <WhyNowSection 
         customTitle="Why Now?"
-        customSubtitle="The window to defend your deposit franchise and capture corporate payment flows is narrowing rapidly."
+        customSubtitle="The window to defend your deposit franchise and lead the future of payments is narrowing rapidly."
         customReasons={stablecoinWhyNowReasons}
       />
       </div>

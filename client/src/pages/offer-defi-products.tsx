@@ -7,7 +7,7 @@ import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
-import { ShieldCheck, Store, Bot, Waves, Target, Building } from "lucide-react";
+import { ShieldCheck, Store, Bot, Droplet, Target, Building } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png";
 import nileshImage from "@assets/nilesh_1754986415369.png";
@@ -47,19 +47,19 @@ const defiProductsCTAs = [
 // Custom Why Now content for DeFi products page targeting exchanges
 const defiProductsWhyNowReasons = [
   {
-    icon: Waves,
-    title: "40% of Exchange Assets Under Management Withdrawn for DeFi Yields",
-    description: "Exchanges report 40% of sophisticated users withdraw assets for DeFi yields averaging 8-12% vs. 0.1% traditional savings rates. Recover AUM with compliant DeFi products."
+    icon: Droplet,
+    title: "Your AUM is Leaking",
+    description: "Your most valuable clients are withdrawing assets daily to seek yield on-chain. You are being relegated to a low-margin on-ramp while others capture the real value. This is an existential threat to your business model."
   },
   {
     icon: Target,
-    title: "Spot Trading Fees Drop 67% While DeFi Revenue Grows 340%", 
-    description: "Spot trading fees decreased from 0.2% to 0.067% average. DeFi staking and yield products generate 340% higher revenue per user with sticky recurring income."
+    title: "DeFi is a Higher Margin Business", 
+    description: "DeFi is the next evolution of financial services your clients demand: long-tail assets and structured yield. Offering them transforms your exchange into an indispensable wealth platform."
   },
   {
     icon: Building,
-    title: "$847B Institutional Capital Waiting for Regulated DeFi Access",
-    description: "Survey data shows $847B institutional capital seeks DeFi exposure but requires regulated intermediary. First exchanges to offer compliant access capture new AUM."
+    title: "Capture Trillions in Institutional Capital",
+    description: "The GENIUS Act is the starting gun. A wave of institutional capital needs a single, regulated gateway to access on-chain opportunities. Become that gateway now, before your competitors do."
   }
 ];
 
@@ -148,7 +148,7 @@ export default function OfferDefiProducts() {
         <BoardChecklistSection />
         <WhyNowSection 
           customTitle="Why Now?"
-          customSubtitle="The business of simple spot trading is in a race to the bottom. Sustainable profitability lies in higher-margin, value-added DeFi products."
+          customSubtitle="The only path to sustainable profitability is through higher-margin DeFi products that stop client churn."
           customReasons={defiProductsWhyNowReasons}
         />
       </div>

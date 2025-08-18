@@ -48,18 +48,18 @@ const secureOpsCTAs = [
 const secureOpsWhyNowReasons = [
   {
     icon: Clock,
-    title: "Manual Operations Cost $2.4M in Lost Alpha Per Fund Annually",
-    description: "Analysis shows trading funds using manual DeFi operations lose $2.4M annually in missed arbitrage opportunities due to slow execution. Automated operations capture 95% more opportunities."
+    title: "Speed of Execution is Quantifiable P&L",
+    description: "The most profitable on-chain opportunities are fleeting. The gap between identifying and executing a strategy is where alpha is won or lost. Manual processes are a direct and escalating drag on returns."
   },
   {
     icon: AlertTriangle,
-    title: "68% of DeFi Exploits Target Manual Transaction Processes",
-    description: "Security data shows 68% of institutional DeFi losses result from manual transaction errors. Automated secure operations reduce operational risk by 99.7%."
+    title: "Catastrophic Financial and Reputational Risk",
+    description: "Multi-million dollar losses at major firms have proven that manual on-chain operations are an existential threat. A single, irreversible mistake can erase your treasury."
   },
   {
     icon: Briefcase,
-    title: "94% of LPs Now Require DeFi Security Infrastructure Due Diligence",
-    description: "Limited Partner surveys show 94% now audit DeFi operational security before capital allocation. Institutional-grade infrastructure increases fundraising success rate 78%."
+    title: "Capital Flows to Operational Integrity",
+    description: "LPs no longer just audit your strategy; they audit your tech stack and operational workflows. Passing this new, rigorous diligence is the gateway to securing fresh capital allocations."
   }
 ];
 
