@@ -1,7 +1,7 @@
 // src/components/Navigation.tsx
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Coins, Store, Shield } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import logoSvg from "@assets/logo.svg";
 import { useCalendlyModal } from "./calendly-modal";
@@ -18,12 +18,12 @@ const SocialXIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Define navigation links for the new landing pages
+// Define navigation links for the new landing pages with icons
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/launch-stablecoin", label: "Launch Stablecoin" },
-  { href: "/offer-defi-products", label: "Offer DeFi Products" },
-  { href: "/secure-defi-ops", label: "Secure DeFi Ops" },
+  { href: "/", label: "Home", icon: Home },
+  { href: "/launch-stablecoin", label: "Launch Stablecoin", icon: Coins },
+  { href: "/offer-defi-products", label: "Offer DeFi Products", icon: Store },
+  { href: "/secure-defi-ops", label: "Secure DeFi Ops", icon: Shield },
 ];
 
 export default function Navigation() {
@@ -82,12 +82,13 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={getNavLinkClasses(link.href)}
+                className={`${getNavLinkClasses(link.href)} flex items-center gap-2`}
                 data-testid={`nav-${link.href}`}
                 onClick={() => {
                   window.scrollTo(0, 0);
                 }}
               >
+                <link.icon className="w-4 h-4" />
                 {link.label}
               </Link>
             ))}
@@ -137,13 +138,14 @@ export default function Navigation() {
                     closeMobileMenu();
                     window.scrollTo(0, 0);
                   }}
-                  className={`block w-full text-left text-sm py-2 transition-colors duration-200 ${
+                  className={`flex items-center gap-3 w-full text-left text-sm py-2 transition-colors duration-200 ${
                     isActive 
                       ? "text-verto-blue dark:text-verto-blue font-xs border-l-2 border-verto-blue pl-3" 
                       : "text-slate-700 dark:text-slate-200"
                   }`}
                   data-testid={`mobile-nav-${link.href}`}
                 >
+                  <link.icon className="w-4 h-4" />
                   {link.label}
                 </Link>
               );
