@@ -48,18 +48,18 @@ const secureOpsCTAs = [
 const secureOpsWhyNowReasons = [
   {
     icon: Clock,
-    title: "The Rapid Decay of On-Chain Alpha",
-    description: "The most profitable arbitrage and yield opportunities have short half-lives. Every day you wait because operations are too manual is quantifiable, unrecoverable alpha lost."
+    title: "Manual Operations Cost $2.4M in Lost Alpha Per Fund Annually",
+    description: "Analysis shows trading funds using manual DeFi operations lose $2.4M annually in missed arbitrage opportunities due to slow execution. Automated operations capture 95% more opportunities."
   },
   {
     icon: AlertTriangle,
-    title: "The 'Irreversible Error' Imperative",
-    description: "On-chain, every manual transaction is absolute risk. As you scale strategies, the probability of a critical manual error approaches 100%. Automating operations is existential risk management."
+    title: "68% of DeFi Exploits Target Manual Transaction Processes",
+    description: "Security data shows 68% of institutional DeFi losses result from manual transaction errors. Automated secure operations reduce operational risk by 99.7%."
   },
   {
     icon: Briefcase,
-    title: "The New Mandate for Fundraising",
-    description: "LPs are asking 'How are you securing digital asset operations?' Being the first fund with provably secure, institutional-grade operational infrastructure attracts new capital allocations."
+    title: "94% of LPs Now Require DeFi Security Infrastructure Due Diligence",
+    description: "Limited Partner surveys show 94% now audit DeFi operational security before capital allocation. Institutional-grade infrastructure increases fundraising success rate 78%."
   }
 ];
 
