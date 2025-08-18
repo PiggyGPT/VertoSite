@@ -1244,7 +1244,7 @@ export default function PillarsSection({
         },
         compliance: { 
             label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance", 
-            description: "Transform regulatory compliance from a cost center into a competitive advantage with continuous monitoring and automated reporting that satisfies bank regulators.", 
+            description: "Transform regulatory compliance with AI-powered continuous monitoring and automated reporting that satisfies bank regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
                 quote: "DOJ audits require you to report the 'why' behind every transaction, not just the 'what' from blockchain data — current tools aren't built to solve this.",

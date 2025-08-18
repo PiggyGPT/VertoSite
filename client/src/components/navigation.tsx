@@ -46,7 +46,7 @@ export default function Navigation() {
   // Function to get nav link classes with active state
   const getNavLinkClasses = (href: string) => {
     const isActive = location === href;
-    const baseClasses = "font-small relative transition-all duration-200";
+    const baseClasses = "font-xs relative transition-all duration-200";
     const colorClasses = isActive 
       ? "text-verto-blue dark:text-verto-blue" 
       : "text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue";
@@ -106,10 +106,10 @@ export default function Navigation() {
               href="https://calendly.com/nilesh-vertoai/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 verto-gradient text-white rounded-lg font-medium text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 verto-gradient text-white rounded-lg font-xs text-xs hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
-              Launch Your Pilot
+              Launch Pilot
             </a>
             <button
               className="md:hidden p-2"
@@ -137,9 +137,9 @@ export default function Navigation() {
                     closeMobileMenu();
                     window.scrollTo(0, 0);
                   }}
-                  className={`block w-full text-left text-lg py-2 transition-colors duration-200 ${
+                  className={`block w-full text-left text-sm py-2 transition-colors duration-200 ${
                     isActive 
-                      ? "text-verto-blue dark:text-verto-blue font-medium border-l-2 border-verto-blue pl-3" 
+                      ? "text-verto-blue dark:text-verto-blue font-xs border-l-2 border-verto-blue pl-3" 
                       : "text-slate-700 dark:text-slate-200"
                   }`}
                   data-testid={`mobile-nav-${link.href}`}
