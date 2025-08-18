@@ -1352,9 +1352,6 @@ export default function PillarsSection({
 
             {/* DESIGN CHANGE: The main content container now has more consistent padding */}
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-                {/* DESIGN CHANGE: Founder Insight Banner is rendered here, outside the grid, for a full-width feel. */}
-                {activePillar.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
-
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
                     {/* Left Column: Text Content */}
                     <div className="lg:col-span-1">
@@ -1387,6 +1384,9 @@ export default function PillarsSection({
                         </div>
                     </div>
                 </div>
+
+                {/* DESIGN CHANGE: Founder Insight Banner moved to bottom, after benefits and UX slideshow */}
+                {activePillar.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
             </div>
         </div>
     );
