@@ -1210,7 +1210,7 @@ export default function PillarsSection({
             description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "At GSR, we had to build complex proprietary operations to securely access DeFi protocols. Every other institution needs a similar model.",
+                quote: "At GSR, building secure DeFi access required proprietary operations. We've productized that capability for your institution.",
                 name: "David Cass",
                 title: "CEO | Former CISO at GSR",
                 image: davidImage
@@ -1223,7 +1223,7 @@ export default function PillarsSection({
             description: "Enable institutional clients and merchants to accept digital assets with industry-leading conversion, security and compliance.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "At PayPal, every extra click in checkout cost us millions. The current crypto UX is an absolute conversion killer. For stablecoins to work, customers need a familiar, simple tap to pay.",
+                quote: "At PayPal, we optimized every click to convert millions. The current crypto UX, in contrast, is a conversion killer. We bring you a familiar, reliable checkout to fix adoption.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
                 image: nileshImage
@@ -1236,7 +1236,7 @@ export default function PillarsSection({
             description: "Enable instant-on-demand minting where value is deposited, no pre-funding required.", 
             visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
-                quote: "The Fed needs to securely distribute dollars through its global banking network across thousands of institutions. A bank-issued stablecoin faces the exact same challenge.",
+                quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
                 name: "David Cass",
                 title: "CEO | Former Federal Reserve Regulator",
                 image: davidImage
@@ -1249,7 +1249,7 @@ export default function PillarsSection({
             description: "Transform regulatory compliance with AI-powered continuous monitoring and automated reporting that satisfies bank regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
-                quote: "DOJ audits require you to report the 'why' behind every transaction, not just the 'what' from blockchain data — current tools aren't built to solve this.",
+                quote: "DOJ audits require you to report the 'why' behind every transaction, not just the hash. We build the evidence file for you, before you need it.",
                 name: "Daniel Garrie",
                 title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
                 image: danielImage
@@ -1263,7 +1263,7 @@ export default function PillarsSection({
             description: "Maintain operational integrity with our global SOC teams providing monitoring and support for your self-hosted environment.", 
             visual: <ExecutiveServiceFlow />,
             founderQuote: { 
-                quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. You need Google's 24/7 SRE standards to protect your treasury.",
+                quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
                 name: "Hisham Anwar",
                 title: "CTO | Ex-Google Head of Product",
                 image: hishamImage

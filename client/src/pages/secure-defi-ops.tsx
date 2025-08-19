@@ -53,7 +53,7 @@ const secureOpsWhyNowReasons = [
   {
     icon: AlertTriangle,
     title: "One Error Can Erase Your Fund",
-    description: "Irreversible transactions demand zero-tolerance operations. Recent eight-figure losses prove manual processes are existential threats."
+    description: "Irreversible transactions demand zero-tolerance operations. Recent ten-figure losses prove manual processes are existential threats."
   },
   {
     icon: Briefcase,

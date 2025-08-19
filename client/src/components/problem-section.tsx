@@ -70,21 +70,21 @@ export default function ProblemSection({
     const defaultPainPoints = [
         {
             icon: Landmark, color: 'verto-green', persona: 'Head of Innovation', company: 'Global Bank',
-            quote: 'We need to launch a compliant stablecoin on public chains. How can we ensure it can be safely distributed and accepted for payments by our existing customers?',
+            quote: 'How do we launch a digital currency that is used across our global network, without compromising the trust we\'ve built over decades?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
         },
         {
             icon: Repeat, color: 'verto-blue', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
-            quote: 'We need to offer assets only available on public chains. But accesing their fragmented liquidity in a secure, compliant way has been an operational nightmare.',
+            quote: 'Our clients are withdrawing assets daily to chase yield we can\'t offer. We\'re becoming a free on-ramp to an ecosystem that\'s eating our lunch.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
             ctaLink: '/solutions/exchanges'
         },
         {
             icon: BarChart3, color: 'verto-purple', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
-            quote: 'Our systems are built on centralized control. How do we enforce our risk policies, and deliver regulator-proof audit trails for every transaction on public chains?',
+            quote: 'How do I give my traders the speed to execute time-sensitive alpha on-chain without signing off on a potential eight-figure mistake?',
             testId: 'quote-trading',
             ctaText: 'Explore Trading Solutions',
             ctaLink: '/solutions/trading'
