@@ -58,7 +58,7 @@ const stablecoinWhyNowReasons = [
   },
   {
     icon: CheckCircle,
-    title: "Act  Your First-Mover Advantage",
+    title: "Act on Regulatory Mandates",
     description: "MiCA and GENIUS Acts are deliberate calls to action from regulators for you to set the market standard and secure a lasting first-mover advantage."
   }
 ];
