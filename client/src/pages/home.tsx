@@ -27,23 +27,6 @@ const homepageWhyNowReasons = [
     description: "Catastrophic risk exposure + forfeited alpha + failed LP audits. Legacy operations now directly threaten your fund's survival."
   }
 ];
-const homepageWhyNowReasons2 = [
-  {
-    icon: Target,
-    title: "Regulators Have Given You the Green Light", 
-    description: "With frameworks like GENIUS and MiCA providing clarity, the first institutions to market will capture infrastructure-level network effects and lock in the most valuable clients."
-    },
-  {
-    icon: Shield,
-    title: "Your Clients Are Being Pitched Daily",
-    description: "Whether it's banks losing deposits to non-bank stablecoins, exchanges bleeding AUM to DeFi yields, or funds missing alpha due to manual operations—your competitors are already solving these problems."
-  },
-  {
-    icon: Clock,
-    title: "The Cost of Waiting Is the Opportunity Itself",
-    description: "Every day spent building in-house infrastructure or managing operational risk manually is quantifiable lost revenue. The market is moving to institutional-grade digital asset operations now."
-  }
-];
 
 export default function Home() {
   useEffect(() => {
