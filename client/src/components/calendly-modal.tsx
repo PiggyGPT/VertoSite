@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import { InlineWidget } from "react-calendly";
 
 interface CalendlyModalProps {
   isOpen: boolean;
@@ -8,13 +9,13 @@ interface CalendlyModalProps {
 }
 
 export default function CalendlyModal({ isOpen, onClose, title = "Schedule a Consultation" }: CalendlyModalProps) {
+  // Effects for body overflow and escape key can remain the same
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -26,11 +27,9 @@ export default function CalendlyModal({ isOpen, onClose, title = "Schedule a Con
         onClose();
       }
     };
-
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
     }
-
     return () => {
       document.removeEventListener('keydown', handleEscape);
     };
@@ -40,9 +39,9 @@ export default function CalendlyModal({ isOpen, onClose, title = "Schedule a Con
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="relative w-full max-w-4xl h-[90vh] bg-white dark:bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
+      <div className="relative flex flex-col w-full max-w-4xl h-[90vh] bg-white dark:bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-700 flex-shrink-0">
           <h2 className="text-xl font-semibold text-slate-900 dark:text-white">{title}</h2>
           <button
             onClick={onClose}
@@ -53,15 +52,18 @@ export default function CalendlyModal({ isOpen, onClose, title = "Schedule a Con
           </button>
         </div>
 
-        {/* Calendly iframe */}
-        <div className="h-full pb-16">
-          <iframe
-            src="https://calendly.com/nilesh-vertoai/30min"
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            title="Schedule a meeting with Verto"
-            className="border-0"
+        {/* Calendly Widget */}
+        {/* The InlineWidget takes care of the iframe and provides a better loading UI */}
+        <div className="flex-grow overflow-y-auto">
+          <InlineWidget
+            url="https://calendly.com/nilesh-vertoai/30min"
+            styles={{ height: '100%', width: '100%' }}
+            // You can pass prefill values or UTM parameters here
+            pageSettings={{
+                hideGdprBanner: true,
+                backgroundColor: 'ffffff',
+                textColor: '1a1a1a',
+            }}
           />
         </div>
       </div>
@@ -69,7 +71,7 @@ export default function CalendlyModal({ isOpen, onClose, title = "Schedule a Con
   );
 }
 
-// Hook for managing Calendly modal state
+// The useCalendlyModal hook remains unchanged and works perfectly with this.
 export function useCalendlyModal() {
   const [isOpen, setIsOpen] = useState(false);
 
