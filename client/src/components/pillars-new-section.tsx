@@ -1210,7 +1210,7 @@ export default function PillarsSection({
             description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "At GSR, we built complex manual operations to securely access DeFi. We've automated such operations for your institution.",
+                quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
                 name: "David Cass",
                 title: "CEO | Former CISO at GSR",
                 image: davidImage
@@ -1223,7 +1223,7 @@ export default function PillarsSection({
             description: "Enable institutional clients and merchants to accept digital assets with industry-leading conversion, security and compliance.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "At PayPal, we optimized every click to convert millions. The current crypto UX, in contrast, is a conversion killer. We bring you a familiar, reliable checkout to fix adoption.",
+                quote: "At PayPal, we optimized every click to convert millions. Now we bring that familiar, reliable checkout to stablecoin payments — fixing the broken flows of today.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
                 image: nileshImage

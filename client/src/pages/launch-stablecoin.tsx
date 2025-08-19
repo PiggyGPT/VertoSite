@@ -89,21 +89,21 @@ export default function LaunchStablecoin() {
               color: "verto-blue",
               persona: "CEO",
               company: "National Bank",
-              quote: "We're a cash-first economy serving 50 million customers. How do we scale stablecoin distribution and usage across our entire agent network with minimal friction while maintaining the trust our customers have in physical cash?"
+              quote: "We're a cash-first economy serving 50 million customers. How do we scale stablecoin distribution and usage across our entire agent network while maintaining the trust our customers have in physical cash?"
             },
             {
               icon: "CreditCard",
               color: "verto-purple", 
               persona: "Head of Payments",
               company: "Regional Bank",
-              quote: "Merchants can't reconcile stablecoin transactions like traditional card payments, and wallet pop-ups are killing our checkout conversion rates. We need payment rails that work like Stripe but with stablecoins."
+              quote: "Merchants can't reconcile stablecoin transactions like traditional card payments, and wallet pop-ups kill checkout conversion. We need payments to work like Stripe but with stablecoins."
             },
             {
               icon: "Shield",
               color: "verto-green",
               persona: "CISO", 
               company: "Digital Bank",
-              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without compromising security?"
+              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains we don't control?"
             }
           ]}
         />
@@ -113,29 +113,6 @@ export default function LaunchStablecoin() {
           title="One Unified Platform"
           subtitle="A self-hosted stack for stablecoin trading, payments, and asset distribution. Monitored 24×7 by global experts with AI-automated compliance."
           customOrder={["distribution", "payments", "trading", "compliance", "service"]}
-          customFounderQuotes={[
-            {
-              pillarKey: "distribution",
-              quote: "The Fed systems securely distribute dollars through a global network across thousands of institutions. Stablecoin issuers face the exact same challenge.",
-              name: "David Cass",
-              title: "CEO | Former Federal Reserve Regulator",
-              image: davidImage
-            },
-            {
-              pillarKey: "payments",
-              quote: "Successful payment rails require perfecting both the user and merchant experience - Automated reconciliation with every one tap payment.",
-              name: "Nilesh Khaitan", 
-              title: "CPO | Former Venmo/PayPal Crypto Lead",
-              image: nileshImage
-            },
-            {
-              pillarKey: "compliance",
-              quote: "A blockchain explorer is not an audit trail. The DOJ needs to understand the intent and enforced policies behind every transaction, not just the hash.",
-              name: "Daniel Garrie",
-              title: "General Counsel | Former DOJ & DTCC Advisor", 
-              image: danielImage
-            }
-          ]}
         />
       </div>
       <div id="pilot">

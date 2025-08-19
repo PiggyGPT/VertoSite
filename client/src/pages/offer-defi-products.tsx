@@ -101,7 +101,7 @@ export default function OfferDefiProducts() {
               color: "verto-green",
               persona: "CISO", 
               company: "Trading Platform",
-              quote: "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every DeFi transaction without exposing our customers to smart contract risks?"
+              quote: "How do deliver multi-chain DeFi products to clients with the same risk and compliance standards they already expect — without hiring an army?"
             }
           ]}
         />
@@ -110,36 +110,6 @@ export default function OfferDefiProducts() {
         <PillarsSection 
           title="One Unified Platform"
           subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
-          customFounderQuotes={[
-            {
-              pillarKey: "liquidity",
-              quote: "Offering long-tail assets require accessing DeFi liquidity, but your risk teams can't approve direct smart contract exposure without extensive audits.",
-              name: "David Cass",
-              title: "CEO | Former CISO at GSR Trading",
-              image: davidImage
-            },
-            {
-              pillarKey: "payments",
-              quote: "Offering stablecoin commerce requires perfecting both the user and merchant experience - Automated reconciliation with every one tap payment.",
-              name: "Nilesh Khaitan",
-              title: "CPO | Former Venmo/PayPal Crypto Lead",
-              image: nileshImage
-            },
-            {
-              pillarKey: "distribution",
-              quote: "Your tokenization offerings are only as valuable to your clients as your ability to distribute them across your network.",
-              name: "David Cass",
-              title: "CEO | Former Federal Reserve Regulator",
-              image: davidImage
-            },
-            {
-              pillarKey: "compliance", 
-              quote: "From pre-trade policy checks to post-trade audit trails, regulators require compliance proofs for every customer DeFi trade made on your platform.",
-              name: "Daniel Garrie",
-              title: "General Counsel | Former DOJ & DTCC Advisor",
-              image: danielImage
-            }
-          ]}
         />
       </div>
       <div id="pilot">

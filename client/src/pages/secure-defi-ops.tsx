@@ -88,7 +88,7 @@ export default function SecureDefiOps() {
               color: "verto-blue",
               persona: "CEO",
               company: "Trading Desk",
-              quote: "We're caught between CeFi's limited opportunities and DeFi's unlimited risks. Our traditional centralized systems can't safely access the yield and arbitrage opportunities that exist on-chain."
+              quote: "We're caught between CeFi's limited opportunities and DeFi's unlimited risks. Our traditional systems can't safely access the yield and arbitrage opportunities that exist on-chain."
             },
             {
               icon: "Users",
@@ -102,7 +102,7 @@ export default function SecureDefiOps() {
               color: "verto-green",
               persona: "CISO", 
               company: "Investment Fund",
-              quote: "How can we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains without exposing ourselves to smart contract exploits?"
+              quote: "How can we enable our traders to act on time-sensitive multi-chain DeFi opportunities — while mitigating smart contract and execution risks that expose our treasury to irreversible losses?"
             }
           ]}
         />
@@ -111,29 +111,6 @@ export default function SecureDefiOps() {
         <PillarsSection 
           title="Institutional DeFi Security Platform"
           subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
-          customFounderQuotes={[
-            {
-              pillarKey: "liquidity",
-              quote: "For investment teams to quickly act on DeFi alpha, you need to expedite extensive manual audits to approve direct protocol exposure.",
-              name: "David Cass", 
-              title: "CEO | Former CISO at GSR Trading",
-              image: davidImage
-            },
-            {
-              pillarKey: "compliance",
-              quote: "From pre-trade policy checks to post-trade audit trails, regulators require compliance proofs for every DeFi trade made by your trading desks.",
-              name: "Daniel Garrie",
-              title: "General Counsel | Former DOJ & DTCC Advisor",
-              image: danielImage
-            },
-            {
-              pillarKey: "service",
-              quote: "Imagine explaining a $100M loss to your LPs because your operations failed at 3 AM. You need Google's 24/7 SRE standards to protect your DeFi treasury.",
-              name: "Hisham Anwar",
-              title: "CTO | Former Google Head of Product",
-              image: hishamImage
-            }
-          ]}
         />
       </div>
       <div id="pilot">
