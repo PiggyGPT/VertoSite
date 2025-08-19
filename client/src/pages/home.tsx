@@ -10,25 +10,23 @@ import Footer from "@/components/footer";
 import { Shield, Target, Clock } from "lucide-react";
 import { updatePageSEO } from "@/lib/seo";
 
-// Optimized Why Now content for homepage - cross-cutting institutional urgency
 const homepageWhyNowReasons = [
   {
     icon: Target,
-    title: "The Digital Dollar Race is Live", 
-    description: "The GENIUS Act and MiCA provide clear mandates on stablecoins. Competitors are using them to offer 24/7 settlement to your clients. Lead the multi-trillion dollar payments market or watch your deposits walk away."
-    },
+    title: "Lose the Digital Dollar Race, Lose Relevance", 
+    description: "Non-bank stablecoins already offer 24/7 settlement. GENIUS/MiCA gives you a narrow window to defend your core business with regulatory-compliant solutions."
+  },
   {
     icon: Shield,
-    title: "AuM is Bleeding to On-Chain Yield",
-    description: "Your AUM is bleeding to DeFi yield. You can either offer institutional-grade DeFi products to stop the outflow, or become a low-margin on-ramp."
+    title: "On-Chain Yield is Draining Your AUM",
+    description: "Assets exit daily for higher yields you can't provide. This isn't just lost fees—it's permanent erosion of your institution's value base."
   },
   {
     icon: Clock,
-    title: "Manual Operations are a Disqualifier",
-    description: "Institutional LPs require automated, auditable controls. Agile funds with superior operations are winning mandates while others risk catastrophic, multi-million dollar errors."
+    title: "Manual Workflows = Institutional Disqualification",
+    description: "Catastrophic risk exposure + forfeited alpha + failed LP audits. Legacy operations now directly threaten your fund's survival."
   }
 ];
-
 const homepageWhyNowReasons2 = [
   {
     icon: Target,

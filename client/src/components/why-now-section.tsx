@@ -35,7 +35,7 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                 {/* Left Side: Headline */}
                 <div className="text-center lg:text-left">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight" data-testid="why-now-title">
-                        {customTitle || "The Financial System is Being Rewired."}
+                        {customTitle || "Why Now?"}
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                         {customSubtitle || "Your core business is now in a time-sensitive technology race. Lead the market or be left behind."}

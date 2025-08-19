@@ -43,23 +43,21 @@ const defiProductsCTAs = [
     iconColor: "text-verto-cyan dark:text-verto-cyan group-hover:text-verto-cyan-dark dark:group-hover:text-verto-cyan-light"
   }
 ];
-
-// Custom Why Now content for DeFi products page targeting exchanges
 const defiProductsWhyNowReasons = [
   {
     icon: Droplet,
-    title: "Your AUM is Leaking",
-    description: "Your most valuable clients are withdrawing assets daily to seek yield on-chain. You are being relegated to a low-margin on-ramp while others capture the real value. This is an existential threat to your business model."
+    title: "Stop the AUM Hemorrhage",
+    description: "Your premium clients are draining assets daily for on-chain yield. Without action, you'll remain a low-margin onboarding channel while competitors capture high-value DeFi activity."
   },
   {
     icon: Target,
-    title: "DeFi is a Higher Margin Business", 
-    description: "DeFi is the next evolution of financial services your clients demand: long-tail assets and structured yield. Offering them transforms your exchange into an indispensable wealth platform."
+    title: "DeFi = 10X Margin Potential", 
+    description: "Demand for long-tail assets and structured yield is exploding. Capturing this transforms your exchange from trading venue to indispensable wealth platform."
   },
   {
     icon: Building,
-    title: "Capture Trillions in Institutional Capital",
-    description: "The GENIUS Act is the starting gun. A wave of institutional capital needs a single, regulated gateway to access on-chain opportunities. Become that gateway now, before your competitors do."
+    title: "Own the Institutional Gateway",
+    description: "The GENIUS Act triggers a trillion-dollar capital migration. Become the regulated on-ramp for institutional DeFi access—before exchanges lock down this space."
   }
 ];
 

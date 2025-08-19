@@ -48,19 +48,19 @@ const stablecoinCTAs = [
 const stablecoinWhyNowReasons = [
   {
     icon: Crown,
-    title: "Your Competitors Are Offering Stablecoins",
-    description: "The race to own the infrastructure for 24/7 commerce has begun. Rival banks and fintechs are actively using stablecoins to solve your corporate clients' biggest pain point: instant, round-the-clock B2B payments."
-  },
-  {
-    icon: CheckCircle,
-    title: "The GENIUS Act is Your Starting Gun",
-    description: "The GENIUS Act gives you the regulatory certainty to act now. Waiting means allowing a competitor's stablecoin to become embedded in your clients' operations, and competing for leftover market share."
+    title: "Bypass Costly Payment Intermediaries",
+    description: "Empower clients to transact directly across borders—eliminating billions in daily fees and settlement delays while reclaiming control from traditional rails."
   },
   {
     icon: Rocket,
-    title: "First-Mover Advantage is Absolute",
-    description: "The first banks to market with a trusted stablecoin will own the foundational layer for a new generation of commerce, locking in clients who build their operations around it. That window is closing."
-  } 
+    title: "Win the Institutional Dollar Race",
+    description: "Attract premium deposits with 24/7 programmable yield and cross-border utility. Monetize reserves at scale—proven by Circle and Tether's revenue models."
+  },
+  {
+    icon: CheckCircle,
+    title: "Act  Your First-Mover Advantage",
+    description: "MiCA and GENIUS Acts are deliberate calls to action from regulators for you to set the market standard and secure a lasting first-mover advantage."
+  }
 ];
 
 export default function LaunchStablecoin() {

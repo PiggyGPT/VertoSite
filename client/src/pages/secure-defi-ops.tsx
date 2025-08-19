@@ -44,22 +44,21 @@ const secureOpsCTAs = [
   }
 ];
 
-// Custom Why Now content for secure DeFi ops page targeting trading firms & funds
 const secureOpsWhyNowReasons = [
   {
     icon: Clock,
-    title: "Speed of Execution is Quantifiable P&L",
-    description: "The most profitable on-chain opportunities are fleeting. The gap between identifying and executing a strategy is where alpha is won or lost. Manual processes are a direct and escalating drag on returns."
+    title: "Execution Delay = Lost Alpha",
+    description: "On-chain opportunities vanish in seconds. Manual workflows forfeit quantifiable P&L—automation turns reaction speed into competitive advantage."
   },
   {
     icon: AlertTriangle,
-    title: "Catastrophic Financial and Reputational Risk",
-    description: "Multi-million dollar losses at major firms have proven that manual on-chain operations are an existential threat. A single, irreversible mistake can erase your treasury."
+    title: "One Error Can Erase Your Fund",
+    description: "Irreversible transactions demand zero-tolerance operations. Recent eight-figure losses prove manual processes are existential threats."
   },
   {
     icon: Briefcase,
-    title: "Capital Flows to Operational Integrity",
-    description: "LPs no longer just audit your strategy; they audit your tech stack and operational workflows. Passing this new, rigorous diligence is the gateway to securing fresh capital allocations."
+    title: "LPs Demand Institutional-Grade Ops",
+    description: "Capital allocations now hinge on operational integrity. Your tech stack is scrutinized as rigorously as your performance track record."
   }
 ];
 
