@@ -1210,7 +1210,7 @@ export default function PillarsSection({
             description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
-                quote: "At GSR, building secure DeFi access required proprietary operations. We've productized that capability for your institution.",
+                quote: "At GSR, we built complex manual operations to securely access DeFi. We've automated such operations for your institution.",
                 name: "David Cass",
                 title: "CEO | Former CISO at GSR",
                 image: davidImage

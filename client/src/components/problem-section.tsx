@@ -70,7 +70,7 @@ export default function ProblemSection({
     const defaultPainPoints = [
         {
             icon: Landmark, color: 'verto-green', persona: 'Head of Innovation', company: 'Global Bank',
-            quote: 'How do we launch a digital currency that is used across our global network, without compromising the trust we\'ve built over decades?',
+            quote: 'How do we make our digital currency usable across our global network, without compromising the trust we\'ve built over decades?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
