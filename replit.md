@@ -73,3 +73,15 @@ Preferred communication style: Simple, everyday language.
   - `DEPLOYMENT_README.md`: Comprehensive deployment guide with troubleshooting
 - **Current Structure**: Static files now properly located in `dist/` for Replit deployment
 - **Build Process**: `npm run build` generates files, manual copy step required for deployment
+
+### Navigation and User Experience Fixes (August 20, 2025)
+- **Issue 1**: "Institutional Liquidity" button incorrectly navigated to "distribution" tab instead of first tab
+- **Root Cause**: Button used `pillarKey: "liquidity"` instead of `pillarKey: "trading"` (first tab)
+- **Solution**: Updated both `/offer-defi-products` and `/secure-defi-ops` pages to use correct "trading" pillar key
+- **Issue 2**: Mobile navigation tabs didn't scroll to show compliance tab when clicked
+- **Root Cause**: Missing scroll-into-view behavior for mobile tab navigation
+- **Solution**: Added mobile-responsive tab scrolling with `scrollIntoView()` on tab button clicks
+- **Files Modified**: 
+  - `client/src/pages/offer-defi-products.tsx`: Fixed button navigation
+  - `client/src/pages/secure-defi-ops.tsx`: Fixed button navigation  
+  - `client/src/components/pillars-new-section.tsx`: Added mobile tab scrolling
