@@ -34,7 +34,7 @@ const stablecoinCTAs = [
     iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
   },
   {
-    title: "Compliant Liquidity",
+    title: "Institutional Liquidity",
     subtitle: "Institutional trading access",
     icon: ShieldCheck,
     href: "#infrastructure",

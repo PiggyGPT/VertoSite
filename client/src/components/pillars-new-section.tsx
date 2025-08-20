@@ -1334,13 +1334,24 @@ export default function PillarsSection({
                             return (
                                 <button
                                     key={key}
-                                    onClick={() => {
+                                    onClick={(e) => {
                                         setActiveTab(key);
                                         // Auto-scroll to top of infrastructure section
                                         const element = document.getElementById('infrastructure');
                                         if (element) {
                                             element.scrollIntoView({ behavior: 'smooth' });
                                         }
+                                        // On mobile, scroll the clicked tab button into view
+                                        setTimeout(() => {
+                                            const button = e.currentTarget;
+                                            if (button && window.innerWidth < 768) { // mobile breakpoint
+                                                button.scrollIntoView({ 
+                                                    behavior: 'smooth', 
+                                                    block: 'nearest',
+                                                    inline: 'center'
+                                                });
+                                            }
+                                        }, 100);
                                     }}
                                     className={`flex-shrink-0 whitespace-nowrap py-2 px-4 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
                                 >
