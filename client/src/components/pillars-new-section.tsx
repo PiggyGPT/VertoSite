@@ -1306,7 +1306,7 @@ export default function PillarsSection({
     };
 
     const activePillar = orderedPillars[activeTab as keyof typeof orderedPillars];
-    const activeColors = colorMap[activePillar.color as keyof typeof colorMap];
+    const activeColors = activePillar ? colorMap[activePillar.color as keyof typeof colorMap] : colorMap['verto-green'];
 
     return (
         <div id="infrastructure" className="bg-white dark:bg-slate-950">
@@ -1330,7 +1330,7 @@ export default function PillarsSection({
                     <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8 py-4" aria-label="Tabs">
                         {Object.keys(orderedPillars).map((key) => {
                             const pillar = orderedPillars[key as keyof typeof orderedPillars];
-                            const colors = colorMap[pillar.color as keyof typeof colorMap];
+                            const colors = pillar ? colorMap[pillar.color as keyof typeof colorMap] || colorMap['verto-green'] : colorMap['verto-green'];
                             return (
                                 <button
                                     key={key}
