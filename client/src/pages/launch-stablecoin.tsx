@@ -35,7 +35,7 @@ const stablecoinCTAs = [
   },
   {
     title: "Institutional Liquidity",
-    subtitle: "Institutional trading access",
+    subtitle: "Compliant trade execution",
     icon: ShieldCheck,
     href: "#infrastructure",
     pillarKey: "trading",

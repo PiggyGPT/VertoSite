@@ -17,7 +17,7 @@ import { updatePageSEO } from "@/lib/seo";
 const secureOpsCTAs = [
   {
     title: "Institutional Liquidity",
-    subtitle: "Institutional trading access",
+    subtitle: "Compliant trade execution",
     icon: ShieldCheck,
     href: "#infrastructure",
     pillarKey: "trading",
@@ -80,7 +80,7 @@ export default function SecureDefiOps() {
       <div id="team">
         <TeamSection />
         <ProblemSection 
-          title="The DeFi Security Challenge"
+          title="Purpose-Built for Your Operations"
           subtitle="Traditional infrastructure lacks the specialized security and compliance controls needed for safe DeFi operations at institutional scale."
           customQuotes={[
             {
@@ -109,8 +109,8 @@ export default function SecureDefiOps() {
       </div>
       <div id="infrastructure">
         <PillarsSection 
-          title="Institutional DeFi Security Platform"
-          subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
+          title="One Unified Platform"
+          subtitle="Self-hosted stack to atomically execute multi-chain trades, with AI-powered risk management and compliance."
         />
       </div>
       <div id="pilot">

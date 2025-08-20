@@ -17,7 +17,7 @@ import { updatePageSEO } from "@/lib/seo";
 const defiProductsCTAs = [
   {
     title: "Institutional Liquidity",
-    subtitle: "Institutional trading access",
+    subtitle: "Compliant trade execution",
     icon: ShieldCheck,
     href: "#infrastructure",
     pillarKey: "trading",
@@ -79,8 +79,8 @@ export default function OfferDefiProducts() {
       <div id="team">
         <TeamSection />
         <ProblemSection 
-          title="The DeFi Integration Challenge"
-          subtitle="Exchanges struggle to expand DeFi offerings at scale without compromising on security or regulatory compliance."
+          title="Purpose-Built for Your Operations"
+          subtitle="Exchanges struggle to integrate DeFi protocols at scale with their standards of security and regulatory compliance."
           customQuotes={[
             {
               icon: "TrendingDown",
@@ -109,7 +109,7 @@ export default function OfferDefiProducts() {
       <div id="infrastructure">
         <PillarsSection 
           title="One Unified Platform"
-          subtitle="Self-hosted stack to access multi-chain liquidity and DeFi yield on any chain, with AI-powered risk management and compliance."
+          subtitle="Self-hosted stack to integrate multi-chain liquidity and DeFi protocols, with AI-powered risk management and compliance."
         />
       </div>
       <div id="pilot">
