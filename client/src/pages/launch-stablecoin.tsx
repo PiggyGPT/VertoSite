@@ -111,7 +111,7 @@ export default function LaunchStablecoin() {
       <div id="infrastructure">
         <PillarsSection 
           title="One Unified Platform"
-          subtitle="A self-hosted stack for stablecoin trading, payments, and asset distribution. Monitored 24×7 by global experts with AI-automated compliance."
+          subtitle="Self-hosted stack for stablecoin trading, payments, and asset distribution. Monitored 24×7 by global experts with AI-automated compliance."
           customOrder={["distribution", "payments", "trading", "compliance", "service"]}
         />
       </div>

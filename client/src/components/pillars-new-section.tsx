@@ -1344,7 +1344,7 @@ export default function PillarsSection({
                                     }}
                                     className={`flex-shrink-0 whitespace-nowrap py-2 px-4 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
                                 >
-                                    {pillar.label}
+                                    {pillar?.label || 'Unknown'}
                                 </button>
                             )
                         })}
@@ -1358,26 +1358,26 @@ export default function PillarsSection({
                     {/* Left Column: Text Content */}
                     <div className="lg:col-span-1">
                         <div>
-                            <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar.label}</p>
-                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar.title}</h3>
-                            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar.description}</p>
+                            <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar?.label || 'Unknown'}</p>
+                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar?.title || 'Unknown Title'}</h3>
+                            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar?.description || 'No description available'}</p>
                         </div>
 
                         {/* Mobile Animation - Renders below description on small screens */}
                         <div className="lg:hidden my-10">
-                            {activePillar.visual}
+                            {activePillar?.visual}
                         </div>
 
                         <div className="space-y-6 md:space-y-8 mt-10 mb-10">
-                            {activePillar.features.map((feature: any) => (
+                            {activePillar?.features?.map((feature: any) => (
                                 <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
-                            ))}
+                            )) || []}
                         </div>
                         <button 
                             onClick={openModal}
                             className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}
                         >
-                            <span>{activePillar.cta}</span>
+                            <span>{activePillar?.cta || 'Get Started'}</span>
                             <ArrowRight className="w-4 h-4 ml-2" />
                         </button>
                     </div>
@@ -1385,16 +1385,16 @@ export default function PillarsSection({
                     {/* Right Column: Visual */}
                     <div className="hidden lg:flex lg:col-span-1 justify-center">
                         <div className="w-full max-w-md">
-                            {activePillar.visual}
+                            {activePillar?.visual}
                         </div>
                     </div>
                 </div>
 
                 {/* DESIGN CHANGE: Founder Insight Banner moved to bottom, after benefits and UX slideshow */}
-                {activePillar.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
+                {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
             </div>
             
-            <CalendlyModal title={`Get Started with ${activePillar.label}`} />
+            <CalendlyModal title={`Get Started with ${activePillar?.label || 'Service'}`} />
         </div>
     );
 }
