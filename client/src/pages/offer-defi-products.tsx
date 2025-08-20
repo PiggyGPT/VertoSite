@@ -72,7 +72,7 @@ export default function OfferDefiProducts() {
       <div id="hero">
         <HeroSection 
           title="Launch DeFi Products in 90 Days"
-          subtitle="Securely access multi-chain liquidity and expand your digital asset offerings, while maintaining full regulatory compliance and risk controls."
+          subtitle="Integrate multi-chain liquidity and DeFi products into your platform, with AI-powered security & compliance."
           customCTAs={defiProductsCTAs}
         />
       </div>
