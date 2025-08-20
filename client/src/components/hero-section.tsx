@@ -21,7 +21,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ 
   title = "Digital Asset Operations Platform", 
-  subtitle = "Orchestrate trading, payments, and asset distribution on any chain with AI-powered security & compliance.",
+  subtitle = "Enable your institution to orchestrate digital asset trading, payments, and distribution on any chain, with AI-powered security & compliance.",
   description = "Securely access public chains for trading, payments, and asset distribution with AI-powered security and compliance.",
   customCTAs
 }: HeroSectionProps = {}) {
@@ -87,7 +87,7 @@ export default function HeroSection({
           </span>
         </h1>
 
-        <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
+        <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
           {subtitle}
         </p>
 

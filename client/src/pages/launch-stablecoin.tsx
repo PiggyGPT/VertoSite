@@ -74,7 +74,7 @@ export default function LaunchStablecoin() {
       <div id="hero">
         <HeroSection 
           title="Launch Your Stablecoin in 90 Days"
-          subtitle="Orchestrate stablecoin distribution, payments and trading across your network with AI-powered security & compliance."
+          subtitle="Orchestrate stablecoin distribution, payments and trading across your network, with AI-powered security & compliance."
           customCTAs={stablecoinCTAs}
         />
       </div>
