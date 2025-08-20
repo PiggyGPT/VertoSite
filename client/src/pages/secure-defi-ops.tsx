@@ -73,7 +73,7 @@ export default function SecureDefiOps() {
       <div id="hero">
         <HeroSection 
           title="Secure DeFi Operations in 90 Days"
-          subtitle="Enable your trading desks to execute multi-chain strategies at market speed, with AI-powered risk management and compliance."
+          subtitle="Enable your trading desks to orchestrate multi-chain strategies at market speed, with AI-powered security & compliance."
           customCTAs={secureOpsCTAs}
         />
       </div>

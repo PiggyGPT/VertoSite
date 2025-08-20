@@ -62,8 +62,8 @@ interface ProblemSectionProps {
 
 export default function ProblemSection({ 
   title = "Purpose-Built for Your Operations",
-  subtitle = "We understand the unique operational, security, and compliance challenges institutions face when accessing public chains.",
-  description = "We understand the unique operational, security, and compliance challenges institutions face when accessing public chains.",
+  subtitle = "We understand the unique operational, security, and compliance challenges institutions face when transacting on public blockchains.",
+  description = "We understand the unique operational, security, and compliance challenges institutions face when transacting on public blockchains.",
   customQuotes
 }: ProblemSectionProps = {}) {
     
