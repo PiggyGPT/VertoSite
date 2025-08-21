@@ -1183,7 +1183,7 @@ const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentTyp
 
 export default function PillarsSection({ 
   title = "One Unified Platform",
-  subtitle = "A self-hosted stack for trading, payments, and asset distribution on any chain.\nMonitored 24×7 by global experts with AI-automated compliance.",
+  subtitle = "A self-hosted stack to orchestrate digital asset operations on any chain.\nMonitored 24×7 by global experts with AI-automated compliance.",
   customFounderQuotes,
   customOrder
 }: PillarsSectionProps = {}) {
@@ -1207,7 +1207,7 @@ export default function PillarsSection({
     const defaultPillars = {
         trading: { 
             label: "Trading", color: "verto-blue", title: "Institutional Liquidity", 
-            description: "Execute trades across fragmented multi-chain liquidity pools with automated enforcement of institutional risk policies.", 
+            description: "Execute trades across fragmented, multi-chain liquidity pools with automated enforcement of institutional risk policies.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
                 quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
@@ -1246,7 +1246,7 @@ export default function PillarsSection({
         },
         compliance: { 
             label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance", 
-            description: "Enforce regulatory compliance with AI-powered continuous monitoring and reporting that satisfies bank regulators.", 
+            description: "Automate regulatory compliance with AI-powered monitoring, enforcement and reporting that satisfies bank regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
                 quote: "DOJ audits require you to report the 'why' behind every transaction, not just the hash. We build the evidence file for you, before you need it.",
