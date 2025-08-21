@@ -1207,7 +1207,7 @@ export default function PillarsSection({
     const defaultPillars = {
         trading: { 
             label: "Trading", color: "verto-blue", title: "Institutional Liquidity", 
-            description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade controls, security, and compliance.", 
+            description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade risk management and compliance.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
                 quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
@@ -1220,20 +1220,20 @@ export default function PillarsSection({
         },
         payments: { 
             label: "Payments", color: "verto-purple", title: "Frictionless Checkout", 
-            description: "Enable institutional clients and merchants to accept digital assets with industry-leading conversion, security and compliance.", 
+            description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "At PayPal, we optimized every click to convert millions. Now we bring that familiar, reliable checkout to multi-chain payments — fixing the broken flows of today.",
+                quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
                 image: nileshImage
             },
-            features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We handle routing, settlement, reconciliation, and reporting automatically to reduce operational overhead." }, ], 
+            features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We automate multi-chain routing, execution, and reconciliation to reduce operational overhead." }, ], 
             cta: "Explore Payments API" 
         },
         distribution: { 
-            label: "Distribution", color: "verto-green", title: "Instant On-Ramps", 
-            description: "Enable instant-on-demand minting where value is deposited, no pre-funding required.", 
+            label: "Distribution", color: "verto-green", title: "Partner On-Ramps", 
+            description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.", 
             visual: <ExecutiveDistributionFlow />, 
             founderQuote: { 
                 quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
@@ -1241,7 +1241,7 @@ export default function PillarsSection({
                 title: "CEO | Former Federal Reserve Regulator",
                 image: davidImage
             },
-            features: [ { icon: Coins, title: "Leverage Existing Networks", description: "Activate your correspondent banking network and business partnerships as instant digital asset distribution channels." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant minting at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." }, ], 
+            features: [ { icon: Coins, title: "Leverage Existing Networks", description: "Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." }, ], 
             cta: "Scale Distribution Network" 
         },
         compliance: { 
