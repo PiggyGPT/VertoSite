@@ -1325,7 +1325,7 @@ export default function PillarsSection({
             </div>
             
             {/* Sticky Navigation Bar */}
-            <div className="sticky top-16 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+            <div id="pillar-navigation" className="sticky top-16 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8 py-4" aria-label="Tabs">
                         {Object.keys(orderedPillars).map((key) => {
@@ -1336,10 +1336,10 @@ export default function PillarsSection({
                                     key={key}
                                     onClick={(e) => {
                                         setActiveTab(key);
-                                        // Auto-scroll to top of infrastructure section
-                                        const element = document.getElementById('infrastructure');
+                                        // Auto-scroll to top of the navigation ribbon
+                                        const element = document.getElementById('pillar-navigation');
                                         if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
+                                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }
                                         // On mobile, scroll the clicked tab button into view
                                         setTimeout(() => {
