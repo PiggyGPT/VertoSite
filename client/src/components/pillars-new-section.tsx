@@ -1223,7 +1223,7 @@ export default function PillarsSection({
             description: "Enable institutional clients and merchants to accept digital assets with industry-leading conversion, security and compliance.", 
             visual: <PolishedPaymentsFlow />, 
             founderQuote: { 
-                quote: "At PayPal, we optimized every click to convert millions. Now we bring that familiar, reliable checkout to stablecoin payments — fixing the broken flows of today.",
+                quote: "At PayPal, we optimized every click to convert millions. Now we bring that familiar, reliable checkout to multi-chain payments — fixing the broken flows of today.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
                 image: nileshImage
