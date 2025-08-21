@@ -1336,8 +1336,8 @@ export default function PillarsSection({
                                     key={key}
                                     onClick={(e) => {
                                         setActiveTab(key);
-                                        // Auto-scroll to top of the navigation ribbon
-                                        const element = document.getElementById('pillar-navigation');
+                                        // Auto-scroll to top of the content area
+                                        const element = document.getElementById('pillar-content');
                                         if (element) {
                                             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                         }
@@ -1364,7 +1364,7 @@ export default function PillarsSection({
             </div>
 
             {/* DESIGN CHANGE: The main content container now has more consistent padding */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
                     {/* Left Column: Text Content */}
                     <div className="lg:col-span-1">
