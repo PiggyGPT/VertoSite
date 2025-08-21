@@ -1336,10 +1336,16 @@ export default function PillarsSection({
                                     key={key}
                                     onClick={(e) => {
                                         setActiveTab(key);
-                                        // Auto-scroll to top of the content area
+                                        // Auto-scroll to top of the content area, accounting for fixed navbar and ribbon
                                         const element = document.getElementById('pillar-content');
                                         if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                            const elementTop = element.offsetTop;
+                                            // Account for navbar (64px) + ribbon height (~60px) + some padding
+                                            const offset = 140;
+                                            window.scrollTo({
+                                                top: elementTop - offset,
+                                                behavior: 'smooth'
+                                            });
                                         }
                                         // On mobile, scroll the clicked tab button into view
                                         setTimeout(() => {
