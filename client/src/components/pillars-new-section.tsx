@@ -1246,7 +1246,7 @@ export default function PillarsSection({
         },
         compliance: { 
             label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance", 
-            description: "Automate regulatory compliance with AI-powered monitoring, enforcement and reporting that satisfies bank regulators.", 
+            description: "Automate compliance with AI-powered monitoring, enforcement and reporting that satisfies financial regulators.", 
             visual: <PolishedComplianceFlow />,
             founderQuote: { 
                 quote: "DOJ audits require you to report the 'why' behind every transaction, not just the hash. We build the evidence file for you, before you need it.",
