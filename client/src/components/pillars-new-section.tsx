@@ -1207,7 +1207,7 @@ export default function PillarsSection({
     const defaultPillars = {
         trading: { 
             label: "Trading", color: "verto-blue", title: "Institutional Liquidity", 
-            description: "Execute trades by accessing fragmented multi-chain liquidity with institutional-grade risk management and compliance.", 
+            description: "Execute trades across fragmented multi-chain liquidity pools with automated enforcement of institutional risk policies.", 
             visual: <ExecutiveLiquidityFlow />,
             founderQuote: { 
                 quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
