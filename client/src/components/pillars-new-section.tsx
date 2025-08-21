@@ -1260,7 +1260,7 @@ export default function PillarsSection({
         service: { 
             label: "Service", color: "verto-orange",
             title: "24/7 Global Operations", 
-            description: "Maintain operational integrity for your self-hosted stack with our global SOC teams providing 24/7 monitoring and support.", 
+            description: "Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.", 
             visual: <ExecutiveServiceFlow />,
             founderQuote: { 
                 quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
