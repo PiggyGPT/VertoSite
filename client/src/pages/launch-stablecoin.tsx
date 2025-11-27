@@ -21,8 +21,7 @@ const stablecoinCTAs = [
     icon: Plug,
     href: "#infrastructure",
     pillarKey: "compliance",
-    bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/35 dark:hover:bg-verto-orange/50",
-    iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light",
+    bgColorClass: "bg-gradient-to-br from-verto-orange/10 to-verto-orange/5 dark:from-verto-orange/15 dark:to-verto-orange/5 hover:from-verto-orange/20 hover:to-verto-orange/15 dark:hover:from-verto-orange/30 dark:hover:to-verto-orange/15",
     glowColor: "hsl(30, 80%, 62%)"
   },
   {
@@ -31,8 +30,7 @@ const stablecoinCTAs = [
     icon: DollarSign,
     href: "#infrastructure",
     pillarKey: "trading",
-    bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/35 dark:hover:bg-verto-blue/50",
-    iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light",
+    bgColorClass: "bg-gradient-to-br from-verto-blue/10 to-verto-blue/5 dark:from-verto-blue/15 dark:to-verto-blue/5 hover:from-verto-blue/20 hover:to-verto-blue/15 dark:hover:from-verto-blue/30 dark:hover:to-verto-blue/15",
     glowColor: "hsl(225, 80%, 58%)"
   },
   {
@@ -41,8 +39,7 @@ const stablecoinCTAs = [
     icon: Globe,
     href: "#infrastructure",
     pillarKey: "payments",
-    bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/35 dark:hover:bg-verto-purple/50",
-    iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light",
+    bgColorClass: "bg-gradient-to-br from-verto-purple/10 to-verto-purple/5 dark:from-verto-purple/15 dark:to-verto-purple/5 hover:from-verto-purple/20 hover:to-verto-purple/15 dark:hover:from-verto-purple/30 dark:hover:to-verto-purple/15",
     glowColor: "hsl(270, 75%, 65%)"
   },
   {
@@ -51,8 +48,7 @@ const stablecoinCTAs = [
     icon: Server,
     href: "#infrastructure",
     pillarKey: "distribution",
-    bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/35 dark:hover:bg-verto-green/50",
-    iconColor: "text-verto-green dark:text-verto-green group-hover:text-verto-green-dark dark:group-hover:text-verto-green-light",
+    bgColorClass: "bg-gradient-to-br from-verto-green/10 to-verto-green/5 dark:from-verto-green/15 dark:to-verto-green/5 hover:from-verto-green/20 hover:to-verto-green/15 dark:hover:from-verto-green/30 dark:hover:to-verto-green/15",
     glowColor: "hsl(127, 80%, 45%)"
   }
 ];

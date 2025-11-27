@@ -8,7 +8,6 @@ interface CTAItem {
   icon: React.ComponentType<{ className?: string }>;
   href: string;
   bgColorClass: string;
-  iconColor: string;
   pillarKey?: string; // For scrolling to specific pillars
   glowColor?: string; // For hover glow effect
 }
@@ -35,8 +34,7 @@ export default function HeroSection({
       subtitle: "For Financial Institutions",
       icon: Landmark,
       href: "/launch-stablecoin",
-      bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
-      iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light",
+      bgColorClass: "bg-gradient-to-br from-verto-blue/10 to-verto-blue/5 dark:from-verto-blue/15 dark:to-verto-blue/5 hover:from-verto-blue/20 hover:to-verto-blue/15 dark:hover:from-verto-blue/30 dark:hover:to-verto-blue/15",
       pillarKey: undefined
     },
     {
@@ -44,8 +42,7 @@ export default function HeroSection({
       subtitle: "For Digital Asset Exchanges",
       icon: ArrowRightLeft,
       href: "/offer-defi-products",
-      bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/25 dark:hover:bg-verto-purple/35",
-      iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light",
+      bgColorClass: "bg-gradient-to-br from-verto-purple/10 to-verto-purple/5 dark:from-verto-purple/15 dark:to-verto-purple/5 hover:from-verto-purple/20 hover:to-verto-purple/15 dark:hover:from-verto-purple/30 dark:hover:to-verto-purple/15",
       pillarKey: undefined
     },
     {
@@ -53,8 +50,7 @@ export default function HeroSection({
       subtitle: "For Trading Firms & Funds",
       icon: CandlestickChart,
       href: "/secure-defi-ops",
-      bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
-      iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light",
+      bgColorClass: "bg-gradient-to-br from-verto-orange/10 to-verto-orange/5 dark:from-verto-orange/15 dark:to-verto-orange/5 hover:from-verto-orange/20 hover:to-verto-orange/15 dark:hover:from-verto-orange/30 dark:hover:to-verto-orange/15",
       pillarKey: undefined
     },
   ];
@@ -130,7 +126,7 @@ export default function HeroSection({
                   >
                     
                     <div className="relative flex items-center justify-center gap-x-3">
-                        <cta.icon className={`w-7 h-7 transition-all duration-300 group-hover:scale-110 ${cta.iconColor}`} />
+                        <cta.icon className="w-7 h-7 transition-all duration-300 group-hover:scale-110 verto-gradient-text" />
                         <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{cta.title}</span>
                     </div>
                     <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -158,7 +154,7 @@ export default function HeroSection({
                   >
                     
                     <div className="relative flex items-center justify-center gap-x-3">
-                        <cta.icon className={`w-7 h-7 transition-all duration-300 group-hover:scale-110 ${cta.iconColor}`} />
+                        <cta.icon className="w-7 h-7 transition-all duration-300 group-hover:scale-110 verto-gradient-text" />
                         <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{cta.title}</span>
                     </div>
                     <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
