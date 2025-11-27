@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Rocket } from "lucide-react";
 import { Link } from "wouter";
-import alberiLogo from "@assets/Frame 2087327203_1764271315524.png";
+import alberiLogo from "@assets/logo.svg";
 import { useCalendlyModal } from "./calendly-modal";
 
 // It's good practice to create a dedicated component for custom icons.
