@@ -76,27 +76,34 @@ export default function HeroSection({
   };
 
   return (
-    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 md:px-8 overflow-hidden">
-      {/* Background elements are unchanged */}
-      <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-      <div className="absolute top-0 left-1/4 -translate-y-1/2">
-        <div className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] bg-gradient-to-tr from-verto-purple/20 via-verto-blue/10 to-verto-green/20 dark:from-verto-purple/30 dark:via-verto-blue/20 dark:to-verto-green/30 blur-[100px] sm:blur-[120px] md:blur-[150px] rounded-full"></div>
+    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 md:px-8 overflow-hidden">
+      {/* Enhanced background with animated gradient */}
+      <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-40"></div>
+      
+      {/* Animated gradient orbs - more vibrant */}
+      <div className="absolute top-0 left-1/4 -translate-y-1/2 animate-pulse">
+        <div className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] bg-gradient-to-tr from-verto-purple/30 via-verto-blue/20 to-verto-green/25 dark:from-verto-purple/40 dark:via-verto-blue/30 dark:to-verto-green/35 blur-[100px] sm:blur-[120px] md:blur-[150px] rounded-full"></div>
+      </div>
+      
+      {/* Secondary accent orb for depth */}
+      <div className="absolute bottom-1/2 right-1/3 translate-y-1/2 animate-pulse" style={{ animationDelay: '1s' }}>
+        <div className="w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-bl from-verto-orange/20 via-verto-purple/15 to-verto-blue/20 dark:from-verto-orange/30 dark:via-verto-purple/25 dark:to-verto-blue/30 blur-[80px] sm:blur-[100px] md:blur-[120px] rounded-full opacity-60"></div>
       </div>
 
       <div className="relative max-w-4xl mx-auto text-center">
-        <h1 className="font-black text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-tight whitespace-pre-line">
+        <h1 className="font-black text-slate-900 dark:text-white tracking-tighter" data-testid="hero-title">
+          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-[1.1] whitespace-pre-line">
             {title}
           </span>
         </h1>
 
-        <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
+        <p className="mt-8 sm:mt-10 md:mt-12 text-lg sm:text-xl md:text-2xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
           {subtitle}
         </p>
 
-        {/* --- REVISED CTA BLOCK: Action-oriented buttons --- */}
-        <div className="mt-8 sm:mt-10 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+        {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
+        <div className="mt-14 sm:mt-16 md:mt-20 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
                 <button 
@@ -104,24 +111,34 @@ export default function HeroSection({
                   onClick={() => handleCTAClick(cta)}
                   className="w-full"
                 >
-                  <div className={`group flex flex-col justify-center text-center h-full p-4 sm:p-6 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${cta.bgColorClass}`}>
-                    <div className="flex items-center justify-center gap-x-2">
-                        <cta.icon className={`w-6 h-6 transition-colors ${cta.iconColor}`} />
-                        <span className="text-base font-semibold text-slate-900 dark:text-slate-100">{cta.title}</span>
+                  <div className={`group relative flex flex-col justify-center text-center h-full p-6 sm:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
+                    {/* Subtle gradient overlay on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
+                      background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)'
+                    }}></div>
+                    
+                    <div className="relative flex items-center justify-center gap-x-3">
+                        <cta.icon className={`w-7 h-7 transition-all duration-300 group-hover:scale-110 ${cta.iconColor}`} />
+                        <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{cta.title}</span>
                     </div>
-                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                    <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                         {cta.subtitle}
                     </p>
                   </div>
                 </button>
               ) : (
                 <Link key={cta.title} href={cta.href}>
-                  <div className={`group flex flex-col justify-center text-center h-full p-4 sm:p-6 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${cta.bgColorClass}`}>
-                    <div className="flex items-center justify-center gap-x-2">
-                        <cta.icon className={`w-6 h-6 transition-colors ${cta.iconColor}`} />
-                        <span className="text-base font-semibold text-slate-900 dark:text-slate-100">{cta.title}</span>
+                  <div className={`group relative flex flex-col justify-center text-center h-full p-6 sm:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
+                    {/* Subtle gradient overlay on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
+                      background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)'
+                    }}></div>
+                    
+                    <div className="relative flex items-center justify-center gap-x-3">
+                        <cta.icon className={`w-7 h-7 transition-all duration-300 group-hover:scale-110 ${cta.iconColor}`} />
+                        <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{cta.title}</span>
                     </div>
-                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                    <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                         {cta.subtitle}
                     </p>
                   </div>
@@ -130,16 +147,17 @@ export default function HeroSection({
             ))}
           </div>
 
-          {/* UPDATED: "Launch Pilot in 90 Days" now links to Calendly */}
-          <div className="mt-8 sm:mt-10">
+          {/* Premium CTA button */}
+          <div className="mt-12 sm:mt-14 md:mt-16">
               <button 
                 onClick={openModal}
-                className="group inline-flex items-center gap-x-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600"
+                className="group relative inline-flex items-center gap-x-3 bg-gradient-to-r from-verto-blue to-verto-purple text-white font-bold px-8 sm:px-10 py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-verto-blue/40 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-verto-blue/30 dark:focus:ring-verto-blue/50 overflow-hidden"
                 data-testid="hero-pilot-cta"
               >
-                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>Launch Pilot in 90 Days</span>
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-0 transform group-hover:translate-x-1 transition-all" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-verto-purple to-verto-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <Rocket className="w-5 h-5 sm:w-6 sm:h-6 relative" />
+                  <span className="relative">Launch Pilot in 90 Days</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative transform group-hover:translate-x-1 transition-all" />
               </button>
           </div>
         </div>
