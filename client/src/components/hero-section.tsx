@@ -7,7 +7,8 @@ interface CTAItem {
   subtitle: string;
   icon: React.ComponentType<{ className?: string }>;
   href: string;
-  bgColorClass: string;
+  bgColorClass?: string; // Legacy
+  bgGradient?: string; // Inline gradient for better control
   pillarKey?: string; // For scrolling to specific pillars
   glowColor?: string; // For hover glow effect
 }
@@ -34,7 +35,7 @@ export default function HeroSection({
       subtitle: "For Financial Institutions",
       icon: Landmark,
       href: "/launch-stablecoin",
-      bgColorClass: "bg-gradient-to-br from-verto-blue/20 to-verto-blue/10 dark:from-verto-blue/15 dark:to-verto-blue/5 hover:from-verto-blue/30 hover:to-verto-blue/20 dark:hover:from-verto-blue/30 dark:hover:to-verto-blue/15",
+      bgGradient: "linear-gradient(135deg, rgba(82, 178, 255, 0.25), rgba(82, 178, 255, 0.12))",
       pillarKey: undefined
     },
     {
@@ -42,7 +43,7 @@ export default function HeroSection({
       subtitle: "For Digital Asset Exchanges",
       icon: ArrowRightLeft,
       href: "/offer-defi-products",
-      bgColorClass: "bg-gradient-to-br from-verto-purple/20 to-verto-purple/10 dark:from-verto-purple/15 dark:to-verto-purple/5 hover:from-verto-purple/30 hover:to-verto-purple/20 dark:hover:from-verto-purple/30 dark:hover:to-verto-purple/15",
+      bgGradient: "linear-gradient(135deg, rgba(191, 115, 255, 0.25), rgba(191, 115, 255, 0.12))",
       pillarKey: undefined
     },
     {
@@ -50,7 +51,7 @@ export default function HeroSection({
       subtitle: "For Trading Firms & Funds",
       icon: CandlestickChart,
       href: "/secure-defi-ops",
-      bgColorClass: "bg-gradient-to-br from-verto-orange/20 to-verto-orange/10 dark:from-verto-orange/15 dark:to-verto-orange/5 hover:from-verto-orange/30 hover:to-verto-orange/20 dark:hover:from-verto-orange/30 dark:hover:to-verto-orange/15",
+      bgGradient: "linear-gradient(135deg, rgba(255, 152, 0, 0.25), rgba(255, 152, 0, 0.12))",
       pillarKey: undefined
     },
   ];
@@ -109,8 +110,9 @@ export default function HeroSection({
                   className="w-full"
                 >
                   <div 
-                    className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden ${cta.bgColorClass}`}
+                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                     style={{
+                      background: cta.bgGradient || cta.bgColorClass,
                       boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
                     }}
                     onMouseEnter={(e) => {
@@ -137,8 +139,9 @@ export default function HeroSection({
               ) : (
                 <Link key={cta.title} href={cta.href}>
                   <div 
-                    className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden ${cta.bgColorClass}`}
+                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                     style={{
+                      background: cta.bgGradient || cta.bgColorClass,
                       boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
                     }}
                     onMouseEnter={(e) => {
