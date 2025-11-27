@@ -34,7 +34,7 @@ export default function HeroSection({
       subtitle: "For Financial Institutions",
       icon: Landmark,
       href: "/launch-stablecoin",
-      bgColorClass: "bg-gradient-to-br from-verto-blue/10 to-verto-blue/5 dark:from-verto-blue/15 dark:to-verto-blue/5 hover:from-verto-blue/20 hover:to-verto-blue/15 dark:hover:from-verto-blue/30 dark:hover:to-verto-blue/15",
+      bgColorClass: "bg-gradient-to-br from-verto-blue/20 to-verto-blue/10 dark:from-verto-blue/15 dark:to-verto-blue/5 hover:from-verto-blue/30 hover:to-verto-blue/20 dark:hover:from-verto-blue/30 dark:hover:to-verto-blue/15",
       pillarKey: undefined
     },
     {
@@ -42,7 +42,7 @@ export default function HeroSection({
       subtitle: "For Digital Asset Exchanges",
       icon: ArrowRightLeft,
       href: "/offer-defi-products",
-      bgColorClass: "bg-gradient-to-br from-verto-purple/10 to-verto-purple/5 dark:from-verto-purple/15 dark:to-verto-purple/5 hover:from-verto-purple/20 hover:to-verto-purple/15 dark:hover:from-verto-purple/30 dark:hover:to-verto-purple/15",
+      bgColorClass: "bg-gradient-to-br from-verto-purple/20 to-verto-purple/10 dark:from-verto-purple/15 dark:to-verto-purple/5 hover:from-verto-purple/30 hover:to-verto-purple/20 dark:hover:from-verto-purple/30 dark:hover:to-verto-purple/15",
       pillarKey: undefined
     },
     {
@@ -50,7 +50,7 @@ export default function HeroSection({
       subtitle: "For Trading Firms & Funds",
       icon: CandlestickChart,
       href: "/secure-defi-ops",
-      bgColorClass: "bg-gradient-to-br from-verto-orange/10 to-verto-orange/5 dark:from-verto-orange/15 dark:to-verto-orange/5 hover:from-verto-orange/20 hover:to-verto-orange/15 dark:hover:from-verto-orange/30 dark:hover:to-verto-orange/15",
+      bgColorClass: "bg-gradient-to-br from-verto-orange/20 to-verto-orange/10 dark:from-verto-orange/15 dark:to-verto-orange/5 hover:from-verto-orange/30 hover:to-verto-orange/20 dark:hover:from-verto-orange/30 dark:hover:to-verto-orange/15",
       pillarKey: undefined
     },
   ];
@@ -89,7 +89,7 @@ export default function HeroSection({
 
       <div className="relative max-w-4xl mx-auto text-center">
         <h1 className="font-black text-slate-900 dark:text-white tracking-tighter" data-testid="hero-title">
-          <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-[1.1] whitespace-pre-line">
+          <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-tight whitespace-pre-line max-w-3xl mx-auto">
             {title}
           </span>
         </h1>
