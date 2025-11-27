@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Rocket } from "lucide-react";
 import { Link } from "wouter";
-import alberiLogo from "@assets/logo.svg";
 import { useCalendlyModal } from "./calendly-modal";
 
 // It's good practice to create a dedicated component for custom icons.
@@ -52,7 +51,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0" data-testid="logo">
-              <img src={alberiLogo} alt="Alberi Logo" className="h-6 w-auto" />
+              <img src="/logos/albor_logo.svg" alt="Alberi Logo" className="h-6 w-auto" />
             </Link>
           </div>
 
