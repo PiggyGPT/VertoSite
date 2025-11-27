@@ -42,7 +42,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-gradient bg-gradient-to-r from-verto-orange via-verto-purple to-verto-blue dark:from-slate-800 dark:via-slate-700 dark:to-slate-800`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-gradient bg-gradient-to-r from-verto-orange via-verto-purple to-verto-blue dark:from-verto-orange/30 dark:via-verto-purple/30 dark:to-verto-blue/30`}
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -57,7 +57,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <button
               onClick={openModal}
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-white text-slate-900 rounded-lg font-bold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
               Launch Pilot
@@ -76,7 +76,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gradient-to-r from-verto-orange via-verto-purple to-verto-blue dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 border-t border-white/20" data-testid="mobile-menu">
+        <div className="md:hidden bg-gradient-to-r from-verto-orange via-verto-purple to-verto-blue dark:from-verto-orange/30 dark:via-verto-purple/30 dark:to-verto-blue/30 border-t border-white/20" data-testid="mobile-menu">
           <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
             <button
               onClick={() => {
