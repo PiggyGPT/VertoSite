@@ -16,8 +16,8 @@ import { updatePageSEO } from "@/lib/seo";
 // Define custom CTAs for stablecoin landing page
 const stablecoinCTAs = [
   {
-    title: "Enable Deep Dollar Liquidity",
-    subtitle: "Built-in DEX interface for Liquidity Providers to seed your asset with deep dollar liquidity from Day 1",
+    title: "Capture Dollar Liquidity",
+    subtitle: "Attract LPs to easily seed dollar liquidity and earn yield.",
     icon: TrendingUp,
     href: "#infrastructure",
     pillarKey: "trading",
@@ -25,8 +25,8 @@ const stablecoinCTAs = [
     iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
   },
   {
-    title: "Automated Best Execution",
-    subtitle: "Smart routing engine that unifies Fiat, DEXs, and Bridges for optimal pricing and risk management",
+    title: "Unlock Global Coverage",
+    subtitle: "Enable Traders to trade your asset with any bank or wallet with one tap.",
     icon: GitMerge,
     href: "#infrastructure",
     pillarKey: "payments",
@@ -34,13 +34,22 @@ const stablecoinCTAs = [
     iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
   },
   {
-    title: "Total Sovereignty & Control",
-    subtitle: "Non-custodial software deployed in your private perimeter with full control of assets and keys",
+    title: "Own The Rails",
+    subtitle: "Deploy our full stack on your servers and eliminate counterparty risk.",
     icon: Lock,
     href: "#infrastructure",
     pillarKey: "distribution",
     bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/25 dark:hover:bg-verto-green/35",
     iconColor: "text-verto-green dark:text-verto-green group-hover:text-verto-green-dark dark:group-hover:text-verto-green-light"
+  },
+  {
+    title: "Integrate Your System",
+    subtitle: "Enable your core systems to automate issuance, redemption, and reconciliation for compliant fiat flow",
+    icon: Zap,
+    href: "#infrastructure",
+    pillarKey: "compliance",
+    bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
+    iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
   }
 ];
 
@@ -73,8 +82,8 @@ export default function LaunchStablecoin() {
       <Navigation />
       <div id="hero">
         <HeroSection 
-          title="Launch Your Stablecoin. Access Global Dollar Markets."
-          subtitle="Attract global capital by connecting your bank directly to 24/7 public dollar markets. We provide the self-hosted infrastructure to own your settlement rails, manage liquidity, and eliminate counterparty risk."
+          title="Launch Your Stablecoin. Attract Global Dollars."
+          subtitle="Make your asset liquid against dollar stablecoins with our self-hosted, full-stack infrastructure."
           customCTAs={stablecoinCTAs}
         />
       </div>
