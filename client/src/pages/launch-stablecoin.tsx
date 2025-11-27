@@ -17,7 +17,7 @@ import { updatePageSEO } from "@/lib/seo";
 const stablecoinCTAs = [
   {
     title: "Enable Deep Dollar Liquidity",
-    subtitle: "Built-in DEX interface for instant, Visa-like market settlement",
+    subtitle: "Built-in DEX interface for Liquidity Providers to seed your asset with deep dollar liquidity from Day 1",
     icon: TrendingUp,
     href: "#infrastructure",
     pillarKey: "trading",
@@ -26,7 +26,7 @@ const stablecoinCTAs = [
   },
   {
     title: "Automated Best Execution",
-    subtitle: "Smart routing across Fiat, DEXs & Bridges for optimal pricing",
+    subtitle: "Smart routing engine that unifies Fiat, DEXs, and Bridges for optimal pricing and risk management",
     icon: GitMerge,
     href: "#infrastructure",
     pillarKey: "payments",
@@ -35,7 +35,7 @@ const stablecoinCTAs = [
   },
   {
     title: "Total Sovereignty & Control",
-    subtitle: "Non-custodial, deployed in your private perimeter with full key control",
+    subtitle: "Non-custodial software deployed in your private perimeter with full control of assets and keys",
     icon: Lock,
     href: "#infrastructure",
     pillarKey: "distribution",
@@ -74,7 +74,7 @@ export default function LaunchStablecoin() {
       <div id="hero">
         <HeroSection 
           title="Launch Your Stablecoin. Access Global Dollar Markets."
-          subtitle="Connect directly to 24/7 public dollar markets. Self-hosted infrastructure to own your settlement rails and eliminate counterparty risk."
+          subtitle="Attract global capital by connecting your bank directly to 24/7 public dollar markets. We provide the self-hosted infrastructure to own your settlement rails, manage liquidity, and eliminate counterparty risk."
           customCTAs={stablecoinCTAs}
         />
       </div>
