@@ -25,14 +25,14 @@
   --ring: hsl(202.8169, 89.1213%, 53.1373%);
   --radius: 1.3rem;
 
-  /* Verto Brand Colors - Dawn/Sunrise aesthetic */
-  --verto-gradient-start: hsl(12, 85%, 62%); /* Warm orange */
-  --verto-gradient-middle: hsl(280, 70%, 65%); /* Soft purple */
-  --verto-gradient-end: hsl(352, 82%, 58%); /* Warm pink */
-  --verto-purple: hsl(280, 70%, 65%);
-  --verto-blue: hsl(240, 60%, 65%);
+  /* Verto Brand Colors - Subtle variations for sophisticated design */
+  --verto-gradient-start: hsl(225, 85%, 58%); /* Subtle blue */
+  --verto-gradient-middle: hsl(270, 85%, 65%); /* Subtle purple */
+  --verto-gradient-end: hsl(30, 85%, 62%); /* Subtle orange */
+  --verto-purple: hsl(270, 75%, 65%);
+  --verto-blue: hsl(225, 80%, 58%);
   --verto-green: hsl(127, 80%, 45%);
-  --verto-orange: hsl(12, 85%, 62%);
+  --verto-orange: hsl(30, 80%, 62%);
   --verto-cyan: hsl(185, 80%, 55%);
   
   /* Verto Gray Scale */
