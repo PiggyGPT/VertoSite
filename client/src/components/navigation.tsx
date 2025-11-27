@@ -42,7 +42,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-gradient bg-gradient-to-r from-verto-orange via-verto-purple to-verto-blue dark:from-verto-orange/25 dark:via-verto-purple/25 dark:to-verto-blue/25`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-gradient bg-gradient-to-r from-verto-orange via-verto-pink via-verto-purple to-verto-blue dark:from-verto-orange/25 dark:via-verto-pink/25 dark:via-verto-purple/25 dark:to-verto-blue/25`}
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -86,7 +86,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gradient-to-r from-verto-orange via-verto-purple to-verto-blue dark:from-verto-orange/25 dark:via-verto-purple/25 dark:to-verto-blue/25 border-t border-white/20" data-testid="mobile-menu">
+        <div className="md:hidden bg-gradient-to-r from-verto-orange via-verto-pink via-verto-purple to-verto-blue dark:from-verto-orange/25 dark:via-verto-pink/25 dark:via-verto-purple/25 dark:to-verto-blue/25 border-t border-white/20" data-testid="mobile-menu">
           <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
             <button
               onClick={() => {
