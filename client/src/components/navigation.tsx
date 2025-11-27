@@ -42,14 +42,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-gradient ${
-        isScrolled
-          ? "shadow-lg"
-          : ""
-      }`}
-      style={{
-        background: "linear-gradient(-45deg, var(--verto-blue), var(--verto-purple), var(--verto-orange), var(--verto-blue))"
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-gradient bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange`}
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
@@ -83,9 +76,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden animate-gradient border-t border-white/20" style={{
-          background: "linear-gradient(-45deg, var(--verto-blue), var(--verto-purple), var(--verto-orange), var(--verto-blue))"
-        }} data-testid="mobile-menu">
+        <div className="md:hidden bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange border-t border-white/20" data-testid="mobile-menu">
           <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
             <button
               onClick={() => {
