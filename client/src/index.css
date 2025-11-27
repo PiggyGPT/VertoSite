@@ -25,14 +25,14 @@
   --ring: hsl(202.8169, 89.1213%, 53.1373%);
   --radius: 1.3rem;
 
-  /* Verto Brand Colors - Subtle variations for sophisticated design */
-  --verto-gradient-start: hsl(225, 85%, 58%); /* Subtle blue */
-  --verto-gradient-middle: hsl(270, 85%, 65%); /* Subtle purple */
-  --verto-gradient-end: hsl(30, 85%, 62%); /* Subtle orange */
-  --verto-purple: hsl(270, 75%, 65%);
-  --verto-blue: hsl(225, 80%, 58%);
+  /* Verto Brand Colors - Official Brand Palette */
+  --verto-gradient-start: hsl(34, 85%, 63%); /* EEAA4A */
+  --verto-gradient-middle: hsl(257, 100%, 68%); /* 8F73FE */
+  --verto-gradient-end: hsl(217, 100%, 60%); /* 217DFE */
+  --verto-purple: hsl(257, 100%, 68%);
+  --verto-blue: hsl(217, 100%, 60%);
   --verto-green: hsl(127, 80%, 45%);
-  --verto-orange: hsl(30, 80%, 62%);
+  --verto-orange: hsl(34, 85%, 63%);
   --verto-cyan: hsl(185, 80%, 55%);
   
   /* Verto Gray Scale */
