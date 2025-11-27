@@ -76,7 +76,7 @@ export default function HeroSection({
   };
 
   return (
-    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 md:px-8 overflow-hidden">
+    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-16 sm:pt-28 md:pt-40 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8 overflow-hidden">
       {/* Enhanced background with animated gradient */}
       <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-40"></div>
       
@@ -92,18 +92,18 @@ export default function HeroSection({
 
       <div className="relative max-w-4xl mx-auto text-center">
         <h1 className="font-black text-slate-900 dark:text-white tracking-tighter" data-testid="hero-title">
-          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-[1.1] whitespace-pre-line">
+          <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-[1.1] whitespace-pre-line">
             {title}
           </span>
         </h1>
 
-        <p className="mt-8 sm:mt-10 md:mt-12 text-lg sm:text-xl md:text-2xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
+        <p className="mt-4 sm:mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
           {subtitle}
         </p>
 
         {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
-        <div className="mt-14 sm:mt-16 md:mt-20 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+        <div className="mt-8 sm:mt-10 md:mt-14 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
                 <button 
@@ -111,7 +111,7 @@ export default function HeroSection({
                   onClick={() => handleCTAClick(cta)}
                   className="w-full"
                 >
-                  <div className={`group relative flex flex-col justify-center text-center h-full p-6 sm:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
+                  <div className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
                     {/* Subtle gradient overlay on hover */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
                       background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)'
@@ -128,7 +128,7 @@ export default function HeroSection({
                 </button>
               ) : (
                 <Link key={cta.title} href={cta.href}>
-                  <div className={`group relative flex flex-col justify-center text-center h-full p-6 sm:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
+                  <div className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
                     {/* Subtle gradient overlay on hover */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
                       background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)'
@@ -148,7 +148,7 @@ export default function HeroSection({
           </div>
 
           {/* Premium CTA button */}
-          <div className="mt-12 sm:mt-14 md:mt-16">
+          <div className="mt-8 sm:mt-10 md:mt-12">
               <button 
                 onClick={openModal}
                 className="group relative inline-flex items-center gap-x-3 bg-gradient-to-r from-verto-blue to-verto-purple text-white font-bold px-8 sm:px-10 py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-verto-blue/40 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-verto-blue/30 dark:focus:ring-verto-blue/50 overflow-hidden"
