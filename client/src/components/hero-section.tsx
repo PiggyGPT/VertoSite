@@ -74,35 +74,34 @@ export default function HeroSection({
   };
 
   return (
-    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-16 sm:pt-28 md:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        {/* Enhanced background with animated gradient */}
-        <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-40"></div>
-        
-        {/* Animated gradient orbs - more vibrant */}
-        <div className="absolute top-0 left-1/4 -translate-y-1/2 animate-pulse">
-          <div className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] bg-gradient-to-tr from-verto-purple/30 via-verto-blue/20 to-verto-green/25 dark:from-verto-purple/40 dark:via-verto-blue/30 dark:to-verto-green/35 blur-[100px] sm:blur-[120px] md:blur-[150px] rounded-full"></div>
-        </div>
-        
-        {/* Secondary accent orb for depth */}
-        <div className="absolute bottom-1/2 right-1/3 translate-y-1/2 animate-pulse" style={{ animationDelay: '1s' }}>
-          <div className="w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-bl from-verto-orange/20 via-verto-purple/15 to-verto-blue/20 dark:from-verto-orange/30 dark:via-verto-purple/25 dark:to-verto-blue/30 blur-[80px] sm:blur-[100px] md:blur-[120px] rounded-full opacity-60"></div>
-        </div>
+    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-16 sm:pt-28 md:pt-40 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8 overflow-hidden">
+      {/* Enhanced background with animated gradient */}
+      <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-40"></div>
+      
+      {/* Animated gradient orbs - more vibrant */}
+      <div className="absolute top-0 left-1/4 -translate-y-1/2 animate-pulse">
+        <div className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] bg-gradient-to-tr from-verto-purple/30 via-verto-blue/20 to-verto-green/25 dark:from-verto-purple/40 dark:via-verto-blue/30 dark:to-verto-green/35 blur-[100px] sm:blur-[120px] md:blur-[150px] rounded-full"></div>
+      </div>
+      
+      {/* Secondary accent orb for depth */}
+      <div className="absolute bottom-1/2 right-1/3 translate-y-1/2 animate-pulse" style={{ animationDelay: '1s' }}>
+        <div className="w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-bl from-verto-orange/20 via-verto-purple/15 to-verto-blue/20 dark:from-verto-orange/30 dark:via-verto-purple/25 dark:to-verto-blue/30 blur-[80px] sm:blur-[100px] md:blur-[120px] rounded-full opacity-60"></div>
+      </div>
 
-        <div className="relative text-center">
-          <h1 className="font-black text-slate-900 dark:text-white tracking-tighter" data-testid="hero-title">
-            <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-tight whitespace-pre-line">
-              {title}
-            </span>
-          </h1>
+      <div className="relative max-w-4xl mx-auto text-center">
+        <h1 className="font-black text-slate-900 dark:text-white tracking-tighter" data-testid="hero-title">
+          <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-tight whitespace-pre-line max-w-3xl mx-auto">
+            {title}
+          </span>
+        </h1>
 
-          <p className="mt-4 sm:mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed" data-testid="hero-subtitle">
-            {subtitle}
-          </p>
+        <p className="mt-4 sm:mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
+          {subtitle}
+        </p>
 
-          {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
-          <div className="mt-8 sm:mt-10 md:mt-14">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+        {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
+        <div className="mt-8 sm:mt-10 md:mt-14 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
                 <button 
@@ -168,20 +167,19 @@ export default function HeroSection({
                 </Link>
               )
             ))}
-            </div>
+          </div>
 
-            {/* Premium CTA button */}
-            <div className="mt-8 sm:mt-10 md:mt-12">
+          {/* Premium CTA button */}
+          <div className="mt-8 sm:mt-10 md:mt-12">
               <button 
                 onClick={openModal}
                 className="group relative inline-flex items-center gap-x-3 bg-white dark:bg-slate-100 text-slate-900 dark:text-slate-900 font-bold px-8 sm:px-10 py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-500 overflow-hidden"
                 data-testid="hero-pilot-cta"
               >
-                <Rocket className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span>Launch Pilot in 90 Days</span>
+                  <Rocket className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span>Launch Pilot in 90 Days</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-all" />
               </button>
-            </div>
           </div>
         </div>
       </div>
