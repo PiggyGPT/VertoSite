@@ -7,7 +7,7 @@ import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
-import { Zap, Store, ShieldCheck, Crown, Rocket, CheckCircle } from "lucide-react";
+import { Zap, Store, ShieldCheck, Crown, Rocket, CheckCircle, DollarSign, Plug, CreditCard } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png"; 
 import nileshImage from "@assets/nilesh_1754986415369.png";
@@ -16,31 +16,31 @@ import { updatePageSEO } from "@/lib/seo";
 // Define custom CTAs for stablecoin landing page
 const stablecoinCTAs = [
   {
-    title: "On-Demand Issuance",
-    subtitle: "Real-time minting & distribution",
-    icon: Zap,
+    title: "Deep Dollar Liquidity",
+    subtitle: "Decentralized exchange as part of the infrastructure",
+    icon: DollarSign,
     href: "#infrastructure",
-    pillarKey: "distribution",
-    bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/25 dark:hover:bg-verto-green/35",
-    iconColor: "text-verto-green dark:text-verto-green group-hover:text-verto-green-dark dark:group-hover:text-verto-green-light"
+    pillarKey: "trading",
+    bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
+    iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
   },
   {
-    title: "Frictionless Checkout",
-    subtitle: "One-tap payment experience",
-    icon: Store,
+    title: "Frictionless Payments",
+    subtitle: "One-tap global fiat payments via DEX",
+    icon: CreditCard,
     href: "#infrastructure",
     pillarKey: "payments",
     bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/25 dark:hover:bg-verto-purple/35",
     iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
   },
   {
-    title: "Institutional Liquidity",
-    subtitle: "Compliant trade execution",
-    icon: ShieldCheck,
+    title: "Native Integration",
+    subtitle: "Self-hosted stack with plug-and-play APIs",
+    icon: Plug,
     href: "#infrastructure",
-    pillarKey: "trading",
-    bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
-    iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
+    pillarKey: "distribution",
+    bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/25 dark:hover:bg-verto-green/35",
+    iconColor: "text-verto-green dark:text-verto-green group-hover:text-verto-green-dark dark:group-hover:text-verto-green-light"
   }
 ];
 
