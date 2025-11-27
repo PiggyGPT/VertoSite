@@ -16,6 +16,15 @@ import { updatePageSEO } from "@/lib/seo";
 // Define custom CTAs for stablecoin landing page
 const stablecoinCTAs = [
   {
+    title: "Integrate Your System",
+    subtitle: "Enable your core systems to automate issuance, redemption, and reconciliation for compliant fiat flow",
+    icon: Zap,
+    href: "#infrastructure",
+    pillarKey: "compliance",
+    bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
+    iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
+  },
+  {
     title: "Capture Dollar Liquidity",
     subtitle: "Attract LPs to easily seed dollar liquidity and earn yield.",
     icon: TrendingUp,
@@ -41,15 +50,6 @@ const stablecoinCTAs = [
     pillarKey: "distribution",
     bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/25 dark:hover:bg-verto-green/35",
     iconColor: "text-verto-green dark:text-verto-green group-hover:text-verto-green-dark dark:group-hover:text-verto-green-light"
-  },
-  {
-    title: "Integrate Your System",
-    subtitle: "Enable your core systems to automate issuance, redemption, and reconciliation for compliant fiat flow",
-    icon: Zap,
-    href: "#infrastructure",
-    pillarKey: "compliance",
-    bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
-    iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
   }
 ];
 
