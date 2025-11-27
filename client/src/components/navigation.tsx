@@ -1,7 +1,7 @@
 // src/components/Navigation.tsx
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Rocket } from "lucide-react";
 import { Link } from "wouter";
 import alberiLogo from "@assets/Frame 2087327203_1764271315524.png";
 import { useCalendlyModal } from "./calendly-modal";
@@ -57,9 +57,10 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <button
               onClick={openModal}
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
+              <Rocket className="w-4 h-4" />
               Launch Pilot
             </button>
             <button
@@ -83,9 +84,10 @@ export default function Navigation() {
                 openModal();
                 closeMobileMenu();
               }}
-              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center px-4 py-3 bg-white text-slate-900 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300"
+              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center gap-2 px-4 py-3 bg-white text-slate-900 rounded-lg font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all duration-300"
               data-testid="mobile-nav-get-started"
             >
+              <Rocket className="w-4 h-4" />
               Launch Pilot
             </button>
           </div>
