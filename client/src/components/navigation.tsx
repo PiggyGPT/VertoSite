@@ -43,7 +43,7 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-verto-orange via-verto-pink via-verto-purple to-verto-blue dark:from-verto-orange/15 dark:via-verto-pink/15 dark:via-verto-purple/15 dark:to-verto-blue/15 animate-nav-glow`}
       style={{
-        boxShadow: "0 2px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+        boxShadow: "0 4px 24px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
       }}
       data-testid="navigation"
     >
