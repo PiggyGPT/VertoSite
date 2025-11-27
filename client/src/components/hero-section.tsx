@@ -95,8 +95,8 @@ export default function HeroSection({
         </p>
 
         {/* --- REVISED CTA BLOCK: Action-oriented buttons --- */}
-        <div className="mt-8 sm:mt-10 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="mt-8 sm:mt-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
                 <button 

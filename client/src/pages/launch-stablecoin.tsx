@@ -16,8 +16,8 @@ import { updatePageSEO } from "@/lib/seo";
 // Define custom CTAs for stablecoin landing page
 const stablecoinCTAs = [
   {
-    title: "Integrate Your System",
-    subtitle: "Enable your core systems to automate issuance, redemption, and reconciliation for compliant fiat flow",
+    title: "Integrate Your Systems",
+    subtitle: "Automate issuance, redemption, and reconciliation with our APIs.",
     icon: Zap,
     href: "#infrastructure",
     pillarKey: "compliance",
@@ -26,7 +26,7 @@ const stablecoinCTAs = [
   },
   {
     title: "Capture Dollar Liquidity",
-    subtitle: "Attract LPs to easily seed dollar liquidity and earn yield.",
+    subtitle: "Attract LPs to easily seed dollar liquidity and earn yield with our DEX.",
     icon: TrendingUp,
     href: "#infrastructure",
     pillarKey: "trading",
@@ -35,7 +35,7 @@ const stablecoinCTAs = [
   },
   {
     title: "Unlock Global Coverage",
-    subtitle: "Enable Traders to trade your asset with any bank or wallet with one tap.",
+    subtitle: "Enable Traders to trade your asset with any bank or wallet with our Router.",
     icon: GitMerge,
     href: "#infrastructure",
     pillarKey: "payments",
