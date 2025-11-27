@@ -7,7 +7,7 @@ import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
-import { Zap, Store, ShieldCheck, Crown, Rocket, CheckCircle, DollarSign, Plug, CreditCard, TrendingUp, GitMerge, Lock } from "lucide-react";
+import { Zap, Store, ShieldCheck, Crown, Rocket, CheckCircle, DollarSign, Plug, CreditCard, TrendingUp, GitMerge, Lock, Server, Globe } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png"; 
 import nileshImage from "@assets/nilesh_1754986415369.png";
@@ -18,7 +18,7 @@ const stablecoinCTAs = [
   {
     title: "Integrate Your Systems",
     subtitle: "Automate issuance, redemption, and reconciliation with our APIs.",
-    icon: Zap,
+    icon: Plug,
     href: "#infrastructure",
     pillarKey: "compliance",
     bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
@@ -27,7 +27,7 @@ const stablecoinCTAs = [
   {
     title: "Capture Dollar Liquidity",
     subtitle: "Attract LPs to easily seed dollar liquidity and earn yield with our DEX.",
-    icon: TrendingUp,
+    icon: DollarSign,
     href: "#infrastructure",
     pillarKey: "trading",
     bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
@@ -35,8 +35,8 @@ const stablecoinCTAs = [
   },
   {
     title: "Unlock Global Coverage",
-    subtitle: "Enable Traders to trade your asset with any bank or wallet with our Router.",
-    icon: GitMerge,
+    subtitle: "Enable Traders to transact with any bank or wallet with our Router.",
+    icon: Globe,
     href: "#infrastructure",
     pillarKey: "payments",
     bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/25 dark:hover:bg-verto-purple/35",
@@ -45,7 +45,7 @@ const stablecoinCTAs = [
   {
     title: "Own The Rails",
     subtitle: "Deploy our full stack on your servers and eliminate counterparty risk.",
-    icon: Lock,
+    icon: Server,
     href: "#infrastructure",
     pillarKey: "distribution",
     bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/25 dark:hover:bg-verto-green/35",
@@ -82,7 +82,7 @@ export default function LaunchStablecoin() {
       <Navigation />
       <div id="hero">
         <HeroSection 
-          title="Launch Your Stablecoin. Attract Global Dollars."
+          title="Launch Your Stablecoin.\nAttract Global Dollars."
           subtitle="Make your asset liquid against dollar stablecoins with our self-hosted, full-stack infrastructure."
           customCTAs={stablecoinCTAs}
         />

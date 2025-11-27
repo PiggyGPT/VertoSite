@@ -85,7 +85,7 @@ export default function HeroSection({
 
       <div className="relative max-w-4xl mx-auto text-center">
         <h1 className="font-black text-slate-900 dark:text-white tracking-tight" data-testid="hero-title">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-tight">
+          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange bg-clip-text text-transparent leading-tight whitespace-pre-line">
             {title}
           </span>
         </h1>
