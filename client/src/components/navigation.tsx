@@ -41,9 +41,8 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-verto-orange via-verto-pink via-verto-purple to-verto-blue dark:bg-slate-950 animate-nav-glow`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-r from-verto-orange via-verto-pink via-verto-purple to-verto-blue dark:bg-gradient-to-r dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 dark:opacity-95 animate-nav-glow`}
       style={{
-        backgroundImage: `linear-gradient(to right, rgba(238, 170, 74, 0.06), rgba(239, 102, 11, 0.06), rgba(143, 115, 254, 0.06), rgba(33, 125, 254, 0.06))`,
         boxShadow: "0 4px 24px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
       }}
       data-testid="navigation"
@@ -60,7 +59,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <button
               onClick={openModal}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300 dark:bg-slate-900 dark:text-slate-50"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
               }}
@@ -76,7 +75,7 @@ export default function Navigation() {
               Launch Pilot
             </button>
             <button
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="mobile-menu-toggle"
               aria-label="Toggle mobile menu"
@@ -89,14 +88,14 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-950 border-t border-white/10" style={{ backgroundImage: `linear-gradient(to right, rgba(238, 170, 74, 0.06), rgba(239, 102, 11, 0.06), rgba(143, 115, 254, 0.06), rgba(33, 125, 254, 0.06))` }} data-testid="mobile-menu">
+        <div className="md:hidden bg-gradient-to-r from-verto-orange via-verto-pink via-verto-purple to-verto-blue dark:from-verto-orange/15 dark:via-verto-pink/15 dark:via-verto-purple/15 dark:to-verto-blue/15 border-t border-white/10" data-testid="mobile-menu">
           <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
             <button
               onClick={() => {
                 openModal();
                 closeMobileMenu();
               }}
-              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center gap-2 px-4 py-3 bg-white text-slate-900 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 dark:bg-slate-900 dark:text-slate-50"
+              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center gap-2 px-4 py-3 bg-white text-slate-900 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
               }}
