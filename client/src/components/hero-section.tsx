@@ -28,14 +28,15 @@ export default function HeroSection({
   const { openModal, CalendlyModal } = useCalendlyModal();
 
   // Default CTAs for homepage - link to landing pages
-  const defaultCTAs = [
+  const defaultCTAs: CTAItem[] = [
     {
       title: "Launch Stablecoin",
       subtitle: "For Financial Institutions",
       icon: Landmark,
       href: "/launch-stablecoin",
       bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
-      iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
+      iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light",
+      pillarKey: undefined
     },
     {
       title: "Offer DeFi Products",
@@ -43,7 +44,8 @@ export default function HeroSection({
       icon: ArrowRightLeft,
       href: "/offer-defi-products",
       bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/25 dark:hover:bg-verto-purple/35",
-      iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
+      iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light",
+      pillarKey: undefined
     },
     {
       title: "Secure DeFi Ops",
@@ -51,7 +53,8 @@ export default function HeroSection({
       icon: CandlestickChart,
       href: "/secure-defi-ops",
       bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
-      iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
+      iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light",
+      pillarKey: undefined
     },
   ];
 
@@ -65,7 +68,7 @@ export default function HeroSection({
         pillarsSection.scrollIntoView({ behavior: 'smooth' });
         // Trigger pillar activation after scroll
         setTimeout(() => {
-          const event = new CustomEvent('activatePillar', { detail: cta.pillarKey });
+          const event = new CustomEvent('activatePillar', { detail: cta.pillarKey! });
           window.dispatchEvent(event);
         }, 800);
       }

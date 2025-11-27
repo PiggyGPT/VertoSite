@@ -1,8 +1,8 @@
 // src/components/Navigation.tsx
 
 import { useState, useEffect } from "react";
-import { Menu, X, Home, Coins, Store, Shield } from "lucide-react";
-import { Link, useLocation } from "wouter";
+import { Menu, X } from "lucide-react";
+import { Link } from "wouter";
 import logoSvg from "@assets/logo.svg";
 import { useCalendlyModal } from "./calendly-modal";
 
@@ -19,17 +19,11 @@ const SocialXIcon = ({ className }: { className?: string }) => (
 );
 
 // Define navigation links for the new landing pages with icons
-const navLinks = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/launch-stablecoin", label: "Launch Stablecoin", icon: Coins },
-  { href: "/offer-defi-products", label: "Offer DeFi Products", icon: Store },
-  { href: "/secure-defi-ops", label: "Secure DeFi Ops", icon: Shield },
-];
+const navLinks = [];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
   const { openModal, CalendlyModal } = useCalendlyModal();
 
   useEffect(() => {
@@ -45,19 +39,6 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  // Function to get nav link classes with active state
-  const getNavLinkClasses = (href: string) => {
-    const isActive = location === href;
-    const baseClasses = "font-xs relative transition-all duration-200";
-    const colorClasses = isActive 
-      ? "text-verto-blue dark:text-verto-blue" 
-      : "text-slate-700 dark:text-slate-300 hover:text-verto-blue dark:hover:text-verto-blue";
-    const underlineClasses = isActive 
-      ? "after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:h-0.5 after:bg-verto-blue after:rounded-full" 
-      : "";
-    
-    return `${baseClasses} ${colorClasses} ${underlineClasses}`;
-  };
 
   return (
     <nav
@@ -76,23 +57,6 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`${getNavLinkClasses(link.href)} flex items-center gap-2`}
-                data-testid={`nav-${link.href}`}
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                <link.icon className="w-4 h-4" />
-                {link.label}
-              </Link>
-            ))}
-          </div>
 
           <div className="flex items-center space-x-4">
             <button
@@ -118,29 +82,6 @@ export default function Navigation() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800" data-testid="mobile-menu">
           <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
-            {navLinks.map((link) => {
-              const isActive = location === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => {
-                    closeMobileMenu();
-                    window.scrollTo(0, 0);
-                  }}
-                  className={`flex items-center gap-3 w-full text-left text-sm sm:text-base py-2 sm:py-3 transition-colors duration-200 ${
-                    isActive 
-                      ? "text-verto-blue dark:text-verto-blue font-xs border-l-2 border-verto-blue pl-3" 
-                      : "text-slate-700 dark:text-slate-200"
-                  }`}
-                  data-testid={`mobile-nav-${link.href}`}
-                >
-                  <link.icon className="w-4 h-4" />
-                  {link.label}
-                </Link>
-              );
-            })}
-
             <button
               onClick={() => {
                 openModal();
