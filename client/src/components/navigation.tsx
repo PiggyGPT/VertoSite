@@ -51,7 +51,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0" data-testid="logo">
-              <img src="/logos/albor_logo.svg" alt="Alberi Logo" className="h-6 w-auto" />
+              <img src="/logos/albor_logo.svg" alt="Alberi Logo" className="h-6 w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300" />
             </Link>
           </div>
 
