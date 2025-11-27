@@ -17,10 +17,10 @@ import { updatePageSEO } from "@/lib/seo";
 const stablecoinCTAs = [
   {
     title: "Integrate Your Systems",
-    subtitle: "Automate issuance, redemption, and reconciliation with our APIs.",
+    subtitle: "Deploy our full stack on your servers and eliminate counterparty risk.",
     icon: Plug,
     href: "#infrastructure",
-    pillarKey: "compliance",
+    pillarKey: "distribution",
     bgGradient: "linear-gradient(135deg, rgba(255, 152, 0, 0.06), rgba(255, 152, 0, 0.02))",
     glowColor: "hsl(30, 80%, 62%)"
   },
@@ -44,10 +44,10 @@ const stablecoinCTAs = [
   },
   {
     title: "Own The Rails",
-    subtitle: "Deploy our full stack on your servers and eliminate counterparty risk.",
+    subtitle: "Automate issuance, redemption, and reconciliation with our APIs.",
     icon: Server,
     href: "#infrastructure",
-    pillarKey: "distribution",
+    pillarKey: "compliance",
     bgGradient: "linear-gradient(135deg, rgba(76, 175, 80, 0.06), rgba(76, 175, 80, 0.02))",
     glowColor: "hsl(127, 80%, 45%)"
   }
