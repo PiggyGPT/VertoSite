@@ -21,7 +21,7 @@ const stablecoinCTAs = [
     icon: Plug,
     href: "#infrastructure",
     pillarKey: "compliance",
-    bgGradient: "linear-gradient(135deg, rgba(255, 152, 0, 0.25), rgba(255, 152, 0, 0.12))",
+    bgGradient: "linear-gradient(135deg, rgba(255, 152, 0, 0.06), rgba(255, 152, 0, 0.02))",
     glowColor: "hsl(30, 80%, 62%)"
   },
   {
@@ -30,7 +30,7 @@ const stablecoinCTAs = [
     icon: DollarSign,
     href: "#infrastructure",
     pillarKey: "trading",
-    bgGradient: "linear-gradient(135deg, rgba(82, 178, 255, 0.25), rgba(82, 178, 255, 0.12))",
+    bgGradient: "linear-gradient(135deg, rgba(82, 178, 255, 0.06), rgba(82, 178, 255, 0.02))",
     glowColor: "hsl(225, 80%, 58%)"
   },
   {
@@ -39,7 +39,7 @@ const stablecoinCTAs = [
     icon: Globe,
     href: "#infrastructure",
     pillarKey: "payments",
-    bgGradient: "linear-gradient(135deg, rgba(191, 115, 255, 0.25), rgba(191, 115, 255, 0.12))",
+    bgGradient: "linear-gradient(135deg, rgba(191, 115, 255, 0.06), rgba(191, 115, 255, 0.02))",
     glowColor: "hsl(270, 75%, 65%)"
   },
   {
@@ -48,7 +48,7 @@ const stablecoinCTAs = [
     icon: Server,
     href: "#infrastructure",
     pillarKey: "distribution",
-    bgGradient: "linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(76, 175, 80, 0.12))",
+    bgGradient: "linear-gradient(135deg, rgba(76, 175, 80, 0.06), rgba(76, 175, 80, 0.02))",
     glowColor: "hsl(127, 80%, 45%)"
   }
 ];

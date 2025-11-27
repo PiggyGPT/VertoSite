@@ -35,7 +35,7 @@ export default function HeroSection({
       subtitle: "For Financial Institutions",
       icon: Landmark,
       href: "/launch-stablecoin",
-      bgGradient: "linear-gradient(135deg, rgba(82, 178, 255, 0.25), rgba(82, 178, 255, 0.12))",
+      bgGradient: "linear-gradient(135deg, rgba(82, 178, 255, 0.06), rgba(82, 178, 255, 0.02))",
       pillarKey: undefined
     },
     {
@@ -43,7 +43,7 @@ export default function HeroSection({
       subtitle: "For Digital Asset Exchanges",
       icon: ArrowRightLeft,
       href: "/offer-defi-products",
-      bgGradient: "linear-gradient(135deg, rgba(191, 115, 255, 0.25), rgba(191, 115, 255, 0.12))",
+      bgGradient: "linear-gradient(135deg, rgba(191, 115, 255, 0.06), rgba(191, 115, 255, 0.02))",
       pillarKey: undefined
     },
     {
@@ -51,7 +51,7 @@ export default function HeroSection({
       subtitle: "For Trading Firms & Funds",
       icon: CandlestickChart,
       href: "/secure-defi-ops",
-      bgGradient: "linear-gradient(135deg, rgba(255, 152, 0, 0.25), rgba(255, 152, 0, 0.12))",
+      bgGradient: "linear-gradient(135deg, rgba(255, 152, 0, 0.06), rgba(255, 152, 0, 0.02))",
       pillarKey: undefined
     },
   ];
