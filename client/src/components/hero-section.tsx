@@ -173,13 +173,12 @@ export default function HeroSection({
           <div className="mt-8 sm:mt-10 md:mt-12">
               <button 
                 onClick={openModal}
-                className="group relative inline-flex items-center gap-x-3 bg-gradient-to-r from-verto-blue to-verto-purple text-white font-bold px-8 sm:px-10 py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-verto-blue/40 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-verto-blue/30 dark:focus:ring-verto-blue/50 overflow-hidden"
+                className="group relative inline-flex items-center gap-x-3 bg-white dark:bg-slate-100 text-slate-900 dark:text-slate-900 font-bold px-8 sm:px-10 py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-500 overflow-hidden"
                 data-testid="hero-pilot-cta"
               >
-                  <div className="absolute inset-0 bg-gradient-to-r from-verto-purple to-verto-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Rocket className="w-5 h-5 sm:w-6 sm:h-6 relative" />
-                  <span className="relative">Launch Pilot in 90 Days</span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative transform group-hover:translate-x-1 transition-all" />
+                  <Rocket className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span>Launch Pilot in 90 Days</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-all" />
               </button>
           </div>
         </div>

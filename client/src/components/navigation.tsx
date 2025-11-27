@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "wouter";
-import logoSvg from "@assets/logo.svg";
+import alberiLogo from "@assets/Frame 2087327203_1764271315524.png";
 import { useCalendlyModal } from "./calendly-modal";
 
 // It's good practice to create a dedicated component for custom icons.
@@ -44,8 +44,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-gray-800 shadow-sm"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange dark:from-verto-blue dark:via-verto-purple dark:to-verto-orange shadow-lg"
+          : "bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange dark:from-verto-blue dark:via-verto-purple dark:to-verto-orange"
       }`}
       data-testid="navigation"
     >
@@ -53,7 +53,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0" data-testid="logo">
-              <img src={logoSvg} alt="Verto Logo" className="h-6 w-auto" />
+              <img src={alberiLogo} alt="Alberi Logo" className="h-6 w-auto" />
             </Link>
           </div>
 
@@ -61,7 +61,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <button
               onClick={openModal}
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2 verto-gradient text-white rounded-lg font-md text-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-white text-slate-900 rounded-lg font-md text-md hover:shadow-lg hover:scale-105 transition-all duration-300"
               data-testid="nav-get-started"
             >
               Launch Pilot
@@ -80,14 +80,14 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800" data-testid="mobile-menu">
+        <div className="md:hidden bg-gradient-to-r from-verto-blue via-verto-purple to-verto-orange dark:from-verto-blue dark:via-verto-purple dark:to-verto-orange border-t border-white/20" data-testid="mobile-menu">
           <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
             <button
               onClick={() => {
                 openModal();
                 closeMobileMenu();
               }}
-              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center px-4 py-3 verto-gradient text-white rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300"
+              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center px-4 py-3 bg-white text-slate-900 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg transition-all duration-300"
               data-testid="mobile-nav-get-started"
             >
               Launch Pilot
