@@ -21,26 +21,29 @@ const stablecoinCTAs = [
     icon: Plug,
     href: "#infrastructure",
     pillarKey: "compliance",
-    bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/25 dark:hover:bg-verto-orange/35",
-    iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light"
+    bgColorClass: "bg-verto-orange/15 dark:bg-verto-orange/20 hover:bg-verto-orange/35 dark:hover:bg-verto-orange/50",
+    iconColor: "text-verto-orange dark:text-verto-orange group-hover:text-verto-orange-dark dark:group-hover:text-verto-orange-light",
+    glowColor: "hsl(30, 80%, 62%)"
   },
   {
     title: "Capture Dollar Liquidity",
-    subtitle: "Attract LPs to easily seed dollar liquidity and earn yield with our DEX.",
+    subtitle: "Attract LPs to securely seed dollar liquidity and earn yield with our DEX.",
     icon: DollarSign,
     href: "#infrastructure",
     pillarKey: "trading",
-    bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/25 dark:hover:bg-verto-blue/35",
-    iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light"
+    bgColorClass: "bg-verto-blue/15 dark:bg-verto-blue/20 hover:bg-verto-blue/35 dark:hover:bg-verto-blue/50",
+    iconColor: "text-verto-blue dark:text-verto-blue group-hover:text-verto-blue-dark dark:group-hover:text-verto-blue-light",
+    glowColor: "hsl(225, 80%, 58%)"
   },
   {
     title: "Unlock Global Coverage",
-    subtitle: "Enable Traders to transact with any bank or wallet with our Router.",
+    subtitle: "Enable Traders to easily transact with any bank or wallet with our Router.",
     icon: Globe,
     href: "#infrastructure",
     pillarKey: "payments",
-    bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/25 dark:hover:bg-verto-purple/35",
-    iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light"
+    bgColorClass: "bg-verto-purple/15 dark:bg-verto-purple/20 hover:bg-verto-purple/35 dark:hover:bg-verto-purple/50",
+    iconColor: "text-verto-purple dark:text-verto-purple group-hover:text-verto-purple-dark dark:group-hover:text-verto-purple-light",
+    glowColor: "hsl(270, 75%, 65%)"
   },
   {
     title: "Own The Rails",
@@ -48,8 +51,9 @@ const stablecoinCTAs = [
     icon: Server,
     href: "#infrastructure",
     pillarKey: "distribution",
-    bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/25 dark:hover:bg-verto-green/35",
-    iconColor: "text-verto-green dark:text-verto-green group-hover:text-verto-green-dark dark:group-hover:text-verto-green-light"
+    bgColorClass: "bg-verto-green/15 dark:bg-verto-green/20 hover:bg-verto-green/35 dark:hover:bg-verto-green/50",
+    iconColor: "text-verto-green dark:text-verto-green group-hover:text-verto-green-dark dark:group-hover:text-verto-green-light",
+    glowColor: "hsl(127, 80%, 45%)"
   }
 ];
 

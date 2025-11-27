@@ -10,6 +10,7 @@ interface CTAItem {
   bgColorClass: string;
   iconColor: string;
   pillarKey?: string; // For scrolling to specific pillars
+  glowColor?: string; // For hover glow effect
 }
 
 interface HeroSectionProps {
@@ -111,11 +112,22 @@ export default function HeroSection({
                   onClick={() => handleCTAClick(cta)}
                   className="w-full"
                 >
-                  <div className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
-                    {/* Subtle gradient overlay on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
-                      background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)'
-                    }}></div>
+                  <div 
+                    className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden ${cta.bgColorClass}`}
+                    style={{
+                      boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
+                    }}
+                    onMouseEnter={(e) => {
+                      if (cta.glowColor) {
+                        e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (cta.glowColor) {
+                        e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
+                      }
+                    }}
+                  >
                     
                     <div className="relative flex items-center justify-center gap-x-3">
                         <cta.icon className={`w-7 h-7 transition-all duration-300 group-hover:scale-110 ${cta.iconColor}`} />
@@ -128,11 +140,22 @@ export default function HeroSection({
                 </button>
               ) : (
                 <Link key={cta.title} href={cta.href}>
-                  <div className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden ${cta.bgColorClass}`}>
-                    {/* Subtle gradient overlay on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
-                      background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)'
-                    }}></div>
+                  <div 
+                    className={`group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden ${cta.bgColorClass}`}
+                    style={{
+                      boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
+                    }}
+                    onMouseEnter={(e) => {
+                      if (cta.glowColor) {
+                        e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (cta.glowColor) {
+                        e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
+                      }
+                    }}
+                  >
                     
                     <div className="relative flex items-center justify-center gap-x-3">
                         <cta.icon className={`w-7 h-7 transition-all duration-300 group-hover:scale-110 ${cta.iconColor}`} />
