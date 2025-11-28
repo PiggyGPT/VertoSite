@@ -313,7 +313,7 @@ export default function HeroSection() {
           to { width: 100%; }
         }
         @keyframes color-progress {
-          from { color: rgba(203, 213, 225, 0.6); }
+          from { color: rgba(255, 255, 255, 0.8); }
           to { color: currentColor; }
         }
         .animate-lateral-pan {
