@@ -55,7 +55,7 @@ roleColor: string;
 description: string;
 testId: string;
 }) => (
-<div className="group relative bg-white dark:bg-slate-800/50 p-6 rounded-2xl text-center border border-slate-200/80 dark:border-slate-800 transition-shadow duration-200 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md" data-testid={testId}>
+<div className="group relative bg-white dark:bg-slate-800/50 p-6 rounded-2xl text-center border border-slate-200/80 dark:border-slate-800 transition-all duration-300 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-lg hover:-translate-y-1" data-testid={testId}>
 <img src={image} alt={name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover ring-4 ring-slate-100 dark:ring-slate-700/50 group-hover:ring-offset-2 group-hover:ring-offset-white dark:group-hover:ring-offset-slate-900 transition-all" />
 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{name}</h3>
 <p className={`text-sm font-semibold mb-3 text-${roleColor}`}>{role}</p>
