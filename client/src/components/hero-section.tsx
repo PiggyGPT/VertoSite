@@ -320,7 +320,7 @@ export default function HeroSection() {
           to { width: 100%; }
         }
         @keyframes text-gradient-progress {
-          0% { background-position: 100% 0; }
+          0% { background-position: 200% 0; }
           100% { background-position: 0% 0; }
         }
         .animate-lateral-pan {
