@@ -226,9 +226,18 @@ export default function HeroSection() {
 
             {/* Content */}
             <div key={currentStep} className="text-center animate-lateral-pan">
-              {/* Elegant Icon Badge - Hidden for now */}
+              {/* Elegant Icon Badge */}
+              <div
+                className="inline-flex items-center justify-center p-2.5 rounded-lg mb-3 shadow-md mx-auto"
+                style={{
+                  backgroundColor: `${activeAccent}15`,
+                  color: activeAccent,
+                }}
+              >
+                <activeStory.icon className="w-5 h-5" />
+              </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+              <h2 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
                 {activeStory.title}
               </h2>
 
