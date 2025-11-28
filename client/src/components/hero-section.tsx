@@ -253,7 +253,7 @@ export default function HeroSection() {
                   className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
                   style={{
                     background: isAutoPlaying 
-                      ? `linear-gradient(90deg, white 0%, white 0%, ${activeAccent} 50%, ${activeAccent} 100%)`
+                      ? `linear-gradient(90deg, ${activeAccent} 0%, ${activeAccent} 0%, white 50%, white 100%)`
                       : activeAccent,
                     backgroundSize: '200% 100%',
                     backgroundClip: 'text',
@@ -320,8 +320,8 @@ export default function HeroSection() {
           to { width: 100%; }
         }
         @keyframes text-gradient-progress {
-          0% { background-position: 0% 0; }
-          100% { background-position: 100% 0; }
+          0% { background-position: 100% 0; }
+          100% { background-position: 0% 0; }
         }
         .animate-lateral-pan {
           animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
