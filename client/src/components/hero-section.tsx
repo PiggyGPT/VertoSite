@@ -9,10 +9,6 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect, useRef } from "react";
-import PayPalLogo from "../logos/PayPal 1.svg";
-import MicrosoftLogo from "../logos/Microsoft_logo_(2012) 1.svg";
-import GoogleLogo from "../logos/Google_2015_logo 1.svg";
-import MoodysLogo from "../logos/Moodys.svg";
 
 const useCalendlyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -285,16 +281,16 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
              <div className="w-20 h-6 flex items-center justify-center">
-               <img src={MoodysLogo} alt="Moodys" className="h-full object-contain dark:invert" />
+               <img src="/logos/fed-logo.svg" alt="Federal Reserve" className="h-full object-contain dark:invert" />
              </div>
              <div className="w-20 h-6 flex items-center justify-center">
-               <img src={GoogleLogo} alt="Google" className="h-full object-contain dark:invert" />
+               <img src="/logos/GSR_logo.svg" alt="GSR Markets" className="h-full object-contain dark:invert" />
              </div>
              <div className="w-20 h-6 flex items-center justify-center">
-               <img src={PayPalLogo} alt="PayPal" className="h-full object-contain dark:invert" />
+               <img src="/logos/PayPal_logo.svg" alt="PayPal" className="h-full object-contain dark:invert" />
              </div>
              <div className="w-20 h-6 flex items-center justify-center">
-               <img src={MicrosoftLogo} alt="Microsoft" className="h-full object-contain dark:invert" />
+               <img src="/logos/Microsoft_logo_(2012).svg" alt="Microsoft" className="h-full object-contain dark:invert" />
              </div>
           </div>
         </div>
