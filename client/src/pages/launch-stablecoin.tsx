@@ -110,14 +110,14 @@ export default function LaunchStablecoin() {
 
       // Start: dark pre-dawn colors
       const startColors = [
-        "#070911", "#070911", "#0A0D15", "#0F1218",
-        "#15151C", "#1A1818", "#261E14", "#3A280E"
+        "#070911", "#0A0D15", "#0F1218", "#15161C",
+        "#1A1818", "#261E14", "#3A280E", "#4A2810"
       ];
 
-      // End: warm sunrise orange colors
+      // End: warm sunrise orange/golden colors (#EF660B orange, #EEAA4A golden)
       const endColors = [
-        "#3A280E", "#4A2810", "#5A3508", "#6A4005",
-        "#7A4808", "#8A5010", "#9A5818", "#AA6020"
+        "#8A3810", "#9A4A20", "#AA5C30", "#B86E40",
+        "#C68050", "#D49260", "#E2A470", "#EF660B"
       ];
 
       // Interpolate between start and end colors based on scroll
