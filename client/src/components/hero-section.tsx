@@ -224,20 +224,6 @@ export default function HeroSection() {
               }}
             />
             
-            {/* Subtle Progress Bar at Bottom */}
-            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-100 dark:bg-white/5 overflow-hidden">
-              {isAutoPlaying && (
-                <div
-                  className="h-full"
-                  style={{
-                    backgroundColor: activeAccent,
-                    width: '100%',
-                    animation: 'progress 5s linear forwards',
-                    opacity: 0.6
-                  }}
-                />
-              )}
-            </div>
 
             {/* Content */}
             <div key={currentStep} className="text-center animate-lateral-pan">
@@ -263,17 +249,31 @@ export default function HeroSection() {
               <div className="mt-6">
                 <Link
                   href={activeStory.href}
-                  className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
+                  className="relative inline-flex items-center text-sm font-semibold overflow-hidden"
                   style={{
                     color: activeAccent,
-                    textDecorationColor: `${activeAccent}50`,
                   }}
                 >
-                  {currentStep === 0 && "Explore APIs"}
-                  {currentStep === 1 && "Explore DEX"}
-                  {currentStep === 2 && "Explore Router"}
-                  {currentStep === 3 && "Explore Compliance"}
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  {/* Animated Background Fill */}
+                  {isAutoPlaying && (
+                    <div
+                      className="absolute inset-0 rounded-md"
+                      style={{
+                        backgroundColor: activeAccent,
+                        opacity: 0.1,
+                        animation: 'progress 5s linear forwards',
+                      }}
+                    />
+                  )}
+                  
+                  {/* Text Content */}
+                  <span className="relative flex items-center gap-1 px-2 py-1">
+                    {currentStep === 0 && "Explore APIs"}
+                    {currentStep === 1 && "Explore DEX"}
+                    {currentStep === 2 && "Explore Router"}
+                    {currentStep === 3 && "Explore Compliance"}
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
                 </Link>
               </div>
             </div>
