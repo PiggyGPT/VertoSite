@@ -130,7 +130,7 @@ export default function HeroSection() {
         {/* Dark Mode: Deep indigo pre-dawn base */}
         <div className="hidden dark:block absolute inset-0 bg-[#070911]" />
         
-        {/* Dark Mode: Subtle cool indigo glow - just the sky, no warm tones */}
+        {/* Dark Mode: Subtle cool indigo glow */}
         <div 
           className="hidden dark:block absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-5"
           style={{ 
@@ -190,38 +190,71 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* INFRASTRUCTURE PILLARS - 4 CARD GRID */}
-        <div className="w-full max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {storySteps.map((step, idx) => (
-              <Link key={step.title} href={step.href}>
-                <div 
-                  className="group relative p-6 rounded-xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/10 hover:border-slate-300/50 dark:hover:border-white/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
-                >
-                  <div 
-                    className="inline-flex items-center justify-center p-3 rounded-lg mb-4"
-                    style={{ 
-                      backgroundColor: `${step.accentColor}10`, 
-                      color: step.accentColor 
-                    }}
-                  >
-                    <step.icon className="w-6 h-6" />
-                  </div>
-                  
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                    {step.title}
-                  </h3>
-                  
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                    {step.subtitle}
-                  </p>
+        {/* CAROUSEL SECTION */}
+        <div className="w-full max-w-2xl mx-auto mt-8">
+          {/* Carousel Card */}
+          <div className="relative overflow-hidden rounded-2xl bg-white/60 dark:bg-white/8 border border-slate-200/50 dark:border-white/5 backdrop-blur-md transition-all duration-500 shadow-lg">
+            
+            {/* Dynamic accent border/glow */}
+            <div 
+              className="absolute inset-0 pointer-events-none rounded-2xl"
+              style={{
+                boxShadow: `inset 0 0 60px 0 ${activeAccent}08`,
+                transition: 'box-shadow 0.5s ease-out'
+              }}
+            />
 
-                  <div className="flex items-center text-sm font-semibold gap-1 transition-all group-hover:gap-2" style={{ color: step.accentColor }}>
-                    <span>Explore</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
+            {/* Content */}
+            <div className="relative p-8 md:p-10 min-h-[280px] flex flex-col justify-between">
+              <div>
+                <div 
+                  className="inline-flex items-center justify-center p-3 rounded-lg mb-6"
+                  style={{ 
+                    backgroundColor: `${activeAccent}12`, 
+                    color: activeAccent 
+                  }}
+                >
+                  <activeStory.icon className="w-7 h-7" />
                 </div>
-              </Link>
+                
+                <h2 
+                  key={`title-${currentStep}`}
+                  className="text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight animate-fade-in"
+                >
+                  {activeStory.title}
+                </h2>
+                
+                <p 
+                  key={`subtitle-${currentStep}`}
+                  className="text-base text-slate-700 dark:text-slate-300 leading-relaxed animate-fade-in"
+                >
+                  {activeStory.subtitle}
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <Link href={activeStory.href} className="inline-flex items-center gap-2 font-semibold text-sm transition-all group hover:gap-3" style={{ color: activeAccent }}>
+                  <span>Explore solution</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Progress Indicators */}
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {storySteps.map((step, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleStepClick(idx)}
+                className={`transition-all duration-300 rounded-full h-2 ${
+                  idx === currentStep ? 'px-4' : 'w-2'
+                } ${idx === currentStep ? '' : 'bg-slate-300 dark:bg-white/10'}`}
+                style={{
+                  backgroundColor: idx === currentStep ? activeAccent : undefined
+                }}
+                data-testid={`carousel-indicator-${idx}`}
+              />
             ))}
           </div>
         </div>
@@ -250,6 +283,16 @@ export default function HeroSection() {
       </div>
       
       <CalendlyModal title="Schedule a Consultation" />
+      
+      <style>{`
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.4s ease-out;
+        }
+      `}</style>
     </section>
   );
 }
