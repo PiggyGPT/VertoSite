@@ -118,22 +118,35 @@ export default function HeroSection() {
       
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="hidden dark:block absolute inset-0 bg-[#070911]" />
+        {/* Dark Mode: Deep pre-dawn indigo with subtle cool gradients */}
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-[#0a0f1a] via-[#050811] to-[#0a0a0b]" />
+        
+        {/* Dark Mode: Primary accent glow - cool blues and purples hinting at dawn */}
         <div 
-          className="hidden dark:block absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-15"
+          className="hidden dark:block absolute -bottom-1/3 left-1/2 -translate-x-1/2 w-[200%] h-[900px] rounded-full blur-[180px] opacity-8"
           style={{ 
-            background: 'radial-gradient(circle at center, #1A233A, #0A1128, transparent 70%)' 
+            background: 'radial-gradient(circle at center, #4a5fbf, #2d3a7f, #0f1128, transparent 70%)' 
           }}
         />
         
+        {/* Dark Mode: Secondary accent - subtle warm undertones hinting at the coming sunrise */}
         <div 
-          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[700px] rounded-full blur-[120px] opacity-30 dark:hidden" 
+          className="hidden dark:block absolute -top-1/4 right-1/4 w-[150%] h-[700px] rounded-full blur-[150px] opacity-5"
           style={{ 
-            background: 'radial-gradient(circle at center, #EEAA4A, #EF660B, transparent 60%)' 
+            background: 'radial-gradient(circle at center, #8F73FE, #4a5fbf, transparent 60%)' 
           }}
         />
 
-        <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
+        {/* Light Mode: Warm dawn gradient with brand colors */}
+        <div 
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[700px] rounded-full blur-[120px] opacity-25 dark:hidden" 
+          style={{ 
+            background: 'radial-gradient(circle at center, #EEAA4A, #EF660B, #8F73FE, transparent 65%)' 
+          }}
+        />
+
+        {/* Grid overlay */}
+        <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-3" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col items-center">
