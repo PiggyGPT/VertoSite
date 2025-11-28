@@ -114,7 +114,7 @@ export default function HeroSection() {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
         setCurrentStep((prev) => (prev + 1) % storySteps.length);
-      }, 5000);
+      }, 7000);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
@@ -259,7 +259,7 @@ export default function HeroSection() {
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    animation: isAutoPlaying ? `text-gradient-progress 5s linear forwards` : 'none',
+                    animation: isAutoPlaying ? `text-gradient-progress 7s linear forwards` : 'none',
                   } as React.CSSProperties}
                 >
                   {currentStep === 0 && "Explore APIs"}
