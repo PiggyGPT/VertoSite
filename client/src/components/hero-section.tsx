@@ -259,7 +259,7 @@ export default function HeroSection() {
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    animation: isAutoPlaying ? `text-gradient-progress 4.5s linear forwards` : 'none',
+                    animation: isAutoPlaying ? `text-gradient-progress 5s linear forwards` : 'none',
                   } as React.CSSProperties}
                 >
                   {currentStep === 0 && "Explore APIs"}
