@@ -61,7 +61,6 @@ export default function HeroSection() {
   const { openModal, CalendlyModal } = useCalendlyModal();
   const [currentStep, setCurrentStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [prevStep, setPrevStep] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   const storySteps: StoryStep[] = [
@@ -98,18 +97,16 @@ export default function HeroSection() {
   useEffect(() => {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
-        setPrevStep(currentStep);
         setCurrentStep((prev) => (prev + 1) % storySteps.length);
       }, 5000);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
-  }, [isAutoPlaying, storySteps.length, currentStep]);
+  }, [isAutoPlaying, storySteps.length]);
 
   const handleStepClick = (index: number) => {
     setIsAutoPlaying(false);
-    setPrevStep(currentStep);
     setCurrentStep(index);
   };
 
@@ -194,63 +191,25 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-8 relative h-96 overflow-hidden">
+        <div className="w-full max-w-xl mx-auto mt-8">
           
-          {/* Previous Card - Exiting Left */}
-          {prevStep !== currentStep && (
-            <div 
-              className="absolute inset-0 p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-slide-out"
-            >
-              {(() => {
-                const PrevIcon = storySteps[prevStep].icon;
-                const prevAccent = storySteps[prevStep].accentColor;
-                return (
-                  <div className="relative z-10 h-full flex flex-col justify-center">
-                    <div 
-                      className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
-                      style={{ 
-                        boxShadow: `0 0 100px 30px ${prevAccent} inset`,
-                      }}
-                    />
-                    <div className="text-center relative z-20">
-                      <div 
-                        className="inline-flex items-center justify-center p-2.5 rounded-lg mb-3 shadow-md mx-auto"
-                        style={{ 
-                          backgroundColor: `${prevAccent}15`, 
-                          color: prevAccent
-                        }}
-                      >
-                        <PrevIcon className="w-5 h-5" />
-                      </div>
-                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                        {storySteps[prevStep].title}
-                      </h2>
-                      <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
-                        {storySteps[prevStep].subtitle}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
-          )}
+          {/* Main Card Display */}
+          <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
+             
+             {/* Dynamic Accent Glow */}
+             <div 
+               className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
+               style={{ 
+                 boxShadow: `0 0 100px 30px ${activeAccent} inset`,
+                 transition: 'box-shadow 0.5s ease-out'
+               }}
+             />
 
-          {/* Current Card - Entering from Right */}
-          <div 
-            className="absolute inset-0 p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-slide-in"
-          >
-            {/* Dynamic Accent Glow */}
-            <div 
-              className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
-              style={{ 
-                boxShadow: `0 0 100px 30px ${activeAccent} inset`,
-              }}
-            />
-
-            {/* Content */}
-            <div 
-              className="relative z-10 h-full flex flex-col justify-center text-center"
-            >
+             {/* Content */}
+             <div 
+               key={currentStep}
+               className="text-center animate-lateral-pan"
+             >
                 {/* Elegant Icon Badge */}
                 <div 
                   className="inline-flex items-center justify-center p-2.5 rounded-lg mb-3 shadow-md mx-auto"
@@ -345,26 +304,17 @@ export default function HeroSection() {
           from { width: 0%; }
           to { width: 100%; }
         }
-        .animate-slide-in {
-          animation: slide-in 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        .animate-lateral-pan {
+          animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
-        @keyframes slide-in {
+        @keyframes lateral-pan {
           0% {
+            opacity: 0;
             transform: translateX(100%);
           }
           100% {
+            opacity: 1;
             transform: translateX(0);
-          }
-        }
-        .animate-slide-out {
-          animation: slide-out 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        }
-        @keyframes slide-out {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-100%);
           }
         }
       `}</style>
