@@ -114,7 +114,7 @@ export default function HeroSection() {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
         setCurrentStep((prev) => (prev + 1) % storySteps.length);
-      }, 15000);
+      }, 10000);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
