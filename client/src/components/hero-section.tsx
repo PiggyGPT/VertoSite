@@ -127,13 +127,10 @@ export default function HeroSection({
                     }}
                   >
                     
-                    <div className="relative flex items-center justify-center gap-x-2">
-                        <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
-                        <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
+                    <div className="relative flex flex-col items-center justify-center gap-y-2">
+                        <cta.icon className="w-8 h-8 transition-all duration-300 group-hover:scale-110 verto-gradient-text" />
+                        <span className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
                     </div>
-                    <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
-                        {cta.subtitle}
-                    </p>
                   </div>
                 </button>
               ) : (
@@ -156,13 +153,10 @@ export default function HeroSection({
                     }}
                   >
                     
-                    <div className="relative flex items-center justify-center gap-x-2">
-                        <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
-                        <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
+                    <div className="relative flex flex-col items-center justify-center gap-y-2">
+                        <cta.icon className="w-8 h-8 transition-all duration-300 group-hover:scale-110 verto-gradient-text" />
+                        <span className="text-sm sm:text-base md:text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
                     </div>
-                    <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
-                        {cta.subtitle}
-                    </p>
                   </div>
                 </Link>
               )
