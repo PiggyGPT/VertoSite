@@ -1,6 +1,7 @@
 import { ArrowRight, Landmark, ArrowRightLeft, CandlestickChart, Rocket, Phone } from "lucide-react";
 import { Link } from "wouter";
 import { useCalendlyModal } from "./calendly-modal";
+import { useState, useEffect } from "react";
 
 interface CTAItem {
   title: string;
@@ -27,6 +28,7 @@ export default function HeroSection({
   customCTAs
 }: HeroSectionProps = {}) {
   const { openModal, CalendlyModal } = useCalendlyModal();
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   // Default CTAs for homepage - link to landing pages
   const defaultCTAs: CTAItem[] = [
@@ -57,6 +59,14 @@ export default function HeroSection({
   ];
 
   const actionCTAs = customCTAs || defaultCTAs;
+
+  // Auto-play carousel for feature cards
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCardIndex((prev) => (prev + 1) % actionCTAs.length);
+    }, 5000); // 5 seconds per card
+    return () => clearInterval(interval);
+  }, [actionCTAs.length]);
 
   const handleCTAClick = (cta: CTAItem) => {
     if (cta.pillarKey) {
@@ -99,73 +109,165 @@ export default function HeroSection({
           {subtitle}
         </p>
 
-        {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
+        {/* --- ELEVATED CTA BLOCK: Premium card styling with carousel --- */}
         <div className="mt-6 sm:mt-8 md:mt-10 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+          {/* Mobile/Tablet: Carousel */}
+          <div className="lg:hidden">
+            <div className="overflow-hidden rounded-xl">
+              <div 
+                className="flex transition-transform duration-700 ease-out"
+                style={{
+                  transform: `translateX(-${currentCardIndex * 100}%)`
+                }}
+              >
+                {actionCTAs.map((cta) => (
+                  <div key={cta.title} className="w-full flex-shrink-0 px-2">
+                    {cta.pillarKey ? (
+                      <button 
+                        onClick={() => handleCTAClick(cta)}
+                        className="w-full"
+                      >
+                        <div 
+                          className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                          style={{
+                            background: cta.bgGradient || cta.bgColorClass,
+                            boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
+                          }}
+                          onMouseEnter={(e) => {
+                            if (cta.glowColor) {
+                              e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (cta.glowColor) {
+                              e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
+                            }
+                          }}
+                        >
+                          <div className="relative flex items-center justify-center gap-x-2">
+                            <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
+                            <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
+                          </div>
+                          <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
+                            {cta.subtitle}
+                          </p>
+                        </div>
+                      </button>
+                    ) : (
+                      <Link href={cta.href}>
+                        <div 
+                          className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                          style={{
+                            background: cta.bgGradient || cta.bgColorClass,
+                            boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
+                          }}
+                          onMouseEnter={(e) => {
+                            if (cta.glowColor) {
+                              e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (cta.glowColor) {
+                              e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
+                            }
+                          }}
+                        >
+                          <div className="relative flex items-center justify-center gap-x-2">
+                            <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
+                            <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
+                          </div>
+                          <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
+                            {cta.subtitle}
+                          </p>
+                        </div>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Carousel Indicators */}
+            <div className="flex justify-center gap-2 mt-4">
+              {actionCTAs.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentCardIndex(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === currentCardIndex
+                      ? 'bg-gradient-to-r from-verto-orange to-verto-purple w-6'
+                      : 'bg-slate-300 dark:bg-slate-600 w-2'
+                  }`}
+                  data-testid={`carousel-dot-${index}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Grid View */}
+          <div className="hidden lg:grid grid-cols-2 gap-5">
             {actionCTAs.map((cta) => (
-              cta.pillarKey ? (
-                <button 
-                  key={cta.title} 
-                  onClick={() => handleCTAClick(cta)}
-                  className="w-full"
-                >
-                  <div 
-                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
-                    style={{
-                      background: cta.bgGradient || cta.bgColorClass,
-                      boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
-                    }}
-                    onMouseEnter={(e) => {
-                      if (cta.glowColor) {
-                        e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (cta.glowColor) {
-                        e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
-                      }
-                    }}
+              <div key={cta.title}>
+                {cta.pillarKey ? (
+                  <button 
+                    onClick={() => handleCTAClick(cta)}
+                    className="w-full"
                   >
-                    
-                    <div className="relative flex items-center justify-center gap-x-2">
+                    <div 
+                      className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                      style={{
+                        background: cta.bgGradient || cta.bgColorClass,
+                        boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
+                      }}
+                      onMouseEnter={(e) => {
+                        if (cta.glowColor) {
+                          e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (cta.glowColor) {
+                          e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
+                        }
+                      }}
+                    >
+                      <div className="relative flex items-center justify-center gap-x-2">
                         <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
                         <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
-                    </div>
-                    <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
+                      </div>
+                      <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
                         {cta.subtitle}
-                    </p>
-                  </div>
-                </button>
-              ) : (
-                <Link key={cta.title} href={cta.href}>
-                  <div 
-                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
-                    style={{
-                      background: cta.bgGradient || cta.bgColorClass,
-                      boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
-                    }}
-                    onMouseEnter={(e) => {
-                      if (cta.glowColor) {
-                        e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (cta.glowColor) {
-                        e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
-                      }
-                    }}
-                  >
-                    
-                    <div className="relative flex items-center justify-center gap-x-2">
+                      </p>
+                    </div>
+                  </button>
+                ) : (
+                  <Link href={cta.href}>
+                    <div 
+                      className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                      style={{
+                        background: cta.bgGradient || cta.bgColorClass,
+                        boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
+                      }}
+                      onMouseEnter={(e) => {
+                        if (cta.glowColor) {
+                          e.currentTarget.style.boxShadow = `0 0 40px 12px ${cta.glowColor}40, 0 0 0 1px rgba(255,255,255,0.1)`;
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (cta.glowColor) {
+                          e.currentTarget.style.boxShadow = `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)`;
+                        }
+                      }}
+                    >
+                      <div className="relative flex items-center justify-center gap-x-2">
                         <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
                         <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
-                    </div>
-                    <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
+                      </div>
+                      <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
                         {cta.subtitle}
-                    </p>
-                  </div>
-                </Link>
-              )
+                      </p>
+                    </div>
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
 
