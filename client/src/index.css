@@ -183,16 +183,16 @@
     bottom: 0;
     z-index: -1;
     pointer-events: none;
-    /* Light mode: radial gradient that transitions through the document */
+    /* Radial gradient: dark dominant color at center, spreading outward subtly */
     background: radial-gradient(
-      ellipse 150% 150% at 50% -50%,
+      ellipse 120% 120% at 50% 50%,
       var(--dawn-color-1) 0%,
-      var(--dawn-color-2) 15%,
-      var(--dawn-color-3) 30%,
-      var(--dawn-color-4) 45%,
-      var(--dawn-color-5) 60%,
-      var(--dawn-color-6) 75%,
-      var(--dawn-color-7) 88%,
+      var(--dawn-color-2) 12%,
+      var(--dawn-color-3) 24%,
+      var(--dawn-color-4) 36%,
+      var(--dawn-color-5) 48%,
+      var(--dawn-color-6) 60%,
+      var(--dawn-color-7) 76%,
       var(--dawn-color-8) 100%
     );
   }
