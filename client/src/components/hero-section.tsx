@@ -262,6 +262,15 @@ export default function HeroSection() {
               }}
             />
             
+            {/* Border Progress Indicator */}
+            <div
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              style={{
+                border: `2px solid ${activeAccent}`,
+                animation: isAutoPlaying ? `border-progress-trace 15s linear forwards` : 'none',
+                opacity: isAutoPlaying ? 1 : 0,
+              }}
+            />
 
             {/* Content */}
             <div key={currentStep} className="text-center animate-lateral-pan">
@@ -290,15 +299,8 @@ export default function HeroSection() {
                   href={activeStory.href}
                   className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
                   style={{
-                    background: isAutoPlaying 
-                      ? `linear-gradient(90deg, white 0%, ${activeAccent} 100%)`
-                      : activeAccent,
-                    backgroundSize: '200% 100%',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    animation: isAutoPlaying ? `text-gradient-progress 15s linear forwards` : 'none',
-                  } as React.CSSProperties}
+                    color: activeAccent,
+                  }}
                 >
                   {currentStep === 0 && "Explore APIs"}
                   {currentStep === 1 && "Explore DEX"}
@@ -320,9 +322,23 @@ export default function HeroSection() {
           from { width: 0%; }
           to { width: 100%; }
         }
-        @keyframes text-gradient-progress {
-          0% { background-position: 200% 0; }
-          100% { background-position: 0% 0; }
+        @keyframes border-progress-trace {
+          0% {
+            clip-path: inset(0% 100% 100% 0%);
+            opacity: 1;
+          }
+          25% {
+            clip-path: inset(0% 0% 100% 0%);
+            opacity: 1;
+          }
+          50% {
+            clip-path: inset(0% 0% 0% 0%);
+            opacity: 1;
+          }
+          100% {
+            clip-path: inset(0% 0% 0% 0%);
+            opacity: 0.3;
+          }
         }
         .animate-lateral-pan {
           animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
