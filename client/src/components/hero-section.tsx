@@ -211,45 +211,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* SOCIAL PROOF */}
-        <div className="mt-6 md:mt-8 w-full max-w-5xl">
-          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
-            Founded by leaders at
-          </p>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
-            <div className="w-16 h-5 flex items-center justify-center">
-              <img
-                src="/logos/Seal_of_the_United_States_Federal_Reserve_System.svg"
-                alt="Federal Reserve"
-                className="h-full object-contain dark:invert"
-              />
-            </div>
-            <div className="w-16 h-5 flex items-center justify-center">
-              <img
-                src="/logos/GSR_logo.svg"
-                alt="GSR Markets"
-                className="h-full object-contain dark:invert"
-              />
-            </div>
-            <div className="w-16 h-5 flex items-center justify-center">
-              <img
-                src="/logos/PayPal_logo.svg"
-                alt="PayPal"
-                className="h-full object-contain dark:invert"
-              />
-            </div>
-            <div className="w-16 h-5 flex items-center justify-center">
-              <img
-                src="/logos/Microsoft_logo_(2012).svg"
-                alt="Microsoft"
-                className="h-full object-contain dark:invert"
-              />
-            </div>
-          </div>
-        </div>
-
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-8 md:mt-12">
+        <div className="w-full max-w-xl mx-auto mt-8">
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
@@ -336,6 +299,43 @@ export default function HeroSection() {
                   )}
                 </button>
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* SOCIAL PROOF */}
+        <div className="mt-20 pt-8 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
+          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-8">
+            Founded by leaders at
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/Seal_of_the_United_States_Federal_Reserve_System.svg"
+                alt="Federal Reserve"
+                className="h-full object-contain dark:invert"
+              />
+            </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/GSR_logo.svg"
+                alt="GSR Markets"
+                className="h-full object-contain dark:invert"
+              />
+            </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/PayPal_logo.svg"
+                alt="PayPal"
+                className="h-full object-contain dark:invert"
+              />
+            </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/Microsoft_logo_(2012).svg"
+                alt="Microsoft"
+                className="h-full object-contain dark:invert"
+              />
             </div>
           </div>
         </div>
