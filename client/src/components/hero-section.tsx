@@ -114,7 +114,7 @@ export default function HeroSection() {
   const activeAccent = activeStory.accentColor;
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-white dark:bg-[#070911] text-slate-900 dark:text-white">
+    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-white dark:bg-[#0A0A0B] text-slate-900 dark:text-white">
       
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -130,7 +130,7 @@ export default function HeroSection() {
         {/* Dark Mode: Deep indigo pre-dawn base */}
         <div className="hidden dark:block absolute inset-0 bg-[#070911]" />
         
-        {/* Dark Mode: Subtle cool indigo glow */}
+        {/* Dark Mode: Subtle cool indigo glow - just the sky, no warm tones */}
         <div 
           className="hidden dark:block absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-5"
           style={{ 
@@ -145,7 +145,7 @@ export default function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col items-center">
         
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EEAA4A] opacity-75"></span>
@@ -190,73 +190,83 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* CAROUSEL SECTION */}
-        <div className="w-full max-w-2xl mx-auto mt-8">
-          {/* Carousel Card */}
-          <div className="relative overflow-hidden rounded-2xl bg-white/60 dark:bg-white/8 border border-slate-200/50 dark:border-white/5 backdrop-blur-md transition-all duration-500 shadow-lg">
-            
-            {/* Dynamic accent border/glow */}
-            <div 
-              className="absolute inset-0 pointer-events-none rounded-2xl"
-              style={{
-                boxShadow: `inset 0 0 60px 0 ${activeAccent}08`,
-                transition: 'box-shadow 0.5s ease-out'
-              }}
-            />
+        {/* FOCUSED STORY CAROUSEL */}
+        <div className="w-full max-w-xl mx-auto mt-8">
+          
+          {/* Main Card Display */}
+          <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
+             
+             {/* Dynamic Accent Glow */}
+             <div 
+               className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
+               style={{ 
+                 boxShadow: `0 0 100px 30px ${activeAccent} inset`,
+                 transition: 'box-shadow 0.5s ease-out'
+               }}
+             />
 
-            {/* Content */}
-            <div className="relative p-8 md:p-10 min-h-[280px] flex flex-col justify-between">
-              <div>
+             {/* Content */}
+             <div 
+               key={currentStep}
+               className="text-center animate-lateral-pan"
+             >
                 <div 
-                  className="inline-flex items-center justify-center p-3 rounded-lg mb-6"
+                  className="inline-flex items-center justify-center p-4 rounded-xl mb-4 shadow-md mx-auto"
                   style={{ 
-                    backgroundColor: `${activeAccent}12`, 
+                    backgroundColor: `${activeAccent}15`, 
                     color: activeAccent 
                   }}
                 >
-                  <activeStory.icon className="w-7 h-7" />
+                  <activeStory.icon className="w-8 h-8" />
                 </div>
                 
-                <h2 
-                  key={`title-${currentStep}`}
-                  className="text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight animate-fade-in"
-                >
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
                   {activeStory.title}
                 </h2>
                 
-                <p 
-                  key={`subtitle-${currentStep}`}
-                  className="text-base text-slate-700 dark:text-slate-300 leading-relaxed animate-fade-in"
-                >
+                <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
                   {activeStory.subtitle}
                 </p>
-              </div>
 
-              <div className="mt-8">
-                <Link href={activeStory.href} className="inline-flex items-center gap-2 font-semibold text-sm transition-all group hover:gap-3" style={{ color: activeAccent }}>
-                  <span>Explore solution</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+                <div className="mt-6">
+                   <Link href={activeStory.href} className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all" style={{ color: activeAccent, textDecorationColor: `${activeAccent}50` }}>
+                      Explore {activeStory.title.split(' ')[0]} <ArrowRight className="w-4 h-4 ml-1" />
+                   </Link>
+                </div>
+             </div>
           </div>
 
           {/* Progress Indicators */}
-          <div className="flex justify-center items-center gap-2 mt-8">
-            {storySteps.map((step, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleStepClick(idx)}
-                className={`transition-all duration-300 rounded-full h-2 ${
-                  idx === currentStep ? 'px-4' : 'w-2'
-                } ${idx === currentStep ? '' : 'bg-slate-300 dark:bg-white/10'}`}
-                style={{
-                  backgroundColor: idx === currentStep ? activeAccent : undefined
-                }}
-                data-testid={`carousel-indicator-${idx}`}
-              />
-            ))}
+          <div className="mt-8 flex flex-col items-center">
+            <div className="flex justify-center items-center gap-1.5 w-full max-w-md">
+              {storySteps.map((step, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleStepClick(idx)}
+                  className={`group relative h-2 rounded-full transition-all duration-500 overflow-hidden flex-1`}
+                  style={{
+                     backgroundColor: currentStep === idx ? activeAccent : undefined,
+                  }}
+                  data-testid={`story-progress-${idx}`}
+                >
+                  <div className={`absolute inset-0 bg-slate-200 dark:bg-white/10 w-full h-full ${currentStep === idx ? 'opacity-0' : 'opacity-100'}`} />
+                  
+                  {/* Progress Animation */}
+                  {currentStep === idx && (
+                    <div 
+                      className="absolute inset-y-0 left-0 bg-white/50 dark:bg-black/50"
+                      style={{ 
+                         width: '100%',
+                         transition: isAutoPlaying ? 'width 5000ms linear' : 'none',
+                         animation: isAutoPlaying ? 'progress 5s linear' : 'none',
+                      }} 
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
+
         </div>
 
         {/* SOCIAL PROOF */}
@@ -285,12 +295,22 @@ export default function HeroSection() {
       <CalendlyModal title="Schedule a Consultation" />
       
       <style>{`
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
+        @keyframes progress {
+          from { width: 0%; }
+          to { width: 100%; }
         }
-        .animate-fade-in {
-          animation: fade-in 0.4s ease-out;
+        .animate-lateral-pan {
+          animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+        @keyframes lateral-pan {
+          0% {
+            opacity: 0;
+            transform: translateX(100%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
       `}</style>
     </section>
