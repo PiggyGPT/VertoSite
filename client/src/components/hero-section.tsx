@@ -159,7 +159,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center">
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto">
           {/* Enterprise Infrastructure badge - Hidden for now */}
@@ -173,7 +173,7 @@ export default function HeroSection() {
             </span>
           </div> */}
 
-          <h1 className="font-extrabold text-3xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter pt-4 sm:pt-6 md:pt-8 pb-4 sm:pb-6 md:pb-8 mb-4 sm:mb-5 md:mb-6 text-slate-900 dark:text-white leading-tight">
+          <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter mb-4 sm:mb-5 md:mb-6 text-slate-900 dark:text-white leading-tight">
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
@@ -181,14 +181,14 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 sm:mb-12 md:mb-14 lg:mb-16">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-7 md:mb-8">
             Make your asset liquid against dollar stablecoins
             <br />
             with our self-hosted, full-stack infrastructure.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 md:mb-14 lg:mb-16">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
             <button
               onClick={openModal}
               className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
@@ -213,7 +213,7 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="w-full max-w-5xl pt-8 sm:pt-12 md:pt-14 lg:pt-16">
+        <div className="w-full max-w-5xl pt-10 sm:pt-12 md:pt-14 lg:pt-16">
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 sm:mb-6 md:mb-7">
             Founded by leaders at
           </p>
@@ -250,7 +250,7 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-8 sm:mt-8 md:mt-10 lg:mt-12 mb-16 sm:mb-16 md:mb-20 lg:mb-24">
+        <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
