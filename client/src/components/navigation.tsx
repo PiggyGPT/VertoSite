@@ -69,20 +69,11 @@ export default function Navigation() {
             </button>
             <button
               onClick={openModal}
-              className="md:hidden inline-flex items-center gap-2 px-3 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
-              style={{
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.25)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
-              }}
+              className="md:hidden inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-xs transition-all hover:bg-slate-50 dark:hover:bg-white/10"
               data-testid="mobile-call-us"
             >
               <Calendar className="w-4 h-4" />
-              <span className="text-xs">Call Us</span>
+              <span>Call Us</span>
             </button>
           </div>
         </div>
