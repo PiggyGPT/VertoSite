@@ -254,16 +254,26 @@ export default function HeroSection() {
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Border Progress Indicator */}
+            {isAutoPlaying && (
+              <div
+                className="absolute inset-0 rounded-2xl pointer-events-none"
+                style={{
+                  background: `linear-gradient(135deg, transparent 0%, ${activeAccent} 50%, transparent 100%)`,
+                  animation: `border-progress-glow 15s linear forwards`,
+                  opacity: 0.8,
+                }}
+              />
+            )}
             <div
-              className="absolute inset-0 rounded-2xl pointer-events-none"
+              className="absolute inset-0 rounded-2xl pointer-events-none border"
               style={{
-                background: `linear-gradient(90deg, ${activeAccent}, ${activeAccent})`,
-                backgroundSize: isAutoPlaying ? '100% 100%' : '0% 100%',
+                borderColor: activeAccent,
+                borderWidth: '1px',
+                animation: isAutoPlaying ? `border-progress-dash 15s linear forwards` : 'none',
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='calc(100%25-2)' height='calc(100%25-2)' rx='16' ry='16' fill='none' stroke='${encodeURIComponent(activeAccent)}' stroke-width='2' stroke-dasharray='400' stroke-dashoffset='400'/%3E%3C/svg%3E")`,
+                backgroundSize: '100% 100%',
+                backgroundRepeat: 'no-repeat',
                 backgroundPosition: '0 0',
-                padding: '1px',
-                animation: isAutoPlaying ? `border-progress 15s linear forwards` : 'none',
-                WebkitMaskImage: `linear-gradient(to right, black, black)`,
-                maskImage: `linear-gradient(to right, black, black)`,
               }}
             />
             
@@ -327,35 +337,26 @@ export default function HeroSection() {
           from { width: 0%; }
           to { width: 100%; }
         }
-        @keyframes border-progress {
+        @keyframes border-progress-dash {
           0% {
-            box-shadow: 
-              inset 0 0 0 1px transparent,
-              0 0 0 1px transparent;
-            background-size: 0% 100%;
+            stroke-dashoffset: 400;
           }
           100% {
-            box-shadow: 
-              inset 0 0 0 1px currentColor,
-              0 0 0 1px currentColor;
-            background-size: 100% 100%;
+            stroke-dashoffset: 0;
           }
         }
-        @keyframes border-progress-outline {
+        @keyframes border-progress-glow {
           0% {
-            clip-path: inset(0% 100% 100% 0%);
-          }
-          25% {
-            clip-path: inset(0% 0% 100% 0%);
+            opacity: 0;
+            filter: blur(0px);
           }
           50% {
-            clip-path: inset(0% 0% 0% 0%);
-          }
-          75% {
-            clip-path: inset(0% 0% 0% 0%);
+            opacity: 0.4;
+            filter: blur(2px);
           }
           100% {
-            clip-path: inset(0% 0% 0% 0%);
+            opacity: 0;
+            filter: blur(0px);
           }
         }
         .animate-lateral-pan {
