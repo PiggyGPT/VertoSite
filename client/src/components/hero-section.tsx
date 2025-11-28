@@ -161,7 +161,7 @@ export default function HeroSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 md:pt-40 pb-16 md:pb-24 flex flex-col items-center">
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-14">
+        <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
           {/* Enterprise Infrastructure badge - Hidden for now */}
           {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
@@ -212,7 +212,7 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-1">
+        <div className="w-full max-w-xl mx-auto mt-8 md:mt-12 mb-8 md:mb-12">
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
@@ -265,7 +265,7 @@ export default function HeroSection() {
           </div>
 
           {/* Progress Indicators */}
-          <div className="mt-3 md:mt-8 flex flex-col items-center">
+          <div className="mt-6 md:mt-8 flex flex-col items-center">
             <div className="flex justify-center items-center gap-1.5 w-full max-w-md">
               {storySteps.map((step, idx) => (
                 <button
@@ -304,7 +304,7 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="mt-4 md:mt-20 pt-4 md:pt-8 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
+        <div className="pt-8 md:pt-12 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-8">
             Founded by leaders at
           </p>
