@@ -202,7 +202,7 @@ export default function HeroSection() {
             </button>
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
+              className="hidden md:inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
               data-testid="hero-contact-sales"
             >
               <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
