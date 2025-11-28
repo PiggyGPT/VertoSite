@@ -173,7 +173,7 @@ export default function HeroSection() {
             </span>
           </div> */}
 
-          <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter mb-5 sm:mb-6 md:mb-8 text-slate-900 dark:text-white leading-tight">
+          <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter mb-4 sm:mb-5 md:mb-6 text-slate-900 dark:text-white leading-tight">
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
@@ -181,7 +181,7 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 md:mb-12">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-7 md:mb-8">
             Make your asset liquid against dollar stablecoins
             <br />
             with our self-hosted, full-stack infrastructure.
