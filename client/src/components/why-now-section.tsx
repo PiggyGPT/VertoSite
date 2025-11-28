@@ -26,9 +26,9 @@ interface WhyNowProps {
 export default function WhyNowSection({ customReasons, customTitle, customSubtitle }: WhyNowProps = {}) {
   const { openModal, CalendlyModal } = useCalendlyModal();
   return (
-    <section id="why-now" className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 overflow-hidden bg-white dark:bg-gray-900">
-        {/* Background Aura */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-50 via-cyan-50/50 to-transparent dark:from-blue-900/30 dark:via-cyan-900/20 dark:to-transparent"></div>
+    <section id="why-now" className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 overflow-hidden">
+        {/* Background Aura - subtle glow that works with the page gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-50/30 via-amber-50/20 to-transparent dark:from-orange-900/10 dark:via-amber-900/5 dark:to-transparent"></div>
 
         <div className="relative max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">

@@ -130,11 +130,10 @@ export default function HeroSection() {
   const activeAccent = activeStory.accentColor;
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-white dark:bg-[#0A0A0B] text-slate-900 dark:text-white">
-      {/* BACKGROUND */}
+    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden text-slate-900 dark:text-white">
+      {/* BACKGROUND - Transparent to allow page gradient to show through */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Light Mode: Clean white base with warm golden glow at top */}
-        <div className="absolute inset-0 bg-white dark:hidden" />
+        {/* Light Mode: Warm golden glow at top */}
         <div
           className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[700px] rounded-full blur-[120px] opacity-30 dark:hidden"
           style={{
@@ -142,9 +141,6 @@ export default function HeroSection() {
               "radial-gradient(circle at center, #EEAA4A, #EF660B, transparent 60%)",
           }}
         />
-
-        {/* Dark Mode: Deep indigo pre-dawn base */}
-        <div className="hidden dark:block absolute inset-0 bg-[#070911]" />
 
         {/* Dark Mode: Subtle cool indigo glow - just the sky, no warm tones */}
         <div
