@@ -102,6 +102,59 @@ export default function LaunchStablecoin() {
     updatePageSEO("launch-stablecoin");
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+      // Dark mode colors: start dark, transition to warm orange
+      const darkColors = [
+        "#070911", // 0%
+        "#070911", // 15%
+        "#0A0D15", // 30%
+        "#0F1218", // 45%
+        "#15151C", // 60%
+        "#1A1818", // 75%
+        "#261E14", // 88%
+        "#3A280E", // 100% - warm orange
+      ];
+
+      // Light mode colors: start white, transition to warm golden cream
+      const lightColors = [
+        "#FFFFFF", // 0%
+        "#FFFFFF", // 15%
+        "#FFFEFB", // 30%
+        "#FFFBF3", // 45%
+        "#FFF7E8", // 60%
+        "#FFF2DA", // 75%
+        "#FFEBCC", // 88%
+        "#FFC880", // 100% - warm golden
+      ];
+
+      // Use dark mode colors
+      const colors = darkColors;
+
+      // Interpolate between colors based on scroll position
+      for (let i = 0; i < colors.length; i++) {
+        const colorIndex = i + 1;
+        const currentColor = colors[i];
+        const nextColor = colors[Math.min(i + 1, colors.length - 1)];
+        
+        // Blend colors based on scroll position
+        const colorProgress = scrollPercent * (colors.length - 1);
+        const blendFactor = Math.max(0, Math.min(1, colorProgress - i));
+        
+        // Update CSS variable
+        const root = document.documentElement;
+        root.style.setProperty(`--dawn-color-${colorIndex}`, currentColor);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen transition-colors dawn-gradient">
       <Navigation />

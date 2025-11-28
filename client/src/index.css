@@ -161,9 +161,17 @@
     animation: navGlow 6s ease-in-out infinite;
   }
 
-  /* Dawn Gradient - radial from top center, radiating outward to show warmer tones */
+  /* Dawn Gradient - dynamic radial that changes with scroll */
   .dawn-gradient {
     position: relative;
+    --dawn-color-1: #070911;
+    --dawn-color-2: #070911;
+    --dawn-color-3: #0A0D15;
+    --dawn-color-4: #0F1218;
+    --dawn-color-5: #15151C;
+    --dawn-color-6: #1A1818;
+    --dawn-color-7: #261E14;
+    --dawn-color-8: #3A280E;
   }
   
   .dawn-gradient::before {
@@ -175,36 +183,21 @@
     bottom: 0;
     z-index: -1;
     pointer-events: none;
-    /* Light mode: radial gradient centered at top, radiates to warm tones */
+    /* Light mode: radial gradient that transitions through the document */
     background: radial-gradient(
-      ellipse 150% 150% at 50% 0%,
-      #FFFFFF 0%,
-      #FFFFFF 25%,
-      #FFFEFB 35%,
-      #FFFBF3 45%,
-      #FFF7E8 55%,
-      #FFF2DA 65%,
-      #FFEBCC 75%,
-      #FFE0B8 85%,
-      #FFD4A0 93%,
-      #FFC880 100%
+      ellipse 150% 150% at 50% -50%,
+      var(--dawn-color-1) 0%,
+      var(--dawn-color-2) 15%,
+      var(--dawn-color-3) 30%,
+      var(--dawn-color-4) 45%,
+      var(--dawn-color-5) 60%,
+      var(--dawn-color-6) 75%,
+      var(--dawn-color-7) 88%,
+      var(--dawn-color-8) 100%
     );
   }
   
   .dark .dawn-gradient::before {
-    /* Dark mode: radial gradient centered at top, radiates to sunrise orange */
-    background: radial-gradient(
-      ellipse 150% 150% at 50% 0%,
-      #070911 0%,
-      #070911 25%,
-      #0A0D15 35%,
-      #0F1319 45%,
-      #15161D 55%,
-      #1B1A1A 65%,
-      #261E14 75%,
-      #3A280E 85%,
-      #503508 93%,
-      #6A4505 100%
-    );
+    /* Already inherits from parent's CSS variables */
   }
 }
