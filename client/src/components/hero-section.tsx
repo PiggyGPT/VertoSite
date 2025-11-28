@@ -194,7 +194,10 @@ export default function HeroSection() {
         <div className="w-full max-w-xl mx-auto mt-8">
           
           {/* Main Card Display */}
-          <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
+          <div 
+            key={currentStep}
+            className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500 animate-lateral-pan"
+          >
              
              {/* Dynamic Accent Glow */}
              <div 
@@ -207,8 +210,7 @@ export default function HeroSection() {
 
              {/* Content */}
              <div 
-               key={currentStep}
-               className="text-center animate-lateral-pan"
+               className="text-center"
              >
                 {/* Elegant Icon Badge */}
                 <div 
