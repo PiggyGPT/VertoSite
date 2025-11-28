@@ -159,9 +159,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-8 md:pb-12 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 md:pt-40 pb-16 md:pb-24 flex flex-col items-center">
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-6 md:mb-8">
+        <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
           {/* Enterprise Infrastructure badge - Hidden for now */}
           {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
@@ -173,7 +173,7 @@ export default function HeroSection() {
             </span>
           </div> */}
 
-          <h1 className="font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tighter mb-4 md:mb-6 text-slate-900 dark:text-white leading-tight">
+          <h1 className="font-extrabold text-3xl sm:text-5xl lg:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white leading-tight">
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
@@ -181,13 +181,13 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-3xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Make your asset liquid against dollar stablecoins with our
             self-hosted, full-stack infrastructure.
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
             <button
               onClick={openModal}
               className="group inline-flex items-center gap-2 px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
@@ -212,7 +212,7 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-6 md:mt-8 mb-4 md:mb-6">
+        <div className="w-full max-w-xl mx-auto mt-8 md:mt-12 mb-8 md:mb-12">
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
@@ -275,8 +275,8 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="pt-4 md:pt-6 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
-          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 md:mb-6">
+        <div className="pt-8 md:pt-12 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
+          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 md:mb-8">
             Founded by leaders at
           </p>
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 md:gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
