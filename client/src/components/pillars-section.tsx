@@ -24,7 +24,7 @@ export default function PillarsSection() {
         <div className="space-y-16">
           
           {/* Pillar 1: Distribution */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="pillar-distribution">
+          <div className="bg-white/30 dark:bg-slate-800/30 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="pillar-distribution">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
               <div className="p-8 lg:p-12">
@@ -83,7 +83,7 @@ export default function PillarsSection() {
               
               {/* Right GIF Placeholder */}
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 lg:p-12 min-h-[400px] flex flex-col items-center justify-center">
-                <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl border border-green-200 dark:border-green-700 p-8 shadow-lg">
+                <div className="w-full max-w-md bg-white/30 dark:bg-slate-800/30 rounded-2xl border border-green-200 dark:border-green-700 p-8 shadow-lg">
                   <div className="space-y-4 text-center">
                     <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mx-auto flex items-center justify-center">
                       <span className="text-2xl">🏛️</span>
@@ -106,7 +106,7 @@ export default function PillarsSection() {
           </div>
 
           {/* Pillar 2: Payments */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="pillar-payments">
+          <div className="bg-white/30 dark:bg-slate-800/30 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="pillar-payments">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
               <div className="p-8 lg:p-12">
@@ -165,7 +165,7 @@ export default function PillarsSection() {
               
               {/* Right GIF Placeholder */}
               <div className="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 p-8 lg:p-12 min-h-[400px] flex flex-col items-center justify-center">
-                <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl border border-purple-200 dark:border-purple-700 p-8 shadow-lg">
+                <div className="w-full max-w-md bg-white/30 dark:bg-slate-800/30 rounded-2xl border border-purple-200 dark:border-purple-700 p-8 shadow-lg">
                   <div className="space-y-4 text-center">
                     <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mx-auto flex items-center justify-center">
                       <span className="text-2xl">📱</span>
@@ -188,7 +188,7 @@ export default function PillarsSection() {
           </div>
 
           {/* Pillar 3: Compliance */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="pillar-compliance">
+          <div className="bg-white/30 dark:bg-slate-800/30 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="pillar-compliance">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
               <div className="p-8 lg:p-12">
@@ -261,7 +261,7 @@ export default function PillarsSection() {
               
               {/* Right GIF Placeholder */}
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 lg:p-12 min-h-[400px] flex flex-col items-center justify-center">
-                <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl border border-blue-200 dark:border-blue-700 p-8 shadow-lg">
+                <div className="w-full max-w-md bg-white/30 dark:bg-slate-800/30 rounded-2xl border border-blue-200 dark:border-blue-700 p-8 shadow-lg">
                   <div className="space-y-4 text-center">
                     <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full mx-auto flex items-center justify-center">
                       <span className="text-2xl">🔗</span>

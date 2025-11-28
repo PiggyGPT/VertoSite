@@ -105,9 +105,6 @@ export default function ProblemSection({
 
     return (
         <section className="relative py-16 md:py-20 px-6 sm:px-8 overflow-hidden">
-             {/* Background Gradient Aura */}
-            <div className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-slate-50 dark:from-slate-800/30 to-transparent"></div>
-
             <div className="relative max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                      <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight" data-testid="problem-title">

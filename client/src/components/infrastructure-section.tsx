@@ -19,7 +19,7 @@ export default function InfrastructureSection() {
         <div className="space-y-12">
           
           {/* Operation 1: Trusted Issuance & On-Ramps */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="operation-issuance">
+          <div className="bg-white/30 dark:bg-slate-800/30 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="operation-issuance">
             <div className="grid lg:grid-cols-5 gap-0">
               {/* Left Content */}
               <div className="lg:col-span-3 p-8 lg:p-12">
@@ -76,7 +76,7 @@ export default function InfrastructureSection() {
           </div>
 
           {/* Operation 2: Frictionless Payment Network */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="operation-payments">
+          <div className="bg-white/30 dark:bg-slate-800/30 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="operation-payments">
             <div className="grid lg:grid-cols-5 gap-0">
               {/* Left Content */}
               <div className="lg:col-span-3 p-8 lg:p-12">
@@ -133,7 +133,7 @@ export default function InfrastructureSection() {
           </div>
 
           {/* Operation 3: Automated Compliance & Reporting */}
-          <div className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="operation-compliance">
+          <div className="bg-white/30 dark:bg-slate-800/30 border border-slate-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-lg" data-testid="operation-compliance">
             <div className="grid lg:grid-cols-5 gap-0">
               {/* Left Content */}
               <div className="lg:col-span-3 p-8 lg:p-12">

@@ -82,7 +82,7 @@ const Header = ({ title, subtitle, icon, badgeText }: {
 // Component to display the core voucher content with the new, professional design.
 const MintContent = ({ voucherId, amount }: { voucherId: string; amount: string }) => {
     return (
-        <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+        <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
             <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
             <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
             <p className="text-xs text-slate-500 dark:text-slate-400">MINT #{voucherId}</p>
@@ -215,7 +215,7 @@ const ExecutiveDistributionFlow = () => {
                     className={panel0Classes}
                     style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
                 >
-                    <div className="bg-white dark:bg-slate-900 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
                         {/* Dashboard header with relevant Settings icon */}
                         <Header title="Tia Store" subtitle="Agent Dashboard" icon={<Settings className="w-5 h-5 text-slate-400" />} />
 
@@ -273,7 +273,7 @@ const ExecutiveDistributionFlow = () => {
                     className={panel2Classes}
                     style={{ zIndex: currentPanel === 2 ? 3 : 2 }}
                 >
-                    <div className="bg-white dark:bg-slate-900 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
                         {/* Wallet header with relevant User icon */}
                         <Header title="Maria Silva" subtitle="Wallet" icon={<User className="w-5 h-5 text-slate-400" />} />
 
@@ -420,7 +420,7 @@ const PolishedPaymentsFlow = () => {
                     className={panel1Classes}
                     style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
                 >
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
                         <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
                         <p className="text-xs text-slate-500 dark:text-slate-400">PAYMENT #4928</p>
@@ -447,7 +447,7 @@ const PolishedPaymentsFlow = () => {
                     className={panel2Classes}
                     style={{ zIndex: currentPanel === 1 ? 3 : 1 }}
                 >
-                    <div className="bg-white dark:bg-slate-900 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
+                    <div className="bg-white/30 dark:bg-slate-900/30 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
                          <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
                             <div className="flex items-center gap-3">
                                 <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
@@ -503,7 +503,7 @@ const PolishedPaymentsFlow = () => {
                     className={panel3Classes}
                     style={{ zIndex: currentPanel === 2 ? 3 : 1 }}
                 >
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
                         <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Payment Confirmed</h3>
                         <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:52:34</p>
                         <p className="text-xs text-slate-500 dark:text-slate-400">TXN #8721-CONF</p>
@@ -774,7 +774,7 @@ const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, curre
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative">
+    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Batched Transaction Route</h3>
@@ -859,7 +859,7 @@ const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, curre
 // --- Sub-component for Panel 3: Compliance Report ---
 const ComplianceReportPanel = () => {
   return (
-    <div className="bg-white dark:bg-slate-900 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
+    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Compliant Audit Trail</h3>
@@ -928,7 +928,7 @@ const PolishedComplianceFlow = () => {
             <div className="relative w-full max-w-lg mx-auto h-[480px] overflow-x-hidden">
                 {/* Panel 1: Risk Ratings */}
                 <div className={getPanelClasses(0)} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
+                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">AI Risk Ratings</h3>
                         <div className="space-y-3">
                              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg flex justify-between items-center">
@@ -953,7 +953,7 @@ const PolishedComplianceFlow = () => {
 
                 {/* Panel 2: Policy Engine */}
                 <div className={getPanelClasses(1)} style={{ zIndex: currentPanel === 1 ? 3 : 1 }}>
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
+                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Policy Engine</h3>
                         <div className="space-y-2 text-sm font-mono text-slate-600 dark:text-slate-400">
                            <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded">IF amount &gt; $10k AND risk_rating &lt; BBB</div>
@@ -968,7 +968,7 @@ const PolishedComplianceFlow = () => {
 
                 {/* Panel 3: Compliance Report */}
                  <div className={getPanelClasses(2)} style={{ zIndex: currentPanel === 2 ? 3 : 1 }}>
-                     <div className="bg-white dark:bg-slate-900 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
+                     <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
                          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Compliance Report</h3>
                          <div className="space-y-3">
                             <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
@@ -1073,7 +1073,7 @@ const ExecutiveServiceFlow = () => {
     return (
         <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
             <style>{animationStyles}</style>
-            <div className="w-full max-w-xs md:max-w-sm p-4 md:p-5 rounded-2xl shadow-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex flex-col space-y-4 md:space-y-5">
+            <div className="w-full max-w-xs md:max-w-sm p-4 md:p-5 rounded-2xl shadow-xl bg-white/30 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 flex flex-col space-y-4 md:space-y-5">
 
                 {/* Dashboard Header */}
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">

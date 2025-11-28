@@ -36,7 +36,7 @@ export default function AiSection() {
 
         {/* Capabilities Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-risk-scoring">
+          <div className="bg-white/30 dark:bg-slate-800/30 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-risk-scoring">
             <div className="w-12 h-12 bg-verto-blue/10 rounded-lg flex items-center justify-center mb-4">
               <BarChart3 className="w-6 h-6 text-verto-blue" />
             </div>
@@ -44,7 +44,7 @@ export default function AiSection() {
             <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Transforms manual, multi-week audits of any wallet, token, or protocol into AI-generated Moody's style risk ratings that are fully explainable and tailored to your risk appetite.</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-routing">
+          <div className="bg-white/30 dark:bg-slate-800/30 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-routing">
             <div className="w-12 h-12 bg-verto-purple/10 rounded-lg flex items-center justify-center mb-4">
               <ArrowLeftRight className="w-6 h-6 text-verto-purple" />
             </div>
@@ -52,7 +52,7 @@ export default function AiSection() {
             <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Balances risk, latency, and slippage across liquidity pools and bridges. Every route is custodian-key signed and executed with sponsored gas.</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-audit-trails">
+          <div className="bg-white/30 dark:bg-slate-800/30 p-6 rounded-lg border border-slate-200 dark:border-gray-700" data-testid="capability-audit-trails">
             <div className="w-12 h-12 bg-verto-green/10 rounded-lg flex items-center justify-center mb-4">
               <FileText className="w-6 h-6 text-verto-green" />
             </div>
@@ -63,7 +63,7 @@ export default function AiSection() {
 
         {/* Outcome Summary */}
         <div className="text-center mb-8" data-testid="ai-outcome">
-          <div className="inline-flex items-center space-x-8 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-full px-8 py-4">
+          <div className="inline-flex items-center space-x-8 bg-white/30 dark:bg-slate-800/30 border border-slate-200 dark:border-gray-700 rounded-full px-8 py-4">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-verto-blue/10 rounded-full flex items-center justify-center">
                 <Shield className="w-4 h-4 text-verto-blue" />
