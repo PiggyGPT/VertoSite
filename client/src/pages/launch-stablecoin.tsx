@@ -23,9 +23,6 @@ import {
   Server,
   Globe,
 } from "lucide-react";
-import davidImage from "@assets/david_1754986415369.png";
-import danielImage from "@assets/daniel_1754986415369.png";
-import nileshImage from "@assets/nilesh_1754986415369.png";
 import { updatePageSEO } from "@/lib/seo";
 
 // Define custom CTAs for stablecoin landing page

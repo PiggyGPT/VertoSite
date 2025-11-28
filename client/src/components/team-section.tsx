@@ -1,7 +1,3 @@
-import davidImage from "@assets/david_1754986415369.png";
-import danielImage from "@assets/daniel_1754986415369.png";
-import hishamImage from "@assets/hisham_1754986415368.png";
-import nileshImage from "@assets/nilesh_1754986415369.png";
 import { Quote } from "lucide-react";
 
 // Company logos stored in public/logos with clean filenames
@@ -83,10 +79,10 @@ export default function TeamSection({
   customInsights
 }: TeamSectionProps = {}) {
 const teamMembers = [
-{ name: "David Cass", role: "CEO", roleColor: "verto-blue", image: davidImage, description: "CISO at GSR and IBM with 25+ years in security leadership. Harvard faculty, former Federal Reserve regulator. Wharton and MIT graduate.", testId: "team-david" },
-{ name: "Daniel Garrie", role: "General Counsel", roleColor: "verto-green", image: danielImage, description: "Harvard professor with 20+ years in compliance frameworks for DOJ and DTCC. Built and exited three tech companies. JD from Rutgers.", testId: "team-daniel" },
-{ name: "Hisham Anwar", role: "CTO", roleColor: "verto-orange", image: hishamImage, description: "Serial entrepreneur with successful exits to Microsoft and Google. Former Head of Product at Google and CEO of BrightBytes. Holds an Masters from MIT.", testId: "team-hisham" },
-{ name: "Nilesh Khaitan", role: "CPO", roleColor: "verto-purple", image: nileshImage, description: "Launched Venmo/PayPal crypto offering to 90M+ users. Former Product Leader at Microsoft and Bright Machines. Boston University CS.", testId: "team-nilesh" },
+{ name: "David Cass", role: "CEO", roleColor: "verto-blue", image: "https://via.placeholder.com/96", description: "CISO at GSR and IBM with 25+ years in security leadership. Harvard faculty, former Federal Reserve regulator. Wharton and MIT graduate.", testId: "team-david" },
+{ name: "Daniel Garrie", role: "General Counsel", roleColor: "verto-green", image: "https://via.placeholder.com/96", description: "Harvard professor with 20+ years in compliance frameworks for DOJ and DTCC. Built and exited three tech companies. JD from Rutgers.", testId: "team-daniel" },
+{ name: "Hisham Anwar", role: "CTO", roleColor: "verto-orange", image: "https://via.placeholder.com/96", description: "Serial entrepreneur with successful exits to Microsoft and Google. Former Head of Product at Google and CEO of BrightBytes. Holds an Masters from MIT.", testId: "team-hisham" },
+{ name: "Nilesh Khaitan", role: "CPO", roleColor: "verto-purple", image: "https://via.placeholder.com/96", description: "Launched Venmo/PayPal crypto offering to 90M+ users. Former Product Leader at Microsoft and Bright Machines. Boston University CS.", testId: "team-nilesh" },
 ];
 
 return (
