@@ -250,13 +250,15 @@ export default function HeroSection() {
                 <Link
                   key={currentStep}
                   href={activeStory.href}
-                  className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
+                  className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all relative"
                   style={{
                     color: activeAccent,
-                    animation: isAutoPlaying ? `color-progress 5s linear forwards` : 'none',
-                    '--start-color': 'rgba(255, 255, 255, 0.8)',
-                    '--end-color': activeAccent,
-                  } as React.CSSProperties & { '--start-color': string; '--end-color': string }}
+                    background: isAutoPlaying 
+                      ? `linear-gradient(90deg, transparent 0%, ${activeAccent}40 50%, transparent 100%)`
+                      : 'transparent',
+                    backgroundSize: '200% 100%',
+                    animation: isAutoPlaying ? `shimmer-progress 5s ease-in-out forwards` : 'none',
+                  }}
                 >
                   {currentStep === 0 && "Explore APIs"}
                   {currentStep === 1 && "Explore DEX"}
@@ -315,9 +317,9 @@ export default function HeroSection() {
           from { width: 0%; }
           to { width: 100%; }
         }
-        @keyframes color-progress {
-          from { color: var(--start-color); }
-          to { color: var(--end-color); }
+        @keyframes shimmer-progress {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
         }
         .animate-lateral-pan {
           animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
