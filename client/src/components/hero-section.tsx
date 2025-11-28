@@ -248,12 +248,15 @@ export default function HeroSection() {
 
               <div className="mt-6">
                 <Link
+                  key={currentStep}
                   href={activeStory.href}
                   className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
                   style={{
                     color: activeAccent,
                     animation: isAutoPlaying ? `color-progress 5s linear forwards` : 'none',
-                  }}
+                    '--start-color': 'rgba(255, 255, 255, 0.8)',
+                    '--end-color': activeAccent,
+                  } as React.CSSProperties & { '--start-color': string; '--end-color': string }}
                 >
                   {currentStep === 0 && "Explore APIs"}
                   {currentStep === 1 && "Explore DEX"}
@@ -313,8 +316,8 @@ export default function HeroSection() {
           to { width: 100%; }
         }
         @keyframes color-progress {
-          from { color: rgba(255, 255, 255, 0.8); }
-          to { color: currentColor; }
+          from { color: var(--start-color); }
+          to { color: var(--end-color); }
         }
         .animate-lateral-pan {
           animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
