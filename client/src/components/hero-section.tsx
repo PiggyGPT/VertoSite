@@ -210,15 +210,71 @@ export default function HeroSection() {
                key={currentStep}
                className="text-center animate-lateral-pan"
              >
-                <div 
-                  className="inline-flex items-center justify-center p-4 rounded-xl mb-4 shadow-md mx-auto"
-                  style={{ 
-                    backgroundColor: `${activeAccent}15`, 
-                    color: activeAccent 
-                  }}
-                >
-                  <activeStory.icon className="w-8 h-8" />
-                </div>
+                {/* Illustrative Animation for Step 0: Integrate Systems - API Typing */}
+                {currentStep === 0 && (
+                  <div className="mb-6">
+                    <div className="inline-block bg-slate-900 dark:bg-slate-800 text-slate-100 dark:text-white px-4 py-3 rounded-lg font-mono text-sm h-20 flex items-center justify-center min-w-64 overflow-hidden">
+                      <div className="flex flex-col gap-1 text-left">
+                        <span className="text-slate-400">$ curl -X POST</span>
+                        <span className="inline-flex gap-0.5">
+                          <span>/api/issue</span>
+                          <span className="inline-block w-0.5 h-5 bg-slate-100 dark:bg-white animate-pulse ml-0.5"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Illustrative Animation for Step 1: Capture Liquidity - DEX APY */}
+                {currentStep === 1 && (
+                  <div className="mb-6 flex justify-center gap-4">
+                    <div className="text-center">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Add Liquidity</div>
+                      <div className="inline-block bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-900 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700">
+                        <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">USDC/USD</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <ArrowRight className="w-5 h-5 text-slate-400 animate-bounce" style={{ animationDelay: '0s' }} />
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Earn APY</div>
+                      <div className="inline-block bg-gradient-to-br from-green-100 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/20 px-3 py-2 rounded-lg border border-green-200 dark:border-green-700">
+                        <div className="text-sm font-bold text-green-600 dark:text-green-400 animate-pulse">12.5%</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Illustrative Animation for Step 2: Global Coverage - Bank Payment */}
+                {currentStep === 2 && (
+                  <div className="mb-6 flex justify-center gap-3">
+                    <div className="inline-block bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/20 px-4 py-3 rounded-lg border border-blue-200 dark:border-blue-700">
+                      <div className="text-xs font-semibold text-blue-700 dark:text-blue-400 mb-1">Pay With</div>
+                      <div className="text-sm font-bold text-blue-900 dark:text-blue-300">Chase Bank</div>
+                    </div>
+                    <div className="flex items-center">
+                      <ArrowRight className="w-5 h-5 text-slate-400 animate-bounce" style={{ animationDelay: '0.1s' }} />
+                    </div>
+                    <div className="inline-block bg-gradient-to-br from-purple-100 to-purple-50 dark:from-purple-900/30 dark:to-purple-900/20 px-4 py-3 rounded-lg border border-purple-200 dark:border-purple-700">
+                      <div className="text-xs font-semibold text-purple-700 dark:text-purple-400 mb-1">Any Wallet</div>
+                      <div className="text-sm font-bold text-purple-900 dark:text-purple-300">Receive USDC</div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Illustrative Animation for Step 3: Compliance - Server Status */}
+                {currentStep === 3 && (
+                  <div className="mb-6">
+                    <div className="inline-block bg-slate-50 dark:bg-slate-900/50 px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Systems Running</span>
+                        <span className="text-xs text-green-600 dark:text-green-400">• Healthy</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
                   {activeStory.title}
