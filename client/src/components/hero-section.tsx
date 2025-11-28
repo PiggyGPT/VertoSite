@@ -130,11 +130,11 @@ export default function HeroSection() {
         {/* Dark Mode: Deep indigo pre-dawn base */}
         <div className="hidden dark:block absolute inset-0 bg-[#070911]" />
         
-        {/* Dark Mode: Barely-there warm undertone - whisper of sunrise to come */}
+        {/* Dark Mode: Subtle cool indigo glow - just the sky, no warm tones */}
         <div 
-          className="hidden dark:block absolute -top-[15%] left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-3"
+          className="hidden dark:block absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-5"
           style={{ 
-            background: 'radial-gradient(circle at center, #8B6914, transparent 70%)' 
+            background: 'radial-gradient(circle at center, #1A233A, #0A1128, transparent 70%)' 
           }}
         />
 
