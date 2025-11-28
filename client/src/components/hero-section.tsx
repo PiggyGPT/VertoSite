@@ -100,8 +100,8 @@ export default function HeroSection({
         </p>
 
         {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
-        <div className="mt-8 sm:mt-10 md:mt-14 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6 md:gap-7">
+        <div className="mt-6 sm:mt-8 md:mt-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
                 <button 
@@ -110,7 +110,7 @@ export default function HeroSection({
                   className="w-full"
                 >
                   <div 
-                    className="group relative flex flex-col justify-center text-center h-full p-6 sm:p-7 md:p-10 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                     style={{
                       background: cta.bgGradient || cta.bgColorClass,
                       boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
@@ -127,11 +127,11 @@ export default function HeroSection({
                     }}
                   >
                     
-                    <div className="relative flex items-center justify-center gap-x-3">
-                        <cta.icon className="w-7 h-7 transition-all duration-300 group-hover:scale-110 verto-gradient-text" />
-                        <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{cta.title}</span>
+                    <div className="relative flex items-center justify-center gap-x-2">
+                        <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
+                        <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
                     </div>
-                    <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
                         {cta.subtitle}
                     </p>
                   </div>
@@ -139,7 +139,7 @@ export default function HeroSection({
               ) : (
                 <Link key={cta.title} href={cta.href}>
                   <div 
-                    className="group relative flex flex-col justify-center text-center h-full p-6 sm:p-7 md:p-10 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-5 md:p-6 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                     style={{
                       background: cta.bgGradient || cta.bgColorClass,
                       boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
@@ -156,11 +156,11 @@ export default function HeroSection({
                     }}
                   >
                     
-                    <div className="relative flex items-center justify-center gap-x-3">
-                        <cta.icon className="w-7 h-7 transition-all duration-300 group-hover:scale-110 verto-gradient-text" />
-                        <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{cta.title}</span>
+                    <div className="relative flex items-center justify-center gap-x-2">
+                        <cta.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110 verto-gradient-text flex-shrink-0" />
+                        <span className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">{cta.title}</span>
                     </div>
-                    <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <p className="mt-2 sm:mt-2.5 md:mt-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 leading-snug">
                         {cta.subtitle}
                     </p>
                   </div>
