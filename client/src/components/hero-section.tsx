@@ -181,7 +181,7 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Make your asset liquid against dollar stablecoins with our
             self-hosted, full-stack infrastructure.
           </p>
