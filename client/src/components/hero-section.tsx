@@ -253,6 +253,20 @@ export default function HeroSection() {
         <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
+            {/* Border Progress Indicator */}
+            <div
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              style={{
+                background: `linear-gradient(90deg, ${activeAccent}, ${activeAccent})`,
+                backgroundSize: isAutoPlaying ? '100% 100%' : '0% 100%',
+                backgroundPosition: '0 0',
+                padding: '1px',
+                animation: isAutoPlaying ? `border-progress 15s linear forwards` : 'none',
+                WebkitMaskImage: `linear-gradient(to right, black, black)`,
+                maskImage: `linear-gradient(to right, black, black)`,
+              }}
+            />
+            
             {/* Dynamic Accent Glow */}
             <div
               className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
@@ -290,15 +304,8 @@ export default function HeroSection() {
                   href={activeStory.href}
                   className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
                   style={{
-                    background: isAutoPlaying 
-                      ? `linear-gradient(90deg, white 0%, ${activeAccent} 100%)`
-                      : activeAccent,
-                    backgroundSize: '200% 100%',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    animation: isAutoPlaying ? `text-gradient-progress 15s linear forwards` : 'none',
-                  } as React.CSSProperties}
+                    color: activeAccent,
+                  }}
                 >
                   {currentStep === 0 && "Explore APIs"}
                   {currentStep === 1 && "Explore DEX"}
@@ -320,9 +327,36 @@ export default function HeroSection() {
           from { width: 0%; }
           to { width: 100%; }
         }
-        @keyframes text-gradient-progress {
-          0% { background-position: 200% 0; }
-          100% { background-position: 0% 0; }
+        @keyframes border-progress {
+          0% {
+            box-shadow: 
+              inset 0 0 0 1px transparent,
+              0 0 0 1px transparent;
+            background-size: 0% 100%;
+          }
+          100% {
+            box-shadow: 
+              inset 0 0 0 1px currentColor,
+              0 0 0 1px currentColor;
+            background-size: 100% 100%;
+          }
+        }
+        @keyframes border-progress-outline {
+          0% {
+            clip-path: inset(0% 100% 100% 0%);
+          }
+          25% {
+            clip-path: inset(0% 0% 100% 0%);
+          }
+          50% {
+            clip-path: inset(0% 0% 0% 0%);
+          }
+          75% {
+            clip-path: inset(0% 0% 0% 0%);
+          }
+          100% {
+            clip-path: inset(0% 0% 0% 0%);
+          }
         }
         .animate-lateral-pan {
           animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
