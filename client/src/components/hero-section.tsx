@@ -264,43 +264,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Progress Indicators */}
-          <div className="mt-6 md:mt-8 flex flex-col items-center">
-            <div className="flex justify-center items-center gap-1.5 w-full max-w-md">
-              {storySteps.map((step, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleStepClick(idx)}
-                  className={`group relative h-2 rounded-full transition-all duration-500 overflow-hidden flex-1`}
-                  style={{
-                    backgroundColor:
-                      currentStep === idx ? activeAccent : undefined,
-                  }}
-                  data-testid={`story-progress-${idx}`}
-                >
-                  <div
-                    className={`absolute inset-0 bg-slate-200 dark:bg-white/10 w-full h-full ${currentStep === idx ? "opacity-0" : "opacity-100"}`}
-                  />
-
-                  {/* Progress Animation */}
-                  {currentStep === idx && (
-                    <div
-                      className="absolute inset-y-0 left-0 bg-white/50 dark:bg-black/50"
-                      style={{
-                        width: "100%",
-                        transition: isAutoPlaying
-                          ? "width 5000ms linear"
-                          : "none",
-                        animation: isAutoPlaying
-                          ? "progress 5s linear"
-                          : "none",
-                      }}
-                    />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* SOCIAL PROOF */}
