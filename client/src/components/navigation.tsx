@@ -1,7 +1,7 @@
 // src/components/Navigation.tsx
 
 import { useState, useEffect } from "react";
-import { Menu, X, Rocket } from "lucide-react";
+import { Rocket, Calendar } from "lucide-react";
 import { Link } from "wouter";
 import { useCalendlyModal } from "./calendly-modal";
 
@@ -22,7 +22,6 @@ const navLinks = [];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { openModal, CalendlyModal } = useCalendlyModal();
 
   useEffect(() => {
@@ -34,9 +33,6 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
 
 
   return (
@@ -72,27 +68,8 @@ export default function Navigation() {
               Launch Pilot
             </button>
             <button
-              className="md:hidden p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              data-testid="mobile-menu-toggle"
-              aria-label="Toggle mobile menu"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/30 dark:bg-slate-900/30 backdrop-blur-md border-t border-white/10" data-testid="mobile-menu">
-          <div className="px-4 sm:px-6 py-4 sm:py-5 space-y-3 sm:space-y-4">
-            <button
-              onClick={() => {
-                openModal();
-                closeMobileMenu();
-              }}
-              className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center gap-2 px-4 py-3 bg-white text-slate-900 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300"
+              onClick={openModal}
+              className="md:hidden inline-flex items-center gap-2 px-3 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
               }}
@@ -102,14 +79,15 @@ export default function Navigation() {
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
               }}
-              data-testid="mobile-nav-get-started"
+              data-testid="mobile-call-us"
             >
-              <Rocket className="w-4 h-4" />
-              Launch Pilot
+              <Calendar className="w-4 h-4" />
+              <span className="text-xs">Call Us</span>
             </button>
           </div>
         </div>
-      )}
+      </div>
+
       
       <CalendlyModal title="Launch Your Pilot Program" />
     </nav>
