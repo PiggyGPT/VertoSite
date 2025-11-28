@@ -159,9 +159,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 md:pt-40 pb-16 md:pb-24 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-40 pb-16 md:pb-24 flex flex-col items-center">
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
+        <div className="text-center max-w-4xl mx-auto mb-4 md:mb-12">
           {/* Enterprise Infrastructure badge - Hidden for now */}
           {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
