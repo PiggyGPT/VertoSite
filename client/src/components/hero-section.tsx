@@ -194,59 +194,63 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-8 relative">
+        <div className="w-full max-w-xl mx-auto mt-8 relative h-96 overflow-hidden">
           
-          {/* Exiting Card - Previous Step */}
-          {prevStep !== currentStep && (() => {
-            const PrevIcon = storySteps[prevStep].icon;
-            return (
-              <div 
-                className="absolute inset-0 p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-card-exit"
-                style={{
-                  boxShadow: `0 0 100px 30px ${storySteps[prevStep].accentColor} inset`,
-                }}
-              >
-                <div className="relative z-10 text-center">
-                  <div 
-                    className="inline-flex items-center justify-center p-2.5 rounded-lg mb-3 shadow-md mx-auto"
-                    style={{ 
-                      backgroundColor: `${storySteps[prevStep].accentColor}15`, 
-                      color: storySteps[prevStep].accentColor
-                    }}
-                  >
-                    <PrevIcon className="w-5 h-5" />
+          {/* Previous Card - Exiting Left */}
+          {prevStep !== currentStep && (
+            <div 
+              className="absolute inset-0 p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-slide-out"
+            >
+              {(() => {
+                const PrevIcon = storySteps[prevStep].icon;
+                const prevAccent = storySteps[prevStep].accentColor;
+                return (
+                  <div className="relative z-10 h-full flex flex-col justify-center">
+                    <div 
+                      className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
+                      style={{ 
+                        boxShadow: `0 0 100px 30px ${prevAccent} inset`,
+                      }}
+                    />
+                    <div className="text-center relative z-20">
+                      <div 
+                        className="inline-flex items-center justify-center p-2.5 rounded-lg mb-3 shadow-md mx-auto"
+                        style={{ 
+                          backgroundColor: `${prevAccent}15`, 
+                          color: prevAccent
+                        }}
+                      >
+                        <PrevIcon className="w-5 h-5" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+                        {storySteps[prevStep].title}
+                      </h2>
+                      <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
+                        {storySteps[prevStep].subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                    {storySteps[prevStep].title}
-                  </h2>
-                  <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
-                    {storySteps[prevStep].subtitle}
-                  </p>
-                </div>
-              </div>
-            );
-          })()}
+                );
+              })()}
+            </div>
+          )}
 
-          {/* Main Card Display - Current Step */}
+          {/* Current Card - Entering from Right */}
           <div 
-            className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-lateral-pan"
-            style={{
-              boxShadow: `0 0 100px 30px ${activeAccent} inset`,
-            }}
+            className="absolute inset-0 p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-slide-in"
           >
-             {/* Dynamic Accent Glow */}
-             <div 
-               className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
-               style={{ 
-                 boxShadow: `0 0 100px 30px ${activeAccent} inset`,
-                 transition: 'box-shadow 0.5s ease-out'
-               }}
-             />
+            {/* Dynamic Accent Glow */}
+            <div 
+              className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
+              style={{ 
+                boxShadow: `0 0 100px 30px ${activeAccent} inset`,
+              }}
+            />
 
-             {/* Content */}
-             <div 
-               className="text-center"
-             >
+            {/* Content */}
+            <div 
+              className="relative z-10 h-full flex flex-col justify-center text-center"
+            >
                 {/* Elegant Icon Badge */}
                 <div 
                   className="inline-flex items-center justify-center p-2.5 rounded-lg mb-3 shadow-md mx-auto"
@@ -341,29 +345,25 @@ export default function HeroSection() {
           from { width: 0%; }
           to { width: 100%; }
         }
-        .animate-lateral-pan {
-          animation: card-enter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        .animate-slide-in {
+          animation: slide-in 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
-        @keyframes card-enter {
+        @keyframes slide-in {
           0% {
-            opacity: 0;
             transform: translateX(100%);
           }
           100% {
-            opacity: 1;
             transform: translateX(0);
           }
         }
-        .animate-card-exit {
-          animation: card-exit 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        .animate-slide-out {
+          animation: slide-out 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
-        @keyframes card-exit {
+        @keyframes slide-out {
           0% {
-            opacity: 1;
             transform: translateX(0);
           }
           100% {
-            opacity: 0;
             transform: translateX(-100%);
           }
         }
