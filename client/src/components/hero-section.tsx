@@ -127,30 +127,14 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Dark Mode: Pre-dawn indigo-slate base with subtle warm undertones */}
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-[#0f1419] via-[#0a0e14] to-[#05070a]" />
+        {/* Dark Mode: Deep indigo pre-dawn base */}
+        <div className="hidden dark:block absolute inset-0 bg-[#070911]" />
         
-        {/* Dark Mode: Primary cool accent - cool blues hinting at pre-dawn sky */}
+        {/* Dark Mode: Barely-there warm undertone - whisper of sunrise to come */}
         <div 
-          className="hidden dark:block absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[700px] rounded-full blur-[120px] opacity-12"
+          className="hidden dark:block absolute -top-[15%] left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-3"
           style={{ 
-            background: 'radial-gradient(circle at center, #2a3f5f, #1a2a42, transparent 60%)' 
-          }}
-        />
-        
-        {/* Dark Mode: Secondary warm accent - subtle orange/red hinting at sunrise */}
-        <div 
-          className="hidden dark:block absolute -top-[5%] left-1/3 w-[100%] h-[600px] rounded-full blur-[140px] opacity-8"
-          style={{ 
-            background: 'radial-gradient(circle at center, #8B4513, #5D3A1A, transparent 70%)' 
-          }}
-        />
-        
-        {/* Dark Mode: Tertiary warm accent - subtle gold undertones */}
-        <div 
-          className="hidden dark:block absolute -bottom-1/4 right-1/4 w-[120%] h-[500px] rounded-full blur-[130px] opacity-6"
-          style={{ 
-            background: 'radial-gradient(circle at center, #A0522D, #6B3410, transparent 65%)' 
+            background: 'radial-gradient(circle at center, #8B6914, transparent 70%)' 
           }}
         />
 
