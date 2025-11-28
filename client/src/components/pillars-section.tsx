@@ -9,7 +9,7 @@ export default function PillarsSection() {
   };
 
   return (
-    <section id="pillars" className="py-20 bg-gradient-to-br from-emerald-50/60 via-green-50/50 to-teal-50/40 dark:from-gray-900 dark:via-gray-800/40 dark:to-gray-700/20">
+    <section id="pillars" className="py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="pillars-title">

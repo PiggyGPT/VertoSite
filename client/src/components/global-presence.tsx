@@ -4,7 +4,7 @@ import { Globe } from "lucide-react";
 
 export default function GlobalPresenceSection() {
   return (
-    <section className="bg-slate-100 dark:bg-slate-800/50 py-16 sm:py-20">
+    <section className="py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 text-center">
         <Globe className="mx-auto h-10 w-10 text-verto-blue" />
         <h2 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-white tracking-tight">

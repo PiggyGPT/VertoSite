@@ -12,7 +12,7 @@ export default function PilotSection() {
 
   return (
     <>
-      <section id="pilot" className="py-20 bg-gradient-to-br from-purple-50/60 via-violet-50/50 to-fuchsia-50/40 dark:from-gray-800/50 dark:via-blue-900/20 dark:to-indigo-900/10 animate-slide-up">
+      <section id="pilot" className="py-20 animate-slide-up">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-medium text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="pilot-title">

@@ -9,7 +9,7 @@ export function PilotCtaSection() {
     const { openModal, CalendlyModal } = useCalendlyModal();
 
     return (
-        <section id="pilot-cta" className="bg-white/30 dark:bg-black/20 backdrop-blur-sm">
+        <section id="pilot-cta" className="backdrop-blur-sm">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 text-center">
                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
                     Ready to Build the Future of Finance?
