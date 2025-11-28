@@ -159,7 +159,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 md:pt-40 pb-16 md:pb-24 flex flex-col items-center">
         {/* HEADER */}
         <div className="text-center max-w-4xl mx-auto mb-14">
           {/* Enterprise Infrastructure badge - Hidden for now */}
@@ -173,8 +173,9 @@ export default function HeroSection() {
             </span>
           </div> */}
 
-          <h1 className="font-extrabold text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white">
-            Launch Your Stablecoin. <br className="hidden md:block" />
+          <h1 className="font-extrabold text-5xl sm:text-6xl lg:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white leading-tight">
+            Launch Your Stablecoin.
+            <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
               Attract Global Dollars.
             </span>
