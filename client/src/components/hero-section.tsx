@@ -217,29 +217,29 @@ export default function HeroSection() {
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 sm:mb-6 md:mb-7">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-10 sm:pb-12 md:pb-14 lg:pb-16 border-b border-slate-200 dark:border-white/5 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
-            <div className="w-40 h-6 flex items-center justify-center">
+          <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-10 sm:pb-12 md:pb-14 lg:pb-16 border-b border-slate-200 dark:border-white/5 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
+            <div className="w-1/2 sm:w-auto h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
                 alt="Federal Reserve"
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-20 h-6 flex items-center justify-center">
+            <div className="w-1/2 sm:w-auto h-6 flex items-center justify-center">
               <img
                 src="/logos/GSR_logo.svg"
                 alt="GSR Markets"
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-20 h-6 flex items-center justify-center">
+            <div className="w-1/2 sm:w-auto h-6 flex items-center justify-center">
               <img
                 src="/logos/PayPal_logo.svg"
                 alt="PayPal"
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-20 h-6 flex items-center justify-center">
+            <div className="w-1/2 sm:w-auto h-6 flex items-center justify-center">
               <img
                 src="/logos/Microsoft_logo_(2012).svg"
                 alt="Microsoft"
