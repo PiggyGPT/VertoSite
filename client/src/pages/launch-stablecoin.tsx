@@ -106,52 +106,55 @@ export default function LaunchStablecoin() {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+      const scrollPercent = Math.max(0, Math.min(1, docHeight > 0 ? scrollTop / docHeight : 0));
 
-      // Dark mode colors: start dark, transition to warm orange
-      const darkColors = [
-        "#070911", // 0%
-        "#070911", // 15%
-        "#0A0D15", // 30%
-        "#0F1218", // 45%
-        "#15151C", // 60%
-        "#1A1818", // 75%
-        "#261E14", // 88%
-        "#3A280E", // 100% - warm orange
+      // Start: dark pre-dawn colors
+      const startColors = [
+        "#070911", "#070911", "#0A0D15", "#0F1218",
+        "#15151C", "#1A1818", "#261E14", "#3A280E"
       ];
 
-      // Light mode colors: start white, transition to warm golden cream
-      const lightColors = [
-        "#FFFFFF", // 0%
-        "#FFFFFF", // 15%
-        "#FFFEFB", // 30%
-        "#FFFBF3", // 45%
-        "#FFF7E8", // 60%
-        "#FFF2DA", // 75%
-        "#FFEBCC", // 88%
-        "#FFC880", // 100% - warm golden
+      // End: warm sunrise orange colors
+      const endColors = [
+        "#3A280E", "#4A2810", "#5A3508", "#6A4005",
+        "#7A4808", "#8A5010", "#9A5818", "#AA6020"
       ];
 
-      // Use dark mode colors
-      const colors = darkColors;
-
-      // Interpolate between colors based on scroll position
-      for (let i = 0; i < colors.length; i++) {
+      // Interpolate between start and end colors based on scroll
+      const root = document.documentElement;
+      for (let i = 0; i < startColors.length; i++) {
         const colorIndex = i + 1;
-        const currentColor = colors[i];
-        const nextColor = colors[Math.min(i + 1, colors.length - 1)];
+        const startColor = startColors[i];
+        const endColor = endColors[i];
         
-        // Blend colors based on scroll position
-        const colorProgress = scrollPercent * (colors.length - 1);
-        const blendFactor = Math.max(0, Math.min(1, colorProgress - i));
-        
-        // Update CSS variable
-        const root = document.documentElement;
-        root.style.setProperty(`--dawn-color-${colorIndex}`, currentColor);
+        // Blend between start and end color based on scroll percentage
+        const blended = blendHexColors(startColor, endColor, scrollPercent);
+        root.style.setProperty(`--dawn-color-${colorIndex}`, blended);
       }
     };
 
+    // Helper function to blend two hex colors
+    const blendHexColors = (color1: string, color2: string, factor: number) => {
+      const c1 = parseInt(color1.slice(1), 16);
+      const c2 = parseInt(color2.slice(1), 16);
+      
+      const r1 = (c1 >> 16) & 255;
+      const g1 = (c1 >> 8) & 255;
+      const b1 = c1 & 255;
+      
+      const r2 = (c2 >> 16) & 255;
+      const g2 = (c2 >> 8) & 255;
+      const b2 = c2 & 255;
+      
+      const r = Math.round(r1 + (r2 - r1) * factor);
+      const g = Math.round(g1 + (g2 - g1) * factor);
+      const b = Math.round(b1 + (b2 - b1) * factor);
+      
+      return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Call once on mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
