@@ -212,11 +212,11 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
-          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">
+        <div className="mt-6 md:mt-8 w-full max-w-5xl">
+          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
             <div className="w-16 h-5 flex items-center justify-center">
               <img
                 src="/logos/Seal_of_the_United_States_Federal_Reserve_System.svg"
