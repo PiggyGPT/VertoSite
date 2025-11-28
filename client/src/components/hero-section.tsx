@@ -173,10 +173,18 @@ export default function HeroSection({
           <div className="mt-5 sm:mt-6 md:mt-8 pt-4 sm:pt-5 border-t border-slate-200 dark:border-slate-800">
             <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 mb-4">Built by leaders at:</p>
             <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-10">
-              <img src="/logos/Seal_of_the_United_States_Federal_Reserve_System.svg" alt="Federal Reserve" className="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
-              <img src="/logos/gsr-markets-logo-vector-2023.svg" alt="GSR Markets" className="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
-              <img src="/logos/Microsoft_logo_(2012).svg" alt="Microsoft" className="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
-              <img src="/logos/PayPal_logo.svg" alt="PayPal" className="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
+              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
+                <img src="/logos/fed-logo.svg" alt="Federal Reserve" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
+              </div>
+              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
+                <img src="/logos/gsr-markets-logo-vector-2023.svg" alt="GSR Markets" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
+              </div>
+              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
+                <img src="/logos/Microsoft_logo_(2012).svg" alt="Microsoft" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
+              </div>
+              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
+                <img src="/logos/PayPal_logo.svg" alt="PayPal" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
+              </div>
             </div>
           </div>
 
