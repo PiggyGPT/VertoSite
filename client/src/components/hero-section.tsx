@@ -226,15 +226,17 @@ export default function HeroSection() {
             
             {/* Subtle Progress Bar at Bottom */}
             <div className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-100 dark:bg-white/5 overflow-hidden">
-              <div
-                className="h-full"
-                style={{
-                  backgroundColor: activeAccent,
-                  width: isAutoPlaying ? '100%' : '0%',
-                  transition: isAutoPlaying ? 'width 5000ms linear' : 'none',
-                  opacity: 0.6
-                }}
-              />
+              {isAutoPlaying && (
+                <div
+                  className="h-full"
+                  style={{
+                    backgroundColor: activeAccent,
+                    width: '100%',
+                    animation: 'progress 5s linear forwards',
+                    opacity: 0.6
+                  }}
+                />
+              )}
             </div>
 
             {/* Content */}
