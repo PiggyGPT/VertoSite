@@ -282,7 +282,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
             <div className="w-20 h-6 flex items-center justify-center">
               <img
-                src="/logos/Seal_of_the_United_States_Federal_Reserve_System.svg"
+                src="/logos/fed_logo.svg"
                 alt="Federal Reserve"
                 className="h-full object-contain dark:invert"
               />
