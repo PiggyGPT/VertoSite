@@ -95,13 +95,13 @@ export default function HeroSection({
           </span>
         </h1>
 
-        <p className="mt-2 sm:mt-3 md:mt-4 text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
+        <p className="mt-6 sm:mt-8 md:mt-10 text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
           {subtitle}
         </p>
 
         {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
-        <div className="mt-4 sm:mt-6 md:mt-8 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4">
+        <div className="mt-8 sm:mt-10 md:mt-14 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6 md:gap-7">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
                 <button 
@@ -110,7 +110,7 @@ export default function HeroSection({
                   className="w-full"
                 >
                   <div 
-                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                    className="group relative flex flex-col justify-center text-center h-full p-6 sm:p-7 md:p-10 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                     style={{
                       background: cta.bgGradient || cta.bgColorClass,
                       boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
@@ -139,7 +139,7 @@ export default function HeroSection({
               ) : (
                 <Link key={cta.title} href={cta.href}>
                   <div 
-                    className="group relative flex flex-col justify-center text-center h-full p-4 sm:p-6 md:p-8 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                    className="group relative flex flex-col justify-center text-center h-full p-6 sm:p-7 md:p-10 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden"
                     style={{
                       background: cta.bgGradient || cta.bgColorClass,
                       boxShadow: cta.glowColor ? `0 0 40px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.1)` : undefined
@@ -170,26 +170,26 @@ export default function HeroSection({
           </div>
 
           {/* Built by Leaders At Section */}
-          <div className="mt-5 sm:mt-6 md:mt-8 pt-4 sm:pt-5 border-t border-slate-200 dark:border-slate-800">
-            <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 mb-4">Built by leaders at:</p>
-            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-10">
-              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
+          <div className="mt-10 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-slate-200 dark:border-slate-800">
+            <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 mb-6">Built by leaders at:</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-10 md:gap-12">
+              <div className="w-18 sm:w-20 md:w-24 h-5 sm:h-6 md:h-7 flex items-center justify-center">
                 <img src="/logos/fed-logo.svg" alt="Federal Reserve" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
               </div>
-              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
-                <img src="/logos/gsr-markets-logo-vector-2023.svg" alt="GSR Markets" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
+              <div className="w-18 sm:w-20 md:w-24 h-5 sm:h-6 md:h-7 flex items-center justify-center">
+                <img src="/logos/GSR_logo.svg" alt="GSR Markets" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
               </div>
-              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
+              <div className="w-18 sm:w-20 md:w-24 h-5 sm:h-6 md:h-7 flex items-center justify-center">
                 <img src="/logos/Microsoft_logo_(2012).svg" alt="Microsoft" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
               </div>
-              <div className="w-20 sm:w-24 md:w-28 h-8 sm:h-9 md:h-10 flex items-center justify-center">
+              <div className="w-18 sm:w-20 md:w-24 h-5 sm:h-6 md:h-7 flex items-center justify-center">
                 <img src="/logos/PayPal_logo.svg" alt="PayPal" className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity dark:grayscale dark:brightness-0 dark:invert" />
               </div>
             </div>
           </div>
 
           {/* CTA buttons */}
-          <div className="mt-4 sm:mt-5 md:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <div className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center">
               <button 
                 onClick={openModal}
                 className="group relative inline-flex items-center justify-center gap-x-2 bg-gradient-to-r from-verto-orange via-verto-pink to-verto-purple text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-black/20 focus:outline-none focus:ring-2 focus:ring-verto-orange/50 dark:focus:ring-verto-orange/30 overflow-hidden"
