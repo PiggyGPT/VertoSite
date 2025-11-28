@@ -114,7 +114,7 @@ export default function HeroSection() {
   const activeAccent = activeStory.accentColor;
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-white dark:bg-[#0A0A0B] text-slate-900 dark:text-white">
+    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-white dark:bg-[#070911] text-slate-900 dark:text-white">
       
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -145,7 +145,7 @@ export default function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col items-center">
         
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-14">
+        <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EEAA4A] opacity-75"></span>
@@ -190,83 +190,40 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-8">
-          
-          {/* Main Card Display */}
-          <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
-             
-             {/* Dynamic Accent Glow */}
-             <div 
-               className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
-               style={{ 
-                 boxShadow: `0 0 100px 30px ${activeAccent} inset`,
-                 transition: 'box-shadow 0.5s ease-out'
-               }}
-             />
-
-             {/* Content */}
-             <div 
-               key={currentStep}
-               className="text-center animate-lateral-pan"
-             >
+        {/* INFRASTRUCTURE PILLARS - 4 CARD GRID */}
+        <div className="w-full max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {storySteps.map((step, idx) => (
+              <Link key={step.title} href={step.href}>
                 <div 
-                  className="inline-flex items-center justify-center p-4 rounded-xl mb-4 shadow-md mx-auto"
-                  style={{ 
-                    backgroundColor: `${activeAccent}15`, 
-                    color: activeAccent 
-                  }}
+                  className="group relative p-6 rounded-xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/10 hover:border-slate-300/50 dark:hover:border-white/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <activeStory.icon className="w-8 h-8" />
-                </div>
-                
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                  {activeStory.title}
-                </h2>
-                
-                <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
-                  {activeStory.subtitle}
-                </p>
-
-                <div className="mt-6">
-                   <Link href={activeStory.href} className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all" style={{ color: activeAccent, textDecorationColor: `${activeAccent}50` }}>
-                      Explore {activeStory.title.split(' ')[0]} <ArrowRight className="w-4 h-4 ml-1" />
-                   </Link>
-                </div>
-             </div>
-          </div>
-
-          {/* Progress Indicators */}
-          <div className="mt-8 flex flex-col items-center">
-            <div className="flex justify-center items-center gap-1.5 w-full max-w-md">
-              {storySteps.map((step, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleStepClick(idx)}
-                  className={`group relative h-2 rounded-full transition-all duration-500 overflow-hidden flex-1`}
-                  style={{
-                     backgroundColor: currentStep === idx ? activeAccent : undefined,
-                  }}
-                  data-testid={`story-progress-${idx}`}
-                >
-                  <div className={`absolute inset-0 bg-slate-200 dark:bg-white/10 w-full h-full ${currentStep === idx ? 'opacity-0' : 'opacity-100'}`} />
+                  <div 
+                    className="inline-flex items-center justify-center p-3 rounded-lg mb-4"
+                    style={{ 
+                      backgroundColor: `${step.accentColor}10`, 
+                      color: step.accentColor 
+                    }}
+                  >
+                    <step.icon className="w-6 h-6" />
+                  </div>
                   
-                  {/* Progress Animation */}
-                  {currentStep === idx && (
-                    <div 
-                      className="absolute inset-y-0 left-0 bg-white/50 dark:bg-black/50"
-                      style={{ 
-                         width: '100%',
-                         transition: isAutoPlaying ? 'width 5000ms linear' : 'none',
-                         animation: isAutoPlaying ? 'progress 5s linear' : 'none',
-                      }} 
-                    />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                    {step.title}
+                  </h3>
+                  
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                    {step.subtitle}
+                  </p>
 
+                  <div className="flex items-center text-sm font-semibold gap-1 transition-all group-hover:gap-2" style={{ color: step.accentColor }}>
+                    <span>Explore</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* SOCIAL PROOF */}
@@ -293,26 +250,6 @@ export default function HeroSection() {
       </div>
       
       <CalendlyModal title="Schedule a Consultation" />
-      
-      <style>{`
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-        .animate-lateral-pan {
-          animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        }
-        @keyframes lateral-pan {
-          0% {
-            opacity: 0;
-            transform: translateX(100%);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
