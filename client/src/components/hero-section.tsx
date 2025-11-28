@@ -249,31 +249,17 @@ export default function HeroSection() {
               <div className="mt-6">
                 <Link
                   href={activeStory.href}
-                  className="relative inline-flex items-center text-sm font-semibold overflow-hidden"
+                  className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
                   style={{
                     color: activeAccent,
+                    animation: isAutoPlaying ? `color-progress 5s linear forwards` : 'none',
                   }}
                 >
-                  {/* Animated Background Fill */}
-                  {isAutoPlaying && (
-                    <div
-                      className="absolute inset-0 rounded-md"
-                      style={{
-                        backgroundColor: activeAccent,
-                        opacity: 0.1,
-                        animation: 'progress 5s linear forwards',
-                      }}
-                    />
-                  )}
-                  
-                  {/* Text Content */}
-                  <span className="relative flex items-center gap-1 px-2 py-1">
-                    {currentStep === 0 && "Explore APIs"}
-                    {currentStep === 1 && "Explore DEX"}
-                    {currentStep === 2 && "Explore Router"}
-                    {currentStep === 3 && "Explore Compliance"}
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                  {currentStep === 0 && "Explore APIs"}
+                  {currentStep === 1 && "Explore DEX"}
+                  {currentStep === 2 && "Explore Router"}
+                  {currentStep === 3 && "Explore Compliance"}
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
               </div>
             </div>
@@ -325,6 +311,10 @@ export default function HeroSection() {
         @keyframes progress {
           from { width: 0%; }
           to { width: 100%; }
+        }
+        @keyframes color-progress {
+          from { color: rgba(203, 213, 225, 0.6); }
+          to { color: currentColor; }
         }
         .animate-lateral-pan {
           animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
