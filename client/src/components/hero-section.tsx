@@ -159,9 +159,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 md:pt-40 pb-16 md:pb-24 flex flex-col items-center">
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12">
           {/* Enterprise Infrastructure badge - Hidden for now */}
           {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
@@ -173,7 +173,7 @@ export default function HeroSection() {
             </span>
           </div> */}
 
-          <h1 className="font-extrabold text-4xl sm:text-6xl md:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white leading-tight">
+          <h1 className="font-extrabold text-3xl sm:text-5xl lg:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white leading-tight">
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
@@ -181,7 +181,7 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-3xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Make your asset liquid against dollar stablecoins with our
             self-hosted, full-stack infrastructure.
           </p>
@@ -229,16 +229,16 @@ export default function HeroSection() {
             <div key={currentStep} className="text-center animate-lateral-pan">
               {/* Elegant Icon Badge */}
               <div
-                className="inline-flex items-center justify-center p-4 rounded-xl mb-4 shadow-md mx-auto"
+                className="inline-flex items-center justify-center p-2.5 rounded-lg mb-1.5 sm:mb-3 shadow-md mx-auto"
                 style={{
                   backgroundColor: `${activeAccent}15`,
                   color: activeAccent,
                 }}
               >
-                <activeStory.icon className="w-8 h-8" />
+                <activeStory.icon className="w-5 h-5" />
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+              <h2 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
                 {activeStory.title}
               </h2>
 
@@ -246,7 +246,7 @@ export default function HeroSection() {
                 {activeStory.subtitle}
               </p>
 
-              <div className="mt-6">
+              <div className="mt-3 sm:mt-6">
                 <Link
                   key={currentStep}
                   href={activeStory.href}
