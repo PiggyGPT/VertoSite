@@ -74,7 +74,7 @@ export default function HeroSection({
   };
 
   return (
-    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-16 sm:pt-28 md:pt-40 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8 overflow-hidden">
+    <section id="hero" className="relative bg-white dark:bg-gray-900 pt-8 sm:pt-16 md:pt-24 pb-6 sm:pb-8 md:pb-10 px-4 sm:px-6 md:px-8 overflow-hidden">
       {/* Enhanced background with animated gradient */}
       <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-40"></div>
       
@@ -95,12 +95,12 @@ export default function HeroSection({
           </span>
         </h1>
 
-        <p className="mt-4 sm:mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
+        <p className="mt-2 sm:mt-3 md:mt-4 text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed px-2" data-testid="hero-subtitle">
           {subtitle}
         </p>
 
         {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
-        <div className="mt-8 sm:mt-10 md:mt-14 max-w-6xl mx-auto">
+        <div className="mt-4 sm:mt-6 md:mt-8 max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
@@ -170,7 +170,7 @@ export default function HeroSection({
           </div>
 
           {/* Built by Leaders At Section */}
-          <div className="mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-10 border-t border-slate-200 dark:border-slate-800">
+          <div className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 border-t border-slate-200 dark:border-slate-800">
             <p className="text-sm sm:text-base font-semibold text-slate-600 dark:text-slate-400 mb-6">Built by leaders at:</p>
             <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
@@ -193,7 +193,7 @@ export default function HeroSection({
           </div>
 
           {/* Premium CTA button */}
-          <div className="mt-8 sm:mt-10 md:mt-12">
+          <div className="mt-4 sm:mt-6 md:mt-8">
               <button 
                 onClick={openModal}
                 className="group relative inline-flex items-center gap-x-3 bg-white dark:bg-slate-100 text-slate-900 dark:text-slate-900 font-bold px-8 sm:px-10 py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-500 overflow-hidden"
