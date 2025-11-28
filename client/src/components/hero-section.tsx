@@ -187,25 +187,25 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-nowrap justify-center gap-2 sm:gap-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
             <button
               onClick={openModal}
-              className="group inline-flex items-center gap-1 sm:gap-2 px-4 sm:px-7 py-2 sm:py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative whitespace-nowrap"
+              className="group inline-flex items-center gap-2 px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
               style={{
                 background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
                 color: "white",
               }}
               data-testid="hero-schedule-demo"
             >
-              <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Calendar className="w-4 h-4" />
               <span>Schedule Demo</span>
             </button>
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-1 sm:gap-2 px-4 sm:px-7 py-2 sm:py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10 whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
               data-testid="hero-contact-sales"
             >
-              <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-slate-400 dark:text-slate-500" />
+              <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
               Contact Sales
             </button>
           </div>
@@ -216,29 +216,29 @@ export default function HeroSection() {
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">
             Founded by leaders at
           </p>
-          <div className="flex flex-nowrap justify-center gap-x-4 sm:gap-x-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
-            <div className="w-12 sm:w-16 h-4 sm:h-5 flex items-center justify-center flex-shrink-0">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
+            <div className="w-16 h-5 flex items-center justify-center">
               <img
                 src="/logos/Seal_of_the_United_States_Federal_Reserve_System.svg"
                 alt="Federal Reserve"
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-12 sm:w-16 h-4 sm:h-5 flex items-center justify-center flex-shrink-0">
+            <div className="w-16 h-5 flex items-center justify-center">
               <img
                 src="/logos/GSR_logo.svg"
                 alt="GSR Markets"
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-12 sm:w-16 h-4 sm:h-5 flex items-center justify-center flex-shrink-0">
+            <div className="w-16 h-5 flex items-center justify-center">
               <img
                 src="/logos/PayPal_logo.svg"
                 alt="PayPal"
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-12 sm:w-16 h-4 sm:h-5 flex items-center justify-center flex-shrink-0">
+            <div className="w-16 h-5 flex items-center justify-center">
               <img
                 src="/logos/Microsoft_logo_(2012).svg"
                 alt="Microsoft"
