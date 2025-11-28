@@ -212,7 +212,7 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-4 md:mt-12 mb-4 md:mb-12">
+        <div className="w-full max-w-xl mx-auto mt-8 md:mt-12 mb-8 md:mb-12">
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
@@ -275,11 +275,11 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="pt-4 md:pt-12 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
-          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 md:mb-8">
+        <div className="pt-8 md:pt-12 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
+          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 md:mb-8">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 md:gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 md:gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
             <div className="w-32 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
