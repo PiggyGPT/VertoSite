@@ -253,13 +253,13 @@ export default function HeroSection() {
                   className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
                   style={{
                     background: isAutoPlaying 
-                      ? `linear-gradient(90deg, ${activeAccent} 0%, ${activeAccent} 0%, white 50%, white 100%)`
+                      ? `linear-gradient(90deg, white 0%, ${activeAccent} 100%)`
                       : activeAccent,
                     backgroundSize: '200% 100%',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    animation: isAutoPlaying ? `text-gradient-progress 1.2s ease-out forwards` : 'none',
+                    animation: isAutoPlaying ? `text-gradient-progress 4.5s linear forwards` : 'none',
                   } as React.CSSProperties}
                 >
                   {currentStep === 0 && "Explore APIs"}
