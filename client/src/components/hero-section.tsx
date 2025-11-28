@@ -173,7 +173,7 @@ export default function HeroSection() {
             </span>
           </div> */}
 
-          <h1 className="font-extrabold text-5xl sm:text-6xl lg:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white leading-tight">
+          <h1 className="font-extrabold text-3xl sm:text-5xl lg:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white leading-tight">
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
