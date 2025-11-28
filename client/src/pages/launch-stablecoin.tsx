@@ -17,7 +17,7 @@ import { updatePageSEO } from "@/lib/seo";
 const stablecoinCTAs = [
   {
     title: "Integrate Your Systems",
-    subtitle: "Deploy our full stack on your servers and eliminate counterparty risk.",
+    subtitle: "Automate issuance, redemption and reconciliation with our APIs.",
     icon: Plug,
     href: "#infrastructure",
     pillarKey: "distribution",
@@ -44,7 +44,7 @@ const stablecoinCTAs = [
   },
   {
     title: "Own The Rails",
-    subtitle: "Automate issuance, redemption, and reconciliation with our APIs.",
+    subtitle: "Deploy our full stack on your servers and eliminate counterparty risk.",
     icon: Server,
     href: "#infrastructure",
     pillarKey: "compliance",
@@ -121,7 +121,7 @@ Attract Global Dollars.`}
       <div id="infrastructure">
         <PillarsSection 
           title="One Unified Platform"
-          subtitle="Self-hosted stack for stablecoin trading, payments, and asset distribution. Monitored 24×7 by global experts with AI-automated compliance."
+          subtitle="Self-hosted stack for stablecoin distribution, liquidity and payments. Monitored 24×7 by global experts with AI-automated compliance."
           customOrder={["distribution", "payments", "trading", "compliance", "service"]}
         />
       </div>

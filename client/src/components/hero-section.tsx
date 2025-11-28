@@ -169,6 +169,29 @@ export default function HeroSection({
             ))}
           </div>
 
+          {/* Built by Leaders At Section */}
+          <div className="mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-10 border-t border-slate-200 dark:border-slate-800">
+            <p className="text-sm sm:text-base font-semibold text-slate-600 dark:text-slate-400 mb-6">Built by leaders at:</p>
+            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-orange to-verto-pink flex items-center justify-center text-white text-xs font-bold">C</div>
+                <span className="text-sm sm:text-base font-medium">Coinbase</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-blue to-verto-purple flex items-center justify-center text-white text-xs font-bold">S</div>
+                <span className="text-sm sm:text-base font-medium">Stripe</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-purple to-verto-blue flex items-center justify-center text-white text-xs font-bold">C</div>
+                <span className="text-sm sm:text-base font-medium">Circle</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-pink to-verto-orange flex items-center justify-center text-white text-xs font-bold">A</div>
+                <span className="text-sm sm:text-base font-medium">Anthropic</span>
+              </div>
+            </div>
+          </div>
+
           {/* Premium CTA button */}
           <div className="mt-8 sm:mt-10 md:mt-12">
               <button 
