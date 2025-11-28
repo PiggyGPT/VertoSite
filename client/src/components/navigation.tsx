@@ -62,10 +62,10 @@ export default function Navigation() {
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
               }}
-              data-testid="nav-get-started"
+              data-testid="nav-schedule-demo"
             >
-              <Rocket className="w-4 h-4" />
-              Launch Pilot
+              <Calendar className="w-4 h-4" />
+              Schedule Demo
             </button>
             <button
               onClick={openModal}
