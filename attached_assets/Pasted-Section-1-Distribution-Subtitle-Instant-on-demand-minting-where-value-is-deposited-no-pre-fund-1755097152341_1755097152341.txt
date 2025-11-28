@@ -1,0 +1,76 @@
+Section 1 — Distribution
+Subtitle: Instant, on-demand minting where value is deposited — no pre-funded treasury required.
+Layout: Left column = copy; Right column = GIF (bank/kiosk → stablecoin minted → user wallet)
+
+Body (left):
+A global distribution layer that mints your stablecoin at the point of value-in. Embed the OS directly into banks, retail kiosks, and agent networks so tokens are created only when and where they’re needed — eliminating treasury float and unlocking vast retail reach. Built with risk discipline informed by former Federal Reserve regulators, this flow scales safely into new markets.
+
+Key elements (short bullets):
+
+Mint-on-demand at partner touchpoints (banks, kiosks, agents)
+
+Integrates with existing rails — no costly hardware or centralized pre-funding
+
+Risk-first controls at distribution: KYC gating, deposit-backed issuance, and counterparty limits
+
+SDKs & partner playbooks for quick rollout
+
+Outcomes / CTA:
+Unlock mass distribution • Eliminate treasury float • Slash on-ramp cost
+[Button] Get Distribution Playbook
+
+GIF caption (right): “Bank deposit → instant mint → wallet received”
+
+Section 2 — Payments
+Subtitle: One-tap payments that make merchants and users love your coin.
+Layout: Left column = copy; Right column = GIF (customer tap → backend routing → merchant settled)
+
+Body (left):
+A universal payment stack that removes blockchain friction at checkout. One integration lets merchants accept your stablecoin from any wallet, exchange, or bank — with instant routing, reconciliation automation, and the UX consumers expect. Designed by teams that scaled crypto P2P to tens of millions, the stack prioritizes conversion and reliability over complexity.
+
+Key elements (short bullets):
+
+Single plug-and-play merchant integration (web + POS + mobile)
+
+One-tap UX across wallets, CEXs, and bank rails
+
+Smart routing & reconciliation: automatic settlement, chargeback handling, and reporting
+
+Merchant dashboard with settlement guarantees and payout options
+
+Outcomes / CTA:
+Drive merchant adoption • Remove checkout friction • Automate reconciliation
+[Button] See Payments Demo
+
+GIF caption (right): “Tap to pay → smart routing → merchant receives settled funds”
+
+Section 3 — Compliance (AI)
+Subtitle: An institutional control tower — real-time, explainable compliance across any public chain.
+Layout: Left column = copy; Right column = GIF (multi-chain transactions traced → single clean report). Include small CTA below GIF: “Free Risk & Compliance Review →”
+
+Body (left):
+Verto’s AI turns the open blockchain into a regulator-ready operational backbone. Continuous, auditable automation replaces manual, multi-week reviews with explainable risk signals and deterministic controls — so you can safely access public liquidity without sacrificing compliance or speed.
+
+Core capabilities (short bullets):
+
+Explainable Risk Ratings: AI-generated Moody’s-style scores for wallets, tokens, and protocols — fully transparent with data lineage, model rationale, and configurable risk appetites.
+
+Policy-Driven Routing: Route trades and payments by balancing risk, latency, and slippage. Routes are evaluated against your policy engine, custodian-key signed, and executed with sponsored gas when required.
+
+Real-Time Audit Trails: End-to-end, time-stamped provenance for every risk decision, route choice, and counterparty approval — human-readable and cryptographically verifiable for auditors and regulators.
+
+Operational Controls: Automated approvals, overrides, whitelists/blacklists, and escalation paths integrated into compliance workflows and dashboards.
+
+Outcomes / Trust signals:
+
+CISO Trust: Continuous monitoring and explainable controls simplify security sign-offs.
+
+Regulatory Approval: Turn weeks of evidence collection into minutes of automated, regulator-ready reports.
+
+User Delight: Fewer failed transactions and smarter routing deliver a better customer experience without compromising safety.
+
+CTA:
+[Button] Free Risk & Compliance Review →
+
+GIF caption (right): “Trace transactions across chains → consolidate into a single, auditable report”
+

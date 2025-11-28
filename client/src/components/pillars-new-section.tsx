@@ -27,6 +27,10 @@ import {
     Cpu, Keyboard, Monitor, Coins, CreditCard
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
+import davidImage from "@assets/david_1754986415369.png";
+import danielImage from "@assets/daniel_1754986415369.png";
+import hishamImage from "@assets/hisham_1754986415368.png";
+import nileshImage from "@assets/nilesh_1754986415369.png";
 import { Quote } from "lucide-react";
 
 // --- Simplified Visual Container - No Background Interference ---
@@ -1209,7 +1213,7 @@ export default function PillarsSection({
                 quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
                 name: "David Cass",
                 title: "CEO | Former CISO at GSR",
-                image: "https://via.placeholder.com/96"
+                image: davidImage
             },
             features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: KeyIcon, title: "Non-Custodial Signing", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: SquareStack, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
             cta: "Integrate Liquidity API" 
@@ -1222,7 +1226,7 @@ export default function PillarsSection({
                 quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
                 name: "Nilesh Khaitan",
                 title: "CPO | Ex-Venmo/PayPal Crypto",
-                image: "https://via.placeholder.com/96"
+                image: nileshImage
             },
             features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We automate multi-chain routing, execution, and reconciliation to reduce operational overhead." }, ], 
             cta: "Explore Payments API" 
@@ -1235,7 +1239,7 @@ export default function PillarsSection({
                 quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
                 name: "David Cass",
                 title: "CEO | Former Federal Reserve Regulator",
-                image: "https://via.placeholder.com/96"
+                image: davidImage
             },
             features: [ { icon: Coins, title: "Leverage Existing Networks", description: "Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." }, ], 
             cta: "Scale Distribution Network" 
@@ -1248,7 +1252,7 @@ export default function PillarsSection({
                 quote: "DOJ audits require you to report the 'why' behind every transaction, not just the hash. We build the evidence file for you, before you need it.",
                 name: "Daniel Garrie",
                 title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
-                image: "https://via.placeholder.com/96"
+                image: danielImage
             },
             features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], 
             cta: "Request Compliance Demo" 
@@ -1262,7 +1266,7 @@ export default function PillarsSection({
                 quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
                 name: "Hisham Anwar",
                 title: "CTO | Ex-Google Head of Product",
-                image: "https://via.placeholder.com/96"
+                image: hishamImage
             },
             features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], 
             cta: "Learn About Our Service Model" 

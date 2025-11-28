@@ -8,6 +8,9 @@ import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
 import { ShieldCheck, Bot, Headphones, Clock, AlertTriangle, Briefcase } from "lucide-react";
+import davidImage from "@assets/david_1754986415369.png";
+import danielImage from "@assets/daniel_1754986415369.png";
+import hishamImage from "@assets/hisham_1754986415368.png";
 import { updatePageSEO } from "@/lib/seo";
 
 // Define custom CTAs for secure DeFi ops landing page
