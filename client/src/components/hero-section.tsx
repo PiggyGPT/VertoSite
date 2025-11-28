@@ -223,6 +223,19 @@ export default function HeroSection() {
                 transition: "box-shadow 0.5s ease-out",
               }}
             />
+            
+            {/* Subtle Progress Bar at Bottom */}
+            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-100 dark:bg-white/5 overflow-hidden">
+              <div
+                className="h-full"
+                style={{
+                  backgroundColor: activeAccent,
+                  width: isAutoPlaying ? '100%' : '0%',
+                  transition: isAutoPlaying ? 'width 5000ms linear' : 'none',
+                  opacity: 0.6
+                }}
+              />
+            </div>
 
             {/* Content */}
             <div key={currentStep} className="text-center animate-lateral-pan">
