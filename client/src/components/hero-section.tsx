@@ -265,7 +265,7 @@ export default function HeroSection() {
           </div>
 
           {/* Progress Indicators */}
-          <div className="mt-8 flex flex-col items-center">
+          <div className="mt-3 md:mt-8 flex flex-col items-center">
             <div className="flex justify-center items-center gap-1.5 w-full max-w-md">
               {storySteps.map((step, idx) => (
                 <button
@@ -304,7 +304,7 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="mt-20 pt-8 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
+        <div className="mt-4 md:mt-20 pt-4 md:pt-8 border-t border-slate-200 dark:border-white/5 w-full max-w-5xl">
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-8">
             Founded by leaders at
           </p>
