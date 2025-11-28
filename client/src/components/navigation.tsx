@@ -70,10 +70,10 @@ export default function Navigation() {
             <button
               onClick={openModal}
               className="md:hidden inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-xs transition-all hover:bg-slate-50 dark:hover:bg-white/10"
-              data-testid="mobile-call-us"
+              data-testid="mobile-schedule-demo"
             >
               <Calendar className="w-4 h-4" />
-              <span>Call Us</span>
+              <span>Schedule Demo</span>
             </button>
           </div>
         </div>

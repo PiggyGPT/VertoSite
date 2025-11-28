@@ -162,7 +162,8 @@ export default function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col items-center">
         {/* HEADER */}
         <div className="text-center max-w-4xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
+          {/* Enterprise Infrastructure badge - Hidden for now */}
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EEAA4A] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#EF660B]"></span>
@@ -170,7 +171,7 @@ export default function HeroSection() {
             <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 tracking-wide uppercase">
               Enterprise Infrastructure
             </span>
-          </div>
+          </div> */}
 
           <h1 className="font-extrabold text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-6 text-slate-900 dark:text-white">
             Launch Your Stablecoin. <br className="hidden md:block" />
