@@ -61,6 +61,7 @@ export default function HeroSection() {
   const { openModal, CalendlyModal } = useCalendlyModal();
   const [currentStep, setCurrentStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [prevStep, setPrevStep] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   const storySteps: StoryStep[] = [
@@ -97,16 +98,18 @@ export default function HeroSection() {
   useEffect(() => {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
+        setPrevStep(currentStep);
         setCurrentStep((prev) => (prev + 1) % storySteps.length);
       }, 5000);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
-  }, [isAutoPlaying, storySteps.length]);
+  }, [isAutoPlaying, storySteps.length, currentStep]);
 
   const handleStepClick = (index: number) => {
     setIsAutoPlaying(false);
+    setPrevStep(currentStep);
     setCurrentStep(index);
   };
 
@@ -191,14 +194,46 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-8">
+        <div className="w-full max-w-xl mx-auto mt-8 relative">
           
-          {/* Main Card Display */}
+          {/* Exiting Card - Previous Step */}
+          {prevStep !== currentStep && (() => {
+            const PrevIcon = storySteps[prevStep].icon;
+            return (
+              <div 
+                className="absolute inset-0 p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-card-exit"
+                style={{
+                  boxShadow: `0 0 100px 30px ${storySteps[prevStep].accentColor} inset`,
+                }}
+              >
+                <div className="relative z-10 text-center">
+                  <div 
+                    className="inline-flex items-center justify-center p-2.5 rounded-lg mb-3 shadow-md mx-auto"
+                    style={{ 
+                      backgroundColor: `${storySteps[prevStep].accentColor}15`, 
+                      color: storySteps[prevStep].accentColor
+                    }}
+                  >
+                    <PrevIcon className="w-5 h-5" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+                    {storySteps[prevStep].title}
+                  </h2>
+                  <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
+                    {storySteps[prevStep].subtitle}
+                  </p>
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Main Card Display - Current Step */}
           <div 
-            key={currentStep}
-            className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500 animate-lateral-pan"
+            className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl animate-lateral-pan"
+            style={{
+              boxShadow: `0 0 100px 30px ${activeAccent} inset`,
+            }}
           >
-             
              {/* Dynamic Accent Glow */}
              <div 
                className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
@@ -307,9 +342,9 @@ export default function HeroSection() {
           to { width: 100%; }
         }
         .animate-lateral-pan {
-          animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: card-enter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
-        @keyframes lateral-pan {
+        @keyframes card-enter {
           0% {
             opacity: 0;
             transform: translateX(100%);
@@ -317,6 +352,19 @@ export default function HeroSection() {
           100% {
             opacity: 1;
             transform: translateX(0);
+          }
+        }
+        .animate-card-exit {
+          animation: card-exit 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+        @keyframes card-exit {
+          0% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateX(-100%);
           }
         }
       `}</style>
