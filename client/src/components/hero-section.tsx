@@ -182,8 +182,9 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-7 md:mb-8">
-            Make your asset liquid against dollar stablecoins with our
-            self-hosted, full-stack infrastructure.
+            Make your asset liquid against dollar stablecoins
+            <br />
+            with our self-hosted, full-stack infrastructure.
           </p>
 
           {/* CTA Buttons */}
