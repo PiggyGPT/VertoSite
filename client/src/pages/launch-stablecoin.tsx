@@ -104,39 +104,41 @@ export default function LaunchStablecoin() {
 
   return (
     <div className="min-h-screen transition-colors relative">
-      {/* Dawn Gradient Background - Dark Mode: pre-dawn indigo → sunrise orange/gold */}
+      {/* Dawn Gradient Background - Dark Mode: stays dark at top, warms only at very bottom */}
       <div 
         className="fixed inset-0 -z-10 hidden dark:block"
         style={{
           background: `linear-gradient(
             180deg,
             #070911 0%,
-            #0A0D15 15%,
-            #0F1320 30%,
-            #1A1825 45%,
-            #251D28 55%,
-            #2D1F28 65%,
-            #3A2420 75%,
-            #4A2A18 85%,
-            #5A3010 95%,
-            #6A3808 100%
+            #070911 40%,
+            #0A0D15 55%,
+            #0F1218 65%,
+            #15161C 75%,
+            #1C1918 82%,
+            #2A1F15 88%,
+            #3D2810 93%,
+            #5A3510 97%,
+            #704008 100%
           )`,
         }}
       />
-      {/* Dawn Gradient Background - Light Mode: soft white → warm golden cream */}
+      {/* Dawn Gradient Background - Light Mode: stays white at top, warms only at very bottom */}
       <div 
         className="fixed inset-0 -z-10 dark:hidden"
         style={{
           background: `linear-gradient(
             180deg,
             #FFFFFF 0%,
-            #FFFEFB 20%,
-            #FFFCF5 40%,
-            #FFF8EB 60%,
-            #FFF4E0 75%,
-            #FFEFD5 85%,
-            #FFE8C8 95%,
-            #FFE0B8 100%
+            #FFFFFF 40%,
+            #FFFEFB 55%,
+            #FFFCF7 65%,
+            #FFF9F0 75%,
+            #FFF5E5 82%,
+            #FFEDD5 88%,
+            #FFE4C4 93%,
+            #FFDAA8 97%,
+            #FFD090 100%
           )`,
         }}
       />
