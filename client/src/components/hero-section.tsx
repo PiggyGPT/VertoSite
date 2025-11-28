@@ -280,7 +280,7 @@ export default function HeroSection() {
             Founded by leaders at
           </p>
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale">
-            <div className="w-32 h-8 flex items-center justify-center">
+            <div className="w-26 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
                 alt="Federal Reserve"
