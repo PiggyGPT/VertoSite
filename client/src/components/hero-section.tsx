@@ -1,4 +1,4 @@
-import { ArrowRight, Landmark, ArrowRightLeft, CandlestickChart, Rocket } from "lucide-react";
+import { ArrowRight, Landmark, ArrowRightLeft, CandlestickChart, Rocket, Phone } from "lucide-react";
 import { Link } from "wouter";
 import { useCalendlyModal } from "./calendly-modal";
 
@@ -101,7 +101,7 @@ export default function HeroSection({
 
         {/* --- ELEVATED CTA BLOCK: Premium card styling --- */}
         <div className="mt-4 sm:mt-6 md:mt-8 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4">
             {actionCTAs.map((cta) => (
               cta.pillarKey ? (
                 <button 
@@ -170,44 +170,39 @@ export default function HeroSection({
           </div>
 
           {/* Built by Leaders At Section */}
-          <div className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 border-t border-slate-200 dark:border-slate-800">
-            <p className="text-sm sm:text-base font-semibold text-slate-600 dark:text-slate-400 mb-6">Built by leaders at:</p>
-            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12">
-              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-orange to-verto-pink flex items-center justify-center text-white text-xs font-bold">C</div>
-                <span className="text-sm sm:text-base font-medium">Coinbase</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-blue to-verto-purple flex items-center justify-center text-white text-xs font-bold">S</div>
-                <span className="text-sm sm:text-base font-medium">Stripe</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-purple to-verto-blue flex items-center justify-center text-white text-xs font-bold">C</div>
-                <span className="text-sm sm:text-base font-medium">Circle</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-verto-pink to-verto-orange flex items-center justify-center text-white text-xs font-bold">A</div>
-                <span className="text-sm sm:text-base font-medium">Anthropic</span>
-              </div>
+          <div className="mt-5 sm:mt-6 md:mt-8 pt-4 sm:pt-5 border-t border-slate-200 dark:border-slate-800">
+            <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 mb-4">Built by leaders at:</p>
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
+              <img src="/logos/fed-logo.svg" alt="Federal Reserve" className="h-6 sm:h-7 md:h-8 opacity-70 dark:opacity-80 hover:opacity-100 transition-opacity" />
+              <img src="/logos/gsr-markets-logo-vector-2023.svg" alt="GSR Markets" className="h-6 sm:h-7 md:h-8 opacity-70 dark:opacity-80 hover:opacity-100 transition-opacity" />
+              <img src="/logos/microsoft-logo.png" alt="Microsoft" className="h-6 sm:h-7 md:h-8 opacity-70 dark:opacity-80 hover:opacity-100 transition-opacity" />
+              <img src="/logos/paypal-logo.png" alt="PayPal" className="h-6 sm:h-7 md:h-8 opacity-70 dark:opacity-80 hover:opacity-100 transition-opacity" />
             </div>
           </div>
 
-          {/* Premium CTA button */}
-          <div className="mt-4 sm:mt-6 md:mt-8">
+          {/* CTA buttons */}
+          <div className="mt-4 sm:mt-5 md:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <button 
                 onClick={openModal}
-                className="group relative inline-flex items-center gap-x-3 bg-white dark:bg-slate-100 text-slate-900 dark:text-slate-900 font-bold px-8 sm:px-10 py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-500 overflow-hidden"
-                data-testid="hero-pilot-cta"
+                className="group relative inline-flex items-center justify-center gap-x-2 bg-gradient-to-r from-verto-orange via-verto-pink to-verto-purple text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-black/20 focus:outline-none focus:ring-2 focus:ring-verto-orange/50 dark:focus:ring-verto-orange/30 overflow-hidden"
+                data-testid="hero-schedule-demo-cta"
               >
-                  <Rocket className="w-5 h-5 sm:w-6 sm:h-6" />
-                  <span>Launch Pilot in 90 Days</span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-all" />
+                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Schedule Demo</span>
+              </button>
+              <button 
+                onClick={openModal}
+                className="group relative inline-flex items-center justify-center gap-x-2 border-2 border-slate-900 dark:border-slate-100 text-slate-900 dark:text-slate-100 font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-600 overflow-hidden"
+                data-testid="hero-speak-with-us-cta"
+              >
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Speak With Us</span>
               </button>
           </div>
         </div>
       </div>
       
-      <CalendlyModal title="Launch Pilot in 90 Days" />
+      <CalendlyModal title="Schedule a Demo" />
     </section>
   );
 }
