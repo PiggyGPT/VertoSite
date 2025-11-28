@@ -160,4 +160,51 @@
   .animate-nav-glow {
     animation: navGlow 6s ease-in-out infinite;
   }
+
+  /* Dawn Gradient - spans full document height for scroll-based color progression */
+  .dawn-gradient {
+    position: relative;
+  }
+  
+  .dawn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+    /* Light mode: white stays longer, warms toward bottom */
+    background: linear-gradient(
+      180deg,
+      #FFFFFF 0%,
+      #FFFFFF 35%,
+      #FFFEFB 45%,
+      #FFFCF5 55%,
+      #FFF8EB 65%,
+      #FFF3DC 75%,
+      #FFEBCC 82%,
+      #FFE0B5 88%,
+      #FFD49A 93%,
+      #FFC880 100%
+    );
+  }
+  
+  .dark .dawn-gradient::before {
+    /* Dark mode: pre-dawn indigo stays longer, warms to sunrise at bottom */
+    background: linear-gradient(
+      180deg,
+      #070911 0%,
+      #070911 35%,
+      #0A0C14 45%,
+      #0E1018 55%,
+      #14151C 65%,
+      #1A1818 75%,
+      #261E14 82%,
+      #3A280E 88%,
+      #503508 93%,
+      #6A4505 100%
+    );
+  }
 }

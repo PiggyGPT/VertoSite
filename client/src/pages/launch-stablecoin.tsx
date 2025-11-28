@@ -103,45 +103,7 @@ export default function LaunchStablecoin() {
   }, []);
 
   return (
-    <div className="min-h-screen transition-colors relative">
-      {/* Dawn Gradient Background - Dark Mode: stays dark at top, warms only at very bottom */}
-      <div 
-        className="fixed inset-0 -z-10 hidden dark:block"
-        style={{
-          background: `linear-gradient(
-            180deg,
-            #070911 0%,
-            #070911 40%,
-            #0A0D15 55%,
-            #0F1218 65%,
-            #15161C 75%,
-            #1C1918 82%,
-            #2A1F15 88%,
-            #3D2810 93%,
-            #5A3510 97%,
-            #704008 100%
-          )`,
-        }}
-      />
-      {/* Dawn Gradient Background - Light Mode: stays white at top, warms only at very bottom */}
-      <div 
-        className="fixed inset-0 -z-10 dark:hidden"
-        style={{
-          background: `linear-gradient(
-            180deg,
-            #FFFFFF 0%,
-            #FFFFFF 40%,
-            #FFFEFB 55%,
-            #FFFCF7 65%,
-            #FFF9F0 75%,
-            #FFF5E5 82%,
-            #FFEDD5 88%,
-            #FFE4C4 93%,
-            #FFDAA8 97%,
-            #FFD090 100%
-          )`,
-        }}
-      />
+    <div className="min-h-screen transition-colors dawn-gradient">
       <Navigation />
       <div id="hero">
         <HeroSection
