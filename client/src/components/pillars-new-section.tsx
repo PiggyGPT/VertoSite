@@ -1402,7 +1402,7 @@ export default function PillarsSection({
               className="h-full rounded-full transition-all"
               style={{
                 backgroundImage: useMemo(() => {
-                  const tabWidth = 100 / orderedKeys.length;
+                  const tabWidth = 25; // Each tab is 25% of 100%
                   const solidPercent = tabWidth * 0.85;
                   const stops: string[] = [];
                   
@@ -1422,6 +1422,8 @@ export default function PillarsSection({
                   return `linear-gradient(90deg, ${stops.join(', ')})`;
                 }, [orderedKeys, orderedPillars]),
                 width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+                backgroundSize: '100% 100%',
+                backgroundPosition: '0 0',
                 transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
               }}
