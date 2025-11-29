@@ -75,40 +75,7 @@ export default function HeroSection() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  const storySteps: StoryStep[] = [
-    {
-      title: "1. Tokenize Your Deposits",
-      subtitle:
-        "Enable your systems to automate issuance, redemption and reconciliation with our APIs.",
-      icon: Workflow,
-      href: "/integrate",
-      accentColor: "#EEAA4A",
-    },
-    {
-      title: "2. Power Global Acceptance",
-      subtitle:
-        "Enable Traders to easily transact with any bank or wallet with our Router.",
-      icon: Globe2,
-      href: "/coverage",
-      accentColor: "#8F73FE",
-    },
-    {
-      title: "3. Attract Dollar Liquidity",
-      subtitle:
-        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our Decentralized Exchange (DEX).",
-      icon: Coins,
-      href: "/liquidity",
-      accentColor: "#EF660B",
-    },
-    {
-      title: "4. Unlock Dollar Growth",
-      subtitle:
-        "Deploy our full stack on your servers to unlock the Dollar Growth Spiral: Liquidity → Volume → Yield.",
-      icon: ShieldCheck,
-      href: "/compliance",
-      accentColor: "#217DFE",
-    },
-  ];
+
 
   useEffect(() => {
     if (isAutoPlaying) {
