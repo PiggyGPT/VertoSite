@@ -53,15 +53,15 @@ export default function CompetitiveDiffSection() {
                     <table className="border-collapse" style={{ maxWidth: '900px', width: '100%' }}>
                         <thead>
                             <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                                <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '60%' }}>
+                                <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '30%' }}>
                                     Capability
                                 </th>
-                                <th className="text-center py-3 px-4 font-semibold" style={{ width: '20%' }}>
+                                <th className="text-center py-3 px-4 font-semibold" style={{ width: '35%' }}>
                                     <div className="flex items-center justify-center">
                                         <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-4 w-auto drop-shadow-md" />
                                     </div>
                                 </th>
-                                <th className="text-center py-3 px-4 font-semibold text-slate-600 dark:text-slate-400 text-base" style={{ width: '20%' }}>
+                                <th className="text-center py-3 px-4 font-semibold text-slate-600 dark:text-slate-400 text-base" style={{ width: '35%' }}>
                                     Competitors
                                 </th>
                             </tr>
