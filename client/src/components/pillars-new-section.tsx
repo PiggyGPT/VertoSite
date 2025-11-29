@@ -1354,6 +1354,16 @@ export default function PillarsSection({
 
       {/* Progress Indicator Navigation - Carousel Style */}
       <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md border-b border-white/5">
+        <style>{`
+          @keyframes fillDash {
+            from {
+              width: 0%;
+            }
+            to {
+              width: 100%;
+            }
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           {/* Step Bubbles with Progress Dashes */}
           <div className="flex justify-center items-center gap-1 sm:gap-2">
@@ -1407,9 +1417,10 @@ export default function PillarsSection({
                       <div
                         className="h-full"
                         style={{
-                          width: index <= currentStep ? '100%' : '0%',
+                          width: index < currentStep ? '100%' : index === currentStep ? '0%' : '0%',
                           background: `linear-gradient(90deg, ${accentColor}, ${getAccentColor((orderedPillars[orderedKeys[index + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                          transition: 'width 10000ms linear',
+                          transition: index === currentStep ? 'width 10000ms linear' : 'none',
+                          animation: index === currentStep ? 'fillDash 10000ms linear forwards' : 'none',
                         }}
                       />
                     </div>
