@@ -49,19 +49,19 @@ export default function CompetitiveDiffSection() {
                 </div>
 
                 {/* Comparison Table */}
-                <div className="mb-12 overflow-x-auto">
-                    <table className="w-full border-collapse">
+                <div className="mb-12 overflow-x-auto flex justify-center">
+                    <table className="border-collapse" style={{ maxWidth: '900px', width: '100%' }}>
                         <thead>
                             <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                                <th className="text-left py-3 px-6 font-semibold text-slate-900 dark:text-white text-base">
+                                <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '40%' }}>
                                     Capability
                                 </th>
-                                <th className="text-left py-3 px-6 font-semibold text-center">
+                                <th className="text-center py-3 px-4 font-semibold" style={{ width: '30%' }}>
                                     <div className="flex items-center justify-center">
                                         <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-4 w-auto drop-shadow-md" />
                                     </div>
                                 </th>
-                                <th className="text-left py-3 px-6 font-semibold text-slate-600 dark:text-slate-400 text-center text-base">
+                                <th className="text-center py-3 px-4 font-semibold text-slate-600 dark:text-slate-400 text-base" style={{ width: '30%' }}>
                                     Competitors
                                 </th>
                             </tr>
@@ -71,7 +71,7 @@ export default function CompetitiveDiffSection() {
                                 const Icon = feature.icon;
                                 return (
                                     <tr key={index} className="border-b border-slate-100 dark:border-slate-800">
-                                        <td className="py-4 px-6">
+                                        <td className="py-4 px-4">
                                             <div className="flex items-center gap-3">
                                                 <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
                                                     <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
@@ -81,12 +81,12 @@ export default function CompetitiveDiffSection() {
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="py-4 px-6 text-center">
+                                        <td className="py-4 px-4 text-center">
                                             <span className="text-base font-semibold text-slate-900 dark:text-white">
                                                 {feature.albor}
                                             </span>
                                         </td>
-                                        <td className="py-4 px-6 text-center">
+                                        <td className="py-4 px-4 text-center">
                                             <span className="text-base text-slate-900 dark:text-white">
                                                 {feature.competitors}
                                             </span>
