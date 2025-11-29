@@ -61,15 +61,6 @@ export default function HeroSection() {
       
       <section className="flex-grow flex flex-col items-center justify-center py-24 relative overflow-hidden">
         
-        {/* Simple Grid Background */}
-        <div 
-          className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
-          style={{ 
-            backgroundImage: `linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)`,
-            backgroundSize: '64px 64px'
-          }} 
-        />
-
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
           <h1 className="font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tighter mb-8 leading-[1.05] text-white">
