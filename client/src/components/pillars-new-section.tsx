@@ -1409,7 +1409,7 @@ export default function PillarsSection({
                   key={index}
                   data-tab-index={index}
                   onClick={() => handleStepClick(index)}
-                  className={`relative sm:flex-shrink-0 w-full sm:w-auto flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start ${
+                  className={`relative sm:flex-shrink-0 w-[200%] sm:w-auto flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start ${
                     index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
                   }`}
                 >
