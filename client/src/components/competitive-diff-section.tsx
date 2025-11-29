@@ -40,12 +40,13 @@ export default function CompetitiveDiffSection() {
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-16">
-                    <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight mb-4">
-                        Purpose-Built for Enterprise Stablecoins
+                    <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tighter mb-6 text-slate-900 dark:text-white">
+                        Albor is the only{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
+                            non-custodial, full-stack
+                        </span>
+                        {" "}solution
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                        Complete infrastructure sovereignty. No compromises on custody, routing, or control.
-                    </p>
                 </div>
 
                 {/* Comparison Cards */}
@@ -53,22 +54,27 @@ export default function CompetitiveDiffSection() {
                     {/* Column Headers */}
                     <div className="hidden lg:block"></div>
 
-                    {/* Verto Column Header */}
+                    {/* Albor Column Header */}
                     <div className="relative p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900/60 dark:to-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-lg">
                         <div className="relative text-center">
-                            <h3 className="font-bold text-xl tracking-tight text-slate-900 dark:text-white mb-1">
-                                Verto
+                            <h3
+                                className="font-extrabold text-2xl tracking-tight mb-1"
+                                style={{
+                                    background: 'linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)',
+                                    backgroundClip: 'text',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                }}
+                            >
+                                albor
                             </h3>
-                            <p className="text-xs font-semibold text-green-600 dark:text-green-400 uppercase tracking-widest">
-                                Complete Stack
-                            </p>
                         </div>
                     </div>
 
                     {/* Competitors Column Header */}
                     <div className="hidden lg:block p-8 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 shadow-md">
                         <h3 className="text-center font-semibold text-base text-slate-600 dark:text-slate-400">
-                            Other Providers
+                            Parfin, Paxos, ZeroHash
                         </h3>
                     </div>
                 </div>
