@@ -82,12 +82,12 @@ export default function CompetitiveDiffSection() {
                                             </div>
                                         </td>
                                         <td className="py-4 px-6 text-center">
-                                            <span className="text-base font-semibold text-blue-700 dark:text-blue-300">
+                                            <span className="text-base font-semibold text-slate-900 dark:text-white">
                                                 {feature.albor}
                                             </span>
                                         </td>
                                         <td className="py-4 px-6 text-center">
-                                            <span className="text-base text-slate-500 dark:text-slate-500">
+                                            <span className="text-base text-slate-900 dark:text-white">
                                                 {feature.competitors}
                                             </span>
                                         </td>
