@@ -191,7 +191,7 @@ export default function HeroSection() {
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3 sm:mb-4 md:mb-5">
             Founded by leaders at
           </p>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-y-6 sm:gap-y-6 gap-x-8 sm:gap-x-10 md:gap-x-12 pb-8 sm:pb-10 md:pb-10 lg:pb-12 opacity-100 grayscale">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-y-6 gap-x-8 sm:gap-x-10 md:gap-x-12 pb-8 sm:pb-10 md:pb-10 lg:pb-12 opacity-100 grayscale">
             <div className="w-40 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
@@ -199,26 +199,28 @@ export default function HeroSection() {
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-20 h-6 flex items-center justify-center">
-              <img
-                src="/logos/GSR_logo.svg"
-                alt="GSR Markets"
-                className="h-full object-contain dark:invert"
-              />
-            </div>
-            <div className="w-20 h-6 flex items-center justify-center">
-              <img
-                src="/logos/PayPal_logo.svg"
-                alt="PayPal"
-                className="h-full object-contain dark:invert"
-              />
-            </div>
-            <div className="w-20 h-6 flex items-center justify-center">
-              <img
-                src="/logos/Microsoft_logo_(2012).svg"
-                alt="Microsoft"
-                className="h-full object-contain dark:invert"
-              />
+            <div className="flex sm:flex-col gap-x-6 sm:gap-x-10 md:gap-x-12">
+              <div className="w-20 h-6 flex items-center justify-center">
+                <img
+                  src="/logos/GSR_logo.svg"
+                  alt="GSR Markets"
+                  className="h-full object-contain dark:invert"
+                />
+              </div>
+              <div className="w-20 h-6 flex items-center justify-center">
+                <img
+                  src="/logos/PayPal_logo.svg"
+                  alt="PayPal"
+                  className="h-full object-contain dark:invert"
+                />
+              </div>
+              <div className="w-20 h-6 flex items-center justify-center">
+                <img
+                  src="/logos/Microsoft_logo_(2012).svg"
+                  alt="Microsoft"
+                  className="h-full object-contain dark:invert"
+                />
+              </div>
             </div>
           </div>
 
