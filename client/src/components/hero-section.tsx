@@ -250,55 +250,6 @@ export default function HeroSection() {
         {/* JOURNEY CAROUSEL */}
         <div className="w-full border-b border-white/5">
           <div className="w-full max-w-2xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-            {/* Step Progress Indicator */}
-            <div className="flex justify-center items-center gap-3 mb-8 sm:mb-10 md:mb-12">
-              {storySteps.map((_, index) => (
-                <div key={index} className="flex items-center">
-                  <button
-                    onClick={() => handleStepClick(index)}
-                    className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
-                      index === currentStep
-                        ? 'scale-110'
-                        : index < currentStep
-                        ? 'opacity-60 hover:opacity-80'
-                        : 'opacity-40 hover:opacity-60'
-                    }`}
-                  >
-                    <div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
-                        index === currentStep
-                          ? 'shadow-lg'
-                          : 'shadow-md'
-                      }`}
-                      style={{
-                        backgroundColor: index === currentStep ? storySteps[index].accentColor : `${storySteps[index].accentColor}40`,
-                        color: index === currentStep ? 'white' : storySteps[index].accentColor,
-                        boxShadow: index === currentStep ? `0 0 20px ${storySteps[index].accentColor}80` : 'none',
-                      }}
-                    >
-                      {index === 3 ? (
-                        <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
-                      ) : (
-                        index + 1
-                      )}
-                    </div>
-                  </button>
-                  {index < storySteps.length - 1 && (
-                    <div
-                      className={`hidden sm:block w-12 md:w-16 h-0.5 mx-2 transition-all duration-300 ${
-                        index < currentStep ? 'opacity-100' : 'opacity-30'
-                      }`}
-                      style={{
-                        background: index < currentStep 
-                          ? `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`
-                          : `linear-gradient(90deg, ${storySteps[index].accentColor}40, ${storySteps[index + 1].accentColor}40)`
-                      }}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-
             {/* Main Card Display */}
             <div className="relative p-6 sm:p-8 md:p-10 overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/0 dark:from-white/5 dark:to-white/0 border border-white/10 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 group">
               {/* Dynamic Accent Glow */}
@@ -311,46 +262,53 @@ export default function HeroSection() {
 
               {/* Content */}
               <div key={currentStep} className="text-center animate-scale-in relative z-10">
-                {/* Progress Indicator - 1-2-3-Growth */}
-                <div className="inline-flex items-center justify-center gap-2 mb-6 sm:mb-8">
-                  {["1", "2", "3"].map((step, idx) => (
-                    <div key={idx} className="flex items-center">
-                      <div
-                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-semibold text-xs sm:text-sm transition-all ${
-                          idx <= currentStep ? 'scale-100' : 'scale-90 opacity-50'
+                {/* Progress Indicator - 1-2-3-Growth with Clickable Steps */}
+                <div className="flex justify-center items-center gap-1 sm:gap-2 mb-6 sm:mb-8">
+                  {storySteps.map((_, index) => (
+                    <div key={index} className="flex items-center">
+                      <button
+                        onClick={() => handleStepClick(index)}
+                        className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
+                          index === currentStep
+                            ? 'scale-110'
+                            : index < currentStep
+                            ? 'opacity-60 hover:opacity-80'
+                            : 'opacity-40 hover:opacity-60'
                         }`}
-                        style={{
-                          backgroundColor: idx <= currentStep ? storySteps[idx].accentColor : `${storySteps[idx].accentColor}30`,
-                          color: idx <= currentStep ? 'white' : `${storySteps[idx].accentColor}60`,
-                        }}
                       >
-                        {step}
-                      </div>
-                      {idx < 2 && (
                         <div
-                          className={`w-6 h-0.5 mx-1 transition-all ${
-                            idx < currentStep ? 'opacity-100' : 'opacity-30'
+                          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
+                            index === currentStep
+                              ? 'shadow-lg'
+                              : 'shadow-md'
                           }`}
                           style={{
-                            background: idx < currentStep
-                              ? `linear-gradient(90deg, ${storySteps[idx].accentColor}, ${storySteps[idx + 1].accentColor})`
-                              : `linear-gradient(90deg, ${storySteps[idx].accentColor}30, ${storySteps[idx + 1].accentColor}30)`,
+                            backgroundColor: index === currentStep ? storySteps[index].accentColor : `${storySteps[index].accentColor}40`,
+                            color: index === currentStep ? 'white' : storySteps[index].accentColor,
+                            boxShadow: index === currentStep ? `0 0 20px ${storySteps[index].accentColor}80` : 'none',
+                          }}
+                        >
+                          {index === 3 ? (
+                            <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                          ) : (
+                            index + 1
+                          )}
+                        </div>
+                      </button>
+                      {index < storySteps.length - 1 && (
+                        <div
+                          className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 transition-all duration-300 ${
+                            index < currentStep ? 'opacity-100' : 'opacity-30'
+                          }`}
+                          style={{
+                            background: index < currentStep
+                              ? `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`
+                              : `linear-gradient(90deg, ${storySteps[index].accentColor}40, ${storySteps[index + 1].accentColor}40)`,
                           }}
                         />
                       )}
                     </div>
                   ))}
-                  <div
-                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-semibold transition-all ${
-                      currentStep === 3 ? 'scale-100' : 'scale-90 opacity-50'
-                    }`}
-                    style={{
-                      backgroundColor: currentStep === 3 ? storySteps[3].accentColor : `${storySteps[3].accentColor}30`,
-                      color: currentStep === 3 ? 'white' : `${storySteps[3].accentColor}60`,
-                    }}
-                  >
-                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
@@ -400,20 +358,17 @@ export default function HeroSection() {
             transform: scale(1);
           }
         }
-        .animate-badge-pop {
-          animation: badgePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        .animate-flow {
+          animation: flowIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
-        @keyframes badgePop {
+        @keyframes flowIn {
           0% {
-            transform: scale(0);
             opacity: 0;
-          }
-          50% {
-            transform: scale(1.1);
+            transform: translateX(20px);
           }
           100% {
-            transform: scale(1);
             opacity: 1;
+            transform: translateX(0);
           }
         }
       `}</style>
