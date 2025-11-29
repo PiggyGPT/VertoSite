@@ -1421,6 +1421,9 @@ export default function PillarsSection({
                   return `linear-gradient(90deg, ${stops.join(', ')})`;
                 }, [orderedKeys, orderedPillars]),
                 width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+                backgroundSize: '400% 100%',
+                backgroundPosition: '0% 0%',
+                backgroundRepeat: 'no-repeat',
                 transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
               }}
