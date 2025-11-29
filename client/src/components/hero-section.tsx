@@ -57,7 +57,7 @@ export default function HeroSection() {
   const { openModal, CalendlyModal } = useCalendlyModal();
 
   return (
-    <div className="min-h-screen bg-[#05070A] text-white selection:bg-white/20 font-sans flex flex-col">
+    <div className="min-h-screen text-white selection:bg-white/20 font-sans flex flex-col">
       
       <section className="flex-grow flex flex-col items-center justify-center py-24 relative overflow-hidden">
         
