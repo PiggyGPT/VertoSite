@@ -26,22 +26,21 @@ interface PainPointCardProps {
 }
 
 const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }: PainPointCardProps) => (
-    <div className="relative p-6 h-full flex flex-col justify-between rounded-2xl bg-white/60 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 shadow-lg backdrop-blur-lg" data-testid={testId}>
+    <div className="relative p-8 h-full flex flex-col justify-between rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800" data-testid={testId}>
         <div>
-            <blockquote className="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-5 italic">
+            <blockquote className="text-slate-800 dark:text-slate-200 leading-relaxed text-base mb-6">
                 "{quote}"
             </blockquote>
-            <div className="flex items-center">
-                <div className={`flex-shrink-0 w-10 h-10 bg-${color}/10 rounded-lg flex items-center justify-center mr-4`}>
+            <div className="flex items-start gap-3">
+                <div className={`flex-shrink-0 w-10 h-10 bg-${color}/10 rounded-lg flex items-center justify-center`}>
                     <Icon className={`text-${color} w-5 h-5`} />
                 </div>
                 <div>
-                    <p className="font-semibold text-slate-900 dark:text-white">{company}</p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{persona}</p>
+                    <p className="font-semibold text-slate-900 dark:text-white text-sm">{company}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{persona}</p>
                 </div>
             </div>
         </div>
-
     </div>
 );
 
@@ -104,19 +103,19 @@ export default function ProblemSection({
     })) : defaultPainPoints;
 
     return (
-        <section className="relative py-16 md:py-20 px-6 sm:px-8 overflow-hidden">
+        <section className="relative pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="relative max-w-7xl mx-auto">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                      <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight" data-testid="problem-title">
                         {title}
                      </h2>
-                     <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="problem-subtitle">
+                     <p className="mt-3 text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="problem-subtitle">
                         {subtitle} 
                      </p>
                 </div>
 
                 {/* Pain Points Grid */}
-                <div className="grid lg:grid-cols-3 gap-8">
+                <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
                     {painPoints.map((point, index) => (
                        <PainPointCard key={index} {...point} />
                     ))}

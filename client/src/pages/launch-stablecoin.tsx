@@ -122,8 +122,8 @@ Attract Global Dollars.`}
       </div>
       <div id="team">
         <ProblemSection
-          title="The $300 Billion Liquidity Siege"
-          subtitle="Tether and Circle are capturing your clients and their dollars. Time to win them back."
+          title="Join the $300B Market or Cede to It"
+          subtitle="Tether and Circle are actively competing for your clients and their liquidity."
           customQuotes={[
             {
               icon: "CreditCard",
@@ -131,23 +131,23 @@ Attract Global Dollars.`}
               persona: "Head of Corporate Banking",
               company: "Panama",
               quote:
-                "A client moved their $50M treasury to USDC because we couldn't settle on weekends. Our response isn't to complain—it's to launch our own digital cash token that is directly convertible with USDC, pulling that liquidity back onto our balance sheet.",
+                "Corporate treasuries are fleeing to USDC for T+0 settlements. We need to launch our own digital dollar to pull that liquidity back onto our balance sheets.",
             },
             {
               icon: "Shield",
               color: "verto-green",
-              persona: "Economic Advisor",
-              company: "Central Bank Bolivia",
+              persona: "Central Bank Advisor",
+              company: "Bolivia",
               quote:
-                "USDT and USDC have created an offshore shadow banking system, eroding our monetary control. Our counter-strategy is to launch a regulated, domestic stablecoin that is seamlessly liquid against them, drawing this activity back into our supervised framework.",
+                "The rise in USDT has been draining our FX reserves and inflating our currency. We need a regulated stablecoin to formalize this demand and restore dollar liquidity to the Boliviano.",
             },
             {
               icon: "BarChart3",
               color: "verto-purple",
-              persona: "Exchange Leadership",
-              company: "Intercontinental Exchange, Guatemala",
+              persona: "CEO, Commodities Exchange",
+              company: "Guatemala",
               quote:
-                "We are losing assets because our gold ETF can't compete with PAXG's 24/7 liquidity against USDT. The solution is to issue our own tokenized gold, ensure its liquidity in the same pools, and recapture that market share.",
+                "Our Gold ETF can't compete with PAXG's 24/7 liquidity against USDC. We need our own tokenized gold to compete in the same pools and capture that market share.",
             },
           ]}
         />

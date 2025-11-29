@@ -173,12 +173,12 @@ export default function HeroSection() {
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-              Attract Global Dollars.
+              Capture Global Dollars.
             </span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-            Connect your asset to the $350B dollar stablecoin market
+            Capture liquidity from the $300B dollar stablecoin market
             <br />
             with our self-hosted, full-stack infrastructure.
           </p>
