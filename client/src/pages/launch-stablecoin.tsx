@@ -5,7 +5,6 @@ import ProblemSection from "@/components/problem-section";
 import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import Footer from "@/components/footer";
-import GrowthSpiralSection from "@/components/growth-spiral-section";
 import CompetitiveDiffSection from "@/components/competitive-diff-section";
 import PillarsSection from "@/components/pillars-new-section";
 import {
@@ -151,7 +150,6 @@ Attract Global Dollars.`}
       <div id="infrastructure">
         <PillarsSection />
       </div>
-      <GrowthSpiralSection />
       <CompetitiveDiffSection />
       <div id="pilot">
         <BoardChecklistSection />
