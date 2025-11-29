@@ -58,7 +58,7 @@ export default function CompetitiveDiffSection() {
                                 </th>
                                 <th className="text-left py-3 px-6 font-semibold text-center">
                                     <div className="flex items-center justify-center">
-                                        <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
+                                        <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-4 w-auto drop-shadow-md" />
                                     </div>
                                 </th>
                                 <th className="text-left py-3 px-6 font-semibold text-slate-600 dark:text-slate-400 text-center text-base">
@@ -82,20 +82,20 @@ export default function CompetitiveDiffSection() {
                                             </div>
                                         </td>
                                         <td className="py-4 px-6">
-                                            <div className="flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
                                                 <span className="text-base text-slate-700 dark:text-slate-300">
                                                     {feature.albor}
                                                 </span>
-                                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 ml-auto" />
                                             </div>
                                         </td>
                                         <td className="py-4 px-6">
-                                            <div className="flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
                                                 <span className="text-base text-slate-600 dark:text-slate-400">
                                                     {feature.competitors}
                                                 </span>
                                                 {feature.competitors === "None" && (
-                                                    <X className="w-5 h-5 text-slate-300 dark:text-slate-600 flex-shrink-0" />
+                                                    <X className="w-5 h-5 text-slate-300 dark:text-slate-600 flex-shrink-0 ml-auto" />
                                                 )}
                                             </div>
                                         </td>
