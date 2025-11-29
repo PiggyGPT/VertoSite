@@ -156,7 +156,7 @@ const PaymentsVisual = () => {
 
 export default function PaymentsSection() {
   return (
-    <section className="py-16">
+    <section className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16">
       <div className="w-full border-b border-slate-200 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">

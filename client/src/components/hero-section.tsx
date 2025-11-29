@@ -178,7 +178,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-            Make your asset liquid against dollar stablecoins
+            Connect your asset to the $350B dollar stablecoin market
             <br />
             with our self-hosted, full-stack infrastructure.
           </p>
