@@ -1339,12 +1339,12 @@ export default function PillarsSection({
   
   const getAccentColor = (colorName: string) => {
     const colors: { [key: string]: string } = {
-      'verto-green': '#22c55e',
-      'verto-blue': '#3b82f6',
-      'verto-purple': '#8b5cf6',
-      'verto-orange': '#f97316',
+      'verto-purple': '#8F73FE',
+      'verto-blue': '#217DFE',
+      'verto-orange': '#EF660B',
+      'verto-green': '#EEAA4A',
     };
-    return colors[colorName] || '#22c55e';
+    return colors[colorName] || '#8F73FE';
   };
 
   return (
