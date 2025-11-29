@@ -1401,28 +1401,17 @@ export default function PillarsSection({
             <div
               className="h-full rounded-full transition-all"
               style={{
-                backgroundImage: useMemo(() => {
-                  const colors = [
-                    getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green'),
-                    getAccentColor((orderedPillars[orderedKeys[1] as keyof typeof orderedPillars]?.color as string) || 'verto-green'),
-                    getAccentColor((orderedPillars[orderedKeys[2] as keyof typeof orderedPillars]?.color as string) || 'verto-green'),
-                    getAccentColor((orderedPillars[orderedKeys[3] as keyof typeof orderedPillars]?.color as string) || 'verto-green'),
-                  ];
-                  
-                  return `linear-gradient(90deg,
-                    ${colors[0]} 0%,
-                    ${colors[0]} 21.25%,
-                    ${colors[1]} 25%,
-                    ${colors[1]} 46.25%,
-                    ${colors[2]} 50%,
-                    ${colors[2]} 71.25%,
-                    ${colors[3]} 75%,
-                    ${colors[3]} 100%
-                  )`;
-                }, [orderedKeys, orderedPillars]),
+                backgroundImage: `linear-gradient(90deg,
+                  ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 0%,
+                  ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 25%,
+                  ${getAccentColor((orderedPillars[orderedKeys[1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 25%,
+                  ${getAccentColor((orderedPillars[orderedKeys[1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 50%,
+                  ${getAccentColor((orderedPillars[orderedKeys[2] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 50%,
+                  ${getAccentColor((orderedPillars[orderedKeys[2] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 75%,
+                  ${getAccentColor((orderedPillars[orderedKeys[3] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 75%,
+                  ${getAccentColor((orderedPillars[orderedKeys[3] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 100%
+                )`,
                 width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
-                backgroundSize: '400% 100%',
-                backgroundPosition: '0% 0%',
                 transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
               }}
