@@ -40,15 +40,11 @@ export default function CompetitiveDiffSection() {
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-12">
-                    <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
-                        The only{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-                            non-custodial, full-stack
-                        </span>
-                        {" "}solution
+                    <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
+                        The only <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">non-custodial, full-stack</span> solution
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                        You own the keys. You own the data. You own the customer.
+                        You own the keys. You control the liquidity. You own the data.
                     </p>
                 </div>
 
