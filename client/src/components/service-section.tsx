@@ -145,7 +145,7 @@ export default function ServiceSection() {
           <div className="lg:col-span-1">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-orange-500">Service</p>
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">24/7 Global Operations</h3>
+              <h3 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mt-2 mb-4 tracking-tight">24/7 Global Operations</h3>
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.</p>
             </div>
             <div className="lg:hidden my-10">

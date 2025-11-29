@@ -114,7 +114,7 @@ export default function LaunchStablecoin() {
         <PillarsSection />
       </div>
       <CompetitiveDiffSection />
-
+      <BoardChecklistSection />
       <div id="pilot">
         <ProblemSection
           title="Capture the $300B Market or Cede to It"
@@ -146,7 +146,6 @@ export default function LaunchStablecoin() {
             },
           ]}
         />
-        <BoardChecklistSection />
       </div>
       <Footer />
     </div>

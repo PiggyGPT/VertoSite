@@ -152,9 +152,7 @@ export default function HeroSection() {
           
           <h1 className="font-bold text-3xl md:text-4xl sm:text-6xl lg:text-7xl tracking-tighter mb-8 leading-[1.05] text-white">
             Connect Your Assets <br />
-            <span className="text-slate-500">
               To Global Dollars.
-            </span>
           </h1>
 
           <p className="text-base sm:text-xl md:text-2xl text-slate-400 leading-relaxed mb-12 max-w-2xl">

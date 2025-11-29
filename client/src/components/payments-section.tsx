@@ -163,7 +163,7 @@ export default function PaymentsSection() {
           <div className="lg:col-span-1">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-purple-500">Payments</p>
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Frictionless Checkout</h3>
+              <h3 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mt-2 mb-4 tracking-tight">Frictionless Checkout</h3>
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.</p>
             </div>
             <div className="lg:hidden my-10">

@@ -131,7 +131,7 @@ export default function ComplianceSection() {
           <div className="lg:col-span-1">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-cyan-500">Compliance</p>
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">AI-Powered Compliance</h3>
+              <h3 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mt-2 mb-4 tracking-tight">AI-Powered Compliance</h3>
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">Automate compliance with AI-powered monitoring, enforcement and reporting that satisfies financial regulators.</p>
             </div>
             <div className="lg:hidden my-10">

@@ -1292,7 +1292,7 @@ export default function PillarsSection({
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
-        quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
+        quote: "Trust in a stablecoin is built on two non-negotiable principles: verifiable reserves and real-time settlement of both deposits and withdrawals.",
         name: "David Cass",
         title: "CEO | Former Federal Reserve Regulator",
         image: davidImage
@@ -1305,9 +1305,9 @@ export default function PillarsSection({
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
-        quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
+        quote: "Deep liquidity requires attracting institutional market makers. They require both competitive yield and regulatory compliance - you can't sacrifice one for the other.",
         name: "David Cass",
-        title: "CEO | Former CISO at GSR",
+        title: "Chairman | Former CISO at GSR",
         image: davidImage
       },
       features: [{ icon: Store, title: "Create Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "Automate Market Making", description: "Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." }, { icon: Lock, title: "Distribute Yield Instantly", description: "Reward LPs with fees from every trade, distributed automatically per block." },],
@@ -1318,9 +1318,9 @@ export default function PillarsSection({
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
-        quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
+        quote: "Payment adoption happens when the infrastructure disappears. Users need a simple, reliable experience regardless of the underlying complexity.",
         name: "Nilesh Khaitan",
-        title: "CPO | Ex-Venmo/PayPal Crypto",
+        title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
       features: [{ icon: Route, title: " Find Optimal Trade Routes", description: "Scan relevant CEXs and DEXs to find the optimal transcation path for every trade." }, { icon: KeyIcon, title: "Execute with Single Signature", description: "Orchestrate multi-step routes with a single approval from the trader's wallet." }, { icon: Zap, title: "Distribute Fees Atomically", description: "Include partner fee transfers within the executed trade route." },],
@@ -1332,10 +1332,10 @@ export default function PillarsSection({
       description: "Satisfy regulatory and risk committee mandates by controling your keys and data",
       visual: <ExecutiveServiceFlow />,
       founderQuote: {
-        quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
-        name: "Hisham Anwar",
-        title: "CTO | Ex-Google Head of Product",
-        image: hishamImage
+        quote: "No regulated financial institution should cede their monetary or data sovereignty. You either control your infrastructure or you don't control your business.",
+        name: "Nilesh Khaitan",
+        title: "CEO | Ex-Venmo/PayPal Crypto",
+        image: nileshImage
       },
       features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
       cta: "Explore Compliance"
