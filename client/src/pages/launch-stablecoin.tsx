@@ -149,14 +149,6 @@ Attract Global Dollars.`}
         />
       </div>
       <div id="infrastructure">
-        <div className="text-center pt-16 pb-8">
-          <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
-            One Unified Platform
-          </h2>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-            Self-hosted stack for stablecoin distribution, liquidity and payments. Monitored 24×7 by global experts with AI-automated compliance.
-          </p>
-        </div>
         <PillarsSection />
       </div>
       <GrowthSpiralSection />
