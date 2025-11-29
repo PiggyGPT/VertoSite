@@ -1343,10 +1343,10 @@ export default function PillarsSection({
         <style>{`
           @keyframes continuousProgress {
             from {
-              width: 0%;
+              width: ${((currentStep) / orderedKeys.length) * 100}%;
             }
             to {
-              width: ${(1 / orderedKeys.length) * 100}%;
+              width: ${((currentStep + 1) / orderedKeys.length) * 100}%;
             }
           }
         `}</style>
@@ -1388,12 +1388,12 @@ export default function PillarsSection({
           {/* Continuous Global Progress Bar */}
           <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden mt-4">
             <div
-              className="h-full rounded-full"
+              className="h-full rounded-full transition-all"
               style={{
                 backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                width: `${((currentStep + (isAutoPlaying ? Date.now() % 10000 / 10000 : 0)) / orderedKeys.length) * 100}%`,
-                transition: !isAutoPlaying ? 'width 300ms ease-out' : 'none',
-                animation: isAutoPlaying ? `continuousProgress 10000ms linear infinite` : 'none',
+                width: `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+                transitionDuration: isAutoPlaying ? '10000ms' : '300ms',
+                transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
               }}
             />
           </div>
