@@ -206,7 +206,7 @@ export default function HeroSection() {
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="w-full sm:w-auto h-6"></div>
+            <div className="w-full sm:hidden h-6"></div>
             <div className="w-20 h-6 flex items-center justify-center">
               <img
                 src="/logos/PayPal_logo.svg"
