@@ -246,9 +246,10 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24 pb-10 sm:pb-12 md:pb-14 lg:pb-16 border-b border-slate-200 dark:border-white/5">
-          {/* Main Card Display */}
-          <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
+        <div className="w-full border-b border-slate-200 dark:border-white/5">
+          <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24 pb-10 sm:pb-12 md:pb-14 lg:pb-16">
+            {/* Main Card Display */}
+            <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
             <div
               className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
@@ -305,7 +306,7 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-
+          </div>
         </div>
       </div>
 
