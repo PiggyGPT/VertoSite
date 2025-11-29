@@ -1395,10 +1395,9 @@ export default function PillarsSection({
             }
           }
         `}</style>
-        {/* Desktop Layout */}
-        <div className="hidden sm:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
-          <div className="flex justify-between items-center w-full px-8 sm:px-12 lg:px-16">
+          <div ref={tabsContainerRef} className="flex justify-between items-center w-full px-8 sm:px-12 lg:px-16 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
               const pillar = orderedPillars[key as keyof typeof orderedPillars];
               const pillarColor = (pillar?.color as string) || 'verto-green';
@@ -1410,7 +1409,7 @@ export default function PillarsSection({
                   key={index}
                   data-tab-index={index}
                   onClick={() => handleStepClick(index)}
-                  className={`relative flex items-center gap-2 transition-all duration-300 cursor-pointer group ${
+                  className={`relative flex items-center gap-2 transition-all duration-300 cursor-pointer group flex-shrink-0 ${
                     index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
                   }`}
                 >
@@ -1421,43 +1420,6 @@ export default function PillarsSection({
                     }}
                   />
                   <p className={`text-sm font-semibold transition-colors ${
-                    index <= currentStep 
-                      ? 'text-slate-900 dark:text-white' 
-                      : 'text-slate-500 dark:text-slate-400'
-                  }`}>
-                    {pillar?.label || 'Unknown'}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Mobile Layout - Horizontal Scrollable */}
-        <div className="sm:hidden px-4 py-6">
-          <div ref={tabsContainerRef} className="flex overflow-x-auto snap-x snap-mandatory gap-2 pb-2 -mx-4 px-4">
-            {orderedKeys.map((key, index) => {
-              const pillar = orderedPillars[key as keyof typeof orderedPillars];
-              const pillarColor = (pillar?.color as string) || 'verto-green';
-              const accentColor = getAccentColor(pillarColor);
-              const IconComponent = (pillar?.icon as any) || TrendingUp;
-              
-              return (
-                <button
-                  key={index}
-                  data-tab-index={index}
-                  onClick={() => handleStepClick(index)}
-                  className={`relative flex-shrink-0 w-full snap-center flex flex-col items-center gap-2 p-4 transition-all duration-300 cursor-pointer group rounded-lg ${
-                    index <= currentStep ? 'bg-white/10 dark:bg-white/5' : 'bg-white/5 dark:bg-white/[0.02]'
-                  }`}
-                >
-                  <IconComponent 
-                    className="w-5 h-5 flex-shrink-0 transition-colors"
-                    style={{
-                      color: index <= currentStep ? accentColor : '#94a3b8'
-                    }}
-                  />
-                  <p className={`text-xs font-semibold transition-colors text-center ${
                     index <= currentStep 
                       ? 'text-slate-900 dark:text-white' 
                       : 'text-slate-500 dark:text-slate-400'
