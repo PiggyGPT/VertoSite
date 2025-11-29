@@ -1363,31 +1363,21 @@ export default function PillarsSection({
                 <button
                   key={index}
                   onClick={() => handleStepClick(index)}
-                  className={`relative flex items-center gap-3 transition-all duration-300 cursor-pointer group ${
-                    index === currentStep && !isAutoPlaying ? 'animate-bubble-pop' : 'hover:opacity-80'
+                  className={`relative flex items-center gap-2 transition-all duration-300 cursor-pointer group ${
+                    index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
                   }`}
                 >
-                  <div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
-                      index === currentStep ? 'shadow-lg' : 'shadow-md'
-                    }`}
+                  <IconComponent 
+                    className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors"
                     style={{
-                      backgroundColor:
-                        index <= currentStep
-                          ? accentColor
-                          : `${accentColor}40`,
-                      color: index <= currentStep ? 'white' : accentColor,
-                      boxShadow:
-                        index === currentStep
-                          ? `0 0 20px ${accentColor}80`
-                          : index < currentStep
-                          ? `0 0 10px ${accentColor}40`
-                          : 'none',
+                      color: index <= currentStep ? accentColor : '#94a3b8'
                     }}
-                  >
-                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </div>
-                  <p className="hidden sm:block text-sm font-semibold text-slate-900 dark:text-white">
+                  />
+                  <p className={`hidden sm:block text-sm font-semibold transition-colors ${
+                    index === currentStep 
+                      ? 'text-slate-900 dark:text-white' 
+                      : 'text-slate-500 dark:text-slate-400'
+                  }`}>
                     {pillar?.label || 'Unknown'}
                   </p>
                 </button>
