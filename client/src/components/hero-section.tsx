@@ -155,7 +155,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 md:pt-14 lg:pt-16 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center">
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto">
           {/* Enterprise Infrastructure badge - Hidden for now */}
@@ -177,7 +177,7 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-7 md:mb-8">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 sm:mb-12 md:mb-14 lg:mb-16">
             Make your asset liquid against dollar stablecoins
             <br />
             with our self-hosted, full-stack infrastructure.
@@ -247,7 +247,7 @@ export default function HeroSection() {
 
         {/* FOCUSED STORY CAROUSEL */}
         <div className="w-full border-b border-slate-200 dark:border-white/5">
-          <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24 pb-10 sm:pb-12 md:pb-14 lg:pb-16">
+          <div className="w-full max-w-xl mx-auto mt-10 sm:mt-12 md:mt-14 lg:mt-16 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
             {/* Main Card Display */}
             <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
