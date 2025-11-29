@@ -48,58 +48,59 @@ export default function CompetitiveDiffSection() {
                     </p>
                 </div>
 
-                {/* Comparison Table */}
-                <div className="mb-12 overflow-x-auto flex justify-center">
-                    <table className="border-collapse" style={{ maxWidth: '900px', width: '100%' }}>
-                        <thead>
-                            <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                                <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '30%' }}>
-                                    Capability
-                                </th>
-                                <th className="text-center py-3 px-4 font-semibold" style={{ width: '35%' }}>
-                                    <div className="flex items-center justify-center">
-                                        <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-4 w-auto drop-shadow-md" />
-                                    </div>
-                                </th>
-                                <th className="text-center py-3 px-4 font-semibold text-slate-600 dark:text-slate-400 text-base" style={{ width: '35%' }}>
-                                    Competitors
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {features.map((feature, index) => {
-                                const Icon = feature.icon;
-                                return (
-                                    <tr key={index} className="border-b border-slate-100 dark:border-slate-800">
-                                        <td className="py-4 px-4">
-                                            <div className="flex items-center gap-3">
-                                                <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                                                    <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                {/* Comparison Table & CTA - Centered Container */}
+                <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                    <div className="mb-12 overflow-x-auto">
+                        <table className="border-collapse w-full">
+                            <thead>
+                                <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                                    <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '30%' }}>
+                                        Capability
+                                    </th>
+                                    <th className="text-center py-3 px-4 font-semibold" style={{ width: '35%' }}>
+                                        <div className="flex items-center justify-center">
+                                            <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-4 w-auto drop-shadow-md" />
+                                        </div>
+                                    </th>
+                                    <th className="text-center py-3 px-4 font-semibold text-slate-600 dark:text-slate-400 text-base" style={{ width: '35%' }}>
+                                        Competitors
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {features.map((feature, index) => {
+                                    const Icon = feature.icon;
+                                    return (
+                                        <tr key={index} className="border-b border-slate-100 dark:border-slate-800">
+                                            <td className="py-4 px-4">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                                                        <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                                                    </div>
+                                                    <span className="font-semibold text-slate-900 dark:text-white text-base">
+                                                        {feature.name}
+                                                    </span>
                                                 </div>
-                                                <span className="font-semibold text-slate-900 dark:text-white text-base">
-                                                    {feature.name}
+                                            </td>
+                                            <td className="py-4 px-4 text-center">
+                                                <span className="text-base font-semibold text-slate-900 dark:text-white">
+                                                    {feature.albor}
                                                 </span>
-                                            </div>
-                                        </td>
-                                        <td className="py-4 px-4 text-center">
-                                            <span className="text-base font-semibold text-slate-900 dark:text-white">
-                                                {feature.albor}
-                                            </span>
-                                        </td>
-                                        <td className="py-4 px-4 text-center">
-                                            <span className="text-base text-slate-900 dark:text-white">
-                                                {feature.competitors}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
+                                            </td>
+                                            <td className="py-4 px-4 text-center">
+                                                <span className="text-base text-slate-900 dark:text-white">
+                                                    {feature.competitors}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
 
-                {/* CTA Button - Enhanced */}
-                <div className="text-center">
+                    {/* CTA Button - Enhanced */}
+                    <div className="text-center">
                     <button
                         onClick={openModal}
                         className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-xl shadow-black/20 dark:shadow-black/40 hover:shadow-2xl hover:shadow-black/30 dark:hover:shadow-black/50"
@@ -111,6 +112,7 @@ export default function CompetitiveDiffSection() {
                         <Calendar className="w-4 h-4" />
                         <span>Schedule Demo</span>
                     </button>
+                    </div>
                 </div>
             </div>
 
