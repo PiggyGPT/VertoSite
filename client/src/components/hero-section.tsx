@@ -325,6 +325,18 @@ export default function HeroSection() {
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-md mx-auto">
                   {activeStory.subtitle}
                 </p>
+
+                {/* Server Log Animation - Only on Step 1 */}
+                {currentStep === 0 && (
+                  <div className="mt-6 text-left text-xs font-mono text-slate-400 space-y-1">
+                    <div className="animate-fade-in-log" style={{ animationDelay: '0.3s' }}>
+                      <span className="text-emerald-400">[✓]</span> Fiat Deposit Detected
+                    </div>
+                    <div className="animate-fade-in-log" style={{ animationDelay: '1.2s' }}>
+                      <span className="text-blue-400">[→]</span> Minting BSD to wallet
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             </div>
@@ -387,6 +399,19 @@ export default function HeroSection() {
           }
           100% {
             transform: scale(1.1);
+          }
+        }
+        .animate-fade-in-log {
+          animation: fadeInLog 0.6s ease-in-out forwards;
+        }
+        @keyframes fadeInLog {
+          0% {
+            opacity: 0;
+            transform: translateY(-4px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
       `}</style>
