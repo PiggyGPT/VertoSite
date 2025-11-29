@@ -86,15 +86,15 @@ export default function HeroSection() {
       accentColor: "#EEAA4A",
     },
     {
-      title: "Attract Dollar Liquidity",
+      title: "Attract Liquidity Providers",
       subtitle:
-        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our Decentralized Exchange (DEX).",
+        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our Decentralized Exchange.",
       icon: Coins,
       href: "/liquidity",
       accentColor: "#EF660B",
     },
     {
-      title: "Power Global Acceptance",
+      title: "Accept Global Transactions",
       subtitle:
         "Enable Traders to easily transact with any bank or wallet with our Router.",
       icon: Globe2,
@@ -247,71 +247,113 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full border-b border-slate-200 dark:border-white/5">
-          <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        {/* JOURNEY CAROUSEL */}
+        <div className="w-full border-b border-white/5">
+          <div className="w-full max-w-2xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+            {/* Step Progress Indicator */}
+            <div className="flex justify-center items-center gap-3 mb-8 sm:mb-10 md:mb-12">
+              {storySteps.map((_, index) => (
+                <div key={index} className="flex items-center">
+                  <button
+                    onClick={() => handleStepClick(index)}
+                    className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
+                      index === currentStep
+                        ? 'scale-110'
+                        : index < currentStep
+                        ? 'opacity-60 hover:opacity-80'
+                        : 'opacity-40 hover:opacity-60'
+                    }`}
+                  >
+                    <div
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
+                        index === currentStep
+                          ? 'shadow-lg'
+                          : 'shadow-md'
+                      }`}
+                      style={{
+                        backgroundColor: index === currentStep ? storySteps[index].accentColor : `${storySteps[index].accentColor}40`,
+                        color: index === currentStep ? 'white' : storySteps[index].accentColor,
+                        boxShadow: index === currentStep ? `0 0 20px ${storySteps[index].accentColor}80` : 'none',
+                      }}
+                    >
+                      {index === 3 ? (
+                        <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                      ) : (
+                        index + 1
+                      )}
+                    </div>
+                  </button>
+                  {index < storySteps.length - 1 && (
+                    <div
+                      className={`hidden sm:block w-12 md:w-16 h-0.5 mx-2 transition-all duration-300 ${
+                        index < currentStep ? 'opacity-100' : 'opacity-30'
+                      }`}
+                      style={{
+                        background: index < currentStep 
+                          ? `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`
+                          : `linear-gradient(90deg, ${storySteps[index].accentColor}40, ${storySteps[index + 1].accentColor}40)`
+                      }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+
             {/* Main Card Display */}
-            <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
-            {/* Dynamic Accent Glow */}
-            <div
-              className="absolute inset-0 w-full h-full opacity-5 pointer-events-none"
-              style={{
-                boxShadow: `0 0 100px 30px ${activeAccent} inset`,
-                transition: "box-shadow 0.5s ease-out",
-              }}
-            />
-            
-
-            {/* Content */}
-            <div key={currentStep} className="text-center animate-lateral-pan">
-              {/* Number/Prize Badge */}
+            <div className="relative p-6 sm:p-8 md:p-10 overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/0 dark:from-white/5 dark:to-white/0 border border-white/10 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 group">
+              {/* Dynamic Accent Glow */}
               <div
-                className="inline-flex items-center justify-center w-12 h-12 rounded-lg mb-1.5 sm:mb-3 shadow-md mx-auto font-bold text-lg"
+                className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-10 pointer-events-none rounded-2xl transition-opacity duration-500"
                 style={{
-                  backgroundColor: `${activeAccent}15`,
-                  color: activeAccent,
+                  boxShadow: `0 0 120px 40px ${activeAccent} inset`,
                 }}
-              >
-                {currentStep === 3 ? (
-                  <TrendingUp className="w-6 h-6" />
-                ) : (
-                  currentStep + 1
-                )}
-              </div>
+              />
 
-              <h2 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                {currentStep === 3 ? "Unlock Growth Spiral!" : activeStory.title}
-              </h2>
-
-              <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
-                {activeStory.subtitle}
-              </p>
-
-              <div className="mt-3 sm:mt-6">
-                <Link
-                  key={currentStep}
-                  href={activeStory.href}
-                  className="inline-flex items-center text-sm font-semibold hover:underline decoration-2 underline-offset-4 transition-all"
+              {/* Content */}
+              <div key={currentStep} className="text-center animate-scale-in relative z-10">
+                {/* Large Badge */}
+                <div
+                  className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-xl mb-4 sm:mb-6 shadow-lg mx-auto font-bold text-2xl sm:text-3xl transition-all duration-500 animate-badge-pop"
                   style={{
-                    background: isAutoPlaying 
-                      ? `linear-gradient(90deg, white 0%, ${activeAccent} 100%)`
-                      : activeAccent,
-                    backgroundSize: '200% 100%',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    animation: isAutoPlaying ? `text-gradient-progress 15s linear forwards` : 'none',
-                  } as React.CSSProperties}
+                    backgroundColor: `${activeAccent}20`,
+                    color: activeAccent,
+                    border: `2px solid ${activeAccent}60`,
+                  }}
                 >
-                  {currentStep === 0 && "Explore APIs"}
-                  {currentStep === 1 && "Explore DEX"}
-                  {currentStep === 2 && "Explore Router"}
-                  {currentStep === 3 && "Explore Compliance"}
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
+                  {currentStep === 3 ? (
+                    <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12" />
+                  ) : (
+                    currentStep + 1
+                  )}
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
+                  {currentStep === 3 ? "Unlock Growth Spiral!" : activeStory.title}
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-md mx-auto mb-6 sm:mb-8">
+                  {activeStory.subtitle}
+                </p>
+
+                <div className="flex items-center justify-center">
+                  <Link
+                    key={currentStep}
+                    href={activeStory.href}
+                    className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold text-sm transition-all hover:scale-105 duration-300"
+                    style={{
+                      backgroundColor: activeAccent,
+                      color: 'white',
+                    }}
+                  >
+                    {currentStep === 0 && "Explore APIs"}
+                    {currentStep === 1 && "Explore DEX"}
+                    {currentStep === 2 && "Explore Router"}
+                    {currentStep === 3 && "Explore Full Stack"}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
@@ -319,25 +361,33 @@ export default function HeroSection() {
       <CalendlyModal title="Schedule a Consultation" />
 
       <style>{`
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
+        .animate-scale-in {
+          animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
-        @keyframes text-gradient-progress {
-          0% { background-position: 200% 0; }
-          100% { background-position: 0% 0; }
-        }
-        .animate-lateral-pan {
-          animation: lateral-pan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        }
-        @keyframes lateral-pan {
+        @keyframes scaleIn {
           0% {
             opacity: 0;
-            transform: translateX(100%);
+            transform: scale(0.9);
           }
           100% {
             opacity: 1;
-            transform: translateX(0);
+            transform: scale(1);
+          }
+        }
+        .animate-badge-pop {
+          animation: badgePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        @keyframes badgePop {
+          0% {
+            transform: scale(0);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
           }
         }
       `}</style>
