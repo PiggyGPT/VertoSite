@@ -1275,7 +1275,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "verto-purple", title: "Tokenize Deposits", icon: Workflow,
+      label: "Tokenize Deposits", color: "verto-purple", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation across your ecosystem to instantly fund your treasury.",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
@@ -1284,12 +1284,12 @@ export default function PillarsSection({
         title: "CEO | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Ecosystem Automation", description: "Sync your ledgers with the blockchain to automate issuance from verified partner deposits." }, { icon: CreditCard, title: "Programmed Fiat Control", description: "Programmatically trigger fiat wires for redemption, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "Simple Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Issue on Fiat Deposits", description: "Issue tokens to client wallets against verified fiat deposits in real-time." }, { icon: CreditCard, title: "Withdraw Fiat on Redemptions", description: "Trigger fiat wires against redeemed tokens, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Scale Distribution Network"
     },
     trading: {
-      label: "Attract Liquidity", color: "verto-blue", title: "Attract Liquidity", icon: Coins,
-      description: "Enable Liquidity Providers (LPs) to securely seed stablecoin liquidity and earn yield without counterparty risk.",
+      label: "Attract Liquidity", color: "verto-blue", title: "Decentralized Exchange", icon: Coins,
+      description: "Create a global dollar market for your token where anyone can trade and provide liquidity.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
         quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
@@ -1297,12 +1297,12 @@ export default function PillarsSection({
         title: "CEO | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: Store, title: "Whitelabel Trust", description: "Launch a transparent, whitelabel exchange that eliminates CEX counterparty risk for your LPs." }, { icon: TrendingUp, title: "Automated Price Stability", description: "Utilize an AMM model to ensure programmed price stability for your token and market." }, { icon: Lock, title: "Custody-Free Yield", description: "Secure LPs funds with code, allowing them to earn yield from fees without relinquishing custody." },],
+      features: [{ icon: Store, title: "Create Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "Automate Market Making", description: "Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." }, { icon: Lock, title: "Distribute Yield Instantly", description: "Reward LPs with fees from every trade, distributed automatically per block." },],
       cta: "Integrate Liquidity API"
     },
     payments: {
-      label: "Transact Globally", color: "verto-green", title: "Transact Globally", icon: Globe,
-      description: "Enable any trader to easily transact with your token from any bank or wallet, non-custodially.",
+      label: "Transact Globally", color: "verto-green", title: "Patent-Pending Router", icon: Globe,
+      description: "Enable universal trading of your tokens from any bank, wallet, or chain.",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
         quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
@@ -1310,12 +1310,12 @@ export default function PillarsSection({
         title: "CPO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Route, title: "Optimal Smart Routing", description: "The router scans all markets (CeFi/DeFi) to find the best-priced conversion route for the trader." }, { icon: KeyIcon, title: "Non-Custodial Processing", description: "The trader/platform holds the keys, ensuring the issuer is never the payment processor." }, { icon: GitBranch, title: "Atomic Fee Distribution", description: "Automate fee distribution to relevant partners, eliminating escrow and manual reconciliation steps." },],
+      features: [{ icon: Route, title: " Find Optimal Trade Routes", description: "Scan relevant CEXs and DEXs to find the optimal transcation path for every trade." }, { icon: KeyIcon, title: "Execute with Single Signature", description: "Orchestrate multi-step routes with a single approval from the trader's wallet." }, { icon: Zap, title: "Distribute Fees Atomically", description: "Include partner fee transfers within the executed trade route." },],
       cta: "Explore Payments API"
     },
     service: {
-      label: "Secure Compliance", color: "verto-orange", icon: TrendingUp,
-      title: "Secure Compliance",
+      label: "Secure Compliance", color: "verto-orange", icon: Shield,
+      title: "Self-Hosted Stack",
       description: "Secure the foundation for future growth by satisfying regulatory and risk committee mandates.",
       visual: <ExecutiveServiceFlow />,
       founderQuote: {
@@ -1324,7 +1324,7 @@ export default function PillarsSection({
         title: "CTO | Ex-Google Head of Product",
         image: hishamImage
       },
-      features: [{ icon: KeyIcon, title: "Sovereign Key Control", description: "Deploy the stack in your private cloud or on-prem, ensuring you always hold the cryptographic keys." }, { icon: Shield, title: "Eliminate Vendor Risk", description: "Satisfy regulators by prohibiting the outsourcing of your monetary supply control to third parties." }, { icon: ShieldCheck, title: "Embedded Compliance", description: "Embed real-time AML/KYC screening into every transaction via integrated security protocols." },],
+      features: [{ icon: KeyIcon, title: "Connect Your Keys", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
       cta: "Learn About Our Service Model"
     },
   };
