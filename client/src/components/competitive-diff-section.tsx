@@ -81,7 +81,7 @@ export default function CompetitiveDiffSection() {
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="py-4 px-6 text-center bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 rounded-lg mx-2">
+                                        <td className="py-4 px-6 text-center">
                                             <span className="text-base font-semibold text-blue-700 dark:text-blue-300">
                                                 {feature.albor}
                                             </span>

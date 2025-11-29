@@ -172,17 +172,17 @@ export default function HeroSection() {
           </div> */}
 
           <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter mb-6 sm:mb-8 md:mb-6 text-slate-900 dark:text-white leading-tight">
-            Launch Your Stablecoin.
+            Connect Your Assets
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-              Capture Dollar Liquidity.
+              To Global Dollars.
             </span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 md:mb-10 lg:mb-12">
             Capture liquidity from the $300B stablecoin market
             <br />
-            with our self-hosted, full-stack infrastructure.
+            with compliant infrastructure.
           </p>
         </div>
 
