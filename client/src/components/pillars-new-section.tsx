@@ -1401,7 +1401,7 @@ export default function PillarsSection({
             <div
               className="h-full rounded-full transition-all"
               style={{
-                backgroundImage: `linear-gradient(90deg, hsl(257, 60%, 20%), hsl(257, 100%, 72%), hsl(217, 100%, 56%), hsl(127, 80%, 45%), hsl(34, 86%, 61%))`,
+                backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
                 width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
                 transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
