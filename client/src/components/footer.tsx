@@ -1,7 +1,6 @@
 import { ArrowRight, Mail } from "lucide-react";
 import { SiX, SiTelegram } from "react-icons/si";
 import { Link } from "wouter";
-import logoSvg from "@assets/logo.svg";
 import { useCalendlyModal } from "./calendly-modal";
 
 // This is the new, dedicated Call-to-Action section that lives right above the footer.
@@ -46,7 +45,7 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="md:col-span-4">
                         <Link href="/" className="inline-block">
-                            <img src={logoSvg} alt="Albor Logo" className="h-6 w-auto" />
+                            <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
                             Digital Asset Operations Platform for compliant trading, payments, and distribution on any chain.
