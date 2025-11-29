@@ -328,12 +328,33 @@ export default function HeroSection() {
 
                 {/* Server Log Animation - Only on Step 1 */}
                 {currentStep === 0 && (
-                  <div className="mt-6 text-left text-xs font-mono text-slate-400 space-y-1">
-                    <div className="animate-fade-in-log" style={{ animationDelay: '0.3s' }}>
-                      <span className="text-emerald-400">[✓]</span> Fiat Deposit Detected
-                    </div>
-                    <div className="animate-fade-in-log" style={{ animationDelay: '1.2s' }}>
-                      <span className="text-blue-400">[→]</span> Minting BSD to wallet
+                  <div className="mt-8 w-full">
+                    <div className="bg-slate-950/80 border border-slate-800 rounded-lg p-4 font-mono text-sm">
+                      {/* Log Header */}
+                      <div className="text-slate-500 text-xs mb-3 pb-2 border-b border-slate-800">
+                        <span className="text-slate-600">$</span> system_log --follow
+                      </div>
+                      
+                      {/* Log Lines */}
+                      <div className="space-y-2 text-slate-300">
+                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
+                          <span className="text-emerald-400">[INFO]</span> <span className="text-slate-400">2024-11-29T11:24:45.823Z</span> Fiat Deposit Detected
+                        </div>
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
+                          <span className="text-blue-400">[PROC]</span> <span className="text-slate-400">2024-11-29T11:24:46.201Z</span> Initiating mint process...
+                        </div>
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
+                          <span className="text-cyan-400">[MINT]</span> <span className="text-slate-400">2024-11-29T11:24:47.065Z</span> Minting BSD to wallet
+                        </div>
+                        <div className="animate-fade-in-log" style={{ animationDelay: '2.6s' }}>
+                          <span className="text-emerald-400">[✓]</span> <span className="text-slate-400">2024-11-29T11:24:47.892Z</span> <span className="text-emerald-300">Transaction confirmed</span>
+                        </div>
+                      </div>
+
+                      {/* Cursor */}
+                      <div className="mt-3 text-slate-500 text-xs">
+                        <span className="text-slate-600">$</span> <span className="animate-pulse">▊</span>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -402,16 +423,16 @@ export default function HeroSection() {
           }
         }
         .animate-fade-in-log {
-          animation: fadeInLog 0.6s ease-in-out forwards;
+          animation: fadeInLog 0.5s ease-out forwards;
         }
         @keyframes fadeInLog {
           0% {
             opacity: 0;
-            transform: translateY(-4px);
+            transform: translateX(-8px);
           }
           100% {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
           }
         }
       `}</style>
