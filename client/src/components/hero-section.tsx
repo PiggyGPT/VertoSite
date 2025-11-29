@@ -213,7 +213,7 @@ export default function HeroSection() {
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 sm:mb-6 md:mb-7">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-10 sm:pb-12 md:pb-14 lg:pb-16 border-b border-slate-200 dark:border-white/5 opacity-100 grayscale">
+          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-10 sm:pb-12 md:pb-14 lg:pb-16 opacity-100 grayscale">
             <div className="w-40 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
@@ -246,7 +246,7 @@ export default function HeroSection() {
         </div>
 
         {/* FOCUSED STORY CAROUSEL */}
-        <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <div className="w-full max-w-xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24 pb-10 sm:pb-12 md:pb-14 lg:pb-16 border-b border-slate-200 dark:border-white/5">
           {/* Main Card Display */}
           <div className="relative p-4 md:p-6 overflow-hidden rounded-2xl bg-white dark:bg-[#0A0A0B]/80 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 backdrop-blur-xl transition-all duration-500">
             {/* Dynamic Accent Glow */}
