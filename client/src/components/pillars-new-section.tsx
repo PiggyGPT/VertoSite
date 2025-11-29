@@ -1407,9 +1407,9 @@ export default function PillarsSection({
                       <div
                         className="h-full"
                         style={{
-                          width: index < currentStep ? '100%' : index === currentStep ? '0%' : '0%',
+                          width: index <= currentStep ? '100%' : '0%',
                           background: `linear-gradient(90deg, ${accentColor}, ${getAccentColor((orderedPillars[orderedKeys[index + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                          transition: index === currentStep ? 'width 10000ms linear' : 'width 0ms',
+                          transition: 'width 10000ms linear',
                         }}
                       />
                     </div>
