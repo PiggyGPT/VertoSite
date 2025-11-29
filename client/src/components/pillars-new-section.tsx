@@ -1340,79 +1340,68 @@ export default function PillarsSection({
     <div id="infrastructure" className="relative">
       {/* Progress Indicator Navigation - Tab Style with Labels */}
       <div id="pillar-navigation" className="sticky top-16 z-40">
-        <style>{`
-          @keyframes fillBorder {
-            from {
-              width: 0%;
-            }
-            to {
-              width: 100%;
-            }
-          }
-        `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
-          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-16">
+          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-16 pb-4">
             {orderedKeys.map((key, index) => {
               const pillar = orderedPillars[key as keyof typeof orderedPillars];
               const pillarColor = (pillar?.color as string) || 'verto-green';
               const accentColor = getAccentColor(pillarColor);
               
               return (
-                <div key={index} className="flex flex-col items-center">
-                  <button
-                    onClick={() => handleStepClick(index)}
-                    className={`relative flex items-center gap-3 px-4 pb-4 transition-all duration-300 cursor-pointer group ${
-                      index === currentStep && !isAutoPlaying ? 'animate-bubble-pop' : 'hover:opacity-80'
+                <button
+                  key={index}
+                  onClick={() => handleStepClick(index)}
+                  className={`relative flex items-center gap-3 transition-all duration-300 cursor-pointer group ${
+                    index === currentStep && !isAutoPlaying ? 'animate-bubble-pop' : 'hover:opacity-80'
+                  }`}
+                >
+                  <div
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 flex-shrink-0 ${
+                      index === currentStep ? 'shadow-lg' : 'shadow-md'
                     }`}
+                    style={{
+                      backgroundColor:
+                        index <= currentStep
+                          ? accentColor
+                          : `${accentColor}40`,
+                      color: index <= currentStep ? 'white' : accentColor,
+                      boxShadow:
+                        index === currentStep
+                          ? `0 0 20px ${accentColor}80`
+                          : index < currentStep
+                          ? `0 0 10px ${accentColor}40`
+                          : 'none',
+                    }}
                   >
-                    <div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 flex-shrink-0 ${
-                        index === currentStep ? 'shadow-lg' : 'shadow-md'
-                      }`}
-                      style={{
-                        backgroundColor:
-                          index <= currentStep
-                            ? accentColor
-                            : `${accentColor}40`,
-                        color: index <= currentStep ? 'white' : accentColor,
-                        boxShadow:
-                          index === currentStep
-                            ? `0 0 20px ${accentColor}80`
-                            : index < currentStep
-                            ? `0 0 10px ${accentColor}40`
-                            : 'none',
-                      }}
-                    >
-                      {index === orderedKeys.length - 1 ? (
-                        <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
-                      ) : (
-                        index + 1
-                      )}
-                    </div>
-                    <div className="hidden sm:flex flex-col">
-                      <p className={`text-xs font-semibold uppercase tracking-wider ${index === currentStep ? activeColors.text : 'text-slate-500 dark:text-slate-400'}`}>
-                        Step {index + 1}
-                      </p>
-                      <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                        {pillar?.label || 'Unknown'}
-                      </p>
-                    </div>
-                  </button>
-                  {/* Bottom Border Progress Indicator */}
-                  <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all"
-                      style={{
-                        width: index < currentStep ? '100%' : index === currentStep ? '0%' : '0%',
-                        backgroundColor: accentColor,
-                        animation: index === currentStep ? `fillBorder 10000ms linear forwards` : 'none',
-                      }}
-                    />
+                    {index === orderedKeys.length - 1 ? (
+                      <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                    ) : (
+                      index + 1
+                    )}
                   </div>
-                </div>
+                  <div className="hidden sm:flex flex-col">
+                    <p className={`text-xs font-semibold uppercase tracking-wider ${index === currentStep ? activeColors.text : 'text-slate-500 dark:text-slate-400'}`}>
+                      Step {index + 1}
+                    </p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                      {pillar?.label || 'Unknown'}
+                    </p>
+                  </div>
+                </button>
               );
             })}
+          </div>
+          
+          {/* Global Progress Bar */}
+          <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r transition-all duration-300 ease-out rounded-full"
+              style={{
+                width: `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+                backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
+              }}
+            />
           </div>
         </div>
       </div>
