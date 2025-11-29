@@ -33,7 +33,7 @@ function Router() {
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="verto-ui-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="verto-ui-theme">
       <DynamicBackground />
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
