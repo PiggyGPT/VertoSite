@@ -46,7 +46,7 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="md:col-span-4">
                         <Link href="/" className="inline-block">
-                            <img src={logoSvg} alt="Verto Logo" className="h-6 w-auto" />
+                            <img src={logoSvg} alt="Albor Logo" className="h-6 w-auto" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
                             Digital Asset Operations Platform for compliant trading, payments, and distribution on any chain.
@@ -65,9 +65,9 @@ export default function Footer() {
                                         else if (link === "Exchanges") href = "/offer-defi-products";
                                         else if (link === "Trading Firms") href = "/secure-defi-ops";
                                         else if (link === "Platform") href = "#infrastructure";
-                                        else if (link === "Email") href = "mailto:info@verto.ai";
-                                        else if (link === "X") href = "https://x.com/Verto_AI";
-                                        else if (link === "Telegram") href = "https://t.me/VertoAI";
+                                        else if (link === "Email") href = "mailto:info@albor.ai";
+                                        else if (link === "X") href = "https://x.com/Albor_AI";
+                                        else if (link === "Telegram") href = "https://t.me/AlborAI";
                                         
                                         return (
                                             <li key={link}>
@@ -103,12 +103,12 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="mt-16 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <p className="text-slate-500 text-sm mb-4 md:mb-0">
-                        &copy; {new Date().getFullYear()} Verto Technologies Inc. All rights reserved.
+                        &copy; {new Date().getFullYear()} Albor Technologies Inc. All rights reserved.
                     </p>
                     <div className="flex items-center space-x-5">
-                         <a href="mailto:info@verto.ai" aria-label="Email" className="text-slate-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
-                         <a href="https://x.com/Verto_AI" target="_blank" rel="noopener noreferrer" aria-label="Follow Verto AI on X" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
-                         <a href="https://t.me/VertoAI" target="_blank" rel="noopener noreferrer" aria-label="Join Verto AI on Telegram" className="text-slate-500 hover:text-white transition-colors"><SiTelegram className="w-4 h-4" /></a>
+                         <a href="mailto:info@albor.ai" aria-label="Email" className="text-slate-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
+                         <a href="https://x.com/Albor_AI" target="_blank" rel="noopener noreferrer" aria-label="Follow Albor AI on X" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
+                         <a href="https://t.me/AlborAI" target="_blank" rel="noopener noreferrer" aria-label="Join Albor AI on Telegram" className="text-slate-500 hover:text-white transition-colors"><SiTelegram className="w-4 h-4" /></a>
 
                     </div>
                 </div>

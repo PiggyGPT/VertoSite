@@ -82,12 +82,12 @@ const PaymentsVisual = () => {
               <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
             </div>
             <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
-              <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
+              <QRCodeSVG value="https://albor.exchange/pay?id=4928" size={120} fgColor="#000000" />
             </div>
             <button className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-purple-600/60 shadow-lg ring-4 ring-purple-600/30' : 'scale-100 bg-purple-600 hover:bg-purple-600/90'} hover:scale-105`}>
               Pay Now
             </button>
-            <p className="text-xs text-slate-400 mt-6">Powered by Verto</p>
+            <p className="text-xs text-slate-400 mt-6">Powered by Albor</p>
           </div>
         </div>
 
