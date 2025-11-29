@@ -1337,8 +1337,8 @@ export default function PillarsSection({
   };
 
   return (
-    <div id="infrastructure" className="">
-      <div className="text-center pt-16 pb-8">
+    <div id="infrastructure" className="relative">
+      <div className="text-center pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8">
         <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
           {title}
         </h2>
@@ -1353,7 +1353,7 @@ export default function PillarsSection({
       </div>
 
       {/* Progress Indicator Navigation - Carousel Style */}
-      <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md border-b border-white/5">
+      <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md bg-white/5 dark:bg-slate-900/50 border-b border-white/10">
         <style>{`
           @keyframes fillDash {
             from {
@@ -1364,7 +1364,7 @@ export default function PillarsSection({
             }
           }
         `}</style>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
           {/* Step Bubbles with Progress Dashes */}
           <div className="flex justify-center items-center gap-1 sm:gap-2">
             {orderedKeys.map((key, index) => {
@@ -1433,7 +1433,7 @@ export default function PillarsSection({
       </div>
 
       {/* DESIGN CHANGE: The main content container now has more consistent padding */}
-      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
           {/* Left Column: Text Content */}
           <div className="lg:col-span-1">

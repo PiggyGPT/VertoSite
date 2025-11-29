@@ -115,6 +115,9 @@ Attract Global Dollars.`}
           customCTAs={stablecoinCTAs}
         />
       </div>
+      <div id="infrastructure">
+        <PillarsSection />
+      </div>
       <div id="team">
         <ProblemSection
           title="Join the $300B Market or Cede to It"
@@ -146,9 +149,6 @@ Attract Global Dollars.`}
             },
           ]}
         />
-      </div>
-      <div id="infrastructure">
-        <PillarsSection />
       </div>
       <CompetitiveDiffSection />
       <div id="pilot">
