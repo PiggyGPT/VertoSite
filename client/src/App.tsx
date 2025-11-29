@@ -6,16 +6,16 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import LaunchStablecoin from "@/pages/launch-stablecoin";
-import NotFound from "@/pages/not-found";
+import { DynamicBackground } from "@/components/DynamicBackground";
 
 // Component to handle scroll-to-top on route changes
 function ScrollToTop() {
   const [location] = useLocation();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-  
+
   return null;
 }
 
@@ -25,7 +25,7 @@ function Router() {
       <ScrollToTop />
       <Switch>
         <Route path="/" component={LaunchStablecoin} />
-        <Route component={NotFound} />
+        <Route component={LaunchStablecoin} />
       </Switch>
     </>
   );
@@ -34,6 +34,7 @@ function Router() {
 function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="verto-ui-theme">
+      <DynamicBackground />
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />

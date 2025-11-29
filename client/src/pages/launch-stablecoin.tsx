@@ -7,6 +7,8 @@ import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
 import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
+import GrowthSpiralSection from "@/components/growth-spiral-section";
+import CompetitiveDiffSection from "@/components/competitive-diff-section";
 import {
   Zap,
   Store,
@@ -102,64 +104,10 @@ export default function LaunchStablecoin() {
     updatePageSEO("launch-stablecoin");
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = Math.max(0, Math.min(1, docHeight > 0 ? scrollTop / docHeight : 0));
 
-      // Start: dark pre-dawn colors
-      const startColors = [
-        "#070911", "#0A0D15", "#0F1218", "#15161C",
-        "#1A1818", "#261E14", "#3A280E", "#4A2810"
-      ];
-
-      // End: warm sunrise orange/golden colors (#EF660B orange, #EEAA4A golden)
-      const endColors = [
-        "#8A3810", "#9A4A20", "#AA5C30", "#B86E40",
-        "#C68050", "#D49260", "#E2A470", "#EF660B"
-      ];
-
-      // Interpolate between start and end colors based on scroll
-      const root = document.documentElement;
-      for (let i = 0; i < startColors.length; i++) {
-        const colorIndex = i + 1;
-        const startColor = startColors[i];
-        const endColor = endColors[i];
-        
-        // Blend between start and end color based on scroll percentage
-        const blended = blendHexColors(startColor, endColor, scrollPercent);
-        root.style.setProperty(`--dawn-color-${colorIndex}`, blended);
-      }
-    };
-
-    // Helper function to blend two hex colors
-    const blendHexColors = (color1: string, color2: string, factor: number) => {
-      const c1 = parseInt(color1.slice(1), 16);
-      const c2 = parseInt(color2.slice(1), 16);
-      
-      const r1 = (c1 >> 16) & 255;
-      const g1 = (c1 >> 8) & 255;
-      const b1 = c1 & 255;
-      
-      const r2 = (c2 >> 16) & 255;
-      const g2 = (c2 >> 8) & 255;
-      const b2 = c2 & 255;
-      
-      const r = Math.round(r1 + (r2 - r1) * factor);
-      const g = Math.round(g1 + (g2 - g1) * factor);
-      const b = Math.round(b1 + (b2 - b1) * factor);
-      
-      return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Call once on mount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <div className="min-h-screen transition-colors dawn-gradient">
+    <div className="min-h-screen transition-colors">
       <Navigation />
       <div id="hero">
         <HeroSection
@@ -215,6 +163,8 @@ Attract Global Dollars.`}
           ]}
         />
       </div>
+      <GrowthSpiralSection />
+      <CompetitiveDiffSection />
       <div id="pilot">
         <BoardChecklistSection />
         <WhyNowSection

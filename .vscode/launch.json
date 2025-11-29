@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Server",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/tsx",
+            "args": [
+                "${workspaceFolder}/server/index.ts"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "NODE_ENV": "development",
+                "PORT": "5001"
+            },
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "name": "npm: dev",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "name": "Launch Client Only",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vite",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ]
+}

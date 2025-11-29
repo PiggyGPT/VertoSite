@@ -17,14 +17,14 @@ interface PillarsSectionProps {
 }
 import { motion, AnimatePresence } from "framer-motion";
 import {
-    User, Users, Rocket, Terminal,
-    Zap, Store, Archive,KeyIcon,
-    ShieldCheck, SquareStack, SlidersHorizontal,
-    Database, GitBranch,
-    LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
-    ChevronDown, Landmark, History, Link, Clock, Plus,
-    Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-    Cpu, Keyboard, Monitor, Coins, CreditCard
+  User, Users, Rocket, Terminal,
+  Zap, Store, Archive, KeyIcon,
+  ShieldCheck, SquareStack, SlidersHorizontal,
+  Database, GitBranch,
+  LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
+  ChevronDown, Landmark, History, Link, Clock, Plus,
+  Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
+  Cpu, Keyboard, Monitor, Coins, CreditCard
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -35,9 +35,9 @@ import { Quote } from "lucide-react";
 
 // --- Simplified Visual Container - No Background Interference ---
 const VisualContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
-        {children}
-    </div>
+  <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
+    {children}
+  </div>
 );
 
 // CSS for the typing cursor animation
@@ -57,11 +57,11 @@ const cursorStyle = `
 `;
 
 // Reusable Header component for consistent styling
-const Header = ({ title, subtitle, icon, badgeText }: { 
-  title: string; 
-  subtitle?: string; 
-  icon: React.ReactNode; 
-  badgeText?: string 
+const Header = ({ title, subtitle, icon, badgeText }: {
+  title: string;
+  subtitle?: string;
+  icon: React.ReactNode;
+  badgeText?: string
 }) => (
   <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
     <div>
@@ -81,281 +81,281 @@ const Header = ({ title, subtitle, icon, badgeText }: {
 
 // Component to display the core voucher content with the new, professional design.
 const MintContent = ({ voucherId, amount }: { voucherId: string; amount: string }) => {
-    return (
-        <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
-            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">MINT #{voucherId}</p>
-            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-            <p className="text-sm text-slate-500 dark:text-slate-400">SCAN TO CLAIM</p>
-            <div className="flex items-baseline justify-center gap-2 my-2">
-                <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">{amount}.00</p>
-                <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-            </div>
-            <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
-                <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
-            </div>
-        </div>
-    );
+  return (
+    <div className=" w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+      <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+      <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+      <p className="text-xs text-slate-500 dark:text-slate-400">MINT #{voucherId}</p>
+      <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+      <p className="text-sm text-slate-500 dark:text-slate-400">SCAN TO CLAIM</p>
+      <div className="flex items-baseline justify-center gap-2 my-2">
+        <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">{amount}.00</p>
+        <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
+      </div>
+      <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+        <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
+      </div>
+    </div>
+  );
 };
 
 
 // --- VISUAL 1: Distribution (Animated Flow) ---
 const ExecutiveDistributionFlow = () => {
-    // State to control the flow between two main panels: 0: dashboard, 1: voucher, 2: wallet
-    const [currentPanel, setCurrentPanel] = useState(0); 
-    // State to control the visibility of the single popup container
-    const [showKeypadPopup, setShowKeypadPopup] = useState(false);
-    const [amount, setAmount] = useState(''); // Dynamic amount for the input
-    const [voucherAmount, setMintAmount] = useState('');
-    // New state to manage the visual "click" effect on the button
-    const [isIssueButtonClicked, setIssueButtonClicked] = useState(false);
-    const [isEnterButtonClicked, setEnterButtonClicked] = useState(false);
+  // State to control the flow between two main panels: 0: dashboard, 1: voucher, 2: wallet
+  const [currentPanel, setCurrentPanel] = useState(0);
+  // State to control the visibility of the single popup container
+  const [showKeypadPopup, setShowKeypadPopup] = useState(false);
+  const [amount, setAmount] = useState(''); // Dynamic amount for the input
+  const [voucherAmount, setMintAmount] = useState('');
+  // New state to manage the visual "click" effect on the button
+  const [isIssueButtonClicked, setIssueButtonClicked] = useState(false);
+  const [isEnterButtonClicked, setEnterButtonClicked] = useState(false);
 
-    // Use a step-based state machine for robust animation timing
-    const [animationStep, setAnimationStep] = useState(0);
-    const voucherId = '8721';
+  // Use a step-based state machine for robust animation timing
+  const [animationStep, setAnimationStep] = useState(0);
+  const voucherId = '8721';
 
-    useEffect(() => {
-      let timeout: NodeJS.Timeout;
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
 
-      const runAnimationStep = (step: number) => {
-        switch (step) {
-          case 0:
-            // Initial state: Dashboard visible. Reset all other states.
-            setCurrentPanel(0);
-            setShowKeypadPopup(false);
-            setAmount('');
-            setMintAmount('');
-            setIssueButtonClicked(false);
-            setEnterButtonClicked(false);
-            timeout = setTimeout(() => setAnimationStep(1), 2000);
-            break;
-          case 1:
-            // Animate button click.
-            setIssueButtonClicked(true);
-            timeout = setTimeout(() => setAnimationStep(2), 300);
-            break;
-          case 2:
-            // Show popup.
-            setIssueButtonClicked(false);
-            setShowKeypadPopup(true);
-            timeout = setTimeout(() => setAnimationStep(3), 500);
-            break;
-          case 3:
-            // Simulate user typing on the input.
-            setAmount('50');
-            timeout = setTimeout(() => setAnimationStep(4), 1500);
-            break;
-          case 4:
-            // Simulate enter button click.
-            setEnterButtonClicked(true);
-            timeout = setTimeout(() => setAnimationStep(5), 300);
-            break;
-          case 5:
-            // Hide popup.
-            setEnterButtonClicked(false);
-            setShowKeypadPopup(false);
-            // Store the final amount to be displayed on the voucher
-            setMintAmount(amount);
-            timeout = setTimeout(() => setAnimationStep(6), 700);
-            break;
-          case 6:
-            // Pan to the voucher view.
-            setCurrentPanel(1);
-            timeout = setTimeout(() => setAnimationStep(7), 1000);
-            break;
-          case 7:
-            // Wait for voucher to be seen.
-            timeout = setTimeout(() => setAnimationStep(8), 2500);
-            break;
-          case 8:
-            // Pan to the wallet view.
-            setCurrentPanel(2);
-            timeout = setTimeout(() => setAnimationStep(9), 1000);
-            break;
-          case 9:
-            // Wait on wallet view, then restart the loop.
-            timeout = setTimeout(() => setAnimationStep(0), 1000);
-            break;
-          default:
-            break;
-        }
-      };
+    const runAnimationStep = (step: number) => {
+      switch (step) {
+        case 0:
+          // Initial state: Dashboard visible. Reset all other states.
+          setCurrentPanel(0);
+          setShowKeypadPopup(false);
+          setAmount('');
+          setMintAmount('');
+          setIssueButtonClicked(false);
+          setEnterButtonClicked(false);
+          timeout = setTimeout(() => setAnimationStep(1), 2000);
+          break;
+        case 1:
+          // Animate button click.
+          setIssueButtonClicked(true);
+          timeout = setTimeout(() => setAnimationStep(2), 300);
+          break;
+        case 2:
+          // Show popup.
+          setIssueButtonClicked(false);
+          setShowKeypadPopup(true);
+          timeout = setTimeout(() => setAnimationStep(3), 500);
+          break;
+        case 3:
+          // Simulate user typing on the input.
+          setAmount('50');
+          timeout = setTimeout(() => setAnimationStep(4), 1500);
+          break;
+        case 4:
+          // Simulate enter button click.
+          setEnterButtonClicked(true);
+          timeout = setTimeout(() => setAnimationStep(5), 300);
+          break;
+        case 5:
+          // Hide popup.
+          setEnterButtonClicked(false);
+          setShowKeypadPopup(false);
+          // Store the final amount to be displayed on the voucher
+          setMintAmount(amount);
+          timeout = setTimeout(() => setAnimationStep(6), 700);
+          break;
+        case 6:
+          // Pan to the voucher view.
+          setCurrentPanel(1);
+          timeout = setTimeout(() => setAnimationStep(7), 1000);
+          break;
+        case 7:
+          // Wait for voucher to be seen.
+          timeout = setTimeout(() => setAnimationStep(8), 2500);
+          break;
+        case 8:
+          // Pan to the wallet view.
+          setCurrentPanel(2);
+          timeout = setTimeout(() => setAnimationStep(9), 1000);
+          break;
+        case 9:
+          // Wait on wallet view, then restart the loop.
+          timeout = setTimeout(() => setAnimationStep(0), 1000);
+          break;
+        default:
+          break;
+      }
+    };
 
-      // Start the sequence and clean up on unmount
-      runAnimationStep(animationStep);
-      return () => {
-        if (timeout) clearTimeout(timeout);
-      };
-    }, [animationStep, amount]);
+    // Start the sequence and clean up on unmount
+    runAnimationStep(animationStep);
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [animationStep, amount]);
 
-    // Define static classes for intentional left-to-right panning workflow
-    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-x-0";
-    const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
-    const panelHiddenRightClasses = "opacity-0 translate-x-full";
+  // Define static classes for intentional left-to-right panning workflow
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-    // Panel class assignments for intentional workflow panning
-    const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
-    const panel1Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel === 0 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
-    const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
+  // Panel class assignments for intentional workflow panning
+  const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+  const panel1Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel === 0 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
+  const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
-    // Popup classes for controlling its visibility and animation
-    const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800
+  // Popup classes for controlling its visibility and animation
+  const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800
       ${showKeypadPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
-    const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showKeypadPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
+  const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showKeypadPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
 
-    return (
-        <VisualContainer>
-            <style>{cursorStyle}</style>
-            <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
-                {/* Panel 0: Agent Dashboard */}
-                <div
-                    className={panel0Classes}
-                    style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
-                >
-                    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
-                        {/* Dashboard header with relevant Settings icon */}
-                        <Header title="Tia Store" subtitle="Agent Dashboard" icon={<Settings className="w-5 h-5 text-slate-400" />} />
+  return (
+    <VisualContainer>
+      <style>{cursorStyle}</style>
+      <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+        {/* Panel 0: Agent Dashboard */}
+        <div
+          className={panel0Classes}
+          style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
+        >
+          <div className=" w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+            {/* Dashboard header with relevant Settings icon */}
+            <Header title="Tia Store" subtitle="Agent Dashboard" icon={<Settings className="w-5 h-5 text-slate-400" />} />
 
-                        <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                            <div className="flex items-center justify-between">
-                                <div>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">4,950.00 BOBC</p>
-                                </div>
-                                <button className="p-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 rounded-full transition-colors">
-                                    <Plus className="w-5 h-5" />
-                                </button>
-                            </div>
-                        </div>
+            <div className="p-4  rounded-lg">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
+                  <p className="text-2xl font-bold text-green-500 tracking-tight">4,950.00 BOBC</p>
+                </div>
+                <button className="p-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 rounded-full transition-colors">
+                  <Plus className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
 
-                        {/* Button that triggers the popup directly with typing animation */}
-                        <button
-                            className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500
+            {/* Button that triggers the popup directly with typing animation */}
+            <button
+              className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500
                                 ${isIssueButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}
                             `}
-                            onClick={() => {}} // Disabled for the animation loop
-                        >
-                            <Zap className="w-4 h-4" />
-                            <span>Issue BOBC</span>
-                        </button>
+              onClick={() => { }} // Disabled for the animation loop
+            >
+              <Zap className="w-4 h-4" />
+              <span>Issue BOBC</span>
+            </button>
 
 
-                        {/* Transaction history area */}
-                        <div className="flex-grow mt-4 overflow-hidden flex flex-col">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Transactions</p>
-                            <div className="space-y-2 text-sm overflow-y-auto">
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
-                                    <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
-                                    <span className="font-medium text-green-500">+ 5,000 BOBC</span>
-                                </div>
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
-                                    <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
-                                    <span className="font-medium text-slate-700 dark:text-slate-300">- 50.00 BOBC</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            {/* Transaction history area */}
+            <div className="flex-grow mt-4 overflow-hidden flex flex-col">
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Transactions</p>
+              <div className="space-y-2 text-sm overflow-y-auto">
+                <div className="flex justify-between items-center p-2  rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                  <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
+                  <span className="font-medium text-green-500">+ 5,000 BOBC</span>
                 </div>
-
-                {/* Panel 1: Mint Issued View */}
-                <div
-                    className={panel1Classes}
-                    style={{ zIndex: currentPanel === 1 ? 3 : 2 }}
-                >
-                    <MintContent voucherId={voucherId} amount={voucherAmount} />
+                <div className="flex justify-between items-center p-2  rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                  <div><span className="text-slate-600 dark:text-slate-400">Mint #8721</span><p className="text-xs text-slate-400">14 Aug 2025, 09:48</p></div>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">- 50.00 BOBC</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                {/* Panel 2: Maria Silva Wallet View */}
-                <div
-                    className={panel2Classes}
-                    style={{ zIndex: currentPanel === 2 ? 3 : 2 }}
-                >
-                    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
-                        {/* Wallet header with relevant User icon */}
-                        <Header title="Maria Silva" subtitle="Wallet" icon={<User className="w-5 h-5 text-slate-400" />} />
+        {/* Panel 1: Mint Issued View */}
+        <div
+          className={panel1Classes}
+          style={{ zIndex: currentPanel === 1 ? 3 : 2 }}
+        >
+          <MintContent voucherId={voucherId} amount={voucherAmount} />
+        </div>
 
-                        <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                            <div className="flex items-center justify-between">
-                                <div>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400">Balance</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">50.00 BOBC</p>
-                                </div>
-                                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                                    <User className="w-5 h-5 text-slate-500" />
-                                </div>
-                            </div>
-                        </div>
+        {/* Panel 2: Maria Silva Wallet View */}
+        <div
+          className={panel2Classes}
+          style={{ zIndex: currentPanel === 2 ? 3 : 2 }}
+        >
+          <div className=" w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+            {/* Wallet header with relevant User icon */}
+            <Header title="Maria Silva" subtitle="Wallet" icon={<User className="w-5 h-5 text-slate-400" />} />
 
-                        <div className="flex gap-2 my-4">
-                            <button className="flex-1 py-2 px-4 bg-green-500 hover:bg-green-500/90 text-white text-sm font-semibold rounded-lg transition-colors">
-                                Pay
-                            </button>
-                            <button className="flex-1 py-2 px-4 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-sm font-semibold rounded-lg transition-colors">
-                                Trade
-                            </button>
-                        </div>
-
-                        {/* Activity history area */}
-                        <div className="flex-grow overflow-hidden flex flex-col">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Activity</p>
-                            <div className="space-y-2 text-sm overflow-y-auto">
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
-                                    <div>
-                                        <span className="text-slate-600 dark:text-slate-400">Claimed BOBC</span> 
-                                        <p className="text-xs text-slate-400">14 Aug 2025, 09:51</p>
-                                    </div>
-                                    <span className="font-medium text-green-500">+ 50.00 BOBC</span>
-                                </div>
-                                <div className="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
-                                    <div>
-                                        <span className="text-slate-600 dark:text-slate-400">Wallet Created</span>
-                                        <p className="text-xs text-slate-400">14 Aug 2025, 09:48</p>
-                                    </div>
-                                    <span className="font-medium text-slate-700 dark:text-slate-300">--</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div className="p-4  rounded-lg">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Balance</p>
+                  <p className="text-2xl font-bold text-green-500 tracking-tight">50.00 BOBC</p>
                 </div>
+                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                  <User className="w-5 h-5 text-slate-500" />
+                </div>
+              </div>
+            </div>
 
-                {/* Pop-up for amount input */}
-                <div className={keypadPopupContainerClasses}>
-                    <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4`}>
-                        {/* Mint amount header with relevant Keyboard icon */}
-                        <Header title="Mint Amount" subtitle="Enter the amount to issue." icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
-                        <div className="flex-grow flex flex-col items-center justify-center text-center">
-                          <div className="flex items-center justify-center gap-2">
-                              <p className="text-6xl font-bold my-2 text-green-500 tracking-tight">
-                                  {amount || '0'}
-                                  <span className="text-4xl font-normal">.00</span>
-                                  <span className="typing-cursor"></span>
-                                  {/* Added subtle BOBC after the cursor */}
-                                  <span className="ml-2 text-3xl font-normal text-slate-500 dark:text-slate-400">BOBC</span>
-                              </p>
-                          </div>
-                          {/* Added "Available Credit" under the amount */}
-                          <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-                            Available Credit: 4,950.00 BOBC
-                          </div>
-                          {/* Issue Button now replaces the keypad and right arrow button */}
-                          <button 
-                            onClick={() => {}} // Disabled for animation
-                            className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500
+            <div className="flex gap-2 my-4">
+              <button className="flex-1 py-2 px-4 bg-green-500 hover:bg-green-500/90 text-white text-sm font-semibold rounded-lg transition-colors">
+                Pay
+              </button>
+              <button className="flex-1 py-2 px-4 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-sm font-semibold rounded-lg transition-colors">
+                Trade
+              </button>
+            </div>
+
+            {/* Activity history area */}
+            <div className="flex-grow overflow-hidden flex flex-col">
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Activity</p>
+              <div className="space-y-2 text-sm overflow-y-auto">
+                <div className="flex justify-between items-center p-2  rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                  <div>
+                    <span className="text-slate-600 dark:text-slate-400">Claimed BOBC</span>
+                    <p className="text-xs text-slate-400">14 Aug 2025, 09:51</p>
+                  </div>
+                  <span className="font-medium text-green-500">+ 50.00 BOBC</span>
+                </div>
+                <div className="flex justify-between items-center p-2  rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                  <div>
+                    <span className="text-slate-600 dark:text-slate-400">Wallet Created</span>
+                    <p className="text-xs text-slate-400">14 Aug 2025, 09:48</p>
+                  </div>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">--</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Pop-up for amount input */}
+        <div className={keypadPopupContainerClasses}>
+          <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4`}>
+            {/* Mint amount header with relevant Keyboard icon */}
+            <Header title="Mint Amount" subtitle="Enter the amount to issue." icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
+            <div className="flex-grow flex flex-col items-center justify-center text-center">
+              <div className="flex items-center justify-center gap-2">
+                <p className="text-6xl font-bold my-2 text-green-500 tracking-tight">
+                  {amount || '0'}
+                  <span className="text-4xl font-normal">.00</span>
+                  <span className="typing-cursor"></span>
+                  {/* Added subtle BOBC after the cursor */}
+                  <span className="ml-2 text-3xl font-normal text-slate-500 dark:text-slate-400">BOBC</span>
+                </p>
+              </div>
+              {/* Added "Available Credit" under the amount */}
+              <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                Available Credit: 4,950.00 BOBC
+              </div>
+              {/* Issue Button now replaces the keypad and right arrow button */}
+              <button
+                onClick={() => { }} // Disabled for animation
+                className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500
                                 ${isEnterButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}
                             `}
-                          >
-                            <Zap className="w-5 h-5" />
-                            <span>Issue BOBC</span>
-                          </button>
-                        </div>
-                    </div>
-                </div>
+              >
+                <Zap className="w-5 h-5" />
+                <span>Issue BOBC</span>
+              </button>
             </div>
-        </VisualContainer>
-    );
+          </div>
+        </div>
+      </div>
+    </VisualContainer>
+  );
 };
 
 // ExecutiveDistributionFlow component defined above
@@ -363,192 +363,192 @@ const ExecutiveDistributionFlow = () => {
 
 // --- VISUAL 2: Payments (Animated Flow) ---
 const PolishedPaymentsFlow = () => {
-    const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
-    const [buttonClicked, setButtonClicked] = useState(false);
+  const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
+  const [buttonClicked, setButtonClicked] = useState(false);
 
-    // Auto animation cycle - 3 panels with button click timing
-    useEffect(() => {
-        const cycle = setInterval(() => {
-            setCurrentPanel(prev => {
-                if (prev === 0) {
-                    // Show button click animation before transition
-                    setButtonClicked(true);
-                    setTimeout(() => {
-                        setButtonClicked(false);
-                    }, 500);
-                    // Delay panel transition to show button click
-                    setTimeout(() => {
-                        setCurrentPanel(1);
-                    }, 600);
-                    return prev; // Don't change panel immediately
-                } else if (prev === 1) {
-                    // Show button click animation before transition
-                    setButtonClicked(true);
-                    setTimeout(() => {
-                        setButtonClicked(false);
-                    }, 500);
-                    // Delay panel transition to show button click
-                    setTimeout(() => {
-                        setCurrentPanel(2);
-                    }, 600);
-                    return prev; // Don't change panel immediately
-                } else {
-                    return 0; // Reset to beginning
-                }
-            });
-        }, 3500); // Switch every 3.5 seconds
+  // Auto animation cycle - 3 panels with button click timing
+  useEffect(() => {
+    const cycle = setInterval(() => {
+      setCurrentPanel(prev => {
+        if (prev === 0) {
+          // Show button click animation before transition
+          setButtonClicked(true);
+          setTimeout(() => {
+            setButtonClicked(false);
+          }, 500);
+          // Delay panel transition to show button click
+          setTimeout(() => {
+            setCurrentPanel(1);
+          }, 600);
+          return prev; // Don't change panel immediately
+        } else if (prev === 1) {
+          // Show button click animation before transition
+          setButtonClicked(true);
+          setTimeout(() => {
+            setButtonClicked(false);
+          }, 500);
+          // Delay panel transition to show button click
+          setTimeout(() => {
+            setCurrentPanel(2);
+          }, 600);
+          return prev; // Don't change panel immediately
+        } else {
+          return 0; // Reset to beginning
+        }
+      });
+    }, 3500); // Switch every 3.5 seconds
 
-        return () => clearInterval(cycle);
-    }, []);
+    return () => clearInterval(cycle);
+  }, []);
 
-    // Define static classes for intentional left-to-right panning workflow
-    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-x-0";
-    const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
-    const panelHiddenRightClasses = "opacity-0 translate-x-full";
+  // Define static classes for intentional left-to-right panning workflow
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-    // Panel class assignments for intentional workflow panning
-    const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
-    const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel < 1 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
-    const panel3Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
+  // Panel class assignments for intentional workflow panning
+  const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+  const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel < 1 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
+  const panel3Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
-    return (
-        <VisualContainer>
-            <div className="relative w-full max-w-lg mx-auto h-[410px]">
-                {/* Panel 1: Payment Request / QR Code */}
-                <div
-                    className={panel1Classes}
-                    style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
-                >
-                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
-                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">PAYMENT #4928</p>
-                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT DUE</p>
-                        <div className="flex items-baseline gap-2">
-                            <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
-                            <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-                        </div>
-                        <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
-                            <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
-                        </div>
-                        <button
-                            className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}
-                        >
-                            Pay Now
-                        </button>
-                        <p className="text-xs text-slate-400 mt-6">Powered by Verto</p>
-                    </div>
-                </div>
-
-                {/* Panel 2: Checkout UI */}
-                <div
-                    className={panel2Classes}
-                    style={{ zIndex: currentPanel === 1 ? 3 : 1 }}
-                >
-                    <div className="bg-white/30 dark:bg-slate-900/30 w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
-                         <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                                    <User className="w-5 h-5 text-slate-500" />
-                                </div>
-                                <p className="font-bold text-lg text-slate-800 dark:text-slate-200">John Doe</p>
-                            </div>
-                            <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
-                        </div>
-                        <div className="flex flex-col space-y-2">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay with</p>
-                            <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                                <div className="flex items-center gap-3">
-                                    <div>
-                                        <p className="text-s font-semibold text-slate-800 dark:text-slate-200">Coinbase</p>
-                                        <p className="text-xs text-slate-500 dark:text-slate-400">12,500.50 USDC</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="font-bold text-slate-800 dark:text-slate-200">12.00 USDC</span>
-                                    <ChevronDown className="w-5 h-5 text-slate-400" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col space-y-1">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">To</p>
-                            <div className="relative p-2 rounded-lg flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                    <div>
-                                        <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
-                                        <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
-                                    </div>
-                                </div>
-                                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">120.00 BOBC</span>
-                            </div>
-                        </div>
-                        
-                        <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
-                            <span>Rate: 1 BOBC ≈ 0.10 USDC</span>
-                            <span>Fees: 0.00 USDC</span>
-                        </div>
-                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}>
-                            <Zap className="w-4 h-4" />
-                            <span>Pay 12.00 USDC</span>
-                        </button>
-                        <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Verto</p>
-                    </div>
-                </div>
-
-                {/* Panel 3: Payment Confirmation */}
-                <div
-                    className={panel3Classes}
-                    style={{ zIndex: currentPanel === 2 ? 3 : 1 }}
-                >
-                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
-                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Payment Confirmed</h3>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:52:34</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">TXN #8721-CONF</p>
-                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-
-                        <div className="w-full text-center mb-4">
-                            <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">RECEIVED</p>
-                            <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
-                            <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Paid 12.00 USDC</p>
-                        </div>
-
-                        <div className="w-full space-y-3 text-left flex-grow">
-                            <div className="flex justify-between">
-                                <span className="text-xs text-slate-500 dark:text-slate-400">From:</span>
-                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">John Doe</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span className="text-xs text-slate-500 dark:text-slate-400">To:</span>
-                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">Tia Store</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
-                                <span className="text-xs font-semibold text-verto-green flex items-center gap-1">
-                                    <ShieldCheck className="w-3 h-3" />
-                                    Confirmed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-                        <div className="w-full p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                            <p className="text-xs text-slate-600 dark:text-slate-400 text-center">
-                                Transaction Hash
-                            </p>
-                            <p className="text-xs font-mono text-slate-800 dark:text-slate-200 text-center break-all">
-                                0x7c8f9a2b...d4e5
-                            </p>
-                        </div>
-                        <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
-                    </div>
-                </div>
+  return (
+    <VisualContainer>
+      <div className="relative w-full max-w-lg mx-auto h-[410px]">
+        {/* Panel 1: Payment Request / QR Code */}
+        <div
+          className={panel1Classes}
+          style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
+        >
+          <div className=" w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">PAYMENT #4928</p>
+            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+            <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT DUE</p>
+            <div className="flex items-baseline gap-2">
+              <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
+              <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
             </div>
-        </VisualContainer>
-    );
+            <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
+              <QRCodeSVG value="https://verto.exchange/pay?id=4928" size={120} fgColor="#000000" />
+            </div>
+            <button
+              className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}
+            >
+              Pay Now
+            </button>
+            <p className="text-xs text-slate-400 mt-6">Powered by Verto</p>
+          </div>
+        </div>
+
+        {/* Panel 2: Checkout UI */}
+        <div
+          className={panel2Classes}
+          style={{ zIndex: currentPanel === 1 ? 3 : 1 }}
+        >
+          <div className=" w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                  <User className="w-5 h-5 text-slate-500" />
+                </div>
+                <p className="font-bold text-lg text-slate-800 dark:text-slate-200">John Doe</p>
+              </div>
+              <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
+            </div>
+            <div className="flex flex-col space-y-2">
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay with</p>
+              <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                <div className="flex items-center gap-3">
+                  <div>
+                    <p className="text-s font-semibold text-slate-800 dark:text-slate-200">Coinbase</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">12,500.50 USDC</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-slate-800 dark:text-slate-200">12.00 USDC</span>
+                  <ChevronDown className="w-5 h-5 text-slate-400" />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col space-y-1">
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">To</p>
+              <div className="relative p-2 rounded-lg flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div>
+                    <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
+                  </div>
+                </div>
+                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">120.00 BOBC</span>
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
+              <span>Rate: 1 BOBC ≈ 0.10 USDC</span>
+              <span>Fees: 0.00 USDC</span>
+            </div>
+            <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}>
+              <Zap className="w-4 h-4" />
+              <span>Pay 12.00 USDC</span>
+            </button>
+            <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Verto</p>
+          </div>
+        </div>
+
+        {/* Panel 3: Payment Confirmation */}
+        <div
+          className={panel3Classes}
+          style={{ zIndex: currentPanel === 2 ? 3 : 1 }}
+        >
+          <div className=" w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Payment Confirmed</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:52:34</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">TXN #8721-CONF</p>
+            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+
+            <div className="w-full text-center mb-4">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">RECEIVED</p>
+              <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
+              <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Paid 12.00 USDC</p>
+            </div>
+
+            <div className="w-full space-y-3 text-left flex-grow">
+              <div className="flex justify-between">
+                <span className="text-xs text-slate-500 dark:text-slate-400">From:</span>
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">John Doe</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-xs text-slate-500 dark:text-slate-400">To:</span>
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">Tia Store</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
+                <span className="text-xs font-semibold text-verto-green flex items-center gap-1">
+                  <ShieldCheck className="w-3 h-3" />
+                  Confirmed
+                </span>
+              </div>
+            </div>
+
+            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+            <div className="w-full p-3  rounded-lg">
+              <p className="text-xs text-slate-600 dark:text-slate-400 text-center">
+                Transaction Hash
+              </p>
+              <p className="text-xs font-mono text-slate-800 dark:text-slate-200 text-center break-all">
+                0x7c8f9a2b...d4e5
+              </p>
+            </div>
+            <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
+          </div>
+        </div>
+      </div>
+    </VisualContainer>
+  );
 };
 
 // Custom hook for the typing animation effect.
@@ -774,7 +774,7 @@ const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, curre
   };
 
   return (
-    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative">
+    <div className=" w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Batched Transaction Route</h3>
@@ -794,7 +794,7 @@ const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, curre
             <motion.div
               key={step.id}
               variants={itemVariants}
-              className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 transition-all duration-500 bg-slate-50 dark:bg-slate-800"
+              className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 transition-all duration-500 "
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -859,7 +859,7 @@ const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, curre
 // --- Sub-component for Panel 3: Compliance Report ---
 const ComplianceReportPanel = () => {
   return (
-    <div className="bg-white/30 dark:bg-slate-900/30 w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
+    <div className=" w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Compliant Audit Trail</h3>
@@ -876,11 +876,11 @@ const ComplianceReportPanel = () => {
       <div className="mb-5">
         <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Compliance Checks</p>
         <div className="space-y-2">
-          <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-md text-sm">
+          <div className="flex items-center justify-between p-2  rounded-md text-sm">
             <span className="text-slate-600 dark:text-slate-300">Sanctions & AML</span>
             <span className="font-medium text-green-600 dark:text-green-400">Passed</span>
           </div>
-          <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-md text-sm">
+          <div className="flex items-center justify-between p-2  rounded-md text-sm">
             <span className="text-slate-600 dark:text-slate-300">Counterparty</span>
             <span className="font-medium text-green-600 dark:text-green-400">Verified</span>
           </div>
@@ -889,7 +889,7 @@ const ComplianceReportPanel = () => {
 
       <div className="mt-auto">
         <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Execution Details</p>
-        <div className="text-xs space-y-1 text-slate-600 dark:text-slate-400 p-3 bg-slate-50 dark:bg-slate-800 rounded-md font-mono">
+        <div className="text-xs space-y-1 text-slate-600 dark:text-slate-400 p-3  rounded-md font-mono">
           <div className="flex justify-between"><span>Net Cost:</span> <span>25,022.50 USDC</span></div>
           <div className="flex justify-between"><span>Price:</span> <span>1 BOBC = 0.999 USDC</span></div>
           <div className="flex justify-between"><span>Duration:</span> <span>3.2 seconds</span></div>
@@ -903,96 +903,96 @@ const ComplianceReportPanel = () => {
 
 // --- VISUAL 4: Compliance (Animated Flow) ---
 const PolishedComplianceFlow = () => {
-    const [currentPanel, setCurrentPanel] = useState(0); // 0: ratings, 1: policy, 2: report
+  const [currentPanel, setCurrentPanel] = useState(0); // 0: ratings, 1: policy, 2: report
 
-    useEffect(() => {
-        const cycle = setInterval(() => {
-            setCurrentPanel(prev => (prev + 1) % 3);
-        }, 2000); // Switch every 2 seconds
-        return () => clearInterval(cycle);
-    }, []);
+  useEffect(() => {
+    const cycle = setInterval(() => {
+      setCurrentPanel(prev => (prev + 1) % 3);
+    }, 2000); // Switch every 2 seconds
+    return () => clearInterval(cycle);
+  }, []);
 
-    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
-    const panelVisibleClasses = "opacity-100 translate-x-0";
-    const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
-    const panelHiddenRightClasses = "opacity-0 translate-x-full";
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-    const getPanelClasses = (panelIndex: number) => {
-        if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
-        if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
-        return `${panelBaseClasses} ${panelHiddenRightClasses}`;
-    };
+  const getPanelClasses = (panelIndex: number) => {
+    if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
+    if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
+    return `${panelBaseClasses} ${panelHiddenRightClasses}`;
+  };
 
-    return (
-        <VisualContainer>
-            <div className="relative w-full max-w-lg mx-auto h-[480px] overflow-x-hidden">
-                {/* Panel 1: Risk Ratings */}
-                <div className={getPanelClasses(0)} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
-                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
-                        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">AI Risk Ratings</h3>
-                        <div className="space-y-3">
-                             <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg flex justify-between items-center">
-                                <span className="font-semibold text-slate-700 dark:text-slate-300">CCTP Protocol</span>
-                                <span className="font-mono font-bold text-green-500">AAA</span>
-                            </div>
-                             <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg flex justify-between items-center">
-                                <span className="font-semibold text-slate-700 dark:text-slate-300">Curve Finance</span>
-                                <span className="font-mono font-bold text-yellow-500">AA</span>
-                            </div>
-                             <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg flex justify-between items-center">
-                                <span className="font-semibold text-slate-700 dark:text-slate-300">Origin Wallet</span>
-                                 <span className="font-mono font-bold text-orange-500">A</span>
-                            </div>
-                        </div>
-                        <button className="flex items-center justify-center w-full space-x-2 mt-6 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                            <MessageCircle className="w-5 h-5 text-verto-blue"/>
-                            <span>Explain with AI</span>
-                        </button>
-                    </div>
-                </div>
-
-                {/* Panel 2: Policy Engine */}
-                <div className={getPanelClasses(1)} style={{ zIndex: currentPanel === 1 ? 3 : 1 }}>
-                    <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
-                        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Policy Engine</h3>
-                        <div className="space-y-2 text-sm font-mono text-slate-600 dark:text-slate-400">
-                           <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded">IF amount &gt; $10k AND risk_rating &lt; BBB</div>
-                           <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded">THEN require_ciso_approval</div>
-                        </div>
-                        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-center">
-                           <span className="font-bold text-blue-700 dark:text-blue-400 text-lg">APPROVED</span>
-                           <p className="text-xs text-blue-600 dark:text-blue-300 mt-1">Policy conditions satisfied.</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Panel 3: Compliance Report */}
-                 <div className={getPanelClasses(2)} style={{ zIndex: currentPanel === 2 ? 3 : 1 }}>
-                     <div className="bg-white/30 dark:bg-slate-900/30 w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
-                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Compliance Report</h3>
-                         <div className="space-y-3">
-                            <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <span className="text-sm text-slate-600 dark:text-slate-400">Payment ID</span>
-                                <span className="text-sm font-mono text-slate-800 dark:text-slate-200">#4928-LIQ</span>
-                            </div>
-                            <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <span className="text-sm text-slate-600 dark:text-slate-400">Risk Assessment</span>
-                                <span className="text-sm font-semibold text-green-600 dark:text-green-400">PASSED</span>
-                            </div>
-                            <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <span className="text-sm text-slate-600 dark:text-slate-400">Policy Check</span>
-                                <span className="text-sm font-semibold text-green-600 dark:text-green-400">PASSED</span>
-                            </div>
-                            <div className="flex justify-between items-center p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                <span className="text-sm text-slate-600 dark:text-slate-400">Final Status</span>
-                                <span className="text-sm font-bold text-green-600 dark:text-green-400">VERIFIED</span>
-                            </div>
-                         </div>
-                     </div>
-                 </div>
+  return (
+    <VisualContainer>
+      <div className="relative w-full max-w-lg mx-auto h-[480px] overflow-x-hidden">
+        {/* Panel 1: Risk Ratings */}
+        <div className={getPanelClasses(0)} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
+          <div className=" w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
+            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">AI Risk Ratings</h3>
+            <div className="space-y-3">
+              <div className="p-3  rounded-lg flex justify-between items-center">
+                <span className="font-semibold text-slate-700 dark:text-slate-300">CCTP Protocol</span>
+                <span className="font-mono font-bold text-green-500">AAA</span>
+              </div>
+              <div className="p-3  rounded-lg flex justify-between items-center">
+                <span className="font-semibold text-slate-700 dark:text-slate-300">Curve Finance</span>
+                <span className="font-mono font-bold text-yellow-500">AA</span>
+              </div>
+              <div className="p-3  rounded-lg flex justify-between items-center">
+                <span className="font-semibold text-slate-700 dark:text-slate-300">Origin Wallet</span>
+                <span className="font-mono font-bold text-orange-500">A</span>
+              </div>
             </div>
-        </VisualContainer>
-    );
+            <button className="flex items-center justify-center w-full space-x-2 mt-6 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+              <MessageCircle className="w-5 h-5 text-verto-blue" />
+              <span>Explain with AI</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Panel 2: Policy Engine */}
+        <div className={getPanelClasses(1)} style={{ zIndex: currentPanel === 1 ? 3 : 1 }}>
+          <div className=" w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
+            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Policy Engine</h3>
+            <div className="space-y-2 text-sm font-mono text-slate-600 dark:text-slate-400">
+              <div className="p-3  rounded">IF amount &gt; $10k AND risk_rating &lt; BBB</div>
+              <div className="p-3  rounded">THEN require_ciso_approval</div>
+            </div>
+            <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-center">
+              <span className="font-bold text-blue-700 dark:text-blue-400 text-lg">APPROVED</span>
+              <p className="text-xs text-blue-600 dark:text-blue-300 mt-1">Policy conditions satisfied.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Panel 3: Compliance Report */}
+        <div className={getPanelClasses(2)} style={{ zIndex: currentPanel === 2 ? 3 : 1 }}>
+          <div className=" w-full max-w-md mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6">
+            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">Compliance Report</h3>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center p-3  rounded-lg">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Payment ID</span>
+                <span className="text-sm font-mono text-slate-800 dark:text-slate-200">#4928-LIQ</span>
+              </div>
+              <div className="flex justify-between items-center p-3  rounded-lg">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Risk Assessment</span>
+                <span className="text-sm font-semibold text-green-600 dark:text-green-400">PASSED</span>
+              </div>
+              <div className="flex justify-between items-center p-3  rounded-lg">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Policy Check</span>
+                <span className="text-sm font-semibold text-green-600 dark:text-green-400">PASSED</span>
+              </div>
+              <div className="flex justify-between items-center p-3  rounded-lg">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Final Status</span>
+                <span className="text-sm font-bold text-green-600 dark:text-green-400">VERIFIED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </VisualContainer>
+  );
 };
 
 
@@ -1022,396 +1022,396 @@ const animationStyles = `
 
 // A reusable header component for consistent styling within the dashboard
 const ServiceHeader = ({ title, icon }: { title: string; icon: React.ReactNode }) => (
-    <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
-        {icon && React.cloneElement(icon as React.ReactElement, { className: 'w-3 h-3' })}
-        <span>{title}</span>
-    </div>
+  <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
+    {icon && React.cloneElement(icon as React.ReactElement, { className: 'w-3 h-3' })}
+    <span>{title}</span>
+  </div>
 );
 
 // --- Main Dashboard Component ---
 const ExecutiveServiceFlow = () => {
-    // State for the active SOC location and the simulated time
-    const [activeSOC, setActiveSOC] = useState('New York');
-    const [timeData, setTimeData] = useState({ hours: 6, minutes: 0 }); // Start at 06:00
+  // State for the active SOC location and the simulated time
+  const [activeSOC, setActiveSOC] = useState('New York');
+  const [timeData, setTimeData] = useState({ hours: 6, minutes: 0 }); // Start at 06:00
 
-    useEffect(() => {
-        const locations = ['New York', 'Barcelona', 'Singapore'];
+  useEffect(() => {
+    const locations = ['New York', 'Barcelona', 'Singapore'];
 
-        // Interval to update the clock every 50ms for a smooth animation
-        const clockInterval = setInterval(() => {
-            setTimeData(prevTime => {
-                let newMinutes = prevTime.minutes + 10;
-                let newHours = prevTime.hours;
+    // Interval to update the clock every 50ms for a smooth animation
+    const clockInterval = setInterval(() => {
+      setTimeData(prevTime => {
+        let newMinutes = prevTime.minutes + 10;
+        let newHours = prevTime.hours;
 
-                if (newMinutes >= 60) {
-                    newMinutes = 0;
-                    newHours = (newHours + 1) % 24;
-                }
+        if (newMinutes >= 60) {
+          newMinutes = 0;
+          newHours = (newHours + 1) % 24;
+        }
 
-                // Change active SOC based on 8-hour shifts
-                // 06:00 - 14:00 -> New York
-                // 14:00 - 22:00 -> Barcelona
-                // 22:00 - 06:00 -> Singapore
-                if (newHours >= 6 && newHours < 14) {
-                    setActiveSOC(locations[0]); // New York
-                } else if (newHours >= 14 && newHours < 22) {
-                    setActiveSOC(locations[1]); // Barcelona
-                } else {
-                    setActiveSOC(locations[2]); // Singapore
-                }
+        // Change active SOC based on 8-hour shifts
+        // 06:00 - 14:00 -> New York
+        // 14:00 - 22:00 -> Barcelona
+        // 22:00 - 06:00 -> Singapore
+        if (newHours >= 6 && newHours < 14) {
+          setActiveSOC(locations[0]); // New York
+        } else if (newHours >= 14 && newHours < 22) {
+          setActiveSOC(locations[1]); // Barcelona
+        } else {
+          setActiveSOC(locations[2]); // Singapore
+        }
 
-                return { hours: newHours, minutes: newMinutes };
-            });
-        }, 50); // Faster interval for smoother clock
+        return { hours: newHours, minutes: newMinutes };
+      });
+    }, 50); // Faster interval for smoother clock
 
-        return () => clearInterval(clockInterval);
-    }, []);
+    return () => clearInterval(clockInterval);
+  }, []);
 
-    // Format the time for display with leading zeros
-    const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
+  // Format the time for display with leading zeros
+  const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
 
-    return (
-        <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
-            <style>{animationStyles}</style>
-            <div className="w-full max-w-xs md:max-w-sm p-4 md:p-5 rounded-2xl shadow-xl bg-white/30 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700 flex flex-col space-y-4 md:space-y-5">
+  return (
+    <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
+      <style>{animationStyles}</style>
+      <div className="w-full max-w-xs md:max-w-sm p-4 md:p-5 rounded-2xl shadow-xl  border border-slate-200 dark:border-slate-700 flex flex-col space-y-4 md:space-y-5">
 
-                {/* Dashboard Header */}
-                <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-                    <h1 className="text-base font-bold text-slate-600 dark:text-slate-300">Service Dashboard</h1>
-                    <div className="flex items-center space-x-1.5 px-2.5 py-1 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 rounded-full">
-                        <ShieldCheck className="w-3 h-3" />
-                        <span className="text-xs font-semibold uppercase tracking-wider">24/7 SOC</span>
-                    </div>
-                </div>
-
-                {/* Section 1: Cluster & Environment */}
-                <div>
-                    <ServiceHeader title="Self-Hosted Deployment" icon={<Server />} />
-                    <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                        <div className="flex justify-between items-center mb-3">
-                            <div>
-                                <p className="text-xs font-medium text-slate-400 dark:text-slate-500">Operational Status</p>
-                                <div className="flex items-center gap-2 mt-1">
-                                    <CheckCircle className="w-3 h-3 text-green-500" />
-                                    <p className="text-xl font-bold text-green-500 tracking-tight">99.99%</p>
-                                </div>
-                            </div>
-                            <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                                <Cpu className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center text-sm">
-                            <div className="flex-1">
-                                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Environment</p>
-                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Production</p>
-                            </div>
-                            <div className="flex-1 text-right">
-                                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Location</p>
-                                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">sa-east1-siloed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Section 2: Active SOC Monitoring */}
-                <div>
-                    <ServiceHeader title="Active SOC Monitoring" icon={<Monitor />} />
-                    <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                        <div className="flex items-center gap-4">
-                            <div className="relative p-2 rounded-full bg-green-500 animate-pulse-green">
-                                <Monitor className="w-4 h-4 text-white" />
-                            </div>
-                            <div className="flex flex-col">
-                                <p className="text-base font-semibold text-slate-600 dark:text-slate-300">{activeSOC}</p>
-                                <span className="text-xs font-bold text-green-500 uppercase">Active</span>
-                            </div>
-                        </div>
-                        {/* Digital clock displaying the time */}
-                        <div className="flex items-center gap-2">
-                             <Clock className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-                             <span className="text-xl font-mono font-semibold text-slate-600 dark:text-slate-300 tracking-tight">{formattedTime}</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        {/* Dashboard Header */}
+        <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+          <h1 className="text-base font-bold text-slate-600 dark:text-slate-300">Service Dashboard</h1>
+          <div className="flex items-center space-x-1.5 px-2.5 py-1 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 rounded-full">
+            <ShieldCheck className="w-3 h-3" />
+            <span className="text-xs font-semibold uppercase tracking-wider">24/7 SOC</span>
+          </div>
         </div>
-    );
+
+        {/* Section 1: Cluster & Environment */}
+        <div>
+          <ServiceHeader title="Self-Hosted Deployment" icon={<Server />} />
+          <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
+            <div className="flex justify-between items-center mb-3">
+              <div>
+                <p className="text-xs font-medium text-slate-400 dark:text-slate-500">Operational Status</p>
+                <div className="flex items-center gap-2 mt-1">
+                  <CheckCircle className="w-3 h-3 text-green-500" />
+                  <p className="text-xl font-bold text-green-500 tracking-tight">99.99%</p>
+                </div>
+              </div>
+              <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                <Cpu className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+              </div>
+            </div>
+            <div className="flex justify-between items-center text-sm">
+              <div className="flex-1">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Environment</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Production</p>
+              </div>
+              <div className="flex-1 text-right">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Location</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">sa-east1-siloed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 2: Active SOC Monitoring */}
+        <div>
+          <ServiceHeader title="Active SOC Monitoring" icon={<Monitor />} />
+          <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
+            <div className="flex items-center gap-4">
+              <div className="relative p-2 rounded-full bg-green-500 animate-pulse-green">
+                <Monitor className="w-4 h-4 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <p className="text-base font-semibold text-slate-600 dark:text-slate-300">{activeSOC}</p>
+                <span className="text-xs font-bold text-green-500 uppercase">Active</span>
+              </div>
+            </div>
+            {/* Digital clock displaying the time */}
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+              <span className="text-xl font-mono font-semibold text-slate-600 dark:text-slate-300 tracking-tight">{formattedTime}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
 };
 
 
 // DESIGN CHANGE: Create a dedicated "Insight Banner" for the founder quotes.
 // This new component creates the full-width, colored banner style.
 const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
-    quote: string;
-    name: string;
-    title: string;
-    image: string;
-    colorClasses: any;
+  quote: string;
+  name: string;
+  title: string;
+  image: string;
+  colorClasses: any;
 }) => (
-    <div className={`rounded-xl p-6 md:p-8 mt-4 mb-6 ${colorClasses.bg}/10`}>
-        <div className="flex flex-col md:flex-row items-start gap-6">
-            <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
-            <div>
-                <blockquote className={`text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 ${colorClasses.border} pl-5`}>
-                    <p>"{quote}"</p>
-                </blockquote>
-                <footer className="mt-4">
-                    <p className="font-semibold text-slate-900 dark:text-white">{name}</p>
-                    <p className={`text-sm font-medium ${colorClasses.text}`}>{title}</p>
-                </footer>
-            </div>
-        </div>
+  <div className={`rounded-xl p-6 md:p-8 mt-4 mb-6 ${colorClasses.bg}/10`}>
+    <div className="flex flex-col md:flex-row items-start gap-6">
+      <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
+      <div>
+        <blockquote className={`text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 ${colorClasses.border} pl-5`}>
+          <p>"{quote}"</p>
+        </blockquote>
+        <footer className="mt-4">
+          <p className="font-semibold text-slate-900 dark:text-white">{name}</p>
+          <p className={`text-sm font-medium ${colorClasses.text}`}>{title}</p>
+        </footer>
+      </div>
     </div>
+  </div>
 );
 
 // DESIGN CHANGE: Define the FeatureItem with larger text and better spacing.
 const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentType<any>, title: string, children: React.ReactNode }) => (
-    <div className="flex items-start">
-        <div className="flex-shrink-0">
-            <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
-                <Icon className="w-6 h-6 text-verto-blue" />
-            </div>
-        </div>
-        <div className="ml-4">
-            <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
-            <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{children}</p>
-        </div>
+  <div className="flex items-start">
+    <div className="flex-shrink-0">
+      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
+        <Icon className="w-6 h-6 text-verto-blue" />
+      </div>
     </div>
+    <div className="ml-4">
+      <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
+      <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{children}</p>
+    </div>
+  </div>
 );
 
 
-export default function PillarsSection({ 
+export default function PillarsSection({
   title = "One Unified Platform",
   subtitle = "A self-hosted stack to orchestrate digital asset operations on any chain.\nMonitored 24×7 by global experts with AI-automated compliance.",
   customFounderQuotes,
   customOrder
 }: PillarsSectionProps = {}) {
-    const [activeTab, setActiveTab] = useState(customOrder ? customOrder[0] : "trading");
-    const { openModal, CalendlyModal } = useCalendlyModal();
+  const [activeTab, setActiveTab] = useState(customOrder ? customOrder[0] : "trading");
+  const { openModal, CalendlyModal } = useCalendlyModal();
 
-    // Listen for pillar activation events from hero CTAs
-    useEffect(() => {
-        const handleActivatePillar = (event: CustomEvent) => {
-            setActiveTab(event.detail);
-        };
-
-        window.addEventListener('activatePillar', handleActivatePillar as EventListener);
-        return () => {
-            window.removeEventListener('activatePillar', handleActivatePillar as EventListener);
-        };
-    }, []);
-
-    // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
-    // Founder images are now included.
-    const defaultPillars = {
-        trading: { 
-            label: "Trading", color: "verto-blue", title: "Institutional Liquidity", 
-            description: "Execute trades across fragmented, multi-chain liquidity pools with automated enforcement of institutional risk policies.", 
-            visual: <ExecutiveLiquidityFlow />,
-            founderQuote: { 
-                quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
-                name: "David Cass",
-                title: "CEO | Former CISO at GSR",
-                image: davidImage
-            },
-            features: [ { icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: KeyIcon, title: "Non-Custodial Signing", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: SquareStack, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." }, ], 
-            cta: "Integrate Liquidity API" 
-        },
-        payments: { 
-            label: "Payments", color: "verto-purple", title: "Frictionless Checkout", 
-            description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.", 
-            visual: <PolishedPaymentsFlow />, 
-            founderQuote: { 
-                quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
-                name: "Nilesh Khaitan",
-                title: "CPO | Ex-Venmo/PayPal Crypto",
-                image: nileshImage
-            },
-            features: [ { icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We automate multi-chain routing, execution, and reconciliation to reduce operational overhead." }, ], 
-            cta: "Explore Payments API" 
-        },
-        distribution: { 
-            label: "Distribution", color: "verto-green", title: "Partner On-Ramps", 
-            description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.", 
-            visual: <ExecutiveDistributionFlow />, 
-            founderQuote: { 
-                quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
-                name: "David Cass",
-                title: "CEO | Former Federal Reserve Regulator",
-                image: davidImage
-            },
-            features: [ { icon: Coins, title: "Leverage Existing Networks", description: "Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." }, ], 
-            cta: "Scale Distribution Network" 
-        },
-        compliance: { 
-            label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance", 
-            description: "Automate compliance with AI-powered monitoring, enforcement and reporting that satisfies financial regulators.", 
-            visual: <PolishedComplianceFlow />,
-            founderQuote: { 
-                quote: "DOJ audits require you to report the 'why' behind every transaction, not just the hash. We build the evidence file for you, before you need it.",
-                name: "Daniel Garrie",
-                title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
-                image: danielImage
-            },
-            features: [ { icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." }, ], 
-            cta: "Request Compliance Demo" 
-        },
-        service: { 
-            label: "Service", color: "verto-orange",
-            title: "24/7 Global Operations", 
-            description: "Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.", 
-            visual: <ExecutiveServiceFlow />,
-            founderQuote: { 
-                quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
-                name: "Hisham Anwar",
-                title: "CTO | Ex-Google Head of Product",
-                image: hishamImage
-            },
-            features: [ { icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." }, ], 
-            cta: "Learn About Our Service Model" 
-        },
+  // Listen for pillar activation events from hero CTAs
+  useEffect(() => {
+    const handleActivatePillar = (event: CustomEvent) => {
+      setActiveTab(event.detail);
     };
 
-    // Override founder quotes if custom ones provided
-    const pillars = customFounderQuotes ? {
-        ...defaultPillars,
-        ...Object.fromEntries(
-            customFounderQuotes.map(customQuote => [
-                customQuote.pillarKey,
-                {
-                    ...defaultPillars[customQuote.pillarKey as keyof typeof defaultPillars],
-                    founderQuote: {
-                        quote: customQuote.quote,
-                        name: customQuote.name,
-                        title: customQuote.title,
-                        image: customQuote.image
+    window.addEventListener('activatePillar', handleActivatePillar as EventListener);
+    return () => {
+      window.removeEventListener('activatePillar', handleActivatePillar as EventListener);
+    };
+  }, []);
+
+  // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
+  // Founder images are now included.
+  const defaultPillars = {
+    trading: {
+      label: "Trading", color: "verto-blue", title: "Institutional Liquidity",
+      description: "Execute trades across fragmented, multi-chain liquidity pools with automated enforcement of institutional risk policies.",
+      visual: <ExecutiveLiquidityFlow />,
+      founderQuote: {
+        quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
+        name: "David Cass",
+        title: "CEO | Former CISO at GSR",
+        image: davidImage
+      },
+      features: [{ icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: KeyIcon, title: "Non-Custodial Signing", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: SquareStack, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." },],
+      cta: "Integrate Liquidity API"
+    },
+    payments: {
+      label: "Payments", color: "verto-purple", title: "Frictionless Checkout",
+      description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.",
+      visual: <PolishedPaymentsFlow />,
+      founderQuote: {
+        quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
+        name: "Nilesh Khaitan",
+        title: "CPO | Ex-Venmo/PayPal Crypto",
+        image: nileshImage
+      },
+      features: [{ icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We automate multi-chain routing, execution, and reconciliation to reduce operational overhead." },],
+      cta: "Explore Payments API"
+    },
+    distribution: {
+      label: "Distribution", color: "verto-green", title: "Partner On-Ramps",
+      description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.",
+      visual: <ExecutiveDistributionFlow />,
+      founderQuote: {
+        quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
+        name: "David Cass",
+        title: "CEO | Former Federal Reserve Regulator",
+        image: davidImage
+      },
+      features: [{ icon: Coins, title: "Leverage Existing Networks", description: "Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." },],
+      cta: "Scale Distribution Network"
+    },
+    compliance: {
+      label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance",
+      description: "Automate compliance with AI-powered monitoring, enforcement and reporting that satisfies financial regulators.",
+      visual: <PolishedComplianceFlow />,
+      founderQuote: {
+        quote: "DOJ audits require you to report the 'why' behind every transaction, not just the hash. We build the evidence file for you, before you need it.",
+        name: "Daniel Garrie",
+        title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
+        image: danielImage
+      },
+      features: [{ icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." },],
+      cta: "Request Compliance Demo"
+    },
+    service: {
+      label: "Service", color: "verto-orange",
+      title: "24/7 Global Operations",
+      description: "Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.",
+      visual: <ExecutiveServiceFlow />,
+      founderQuote: {
+        quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
+        name: "Hisham Anwar",
+        title: "CTO | Ex-Google Head of Product",
+        image: hishamImage
+      },
+      features: [{ icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." },],
+      cta: "Learn About Our Service Model"
+    },
+  };
+
+  // Override founder quotes if custom ones provided
+  const pillars = customFounderQuotes ? {
+    ...defaultPillars,
+    ...Object.fromEntries(
+      customFounderQuotes.map(customQuote => [
+        customQuote.pillarKey,
+        {
+          ...defaultPillars[customQuote.pillarKey as keyof typeof defaultPillars],
+          founderQuote: {
+            quote: customQuote.quote,
+            name: customQuote.name,
+            title: customQuote.title,
+            image: customQuote.image
+          }
+        }
+      ])
+    )
+  } : defaultPillars;
+
+  // Create ordered pillars based on customOrder prop
+  const orderedPillars = customOrder ?
+    Object.fromEntries(customOrder.map(key => [key, pillars[key as keyof typeof pillars]])) :
+    pillars;
+
+  const colorMap = {
+    'verto-green': { border: 'border-verto-green', text: 'text-verto-green', bg: 'bg-verto-green' },
+    'verto-purple': { border: 'border-verto-purple', text: 'text-verto-purple', bg: 'bg-verto-purple' },
+    'verto-blue': { border: 'border-verto-blue', text: 'text-verto-blue', bg: 'bg-verto-blue' },
+    'verto-cyan': { border: 'border-verto-cyan', text: 'text-verto-cyan', bg: 'bg-verto-cyan' },
+    'verto-orange': { border: 'border-verto-orange', text: 'text-verto-orange', bg: 'bg-verto-orange' },
+  };
+
+  const activePillar = orderedPillars[activeTab as keyof typeof orderedPillars];
+  const activeColors = activePillar ? colorMap[activePillar.color as keyof typeof colorMap] : colorMap['verto-green'];
+
+  return (
+    <div id="infrastructure" className="">
+      <div className="text-center pt-16 pb-8">
+        <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
+          {title}
+        </h2>
+        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
+          {subtitle.split('\n').map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < subtitle.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </p>
+      </div>
+
+      {/* Sticky Navigation Bar */}
+      <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8 py-4" aria-label="Tabs">
+            {Object.keys(orderedPillars).map((key) => {
+              const pillar = orderedPillars[key as keyof typeof orderedPillars];
+              const colors = pillar ? colorMap[pillar.color as keyof typeof colorMap] || colorMap['verto-green'] : colorMap['verto-green'];
+              return (
+                <button
+                  key={key}
+                  onClick={(e) => {
+                    setActiveTab(key);
+                    // Auto-scroll to top of the content area, accounting for fixed navbar and ribbon
+                    const element = document.getElementById('pillar-content');
+                    if (element) {
+                      const elementTop = element.offsetTop;
+                      // Account for navbar (64px) + ribbon height (~60px) + some padding
+                      const offset = 140;
+                      window.scrollTo({
+                        top: elementTop - offset,
+                        behavior: 'smooth'
+                      });
                     }
-                }
-            ])
-        )
-    } : defaultPillars;
-
-    // Create ordered pillars based on customOrder prop
-    const orderedPillars = customOrder ? 
-        Object.fromEntries(customOrder.map(key => [key, pillars[key as keyof typeof pillars]])) :
-        pillars;
-
-    const colorMap = {
-        'verto-green': { border: 'border-verto-green', text: 'text-verto-green', bg: 'bg-verto-green' },
-        'verto-purple': { border: 'border-verto-purple', text: 'text-verto-purple', bg: 'bg-verto-purple' },
-        'verto-blue': { border: 'border-verto-blue', text: 'text-verto-blue', bg: 'bg-verto-blue' },
-        'verto-cyan': { border: 'border-verto-cyan', text: 'text-verto-cyan', bg: 'bg-verto-cyan' },
-        'verto-orange': { border: 'border-verto-orange', text: 'text-verto-orange', bg: 'bg-verto-orange' },
-    };
-
-    const activePillar = orderedPillars[activeTab as keyof typeof orderedPillars];
-    const activeColors = activePillar ? colorMap[activePillar.color as keyof typeof colorMap] : colorMap['verto-green'];
-
-    return (
-        <div id="infrastructure" className="bg-white dark:bg-slate-950">
-            <div className="text-center pt-16 pb-8">
-                <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
-                {title}
-                </h2>
-                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-                {subtitle.split('\n').map((line, i) => (
-                  <React.Fragment key={i}>
-                    {line}
-                    {i < subtitle.split('\n').length - 1 && <br/>}
-                  </React.Fragment>
-                ))}
-                </p>
-            </div>
-            
-            {/* Sticky Navigation Bar */}
-            <div id="pillar-navigation" className="sticky top-16 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8 py-4" aria-label="Tabs">
-                        {Object.keys(orderedPillars).map((key) => {
-                            const pillar = orderedPillars[key as keyof typeof orderedPillars];
-                            const colors = pillar ? colorMap[pillar.color as keyof typeof colorMap] || colorMap['verto-green'] : colorMap['verto-green'];
-                            return (
-                                <button
-                                    key={key}
-                                    onClick={(e) => {
-                                        setActiveTab(key);
-                                        // Auto-scroll to top of the content area, accounting for fixed navbar and ribbon
-                                        const element = document.getElementById('pillar-content');
-                                        if (element) {
-                                            const elementTop = element.offsetTop;
-                                            // Account for navbar (64px) + ribbon height (~60px) + some padding
-                                            const offset = 140;
-                                            window.scrollTo({
-                                                top: elementTop - offset,
-                                                behavior: 'smooth'
-                                            });
-                                        }
-                                        // On mobile, scroll the clicked tab button into view
-                                        setTimeout(() => {
-                                            const button = e.currentTarget;
-                                            if (button && window.innerWidth < 768) { // mobile breakpoint
-                                                button.scrollIntoView({ 
-                                                    behavior: 'smooth', 
-                                                    block: 'nearest',
-                                                    inline: 'center'
-                                                });
-                                            }
-                                        }, 100);
-                                    }}
-                                    className={`flex-shrink-0 whitespace-nowrap py-2 px-4 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
-                                >
-                                    {pillar?.label || 'Unknown'}
-                                </button>
-                            )
-                        })}
-                    </nav>
-                </div>
-            </div>
-
-            {/* DESIGN CHANGE: The main content container now has more consistent padding */}
-            <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
-                    {/* Left Column: Text Content */}
-                    <div className="lg:col-span-1">
-                        <div>
-                            <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar?.label || 'Unknown'}</p>
-                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar?.title || 'Unknown Title'}</h3>
-                            <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar?.description || 'No description available'}</p>
-                        </div>
-
-                        {/* Mobile Animation - Renders below description on small screens */}
-                        <div className="lg:hidden my-10">
-                            {activePillar?.visual}
-                        </div>
-
-                        <div className="space-y-6 md:space-y-8 mt-10 mb-10">
-                            {activePillar?.features?.map((feature: any) => (
-                                <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
-                            )) || []}
-                        </div>
-                        <button 
-                            onClick={openModal}
-                            className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}
-                        >
-                            <span>{activePillar?.cta || 'Get Started'}</span>
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                        </button>
-                    </div>
-
-                    {/* Right Column: Visual */}
-                    <div className="hidden lg:flex lg:col-span-1 justify-center">
-                        <div className="w-full max-w-md">
-                            {activePillar?.visual}
-                        </div>
-                    </div>
-                </div>
-
-                {/* DESIGN CHANGE: Founder Insight Banner moved to bottom, after benefits and UX slideshow */}
-                {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
-            </div>
-            
-            <CalendlyModal title={`Get Started with ${activePillar?.label || 'Service'}`} />
+                    // On mobile, scroll the clicked tab button into view
+                    setTimeout(() => {
+                      const button = e.currentTarget;
+                      if (button && window.innerWidth < 768) { // mobile breakpoint
+                        button.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'nearest',
+                          inline: 'center'
+                        });
+                      }
+                    }, 100);
+                  }}
+                  className={`flex-shrink-0 whitespace-nowrap py-2 px-4 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
+                >
+                  {pillar?.label || 'Unknown'}
+                </button>
+              )
+            })}
+          </nav>
         </div>
-    );
+      </div>
+
+      {/* DESIGN CHANGE: The main content container now has more consistent padding */}
+      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
+          {/* Left Column: Text Content */}
+          <div className="lg:col-span-1">
+            <div>
+              <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar?.label || 'Unknown'}</p>
+              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar?.title || 'Unknown Title'}</h3>
+              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar?.description || 'No description available'}</p>
+            </div>
+
+            {/* Mobile Animation - Renders below description on small screens */}
+            <div className="lg:hidden my-10">
+              {activePillar?.visual}
+            </div>
+
+            <div className="space-y-6 md:space-y-8 mt-10 mb-10">
+              {activePillar?.features?.map((feature: any) => (
+                <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
+              )) || []}
+            </div>
+            <button
+              onClick={openModal}
+              className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}
+            >
+              <span>{activePillar?.cta || 'Get Started'}</span>
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </button>
+          </div>
+
+          {/* Right Column: Visual */}
+          <div className="hidden lg:flex lg:col-span-1 justify-center">
+            <div className="w-full max-w-md">
+              {activePillar?.visual}
+            </div>
+          </div>
+        </div>
+
+        {/* DESIGN CHANGE: Founder Insight Banner moved to bottom, after benefits and UX slideshow */}
+        {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
+      </div>
+
+      <CalendlyModal title={`Get Started with ${activePillar?.label || 'Service'}`} />
+    </div>
+  );
 }
