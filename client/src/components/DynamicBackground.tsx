@@ -23,8 +23,8 @@ export function DynamicBackground() {
   const brandColors = [
     '#8F73FE', // Purple (pre-dawn)
     '#217DFE', // Blue (early dawn)
-    '#EEAA4A', // Yellow (sunrise)
     '#EF660B', // Orange (full sunrise)
+    '#EEAA4A', // Yellow (sunrise)
   ];
 
   // Dark base that stays throughout
@@ -58,7 +58,7 @@ export function DynamicBackground() {
   }
 
   // Opacity increases as we scroll (dawn gets brighter)
-  const glowOpacity = 0.18 + (scrollPercent * 0.25); // 18% to 43%
+  const glowOpacity = 0.12 + (scrollPercent * 0.18); // 12% to 30%
 
   return (
     <>
