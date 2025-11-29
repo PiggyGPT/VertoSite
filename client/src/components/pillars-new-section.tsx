@@ -1338,21 +1338,7 @@ export default function PillarsSection({
 
   return (
     <div id="infrastructure" className="relative">
-      <div className="text-center pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8">
-        <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight" data-testid="team-title">
-          {title}
-        </h2>
-        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-          {subtitle.split('\n').map((line, i) => (
-            <React.Fragment key={i}>
-              {line}
-              {i < subtitle.split('\n').length - 1 && <br />}
-            </React.Fragment>
-          ))}
-        </p>
-      </div>
-
-      {/* Progress Indicator Navigation - Carousel Style */}
+      {/* Progress Indicator Navigation - Tab Style with Labels */}
       <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md bg-white/5 dark:bg-slate-900/50 border-b border-white/10">
         <style>{`
           @keyframes fillDash {
@@ -1364,18 +1350,19 @@ export default function PillarsSection({
             }
           }
         `}</style>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-          {/* Step Bubbles with Progress Dashes */}
-          <div className="flex justify-center items-center gap-1 sm:gap-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          {/* Step Tabs with Bubbles and Labels */}
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8">
             {orderedKeys.map((key, index) => {
-              const pillarColor = (orderedPillars[key as keyof typeof orderedPillars]?.color as string) || 'verto-green';
+              const pillar = orderedPillars[key as keyof typeof orderedPillars];
+              const pillarColor = (pillar?.color as string) || 'verto-green';
               const accentColor = getAccentColor(pillarColor);
               
               return (
-                <div key={index} className="flex items-center">
+                <div key={index} className="flex items-center gap-3">
                   <button
                     onClick={() => handleStepClick(index)}
-                    className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
+                    className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group flex-shrink-0 ${
                       index === currentStep && !isAutoPlaying ? 'animate-bubble-pop scale-110' : 'hover:opacity-80'
                     }`}
                   >
@@ -1404,27 +1391,14 @@ export default function PillarsSection({
                       )}
                     </div>
                   </button>
-                  {index < orderedKeys.length - 1 && (
-                    <div
-                      key={`dash-${index}-${currentStep}`}
-                      className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 rounded-full overflow-hidden relative`}
-                      style={{
-                        background: index < currentStep 
-                          ? `linear-gradient(90deg, ${accentColor}, ${getAccentColor((orderedPillars[orderedKeys[index + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`
-                          : 'rgba(148, 163, 184, 0.3)',
-                      }}
-                    >
-                      <div
-                        className="h-full"
-                        style={{
-                          width: index < currentStep ? '100%' : index === currentStep ? '0%' : '0%',
-                          background: `linear-gradient(90deg, ${accentColor}, ${getAccentColor((orderedPillars[orderedKeys[index + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                          transition: index === currentStep ? 'width 10000ms linear' : 'none',
-                          animation: index === currentStep ? 'fillDash 10000ms linear forwards' : 'none',
-                        }}
-                      />
-                    </div>
-                  )}
+                  <div className="hidden sm:flex flex-col">
+                    <p className={`text-xs font-semibold uppercase tracking-wider ${index === currentStep ? activeColors.text : 'text-slate-500 dark:text-slate-400'}`}>
+                      Step {index + 1}
+                    </p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                      {pillar?.label || 'Unknown'}
+                    </p>
+                  </div>
                 </div>
               );
             })}
