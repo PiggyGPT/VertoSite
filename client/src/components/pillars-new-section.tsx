@@ -1396,72 +1396,7 @@ export default function PillarsSection({
 
   return (
     <div id="infrastructure" className="relative">
-      {/* Progress Indicator Navigation - Tab Style with Labels */}
-      <div id="pillar-navigation" className={`sticky top-16 z-40 transition-all duration-300 ${isNavScrolled ? 'backdrop-blur-md bg-white/40 dark:bg-slate-900/40 border-b border-white/20 dark:border-white/5' : ''}`}>
-        <style>{`
-          @keyframes continuousProgress {
-            from {
-              width: ${((currentStep) / orderedKeys.length) * 100}%;
-            }
-            to {
-              width: ${((currentStep + 1) / orderedKeys.length) * 100}%;
-            }
-          }
-        `}</style>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-          {/* Step Tabs with Bubbles and Labels */}
-          <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
-            {orderedKeys.map((key, index) => {
-              const pillar = orderedPillars[key as keyof typeof orderedPillars];
-              const pillarColor = (pillar?.color as string) || 'verto-green';
-              const accentColor = getAccentColor(pillarColor);
-              const IconComponent = (pillar?.icon as any) || TrendingUp;
-              
-              return (
-                <button
-                  key={index}
-                  data-tab-index={index}
-                  onClick={() => handleStepClick(index)}
-                  className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start ${
-                    index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
-                  }`}
-                >
-                  <IconComponent 
-                    className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors"
-                    style={{
-                      color: index <= currentStep ? accentColor : '#94a3b8'
-                    }}
-                  />
-                  <p className={`text-sm font-semibold transition-colors whitespace-nowrap ${
-                    index <= currentStep 
-                      ? 'text-slate-900 dark:text-white' 
-                      : 'text-slate-500 dark:text-slate-400'
-                  }`}>
-                    {pillar?.label || 'Unknown'}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-          
-          {/* Continuous Global Progress Bar */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all"
-                style={{
-                  backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                  width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
-                  transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
-                  transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
-                }}
-              />
-            </div>
-          </div>
-      </div>
-
-      {/* DESIGN CHANGE: The main content container now has more consistent padding */}
+      {/* The main content container now has more consistent padding */}
       <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 scroll-mt-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
           {/* Left Column: Text Content */}
