@@ -1,5 +1,8 @@
 import { Phone, Calendar } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import {
+  Zap, Store, Globe, Shield
+} from "lucide-react";
 
 const useCalendlyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,11 +58,54 @@ const useCalendlyModal = () => {
 
 export default function HeroSection() {
   const { openModal, CalendlyModal } = useCalendlyModal();
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+
+  const pillars = [
+    { label: "Tokenize Deposits", icon: Zap, color: "#8b5cf6" },
+    { label: "Attract Liquidity", icon: Store, color: "#3b82f6" },
+    { label: "Transact Globally", icon: Globe, color: "#22c55e" },
+    { label: "Secure Compliance", icon: Shield, color: "#f97316" },
+  ];
+
+  // Auto-advance every 10 seconds
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const timer = setInterval(() => {
+      setCurrentStep(prev => (prev + 1) % pillars.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, pillars.length]);
+
+  // Auto-scroll mobile tabs container to center active tab (only on manual click, not auto-play)
+  useEffect(() => {
+    if (tabsContainerRef.current && window.innerWidth < 640 && !isAutoPlaying) {
+      const container = tabsContainerRef.current;
+      const activeTab = container.querySelector(`[data-tab-index="${currentStep}"]`);
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [currentStep, isAutoPlaying]);
+
+  const handleStepClick = (index: number) => {
+    setCurrentStep(index);
+    setIsAutoPlaying(false);
+    // Trigger event for PillarsSection to listen
+    window.dispatchEvent(new CustomEvent('activatePillar', { detail: ["distribution", "trading", "payments", "service"][index] }));
+    // Scroll to pillar content
+    setTimeout(() => {
+      document.getElementById('pillar-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  };
+
+  const getAccentColor = (index: number) => pillars[index]?.color || '#22c55e';
 
   return (
     <div className="min-h-screen text-white selection:bg-white/20 font-sans flex flex-col">
       
-      <section className="flex-grow flex flex-col items-center justify-center pt-24 relative overflow-hidden">
+      <section className="flex-grow flex flex-col items-center justify-center pt-24 pb-8 relative overflow-hidden">
         
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
@@ -127,6 +173,54 @@ export default function HeroSection() {
                   className="h-full object-contain brightness-200 contrast-125"
                 />
               </div>
+            </div>
+          </div>
+
+          {/* Pillar Tabs Navigation - Moved from PillarsSection */}
+          <div className="w-full border-t border-white/10 pt-8 mt-8">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-[0.2em] mb-6">
+              Self-Hosted Infrastructure with 4 Key Pillars
+            </p>
+            <div ref={tabsContainerRef} className="flex sm:justify-center justify-start items-center w-full gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible pb-4 sm:pb-0">
+              {pillars.map((pillar, index) => {
+                const IconComponent = pillar.icon;
+                return (
+                  <button
+                    key={index}
+                    data-tab-index={index}
+                    onClick={() => handleStepClick(index)}
+                    className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start ${
+                      index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
+                    }`}
+                  >
+                    <IconComponent 
+                      className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors"
+                      style={{
+                        color: index <= currentStep ? pillar.color : '#94a3b8'
+                      }}
+                    />
+                    <p className={`text-sm font-semibold transition-colors whitespace-nowrap ${
+                      index <= currentStep 
+                        ? 'text-slate-900 dark:text-white' 
+                        : 'text-slate-500 dark:text-slate-400'
+                    }`}>
+                      {pillar.label}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+            {/* Progress Bar */}
+            <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden mt-6">
+              <div
+                className="h-full rounded-full transition-all"
+                style={{
+                  backgroundColor: getAccentColor(currentStep),
+                  width: `${((currentStep + 1) / pillars.length) * 100}%`,
+                  transitionDuration: isAutoPlaying ? '10000ms' : '300ms',
+                  transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
+                }}
+              />
             </div>
           </div>
 
