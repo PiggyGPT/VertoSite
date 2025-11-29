@@ -61,8 +61,10 @@ export default function HeroSection() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
+  const [isNavScrolled, setIsNavScrolled] = useState(false);
   const prevStepRef = useRef(0);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
 
   const orderedKeys = ["distribution", "trading", "payments", "service"];
 
@@ -110,6 +112,25 @@ export default function HeroSection() {
       }
     }
   }, [currentStep, isAutoPlaying]);
+
+  // Detect scroll for sticky nav glass effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const navContainer = navContainerRef.current;
+      const pillarContent = document.getElementById('pillar-content');
+      
+      if (navContainer && pillarContent) {
+        const navTop = navContainer.getBoundingClientRect().top;
+        const pillarTop = pillarContent.getBoundingClientRect().top;
+        
+        // Sticky if scrolled past nav and before end of pillars
+        setIsNavScrolled(navTop <= 0 && pillarTop > -window.innerHeight);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleStepClick = (index: number) => {
     setCurrentStep(index);
@@ -200,7 +221,7 @@ export default function HeroSection() {
       </section>
 
       {/* Pillar Navigation - Full Width at Bottom with Bottom Border */}
-      <div className="w-full border-b border-white/10">
+      <div ref={navContainerRef} className={`w-full transition-all duration-300 ${isNavScrolled ? 'sticky top-0 z-50 backdrop-blur-md bg-slate-900/40 border-b border-white/20' : 'border-b border-white/10'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
