@@ -40,15 +40,15 @@ export default function CompetitiveDiffSection() {
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-16">
-                    <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tighter mb-6 text-slate-900 dark:text-white">
+                    <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight mb-4">
                         Albor is the only{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
                             non-custodial, full-stack
                         </span>
                         {" "}solution
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                        Complete infrastructure sovereignty. No compromises on custody, routing, or control.
+                    <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                        You own the keys. You own the data. You own the customer.
                     </p>
                 </div>
 
