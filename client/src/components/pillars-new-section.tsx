@@ -1385,7 +1385,7 @@ export default function PillarsSection({
                     }}
                   />
                   <p className={`hidden sm:block text-sm font-semibold transition-colors ${
-                    index === currentStep 
+                    index <= currentStep 
                       ? 'text-slate-900 dark:text-white' 
                       : 'text-slate-500 dark:text-slate-400'
                   }`}>
