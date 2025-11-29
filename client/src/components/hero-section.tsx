@@ -326,34 +326,60 @@ export default function HeroSection() {
                   {activeStory.subtitle}
                 </p>
 
-                {/* Server Log Animation - Only on Step 1 */}
+                {/* Process Flow - Only on Step 1 */}
                 {currentStep === 0 && (
                   <div className="mt-8 w-full">
-                    <div className="bg-slate-950/80 border border-slate-800 rounded-lg p-4 font-mono text-sm">
-                      {/* Log Header */}
-                      <div className="text-slate-500 text-xs mb-3 pb-2 border-b border-slate-800">
-                        <span className="text-slate-600">$</span> system_log --follow
-                      </div>
-                      
-                      {/* Log Lines */}
-                      <div className="space-y-2 text-slate-300">
-                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
-                          <span className="text-emerald-400">[INFO]</span> <span className="text-slate-400">2024-11-29T11:24:45.823Z</span> Fiat Deposit Detected
-                        </div>
-                        <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
-                          <span className="text-blue-400">[PROC]</span> <span className="text-slate-400">2024-11-29T11:24:46.201Z</span> Initiating mint process...
-                        </div>
-                        <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
-                          <span className="text-cyan-400">[MINT]</span> <span className="text-slate-400">2024-11-29T11:24:47.065Z</span> Minting BSD to wallet
-                        </div>
-                        <div className="animate-fade-in-log" style={{ animationDelay: '2.6s' }}>
-                          <span className="text-emerald-400">[✓]</span> <span className="text-slate-400">2024-11-29T11:24:47.892Z</span> <span className="text-emerald-300">Transaction confirmed</span>
+                    <div className="space-y-3">
+                      {/* Step 1 */}
+                      <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
+                        <div className="flex items-center gap-3 p-3 rounded-lg bg-emerald-950/40 border border-emerald-900/50">
+                          <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-sm">✓</span>
+                          </div>
+                          <div>
+                            <div className="text-emerald-200 font-medium text-sm">Deposit Received</div>
+                            <div className="text-emerald-300/70 text-xs">Your funds are secure</div>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Cursor */}
-                      <div className="mt-3 text-slate-500 text-xs">
-                        <span className="text-slate-600">$</span> <span className="animate-pulse">▊</span>
+                      {/* Step 2 */}
+                      <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
+                        <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-950/40 border border-blue-900/50">
+                          <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-sm">→</span>
+                          </div>
+                          <div>
+                            <div className="text-blue-200 font-medium text-sm">Converting to Digital Currency</div>
+                            <div className="text-blue-300/70 text-xs">Preparing your BSD tokens</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Step 3 */}
+                      <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
+                        <div className="flex items-center gap-3 p-3 rounded-lg bg-cyan-950/40 border border-cyan-900/50">
+                          <div className="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-sm">→</span>
+                          </div>
+                          <div>
+                            <div className="text-cyan-200 font-medium text-sm">Sending to Your Wallet</div>
+                            <div className="text-cyan-300/70 text-xs">Broadcasting to blockchain</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Step 4 */}
+                      <div className="animate-fade-in-log" style={{ animationDelay: '2.6s' }}>
+                        <div className="flex items-center gap-3 p-3 rounded-lg bg-emerald-950/40 border border-emerald-900/50">
+                          <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-sm">✓</span>
+                          </div>
+                          <div>
+                            <div className="text-emerald-200 font-medium text-sm">Complete</div>
+                            <div className="text-emerald-300/70 text-xs">Your BSD is ready to use</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
