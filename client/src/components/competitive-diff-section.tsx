@@ -54,7 +54,7 @@ export default function CompetitiveDiffSection() {
                         <table className="border-collapse w-full">
                             <thead>
                                 <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                                    <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '30%' }}>
+                                    <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '29%' }}>
                                         Capability
                                     </th>
                                     <th className="text-center py-3 px-4 font-semibold" style={{ width: '40%' }}>
