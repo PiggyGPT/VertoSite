@@ -1397,7 +1397,7 @@ export default function PillarsSection({
         `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
-          <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 overflow-x-auto sm:overflow-x-visible">
+          <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
               const pillar = orderedPillars[key as keyof typeof orderedPillars];
               const pillarColor = (pillar?.color as string) || 'verto-green';
