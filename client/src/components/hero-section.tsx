@@ -73,7 +73,6 @@ export default function HeroSection() {
   const { openModal, CalendlyModal } = useCalendlyModal();
   const [currentStep, setCurrentStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [scrollBlur, setScrollBlur] = useState({ lightGlow: 120, darkGlow: 150 });
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   const storySteps: StoryStep[] = [
@@ -122,20 +121,6 @@ export default function HeroSection() {
     };
   }, [isAutoPlaying, storySteps.length]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollProgress = Math.min(scrollY / (window.innerHeight * 0.5), 1);
-      setScrollBlur({
-        lightGlow: 120 + scrollProgress * 30,
-        darkGlow: 150 + scrollProgress * 40,
-      });
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const handleStepClick = (index: number) => {
     setIsAutoPlaying(false);
     setCurrentStep(index);
@@ -150,21 +135,19 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Light Mode: Warm golden glow at top */}
         <div
-          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[700px] opacity-30 dark:hidden transition-all duration-500"
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[700px] rounded-full blur-[120px] opacity-30 dark:hidden"
           style={{
             background:
               "radial-gradient(circle at center, #EEAA4A, #EF660B, transparent 60%)",
-            filter: `blur(${scrollBlur.lightGlow}px)`,
           }}
         />
 
         {/* Dark Mode: Subtle cool indigo glow - just the sky, no warm tones */}
         <div
-          className="hidden dark:block absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[150%] h-[800px] opacity-5 transition-all duration-500"
+          className="hidden dark:block absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-5"
           style={{
             background:
               "radial-gradient(circle at center, #1A233A, #0A1128, transparent 70%)",
-            filter: `blur(${scrollBlur.darkGlow}px)`,
           }}
         />
 
