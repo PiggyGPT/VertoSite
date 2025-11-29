@@ -1419,7 +1419,7 @@ export default function PillarsSection({
                       color: index <= currentStep ? accentColor : '#94a3b8'
                     }}
                   />
-                  <p className={`text-sm font-semibold transition-colors ${
+                  <p className={`text-sm font-semibold transition-colors whitespace-nowrap ${
                     index <= currentStep 
                       ? 'text-slate-900 dark:text-white' 
                       : 'text-slate-500 dark:text-slate-400'
