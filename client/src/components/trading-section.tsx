@@ -215,7 +215,8 @@ const TradingVisual = () => {
 export default function TradingSection() {
   return (
     <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full border-b border-slate-200 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
           <div className="lg:col-span-1">
             <div>
@@ -243,6 +244,7 @@ export default function TradingSection() {
           </div>
         </div>
         <FounderBanner />
+        </div>
       </div>
     </section>
   );
