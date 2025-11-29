@@ -1343,16 +1343,16 @@ export default function PillarsSection({
         <style>{`
           @keyframes continuousProgress {
             from {
-              width: ${(currentStep / orderedKeys.length) * 100}%;
+              width: 0%;
             }
             to {
-              width: ${((currentStep + 1) / orderedKeys.length) * 100}%;
+              width: ${(1 / orderedKeys.length) * 100}%;
             }
           }
         `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
-          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-16 pb-4">
+          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-16">
             {orderedKeys.map((key, index) => {
               const pillar = orderedPillars[key as keyof typeof orderedPillars];
               const pillarColor = (pillar?.color as string) || 'verto-green';
@@ -1386,13 +1386,14 @@ export default function PillarsSection({
           </div>
           
           {/* Continuous Global Progress Bar */}
-          <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+          <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden mt-4">
             <div
               className="h-full rounded-full"
               style={{
                 backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                width: isAutoPlaying ? `${((currentStep + 1) / orderedKeys.length) * 100}%` : `${(currentStep / orderedKeys.length) * 100}%`,
-                animation: isAutoPlaying ? `continuousProgress 10000ms linear forwards` : 'none',
+                width: `${((currentStep + (isAutoPlaying ? Date.now() % 10000 / 10000 : 0)) / orderedKeys.length) * 100}%`,
+                transition: !isAutoPlaying ? 'width 300ms ease-out' : 'none',
+                animation: isAutoPlaying ? `continuousProgress 10000ms linear infinite` : 'none',
               }}
             />
           </div>
