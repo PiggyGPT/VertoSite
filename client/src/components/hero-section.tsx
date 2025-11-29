@@ -262,21 +262,8 @@ export default function HeroSection() {
 
               {/* Content */}
               <div key={currentStep} className="text-center animate-pan-in relative z-10">
-                {/* Progress Indicator - 1-2-3-Growth with Clickable Steps and Filling Bar */}
+                {/* Progress Indicator - 1-2-3-Growth with Clickable Steps */}
                 <div className="mb-6 sm:mb-8">
-                  {/* Background Progress Bar */}
-                  <div className="flex justify-center items-center mb-4">
-                    <div className="w-full max-w-xs h-1 bg-slate-700/50 rounded-full overflow-hidden relative">
-                      <div
-                        className="h-full transition-all duration-700 ease-out"
-                        style={{
-                          width: `${((currentStep + 1) / storySteps.length) * 100}%`,
-                          background: `linear-gradient(90deg, ${storySteps[Math.min(currentStep, storySteps.length - 1)].accentColor}, ${storySteps[Math.min(currentStep + 1, storySteps.length - 1)].accentColor})`,
-                        }}
-                      />
-                    </div>
-                  </div>
-
                   {/* Step Bubbles */}
                   <div className="flex justify-center items-center gap-1 sm:gap-2">
                     {storySteps.map((_, index) => (
@@ -367,7 +354,7 @@ export default function HeroSection() {
         @keyframes panIn {
           0% {
             opacity: 0;
-            transform: translateX(40px);
+            transform: translateX(-40px);
           }
           100% {
             opacity: 1;
