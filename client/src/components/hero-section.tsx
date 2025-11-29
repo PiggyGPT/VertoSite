@@ -269,9 +269,12 @@ export default function HeroSection() {
                     {storySteps.map((_, index) => (
                       <div key={index} className="flex items-center">
                         <button
-                          onClick={() => handleStepClick(index)}
+                          onClick={() => {
+                            setIsAutoPlaying(false);
+                            handleStepClick(index);
+                          }}
                           className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
-                            index === currentStep ? 'animate-bubble-pop scale-110' : 'hover:opacity-80'
+                            index === currentStep && !isAutoPlaying ? 'animate-bubble-pop scale-110' : 'hover:opacity-80'
                           }`}
                         >
                           <div
@@ -312,9 +315,9 @@ export default function HeroSection() {
                             <div
                               className="h-full"
                               style={{
-                                width: index < currentStep ? '100%' : '0%',
+                                width: index < currentStep ? '100%' : index === currentStep ? '100%' : '0%',
                                 background: `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`,
-                                transition: 'width 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                                transition: index === currentStep ? 'width 10000ms linear' : 'width 300ms ease-out',
                               }}
                             />
                           </div>
