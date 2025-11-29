@@ -41,92 +41,77 @@ export default function CompetitiveDiffSection() {
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-16">
                     <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight mb-4">
-                        Albor is the only{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-                            non-custodial, full-stack
+                            Non-custodial, Full-Stack
                         </span>
-                        {" "}solution
+                        {" "}Stablecoin Stack
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
                         You own the keys. You own the data. You own the customer.
                     </p>
                 </div>
 
-                {/* Comparison Cards */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
-                    {/* Column Headers */}
-                    <div className="hidden lg:block"></div>
-
-                    {/* Albor Column Header */}
-                    <div className="relative p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900/60 dark:to-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-lg">
-                        <div className="relative text-center">
-                            <h3
-                                className="font-extrabold text-2xl tracking-tight mb-1"
-                                style={{
-                                    background: 'linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)',
-                                    backgroundClip: 'text',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                }}
-                            >
-                                albor
-                            </h3>
-                        </div>
-                    </div>
-
-                    {/* Competitors Column Header */}
-                    <div className="hidden lg:block p-8 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 shadow-md">
-                        <h3 className="text-center font-semibold text-base text-slate-600 dark:text-slate-400">
-                            Parfin, Paxos, ZeroHash
-                        </h3>
-                    </div>
-                </div>
-
-                {/* Feature Rows */}
-                <div className="space-y-4 mb-16">
-                    {features.map((feature, index) => {
-                        const Icon = feature.icon;
-                        return (
-                            <div
-                                key={index}
-                                className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6"
-                            >
-                                {/* Feature Name */}
-                                <div className="p-6 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center gap-4">
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-                                        <Icon className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                {/* Comparison Table */}
+                <div className="mb-16 overflow-x-auto">
+                    <table className="w-full border-collapse">
+                        <thead>
+                            <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                                <th className="text-left py-4 px-6 font-semibold text-slate-900 dark:text-white text-sm">
+                                    Capability
+                                </th>
+                                <th className="text-left py-4 px-6 font-semibold text-center">
+                                    <div className="text-slate-900 dark:text-white text-sm" style={{
+                                        background: 'linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)',
+                                        backgroundClip: 'text',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                    }}>
+                                        albor
                                     </div>
-                                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">
-                                        {feature.name}
-                                    </h4>
-                                </div>
-
-                                {/* Verto Feature */}
-                                <div className="relative p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900/50 dark:to-slate-800/50 border-2 border-green-200 dark:border-green-900/30 shadow-md hover:shadow-lg transition-shadow">
-                                    <div className="relative flex items-center justify-between">
-                                        <span className="text-sm font-semibold text-slate-900 dark:text-white">
-                                            {feature.albor}
-                                        </span>
-                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                                            <Check className="w-4 h-4 text-green-600 dark:text-green-400" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Competitor Feature */}
-                                <div className="p-6 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                                    <span className="text-sm text-slate-600 dark:text-slate-400">
-                                        {feature.competitors}
-                                    </span>
-                                    {feature.competitors === "None" && (
-                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                                            <X className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        );
-                    })}
+                                </th>
+                                <th className="text-left py-4 px-6 font-semibold text-slate-600 dark:text-slate-400 text-center text-sm">
+                                    Competitors
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {features.map((feature, index) => {
+                                const Icon = feature.icon;
+                                return (
+                                    <tr key={index} className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/20 transition-colors">
+                                        <td className="py-5 px-6">
+                                            <div className="flex items-center gap-3">
+                                                <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                                                    <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                                                </div>
+                                                <span className="font-semibold text-slate-900 dark:text-white text-sm">
+                                                    {feature.name}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td className="py-5 px-6">
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-sm text-slate-700 dark:text-slate-300">
+                                                    {feature.albor}
+                                                </span>
+                                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                                            </div>
+                                        </td>
+                                        <td className="py-5 px-6">
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-sm text-slate-600 dark:text-slate-400">
+                                                    {feature.competitors}
+                                                </span>
+                                                {feature.competitors === "None" && (
+                                                    <X className="w-5 h-5 text-slate-300 dark:text-slate-600 flex-shrink-0" />
+                                                )}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
                 </div>
 
                 {/* CTA Button - Enhanced */}
