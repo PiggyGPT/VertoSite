@@ -1339,7 +1339,7 @@ export default function PillarsSection({
   return (
     <div id="infrastructure" className="relative">
       {/* Progress Indicator Navigation - Tab Style with Labels */}
-      <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md bg-white/5 dark:bg-slate-900/50 border-b border-white/10">
+      <div id="pillar-navigation" className="sticky top-16 z-40">
         <style>{`
           @keyframes fillDash {
             from {
