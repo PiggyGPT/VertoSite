@@ -24,7 +24,7 @@ import {
   LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
   ChevronDown, Landmark, History, Link, Clock, Plus,
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-  Cpu, Keyboard, Monitor, Coins, CreditCard
+  Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -1187,26 +1187,63 @@ export default function PillarsSection({
   customFounderQuotes,
   customOrder
 }: PillarsSectionProps = {}) {
-  const [activeTab, setActiveTab] = useState(customOrder ? customOrder[0] : "trading");
+  // Reorder: Distribution (0) -> Trading (1) -> Payments (2) -> Service (3)
+  const defaultOrder = ["distribution", "trading", "payments", "service"];
+  const orderedKeys = customOrder || defaultOrder;
+  
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const { openModal, CalendlyModal } = useCalendlyModal();
+
+  // Auto-advance every 10 seconds
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const timer = setInterval(() => {
+      setCurrentStep(prev => (prev + 1) % orderedKeys.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, orderedKeys.length]);
+
+  const handleStepClick = (index: number) => {
+    setCurrentStep(index);
+    setIsAutoPlaying(false);
+  };
 
   // Listen for pillar activation events from hero CTAs
   useEffect(() => {
     const handleActivatePillar = (event: CustomEvent) => {
-      setActiveTab(event.detail);
+      const pillarIndex = orderedKeys.indexOf(event.detail);
+      if (pillarIndex !== -1) {
+        setCurrentStep(pillarIndex);
+        setIsAutoPlaying(false);
+      }
     };
 
     window.addEventListener('activatePillar', handleActivatePillar as EventListener);
     return () => {
       window.removeEventListener('activatePillar', handleActivatePillar as EventListener);
     };
-  }, []);
+  }, [orderedKeys]);
 
   // REWRITTEN QUOTES & UPDATED DATA: Quotes are now more specific, empathetic, and powerful.
   // Founder images are now included.
+  // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
+    distribution: {
+      label: "Tokenize Your Deposits", color: "verto-green", title: "Partner On-Ramps",
+      description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.",
+      visual: <ExecutiveDistributionFlow />,
+      founderQuote: {
+        quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
+        name: "David Cass",
+        title: "CEO | Former Federal Reserve Regulator",
+        image: davidImage
+      },
+      features: [{ icon: Coins, title: "Leverage Existing Networks", description: "Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." },],
+      cta: "Scale Distribution Network"
+    },
     trading: {
-      label: "Trading", color: "verto-blue", title: "Institutional Liquidity",
+      label: "Attract Liquidity Providers", color: "verto-blue", title: "Institutional Liquidity",
       description: "Execute trades across fragmented, multi-chain liquidity pools with automated enforcement of institutional risk policies.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
@@ -1219,7 +1256,7 @@ export default function PillarsSection({
       cta: "Integrate Liquidity API"
     },
     payments: {
-      label: "Payments", color: "verto-purple", title: "Frictionless Checkout",
+      label: "Accept Global Transactions", color: "verto-purple", title: "Frictionless Checkout",
       description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
@@ -1231,34 +1268,8 @@ export default function PillarsSection({
       features: [{ icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We automate multi-chain routing, execution, and reconciliation to reduce operational overhead." },],
       cta: "Explore Payments API"
     },
-    distribution: {
-      label: "Distribution", color: "verto-green", title: "Partner On-Ramps",
-      description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.",
-      visual: <ExecutiveDistributionFlow />,
-      founderQuote: {
-        quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
-        name: "David Cass",
-        title: "CEO | Former Federal Reserve Regulator",
-        image: davidImage
-      },
-      features: [{ icon: Coins, title: "Leverage Existing Networks", description: "Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." },],
-      cta: "Scale Distribution Network"
-    },
-    compliance: {
-      label: "Compliance", color: "verto-cyan", title: "AI-Powered Compliance",
-      description: "Automate compliance with AI-powered monitoring, enforcement and reporting that satisfies financial regulators.",
-      visual: <PolishedComplianceFlow />,
-      founderQuote: {
-        quote: "DOJ audits require you to report the 'why' behind every transaction, not just the hash. We build the evidence file for you, before you need it.",
-        name: "Daniel Garrie",
-        title: "General Counsel | Fmr. Advisor to DOJ & DTCC",
-        image: danielImage
-      },
-      features: [{ icon: Gauge, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every counterparty, with full data lineage for audits." }, { icon: SlidersHorizontal, title: "Policy-Driven Controls", description: "Define your risk appetite once. Our platform enforces your policies on every transaction automatically." }, { icon: Shield, title: "Automated Audit Trails", description: "Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." },],
-      cta: "Request Compliance Demo"
-    },
     service: {
-      label: "Service", color: "verto-orange",
+      label: "Unlock Growth Spiral", color: "verto-orange",
       title: "24/7 Global Operations",
       description: "Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.",
       visual: <ExecutiveServiceFlow />,
@@ -1293,9 +1304,9 @@ export default function PillarsSection({
   } : defaultPillars;
 
   // Create ordered pillars based on customOrder prop
-  const orderedPillars = customOrder ?
-    Object.fromEntries(customOrder.map(key => [key, pillars[key as keyof typeof pillars]])) :
-    pillars;
+  const orderedPillars = Object.fromEntries(
+    orderedKeys.map(key => [key, pillars[key as keyof typeof pillars]])
+  );
 
   const colorMap = {
     'verto-green': { border: 'border-verto-green', text: 'text-verto-green', bg: 'bg-verto-green' },
@@ -1305,8 +1316,25 @@ export default function PillarsSection({
     'verto-orange': { border: 'border-verto-orange', text: 'text-verto-orange', bg: 'bg-verto-orange' },
   };
 
+  const activeTab = orderedKeys[currentStep];
   const activePillar = orderedPillars[activeTab as keyof typeof orderedPillars];
   const activeColors = activePillar ? colorMap[activePillar.color as keyof typeof colorMap] : colorMap['verto-green'];
+  
+  // Get accent colors for the steps
+  const stepColors = orderedKeys.map(key => {
+    const pillar = orderedPillars[key as keyof typeof orderedPillars];
+    return pillar?.color as string;
+  });
+  
+  const getAccentColor = (colorName: string) => {
+    const colors: { [key: string]: string } = {
+      'verto-green': '#22c55e',
+      'verto-blue': '#3b82f6',
+      'verto-purple': '#8b5cf6',
+      'verto-orange': '#f97316',
+    };
+    return colors[colorName] || '#22c55e';
+  };
 
   return (
     <div id="infrastructure" className="">
@@ -1324,48 +1352,72 @@ export default function PillarsSection({
         </p>
       </div>
 
-      {/* Sticky Navigation Bar */}
-      <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="-mb-px flex sm:justify-center justify-start overflow-x-auto space-x-6 sm:space-x-8 py-4" aria-label="Tabs">
-            {Object.keys(orderedPillars).map((key) => {
-              const pillar = orderedPillars[key as keyof typeof orderedPillars];
-              const colors = pillar ? colorMap[pillar.color as keyof typeof colorMap] || colorMap['verto-green'] : colorMap['verto-green'];
+      {/* Progress Indicator Navigation - Carousel Style */}
+      <div id="pillar-navigation" className="sticky top-16 z-40 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          {/* Step Bubbles with Progress Dashes */}
+          <div className="flex justify-center items-center gap-1 sm:gap-2">
+            {orderedKeys.map((key, index) => {
+              const pillarColor = (orderedPillars[key as keyof typeof orderedPillars]?.color as string) || 'verto-green';
+              const accentColor = getAccentColor(pillarColor);
+              
               return (
-                <button
-                  key={key}
-                  onClick={(e) => {
-                    setActiveTab(key);
-                    // Auto-scroll to top of the content area, accounting for fixed navbar and ribbon
-                    const element = document.getElementById('pillar-content');
-                    if (element) {
-                      const elementTop = element.offsetTop;
-                      // Account for navbar (64px) + ribbon height (~60px) + some padding
-                      const offset = 140;
-                      window.scrollTo({
-                        top: elementTop - offset,
-                        behavior: 'smooth'
-                      });
-                    }
-                    // On mobile, scroll the clicked tab button into view
-                    setTimeout(() => {
-                      const button = e.currentTarget;
-                      if (button && window.innerWidth < 768) { // mobile breakpoint
-                        button.scrollIntoView({
-                          behavior: 'smooth',
-                          block: 'nearest',
-                          inline: 'center'
-                        });
-                      }
-                    }, 100);
-                  }}
-                  className={`flex-shrink-0 whitespace-nowrap py-2 px-4 border-b-2 font-medium text-sm transition-colors duration-200 ${activeTab === key ? `${colors.border} ${colors.text}` : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600"}`}
-                >
-                  {pillar?.label || 'Unknown'}
-                </button>
-              )
+                <div key={index} className="flex items-center">
+                  <button
+                    onClick={() => handleStepClick(index)}
+                    className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
+                      index === currentStep && !isAutoPlaying ? 'animate-bubble-pop scale-110' : 'hover:opacity-80'
+                    }`}
+                  >
+                    <div
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
+                        index === currentStep ? 'shadow-lg' : 'shadow-md'
+                      }`}
+                      style={{
+                        backgroundColor:
+                          index <= currentStep
+                            ? accentColor
+                            : `${accentColor}40`,
+                        color: index <= currentStep ? 'white' : accentColor,
+                        boxShadow:
+                          index === currentStep
+                            ? `0 0 20px ${accentColor}80`
+                            : index < currentStep
+                            ? `0 0 10px ${accentColor}40`
+                            : 'none',
+                      }}
+                    >
+                      {index === orderedKeys.length - 1 ? (
+                        <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                      ) : (
+                        index + 1
+                      )}
+                    </div>
+                  </button>
+                  {index < orderedKeys.length - 1 && (
+                    <div
+                      key={`dash-${index}-${currentStep}`}
+                      className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 rounded-full overflow-hidden relative`}
+                      style={{
+                        background: index < currentStep 
+                          ? `linear-gradient(90deg, ${accentColor}, ${getAccentColor((orderedPillars[orderedKeys[index + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`
+                          : 'rgba(148, 163, 184, 0.3)',
+                      }}
+                    >
+                      <div
+                        className="h-full"
+                        style={{
+                          width: index < currentStep ? '100%' : index === currentStep ? '0%' : '0%',
+                          background: `linear-gradient(90deg, ${accentColor}, ${getAccentColor((orderedPillars[orderedKeys[index + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
+                          transition: index === currentStep ? 'width 10000ms linear' : 'width 0ms',
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
+              );
             })}
-          </nav>
+          </div>
         </div>
       </div>
 
