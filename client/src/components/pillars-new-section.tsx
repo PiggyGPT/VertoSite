@@ -24,7 +24,7 @@ import {
   LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
   ChevronDown, Landmark, History, Link, Clock, Plus,
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-  Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp
+  Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -1230,7 +1230,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "verto-green", title: "Partner On-Ramps",
+      label: "Tokenize Deposits", color: "verto-green", title: "Partner On-Ramps", icon: Workflow,
       description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
@@ -1243,7 +1243,7 @@ export default function PillarsSection({
       cta: "Scale Distribution Network"
     },
     trading: {
-      label: "Attract Liquidity", color: "verto-blue", title: "Institutional Liquidity",
+      label: "Attract Liquidity", color: "verto-blue", title: "Institutional Liquidity", icon: Coins,
       description: "Execute trades across fragmented, multi-chain liquidity pools with automated enforcement of institutional risk policies.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
@@ -1256,7 +1256,7 @@ export default function PillarsSection({
       cta: "Integrate Liquidity API"
     },
     payments: {
-      label: "Transact Globally", color: "verto-purple", title: "Frictionless Checkout",
+      label: "Transact Globally", color: "verto-purple", title: "Frictionless Checkout", icon: Globe,
       description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
@@ -1269,7 +1269,7 @@ export default function PillarsSection({
       cta: "Explore Payments API"
     },
     service: {
-      label: "Unlock Growth", color: "verto-orange",
+      label: "Unlock Growth", color: "verto-orange", icon: TrendingUp,
       title: "24/7 Global Operations",
       description: "Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.",
       visual: <ExecutiveServiceFlow />,
@@ -1357,6 +1357,7 @@ export default function PillarsSection({
               const pillar = orderedPillars[key as keyof typeof orderedPillars];
               const pillarColor = (pillar?.color as string) || 'verto-green';
               const accentColor = getAccentColor(pillarColor);
+              const IconComponent = (pillar?.icon as any) || TrendingUp;
               
               return (
                 <button
@@ -1367,7 +1368,7 @@ export default function PillarsSection({
                   }`}
                 >
                   <div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 flex-shrink-0 ${
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
                       index === currentStep ? 'shadow-lg' : 'shadow-md'
                     }`}
                     style={{
@@ -1384,20 +1385,11 @@ export default function PillarsSection({
                           : 'none',
                     }}
                   >
-                    {index === orderedKeys.length - 1 ? (
-                      <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
-                    ) : (
-                      index + 1
-                    )}
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <div className="hidden sm:flex flex-col">
-                    <p className={`text-xs font-semibold uppercase tracking-wider ${index === currentStep ? activeColors.text : 'text-slate-500 dark:text-slate-400'}`}>
-                      Step {index + 1}
-                    </p>
-                    <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                      {pillar?.label || 'Unknown'}
-                    </p>
-                  </div>
+                  <p className="hidden sm:block text-sm font-semibold text-slate-900 dark:text-white">
+                    {pillar?.label || 'Unknown'}
+                  </p>
                 </button>
               );
             })}
