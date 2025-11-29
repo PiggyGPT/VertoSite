@@ -1,0 +1,226 @@
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Plus, Zap, History, Settings, User, Keyboard, CheckCircle, Lock
+} from "lucide-react";
+import { QRCodeSVG } from 'qrcode.react';
+
+const cursorStyle = `
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  .typing-cursor {
+    animation: blink 1s step-end infinite;
+    width: 4px;
+    height: 3rem;
+    background-color: #22c55e;
+    display: inline-block;
+    vertical-align: sub;
+    margin-left: 4px;
+  }
+`;
+
+const VisualContainer = ({ children }: { children: React.ReactNode }) => (
+  <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
+    {children}
+  </div>
+);
+
+const Header = ({ title, subtitle, icon, badgeText }: any) => (
+  <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+    <div>
+      <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">{title}</h3>
+      {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</p>}
+    </div>
+    <div className="flex items-center gap-2">
+      {badgeText && (
+        <span className="text-sm font-medium px-2 py-1 bg-green-200 text-green-700 rounded-full dark:bg-green-700 dark:text-green-200">
+          {badgeText}
+        </span>
+      )}
+      {icon}
+    </div>
+  </div>
+);
+
+const MintContent = ({ voucherId, amount }: any) => (
+  <div className="w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
+    <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+    <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
+    <p className="text-xs text-slate-500 dark:text-slate-400">MINT #{voucherId}</p>
+    <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
+    <p className="text-sm text-slate-500 dark:text-slate-400">SCAN TO CLAIM</p>
+    <div className="flex items-baseline justify-center gap-2 my-2">
+      <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">{amount}.00</p>
+      <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
+    </div>
+    <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+      <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
+    </div>
+  </div>
+);
+
+export default function DistributionSection() {
+  const [currentPanel, setCurrentPanel] = useState(0);
+  const [showKeypadPopup, setShowKeypadPopup] = useState(false);
+  const [amount, setAmount] = useState('');
+  const [voucherAmount, setMintAmount] = useState('');
+  const [isIssueButtonClicked, setIssueButtonClicked] = useState(false);
+  const [isEnterButtonClicked, setEnterButtonClicked] = useState(false);
+  const [animationStep, setAnimationStep] = useState(0);
+  const voucherId = '8721';
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    const runAnimationStep = (step: number) => {
+      switch (step) {
+        case 0:
+          setCurrentPanel(0);
+          setShowKeypadPopup(false);
+          setAmount('');
+          setMintAmount('');
+          setIssueButtonClicked(false);
+          setEnterButtonClicked(false);
+          timeout = setTimeout(() => setAnimationStep(1), 2000);
+          break;
+        case 1:
+          setIssueButtonClicked(true);
+          timeout = setTimeout(() => setAnimationStep(2), 300);
+          break;
+        case 2:
+          setIssueButtonClicked(false);
+          setShowKeypadPopup(true);
+          timeout = setTimeout(() => setAnimationStep(3), 500);
+          break;
+        case 3:
+          setAmount('50');
+          timeout = setTimeout(() => setAnimationStep(4), 1500);
+          break;
+        case 4:
+          setEnterButtonClicked(true);
+          timeout = setTimeout(() => setAnimationStep(5), 300);
+          break;
+        case 5:
+          setEnterButtonClicked(false);
+          setShowKeypadPopup(false);
+          setMintAmount(amount);
+          timeout = setTimeout(() => setAnimationStep(6), 700);
+          break;
+        case 6:
+          setCurrentPanel(1);
+          timeout = setTimeout(() => setAnimationStep(7), 1000);
+          break;
+        case 7:
+          timeout = setTimeout(() => setAnimationStep(8), 2500);
+          break;
+        case 8:
+          setCurrentPanel(2);
+          timeout = setTimeout(() => setAnimationStep(9), 1000);
+          break;
+        case 9:
+          timeout = setTimeout(() => setAnimationStep(0), 1000);
+          break;
+      }
+    };
+    runAnimationStep(animationStep);
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [animationStep, amount]);
+
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
+
+  const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+  const panel1Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel === 0 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
+  const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
+
+  const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800
+      ${showKeypadPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
+  const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showKeypadPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
+
+  return (
+    <section className="py-16 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Partner On-Ramps</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-300">Enable partners to seamlessly issue & distribute digital assets against deposits</p>
+        </div>
+        <VisualContainer>
+          <style>{cursorStyle}</style>
+          <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+            <div className={panel0Classes} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
+              <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                <Header title="Tia Store" subtitle="Agent Dashboard" icon={<Settings className="w-5 h-5 text-slate-400" />} />
+                <div className="p-4 rounded-lg">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">Available Credit</p>
+                      <p className="text-2xl font-bold text-green-500 tracking-tight">4,950.00 BOBC</p>
+                    </div>
+                    <button className="p-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 rounded-full transition-colors">
+                      <Plus className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+                <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500 ${isIssueButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}`}>
+                  <Zap className="w-4 h-4" />
+                  <span>Issue BOBC</span>
+                </button>
+                <div className="flex-grow mt-4 overflow-hidden flex flex-col">
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Transactions</p>
+                  <div className="space-y-2 text-sm overflow-y-auto">
+                    <div className="flex justify-between items-center p-2 rounded-md transition-colors hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                      <div><span className="text-slate-600 dark:text-slate-400">Credit Top-up</span> <p className="text-xs text-slate-400">14 Aug 2025, 10:15</p></div>
+                      <span className="font-medium text-green-500">+ 5,000 BOBC</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={panel1Classes} style={{ zIndex: currentPanel === 1 ? 3 : 2 }}>
+              <MintContent voucherId={voucherId} amount={voucherAmount} />
+            </div>
+
+            <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 2 }}>
+              <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                <Header title="Maria Silva" subtitle="Wallet" icon={<User className="w-5 h-5 text-slate-400" />} />
+                <div className="p-4 rounded-lg">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">Balance</p>
+                      <p className="text-2xl font-bold text-green-500 tracking-tight">50.00 BOBC</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={keypadPopupContainerClasses}>
+              <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4`}>
+                <Header title="Mint Amount" subtitle="Enter the amount to issue." icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
+                <div className="flex-grow flex flex-col items-center justify-center text-center">
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-6xl font-bold my-2 text-green-500 tracking-tight">
+                      {amount || '0'}
+                      <span className="text-4xl font-normal">.00</span>
+                      <span className="typing-cursor"></span>
+                      <span className="ml-2 text-3xl font-normal text-slate-500 dark:text-slate-400">BOBC</span>
+                    </p>
+                  </div>
+                  <button className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500 ${isEnterButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}`}>
+                    <Zap className="w-5 h-5" />
+                    <span>Issue BOBC</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </VisualContainer>
+      </div>
+    </section>
+  );
+}
