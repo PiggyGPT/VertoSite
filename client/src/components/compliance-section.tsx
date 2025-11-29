@@ -17,7 +17,7 @@ const FeatureItem = ({ icon: Icon, title, description }: any) => (
 );
 
 const FounderBanner = () => (
-  <div className="rounded-xl p-6 md:p-8 mt-8 bg-cyan-500/10">
+  <div className="rounded-xl p-6 md:p-8 mt-8">
     <div className="flex flex-col md:flex-row items-start gap-6">
       <img src={danielImage} alt="Daniel Garrie" className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
       <div>
@@ -124,7 +124,7 @@ const ComplianceVisual = () => {
 
 export default function ComplianceSection() {
   return (
-    <section className="py-16 bg-white dark:bg-slate-950">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
           <div className="lg:col-span-1">
