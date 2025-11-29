@@ -1398,7 +1398,7 @@ export default function PillarsSection({
                       }}
                     >
                       {index === orderedKeys.length - 1 ? (
-                        <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                       ) : (
                         index + 1
                       )}
