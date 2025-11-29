@@ -326,67 +326,64 @@ export default function HeroSection() {
                   {activeStory.subtitle}
                 </p>
 
-                {/* Dual Flow - Only on Step 1 */}
+                {/* Flowing Process Animation - Only on Step 1 */}
                 {currentStep === 0 && (
-                  <div className="mt-8 w-full">
-                    <div className="grid grid-cols-2 gap-4">
-                      {/* Flow 1: Deposit */}
-                      <div className="space-y-2">
-                        <div className="animate-fade-in-log text-slate-300 font-medium text-xs uppercase tracking-wide opacity-70" style={{ animationDelay: '0.1s' }}>Deposit Flow</div>
-                        
-                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
-                          <div className="flex items-center gap-2 p-2 rounded bg-slate-800/50">
-                            <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0 text-xs font-bold">●</div>
-                            <span className="text-slate-300 text-sm">Listening</span>
+                  <div className="mt-8 w-full overflow-hidden">
+                    <div className="relative h-20 flex items-center">
+                      {/* Container with horizontal flow */}
+                      <div className="w-full flex items-center justify-center gap-8 animate-flow-pan px-4">
+                        {/* Flow 1: Deposit Path */}
+                        <div className="flex items-center gap-4 min-w-max">
+                          <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <div className="w-3 h-3 rounded-full bg-slate-400 animate-pulse"></div>
+                          </div>
+                          <div className="text-slate-400 text-xs">→</div>
+                          <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs font-bold">✓</span>
+                          </div>
+                          <div className="text-slate-400 text-xs">→</div>
+                          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs font-bold">✓</span>
                           </div>
                         </div>
 
-                        <div className="text-slate-600 text-xs text-center">↓</div>
+                        <div className="w-px h-10 bg-slate-700"></div>
 
-                        <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
-                          <div className="flex items-center gap-2 p-2 rounded bg-emerald-950/50 border border-emerald-900/50">
-                            <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
-                            <span className="text-emerald-200 text-sm">Deposit Received</span>
+                        {/* Flow 2: Redemption Path */}
+                        <div className="flex items-center gap-4 min-w-max">
+                          <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <div className="w-3 h-3 rounded-full bg-slate-400 animate-pulse"></div>
                           </div>
-                        </div>
-
-                        <div className="text-slate-600 text-xs text-center">↓</div>
-
-                        <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
-                          <div className="flex items-center gap-2 p-2 rounded bg-blue-950/50 border border-blue-900/50">
-                            <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
-                            <span className="text-blue-200 text-sm">Minted to Wallet</span>
+                          <div className="text-slate-400 text-xs">→</div>
+                          <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs font-bold">✓</span>
+                          </div>
+                          <div className="text-slate-400 text-xs">→</div>
+                          <div className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs font-bold">✓</span>
                           </div>
                         </div>
                       </div>
+                    </div>
 
-                      {/* Flow 2: Redemption */}
-                      <div className="space-y-2">
-                        <div className="animate-fade-in-log text-slate-300 font-medium text-xs uppercase tracking-wide opacity-70" style={{ animationDelay: '0.1s' }}>Redemption Flow</div>
-                        
-                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
-                          <div className="flex items-center gap-2 p-2 rounded bg-slate-800/50">
-                            <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0 text-xs font-bold">●</div>
-                            <span className="text-slate-300 text-sm">Listening</span>
-                          </div>
+                    {/* Legend below flow */}
+                    <div className="flex justify-center gap-8 text-xs text-slate-400 mt-4">
+                      <div className="flex items-center gap-2">
+                        <div className="flex gap-1">
+                          <span className="text-slate-500">Listening</span>
+                          <span className="text-slate-600">→</span>
+                          <span className="text-emerald-300">Deposit</span>
+                          <span className="text-slate-600">→</span>
+                          <span className="text-blue-300">Minted</span>
                         </div>
-
-                        <div className="text-slate-600 text-xs text-center">↓</div>
-
-                        <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
-                          <div className="flex items-center gap-2 p-2 rounded bg-purple-950/50 border border-purple-900/50">
-                            <div className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
-                            <span className="text-purple-200 text-sm">Token Redeemed</span>
-                          </div>
-                        </div>
-
-                        <div className="text-slate-600 text-xs text-center">↓</div>
-
-                        <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
-                          <div className="flex items-center gap-2 p-2 rounded bg-orange-950/50 border border-orange-900/50">
-                            <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
-                            <span className="text-orange-200 text-sm">Withdrawn to Account</span>
-                          </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="flex gap-1">
+                          <span className="text-slate-500">Listening</span>
+                          <span className="text-slate-600">→</span>
+                          <span className="text-purple-300">Redeem</span>
+                          <span className="text-slate-600">→</span>
+                          <span className="text-orange-300">Withdraw</span>
                         </div>
                       </div>
                     </div>
@@ -466,6 +463,20 @@ export default function HeroSection() {
           }
           100% {
             opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .animate-flow-pan {
+          animation: flowPan 8s linear infinite;
+        }
+        @keyframes flowPan {
+          0% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(-40px);
+          }
+          100% {
             transform: translateX(0);
           }
         }
