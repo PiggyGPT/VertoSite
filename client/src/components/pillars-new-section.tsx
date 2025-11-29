@@ -1421,6 +1421,8 @@ export default function PillarsSection({
                   )`;
                 }, [orderedKeys, orderedPillars]),
                 width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+                backgroundSize: '400% 100%',
+                backgroundPosition: '0% 0%',
                 transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
               }}
