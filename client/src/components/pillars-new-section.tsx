@@ -1149,20 +1149,39 @@ const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
   image: string;
   colorClasses: any;
 }) => (
-  <div className={`rounded-xl p-6 md:p-8 mt-4 mb-6 ${colorClasses.bg}/10`}>
-    <div className="flex flex-col md:flex-row items-start gap-6">
-      <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
-      <div>
-        <blockquote className={`text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 ${colorClasses.border} pl-5`}>
-          <p>"{quote}"</p>
-        </blockquote>
-        <footer className="mt-4">
+  <motion.div 
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className={`relative rounded-2xl p-8 md:p-12 mt-8 mb-6 overflow-hidden backdrop-blur-sm bg-gradient-to-br transition-all duration-300 hover:shadow-lg border border-opacity-20 dark:border-opacity-30`}
+    style={{
+      background: `linear-gradient(135deg, ${colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.08)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.08)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.08)' : 'rgba(249, 115, 22, 0.08)'})`,
+      borderColor: colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.2)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.2)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(249, 115, 22, 0.2)'
+    }}
+  >
+    {/* Decorative accent line */}
+    <div className={`absolute top-0 left-0 h-1 w-full`} style={{
+      backgroundImage: `linear-gradient(90deg, ${colorClasses.bg === 'bg-verto-green' ? '#22c55e' : colorClasses.bg === 'bg-verto-blue' ? '#3b82f6' : colorClasses.bg === 'bg-verto-purple' ? '#8b5cf6' : '#f97316'}, transparent)`
+    }}></div>
+    
+    <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8 relative z-10">
+      <div className="flex-shrink-0">
+        <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-opacity-40 flex-shrink-0 shadow-lg" />
+      </div>
+      <div className="flex-grow">
+        <div className="flex items-start gap-3 mb-3">
+          <Quote className="w-5 h-5 flex-shrink-0 mt-1 opacity-60" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }} />
+          <blockquote className="text-lg md:text-xl font-semibold leading-relaxed text-slate-800 dark:text-slate-100">
+            <p>{quote}</p>
+          </blockquote>
+        </div>
+        <footer className="mt-5 pt-4 border-t border-slate-200 dark:border-slate-700">
           <p className="font-semibold text-slate-900 dark:text-white">{name}</p>
-          <p className={`text-sm font-medium ${colorClasses.text}`}>{title}</p>
+          <p className="text-sm font-medium mt-1" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }}>{title}</p>
         </footer>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 // DESIGN CHANGE: Define the FeatureItem with larger text and better spacing.
@@ -1316,7 +1335,7 @@ export default function PillarsSection({
     service: {
       label: "Secure Compliance", color: "verto-orange", icon: Shield,
       title: "Self-Hosted Stack",
-      description: "Secure the foundation for future growth by satisfying regulatory and risk committee mandates.",
+      description: "Maintain full control with your existing custodians, sovereign data environments, and compliance integrations.",
       visual: <ExecutiveServiceFlow />,
       founderQuote: {
         quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
@@ -1324,7 +1343,7 @@ export default function PillarsSection({
         title: "CTO | Ex-Google Head of Product",
         image: hishamImage
       },
-      features: [{ icon: KeyIcon, title: "Connect Your Keys", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
+      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
       cta: "Learn About Our Service Model"
     },
   };
@@ -1469,13 +1488,23 @@ export default function PillarsSection({
                 <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
               )) || []}
             </div>
-            <button
+            <motion.button
               onClick={openModal}
-              className={`inline-flex items-center px-6 py-3 ${activeColors.bg} hover:bg-opacity-90 text-white font-semibold rounded-lg transition-colors`}
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className={`group inline-flex items-center px-7 py-3 ${activeColors.bg} text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden`}
             >
-              <span>{activePillar?.cta || 'Get Started'}</span>
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </button>
+              <span className="relative z-10">{activePillar?.cta || 'Get Started'}</span>
+              <motion.div
+                initial={{ x: 0, opacity: 0.5 }}
+                animate={{ x: [0, 4, 0], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="relative z-10 ml-2"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </motion.div>
+              <div className={`absolute inset-0 ${activeColors.bg} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+            </motion.button>
           </div>
 
           {/* Right Column: Visual */}
