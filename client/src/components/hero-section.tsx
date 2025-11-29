@@ -237,6 +237,18 @@ export default function HeroSection() {
           </div>
         </div>
         
+        {/* Progress Bar - Discrete Tab Indicator */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
+          <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+            <div
+              className="h-full rounded-full"
+              style={{
+                backgroundColor: getAccentColor((pillars[orderedKeys[currentStep] as keyof typeof pillars]?.color as string) || 'verto-green'),
+                width: `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+              }}
+            />
+          </div>
+        </div>
       </div>
 
       <CalendlyModal title="Schedule Consultation" />
