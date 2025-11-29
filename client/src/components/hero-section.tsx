@@ -77,7 +77,7 @@ export default function HeroSection() {
 
   const storySteps: StoryStep[] = [
     {
-      title: "1. Tokenize Your Deposits",
+      title: "Tokenize Your Deposits",
       subtitle:
         "Enable your systems to automate issuance, redemption and reconciliation with our APIs.",
       icon: Workflow,
@@ -85,25 +85,26 @@ export default function HeroSection() {
       accentColor: "#EEAA4A",
     },
     {
-      title: "2. Attract Dollar Liquidity",
+      title: "Attract Dollar Liquidity",
       subtitle:
-        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our DEX.",
+        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our Decentralized Exchange (DEX).",
       icon: Coins,
       href: "/liquidity",
       accentColor: "#EF660B",
     },
     {
-      title: "3. Unlock Global Acceptance",
+      title: "Power Global Acceptance",
       subtitle:
         "Enable Traders to easily transact with any bank or wallet with our Router.",
       icon: Globe2,
       href: "/coverage",
       accentColor: "#8F73FE",
     },
+
     {
-      title: "4. Achieve Sovereign Compliance",
+      title: "Unlock Dollar Growth",
       subtitle:
-        "Eliminate counterparty risk by deploying our full stack on your servers.",
+        "Deploy our full stack on your servers to unlock the Dollar Growth Spiral: Liquidity → Volume → Yield.",
       icon: ShieldCheck,
       href: "/compliance",
       accentColor: "#217DFE",
@@ -262,19 +263,19 @@ export default function HeroSection() {
 
             {/* Content */}
             <div key={currentStep} className="text-center animate-lateral-pan">
-              {/* Elegant Icon Badge */}
+              {/* Number/Prize Badge */}
               <div
-                className="inline-flex items-center justify-center p-2.5 rounded-lg mb-1.5 sm:mb-3 shadow-md mx-auto"
+                className="inline-flex items-center justify-center w-12 h-12 rounded-lg mb-1.5 sm:mb-3 shadow-md mx-auto font-bold text-lg"
                 style={{
                   backgroundColor: `${activeAccent}15`,
                   color: activeAccent,
                 }}
               >
-                <activeStory.icon className="w-5 h-5" />
+                {currentStep === 3 ? "🎁" : currentStep + 1}
               </div>
 
               <h2 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
-                {activeStory.title}
+                {currentStep === 3 ? "🎁 PRIZE!" : activeStory.title}
               </h2>
 
               <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
