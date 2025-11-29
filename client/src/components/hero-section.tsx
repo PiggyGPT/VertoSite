@@ -199,33 +199,37 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Pillar Navigation - Full Width at Bottom */}
-      <div className="w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      {/* Pillar Navigation - Full Width at Bottom with Bottom Border */}
+      <div className="w-full border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
               const pillar = pillars[key as keyof typeof pillars];
               const pillarColor = pillar?.color || 'verto-green';
               const accentColor = getAccentColor(pillarColor);
               const IconComponent = pillar?.icon || TrendingUp;
+              const isActive = index === currentStep;
               
               return (
                 <button
                   key={index}
                   data-tab-index={index}
                   onClick={() => handleStepClick(index)}
-                  className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start ${
-                    index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
+                  className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 py-6 sm:py-8 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start border-b-2 transition-colors ${
+                    isActive ? 'border-b-2' : 'border-b-transparent'
                   }`}
+                  style={{
+                    borderBottomColor: isActive ? accentColor : 'transparent'
+                  }}
                 >
                   <IconComponent 
                     className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors"
                     style={{
-                      color: index <= currentStep ? accentColor : '#94a3b8'
+                      color: isActive ? accentColor : '#94a3b8'
                     }}
                   />
                   <p className={`text-sm font-semibold transition-colors whitespace-nowrap ${
-                    index <= currentStep 
+                    isActive
                       ? 'text-slate-900 dark:text-white' 
                       : 'text-slate-500 dark:text-slate-400'
                   }`}>
@@ -234,19 +238,6 @@ export default function HeroSection() {
                 </button>
               );
             })}
-          </div>
-        </div>
-        
-        {/* Progress Bar - Discrete Tab Indicator */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
-          <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-            <div
-              className="h-full rounded-full"
-              style={{
-                backgroundColor: getAccentColor((pillars[orderedKeys[currentStep] as keyof typeof pillars]?.color as string) || 'verto-green'),
-                width: `${((currentStep + 1) / orderedKeys.length) * 100}%`,
-              }}
-            />
           </div>
         </div>
       </div>
