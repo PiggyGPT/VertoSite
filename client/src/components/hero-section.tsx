@@ -200,7 +200,7 @@ export default function HeroSection() {
       </section>
 
       {/* Pillar Navigation - Full Width at Bottom with Bottom Border */}
-      <div className="w-full border-t border-white/10">
+      <div className="w-full border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
