@@ -63,7 +63,7 @@ export default function HeroSection() {
         
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
-          <h1 className="font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tighter mb-8 leading-[1.05] text-white">
+          <h1 className="font-bold text-3xl md:text-4xl sm:text-6xl lg:text-7xl tracking-tighter mb-8 leading-[1.05] text-white">
             Connect Your Assets <br />
             <span className="text-slate-500">
               To Global Dollars.
