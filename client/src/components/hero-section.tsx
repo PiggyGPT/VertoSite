@@ -302,8 +302,9 @@ export default function HeroSection() {
                             className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 rounded-full overflow-hidden relative bg-slate-700/30`}
                           >
                             <div
-                              className="h-full transition-all"
+                              className="h-full absolute top-0 transition-all"
                               style={{
+                                right: 0,
                                 width: index < currentStep ? '100%' : index === currentStep ? '100%' : '0%',
                                 background: `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`,
                                 transitionDuration: index === currentStep ? '600ms' : '300ms',
