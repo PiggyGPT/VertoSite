@@ -1340,6 +1340,16 @@ export default function PillarsSection({
     <div id="infrastructure" className="relative">
       {/* Progress Indicator Navigation - Tab Style with Labels */}
       <div id="pillar-navigation" className="sticky top-16 z-40">
+        <style>{`
+          @keyframes continuousProgress {
+            from {
+              width: ${(currentStep / orderedKeys.length) * 100}%;
+            }
+            to {
+              width: ${((currentStep + 1) / orderedKeys.length) * 100}%;
+            }
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-16 pb-4">
@@ -1393,13 +1403,14 @@ export default function PillarsSection({
             })}
           </div>
           
-          {/* Global Progress Bar */}
+          {/* Continuous Global Progress Bar */}
           <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r transition-all duration-300 ease-out rounded-full"
+              className="h-full rounded-full"
               style={{
-                width: `${((currentStep + 1) / orderedKeys.length) * 100}%`,
                 backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
+                width: isAutoPlaying ? `${((currentStep + 1) / orderedKeys.length) * 100}%` : `${(currentStep / orderedKeys.length) * 100}%`,
+                animation: isAutoPlaying ? `continuousProgress 10000ms linear forwards` : 'none',
               }}
             />
           </div>
