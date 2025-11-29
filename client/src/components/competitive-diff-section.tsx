@@ -39,12 +39,13 @@ export default function CompetitiveDiffSection() {
         <section className="relative w-full pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
-                    <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight mb-4">
+                <div className="text-center max-w-4xl mx-auto mb-12">
+                    <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
+                        The only{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-                            Non-custodial, Full-Stack
+                            non-custodial, full-stack
                         </span>
-                        {" "}Stablecoin Stack
+                        {" "}solution
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
                         You own the keys. You own the data. You own the customer.
@@ -52,15 +53,15 @@ export default function CompetitiveDiffSection() {
                 </div>
 
                 {/* Comparison Table */}
-                <div className="mb-16 overflow-x-auto">
+                <div className="mb-12 overflow-x-auto">
                     <table className="w-full border-collapse">
                         <thead>
                             <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                                <th className="text-left py-4 px-6 font-semibold text-slate-900 dark:text-white text-sm">
+                                <th className="text-left py-3 px-6 font-semibold text-slate-900 dark:text-white text-base">
                                     Capability
                                 </th>
-                                <th className="text-left py-4 px-6 font-semibold text-center">
-                                    <div className="text-slate-900 dark:text-white text-sm" style={{
+                                <th className="text-left py-3 px-6 font-semibold text-center">
+                                    <div className="text-base" style={{
                                         background: 'linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)',
                                         backgroundClip: 'text',
                                         WebkitBackgroundClip: 'text',
@@ -69,7 +70,7 @@ export default function CompetitiveDiffSection() {
                                         albor
                                     </div>
                                 </th>
-                                <th className="text-left py-4 px-6 font-semibold text-slate-600 dark:text-slate-400 text-center text-sm">
+                                <th className="text-left py-3 px-6 font-semibold text-slate-600 dark:text-slate-400 text-center text-base">
                                     Competitors
                                 </th>
                             </tr>
@@ -79,27 +80,27 @@ export default function CompetitiveDiffSection() {
                                 const Icon = feature.icon;
                                 return (
                                     <tr key={index} className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/20 transition-colors">
-                                        <td className="py-5 px-6">
+                                        <td className="py-4 px-6">
                                             <div className="flex items-center gap-3">
                                                 <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
                                                     <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                                                 </div>
-                                                <span className="font-semibold text-slate-900 dark:text-white text-sm">
+                                                <span className="font-semibold text-slate-900 dark:text-white text-base">
                                                     {feature.name}
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="py-5 px-6">
+                                        <td className="py-4 px-6">
                                             <div className="flex items-center justify-between">
-                                                <span className="text-sm text-slate-700 dark:text-slate-300">
+                                                <span className="text-base text-slate-700 dark:text-slate-300">
                                                     {feature.albor}
                                                 </span>
                                                 <Check className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
                                             </div>
                                         </td>
-                                        <td className="py-5 px-6">
+                                        <td className="py-4 px-6">
                                             <div className="flex items-center justify-between">
-                                                <span className="text-sm text-slate-600 dark:text-slate-400">
+                                                <span className="text-base text-slate-600 dark:text-slate-400">
                                                     {feature.competitors}
                                                 </span>
                                                 {feature.competitors === "None" && (
