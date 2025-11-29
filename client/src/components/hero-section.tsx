@@ -157,7 +157,7 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-slate-400 leading-relaxed mb-12 max-w-2xl">
+          <p className="text-base sm:text-xl md:text-2xl text-slate-400 leading-relaxed mb-12 max-w-2xl">
             Capture liquidity from the $300B stablecoin market with compliant infrastructure.
           </p>
 
