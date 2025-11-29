@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useCalendlyModal } from "./calendly-modal";
 
 interface CustomFounderQuote {
