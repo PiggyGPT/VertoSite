@@ -331,27 +331,9 @@ export default function HeroSection() {
                   {currentStep === 3 ? "Unlock Growth Spiral!" : activeStory.title}
                 </h2>
 
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-md mx-auto mb-6 sm:mb-8">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-md mx-auto">
                   {activeStory.subtitle}
                 </p>
-
-                <div className="flex items-center justify-center">
-                  <Link
-                    key={currentStep}
-                    href={activeStory.href}
-                    className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold text-sm transition-all hover:scale-105 duration-300"
-                    style={{
-                      backgroundColor: activeAccent,
-                      color: 'white',
-                    }}
-                  >
-                    {currentStep === 0 && "Explore APIs"}
-                    {currentStep === 1 && "Explore DEX"}
-                    {currentStep === 2 && "Explore Router"}
-                    {currentStep === 3 && "Explore Full Stack"}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
