@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Plus, Zap, History, Settings, User, Keyboard, CheckCircle, Lock
+  Plus, Zap, History, Settings, User, Keyboard, CheckCircle, Lock, ArrowRight,
+  Coins, CreditCard, Users
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
+import davidImage from "@assets/david_1754986415369.png";
 
 const cursorStyle = `
   @keyframes blink {
@@ -141,14 +143,49 @@ export default function DistributionSection() {
       ${showKeypadPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
   const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showKeypadPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
 
+  const FeatureItem = ({ icon: Icon, title, description }: any) => (
+    <div className="flex items-start">
+      <div className="flex-shrink-0">
+        <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
+          <Icon className="w-6 h-6 text-green-500" />
+        </div>
+      </div>
+      <div className="ml-4">
+        <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
+        <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{description}</p>
+      </div>
+    </div>
+  );
+
+  const FounderBanner = () => (
+    <div className="rounded-xl p-6 md:p-8 mt-4 mb-6 bg-green-500/10">
+      <div className="flex flex-col md:flex-row items-start gap-6">
+        <img src={davidImage} alt="David Cass" className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
+        <div>
+          <blockquote className="text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 border-green-500 pl-5">
+            <p>"The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook."</p>
+          </blockquote>
+          <footer className="mt-4">
+            <p className="font-semibold text-slate-900 dark:text-white">David Cass</p>
+            <p className="text-sm font-medium text-green-500">CEO | Former Federal Reserve Regulator</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section className="py-16 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Partner On-Ramps</h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300">Enable partners to seamlessly issue & distribute digital assets against deposits</p>
-        </div>
-        <VisualContainer>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
+          <div className="lg:col-span-1">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-green-500">Distribution</p>
+              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Partner On-Ramps</h3>
+              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.</p>
+            </div>
+            <div className="lg:hidden my-10">
+              <VisualContainer>
           <style>{cursorStyle}</style>
           <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
             <div className={panel0Classes} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
@@ -218,9 +255,19 @@ export default function DistributionSection() {
                 </div>
               </div>
             </div>
+              </VisualContainer>
+            </div>
+            <div className="space-y-6 md:space-y-8 mt-10 mb-10">
+              <FeatureItem icon={Coins} title="Leverage Existing Networks" description="Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." />
+              <FeatureItem icon={CreditCard} title="Zero-Float Operations" description="Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." />
+              <FeatureItem icon={Users} title="Partner Portal & APIs" description="Self-service onboarding and white-label solutions for rapid partner integration and network growth." />
+            </div>
+            <button className="inline-flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors">
+              <span>Scale Distribution Network</span>
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </button>
           </div>
-        </VisualContainer>
-      </div>
-    </section>
-  );
-}
+
+          <div className="hidden lg:flex lg:col-span-1 justify-center">
+            <div className="w-full max-w-md">
+              <VisualContainer>
