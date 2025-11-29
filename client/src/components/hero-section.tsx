@@ -162,7 +162,7 @@ export default function HeroSection() {
           
           {/* LEFT COLUMN: TEXT & CTAs */}
           <div className="flex flex-col items-start text-left max-w-2xl">
-            <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-6xl tracking-tighter mb-6 sm:mb-7 md:mb-8 text-slate-900 dark:text-white leading-tight">
+            <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-5xl xl:text-5xl tracking-tighter mb-6 sm:mb-7 md:mb-8 text-slate-900 dark:text-white leading-tight">
               Launch Your Stablecoin.
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
