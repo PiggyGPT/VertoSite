@@ -187,7 +187,7 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="w-full max-w-5xl pt-6 sm:pt-8 md:pt-10 lg:pt-12">
+        <div className="w-full max-w-5xl pt-3 sm:pt-4 md:pt-5 lg:pt-6">
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 sm:mb-6 md:mb-7">
             Founded by leaders at
           </p>
