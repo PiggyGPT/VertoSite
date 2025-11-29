@@ -1230,7 +1230,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Your Deposits", color: "verto-green", title: "Partner On-Ramps",
+      label: "Tokenize Deposits", color: "verto-green", title: "Partner On-Ramps",
       description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
@@ -1243,7 +1243,7 @@ export default function PillarsSection({
       cta: "Scale Distribution Network"
     },
     trading: {
-      label: "Attract Liquidity Providers", color: "verto-blue", title: "Institutional Liquidity",
+      label: "Attract Liquidity", color: "verto-blue", title: "Institutional Liquidity",
       description: "Execute trades across fragmented, multi-chain liquidity pools with automated enforcement of institutional risk policies.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
@@ -1256,7 +1256,7 @@ export default function PillarsSection({
       cta: "Integrate Liquidity API"
     },
     payments: {
-      label: "Accept Global Transactions", color: "verto-purple", title: "Frictionless Checkout",
+      label: "Transact Globally", color: "verto-purple", title: "Frictionless Checkout",
       description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
@@ -1269,7 +1269,7 @@ export default function PillarsSection({
       cta: "Explore Payments API"
     },
     service: {
-      label: "Unlock Growth Spiral", color: "verto-orange",
+      label: "Unlock Growth", color: "verto-orange",
       title: "24/7 Global Operations",
       description: "Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.",
       visual: <ExecutiveServiceFlow />,
