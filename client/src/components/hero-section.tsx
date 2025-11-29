@@ -184,30 +184,6 @@ export default function HeroSection() {
             <br />
             with our self-hosted, full-stack infrastructure.
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
-            <button
-              onClick={openModal}
-              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
-              style={{
-                background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
-                color: "white",
-              }}
-              data-testid="hero-schedule-demo"
-            >
-              <Calendar className="w-4 h-4" />
-              <span>Schedule Demo</span>
-            </button>
-            <button
-              onClick={openModal}
-              className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
-              data-testid="hero-contact-sales"
-            >
-              <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-              Contact Sales
-            </button>
-          </div>
         </div>
 
         {/* SOCIAL PROOF */}
@@ -335,6 +311,30 @@ export default function HeroSection() {
                   {activeStory.subtitle}
                 </p>
               </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
+              <button
+                onClick={openModal}
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
+                style={{
+                  background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
+                  color: "white",
+                }}
+                data-testid="hero-schedule-demo"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Schedule Demo</span>
+              </button>
+              <button
+                onClick={openModal}
+                className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
+                data-testid="hero-contact-sales"
+              >
+                <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                Contact Sales
+              </button>
             </div>
           </div>
         </div>
