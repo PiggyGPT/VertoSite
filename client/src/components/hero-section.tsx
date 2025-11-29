@@ -175,7 +175,7 @@ export default function HeroSection() {
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-              Attract Global Dollars.
+              Capture Dollar Liquidity.
             </span>
           </h1>
 

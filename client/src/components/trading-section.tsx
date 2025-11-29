@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cpu, FileText, CheckCircle, ArrowRight, GitBranch, KeyRound, SquareStack } from "lucide-react";
+import { Cpu, FileText, CheckCircle, ArrowRight, Route, KeyRound, Zap } from "lucide-react";
 import davidImage from "@assets/david_1754986415369.png";
 
 const FeatureItem = ({ icon: Icon, title, description }: any) => (
@@ -228,9 +228,9 @@ export default function TradingSection() {
               <TradingVisual />
             </div>
             <div className="space-y-6 md:space-y-8 mt-10 mb-10">
-              <FeatureItem icon={GitBranch} title="Smart Order Routing" description="Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." />
+              <FeatureItem icon={Route} title="Smart Order Routing" description="Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." />
               <FeatureItem icon={KeyRound} title="Non-Custodial Signing" description="Sign transaction routes with your existing custodial key governance, so your assets never leave your control." />
-              <FeatureItem icon={SquareStack} title="Atomic Execution" description="Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." />
+              <FeatureItem icon={Zap} title="Atomic Execution" description="Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." />
             </div>
             <button className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors">
               <span>Integrate Liquidity API</span>

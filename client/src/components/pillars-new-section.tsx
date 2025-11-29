@@ -1289,7 +1289,7 @@ export default function PillarsSection({
   const defaultPillars = {
     distribution: {
       label: "Tokenize Deposits", color: "verto-purple", title: "Banking APIs", icon: Workflow,
-      description: "Automate issuance, redemption, and reconciliation across your ecosystem to instantly fund your treasury.",
+      description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
         quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
@@ -1302,7 +1302,7 @@ export default function PillarsSection({
     },
     trading: {
       label: "Attract Liquidity", color: "verto-blue", title: "Decentralized Exchange", icon: Coins,
-      description: "Create a global dollar market for your token where anyone can trade and provide liquidity.",
+      description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
         quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
@@ -1315,7 +1315,7 @@ export default function PillarsSection({
     },
     payments: {
       label: "Transact Globally", color: "verto-green", title: "Patent-Pending Router", icon: Globe,
-      description: "Enable universal trading of your tokens from any bank, wallet, or chain.",
+      description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
         quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
@@ -1328,8 +1328,8 @@ export default function PillarsSection({
     },
     service: {
       label: "Secure Compliance", color: "verto-orange", icon: Shield,
-      title: "Self-Hosted Stack",
-      description: "Maintain full control with your existing custodians, sovereign data environments, and compliance integrations.",
+      title: "Sovereign Infrastructure",
+      description: "Satisfy regulatory and risk committee mandates by controling your keys and data",
       visual: <ExecutiveServiceFlow />,
       founderQuote: {
         quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
