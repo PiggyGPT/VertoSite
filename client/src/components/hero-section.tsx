@@ -299,15 +299,18 @@ export default function HeroSection() {
                         </button>
                         {index < storySteps.length - 1 && (
                           <div
-                            className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 transition-all duration-300 ${
-                              index < currentStep ? 'opacity-100' : 'opacity-30'
-                            }`}
-                            style={{
-                              background: index < currentStep
-                                ? `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`
-                                : `linear-gradient(90deg, ${storySteps[index].accentColor}40, ${storySteps[index + 1].accentColor}40)`,
-                            }}
-                          />
+                            className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 rounded-full overflow-hidden relative bg-slate-700/30`}
+                          >
+                            <div
+                              className="h-full transition-all"
+                              style={{
+                                width: index < currentStep ? '100%' : index === currentStep ? '100%' : '0%',
+                                background: `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`,
+                                transitionDuration: index === currentStep ? '600ms' : '300ms',
+                                transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                              }}
+                            />
+                          </div>
                         )}
                       </div>
                     ))}
