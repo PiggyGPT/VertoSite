@@ -5,7 +5,6 @@ import ProblemSection from "@/components/problem-section";
 import PillarsSection from "@/components/pillars-new-section";
 import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
-import TeamSection from "@/components/team-section";
 import Footer from "@/components/footer";
 import GrowthSpiralSection from "@/components/growth-spiral-section";
 import CompetitiveDiffSection from "@/components/competitive-diff-section";
@@ -118,7 +117,6 @@ Attract Global Dollars.`}
         />
       </div>
       <div id="team">
-        <TeamSection />
         <ProblemSection
           title="From Minting to Market Adoption"
           subtitle="Stablecoins succeed when they're widely held, actively spent, and deeply trusted."
