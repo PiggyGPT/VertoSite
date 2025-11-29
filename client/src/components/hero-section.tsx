@@ -326,65 +326,51 @@ export default function HeroSection() {
                   {activeStory.subtitle}
                 </p>
 
-                {/* Flowing Process Animation - Only on Step 1 */}
+                {/* Server Log Animation - Only on Step 1 */}
                 {currentStep === 0 && (
-                  <div className="mt-8 w-full overflow-hidden">
-                    <div className="relative h-20 flex items-center">
-                      {/* Container with horizontal flow */}
-                      <div className="w-full flex items-center justify-center gap-8 animate-flow-pan px-4">
-                        {/* Flow 1: Deposit Path */}
-                        <div className="flex items-center gap-4 min-w-max">
-                          <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0">
-                            <div className="w-3 h-3 rounded-full bg-slate-400 animate-pulse"></div>
-                          </div>
-                          <div className="text-slate-400 text-xs">→</div>
-                          <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs font-bold">✓</span>
-                          </div>
-                          <div className="text-slate-400 text-xs">→</div>
-                          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs font-bold">✓</span>
-                          </div>
+                  <div className="mt-8 w-full">
+                    <div className="bg-slate-950/60 border border-slate-800 rounded-lg p-4 font-mono text-xs">
+                      {/* Log Header */}
+                      <div className="text-slate-500 mb-3 pb-2 border-b border-slate-800 text-xs">
+                        <span className="text-slate-600">system@broker:~$</span> <span className="text-slate-400">tail -f application.log</span>
+                      </div>
+                      
+                      {/* Log Lines */}
+                      <div className="space-y-1.5 text-slate-300">
+                        {/* Deposit Flow Line 1 */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
+                          <span className="text-slate-500">[14:32:51.234]</span> <span className="text-slate-400">LISTENING</span> - Awaiting deposit requests
                         </div>
 
-                        <div className="w-px h-10 bg-slate-700"></div>
+                        {/* Redemption Flow Line 1 */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '0.4s' }}>
+                          <span className="text-slate-500">[14:32:51.356]</span> <span className="text-slate-400">LISTENING</span> - Awaiting redemption requests
+                        </div>
 
-                        {/* Flow 2: Redemption Path */}
-                        <div className="flex items-center gap-4 min-w-max">
-                          <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0">
-                            <div className="w-3 h-3 rounded-full bg-slate-400 animate-pulse"></div>
-                          </div>
-                          <div className="text-slate-400 text-xs">→</div>
-                          <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs font-bold">✓</span>
-                          </div>
-                          <div className="text-slate-400 text-xs">→</div>
-                          <div className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs font-bold">✓</span>
-                          </div>
+                        {/* Deposit Flow Line 2 */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
+                          <span className="text-slate-500">[14:32:52.891]</span> <span className="text-emerald-400">✓ DEPOSIT</span> - $100,000 USD received
+                        </div>
+
+                        {/* Redemption Flow Line 2 */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1.2s' }}>
+                          <span className="text-slate-500">[14:32:53.012]</span> <span className="text-purple-400">✓ REDEEM</span> - 50,000 BSD tokens initiated
+                        </div>
+
+                        {/* Deposit Flow Line 3 */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
+                          <span className="text-slate-500">[14:32:54.567]</span> <span className="text-blue-400">✓ MINTED</span> - 100,000 BSD sent to wallet 0x7a2f...
+                        </div>
+
+                        {/* Redemption Flow Line 3 */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '2s' }}>
+                          <span className="text-slate-500">[14:32:54.789]</span> <span className="text-orange-400">✓ WITHDRAWN</span> - $50,000 USD to account ****5678
                         </div>
                       </div>
-                    </div>
 
-                    {/* Legend below flow */}
-                    <div className="flex justify-center gap-8 text-xs text-slate-400 mt-4">
-                      <div className="flex items-center gap-2">
-                        <div className="flex gap-1">
-                          <span className="text-slate-500">Listening</span>
-                          <span className="text-slate-600">→</span>
-                          <span className="text-emerald-300">Deposit</span>
-                          <span className="text-slate-600">→</span>
-                          <span className="text-blue-300">Minted</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="flex gap-1">
-                          <span className="text-slate-500">Listening</span>
-                          <span className="text-slate-600">→</span>
-                          <span className="text-purple-300">Redeem</span>
-                          <span className="text-slate-600">→</span>
-                          <span className="text-orange-300">Withdraw</span>
-                        </div>
+                      {/* Cursor */}
+                      <div className="mt-3 text-slate-500 text-xs">
+                        <span className="text-slate-600">$</span> <span className="animate-pulse">▊</span>
                       </div>
                     </div>
                   </div>
