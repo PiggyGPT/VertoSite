@@ -199,28 +199,26 @@ export default function HeroSection() {
                 className="h-full object-contain dark:invert"
               />
             </div>
-            <div className="flex sm:flex-col gap-x-6 sm:gap-x-10 md:gap-x-12">
-              <div className="w-20 h-6 flex items-center justify-center">
-                <img
-                  src="/logos/GSR_logo.svg"
-                  alt="GSR Markets"
-                  className="h-full object-contain dark:invert"
-                />
-              </div>
-              <div className="w-20 h-6 flex items-center justify-center">
-                <img
-                  src="/logos/PayPal_logo.svg"
-                  alt="PayPal"
-                  className="h-full object-contain dark:invert"
-                />
-              </div>
-              <div className="w-20 h-6 flex items-center justify-center">
-                <img
-                  src="/logos/Microsoft_logo_(2012).svg"
-                  alt="Microsoft"
-                  className="h-full object-contain dark:invert"
-                />
-              </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/GSR_logo.svg"
+                alt="GSR Markets"
+                className="h-full object-contain dark:invert"
+              />
+            </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/PayPal_logo.svg"
+                alt="PayPal"
+                className="h-full object-contain dark:invert"
+              />
+            </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/Microsoft_logo_(2012).svg"
+                alt="Microsoft"
+                className="h-full object-contain dark:invert"
+              />
             </div>
           </div>
 
