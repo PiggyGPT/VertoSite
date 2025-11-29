@@ -157,7 +157,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 md:pt-40 lg:pt-48 pb-16 sm:pb-20 md:pb-24 flex flex-col items-center">
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto">
           {/* Enterprise Infrastructure badge - Hidden for now */}
@@ -171,7 +171,7 @@ export default function HeroSection() {
             </span>
           </div> */}
 
-          <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter mb-4 sm:mb-5 md:mb-6 text-slate-900 dark:text-white leading-tight">
+          <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter mb-6 sm:mb-7 md:mb-8 text-slate-900 dark:text-white leading-tight">
             Launch Your Stablecoin.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
@@ -179,7 +179,7 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12 sm:mb-14 md:mb-16 lg:mb-20">
             Capture liquidity from the $300B dollar stablecoin market
             <br />
             with our self-hosted, full-stack infrastructure.
@@ -187,11 +187,11 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="w-full max-w-5xl pt-6 sm:pt-8 md:pt-10 lg:pt-12">
-          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 sm:mb-6 md:mb-7">
+        <div className="w-full max-w-5xl pt-12 sm:pt-14 md:pt-16 lg:pt-20">
+          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-8 sm:mb-10 md:mb-12">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-6 sm:pb-8 md:pb-10 lg:pb-12 opacity-100 grayscale">
+          <div className="flex flex-wrap justify-center gap-x-10 sm:gap-x-12 md:gap-x-16 gap-y-6 sm:gap-y-8 md:gap-y-10 pb-12 sm:pb-16 md:pb-20 lg:pb-24 opacity-100 grayscale">
             <div className="w-40 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
@@ -225,7 +225,7 @@ export default function HeroSection() {
 
         {/* JOURNEY CAROUSEL */}
         <div className="w-full border-b border-white/5">
-          <div className="w-full max-w-2xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+          <div className="w-full max-w-2xl mx-auto mt-12 sm:mt-16 md:mt-20 lg:mt-24 mb-16 sm:mb-20 md:mb-24 lg:mb-32">
             {/* Main Card Display */}
             <div className="relative p-6 sm:p-8 md:p-10 overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/0 dark:from-white/5 dark:to-white/0 border border-white/10 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 group">
               {/* Dynamic Accent Glow */}
@@ -314,7 +314,7 @@ export default function HeroSection() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-5 mt-12 sm:mt-14 md:mt-16 lg:mt-20">
               <button
                 onClick={openModal}
                 className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
