@@ -74,7 +74,7 @@ export function DynamicBackground() {
       <div
         className="fixed inset-0 -z-40 pointer-events-none transition-opacity duration-700"
         style={{
-          background: `radial-gradient(circle at center, ${glowColor}, transparent 65%)`,
+          background: `radial-gradient(circle at center, ${glowColor}, transparent 80%)`,
           opacity: glowOpacity,
           filter: 'blur(120px)',
         }}

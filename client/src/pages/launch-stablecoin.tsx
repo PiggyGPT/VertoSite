@@ -131,7 +131,7 @@ Attract Global Dollars.`}
               persona: "Head of Corporate Banking",
               company: "Panama",
               quote:
-                "Corporate treasuries are fleeing to USDC for T+0 settlements. We need to launch our own digital dollar to pull that liquidity back onto our balance sheets.",
+                "Our corporate clients are fleeing their treasuries to USDC for T+0 settlements. We need to launch our own digital dollar to pull that liquidity back onto our balance sheets.",
             },
             {
               icon: "Shield",
