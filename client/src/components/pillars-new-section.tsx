@@ -1352,7 +1352,7 @@ export default function PillarsSection({
         `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
-          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-16">
+          <div className="flex justify-between items-center w-full px-8 sm:px-12 lg:px-16">
             {orderedKeys.map((key, index) => {
               const pillar = orderedPillars[key as keyof typeof orderedPillars];
               const pillarColor = (pillar?.color as string) || 'verto-green';
