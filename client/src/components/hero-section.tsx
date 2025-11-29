@@ -110,7 +110,7 @@ export default function HeroSection() {
                 <img
                   src="/logos/GSR_logo.svg"
                   alt="GSR Markets"
-                  className="h-full object-contain brightness-200 contrast-125 invert"
+                  className="h-full object-contain brightness-200 contrast-125"
                 />
               </div>
               <div className="w-20 h-6 flex items-center justify-center">
