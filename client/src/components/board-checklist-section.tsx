@@ -1,32 +1,24 @@
 // src/components/PilotProgramSection.tsx
 
 
-import { Rocket, CheckCircle, BarChart3, ArrowRight } from "lucide-react";
+import { Check, Rocket, BarChart3, Target, ArrowRight } from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
-// Helper component for a timeline item
-const TimelineItem = ({ phase, title, icon: Icon, hexColor, children }: { phase: string, title: string, icon: any, hexColor: string, children: React.ReactNode }) => (
+// Helper component for a timeline item (no changes here)
+const TimelineItem = ({ phase, title, icon: Icon, color, children }: { phase: string, title: string, icon: any, color: string, children: React.ReactNode }) => (
   <div className="relative pl-8 sm:pl-12 py-4 sm:py-6 group">
-    {/* Timeline line */}
+    {/* Styling remains the same */}
     <div className={`absolute left-0 top-9 sm:top-11 h-full w-0.5 bg-slate-200 dark:bg-slate-700 group-last:h-0`}></div>
-    <div className={`absolute left-0 top-9 sm:top-11 w-0.5 transition-all duration-500 scale-y-0 group-hover:scale-y-100`} style={{ backgroundColor: hexColor, height: '100%' }}></div>
-    
-    {/* Timeline dot */}
-    <div className="absolute left-[-9px] sm:left-[-11px] top-6 sm:top-8 flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-slate-900 ring-4 ring-white dark:ring-slate-900">
-      <div className={`w-3 h-3 rounded-full transition-colors`} style={{ backgroundColor: hexColor }}></div>
+    <div className={`absolute left-0 top-9 sm:top-11 w-0.5 bg-${color} transition-all duration-500 scale-y-0 group-hover:scale-y-100`}></div>
+    <div className="absolute left-[-9px] sm:left-[-11px] top-6 sm:top-8 flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-slate-800 ring-4 ring-white dark:ring-slate-800">
+      <div className={`w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-${color} transition-colors`}></div>
     </div>
-    
-    {/* Phase label */}
-    <p className={`text-xs sm:text-sm font-semibold uppercase tracking-wider`} style={{ color: hexColor }}>{phase}</p>
-    
-    {/* Title with icon */}
-    <h4 className="mt-1 text-lg sm:text-xl font-semibold text-slate-100 dark:text-slate-100 flex items-center">
-      <Icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" style={{ color: hexColor }} />
+    <p className={`text-xs sm:text-sm font-semibold uppercase tracking-wider text-${color}`}>{phase}</p>
+    <h4 className="mt-1 text-lg sm:text-xl font-semibold text-slate-800 dark:text-slate-100 flex items-center">
+      <Icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-slate-500 dark:text-slate-400" />
       {title}
     </h4>
-    
-    {/* Description */}
-    <div className="mt-3 text-slate-400 dark:text-slate-400 text-sm leading-relaxed">
+    <div className="mt-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
       {children}
     </div>
   </div>
