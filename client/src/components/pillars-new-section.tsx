@@ -1408,7 +1408,7 @@ export default function PillarsSection({
             }
           }
         `}</style>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
           <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
@@ -1462,7 +1462,7 @@ export default function PillarsSection({
       </div>
 
       {/* DESIGN CHANGE: The main content container now has more consistent padding */}
-      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 lg:py-12 scroll-mt-28">
+      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 scroll-mt-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
           {/* Left Column: Text Content */}
           <div className="lg:col-span-1">
