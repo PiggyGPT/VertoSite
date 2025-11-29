@@ -157,7 +157,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-16 lg:pb-20 flex flex-col items-center">
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto">
           {/* Enterprise Infrastructure badge - Hidden for now */}
@@ -179,7 +179,7 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-6 md:mb-10 lg:mb-12">
             Capture liquidity from the $300B dollar stablecoin market
             <br />
             with our self-hosted, full-stack infrastructure.
@@ -187,11 +187,11 @@ export default function HeroSection() {
         </div>
 
         {/* SOCIAL PROOF */}
-        <div className="w-full max-w-5xl pt-3 sm:pt-4 md:pt-5 lg:pt-6">
+        <div className="w-full max-w-5xl pt-2 sm:pt-3 md:pt-5 lg:pt-6">
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 sm:mb-6 md:mb-7">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-6 sm:pb-8 md:pb-10 lg:pb-12 opacity-100 grayscale">
+          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-4 sm:pb-6 md:pb-10 lg:pb-12 opacity-100 grayscale">
             <div className="w-40 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
@@ -223,7 +223,7 @@ export default function HeroSection() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-4 sm:mt-6 md:mt-10 lg:mt-12">
             <button
               onClick={openModal}
               className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
