@@ -1241,7 +1241,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "verto-green", title: "Partner On-Ramps", icon: Workflow,
+      label: "Tokenize Deposits", color: "verto-purple", title: "Partner On-Ramps", icon: Workflow,
       description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
@@ -1267,7 +1267,7 @@ export default function PillarsSection({
       cta: "Integrate Liquidity API"
     },
     payments: {
-      label: "Transact Globally", color: "verto-purple", title: "Frictionless Checkout", icon: Globe,
+      label: "Transact Globally", color: "verto-green", title: "Frictionless Checkout", icon: Globe,
       description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
