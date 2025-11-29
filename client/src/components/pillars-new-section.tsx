@@ -1225,16 +1225,16 @@ export default function PillarsSection({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-scroll mobile tabs container to center active tab
+  // Auto-scroll mobile tabs container to center active tab (only on manual click, not auto-play)
   useEffect(() => {
-    if (tabsContainerRef.current && window.innerWidth < 640) {
+    if (tabsContainerRef.current && window.innerWidth < 640 && !isAutoPlaying) {
       const container = tabsContainerRef.current;
       const activeTab = container.querySelector(`[data-tab-index="${currentStep}"]`);
       if (activeTab) {
         activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
-  }, [currentStep]);
+  }, [currentStep, isAutoPlaying]);
 
   // Detect wrap-around (when cycling from last step back to first)
   useEffect(() => {
