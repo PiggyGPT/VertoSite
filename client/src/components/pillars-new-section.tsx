@@ -1397,7 +1397,7 @@ export default function PillarsSection({
         `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
-          <div ref={tabsContainerRef} className="flex justify-between items-center w-full px-8 sm:px-12 lg:px-16 overflow-x-auto sm:overflow-x-visible">
+          <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full px-8 sm:px-12 lg:px-16 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
               const pillar = orderedPillars[key as keyof typeof orderedPillars];
               const pillarColor = (pillar?.color as string) || 'verto-green';
@@ -1409,7 +1409,7 @@ export default function PillarsSection({
                   key={index}
                   data-tab-index={index}
                   onClick={() => handleStepClick(index)}
-                  className={`relative flex items-center gap-2 transition-all duration-300 cursor-pointer group flex-shrink-0 ${
+                  className={`relative sm:flex-shrink-0 w-full sm:w-auto flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start ${
                     index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
                   }`}
                 >
