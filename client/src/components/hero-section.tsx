@@ -311,20 +311,46 @@ export default function HeroSection() {
 
               {/* Content */}
               <div key={currentStep} className="text-center animate-scale-in relative z-10">
-                {/* Large Badge */}
-                <div
-                  className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-xl mb-4 sm:mb-6 shadow-lg mx-auto font-bold text-2xl sm:text-3xl transition-all duration-500 animate-badge-pop"
-                  style={{
-                    backgroundColor: `${activeAccent}20`,
-                    color: activeAccent,
-                    border: `2px solid ${activeAccent}60`,
-                  }}
-                >
-                  {currentStep === 3 ? (
-                    <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12" />
-                  ) : (
-                    currentStep + 1
-                  )}
+                {/* Progress Indicator - 1-2-3-Growth */}
+                <div className="inline-flex items-center justify-center gap-2 mb-6 sm:mb-8">
+                  {["1", "2", "3"].map((step, idx) => (
+                    <div key={idx} className="flex items-center">
+                      <div
+                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-semibold text-xs sm:text-sm transition-all ${
+                          idx <= currentStep ? 'scale-100' : 'scale-90 opacity-50'
+                        }`}
+                        style={{
+                          backgroundColor: idx <= currentStep ? storySteps[idx].accentColor : `${storySteps[idx].accentColor}30`,
+                          color: idx <= currentStep ? 'white' : `${storySteps[idx].accentColor}60`,
+                        }}
+                      >
+                        {step}
+                      </div>
+                      {idx < 2 && (
+                        <div
+                          className={`w-6 h-0.5 mx-1 transition-all ${
+                            idx < currentStep ? 'opacity-100' : 'opacity-30'
+                          }`}
+                          style={{
+                            background: idx < currentStep
+                              ? `linear-gradient(90deg, ${storySteps[idx].accentColor}, ${storySteps[idx + 1].accentColor})`
+                              : `linear-gradient(90deg, ${storySteps[idx].accentColor}30, ${storySteps[idx + 1].accentColor}30)`,
+                          }}
+                        />
+                      )}
+                    </div>
+                  ))}
+                  <div
+                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-semibold transition-all ${
+                      currentStep === 3 ? 'scale-100' : 'scale-90 opacity-50'
+                    }`}
+                    style={{
+                      backgroundColor: currentStep === 3 ? storySteps[3].accentColor : `${storySteps[3].accentColor}30`,
+                      color: currentStep === 3 ? 'white' : `${storySteps[3].accentColor}60`,
+                    }}
+                  >
+                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
