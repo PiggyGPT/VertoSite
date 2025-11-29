@@ -1196,6 +1196,7 @@ export default function PillarsSection({
   const [isWrappingAround, setIsWrappingAround] = useState(false);
   const [isNavScrolled, setIsNavScrolled] = useState(false);
   const prevStepRef = useRef(0);
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
   const { openModal, CalendlyModal } = useCalendlyModal();
 
   // Detect scroll for glass effect
@@ -1210,6 +1211,17 @@ export default function PillarsSection({
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Auto-scroll mobile tabs container to center active tab
+  useEffect(() => {
+    if (tabsContainerRef.current && window.innerWidth < 640) {
+      const container = tabsContainerRef.current;
+      const activeTab = container.querySelector(`[data-tab-index="${currentStep}"]`);
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [currentStep]);
 
   // Detect wrap-around (when cycling from last step back to first)
   useEffect(() => {
@@ -1383,7 +1395,8 @@ export default function PillarsSection({
             }
           }
         `}</style>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        {/* Desktop Layout */}
+        <div className="hidden sm:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Step Tabs with Bubbles and Labels */}
           <div className="flex justify-between items-center w-full px-8 sm:px-12 lg:px-16">
             {orderedKeys.map((key, index) => {
@@ -1395,6 +1408,7 @@ export default function PillarsSection({
               return (
                 <button
                   key={index}
+                  data-tab-index={index}
                   onClick={() => handleStepClick(index)}
                   className={`relative flex items-center gap-2 transition-all duration-300 cursor-pointer group ${
                     index === currentStep && !isAutoPlaying ? '' : 'hover:opacity-80'
@@ -1406,7 +1420,7 @@ export default function PillarsSection({
                       color: index <= currentStep ? accentColor : '#94a3b8'
                     }}
                   />
-                  <p className={`hidden sm:block text-sm font-semibold transition-colors ${
+                  <p className={`text-sm font-semibold transition-colors ${
                     index <= currentStep 
                       ? 'text-slate-900 dark:text-white' 
                       : 'text-slate-500 dark:text-slate-400'
@@ -1417,20 +1431,59 @@ export default function PillarsSection({
               );
             })}
           </div>
-          
-          {/* Continuous Global Progress Bar */}
-          <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden mt-4">
-            <div
-              className="h-full rounded-full transition-all"
-              style={{
-                backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
-                transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
-                transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
-              }}
-            />
+        </div>
+
+        {/* Mobile Layout - Horizontal Scrollable */}
+        <div className="sm:hidden px-4 py-6">
+          <div ref={tabsContainerRef} className="flex overflow-x-auto snap-x snap-mandatory gap-2 pb-2 -mx-4 px-4">
+            {orderedKeys.map((key, index) => {
+              const pillar = orderedPillars[key as keyof typeof orderedPillars];
+              const pillarColor = (pillar?.color as string) || 'verto-green';
+              const accentColor = getAccentColor(pillarColor);
+              const IconComponent = (pillar?.icon as any) || TrendingUp;
+              
+              return (
+                <button
+                  key={index}
+                  data-tab-index={index}
+                  onClick={() => handleStepClick(index)}
+                  className={`relative flex-shrink-0 w-full snap-center flex flex-col items-center gap-2 p-4 transition-all duration-300 cursor-pointer group rounded-lg ${
+                    index <= currentStep ? 'bg-white/10 dark:bg-white/5' : 'bg-white/5 dark:bg-white/[0.02]'
+                  }`}
+                >
+                  <IconComponent 
+                    className="w-5 h-5 flex-shrink-0 transition-colors"
+                    style={{
+                      color: index <= currentStep ? accentColor : '#94a3b8'
+                    }}
+                  />
+                  <p className={`text-xs font-semibold transition-colors text-center ${
+                    index <= currentStep 
+                      ? 'text-slate-900 dark:text-white' 
+                      : 'text-slate-500 dark:text-slate-400'
+                  }`}>
+                    {pillar?.label || 'Unknown'}
+                  </p>
+                </button>
+              );
+            })}
           </div>
         </div>
+          
+          {/* Continuous Global Progress Bar */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all"
+                style={{
+                  backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[1] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
+                  width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+                  transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
+                  transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
+                }}
+              />
+            </div>
+          </div>
       </div>
 
       {/* DESIGN CHANGE: The main content container now has more consistent padding */}
