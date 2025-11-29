@@ -7,11 +7,7 @@ import WhyNowSection from "@/components/why-now-section";
 import Footer from "@/components/footer";
 import GrowthSpiralSection from "@/components/growth-spiral-section";
 import CompetitiveDiffSection from "@/components/competitive-diff-section";
-import DistributionSection from "@/components/distribution-section";
-import PaymentsSection from "@/components/payments-section";
-import TradingSection from "@/components/trading-section";
-import ComplianceSection from "@/components/compliance-section";
-import ServiceSection from "@/components/service-section";
+import PillarsSection from "@/components/pillars-new-section";
 import {
   Zap,
   Store,
@@ -153,21 +149,15 @@ Attract Global Dollars.`}
         />
       </div>
       <div id="infrastructure">
-        <div className="space-y-0">
-          <div className="text-center pt-16 pb-8">
-            <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
-              One Unified Platform
-            </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
-              Self-hosted stack for stablecoin distribution, liquidity and payments. Monitored 24×7 by global experts with AI-automated compliance.
-            </p>
-          </div>
-          <DistributionSection />
-          <PaymentsSection />
-          <TradingSection />
-          <ComplianceSection />
-          <ServiceSection />
+        <div className="text-center pt-16 pb-8">
+          <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
+            One Unified Platform
+          </h2>
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-6">
+            Self-hosted stack for stablecoin distribution, liquidity and payments. Monitored 24×7 by global experts with AI-automated compliance.
+          </p>
         </div>
+        <PillarsSection />
       </div>
       <GrowthSpiralSection />
       <CompetitiveDiffSection />
