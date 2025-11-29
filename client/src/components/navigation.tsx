@@ -40,8 +40,8 @@ export default function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/40 dark:bg-slate-900/40 border-b border-white/20 dark:border-white/5`}
       data-testid="navigation"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 overflow-hidden">
-        <div className="flex items-center justify-between h-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0" data-testid="logo">
               <img src="/logos/albor_logo.svg" alt="Alberi Logo" className="h-6 w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300" />
