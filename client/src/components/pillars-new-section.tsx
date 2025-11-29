@@ -1434,7 +1434,7 @@ export default function PillarsSection({
       </div>
 
       {/* DESIGN CHANGE: The main content container now has more consistent padding */}
-      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 scroll-mt-40">
+      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 scroll-mt-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
           {/* Left Column: Text Content */}
           <div className="lg:col-span-1">
