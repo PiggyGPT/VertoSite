@@ -58,7 +58,7 @@ export function DynamicBackground() {
   }
 
   // Opacity increases as we scroll (dawn gets brighter)
-  const glowOpacity = 0.12 + (scrollPercent * 0.18); // 12% to 30%
+  const glowOpacity = 0.18 + (scrollPercent * 0.25); // 18% to 43%
 
   return (
     <>
@@ -74,7 +74,7 @@ export function DynamicBackground() {
       <div
         className="fixed inset-0 -z-40 pointer-events-none transition-opacity duration-700"
         style={{
-          background: `radial-gradient(circle at center, ${glowColor}, transparent 80%)`,
+          background: `radial-gradient(circle at center, ${glowColor}, transparent 90%)`,
           opacity: glowOpacity,
           filter: 'blur(120px)',
         }}
