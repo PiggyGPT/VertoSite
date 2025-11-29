@@ -122,32 +122,32 @@ Attract Global Dollars.`}
       </div>
       <div id="team">
         <ProblemSection
-          title="From Minting to Market Adoption"
-          subtitle="Stablecoins succeed when they're widely held, actively spent, and deeply trusted."
+          title="The $300 Billion Liquidity Siege"
+          subtitle="Tether and Circle are capturing your clients and their dollars. Time to win them back."
           customQuotes={[
             {
-              icon: "Landmark",
-              color: "verto-blue",
-              persona: "CEO",
-              company: "National Bank",
-              quote:
-                "We're a cash-first economy serving 50 million customers. How do we scale stablecoin distribution and usage across our entire agent network while maintaining the trust our customers have in physical cash?",
-            },
-            {
               icon: "CreditCard",
-              color: "verto-purple",
-              persona: "Head of Payments",
-              company: "Regional Bank",
+              color: "verto-blue",
+              persona: "Head of Corporate Banking",
+              company: "Panama",
               quote:
-                "Merchants can't reconcile stablecoin transactions like traditional card payments, and wallet pop-ups kill checkout conversion. We need payments to work like Stripe but with stablecoins.",
+                "A client moved their $50M treasury to USDC because we couldn't settle on weekends. Our response isn't to complain—it's to launch our own digital cash token that is directly convertible with USDC, pulling that liquidity back onto our balance sheet.",
             },
             {
               icon: "Shield",
               color: "verto-green",
-              persona: "CISO",
-              company: "Digital Bank",
+              persona: "Economic Advisor",
+              company: "Central Bank Bolivia",
               quote:
-                "Our systems are built on centralized control. How do we enforce our risk policies and deliver regulator-proof audit trails for every transaction on public chains we don't control?",
+                "USDT and USDC have created an offshore shadow banking system, eroding our monetary control. Our counter-strategy is to launch a regulated, domestic stablecoin that is seamlessly liquid against them, drawing this activity back into our supervised framework.",
+            },
+            {
+              icon: "BarChart3",
+              color: "verto-purple",
+              persona: "Exchange Leadership",
+              company: "Intercontinental Exchange, Guatemala",
+              quote:
+                "We are losing assets because our gold ETF can't compete with PAXG's 24/7 liquidity against USDT. The solution is to issue our own tokenized gold, ensure its liquidity in the same pools, and recapture that market share.",
             },
           ]}
         />
