@@ -188,10 +188,10 @@ export default function HeroSection() {
 
         {/* SOCIAL PROOF */}
         <div className="w-full max-w-5xl pt-4 sm:pt-6 md:pt-5 lg:pt-6">
-          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3 sm:mb-4 md:mb-5">
+          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 sm:mb-8 md:mb-10">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-y-6 gap-x-8 sm:gap-x-10 md:gap-x-12 pb-8 sm:pb-10 md:pb-10 lg:pb-12 opacity-100 grayscale">
+          <div className="flex flex-wrap justify-center items-center gap-y-2 gap-x-8 sm:gap-x-10 md:gap-x-12 pb-8 sm:pb-10 md:pb-10 lg:pb-12 opacity-100 grayscale">
             <div className="w-40 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
