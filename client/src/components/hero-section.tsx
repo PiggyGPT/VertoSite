@@ -261,54 +261,70 @@ export default function HeroSection() {
               />
 
               {/* Content */}
-              <div key={currentStep} className="text-center animate-scale-in relative z-10">
-                {/* Progress Indicator - 1-2-3-Growth with Clickable Steps */}
-                <div className="flex justify-center items-center gap-1 sm:gap-2 mb-6 sm:mb-8">
-                  {storySteps.map((_, index) => (
-                    <div key={index} className="flex items-center">
-                      <button
-                        onClick={() => handleStepClick(index)}
-                        className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
-                          index === currentStep
-                            ? 'scale-110'
-                            : index < currentStep
-                            ? 'opacity-60 hover:opacity-80'
-                            : 'opacity-40 hover:opacity-60'
-                        }`}
-                      >
-                        <div
-                          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
-                            index === currentStep
-                              ? 'shadow-lg'
-                              : 'shadow-md'
-                          }`}
-                          style={{
-                            backgroundColor: index === currentStep ? storySteps[index].accentColor : `${storySteps[index].accentColor}40`,
-                            color: index === currentStep ? 'white' : storySteps[index].accentColor,
-                            boxShadow: index === currentStep ? `0 0 20px ${storySteps[index].accentColor}80` : 'none',
-                          }}
-                        >
-                          {index === 3 ? (
-                            <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
-                          ) : (
-                            index + 1
-                          )}
-                        </div>
-                      </button>
-                      {index < storySteps.length - 1 && (
-                        <div
-                          className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 transition-all duration-300 ${
-                            index < currentStep ? 'opacity-100' : 'opacity-30'
-                          }`}
-                          style={{
-                            background: index < currentStep
-                              ? `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`
-                              : `linear-gradient(90deg, ${storySteps[index].accentColor}40, ${storySteps[index + 1].accentColor}40)`,
-                          }}
-                        />
-                      )}
+              <div key={currentStep} className="text-center animate-pan-in relative z-10">
+                {/* Progress Indicator - 1-2-3-Growth with Clickable Steps and Filling Bar */}
+                <div className="mb-6 sm:mb-8">
+                  {/* Background Progress Bar */}
+                  <div className="flex justify-center items-center mb-4">
+                    <div className="w-full max-w-xs h-1 bg-slate-700/50 rounded-full overflow-hidden relative">
+                      <div
+                        className="h-full transition-all duration-700 ease-out"
+                        style={{
+                          width: `${((currentStep + 1) / storySteps.length) * 100}%`,
+                          background: `linear-gradient(90deg, ${storySteps[Math.min(currentStep, storySteps.length - 1)].accentColor}, ${storySteps[Math.min(currentStep + 1, storySteps.length - 1)].accentColor})`,
+                        }}
+                      />
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Step Bubbles */}
+                  <div className="flex justify-center items-center gap-1 sm:gap-2">
+                    {storySteps.map((_, index) => (
+                      <div key={index} className="flex items-center">
+                        <button
+                          onClick={() => handleStepClick(index)}
+                          className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
+                            index === currentStep
+                              ? 'animate-bubble-pop scale-110'
+                              : index < currentStep
+                              ? 'opacity-60 hover:opacity-80'
+                              : 'opacity-40 hover:opacity-60'
+                          }`}
+                        >
+                          <div
+                            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
+                              index === currentStep
+                                ? 'shadow-lg'
+                                : 'shadow-md'
+                            }`}
+                            style={{
+                              backgroundColor: index === currentStep ? storySteps[index].accentColor : `${storySteps[index].accentColor}40`,
+                              color: index === currentStep ? 'white' : storySteps[index].accentColor,
+                              boxShadow: index === currentStep ? `0 0 20px ${storySteps[index].accentColor}80` : 'none',
+                            }}
+                          >
+                            {index === 3 ? (
+                              <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                            ) : (
+                              index + 1
+                            )}
+                          </div>
+                        </button>
+                        {index < storySteps.length - 1 && (
+                          <div
+                            className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 transition-all duration-300 ${
+                              index < currentStep ? 'opacity-100' : 'opacity-30'
+                            }`}
+                            style={{
+                              background: index < currentStep
+                                ? `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`
+                                : `linear-gradient(90deg, ${storySteps[index].accentColor}40, ${storySteps[index + 1].accentColor}40)`,
+                            }}
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
@@ -345,30 +361,31 @@ export default function HeroSection() {
       <CalendlyModal title="Schedule a Consultation" />
 
       <style>{`
-        .animate-scale-in {
-          animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+        .animate-pan-in {
+          animation: panIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
-        @keyframes scaleIn {
+        @keyframes panIn {
           0% {
             opacity: 0;
-            transform: scale(0.9);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        .animate-flow {
-          animation: flowIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        }
-        @keyframes flowIn {
-          0% {
-            opacity: 0;
-            transform: translateX(20px);
+            transform: translateX(40px);
           }
           100% {
             opacity: 1;
             transform: translateX(0);
+          }
+        }
+        .animate-bubble-pop {
+          animation: bubblePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        @keyframes bubblePop {
+          0% {
+            transform: scale(0.7);
+          }
+          50% {
+            transform: scale(1.15);
+          }
+          100% {
+            transform: scale(1.1);
           }
         }
       `}</style>
