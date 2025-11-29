@@ -70,7 +70,7 @@ export default function CompetitiveDiffSection() {
                             {features.map((feature, index) => {
                                 const Icon = feature.icon;
                                 return (
-                                    <tr key={index} className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/20 transition-colors">
+                                    <tr key={index} className="border-b border-slate-100 dark:border-slate-800">
                                         <td className="py-4 px-6">
                                             <div className="flex items-center gap-3">
                                                 <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
@@ -81,13 +81,13 @@ export default function CompetitiveDiffSection() {
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="py-4 px-6 text-center">
-                                            <span className="text-base text-slate-700 dark:text-slate-300">
+                                        <td className="py-4 px-6 text-center bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 rounded-lg mx-2">
+                                            <span className="text-base font-semibold text-blue-700 dark:text-blue-300">
                                                 {feature.albor}
                                             </span>
                                         </td>
                                         <td className="py-4 px-6 text-center">
-                                            <span className="text-base text-slate-600 dark:text-slate-400">
+                                            <span className="text-base text-slate-500 dark:text-slate-500">
                                                 {feature.competitors}
                                             </span>
                                         </td>

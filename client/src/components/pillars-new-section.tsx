@@ -1140,8 +1140,7 @@ const ExecutiveServiceFlow = () => {
 };
 
 
-// DESIGN CHANGE: Create a dedicated "Insight Banner" for the founder quotes.
-// This new component creates the full-width, colored banner style.
+// DESIGN CHANGE: Create a subtle, blended founder quote banner.
 const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
   quote: string;
   name: string;
@@ -1150,34 +1149,29 @@ const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
   colorClasses: any;
 }) => (
   <motion.div 
-    initial={{ opacity: 0, y: 10 }}
+    initial={{ opacity: 0, y: 8 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className={`relative rounded-2xl p-8 md:p-12 mt-8 mb-6 overflow-hidden backdrop-blur-sm bg-gradient-to-br transition-all duration-300 hover:shadow-lg border border-opacity-20 dark:border-opacity-30`}
+    transition={{ duration: 0.4 }}
+    className="relative rounded-xl p-4 md:p-6 mt-6 mb-4 overflow-hidden transition-all duration-300 border"
     style={{
-      background: `linear-gradient(135deg, ${colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.08)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.08)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.08)' : 'rgba(249, 115, 22, 0.08)'})`,
-      borderColor: colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.2)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.2)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(249, 115, 22, 0.2)'
+      background: `linear-gradient(135deg, ${colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.04)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.04)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.04)' : 'rgba(249, 115, 22, 0.04)'})`,
+      borderColor: colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.1)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.1)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.1)' : 'rgba(249, 115, 22, 0.1)'
     }}
   >
-    {/* Decorative accent line */}
-    <div className={`absolute top-0 left-0 h-1 w-full`} style={{
-      backgroundImage: `linear-gradient(90deg, ${colorClasses.bg === 'bg-verto-green' ? '#22c55e' : colorClasses.bg === 'bg-verto-blue' ? '#3b82f6' : colorClasses.bg === 'bg-verto-purple' ? '#8b5cf6' : '#f97316'}, transparent)`
-    }}></div>
-    
-    <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8 relative z-10">
+    <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 relative z-10">
       <div className="flex-shrink-0">
-        <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover ring-4 ring-opacity-40 flex-shrink-0 shadow-lg" />
+        <img src={image} alt={name} className="w-12 h-12 rounded-full object-cover ring-3 ring-opacity-30 flex-shrink-0" style={{ borderColor: colorClasses.text === 'text-verto-green' ? 'rgba(34, 197, 94, 0.3)' : colorClasses.text === 'text-verto-blue' ? 'rgba(59, 130, 246, 0.3)' : colorClasses.text === 'text-verto-purple' ? 'rgba(139, 92, 246, 0.3)' : 'rgba(249, 115, 22, 0.3)' }} />
       </div>
       <div className="flex-grow">
-        <div className="flex items-start gap-3 mb-3">
-          <Quote className="w-5 h-5 flex-shrink-0 mt-1 opacity-60" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }} />
-          <blockquote className="text-lg md:text-xl font-semibold leading-relaxed text-slate-800 dark:text-slate-100">
-            <p>{quote}</p>
+        <div className="flex items-start gap-2 mb-2">
+          <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }} />
+          <blockquote className="text-sm md:text-base font-medium leading-snug text-slate-700 dark:text-slate-200">
+            <p>"{quote}"</p>
           </blockquote>
         </div>
-        <footer className="mt-5 pt-4 border-t border-slate-200 dark:border-slate-700">
-          <p className="font-semibold text-slate-900 dark:text-white">{name}</p>
-          <p className="text-sm font-medium mt-1" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }}>{title}</p>
+        <footer className="mt-3 pt-3 border-t border-opacity-10" style={{ borderColor: colorClasses.text === 'text-verto-green' ? 'rgba(34, 197, 94, 0.2)' : colorClasses.text === 'text-verto-blue' ? 'rgba(59, 130, 246, 0.2)' : colorClasses.text === 'text-verto-purple' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(249, 115, 22, 0.2)' }}>
+          <p className="text-xs font-semibold text-slate-800 dark:text-slate-100">{name}</p>
+          <p className="text-xs mt-0.5" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }}>{title}</p>
         </footer>
       </div>
     </div>
@@ -1303,8 +1297,8 @@ export default function PillarsSection({
         title: "CEO | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Issue on Fiat Deposits", description: "Issue tokens to client wallets against verified fiat deposits in real-time." }, { icon: CreditCard, title: "Withdraw Fiat on Redemptions", description: "Trigger fiat wires against redeemed tokens, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
-      cta: "Scale Distribution Network"
+      features: [{ icon: Workflow, title: "Receive Fiat → Issue Tokens", description: "Issue tokens to client wallets against verified fiat deposits in real-time." }, { icon: CreditCard, title: "Burn Tokens → Transfer Fiat", description: "Trigger fiat wires against redeemed tokens, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      cta: "Explore APIs"
     },
     trading: {
       label: "Attract Liquidity", color: "verto-blue", title: "Decentralized Exchange", icon: Coins,
@@ -1317,7 +1311,7 @@ export default function PillarsSection({
         image: davidImage
       },
       features: [{ icon: Store, title: "Create Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "Automate Market Making", description: "Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." }, { icon: Lock, title: "Distribute Yield Instantly", description: "Reward LPs with fees from every trade, distributed automatically per block." },],
-      cta: "Integrate Liquidity API"
+      cta: "Explore DEX"
     },
     payments: {
       label: "Transact Globally", color: "verto-green", title: "Patent-Pending Router", icon: Globe,
@@ -1330,7 +1324,7 @@ export default function PillarsSection({
         image: nileshImage
       },
       features: [{ icon: Route, title: " Find Optimal Trade Routes", description: "Scan relevant CEXs and DEXs to find the optimal transcation path for every trade." }, { icon: KeyIcon, title: "Execute with Single Signature", description: "Orchestrate multi-step routes with a single approval from the trader's wallet." }, { icon: Zap, title: "Distribute Fees Atomically", description: "Include partner fee transfers within the executed trade route." },],
-      cta: "Explore Payments API"
+      cta: "Explore Router"
     },
     service: {
       label: "Secure Compliance", color: "verto-orange", icon: Shield,
@@ -1344,7 +1338,7 @@ export default function PillarsSection({
         image: hishamImage
       },
       features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
-      cta: "Learn About Our Service Model"
+      cta: "Explore Compliance"
     },
   };
 
@@ -1490,20 +1484,21 @@ export default function PillarsSection({
             </div>
             <motion.button
               onClick={openModal}
-              whileHover={{ scale: 1.02, y: -2 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className={`group inline-flex items-center px-7 py-3 ${activeColors.bg} text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden`}
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
+              style={{
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.25)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
+              }}
             >
-              <span className="relative z-10">{activePillar?.cta || 'Get Started'}</span>
-              <motion.div
-                initial={{ x: 0, opacity: 0.5 }}
-                animate={{ x: [0, 4, 0], opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="relative z-10 ml-2"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </motion.div>
-              <div className={`absolute inset-0 ${activeColors.bg} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+              <span>{activePillar?.cta || 'Get Started'}</span>
+              <ArrowRight className="w-4 h-4" />
             </motion.button>
           </div>
 
