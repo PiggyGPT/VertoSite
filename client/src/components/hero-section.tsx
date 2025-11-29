@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   Phone,
   Calendar,
+  TrendingUp,
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect, useRef } from "react";
@@ -271,7 +272,11 @@ export default function HeroSection() {
                   color: activeAccent,
                 }}
               >
-                {currentStep === 3 ? "🌀" : currentStep + 1}
+                {currentStep === 3 ? (
+                  <TrendingUp className="w-6 h-6" />
+                ) : (
+                  currentStep + 1
+                )}
               </div>
 
               <h2 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
