@@ -141,7 +141,7 @@ export default function ServiceSection() {
     <section className="py-16">
       <div className="w-full border-b border-slate-200 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
           <div className="lg:col-span-1">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-orange-500">Service</p>
