@@ -1194,8 +1194,22 @@ export default function PillarsSection({
   const [currentStep, setCurrentStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
+  const [isNavScrolled, setIsNavScrolled] = useState(false);
   const prevStepRef = useRef(0);
   const { openModal, CalendlyModal } = useCalendlyModal();
+
+  // Detect scroll for glass effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const pillarNav = document.getElementById('pillar-navigation');
+      if (pillarNav) {
+        const navTop = pillarNav.getBoundingClientRect().top;
+        setIsNavScrolled(navTop <= 80);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Detect wrap-around (when cycling from last step back to first)
   useEffect(() => {
@@ -1358,7 +1372,7 @@ export default function PillarsSection({
   return (
     <div id="infrastructure" className="relative">
       {/* Progress Indicator Navigation - Tab Style with Labels */}
-      <div id="pillar-navigation" className="sticky top-16 z-40">
+      <div id="pillar-navigation" className={`sticky top-16 z-40 transition-all duration-300 ${isNavScrolled ? 'backdrop-blur-md bg-white/40 dark:bg-slate-900/40 border-b border-white/20 dark:border-white/5' : ''}`}>
         <style>{`
           @keyframes continuousProgress {
             from {
