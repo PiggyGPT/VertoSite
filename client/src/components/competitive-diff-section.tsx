@@ -47,6 +47,9 @@ export default function CompetitiveDiffSection() {
                         </span>
                         {" "}solution
                     </h2>
+                    <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                        Complete infrastructure sovereignty. No compromises on custody, routing, or control.
+                    </p>
                 </div>
 
                 {/* Comparison Cards */}
