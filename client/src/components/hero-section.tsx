@@ -94,11 +94,11 @@ export default function HeroSection() {
           </div>
 
           {/* Social Proof */}
-          <div className="flex flex-col items-center gap-4 sm:gap-8 w-full border-t border-white/10 pt-6 sm:pt-10">
+          <div className="flex flex-col items-center gap-2 sm:gap-4 w-full border-t border-white/10 pt-4 sm:pt-6">
             <p className="text-xs font-semibold text-slate-600 uppercase tracking-[0.2em]">
               Founded by leaders from
             </p>
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-80 hover:opacity-100 transition-opacity">
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 opacity-80 hover:opacity-100 transition-opacity">
               <div className="w-40 h-6 flex items-center justify-center">
                 <img
                   src="/logos/fed_logo.svg"
