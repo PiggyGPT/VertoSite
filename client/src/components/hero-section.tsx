@@ -326,88 +326,74 @@ export default function HeroSection() {
                   {activeStory.subtitle}
                 </p>
 
-                {/* Dashboard Process Animation - Only on Step 1 */}
+                {/* Software Dashboard Animation - Only on Step 1 */}
                 {currentStep === 0 && (
                   <div className="mt-8 w-full">
-                    <div className="bg-slate-950/60 border border-slate-800 rounded-lg p-6 space-y-6">
-                      {/* Process 1: Deposit */}
-                      <div className="space-y-3">
-                        <div className="text-slate-400 text-xs font-medium">$100,000 DEPOSIT INCOMING</div>
+                    <div className="grid grid-cols-2 gap-3">
+                      {/* Deposit Panel */}
+                      <div className="bg-slate-950 border border-slate-800 rounded-lg p-4 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400 text-xs font-mono">DEPOSIT</span>
+                          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                        </div>
                         
-                        <div className="flex items-center gap-3">
-                          {/* Stage 1 */}
-                          <div className="animate-stage-1" style={{ animationDelay: '0.2s' }}>
-                            <div className="w-10 h-10 rounded-full bg-slate-700 border-2 border-slate-600 flex items-center justify-center text-xs">
-                              <div className="w-3 h-3 rounded-full bg-slate-400 animate-pulse"></div>
+                        <div className="space-y-2">
+                          {/* Request */}
+                          <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
+                            <div className="text-slate-500 text-xs font-mono">
+                              <span className="text-cyan-400">→</span> <span className="text-slate-400">POST</span> /deposit
                             </div>
-                            <div className="text-slate-500 text-xs mt-1 text-center">Receive</div>
+                            <div className="text-slate-600 text-xs font-mono ml-4">amount: $100,000</div>
                           </div>
 
-                          {/* Progress Bar 1 */}
-                          <div className="flex-1 h-1 bg-slate-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-emerald-500 to-blue-500 animate-progress-1" style={{ animationDelay: '1s' }}></div>
-                          </div>
-
-                          {/* Stage 2 */}
-                          <div className="animate-stage-2" style={{ animationDelay: '1.2s' }}>
-                            <div className="w-10 h-10 rounded-full bg-slate-700 border-2 border-slate-600 flex items-center justify-center text-xs">
-                              <span className="text-emerald-400 font-bold">✓</span>
+                          {/* Processing */}
+                          <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
+                            <div className="text-slate-500 text-xs font-mono">
+                              <span className="text-emerald-400">✓</span> <span className="text-slate-400">Processing</span>
                             </div>
-                            <div className="text-slate-500 text-xs mt-1 text-center">Validate</div>
+                            <div className="text-slate-600 text-xs font-mono ml-4">balance: +$100,000</div>
                           </div>
 
-                          {/* Progress Bar 2 */}
-                          <div className="flex-1 h-1 bg-slate-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-progress-2" style={{ animationDelay: '1.8s' }}></div>
-                          </div>
-
-                          {/* Stage 3 */}
-                          <div className="animate-stage-3" style={{ animationDelay: '2.4s' }}>
-                            <div className="w-10 h-10 rounded-full bg-blue-600 border-2 border-blue-500 flex items-center justify-center text-xs">
-                              <span className="text-white font-bold">✓</span>
+                          {/* Response */}
+                          <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
+                            <div className="text-slate-500 text-xs font-mono">
+                              <span className="text-blue-400">←</span> <span className="text-slate-400">200 OK</span>
                             </div>
-                            <div className="text-blue-300 text-xs mt-1 text-center">Minted</div>
+                            <div className="text-slate-600 text-xs font-mono ml-4">tokens_minted: 100,000 BSD</div>
                           </div>
                         </div>
                       </div>
 
-                      {/* Process 2: Redemption */}
-                      <div className="space-y-3 pt-2 border-t border-slate-800">
-                        <div className="text-slate-400 text-xs font-medium">50,000 BSD REDEMPTION INITIATED</div>
+                      {/* Redemption Panel */}
+                      <div className="bg-slate-950 border border-slate-800 rounded-lg p-4 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400 text-xs font-mono">REDEMPTION</span>
+                          <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
+                        </div>
                         
-                        <div className="flex items-center gap-3">
-                          {/* Stage 1 */}
-                          <div className="animate-stage-1" style={{ animationDelay: '0.3s' }}>
-                            <div className="w-10 h-10 rounded-full bg-slate-700 border-2 border-slate-600 flex items-center justify-center text-xs">
-                              <div className="w-3 h-3 rounded-full bg-slate-400 animate-pulse"></div>
+                        <div className="space-y-2">
+                          {/* Request */}
+                          <div className="animate-fade-in-log" style={{ animationDelay: '0.3s' }}>
+                            <div className="text-slate-500 text-xs font-mono">
+                              <span className="text-cyan-400">→</span> <span className="text-slate-400">POST</span> /redeem
                             </div>
-                            <div className="text-slate-500 text-xs mt-1 text-center">Request</div>
+                            <div className="text-slate-600 text-xs font-mono ml-4">tokens: 50,000 BSD</div>
                           </div>
 
-                          {/* Progress Bar 1 */}
-                          <div className="flex-1 h-1 bg-slate-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-purple-500 to-orange-500 animate-progress-1" style={{ animationDelay: '1.1s' }}></div>
-                          </div>
-
-                          {/* Stage 2 */}
-                          <div className="animate-stage-2" style={{ animationDelay: '1.3s' }}>
-                            <div className="w-10 h-10 rounded-full bg-slate-700 border-2 border-slate-600 flex items-center justify-center text-xs">
-                              <span className="text-purple-400 font-bold">✓</span>
+                          {/* Processing */}
+                          <div className="animate-fade-in-log" style={{ animationDelay: '1.1s' }}>
+                            <div className="text-slate-500 text-xs font-mono">
+                              <span className="text-purple-400">✓</span> <span className="text-slate-400">Verifying</span>
                             </div>
-                            <div className="text-slate-500 text-xs mt-1 text-center">Verify</div>
+                            <div className="text-slate-600 text-xs font-mono ml-4">balance_check: OK</div>
                           </div>
 
-                          {/* Progress Bar 2 */}
-                          <div className="flex-1 h-1 bg-slate-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-orange-500 to-yellow-500 animate-progress-2" style={{ animationDelay: '1.9s' }}></div>
-                          </div>
-
-                          {/* Stage 3 */}
-                          <div className="animate-stage-3" style={{ animationDelay: '2.5s' }}>
-                            <div className="w-10 h-10 rounded-full bg-orange-600 border-2 border-orange-500 flex items-center justify-center text-xs">
-                              <span className="text-white font-bold">✓</span>
+                          {/* Response */}
+                          <div className="animate-fade-in-log" style={{ animationDelay: '1.9s' }}>
+                            <div className="text-slate-500 text-xs font-mono">
+                              <span className="text-orange-400">←</span> <span className="text-slate-400">200 OK</span>
                             </div>
-                            <div className="text-orange-300 text-xs mt-1 text-center">Withdrawn</div>
+                            <div className="text-slate-600 text-xs font-mono ml-4">withdrawn: $50,000 USD</div>
                           </div>
                         </div>
                       </div>
@@ -489,41 +475,6 @@ export default function HeroSection() {
           100% {
             opacity: 1;
             transform: translateX(0);
-          }
-        }
-        .animate-stage-1 {
-          animation: stageAppear 0.5s ease-out forwards;
-        }
-        .animate-stage-2 {
-          animation: stageAppear 0.5s ease-out forwards;
-        }
-        .animate-stage-3 {
-          animation: stageAppear 0.5s ease-out forwards;
-        }
-        @keyframes stageAppear {
-          0% {
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        .animate-progress-1 {
-          animation: progress 0.8s ease-in forwards;
-        }
-        .animate-progress-2 {
-          animation: progress 0.8s ease-in forwards;
-        }
-        @keyframes progress {
-          0% {
-            transform: scaleX(0);
-            transform-origin: left;
-          }
-          100% {
-            transform: scaleX(1);
-            transform-origin: left;
           }
         }
       `}</style>
