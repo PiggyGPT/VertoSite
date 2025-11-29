@@ -98,33 +98,33 @@ export default function HeroSection() {
             <p className="text-xs font-semibold text-slate-600 uppercase tracking-[0.2em]">
               Founded by leaders from
             </p>
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-50 grayscale hover:opacity-90 transition-opacity">
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-80 hover:opacity-100 transition-opacity">
               <div className="w-40 h-6 flex items-center justify-center">
                 <img
                   src="/logos/fed_logo.svg"
                   alt="Federal Reserve"
-                  className="h-full object-contain"
+                  className="h-full object-contain brightness-200 contrast-125"
                 />
               </div>
               <div className="w-20 h-6 flex items-center justify-center">
                 <img
                   src="/logos/GSR_logo.svg"
                   alt="GSR Markets"
-                  className="h-full object-contain"
+                  className="h-full object-contain brightness-200 contrast-125"
                 />
               </div>
               <div className="w-20 h-6 flex items-center justify-center">
                 <img
                   src="/logos/PayPal_logo.svg"
                   alt="PayPal"
-                  className="h-full object-contain"
+                  className="h-full object-contain brightness-200 contrast-125"
                 />
               </div>
               <div className="w-20 h-6 flex items-center justify-center">
                 <img
                   src="/logos/Microsoft_logo_(2012).svg"
                   alt="Microsoft"
-                  className="h-full object-contain"
+                  className="h-full object-contain brightness-200 contrast-125"
                 />
               </div>
             </div>
