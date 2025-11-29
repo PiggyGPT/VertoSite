@@ -312,9 +312,9 @@ export default function HeroSection() {
                             <div
                               className="h-full"
                               style={{
-                                width: index <= currentStep ? '100%' : '0%',
+                                width: index < currentStep ? '100%' : '0%',
                                 background: `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`,
-                                transition: index === currentStep ? 'width 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'width 300ms ease-out',
+                                transition: 'width 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                               }}
                             />
                           </div>
