@@ -85,15 +85,7 @@ export default function HeroSection() {
       accentColor: "#EEAA4A",
     },
     {
-      title: "2. Attract Dollar Liquidity",
-      subtitle:
-        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our DEX.",
-      icon: Coins,
-      href: "/liquidity",
-      accentColor: "#EF660B",
-    },
-    {
-      title: "3. Unlock Global Acceptance",
+      title: "2. Power Global Acceptance",
       subtitle:
         "Enable Traders to easily transact with any bank or wallet with our Router.",
       icon: Globe2,
@@ -101,9 +93,17 @@ export default function HeroSection() {
       accentColor: "#8F73FE",
     },
     {
-      title: "4. Achieve Sovereign Compliance",
+      title: "3. Attract Dollar Liquidity",
       subtitle:
-        "Eliminate counterparty risk by deploying our full stack on your servers.",
+        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our Decentralized Exchange (DEX).",
+      icon: Coins,
+      href: "/liquidity",
+      accentColor: "#EF660B",
+    },
+    {
+      title: "4. Unlock Dollar Growth",
+      subtitle:
+        "Deploy our full stack on your servers to unlock the Dollar Growth Spiral: Liquidity → Volume → Yield.",
       icon: ShieldCheck,
       href: "/compliance",
       accentColor: "#217DFE",
