@@ -1401,10 +1401,9 @@ export default function PillarsSection({
             <div
               className="h-full rounded-full transition-all"
               style={{
-                backgroundImage: (() => {
+                backgroundImage: useMemo(() => {
                   const tabWidth = 100 / orderedKeys.length;
                   const solidPercent = tabWidth * 0.85;
-                  const transitionPercent = tabWidth * 0.15;
                   const stops: string[] = [];
                   
                   for (let i = 0; i < orderedKeys.length; i++) {
@@ -1415,12 +1414,13 @@ export default function PillarsSection({
                     const currentColor = getAccentColor((orderedPillars[orderedKeys[i] as keyof typeof orderedPillars]?.color as string) || 'verto-green');
                     const nextColor = i < orderedKeys.length - 1 ? getAccentColor((orderedPillars[orderedKeys[i + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green') : currentColor;
                     
-                    stops.push(`${currentColor} ${tabStart}%, ${currentColor} ${solidEnd}%`);
+                    stops.push(`${currentColor} ${tabStart}%`);
+                    stops.push(`${currentColor} ${solidEnd}%`);
                     stops.push(`${nextColor} ${tabEnd}%`);
                   }
                   
                   return `linear-gradient(90deg, ${stops.join(', ')})`;
-                })(),
+                }, [orderedKeys, orderedPillars]),
                 width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
                 transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
