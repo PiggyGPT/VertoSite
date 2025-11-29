@@ -1193,7 +1193,18 @@ export default function PillarsSection({
   
   const [currentStep, setCurrentStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isWrappingAround, setIsWrappingAround] = useState(false);
+  const prevStepRef = useRef(0);
   const { openModal, CalendlyModal } = useCalendlyModal();
+
+  // Detect wrap-around (when cycling from last step back to first)
+  useEffect(() => {
+    if (currentStep < prevStepRef.current) {
+      setIsWrappingAround(true);
+      setTimeout(() => setIsWrappingAround(false), 50);
+    }
+    prevStepRef.current = currentStep;
+  }, [currentStep]);
 
   // Auto-advance every 10 seconds
   useEffect(() => {
@@ -1391,8 +1402,8 @@ export default function PillarsSection({
               className="h-full rounded-full transition-all"
               style={{
                 backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[0] as keyof typeof orderedPillars]?.color as string) || 'verto-green')}, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')})`,
-                width: `${((currentStep + 1) / orderedKeys.length) * 100}%`,
-                transitionDuration: isAutoPlaying ? '10000ms' : '300ms',
+                width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
+                transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
               }}
             />
