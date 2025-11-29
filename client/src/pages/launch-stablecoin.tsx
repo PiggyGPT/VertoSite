@@ -108,7 +108,12 @@ export default function LaunchStablecoin() {
     <div className="min-h-screen transition-colors">
       <Navigation />
       <div id="hero">
-        <HeroSection />
+        <HeroSection
+          title={`Launch Your Stablecoin.
+Attract Global Dollars.`}
+          subtitle="Make your asset liquid against dollar stablecoins with our self-hosted, full-stack infrastructure."
+          customCTAs={stablecoinCTAs}
+        />
       </div>
       <div id="team">
         <ProblemSection

@@ -132,7 +132,7 @@ export default function HeroSection() {
   const activeAccent = activeStory.accentColor;
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden text-slate-900 dark:text-white">
+    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden text-slate-900 dark:text-white">
       {/* BACKGROUND - Transparent to allow page gradient to show through */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Light Mode: Warm golden glow at top */}
@@ -157,90 +157,75 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* LEFT COLUMN: TEXT & CTAs */}
-          <div className="flex flex-col items-start text-left max-w-2xl">
-            <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-5xl xl:text-5xl tracking-tighter mb-6 sm:mb-7 md:mb-8 text-slate-900 dark:text-white leading-tight">
-              Launch Your Stablecoin.
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-                Capture Global Dollars.
-              </span>
-            </h1>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 md:pb-20 flex flex-col items-center">
+        {/* HEADER */}
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Enterprise Infrastructure badge - Hidden for now */}
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/5 backdrop-blur-md mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EEAA4A] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#EF660B]"></span>
+            </span>
+            <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 tracking-wide uppercase">
+              Enterprise Infrastructure
+            </span>
+          </div> */}
 
-            <p className="text-sm sm:text-base md:text-lg lg:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-10 sm:mb-12 md:mb-14 max-w-xl">
-              Capture liquidity from the $300B dollar stablecoin market
-              <br />
-              with our self-hosted, full-stack infrastructure.
-            </p>
+          <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tighter mb-4 sm:mb-5 md:mb-6 text-slate-900 dark:text-white leading-tight">
+            Launch Your Stablecoin.
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
+              Capture Global Dollars.
+            </span>
+          </h1>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-12 sm:mb-14 md:mb-16">
-              <button
-                onClick={openModal}
-                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
-                style={{
-                  background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
-                  color: "white",
-                }}
-                data-testid="hero-schedule-demo"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>Schedule Demo</span>
-              </button>
-              <button
-                onClick={openModal}
-                className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
-                data-testid="hero-contact-sales"
-              >
-                <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-                Contact Sales
-              </button>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+            Capture liquidity from the $300B dollar stablecoin market
+            <br />
+            with our self-hosted, full-stack infrastructure.
+          </p>
+        </div>
+
+        {/* SOCIAL PROOF */}
+        <div className="w-full max-w-5xl pt-6 sm:pt-8 md:pt-10 lg:pt-12">
+          <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 sm:mb-6 md:mb-7">
+            Founded by leaders at
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 md:gap-y-7 pb-6 sm:pb-8 md:pb-10 lg:pb-12 opacity-100 grayscale">
+            <div className="w-40 h-6 flex items-center justify-center">
+              <img
+                src="/logos/fed_logo.svg"
+                alt="Federal Reserve"
+                className="h-full object-contain dark:invert"
+              />
             </div>
-
-            {/* SOCIAL PROOF */}
-            <div className="w-full pt-8 sm:pt-10 md:pt-12 border-t border-slate-200 dark:border-white/10">
-              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 sm:mb-8">
-                Founded by leaders at
-              </p>
-              <div className="flex flex-wrap gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 opacity-100 grayscale">
-                <div className="w-40 h-5 flex items-center justify-start">
-                  <img
-                    src="/logos/fed_logo.svg"
-                    alt="Federal Reserve"
-                    className="h-full object-contain dark:invert"
-                  />
-                </div>
-                <div className="w-20 h-5 flex items-center justify-start">
-                  <img
-                    src="/logos/GSR_logo.svg"
-                    alt="GSR Markets"
-                    className="h-full object-contain dark:invert"
-                  />
-                </div>
-                <div className="w-20 h-5 flex items-center justify-start">
-                  <img
-                    src="/logos/PayPal_logo.svg"
-                    alt="PayPal"
-                    className="h-full object-contain dark:invert"
-                  />
-                </div>
-                <div className="w-20 h-5 flex items-center justify-start">
-                  <img
-                    src="/logos/Microsoft_logo_(2012).svg"
-                    alt="Microsoft"
-                    className="h-full object-contain dark:invert"
-                  />
-                </div>
-              </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/GSR_logo.svg"
+                alt="GSR Markets"
+                className="h-full object-contain dark:invert"
+              />
+            </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/PayPal_logo.svg"
+                alt="PayPal"
+                className="h-full object-contain dark:invert"
+              />
+            </div>
+            <div className="w-20 h-6 flex items-center justify-center">
+              <img
+                src="/logos/Microsoft_logo_(2012).svg"
+                alt="Microsoft"
+                className="h-full object-contain dark:invert"
+              />
             </div>
           </div>
+        </div>
 
-          {/* RIGHT COLUMN: JOURNEY CAROUSEL */}
-          <div className="relative w-full h-auto hidden lg:flex items-center justify-center">
-            <div className="w-full max-w-2xl">
+        {/* JOURNEY CAROUSEL */}
+        <div className="w-full border-b border-white/5">
+          <div className="w-full max-w-2xl mx-auto mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
             {/* Main Card Display */}
             <div className="relative p-6 sm:p-8 md:p-10 overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/0 dark:from-white/5 dark:to-white/0 border border-white/10 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 group">
               {/* Dynamic Accent Glow */}
@@ -325,83 +310,32 @@ export default function HeroSection() {
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-md mx-auto">
                   {activeStory.subtitle}
                 </p>
-
-                {/* Reconciliation Table Animation - Only on Step 1 */}
-                {currentStep === 0 && (
-                  <div className="mt-8 w-full">
-                    <div className="border border-slate-800 rounded-lg overflow-hidden">
-                      {/* Table Header */}
-                      <div className="bg-slate-900/50 border-b border-slate-800 px-6 py-3 grid grid-cols-3 gap-4 text-xs font-medium text-slate-400">
-                        <div>EVENT</div>
-                        <div>AMOUNT</div>
-                        <div>STATUS</div>
-                      </div>
-
-                      {/* Table Rows */}
-                      <div className="divide-y divide-slate-800">
-                        {/* Row 1: Deposit Received */}
-                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
-                          <div className="px-6 py-4 grid grid-cols-3 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                              <span className="text-slate-300">Deposit Received</span>
-                            </div>
-                            <div className="text-slate-400">50,000 BOB</div>
-                            <div className="flex items-center gap-1">
-                              <span className="text-emerald-400">✓</span>
-                              <span className="text-slate-400">Minted</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Row 2: Token Redeemed */}
-                        <div className="animate-fade-in-log" style={{ animationDelay: '0.8s' }}>
-                          <div className="px-6 py-4 grid grid-cols-3 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                              <span className="text-slate-300">Token Redeemed</span>
-                            </div>
-                            <div className="text-slate-400">50,000 BSD</div>
-                            <div className="flex items-center gap-1">
-                              <span className="text-blue-400">✓</span>
-                              <span className="text-slate-400">Bank Transfer Complete</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Mobile CTAs & Carousel Section */}
-        <div className="lg:hidden w-full">
-          {/* Mobile CTA Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-10">
-            <button
-              onClick={openModal}
-              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
-              style={{
-                background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
-                color: "white",
-              }}
-              data-testid="hero-schedule-demo"
-            >
-              <Calendar className="w-4 h-4" />
-              <span>Schedule Demo</span>
-            </button>
-            <button
-              onClick={openModal}
-              className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
-              data-testid="hero-contact-sales"
-            >
-              <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-              Contact Sales
-            </button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
+              <button
+                onClick={openModal}
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
+                style={{
+                  background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
+                  color: "white",
+                }}
+                data-testid="hero-schedule-demo"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Schedule Demo</span>
+              </button>
+              <button
+                onClick={openModal}
+                className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
+                data-testid="hero-contact-sales"
+              >
+                <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                Contact Sales
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -434,19 +368,6 @@ export default function HeroSection() {
           }
           100% {
             transform: scale(1.1);
-          }
-        }
-        .animate-fade-in-log {
-          animation: fadeInLog 0.5s ease-out forwards;
-        }
-        @keyframes fadeInLog {
-          0% {
-            opacity: 0;
-            transform: translateX(-8px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
           }
         }
       `}</style>
