@@ -57,13 +57,8 @@ export default function CompetitiveDiffSection() {
                                     Capability
                                 </th>
                                 <th className="text-left py-3 px-6 font-semibold text-center">
-                                    <div className="text-base" style={{
-                                        background: 'linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)',
-                                        backgroundClip: 'text',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                    }}>
-                                        albor
+                                    <div className="flex items-center justify-center">
+                                        <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                                     </div>
                                 </th>
                                 <th className="text-left py-3 px-6 font-semibold text-slate-600 dark:text-slate-400 text-center text-base">

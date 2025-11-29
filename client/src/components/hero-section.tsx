@@ -77,15 +77,23 @@ export default function HeroSection() {
 
   const storySteps: StoryStep[] = [
     {
-      title: "Capture Dollar Liquidity",
+      title: "1. Tokenize Your Deposits",
       subtitle:
-        "Enable LPs to securely seed dollar liquidity and earn yield with our DEX.",
+        "Enable your systems to automate issuance, redemption and reconciliation with our APIs.",
+      icon: Workflow,
+      href: "/integrate",
+      accentColor: "#EEAA4A",
+    },
+    {
+      title: "2. Attract Dollar Liquidity",
+      subtitle:
+        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our DEX.",
       icon: Coins,
       href: "/liquidity",
       accentColor: "#EF660B",
     },
     {
-      title: "Unlock Global Coverage",
+      title: "3. Unlock Global Acceptance",
       subtitle:
         "Enable Traders to easily transact with any bank or wallet with our Router.",
       icon: Globe2,
@@ -93,17 +101,9 @@ export default function HeroSection() {
       accentColor: "#8F73FE",
     },
     {
-      title: "Integrate Your Systems",
+      title: "4. Achieve Sovereign Compliance",
       subtitle:
-        "Automate issuance, redemption and reconciliation with our APIs.",
-      icon: Workflow,
-      href: "/integrate",
-      accentColor: "#EEAA4A",
-    },
-    {
-      title: "Achieve Sovereign Compliance",
-      subtitle:
-        "Deploy our full stack on your servers and eliminate counterparty risk.",
+        "Eliminate counterparty risk by deploying our full stack on your servers.",
       icon: ShieldCheck,
       href: "/compliance",
       accentColor: "#217DFE",
@@ -187,7 +187,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
             <button
               onClick={openModal}
-              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-xl shadow-black/20 dark:shadow-black/40 hover:shadow-2xl hover:shadow-black/30 dark:hover:shadow-black/50 overflow-hidden relative"
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
               style={{
                 background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
                 color: "white",
@@ -199,7 +199,7 @@ export default function HeroSection() {
             </button>
             <button
               onClick={openModal}
-              className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10 shadow-md shadow-black/10 dark:shadow-black/20 hover:shadow-lg hover:shadow-black/15 dark:hover:shadow-black/30"
+              className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
               data-testid="hero-contact-sales"
             >
               <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
