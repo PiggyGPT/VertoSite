@@ -1218,6 +1218,10 @@ export default function PillarsSection({
   const handleStepClick = (index: number) => {
     setCurrentStep(index);
     setIsAutoPlaying(false);
+    // Scroll to pillar content
+    setTimeout(() => {
+      document.getElementById('pillar-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
   };
 
   // Listen for pillar activation events from hero CTAs
@@ -1227,6 +1231,10 @@ export default function PillarsSection({
       if (pillarIndex !== -1) {
         setCurrentStep(pillarIndex);
         setIsAutoPlaying(false);
+        // Scroll to pillar content
+        setTimeout(() => {
+          document.getElementById('pillar-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
       }
     };
 
