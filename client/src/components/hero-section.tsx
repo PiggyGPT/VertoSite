@@ -326,74 +326,113 @@ export default function HeroSection() {
                   {activeStory.subtitle}
                 </p>
 
-                {/* Software Dashboard Animation - Only on Step 1 */}
+                {/* Reconciliation Table Animation - Only on Step 1 */}
                 {currentStep === 0 && (
                   <div className="mt-8 w-full">
-                    <div className="grid grid-cols-2 gap-3">
-                      {/* Deposit Panel */}
-                      <div className="bg-slate-950 border border-slate-800 rounded-lg p-4 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-slate-400 text-xs font-mono">DEPOSIT</span>
-                          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          {/* Request */}
-                          <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
-                            <div className="text-slate-500 text-xs font-mono">
-                              <span className="text-cyan-400">→</span> <span className="text-slate-400">POST</span> /deposit
-                            </div>
-                            <div className="text-slate-600 text-xs font-mono ml-4">amount: $100,000</div>
-                          </div>
-
-                          {/* Processing */}
-                          <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
-                            <div className="text-slate-500 text-xs font-mono">
-                              <span className="text-emerald-400">✓</span> <span className="text-slate-400">Processing</span>
-                            </div>
-                            <div className="text-slate-600 text-xs font-mono ml-4">balance: +$100,000</div>
-                          </div>
-
-                          {/* Response */}
-                          <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
-                            <div className="text-slate-500 text-xs font-mono">
-                              <span className="text-blue-400">←</span> <span className="text-slate-400">200 OK</span>
-                            </div>
-                            <div className="text-slate-600 text-xs font-mono ml-4">tokens_minted: 100,000 BSD</div>
-                          </div>
-                        </div>
+                    <div className="border border-slate-800 rounded-lg overflow-hidden">
+                      {/* Table Header */}
+                      <div className="bg-slate-900/50 border-b border-slate-800 px-4 py-3 grid grid-cols-4 gap-4 text-xs font-medium text-slate-400">
+                        <div>TYPE</div>
+                        <div>AMOUNT</div>
+                        <div>STATUS</div>
+                        <div>TIMESTAMP</div>
                       </div>
 
-                      {/* Redemption Panel */}
-                      <div className="bg-slate-950 border border-slate-800 rounded-lg p-4 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-slate-400 text-xs font-mono">REDEMPTION</span>
-                          <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
+                      {/* Table Rows */}
+                      <div className="divide-y divide-slate-800">
+                        {/* Row 1: Deposit Received */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
+                          <div className="px-4 py-3 grid grid-cols-4 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                              <span className="text-slate-300">Deposit Received</span>
+                            </div>
+                            <div className="text-slate-400">$100,000 USD</div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-emerald-400">✓</span>
+                              <span className="text-slate-400">Received</span>
+                            </div>
+                            <div className="text-slate-500">14:32:51.234Z</div>
+                          </div>
                         </div>
-                        
-                        <div className="space-y-2">
-                          {/* Request */}
-                          <div className="animate-fade-in-log" style={{ animationDelay: '0.3s' }}>
-                            <div className="text-slate-500 text-xs font-mono">
-                              <span className="text-cyan-400">→</span> <span className="text-slate-400">POST</span> /redeem
-                            </div>
-                            <div className="text-slate-600 text-xs font-mono ml-4">tokens: 50,000 BSD</div>
-                          </div>
 
-                          {/* Processing */}
-                          <div className="animate-fade-in-log" style={{ animationDelay: '1.1s' }}>
-                            <div className="text-slate-500 text-xs font-mono">
-                              <span className="text-purple-400">✓</span> <span className="text-slate-400">Verifying</span>
+                        {/* Row 2: Processing */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '0.8s' }}>
+                          <div className="px-4 py-3 grid grid-cols-4 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                              <span className="text-slate-300">Validating</span>
                             </div>
-                            <div className="text-slate-600 text-xs font-mono ml-4">balance_check: OK</div>
+                            <div className="text-slate-400">$100,000 USD</div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-blue-400">⟳</span>
+                              <span className="text-slate-400">Processing</span>
+                            </div>
+                            <div className="text-slate-500">14:32:52.156Z</div>
                           </div>
+                        </div>
 
-                          {/* Response */}
-                          <div className="animate-fade-in-log" style={{ animationDelay: '1.9s' }}>
-                            <div className="text-slate-500 text-xs font-mono">
-                              <span className="text-orange-400">←</span> <span className="text-slate-400">200 OK</span>
+                        {/* Row 3: Minted to Wallet */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1.4s' }}>
+                          <div className="px-4 py-3 grid grid-cols-4 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
+                              <span className="text-slate-300">Minted to Wallet</span>
                             </div>
-                            <div className="text-slate-600 text-xs font-mono ml-4">withdrawn: $50,000 USD</div>
+                            <div className="text-slate-400">100,000 BSD</div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-cyan-400">✓</span>
+                              <span className="text-slate-400">Complete</span>
+                            </div>
+                            <div className="text-slate-500">14:32:53.892Z</div>
+                          </div>
+                        </div>
+
+                        {/* Row 4: Redemption Requested */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '2s' }}>
+                          <div className="px-4 py-3 grid grid-cols-4 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+                              <span className="text-slate-300">Redemption Initiated</span>
+                            </div>
+                            <div className="text-slate-400">50,000 BSD</div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-purple-400">✓</span>
+                              <span className="text-slate-400">Received</span>
+                            </div>
+                            <div className="text-slate-500">14:32:54.201Z</div>
+                          </div>
+                        </div>
+
+                        {/* Row 5: Verifying */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '2.6s' }}>
+                          <div className="px-4 py-3 grid grid-cols-4 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
+                              <span className="text-slate-300">Verifying</span>
+                            </div>
+                            <div className="text-slate-400">50,000 BSD</div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-orange-400">⟳</span>
+                              <span className="text-slate-400">Processing</span>
+                            </div>
+                            <div className="text-slate-500">14:32:55.067Z</div>
+                          </div>
+                        </div>
+
+                        {/* Row 6: Withdrawn to Account */}
+                        <div className="animate-fade-in-log" style={{ animationDelay: '3.2s' }}>
+                          <div className="px-4 py-3 grid grid-cols-4 gap-4 text-xs bg-slate-950/30 hover:bg-slate-950/60 transition-colors">
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                              <span className="text-slate-300">Withdrawn to Account</span>
+                            </div>
+                            <div className="text-slate-400">$50,000 USD</div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-yellow-400">✓</span>
+                              <span className="text-slate-400">Complete</span>
+                            </div>
+                            <div className="text-slate-500">14:32:56.789Z</div>
                           </div>
                         </div>
                       </div>
