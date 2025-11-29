@@ -116,7 +116,6 @@ export default function LaunchStablecoin() {
       <CompetitiveDiffSection />
 
       <div id="pilot">
-        <BoardChecklistSection />
         <ProblemSection
           title="Capture the $300B Market or Cede to It"
           subtitle="Tether and Circle are actively competing for your clients and their liquidity."
@@ -147,6 +146,7 @@ export default function LaunchStablecoin() {
             },
           ]}
         />
+        <BoardChecklistSection />
       </div>
       <Footer />
     </div>

@@ -23,7 +23,7 @@ export default function CompetitiveDiffSection() {
             name: "Fee Distribution",
             icon: Server,
             albor: "Non-Custodial, Atomic",
-            competitors: "CEX Transfers, Manual",
+            competitors: "CEX Payouts, Manual",
             alborHas: true
         },
         {
