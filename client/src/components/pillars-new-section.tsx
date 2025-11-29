@@ -1284,7 +1284,7 @@ export default function PillarsSection({
         title: "CEO | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Coins, title: "Ecosystem Automation", description: "Sync your ledgers with the blockchain to automate issuance from verified partner deposits." }, { icon: CreditCard, title: "Programmed Fiat Control", description: "Programmatically trigger fiat wires for redemption, maintaining full control over your liquidity." }, { icon: Users, title: "Simple Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Ecosystem Automation", description: "Sync your ledgers with the blockchain to automate issuance from verified partner deposits." }, { icon: CreditCard, title: "Programmed Fiat Control", description: "Programmatically trigger fiat wires for redemption, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "Simple Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Scale Distribution Network"
     },
     trading: {
@@ -1297,7 +1297,7 @@ export default function PillarsSection({
         title: "CEO | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: GitBranch, title: "Whitelabel Trust", description: "Launch a transparent, whitelabel exchange that eliminates CEX counterparty risk for your LPs." }, { icon: KeyIcon, title: "Automated Price Stability", description: "Utilize an AMM model to ensure programmed price stability for your token and market." }, { icon: SquareStack, title: "Custody-Free Yield", description: "Secure LPs funds with code, allowing them to earn yield from fees without relinquishing custody." },],
+      features: [{ icon: Store, title: "Whitelabel Trust", description: "Launch a transparent, whitelabel exchange that eliminates CEX counterparty risk for your LPs." }, { icon: TrendingUp, title: "Automated Price Stability", description: "Utilize an AMM model to ensure programmed price stability for your token and market." }, { icon: Lock, title: "Custody-Free Yield", description: "Secure LPs funds with code, allowing them to earn yield from fees without relinquishing custody." },],
       cta: "Integrate Liquidity API"
     },
     payments: {
@@ -1310,7 +1310,7 @@ export default function PillarsSection({
         title: "CPO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Zap, title: "Optimal Smart Routing", description: "The router scans all markets (CeFi/DeFi) to find the best-priced conversion route for the trader." }, { icon: Globe, title: "Non-Custodial Processing", description: "The trader/platform holds the keys, ensuring the issuer is never the payment processor." }, { icon: Server, title: "Atomic Fee Distribution", description: "Automate fee distribution to relevant partners, eliminating escrow and manual reconciliation steps." },],
+      features: [{ icon: Route, title: "Optimal Smart Routing", description: "The router scans all markets (CeFi/DeFi) to find the best-priced conversion route for the trader." }, { icon: KeyIcon, title: "Non-Custodial Processing", description: "The trader/platform holds the keys, ensuring the issuer is never the payment processor." }, { icon: GitBranch, title: "Atomic Fee Distribution", description: "Automate fee distribution to relevant partners, eliminating escrow and manual reconciliation steps." },],
       cta: "Explore Payments API"
     },
     service: {
@@ -1324,7 +1324,7 @@ export default function PillarsSection({
         title: "CTO | Ex-Google Head of Product",
         image: hishamImage
       },
-      features: [{ icon: Database, title: "Sovereign Key Control", description: "Deploy the stack in your private cloud or on-prem, ensuring you always hold the cryptographic keys." }, { icon: LifeBuoy, title: "Eliminate Vendor Risk", description: "Satisfy regulators by prohibiting the outsourcing of your monetary supply control to third parties." }, { icon: ShieldCheck, title: "Embedded Compliance", description: "Embed real-time AML/KYC screening into every transaction via integrated security protocols." },],
+      features: [{ icon: KeyIcon, title: "Sovereign Key Control", description: "Deploy the stack in your private cloud or on-prem, ensuring you always hold the cryptographic keys." }, { icon: Shield, title: "Eliminate Vendor Risk", description: "Satisfy regulators by prohibiting the outsourcing of your monetary supply control to third parties." }, { icon: ShieldCheck, title: "Embedded Compliance", description: "Embed real-time AML/KYC screening into every transaction via integrated security protocols." },],
       cta: "Learn About Our Service Model"
     },
   };
