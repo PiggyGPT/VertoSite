@@ -326,58 +326,66 @@ export default function HeroSection() {
                   {activeStory.subtitle}
                 </p>
 
-                {/* Process Flow - Only on Step 1 */}
+                {/* Dual Flow - Only on Step 1 */}
                 {currentStep === 0 && (
                   <div className="mt-8 w-full">
-                    <div className="space-y-3">
-                      {/* Step 1 */}
-                      <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
-                        <div className="flex items-center gap-3 p-3 rounded-lg bg-emerald-950/40 border border-emerald-900/50">
-                          <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white font-bold text-sm">✓</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* Flow 1: Deposit */}
+                      <div className="space-y-2">
+                        <div className="animate-fade-in-log text-slate-300 font-medium text-xs uppercase tracking-wide opacity-70" style={{ animationDelay: '0.1s' }}>Deposit Flow</div>
+                        
+                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
+                          <div className="flex items-center gap-2 p-2 rounded bg-slate-800/50">
+                            <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0 text-xs font-bold">●</div>
+                            <span className="text-slate-300 text-sm">Listening</span>
                           </div>
-                          <div>
-                            <div className="text-emerald-200 font-medium text-sm">Deposit Received</div>
-                            <div className="text-emerald-300/70 text-xs">Your funds are secure</div>
+                        </div>
+
+                        <div className="text-slate-600 text-xs text-center">↓</div>
+
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
+                          <div className="flex items-center gap-2 p-2 rounded bg-emerald-950/50 border border-emerald-900/50">
+                            <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
+                            <span className="text-emerald-200 text-sm">Deposit Received</span>
+                          </div>
+                        </div>
+
+                        <div className="text-slate-600 text-xs text-center">↓</div>
+
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
+                          <div className="flex items-center gap-2 p-2 rounded bg-blue-950/50 border border-blue-900/50">
+                            <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
+                            <span className="text-blue-200 text-sm">Minted to Wallet</span>
                           </div>
                         </div>
                       </div>
 
-                      {/* Step 2 */}
-                      <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
-                        <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-950/40 border border-blue-900/50">
-                          <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white font-bold text-sm">→</span>
-                          </div>
-                          <div>
-                            <div className="text-blue-200 font-medium text-sm">Converting to Digital Currency</div>
-                            <div className="text-blue-300/70 text-xs">Preparing your BSD tokens</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Step 3 */}
-                      <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
-                        <div className="flex items-center gap-3 p-3 rounded-lg bg-cyan-950/40 border border-cyan-900/50">
-                          <div className="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white font-bold text-sm">→</span>
-                          </div>
-                          <div>
-                            <div className="text-cyan-200 font-medium text-sm">Sending to Your Wallet</div>
-                            <div className="text-cyan-300/70 text-xs">Broadcasting to blockchain</div>
+                      {/* Flow 2: Redemption */}
+                      <div className="space-y-2">
+                        <div className="animate-fade-in-log text-slate-300 font-medium text-xs uppercase tracking-wide opacity-70" style={{ animationDelay: '0.1s' }}>Redemption Flow</div>
+                        
+                        <div className="animate-fade-in-log" style={{ animationDelay: '0.2s' }}>
+                          <div className="flex items-center gap-2 p-2 rounded bg-slate-800/50">
+                            <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0 text-xs font-bold">●</div>
+                            <span className="text-slate-300 text-sm">Listening</span>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Step 4 */}
-                      <div className="animate-fade-in-log" style={{ animationDelay: '2.6s' }}>
-                        <div className="flex items-center gap-3 p-3 rounded-lg bg-emerald-950/40 border border-emerald-900/50">
-                          <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white font-bold text-sm">✓</span>
+                        <div className="text-slate-600 text-xs text-center">↓</div>
+
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1s' }}>
+                          <div className="flex items-center gap-2 p-2 rounded bg-purple-950/50 border border-purple-900/50">
+                            <div className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
+                            <span className="text-purple-200 text-sm">Token Redeemed</span>
                           </div>
-                          <div>
-                            <div className="text-emerald-200 font-medium text-sm">Complete</div>
-                            <div className="text-emerald-300/70 text-xs">Your BSD is ready to use</div>
+                        </div>
+
+                        <div className="text-slate-600 text-xs text-center">↓</div>
+
+                        <div className="animate-fade-in-log" style={{ animationDelay: '1.8s' }}>
+                          <div className="flex items-center gap-2 p-2 rounded bg-orange-950/50 border border-orange-900/50">
+                            <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">✓</div>
+                            <span className="text-orange-200 text-sm">Withdrawn to Account</span>
                           </div>
                         </div>
                       </div>
