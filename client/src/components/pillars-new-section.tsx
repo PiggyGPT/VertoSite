@@ -1401,7 +1401,26 @@ export default function PillarsSection({
             <div
               className="h-full rounded-full transition-all"
               style={{
-                backgroundImage: `linear-gradient(90deg, ${getAccentColor((orderedPillars[orderedKeys[currentStep] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 0%, ${getAccentColor((orderedPillars[orderedKeys[currentStep] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 85%, ${getAccentColor((orderedPillars[orderedKeys[Math.min(currentStep + 1, orderedKeys.length - 1)] as keyof typeof orderedPillars]?.color as string) || 'verto-green')} 100%)`,
+                backgroundImage: (() => {
+                  const tabWidth = 100 / orderedKeys.length;
+                  const solidPercent = tabWidth * 0.85;
+                  const transitionPercent = tabWidth * 0.15;
+                  const stops: string[] = [];
+                  
+                  for (let i = 0; i < orderedKeys.length; i++) {
+                    const tabStart = i * tabWidth;
+                    const solidEnd = tabStart + solidPercent;
+                    const tabEnd = (i + 1) * tabWidth;
+                    
+                    const currentColor = getAccentColor((orderedPillars[orderedKeys[i] as keyof typeof orderedPillars]?.color as string) || 'verto-green');
+                    const nextColor = i < orderedKeys.length - 1 ? getAccentColor((orderedPillars[orderedKeys[i + 1] as keyof typeof orderedPillars]?.color as string) || 'verto-green') : currentColor;
+                    
+                    stops.push(`${currentColor} ${tabStart}%, ${currentColor} ${solidEnd}%`);
+                    stops.push(`${nextColor} ${tabEnd}%`);
+                  }
+                  
+                  return `linear-gradient(90deg, ${stops.join(', ')})`;
+                })(),
                 width: isWrappingAround ? '0%' : `${((currentStep + 1) / orderedKeys.length) * 100}%`,
                 transitionDuration: isWrappingAround ? '0ms' : isAutoPlaying ? '10000ms' : '300ms',
                 transitionTimingFunction: isAutoPlaying ? 'linear' : 'ease-out',
