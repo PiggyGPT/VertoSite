@@ -1275,8 +1275,8 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "verto-purple", title: "Partner On-Ramps", icon: Workflow,
-      description: "Enable partners to seamlessly issue & distribute digital assets against deposits, funding your treasury in real-time.",
+      label: "Tokenize Deposits", color: "verto-purple", title: "Tokenize Deposits", icon: Workflow,
+      description: "Automate issuance, redemption, and reconciliation across your ecosystem to instantly fund your treasury.",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
         quote: "The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook.",
@@ -1284,12 +1284,12 @@ export default function PillarsSection({
         title: "CEO | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Coins, title: "Leverage Existing Networks", description: "Activate your existing retail and partner channels to distribute digital assets with existing infrastructure." }, { icon: CreditCard, title: "Zero-Float Operations", description: "Enable instant issuance at the point of deposit with no treasury float or liquidity pre-funding required." }, { icon: Users, title: "Partner Portal & APIs", description: "Self-service onboarding and white-label solutions for rapid partner integration and network growth." },],
+      features: [{ icon: Coins, title: "Ecosystem Automation", description: "Sync your ledgers with the blockchain to automate issuance from verified partner deposits." }, { icon: CreditCard, title: "Programmed Fiat Control", description: "Programmatically trigger fiat wires for redemption, maintaining full control over your liquidity." }, { icon: Users, title: "Simple Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Scale Distribution Network"
     },
     trading: {
-      label: "Attract Liquidity", color: "verto-blue", title: "Institutional Liquidity", icon: Coins,
-      description: "Execute trades across fragmented, multi-chain liquidity pools with automated enforcement of institutional risk policies.",
+      label: "Attract Liquidity", color: "verto-blue", title: "Attract Liquidity", icon: Coins,
+      description: "Enable Liquidity Providers (LPs) to securely seed stablecoin liquidity and earn yield without counterparty risk.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
         quote: "At GSR, we ran state-of-the-art manual DeFi ops that secured millions. We distilled those lessons into an auditable, automated platform for you.",
@@ -1297,12 +1297,12 @@ export default function PillarsSection({
         title: "CEO | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: GitBranch, title: "Smart Order Routing", description: "Balance risk, pricing and latency across multiple protocols and chains to find the best execution route for every trade." }, { icon: KeyIcon, title: "Non-Custodial Signing", description: "Sign transaction routes with your existing custodial key governance, so your assets never leave your control." }, { icon: SquareStack, title: "Atomic Execution", description: "Automate the entire transaction workflow with a single, batched payload that eliminates manual operational errors." },],
+      features: [{ icon: GitBranch, title: "Whitelabel Trust", description: "Launch a transparent, whitelabel exchange that eliminates CEX counterparty risk for your LPs." }, { icon: KeyIcon, title: "Automated Price Stability", description: "Utilize an AMM model to ensure programmed price stability for your token and market." }, { icon: SquareStack, title: "Custody-Free Yield", description: "Secure LPs funds with code, allowing them to earn yield from fees without relinquishing custody." },],
       cta: "Integrate Liquidity API"
     },
     payments: {
-      label: "Transact Globally", color: "verto-green", title: "Frictionless Checkout", icon: Globe,
-      description: "Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.",
+      label: "Transact Globally", color: "verto-green", title: "Transact Globally", icon: Globe,
+      description: "Enable any trader to easily transact with your token from any bank or wallet, non-custodially.",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
         quote: "At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments.",
@@ -1310,13 +1310,13 @@ export default function PillarsSection({
         title: "CPO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Zap, title: "Boost Conversion", description: "One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." }, { icon: Globe, title: "Universal Acceptance", description: "A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." }, { icon: Server, title: "Automated Back-Office", description: "We automate multi-chain routing, execution, and reconciliation to reduce operational overhead." },],
+      features: [{ icon: Zap, title: "Optimal Smart Routing", description: "The router scans all markets (CeFi/DeFi) to find the best-priced conversion route for the trader." }, { icon: Globe, title: "Non-Custodial Processing", description: "The trader/platform holds the keys, ensuring the issuer is never the payment processor." }, { icon: Server, title: "Atomic Fee Distribution", description: "Automate fee distribution to relevant partners, eliminating escrow and manual reconciliation steps." },],
       cta: "Explore Payments API"
     },
     service: {
-      label: "Unlock Growth", color: "verto-orange", icon: TrendingUp,
-      title: "24/7 Global Operations",
-      description: "Maintain operational integrity for your self-hosted stack with 24/7 monitoring and support by our global SOC teams.",
+      label: "Secure Compliance", color: "verto-orange", icon: TrendingUp,
+      title: "Secure Compliance",
+      description: "Secure the foundation for future growth by satisfying regulatory and risk committee mandates.",
       visual: <ExecutiveServiceFlow />,
       founderQuote: {
         quote: "Imagine explaining a $100M loss to your board because your operations failed at 3 AM. We bring you Google's operational rigor to protect your treasury.",
@@ -1324,7 +1324,7 @@ export default function PillarsSection({
         title: "CTO | Ex-Google Head of Product",
         image: hishamImage
       },
-      features: [{ icon: Database, title: "Data Sovereignty & Control", description: "Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." }, { icon: LifeBuoy, title: "Embedded Global Expertise", description: "Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." }, { icon: ShieldCheck, title: "Institutional Rigor", description: "Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." },],
+      features: [{ icon: Database, title: "Sovereign Key Control", description: "Deploy the stack in your private cloud or on-prem, ensuring you always hold the cryptographic keys." }, { icon: LifeBuoy, title: "Eliminate Vendor Risk", description: "Satisfy regulators by prohibiting the outsourcing of your monetary supply control to third parties." }, { icon: ShieldCheck, title: "Embedded Compliance", description: "Embed real-time AML/KYC screening into every transaction via integrated security protocols." },],
       cta: "Learn About Our Service Model"
     },
   };

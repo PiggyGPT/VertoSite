@@ -113,9 +113,12 @@ export default function LaunchStablecoin() {
       <div id="infrastructure">
         <PillarsSection />
       </div>
-      <div id="team">
+      <CompetitiveDiffSection />
+
+      <div id="pilot">
+        <BoardChecklistSection />
         <ProblemSection
-          title="Join the $300B Market or Cede to It"
+          title="Capture the $300B Market or Cede to It"
           subtitle="Tether and Circle are actively competing for your clients and their liquidity."
           customQuotes={[
             {
@@ -143,15 +146,6 @@ export default function LaunchStablecoin() {
                 "Our Gold ETF can't compete with PAXG's 24/7 liquidity against USDC. We need our own tokenized gold to compete in the same pools and capture that market share.",
             },
           ]}
-        />
-      </div>
-      <CompetitiveDiffSection />
-      <div id="pilot">
-        <BoardChecklistSection />
-        <WhyNowSection
-          customTitle="Why Now?"
-          customSubtitle="The window to defend your deposit franchise and lead the future of payments is narrowing rapidly."
-          customReasons={stablecoinWhyNowReasons}
         />
       </div>
       <Footer />
