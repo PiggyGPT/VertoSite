@@ -180,7 +180,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 md:mb-10 lg:mb-12">
-            Capture liquidity from the $300B dollar stablecoin market
+            Capture liquidity from the $300B stablecoin market
             <br />
             with our self-hosted, full-stack infrastructure.
           </p>
@@ -191,7 +191,7 @@ export default function HeroSection() {
           <p className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 sm:mb-8 md:mb-10">
             Founded by leaders at
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-y-2 gap-x-8 sm:gap-x-10 md:gap-x-12 pb-8 sm:pb-10 md:pb-10 lg:pb-12 opacity-100 grayscale">
+          <div className="flex flex-wrap justify-center items-center gap-y-2 gap-x-8 sm:gap-x-10 md:gap-x-12 pb-16 sm:pb-10 md:pb-10 lg:pb-12 opacity-100 grayscale">
             <div className="w-40 h-6 flex items-center justify-center">
               <img
                 src="/logos/fed_logo.svg"
