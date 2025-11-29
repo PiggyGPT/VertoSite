@@ -6,13 +6,11 @@ import {
   ShieldCheck,
   Phone,
   Calendar,
-  ChevronRight,
-  PlayCircle,
-  CheckCircle2,
+  TrendingUp,
 } from "lucide-react";
+import { Link } from "wouter";
 import { useState, useEffect, useRef } from "react";
 
-// --- HOOKS ---
 const useCalendlyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,11 +21,11 @@ const useCalendlyModal = () => {
     if (!isOpen) return null;
     return (
       <div
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0a2540]/80 backdrop-blur-sm p-4 animate-in fade-in duration-300"
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/80 backdrop-blur-sm p-4 animate-in fade-in duration-300"
         onClick={closeModal}
       >
         <div
-          className="bg-white dark:bg-[#1a1f36] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-300"
+          className="bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-300"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6 border-b border-slate-100 dark:border-white/5 flex justify-between items-center">
@@ -42,7 +40,7 @@ const useCalendlyModal = () => {
             </button>
           </div>
           <div className="p-8 text-center">
-            <div className="w-16 h-16 bg-[#635bff]/10 text-[#635bff] rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
               <Phone className="w-8 h-8" />
             </div>
             <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed">
@@ -51,7 +49,7 @@ const useCalendlyModal = () => {
             </p>
             <button
               onClick={closeModal}
-              className="w-full py-2.5 bg-[#635bff] hover:bg-[#5851df] text-white rounded-full font-medium text-sm transition-all shadow-md hover:shadow-lg"
+              className="w-full py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
             >
               Return to Demo
             </button>
@@ -80,32 +78,37 @@ export default function HeroSection() {
 
   const storySteps: StoryStep[] = [
     {
-      title: "Tokenize Deposits",
-      subtitle: "Automate issuance, redemption & reconciliation via API.",
+      title: "Tokenize Your Deposits",
+      subtitle:
+        "Enable your systems to automate issuance, redemption and reconciliation with our APIs.",
       icon: Workflow,
       href: "/integrate",
-      accentColor: "#635bff", // Stripe Blurple
+      accentColor: "#EEAA4A",
     },
     {
-      title: "Attract Liquidity",
-      subtitle: "Securely seed stablecoin liquidity & earn yield.",
+      title: "Attract Liquidity Providers",
+      subtitle:
+        "Enable LPs to securely seed dollar stablecoin liquidity and earn yield with our Decentralized Exchange.",
       icon: Coins,
       href: "/liquidity",
-      accentColor: "#00d4ff", // Cyan
+      accentColor: "#EF660B",
     },
     {
-      title: "Global Routing",
-      subtitle: "Transact with any bank or wallet via our Router.",
+      title: "Accept Global Transactions",
+      subtitle:
+        "Enable Traders to easily transact with any bank or wallet with our Router.",
       icon: Globe2,
       href: "/coverage",
-      accentColor: "#e31b6d", // Pink
+      accentColor: "#8F73FE",
     },
+
     {
-      title: "Dollar Growth",
-      subtitle: "Unlock the loop: Liquidity → Volume → Yield.",
+      title: "Unlock Dollar Growth",
+      subtitle:
+        "Deploy our full stack on your servers to unlock the Dollar Growth Spiral: Liquidity → Volume → Yield.",
       icon: ShieldCheck,
       href: "/compliance",
-      accentColor: "#42b883", // Emerald
+      accentColor: "#217DFE",
     },
   ];
 
@@ -113,7 +116,7 @@ export default function HeroSection() {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
         setCurrentStep((prev) => (prev + 1) % storySteps.length);
-      }, 6000); // Faster cycle for snappy feel
+      }, 10000);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
@@ -126,188 +129,265 @@ export default function HeroSection() {
   };
 
   const activeStory = storySteps[currentStep];
+  const activeAccent = activeStory.accentColor;
 
   return (
-    <section className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-[#0a2540] text-slate-900 dark:text-white selection:bg-[#635bff] selection:text-white">
-
-      {/* --- BACKGROUND ARCHITECTURE --- */}
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden text-slate-900 dark:text-white">
+      {/* BACKGROUND - Transparent to allow page gradient to show through */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* The Stripe "Slash" Background */}
-        <div className="absolute top-0 left-0 w-full h-[60vh] lg:h-[80vh] bg-white dark:bg-[#0a2540] skew-y-[-6deg] origin-top-left translate-y-[-10vh] lg:translate-y-[-15vh] z-0" />
+        {/* Light Mode: Warm golden glow at top */}
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[120%] h-[700px] rounded-full blur-[120px] opacity-30 dark:hidden"
+          style={{
+            background:
+              "radial-gradient(circle at center, #EEAA4A, #EF660B, transparent 60%)",
+          }}
+        />
 
-        {/* Subtle Gradient Mesh */}
-        <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] rounded-full bg-[#635bff]/10 blur-[120px] mix-blend-multiply dark:mix-blend-screen opacity-50" />
-        <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#00d4ff]/10 blur-[100px] mix-blend-multiply dark:mix-blend-screen opacity-50" />
+        {/* Dark Mode: Subtle cool indigo glow - just the sky, no warm tones */}
+        <div
+          className="hidden dark:block absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[150%] h-[800px] rounded-full blur-[150px] opacity-5"
+          style={{
+            background:
+              "radial-gradient(circle at center, #1A233A, #0A1128, transparent 70%)",
+          }}
+        />
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        {/* Grid overlay */}
+        <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid-dark.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10 dark:opacity-5" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          {/* --- LEFT COLUMN: VALUE PROP --- */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* LEFT COLUMN: TEXT & CTAs */}
           <div className="flex flex-col items-start text-left max-w-2xl">
-
-            {/* New Feature Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#635bff]/10 border border-[#635bff]/20 text-[#635bff] dark:text-[#80e9ff] mb-8 cursor-pointer hover:bg-[#635bff]/20 transition-colors group">
-              <span className="text-xs font-bold uppercase tracking-wider">New</span>
-              <span className="text-sm font-medium">Stablecoin Infrastructure v2.0</span>
-              <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-
-            <h1 className="font-extrabold text-5xl sm:text-6xl lg:text-[4.5rem] tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-8">
-              Financial infrastructure
+            <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-6xl tracking-tighter mb-6 sm:mb-7 md:mb-8 text-slate-900 dark:text-white leading-tight">
+              Launch Your Stablecoin.
               <br />
-              <span className="text-[#635bff] dark:text-[#80e9ff]">
-                for the internet.
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
+                Capture Global Dollars.
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10 max-w-lg">
-              Capture liquidity from the $300B market. Fully managed infrastructure to launch, manage, and scale your stablecoin globally.
+            <p className="text-sm sm:text-base md:text-lg lg:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-10 sm:mb-12 md:mb-14 max-w-xl">
+              Capture liquidity from the $300B dollar stablecoin market
+              <br />
+              with our self-hosted, full-stack infrastructure.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-12 sm:mb-14 md:mb-16">
               <button
                 onClick={openModal}
-                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#635bff] text-white font-semibold text-sm hover:bg-[#0a2540] dark:hover:bg-[#80e9ff] dark:hover:text-[#0a2540] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-                data-testid="hero-primary-cta"
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
+                style={{
+                  background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
+                  color: "white",
+                }}
+                data-testid="hero-schedule-demo"
               >
-                Start now
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <Calendar className="w-4 h-4" />
+                <span>Schedule Demo</span>
               </button>
               <button
                 onClick={openModal}
-                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white dark:bg-white/5 text-slate-700 dark:text-white font-semibold text-sm hover:bg-slate-50 dark:hover:bg-white/10 transition-all border border-slate-200 dark:border-white/10"
+                className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
+                data-testid="hero-contact-sales"
               >
-                <Phone className="w-4 h-4 text-slate-400" />
+                <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                 Contact Sales
               </button>
             </div>
 
-            {/* Social Proof - Monochrome & Clean */}
-            <div className="w-full pt-8 border-t border-slate-200 dark:border-white/10">
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">
-                Trusted by teams at
+            {/* SOCIAL PROOF */}
+            <div className="w-full pt-8 sm:pt-10 md:pt-12 border-t border-slate-200 dark:border-white/10">
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 sm:mb-8">
+                Founded by leaders at
               </p>
-              <div className="flex flex-wrap gap-8 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                 {/* Replaced images with text placeholders for stability, revert to img tags if assets exist */}
-                 <span className="text-xl font-bold font-serif text-slate-400">FedWire</span>
-                 <span className="text-xl font-bold font-sans text-slate-400 tracking-tighter">PayPal</span>
-                 <span className="text-xl font-bold font-mono text-slate-400">Microsoft</span>
-                 <span className="text-xl font-bold font-sans italic text-slate-400">GSR</span>
+              <div className="flex flex-wrap gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-4 sm:gap-y-6 opacity-100 grayscale">
+                <div className="w-40 h-5 flex items-center justify-start">
+                  <img
+                    src="/logos/fed_logo.svg"
+                    alt="Federal Reserve"
+                    className="h-full object-contain dark:invert"
+                  />
+                </div>
+                <div className="w-20 h-5 flex items-center justify-start">
+                  <img
+                    src="/logos/GSR_logo.svg"
+                    alt="GSR Markets"
+                    className="h-full object-contain dark:invert"
+                  />
+                </div>
+                <div className="w-20 h-5 flex items-center justify-start">
+                  <img
+                    src="/logos/PayPal_logo.svg"
+                    alt="PayPal"
+                    className="h-full object-contain dark:invert"
+                  />
+                </div>
+                <div className="w-20 h-5 flex items-center justify-start">
+                  <img
+                    src="/logos/Microsoft_logo_(2012).svg"
+                    alt="Microsoft"
+                    className="h-full object-contain dark:invert"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* --- RIGHT COLUMN: INTERACTIVE VISUAL --- */}
-          <div className="relative w-full h-[500px] lg:h-[600px] hidden md:flex items-center justify-center">
+          {/* RIGHT COLUMN: JOURNEY CAROUSEL */}
+          <div className="relative w-full h-auto hidden lg:flex items-center justify-center">
+            <div className="w-full max-w-2xl">
+            {/* Main Card Display */}
+            <div className="relative p-6 sm:p-8 md:p-10 overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/0 dark:from-white/5 dark:to-white/0 border border-white/10 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 group">
+              {/* Dynamic Accent Glow */}
+              <div
+                className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-10 pointer-events-none rounded-2xl transition-opacity duration-500"
+                style={{
+                  boxShadow: `0 0 120px 40px ${activeAccent} inset`,
+                }}
+              />
 
-            {/* The "Device" Container */}
-            <div className="relative w-full max-w-md bg-white dark:bg-[#1a1f36] rounded-2xl shadow-2xl shadow-[#635bff]/20 border border-slate-200 dark:border-white/10 overflow-hidden transform transition-all duration-700 hover:scale-[1.02]">
-
-              {/* Header of the "App" */}
-              <div className="h-12 bg-slate-50 dark:bg-[#0a2540]/50 border-b border-slate-200 dark:border-white/5 flex items-center px-4 gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600" />
-                </div>
-                <div className="ml-4 h-4 w-32 bg-slate-200 dark:bg-white/5 rounded-full text-[10px] flex items-center px-2 text-slate-400 font-mono">
-                  api.platform.com
-                </div>
-              </div>
-
-              {/* Body of the "App" */}
-              <div className="p-6 h-full relative">
-
-                {/* Visualizing the Active Step */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/50 dark:to-[#0a2540]/50 pointer-events-none z-10" />
-
-                <div className="space-y-4">
-                  {storySteps.map((step, index) => {
-                    const isActive = index === currentStep;
-                    return (
-                      <div
-                        key={index}
-                        onClick={() => handleStepClick(index)}
-                        className={`
-                          group relative p-4 rounded-xl cursor-pointer border transition-all duration-500 ease-out
-                          ${isActive 
-                            ? "bg-white dark:bg-[#0a2540] border-[#635bff] shadow-lg scale-100 opacity-100 z-20" 
-                            : "bg-slate-50 dark:bg-white/5 border-transparent opacity-50 hover:opacity-80 scale-95 grayscale"
-                          }
-                        `}
-                      >
-                        {/* Progress Bar (Active only) */}
-                        {isActive && isAutoPlaying && (
-                           <div className="absolute bottom-0 left-0 h-1 bg-[#635bff] animate-progress origin-left w-full rounded-b-xl" />
-                        )}
-
-                        <div className="flex items-start gap-4">
-                          <div 
-                            className={`p-2.5 rounded-lg transition-colors duration-300 ${isActive ? 'bg-[#635bff] text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-400'}`}
+              {/* Content */}
+              <div key={currentStep} className="text-center animate-pan-in relative z-10">
+                {/* Progress Indicator - 1-2-3-Growth with Clickable Steps */}
+                <div className="mb-6 sm:mb-8">
+                  {/* Step Bubbles */}
+                  <div className="flex justify-center items-center gap-1 sm:gap-2">
+                    {storySteps.map((_, index) => (
+                      <div key={index} className="flex items-center">
+                        <button
+                          onClick={() => {
+                            setIsAutoPlaying(false);
+                            handleStepClick(index);
+                          }}
+                          className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
+                            index === currentStep && !isAutoPlaying ? 'animate-bubble-pop scale-110' : 'hover:opacity-80'
+                          }`}
+                        >
+                          <div
+                            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
+                              index === currentStep ? 'shadow-lg' : 'shadow-md'
+                            }`}
+                            style={{
+                              backgroundColor:
+                                index <= currentStep
+                                  ? storySteps[index].accentColor
+                                  : `${storySteps[index].accentColor}40`,
+                              color: index <= currentStep ? 'white' : storySteps[index].accentColor,
+                              boxShadow:
+                                index === currentStep
+                                  ? `0 0 20px ${storySteps[index].accentColor}80`
+                                  : index < currentStep
+                                  ? `0 0 10px ${storySteps[index].accentColor}40`
+                                  : 'none',
+                            }}
                           >
-                            <step.icon className="w-5 h-5" />
+                            {index === 3 ? (
+                              <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                            ) : (
+                              index + 1
+                            )}
                           </div>
-
-                          <div className="flex-1">
-                            <h4 className={`font-semibold text-sm mb-1 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-500'}`}>
-                              {step.title}
-                            </h4>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                              {step.subtitle}
-                            </p>
+                        </button>
+                        {index < storySteps.length - 1 && (
+                          <div
+                            key={`dash-${index}-${currentStep}`}
+                            className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 rounded-full overflow-hidden relative`}
+                            style={{
+                              background: index < currentStep 
+                                ? `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`
+                                : 'rgba(148, 163, 184, 0.3)',
+                            }}
+                          >
+                            <div
+                              className="h-full"
+                              style={{
+                                width: index < currentStep ? '100%' : '0%',
+                                background: `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`,
+                                transition: 'width 10000ms linear',
+                              }}
+                            />
                           </div>
-
-                          {isActive && (
-                            <CheckCircle2 className="w-5 h-5 text-[#635bff] animate-in fade-in zoom-in" />
-                          )}
-                        </div>
+                        )}
                       </div>
-                    );
-                  })}
-                </div>
-
-                {/* Simulated "Code Snippet" at bottom */}
-                <div className="mt-6 p-4 rounded-lg bg-[#0a2540] border border-white/10 font-mono text-[10px] text-slate-400 leading-5">
-                  <div className="flex justify-between text-xs mb-2 pb-2 border-b border-white/10 text-slate-500">
-                    <span>TERMINAL</span>
-                    <span>bash — 80x24</span>
+                    ))}
                   </div>
-                  <p><span className="text-[#635bff]">$</span> curl -X POST https://api.infra.com/v1/mint \</p>
-                  <p className="pl-4">-d <span className="text-[#80e9ff]">{`'{"amount": 1000000}'`}</span></p>
-                  <p className="text-emerald-400 mt-2">{`> Success: Transaction Verified (${activeStory.title})`}</p>
                 </div>
 
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
+                  {currentStep === 3 ? "Unlock Growth Spiral!" : activeStory.title}
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-md mx-auto">
+                  {activeStory.subtitle}
+                </p>
               </div>
             </div>
-
-            {/* Decorative Floating Elements behind the phone */}
-            <div 
-              className="absolute -right-12 top-20 w-24 h-24 bg-gradient-to-br from-[#635bff] to-[#00d4ff] rounded-2xl blur-xl opacity-40 animate-pulse" 
-              style={{ animationDuration: '4s' }}
-            />
-            <div 
-              className="absolute -left-8 bottom-32 w-32 h-32 bg-gradient-to-tr from-[#e31b6d] to-[#ff80b5] rounded-full blur-2xl opacity-30 animate-pulse" 
-              style={{ animationDuration: '7s' }}
-            />
+            </div>
           </div>
+        </div>
 
+        {/* Mobile CTAs & Carousel Section */}
+        <div className="lg:hidden w-full">
+          {/* Mobile CTA Buttons */}
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-10">
+            <button
+              onClick={openModal}
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30 overflow-hidden relative"
+              style={{
+                background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
+                color: "white",
+              }}
+              data-testid="hero-schedule-demo"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Schedule Demo</span>
+            </button>
+            <button
+              onClick={openModal}
+              className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-white/10"
+              data-testid="hero-contact-sales"
+            >
+              <Phone className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+              Contact Sales
+            </button>
+          </div>
         </div>
       </div>
 
       <CalendlyModal title="Schedule a Consultation" />
 
       <style>{`
-        @keyframes progress {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
+        .animate-pan-in {
+          animation: panIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         }
-        .animate-progress {
-          animation: progress 6s linear;
+        @keyframes panIn {
+          0% {
+            opacity: 0;
+            transform: translateX(-40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .animate-bubble-pop {
+          animation: bubblePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        @keyframes bubblePop {
+          0% {
+            transform: scale(0.7);
+          }
+          50% {
+            transform: scale(1.15);
+          }
+          100% {
+            transform: scale(1.1);
+          }
         }
       `}</style>
     </section>

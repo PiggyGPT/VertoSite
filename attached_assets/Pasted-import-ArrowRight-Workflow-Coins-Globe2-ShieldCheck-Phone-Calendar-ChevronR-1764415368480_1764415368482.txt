@@ -1,0 +1,315 @@
+import {
+  ArrowRight,
+  Workflow,
+  Coins,
+  Globe2,
+  ShieldCheck,
+  Phone,
+  Calendar,
+  ChevronRight,
+  PlayCircle,
+  CheckCircle2,
+} from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+
+// --- HOOKS ---
+const useCalendlyModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const CalendlyModal = ({ title }: { title: string }) => {
+    if (!isOpen) return null;
+    return (
+      <div
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0a2540]/80 backdrop-blur-sm p-4 animate-in fade-in duration-300"
+        onClick={closeModal}
+      >
+        <div
+          className="bg-white dark:bg-[#1a1f36] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-300"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="p-6 border-b border-slate-100 dark:border-white/5 flex justify-between items-center">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              {title}
+            </h3>
+            <button
+              onClick={closeModal}
+              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="p-8 text-center">
+            <div className="w-16 h-16 bg-[#635bff]/10 text-[#635bff] rounded-full flex items-center justify-center mx-auto mb-4">
+              <Phone className="w-8 h-8" />
+            </div>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+              This is a demo environment. In production, this would open your
+              Calendly or scheduling interface directly.
+            </p>
+            <button
+              onClick={closeModal}
+              className="w-full py-2.5 bg-[#635bff] hover:bg-[#5851df] text-white rounded-full font-medium text-sm transition-all shadow-md hover:shadow-lg"
+            >
+              Return to Demo
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return { openModal, CalendlyModal };
+};
+
+interface StoryStep {
+  title: string;
+  subtitle: string;
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
+  accentColor: string;
+}
+
+export default function HeroSection() {
+  const { openModal, CalendlyModal } = useCalendlyModal();
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+
+  const storySteps: StoryStep[] = [
+    {
+      title: "Tokenize Deposits",
+      subtitle: "Automate issuance, redemption & reconciliation via API.",
+      icon: Workflow,
+      href: "/integrate",
+      accentColor: "#635bff", // Stripe Blurple
+    },
+    {
+      title: "Attract Liquidity",
+      subtitle: "Securely seed stablecoin liquidity & earn yield.",
+      icon: Coins,
+      href: "/liquidity",
+      accentColor: "#00d4ff", // Cyan
+    },
+    {
+      title: "Global Routing",
+      subtitle: "Transact with any bank or wallet via our Router.",
+      icon: Globe2,
+      href: "/coverage",
+      accentColor: "#e31b6d", // Pink
+    },
+    {
+      title: "Dollar Growth",
+      subtitle: "Unlock the loop: Liquidity → Volume → Yield.",
+      icon: ShieldCheck,
+      href: "/compliance",
+      accentColor: "#42b883", // Emerald
+    },
+  ];
+
+  useEffect(() => {
+    if (isAutoPlaying) {
+      autoPlayRef.current = setInterval(() => {
+        setCurrentStep((prev) => (prev + 1) % storySteps.length);
+      }, 6000); // Faster cycle for snappy feel
+    }
+    return () => {
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    };
+  }, [isAutoPlaying, storySteps.length]);
+
+  const handleStepClick = (index: number) => {
+    setIsAutoPlaying(false);
+    setCurrentStep(index);
+  };
+
+  const activeStory = storySteps[currentStep];
+
+  return (
+    <section className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-[#0a2540] text-slate-900 dark:text-white selection:bg-[#635bff] selection:text-white">
+
+      {/* --- BACKGROUND ARCHITECTURE --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* The Stripe "Slash" Background */}
+        <div className="absolute top-0 left-0 w-full h-[60vh] lg:h-[80vh] bg-white dark:bg-[#0a2540] skew-y-[-6deg] origin-top-left translate-y-[-10vh] lg:translate-y-[-15vh] z-0" />
+
+        {/* Subtle Gradient Mesh */}
+        <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] rounded-full bg-[#635bff]/10 blur-[120px] mix-blend-multiply dark:mix-blend-screen opacity-50" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#00d4ff]/10 blur-[100px] mix-blend-multiply dark:mix-blend-screen opacity-50" />
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      </div>
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          {/* --- LEFT COLUMN: VALUE PROP --- */}
+          <div className="flex flex-col items-start text-left max-w-2xl">
+
+            {/* New Feature Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#635bff]/10 border border-[#635bff]/20 text-[#635bff] dark:text-[#80e9ff] mb-8 cursor-pointer hover:bg-[#635bff]/20 transition-colors group">
+              <span className="text-xs font-bold uppercase tracking-wider">New</span>
+              <span className="text-sm font-medium">Stablecoin Infrastructure v2.0</span>
+              <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+
+            <h1 className="font-extrabold text-5xl sm:text-6xl lg:text-[4.5rem] tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-8">
+              Financial infrastructure
+              <br />
+              <span className="text-[#635bff] dark:text-[#80e9ff]">
+                for the internet.
+              </span>
+            </h1>
+
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10 max-w-lg">
+              Capture liquidity from the $300B market. Fully managed infrastructure to launch, manage, and scale your stablecoin globally.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16">
+              <button
+                onClick={openModal}
+                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#635bff] text-white font-semibold text-sm hover:bg-[#0a2540] dark:hover:bg-[#80e9ff] dark:hover:text-[#0a2540] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                data-testid="hero-primary-cta"
+              >
+                Start now
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
+                onClick={openModal}
+                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white dark:bg-white/5 text-slate-700 dark:text-white font-semibold text-sm hover:bg-slate-50 dark:hover:bg-white/10 transition-all border border-slate-200 dark:border-white/10"
+              >
+                <Phone className="w-4 h-4 text-slate-400" />
+                Contact Sales
+              </button>
+            </div>
+
+            {/* Social Proof - Monochrome & Clean */}
+            <div className="w-full pt-8 border-t border-slate-200 dark:border-white/10">
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">
+                Trusted by teams at
+              </p>
+              <div className="flex flex-wrap gap-8 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                 {/* Replaced images with text placeholders for stability, revert to img tags if assets exist */}
+                 <span className="text-xl font-bold font-serif text-slate-400">FedWire</span>
+                 <span className="text-xl font-bold font-sans text-slate-400 tracking-tighter">PayPal</span>
+                 <span className="text-xl font-bold font-mono text-slate-400">Microsoft</span>
+                 <span className="text-xl font-bold font-sans italic text-slate-400">GSR</span>
+              </div>
+            </div>
+          </div>
+
+          {/* --- RIGHT COLUMN: INTERACTIVE VISUAL --- */}
+          <div className="relative w-full h-[500px] lg:h-[600px] hidden md:flex items-center justify-center">
+
+            {/* The "Device" Container */}
+            <div className="relative w-full max-w-md bg-white dark:bg-[#1a1f36] rounded-2xl shadow-2xl shadow-[#635bff]/20 border border-slate-200 dark:border-white/10 overflow-hidden transform transition-all duration-700 hover:scale-[1.02]">
+
+              {/* Header of the "App" */}
+              <div className="h-12 bg-slate-50 dark:bg-[#0a2540]/50 border-b border-slate-200 dark:border-white/5 flex items-center px-4 gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600" />
+                </div>
+                <div className="ml-4 h-4 w-32 bg-slate-200 dark:bg-white/5 rounded-full text-[10px] flex items-center px-2 text-slate-400 font-mono">
+                  api.platform.com
+                </div>
+              </div>
+
+              {/* Body of the "App" */}
+              <div className="p-6 h-full relative">
+
+                {/* Visualizing the Active Step */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/50 dark:to-[#0a2540]/50 pointer-events-none z-10" />
+
+                <div className="space-y-4">
+                  {storySteps.map((step, index) => {
+                    const isActive = index === currentStep;
+                    return (
+                      <div
+                        key={index}
+                        onClick={() => handleStepClick(index)}
+                        className={`
+                          group relative p-4 rounded-xl cursor-pointer border transition-all duration-500 ease-out
+                          ${isActive 
+                            ? "bg-white dark:bg-[#0a2540] border-[#635bff] shadow-lg scale-100 opacity-100 z-20" 
+                            : "bg-slate-50 dark:bg-white/5 border-transparent opacity-50 hover:opacity-80 scale-95 grayscale"
+                          }
+                        `}
+                      >
+                        {/* Progress Bar (Active only) */}
+                        {isActive && isAutoPlaying && (
+                           <div className="absolute bottom-0 left-0 h-1 bg-[#635bff] animate-progress origin-left w-full rounded-b-xl" />
+                        )}
+
+                        <div className="flex items-start gap-4">
+                          <div 
+                            className={`p-2.5 rounded-lg transition-colors duration-300 ${isActive ? 'bg-[#635bff] text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-400'}`}
+                          >
+                            <step.icon className="w-5 h-5" />
+                          </div>
+
+                          <div className="flex-1">
+                            <h4 className={`font-semibold text-sm mb-1 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-500'}`}>
+                              {step.title}
+                            </h4>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                              {step.subtitle}
+                            </p>
+                          </div>
+
+                          {isActive && (
+                            <CheckCircle2 className="w-5 h-5 text-[#635bff] animate-in fade-in zoom-in" />
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Simulated "Code Snippet" at bottom */}
+                <div className="mt-6 p-4 rounded-lg bg-[#0a2540] border border-white/10 font-mono text-[10px] text-slate-400 leading-5">
+                  <div className="flex justify-between text-xs mb-2 pb-2 border-b border-white/10 text-slate-500">
+                    <span>TERMINAL</span>
+                    <span>bash — 80x24</span>
+                  </div>
+                  <p><span className="text-[#635bff]">$</span> curl -X POST https://api.infra.com/v1/mint \</p>
+                  <p className="pl-4">-d <span className="text-[#80e9ff]">'{"amount": 1000000}'</span></p>
+                  <p className="text-emerald-400 mt-2">{`> Success: Transaction Verified (${activeStory.title})`}</p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Decorative Floating Elements behind the phone */}
+            <div 
+              className="absolute -right-12 top-20 w-24 h-24 bg-gradient-to-br from-[#635bff] to-[#00d4ff] rounded-2xl blur-xl opacity-40 animate-pulse" 
+              style={{ animationDuration: '4s' }}
+            />
+            <div 
+              className="absolute -left-8 bottom-32 w-32 h-32 bg-gradient-to-tr from-[#e31b6d] to-[#ff80b5] rounded-full blur-2xl opacity-30 animate-pulse" 
+              style={{ animationDuration: '7s' }}
+            />
+          </div>
+
+        </div>
+      </div>
+
+      <CalendlyModal title="Schedule a Consultation" />
+
+      <style>{`
+        @keyframes progress {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+        .animate-progress {
+          animation: progress 6s linear;
+        }
+      `}</style>
+    </section>
+  );
+}
