@@ -111,7 +111,7 @@ export default function LaunchStablecoin() {
       <div id="hero">
         <HeroSection
           title={`Launch Your Stablecoin.
-Attract Global Dollars.`}
+Capture Dollar Liquidity.`}
           subtitle="Make your asset liquid against dollar stablecoins with our self-hosted, full-stack infrastructure."
           customCTAs={stablecoinCTAs}
         />
