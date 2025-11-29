@@ -1,4 +1,4 @@
-import { Check, X, Calendar, Zap, Lock, Globe, Server } from "lucide-react";
+import { Calendar, Zap, Lock, Globe, Server } from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
 export default function CompetitiveDiffSection() {
@@ -81,23 +81,15 @@ export default function CompetitiveDiffSection() {
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="py-4 px-6">
-                                            <div className="flex items-center gap-3">
-                                                <span className="text-base text-slate-700 dark:text-slate-300">
-                                                    {feature.albor}
-                                                </span>
-                                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 ml-auto" />
-                                            </div>
+                                        <td className="py-4 px-6 text-center">
+                                            <span className="text-base text-slate-700 dark:text-slate-300">
+                                                {feature.albor}
+                                            </span>
                                         </td>
-                                        <td className="py-4 px-6">
-                                            <div className="flex items-center gap-3">
-                                                <span className="text-base text-slate-600 dark:text-slate-400">
-                                                    {feature.competitors}
-                                                </span>
-                                                {feature.competitors === "None" && (
-                                                    <X className="w-5 h-5 text-slate-300 dark:text-slate-600 flex-shrink-0 ml-auto" />
-                                                )}
-                                            </div>
+                                        <td className="py-4 px-6 text-center">
+                                            <span className="text-base text-slate-600 dark:text-slate-400">
+                                                {feature.competitors}
+                                            </span>
                                         </td>
                                     </tr>
                                 );
