@@ -271,23 +271,25 @@ export default function HeroSection() {
                         <button
                           onClick={() => handleStepClick(index)}
                           className={`relative flex items-center justify-center transition-all duration-300 cursor-pointer group ${
-                            index === currentStep
-                              ? 'animate-bubble-pop scale-110'
-                              : index < currentStep
-                              ? 'opacity-60 hover:opacity-80'
-                              : 'opacity-40 hover:opacity-60'
+                            index === currentStep ? 'animate-bubble-pop scale-110' : 'hover:opacity-80'
                           }`}
                         >
                           <div
                             className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-300 ${
-                              index === currentStep
-                                ? 'shadow-lg'
-                                : 'shadow-md'
+                              index === currentStep ? 'shadow-lg' : 'shadow-md'
                             }`}
                             style={{
-                              backgroundColor: index === currentStep ? storySteps[index].accentColor : `${storySteps[index].accentColor}40`,
-                              color: index === currentStep ? 'white' : storySteps[index].accentColor,
-                              boxShadow: index === currentStep ? `0 0 20px ${storySteps[index].accentColor}80` : 'none',
+                              backgroundColor:
+                                index <= currentStep
+                                  ? storySteps[index].accentColor
+                                  : `${storySteps[index].accentColor}40`,
+                              color: index <= currentStep ? 'white' : storySteps[index].accentColor,
+                              boxShadow:
+                                index === currentStep
+                                  ? `0 0 20px ${storySteps[index].accentColor}80`
+                                  : index < currentStep
+                                  ? `0 0 10px ${storySteps[index].accentColor}40`
+                                  : 'none',
                             }}
                           >
                             {index === 3 ? (
@@ -299,6 +301,7 @@ export default function HeroSection() {
                         </button>
                         {index < storySteps.length - 1 && (
                           <div
+                            key={`dash-${index}-${currentStep}`}
                             className={`hidden sm:block w-8 md:w-12 h-0.5 mx-1 md:mx-2 rounded-full overflow-hidden relative`}
                             style={{
                               background: index < currentStep 
@@ -307,12 +310,11 @@ export default function HeroSection() {
                             }}
                           >
                             <div
-                              className="h-full transition-all"
+                              className="h-full"
                               style={{
-                                width: index === currentStep ? '100%' : '0%',
+                                width: index <= currentStep ? '100%' : '0%',
                                 background: `linear-gradient(90deg, ${storySteps[index].accentColor}, ${storySteps[index + 1].accentColor})`,
-                                transitionDuration: index === currentStep ? '600ms' : '0ms',
-                                transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                                transition: index === currentStep ? 'width 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'width 300ms ease-out',
                               }}
                             />
                           </div>
