@@ -22,8 +22,8 @@ export function DynamicBackground() {
   // Brand colors - Official Albor Palette
   const brandColors = [
     '#F1BD76', // Dawn
-    '#5DD4E0', // Growth Teal (matched)
     '#4D88FF', // Trust Blue
+    '#5DD4E0', // Growth Teal (matched)
     '#A885FF', // Innovation (matched)
   ];
   // Dark base that stays throughout
