@@ -1454,7 +1454,7 @@ export default function PillarsSection({
           {/* Left Column: Text Content */}
           <div className="lg:col-span-1">
             <div>
-              <p className={`text-sm font-semibold uppercase tracking-wider ${activeColors.text}`}>{activePillar?.label || 'Unknown'}</p>
+              <p className="text-sm font-semibold uppercase tracking-wider" style={{ color: getAccentColor(activePillar?.color || 'albor-blue') }}>{activePillar?.label || 'Unknown'}</p>
               <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">{activePillar?.title || 'Unknown Title'}</h3>
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{activePillar?.description || 'No description available'}</p>
             </div>
