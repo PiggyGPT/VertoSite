@@ -1738,8 +1738,10 @@ export default function PillarsSection({
         const navTop = pillarNav.getBoundingClientRect().top;
         setIsNavScrolled(navTop <= 80);
       }
-      // Disable auto-play when user scrolls
+      // Disable auto-play when user scrolls and reset to first tab
       setIsAutoPlaying(false);
+      setCurrentStep(0);
+      setAnimatedStep(0);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);

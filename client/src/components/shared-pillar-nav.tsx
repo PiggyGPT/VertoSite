@@ -101,7 +101,8 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
             const pillarColor = pillar?.color || 'albor-green';
             const accentColor = getAccentColor(pillarColor);
             const IconComponent = pillar?.icon;
-            const isActive = index === (isAutoPlaying ? animatedStep : currentStep);
+            // During auto-play: keep tabs highlighted cumulatively. When stopped: only current tab highlighted
+            const isActive = isAutoPlaying ? index <= animatedStep : index === currentStep;
             
             return (
               <button

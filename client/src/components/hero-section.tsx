@@ -36,6 +36,17 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
     prevStepRef.current = currentStep;
   }, [currentStep]);
 
+  // Handle scroll - disable auto-play and reset to first tab
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAutoPlaying(false);
+      setCurrentStep(0);
+      setAnimatedStep(0);
+    };
+    window.addEventListener('scroll', handleScroll, { once: false });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handlePillarClick = (index: number) => {
     setCurrentStep(index);
     setIsAutoPlaying(false);
