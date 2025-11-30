@@ -26,7 +26,7 @@
   --radius: 1.3rem;
 
   /* Albor Brand Colors - Official Final Palette */
-  --albor-foundation: hsl(220.3, 3.8%, 12.0%); /* #1E1F2B - Background */
+  --albor-foundation: hsl(215, 28%, 13%); /* #131B2E - Background */
   --albor-dawn: hsl(37.9, 86.8%, 64.7%); /* #F1BD76 - Primary Accent */
   --albor-white: hsl(0, 0%, 100%); /* #FFFFFF - Text/Data */
   --albor-teal: hsl(176.4, 72.2%, 64.3%); /* #5DD4E0 - Growth/Success */

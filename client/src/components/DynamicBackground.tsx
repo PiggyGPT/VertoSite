@@ -27,7 +27,7 @@ export function DynamicBackground() {
     '#A885FF', // Innovation (matched)
   ];
   // Dark base that stays throughout
-  const darkBase = '#1E1F2B';
+  const darkBase = '#0F1926';
 
   // Determine which transition we're in (0-3)
   const stage = Math.min(Math.floor(scrollPercent * 4), 3);
@@ -57,7 +57,7 @@ export function DynamicBackground() {
   }
 
   // Opacity decreases as we scroll (hero 0.5, rest 0.1)
-  const glowOpacity = 0.5 - (scrollPercent * 0.4);
+  const glowOpacity = 0.7 - (scrollPercent * 0.4);
 
   return (
     <>
