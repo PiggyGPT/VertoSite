@@ -123,7 +123,7 @@ export default function LaunchStablecoin() {
           customQuotes={[
             {
               icon: "CreditCard",
-              color: "albor-blue",
+              color: "albor-innovation",
               persona: "Head of Corporate Banking",
               company: "Panama Bank",
               quote:
@@ -131,7 +131,7 @@ export default function LaunchStablecoin() {
             },
             {
               icon: "Shield",
-              color: "albor-green",
+              color: "albor-teal",
               persona: "Economic Advisor",
               company: "Bolivian Central Bank",
               quote:
@@ -139,7 +139,7 @@ export default function LaunchStablecoin() {
             },
             {
               icon: "BarChart3",
-              color: "albor-purple",
+              color: "albor-blue",
               persona: "CEO",
               company: "Guatemala Commodities",
               quote:
