@@ -1,5 +1,4 @@
-import { Calendar } from "lucide-react";
-import { SiTelegram } from "react-icons/si";
+import { Calendar, Send } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useCalendlyModal } from "./calendly-modal";
 import SharedPillarNav from "./shared-pillar-nav";
@@ -74,7 +73,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
               className="px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
               data-testid="hero-contact-telegram"
             >
-              <SiTelegram className="w-4 h-4" />
+              <Send className="w-4 h-4" />
               Contact Us
             </a>
           </div>
