@@ -1419,7 +1419,7 @@ export default function PillarsSection({
     distribution: {
       label: "Tokenize Deposits", color: "albor-plum", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
-      visual: <ExecutiveDistributionFlow accentColor="#4D88FF" />,
+      visual: <ExecutiveServiceFlow />,
       founderQuote: {
         quote: "Building trust in a stablecoin begins with two non-negotiable fundamentals: real-time settlement of deposits and withdrawals, and transparent asset backing.",
         name: "David Cass",
@@ -1459,7 +1459,7 @@ export default function PillarsSection({
       label: "Secure Compliance", color: "albor-gold", icon: Shield,
       title: "Sovereign Infrastructure",
       description: "Satisfy regulatory and risk committee mandates by controling your keys and your data",
-      visual: <ExecutiveServiceFlow />,
+      visual: <ExecutiveDistributionFlow accentColor="#4D88FF" />,
       founderQuote: {
         quote: "No regulated financial institution should cede their monetary or data sovereignty. You either control your infrastructure or you don't control your business.",
         name: "Nilesh Khaitan",
