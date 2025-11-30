@@ -3,58 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import {
   Zap, Store, Globe, Shield, TrendingUp
 } from "lucide-react";
-
-const useCalendlyModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
-  const CalendlyModal = ({ title }: { title: string }) => {
-    if (!isOpen) return null;
-    return (
-      <div
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-[#05070A]/90 backdrop-blur-sm p-4 animate-in fade-in duration-200"
-        onClick={closeModal}
-      >
-        <div
-          className="bg-[#0F1117] border border-white/10 rounded-xl shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="p-6 border-b border-white/5 flex justify-between items-center">
-            <h3 className="text-lg font-semibold text-white">
-              {title}
-            </h3>
-            <button
-              onClick={closeModal}
-              className="text-slate-400 hover:text-white transition-colors"
-            >
-              ✕
-            </button>
-          </div>
-          <div className="p-8 text-center">
-            <div className="w-16 h-16 bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center mx-auto mb-6 ring-1 ring-blue-500/20">
-              <Calendar className="w-8 h-8" />
-            </div>
-            <h4 className="text-white font-medium mb-2">Book Introductory Call</h4>
-            <p className="text-slate-400 mb-8 text-sm leading-relaxed">
-              This is a demo environment. In production, this would open your
-              Calendly or scheduling interface directly.
-            </p>
-            <button
-              onClick={closeModal}
-              className="w-full py-3 bg-white text-black rounded-lg font-semibold text-sm hover:bg-slate-200 transition-colors"
-            >
-              Return to Demo
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  return { openModal, CalendlyModal };
-};
+import { useCalendlyModal } from "./calendly-modal";
 
 export default function HeroSection() {
   const { openModal, CalendlyModal } = useCalendlyModal();
