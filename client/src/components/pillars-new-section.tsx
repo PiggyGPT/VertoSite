@@ -806,11 +806,11 @@ const PaymentsVisual = () => {
         // Select Coinbase
         setPhase(2); await new Promise(r => setTimeout(r, 1500));
         
-        // Select Bank (Breakdown visible)
-        setPhase(3); await new Promise(r => setTimeout(r, 3500));
+        // Select Bank (Breakdown visible) - Calculating
+        setPhase(3); await new Promise(r => setTimeout(r, 1750));
         
-        // Click
-        setPhase(4); await new Promise(r => setTimeout(r, 400));
+        // Click - Price Confirmed (show button animation)
+        setPhase(4); await new Promise(r => setTimeout(r, 2000));
         
         // Route: Calculating
         setPhase(5); await new Promise(r => setTimeout(r, 2000));
