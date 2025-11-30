@@ -119,14 +119,14 @@ export default function ProblemSection({
     
     const defaultPainPoints = [
         {
-            icon: Landmark, color: 'albor-blue', persona: 'Head of Innovation', company: 'Global Bank',
+            icon: Landmark, color: 'albor-plum', persona: 'Head of Innovation', company: 'Global Bank',
             quote: 'How do we make our digital currency usable across our global network, without compromising the trust we\'ve built over decades?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
         },
         {
-            icon: Repeat, color: 'albor-teal', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
+            icon: Repeat, color: 'albor-blue', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
             quote: 'Our clients are withdrawing assets daily to chase yield we can\'t offer. We\'re becoming a free on-ramp to an ecosystem that\'s eating our lunch.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
