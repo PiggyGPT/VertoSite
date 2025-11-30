@@ -1,5 +1,6 @@
-import { Landmark, Repeat, BarChart3, ArrowRight, CreditCard, Shield, TrendingDown, Users, Target } from "lucide-react";
+import { Landmark, Repeat, BarChart3, ArrowRight, CreditCard, Shield, TrendingDown, Users, Target, Quote } from "lucide-react";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
 
 // Icon mapping for custom quotes
 const iconMap = {
@@ -25,24 +26,68 @@ interface PainPointCardProps {
     ctaLink: string;
 }
 
-const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }: PainPointCardProps) => (
-    <div className="relative p-8 h-full flex flex-col justify-between rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800" data-testid={testId}>
+const colorMap: { [key: string]: { bg: string; border: string; text: string; quote: string } } = {
+  'verto-green': { 
+    bg: 'rgba(34, 197, 94, 0.04)',
+    border: 'rgba(34, 197, 94, 0.1)',
+    text: '#22c55e',
+    quote: '#22c55e'
+  },
+  'verto-blue': { 
+    bg: 'rgba(59, 130, 246, 0.04)',
+    border: 'rgba(59, 130, 246, 0.1)',
+    text: '#3b82f6',
+    quote: '#3b82f6'
+  },
+  'verto-purple': { 
+    bg: 'rgba(139, 92, 246, 0.04)',
+    border: 'rgba(139, 92, 246, 0.1)',
+    text: '#8b5cf6',
+    quote: '#8b5cf6'
+  },
+  'verto-orange': { 
+    bg: 'rgba(249, 115, 22, 0.04)',
+    border: 'rgba(249, 115, 22, 0.1)',
+    text: '#f97316',
+    quote: '#f97316'
+  }
+};
+
+const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }: PainPointCardProps) => {
+  const colors = colorMap[color] || colorMap['verto-green'];
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="relative rounded-xl p-4 md:p-6 overflow-hidden transition-all duration-300 border h-full flex flex-col justify-between"
+      style={{
+        background: `linear-gradient(135deg, ${colors.bg})`,
+        borderColor: colors.border
+      }}
+      data-testid={testId}
+    >
         <div>
-            <blockquote className="text-slate-800 dark:text-slate-200 leading-relaxed text-base mb-6">
-                "{quote}"
-            </blockquote>
-            <div className="flex items-start gap-3">
-                <div className={`flex-shrink-0 w-10 h-10 bg-${color}/10 rounded-lg flex items-center justify-center`}>
-                    <Icon className={`text-${color} w-5 h-5`} />
+            <div className="flex items-start gap-2 mb-4">
+              <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" style={{ color: colors.quote } as any} />
+              <blockquote className="text-sm md:text-base font-medium leading-snug text-slate-700 dark:text-slate-200">
+                <p>"{quote}"</p>
+              </blockquote>
+            </div>
+            <div className="flex items-start gap-3 mt-6 pt-4 border-t border-opacity-10" style={{ borderColor: colors.border }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${colors.text}20` }}>
+                    <Icon className="w-5 h-5" style={{ color: colors.text } as any} />
                 </div>
                 <div>
                     <p className="font-semibold text-slate-900 dark:text-white text-sm">{company}</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">{persona}</p>
+                    <p className="text-xs mt-0.5" style={{ color: colors.text }}>{persona}</p>
                 </div>
             </div>
         </div>
-    </div>
-);
+    </motion.div>
+  );
+};
 
 interface CustomQuote {
   icon: string;
