@@ -21,8 +21,8 @@ export function DynamicBackground() {
 
   // Brand colors for dawn progression
   const brandColors = [
-    '#EF660B', // Orange (full sunrise)
     '#EEAA4A', // Yellow (sunrise)
+    '#EF660B', // Orange (full sunrise)
     '#8F73FE', // Purple (pre-dawn)
     '#217DFE', // Blue (early dawn)
   ];
@@ -57,7 +57,7 @@ export function DynamicBackground() {
     glowColor = brandColors[3];
   }
 
-  // Opacity decreases as we scroll (brightest at start, dims as you scroll)
+  // Opacity decreases as we scroll (brightest at hero, dims as you scroll)
   const glowOpacity = 0.6 - (scrollPercent * 0.35); // 60% to 25%
 
   return (
