@@ -108,7 +108,7 @@ export default function CompetitiveDiffSection() {
                                     <th className="text-left py-3 px-3 font-semibold text-slate-900 dark:text-white text-xs" style={{ width: '35%' }}>
                                         Feature
                                     </th>
-                                    <th className="text-center py-3 px-3" style={{ width: '32.5%' }}>
+                                    <th className="py-3 px-3 flex items-center justify-center" style={{ width: '32.5%' }}>
                                         <img src="/logos/svg/albor.svg" alt="Albor" className="h-3.5 w-auto" />
                                     </th>
                                     <th className="text-center py-3 px-3 font-semibold text-slate-600 dark:text-slate-400 text-xs" style={{ width: '32.5%' }}>
