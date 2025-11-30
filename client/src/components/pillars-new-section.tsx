@@ -525,7 +525,7 @@ const QRDisplay = () => {
 
 // 3. User Selection (Updated with Payer Name & Breakdown)
 const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
-  <div className="flex flex-col h-full px-6 pt-14 pb-6">
+  <div className="flex flex-col h-full px-6 pt-4 pb-3">
     {/* Step 1: Select Instrument - Show payment options */}
     {method === 'coinbase' && !onPay && (
       <div className="flex items-center justify-center mb-6 pb-3">
@@ -804,10 +804,10 @@ const PaymentsVisual = () => {
         setPhase(1); await new Promise(r => setTimeout(r, 2000));
         
         // Select Coinbase
-        setPhase(2); await new Promise(r => setTimeout(r, 1000));
+        setPhase(2); await new Promise(r => setTimeout(r, 1500));
         
         // Select Bank (Breakdown visible)
-        setPhase(3); await new Promise(r => setTimeout(r, 2500));
+        setPhase(3); await new Promise(r => setTimeout(r, 3500));
         
         // Click
         setPhase(4); await new Promise(r => setTimeout(r, 400));
