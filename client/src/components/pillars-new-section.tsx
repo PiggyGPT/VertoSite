@@ -1179,52 +1179,118 @@ const MintingVisual = () => {
                 initial={{ scale: 0.9, opacity: 0, y: 20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                className="w-80 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-600 p-5 overflow-hidden relative"
+                className="w-80 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-600 p-5 overflow-hidden"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-slate-100 dark:bg-slate-700">
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-4">Mint Process</h4>
+                
+                <div className="space-y-3">
+                  {/* Step 1: Waiting for Wire */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0 }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
+                      animationState.statusPopupState === 'waiting' ? 'bg-indigo-100 dark:bg-indigo-900' :
+                      ['received', 'minting', 'complete'].includes(animationState.statusPopupState) ? 'bg-green-100 dark:bg-green-900' :
+                      'bg-slate-100 dark:bg-slate-800'
+                    }`}>
+                      {['received', 'minting', 'complete'].includes(animationState.statusPopupState) ? 
+                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" /> :
+                        animationState.statusPopupState === 'waiting' ? 
+                        <Loader2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400 animate-spin" /> :
+                        <div className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600" />
+                      }
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold text-slate-900 dark:text-white">Waiting for Wire</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400">Scanning Banco Bisa rails for Ref: MR-8821</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Step 2: Deposit Detected */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
+                      animationState.statusPopupState === 'received' ? 'bg-indigo-100 dark:bg-indigo-900' :
+                      ['minting', 'complete'].includes(animationState.statusPopupState) ? 'bg-green-100 dark:bg-green-900' :
+                      'bg-slate-100 dark:bg-slate-800'
+                    }`}>
+                      {['minting', 'complete'].includes(animationState.statusPopupState) ? 
+                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" /> :
+                        animationState.statusPopupState === 'received' ? 
+                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" /> :
+                        <div className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600" />
+                      }
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold text-slate-900 dark:text-white">Deposit Detected</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400">Confirmed 70,000.00 Bs from Maria R.</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Step 3: Minting */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
+                      animationState.statusPopupState === 'minting' ? 'bg-indigo-100 dark:bg-indigo-900' :
+                      animationState.statusPopupState === 'complete' ? 'bg-green-100 dark:bg-green-900' :
+                      'bg-slate-100 dark:bg-slate-800'
+                    }`}>
+                      {animationState.statusPopupState === 'complete' ? 
+                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" /> :
+                        animationState.statusPopupState === 'minting' ? 
+                        <RefreshCw className="w-4 h-4 text-indigo-600 dark:text-indigo-400 animate-spin" /> :
+                        <div className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600" />
+                      }
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold text-slate-900 dark:text-white">Minting BSD</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400">Issuing stablecoins to wallet</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Step 4: Complete */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
+                      animationState.statusPopupState === 'complete' ? 'bg-green-100 dark:bg-green-900' :
+                      'bg-slate-100 dark:bg-slate-800'
+                    }`}>
+                      {animationState.statusPopupState === 'complete' ? 
+                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" /> :
+                        <div className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600" />
+                      }
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold text-slate-900 dark:text-white">Mint Complete</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400">Funds available in wallet</p>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {(animationState.statusPopupState === 'received' || animationState.statusPopupState === 'minting') && (
                   <motion.div 
-                    className="h-full bg-indigo-500"
-                    initial={{ width: "0%" }}
-                    animate={{ 
-                      width: animationState.statusPopupState === 'waiting' ? "30%" : 
-                             animationState.statusPopupState === 'received' ? "70%" : "100%" 
-                    }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </div>
-
-                <div className="mt-2 text-center">
-                  <div className="w-12 h-12 mx-auto rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center mb-3">
-                    {animationState.statusPopupState === 'waiting' && <Loader2 className="w-6 h-6 text-indigo-500 animate-spin" />}
-                    {animationState.statusPopupState === 'received' && <CheckCircle className="w-6 h-6 text-green-500" />}
-                    {animationState.statusPopupState === 'minting' && <RefreshCw className="w-6 h-6 text-blue-500 animate-spin" />}
-                    {animationState.statusPopupState === 'complete' && <CheckCircle className="w-6 h-6 text-indigo-500" />}
-                  </div>
-
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                    {animationState.statusPopupState === 'waiting' && "Waiting for Wire..."}
-                    {animationState.statusPopupState === 'received' && "Deposit Detected"}
-                    {animationState.statusPopupState === 'minting' && "Minting BSD..."}
-                    {animationState.statusPopupState === 'complete' && "Mint Complete"}
-                  </h4>
-                  
-                  <p className="text-xs text-slate-500 mt-1">
-                    {animationState.statusPopupState === 'waiting' && "Scanning Banco Bisa rails for Ref: MR-8821"}
-                    {animationState.statusPopupState === 'received' && "Confirmed 70,000.00 Bs from Maria R."}
-                    {animationState.statusPopupState === 'minting' && "Issuing stablecoins to client wallet"}
-                    {animationState.statusPopupState === 'complete' && "Funds available in wallet"}
-                  </p>
-
-                  {(animationState.statusPopupState === 'received' || animationState.statusPopupState === 'minting') && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="mt-4 bg-slate-50 dark:bg-slate-900/50 rounded p-2 text-xs font-mono text-slate-600 dark:text-slate-400"
-                    >
-                      Match Found: <span className="font-bold text-indigo-600 dark:text-indigo-400">REF-MR-8821</span>
-                    </motion.div>
-                  )}
-                </div>
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 bg-slate-50 dark:bg-slate-900/50 rounded p-2 text-[10px] font-mono text-slate-600 dark:text-slate-400 text-center"
+                  >
+                    Ref: <span className="font-bold text-indigo-600 dark:text-indigo-400">REF-MR-8821</span>
+                  </motion.div>
+                )}
               </motion.div>
             </div>
           </div>
@@ -1737,7 +1803,7 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Fiat On-Ramp", description: "Issue tokens to client wallets against verified fiat deposits in Virtual IBANs." }, { icon: CreditCard, title: "Automated Redemption", description: "Streamline token redemption by auto-triggering fiat wires against token burns." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Issue tokens to client wallets against verified fiat deposits in Virtual IBANs." }, { icon: CreditCard, title: "Automated Redemption", description: "Streamline token redemption by auto-triggering fiat wires against token burns." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Explore APIs"
     },
     trading: {
