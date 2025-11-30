@@ -21,13 +21,13 @@ export function DynamicBackground() {
 
   // Brand colors for dawn progression
   const brandColors = [
-    '#FDB94E', // Burnished Gold (Core Value/Dawn Light)
+    '#F1BD76', // Burnished Gold (Core Value/Dawn Light)
     '#A66E4E', // Muted Copper (Metallic Transition)
     '#004D40', // Corporate Teal/Pine (Growth & Stability)
     '#6D559E', // Deep Plum Violet (Atmospheric Luxury)
     ];
   // Dark base that stays throughout
-  const darkBase = '#080C1A';
+  const darkBase = '#1E1F2B';
 
   // Determine which transition we're in (0-3)
   const stage = Math.min(Math.floor(scrollPercent * 4), 3);

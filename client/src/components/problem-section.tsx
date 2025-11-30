@@ -28,22 +28,22 @@ interface PainPointCardProps {
 
 const colorMap: { [key: string]: { bg: string; border: string; text: string; quote: string } } = {
   'albor-gold': { 
-    bg: 'rgba(253, 185, 78, 0.04)',
-    border: 'rgba(253, 185, 78, 0.1)',
-    text: '#FDB94E',
-    quote: '#FDB94E'
+    bg: 'rgba(241, 189, 118, 0.04)',
+    border: 'rgba(241, 189, 118, 0.1)',
+    text: '#F1BD76',
+    quote: '#F1BD76'
   },
   'albor-copper': { 
-    bg: 'rgba(166, 110, 78, 0.04)',
-    border: 'rgba(166, 110, 78, 0.1)',
-    text: '#A66E4E',
-    quote: '#A66E4E'
+    bg: 'rgba(241, 189, 118, 0.04)',
+    border: 'rgba(241, 189, 118, 0.1)',
+    text: '#F1BD76',
+    quote: '#F1BD76'
   },
   'albor-plum': { 
-    bg: 'rgba(109, 85, 158, 0.04)',
-    border: 'rgba(109, 85, 158, 0.1)',
-    text: '#A18DE5',
-    quote: '#A18DE5'
+    bg: 'rgba(92, 76, 140, 0.04)',
+    border: 'rgba(92, 76, 140, 0.1)',
+    text: '#5C4C8C',
+    quote: '#5C4C8C'
   },
   'albor-blue': { 
     bg: 'rgba(77, 136, 255, 0.04)',
@@ -52,10 +52,10 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
     quote: '#4D88FF'
   },
   'albor-teal': { 
-    bg: 'rgba(131, 244, 236, 0.04)',
-    border: 'rgba(131, 244, 236, 0.1)',
-    text: '#83F4EC',
-    quote: '#83F4EC'
+    bg: 'rgba(43, 105, 122, 0.04)',
+    border: 'rgba(43, 105, 122, 0.1)',
+    text: '#2B697A',
+    quote: '#2B697A'
   }
 };
 
@@ -76,14 +76,18 @@ const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, cta
     >
         <div>
             <div className="flex items-start gap-2 mb-4">
-              <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" style={{ color: colors.quote } as any} />
+              <span style={{ color: colors.quote }}>
+                <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" />
+              </span>
               <blockquote className="text-sm md:text-base font-medium leading-snug text-slate-700 dark:text-slate-200">
                 <p>"{quote}"</p>
               </blockquote>
             </div>
             <div className="flex items-start gap-3 mt-6 pt-4 border-t border-opacity-10" style={{ borderColor: colors.border }}>
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${colors.text}20` }}>
-                    <Icon className="w-5 h-5" style={{ color: colors.text } as any} />
+                    <span style={{ color: colors.text }}>
+                      <Icon className="w-5 h-5" />
+                    </span>
                 </div>
                 <div>
                     <p className="font-semibold text-slate-900 dark:text-white text-sm">{company}</p>
