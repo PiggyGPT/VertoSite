@@ -1,28 +1,28 @@
 The Institutional Stablecoin: From Blueprint to Market Dominance
 Launching a successful, institution-backed stablecoin is not a technology problem—it is an ecosystem challenge. True success requires a virtuous cycle of consumer distribution, widespread merchant utility, and ironclad regulatory compliance across the entire lifecycle.
 
-Fragmented solutions address these as separate challenges, creating operational risk and stalling adoption. Verto provides the unified infrastructure to master this cycle from a single, self-hosted control tower, turning your strategic vision into a market reality.
+Fragmented solutions address these as separate challenges, creating operational risk and stalling adoption. Albor provides the unified infrastructure to master this cycle from a single, self-hosted control tower, turning your strategic vision into a market reality.
 
 Foundation: Establish Your SWIFT-like Control Layer
 Before a single stablecoin is issued, you need institutional-grade assurance. Our platform provides the fundamental control layer, giving you the confidence to operate on public blockchains with the same oversight you command in traditional finance.
 
 The Challenge: Public ledgers offer transparency but lack the built-in compliance and routing integrity required for institutional operations. Manually tracing funds for regulatory reporting is operationally untenable and introduces significant risk.
 
-The Verto Solution: Verto acts as your central control tower. We create a consolidated, real-time audit trail for every transaction, from initial issuance to final redemption. This provides a single source of truth—an immutable, regulator-ready ledger that underpins every subsequent operation and de-risks your entire stablecoin program from day one.
+The Albor Solution: Albor acts as your central control tower. We create a consolidated, real-time audit trail for every transaction, from initial issuance to final redemption. This provides a single source of truth—an immutable, regulator-ready ledger that underpins every subsequent operation and de-risks your entire stablecoin program from day one.
 
 Step 1: Drive Mass Distribution Through Your Existing Network
 With a compliant foundation in place, the first step is getting your stablecoin into the hands of users. We turn your existing physical footprint into a powerful, real-time distribution engine.
 
 The Challenge: Traditional on-ramps are slow and require significant pre-funding, tying up capital. Crypto-native alternatives lack the embedded KYC/AML protocols that institutions require at the critical point of issuance.
 
-The Verto Solution: Our platform integrates your institution's compliance policies directly into the minting process. A customer can walk up to a partner ATM, kiosk, or bank teller and receive your 1:1 backed stablecoin, minted directly to their wallet in seconds. This eliminates treasury float and securely bridges your traditional banking infrastructure with the digital asset economy.
+The Albor Solution: Our platform integrates your institution's compliance policies directly into the minting process. A customer can walk up to a partner ATM, kiosk, or bank teller and receive your 1:1 backed stablecoin, minted directly to their wallet in seconds. This eliminates treasury float and securely bridges your traditional banking infrastructure with the digital asset economy.
 
 Step 2: Unlock Widespread Utility with Seamless Merchant Payments
 A distributed stablecoin is only valuable if it can be used. The final step is to make your stablecoin a preferred payment method for merchants and consumers alike, creating a flywheel of adoption.
 
 The Challenge: The digital payments landscape is a fragmented maze of incompatible wallets, chains, and exchanges. This complexity forces a heavy integration and reconciliation burden on merchants, while creating a high-friction experience for consumers.
 
-The Verto Solution: We provide a Stripe-like developer stack that allows any merchant to accept your stablecoin with a single, simple integration. Our infrastructure abstracts away all blockchain complexity, enabling a one-tap payment experience for the consumer from any wallet. For the merchant, it means frictionless acceptance and fully automated reconciliation, making your stablecoin as easy to handle as a credit card.
+The Albor Solution: We provide a Stripe-like developer stack that allows any merchant to accept your stablecoin with a single, simple integration. Our infrastructure abstracts away all blockchain complexity, enabling a one-tap payment experience for the consumer from any wallet. For the merchant, it means frictionless acceptance and fully automated reconciliation, making your stablecoin as easy to handle as a credit card.
 
-Verto: Your End-to-End Stablecoin Infrastructure
-By unifying control, distribution, and utility, Verto provides the complete, end-to-end platform for launching and scaling a successful institutional stablecoin. Move beyond fragmented tools and build a durable digital currency ecosystem with a single, trusted partner.
+Albor: Your End-to-End Stablecoin Infrastructure
+By unifying control, distribution, and utility, Albor provides the complete, end-to-end platform for launching and scaling a successful institutional stablecoin. Move beyond fragmented tools and build a durable digital currency ecosystem with a single, trusted partner.

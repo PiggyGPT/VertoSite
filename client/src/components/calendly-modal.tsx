@@ -56,7 +56,7 @@ export default function CalendlyModal({ isOpen, onClose, title = "Schedule a Con
         {/* The InlineWidget takes care of the iframe and provides a better loading UI */}
         <div className="flex-grow overflow-y-auto">
           <InlineWidget
-            url="https://calendly.com/nilesh-vertoai/30min"
+            url="https://calendly.com/nilesh-alborai/30min"
             styles={{ height: '100%', width: '100%' }}
             // You can pass prefill values or UTM parameters here
             pageSettings={{

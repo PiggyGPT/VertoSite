@@ -100,7 +100,7 @@ export default function CompetitiveDiffSection() {
                     </div>
 
                     {/* CTA Button - Enhanced */}
-                    <div className="text-center">
+                    <div className="flex justify-center">
                     <button
                         onClick={openModal}
                         className="px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"

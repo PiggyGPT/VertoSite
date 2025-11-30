@@ -5,7 +5,7 @@ function GlobalPresenceSection() {
   return (
     <section className="bg-slate-100 dark:bg-slate-800/50 py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 text-center">
-        <Globe className="mx-auto h-10 w-10 text-verto-blue" />
+        <Globe className="mx-auto h-10 w-10 text-albor-blue" />
         <h2 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-white tracking-tight">
           Global Presence
         </h2>
@@ -39,7 +39,7 @@ const DistributionFlow = () => (
       {/* Agent Side */}
       <div className="bg-white dark:bg-slate-800/50 rounded-lg p-4 flex flex-col">
         <div className="flex items-center space-x-2 mb-4">
-          <Users className="w-5 h-5 text-verto-green" />
+          <Users className="w-5 h-5 text-albor-green" />
           <h3 className="font-semibold text-slate-800 dark:text-slate-200">Agent Terminal</h3>
         </div>
         <div className="space-y-3 flex-grow">
@@ -60,7 +60,7 @@ const DistributionFlow = () => (
       {/* Customer Side */}
       <div className="bg-white dark:bg-slate-800/50 rounded-lg p-4 flex flex-col">
         <div className="flex items-center space-x-2 mb-4">
-          <Smartphone className="w-5 h-5 text-verto-green" />
+          <Smartphone className="w-5 h-5 text-albor-green" />
           <h3 className="font-semibold text-slate-800 dark:text-slate-200">Customer App</h3>
         </div>
         <div className="space-y-3 flex-grow">
@@ -73,9 +73,9 @@ const DistributionFlow = () => (
             <p className="font-semibold text-slate-700 dark:text-slate-300">Tap to confirm mint...</p>
           </div>
         </div>
-        <div className="mt-4 p-3 bg-verto-green/10 rounded-lg text-center">
-          <p className="text-sm font-bold text-verto-green">Success!</p>
-          <p className="text-xs text-verto-green/80">50.00 BOBC minted to wallet.</p>
+        <div className="mt-4 p-3 bg-albor-green/10 rounded-lg text-center">
+          <p className="text-sm font-bold text-albor-green">Success!</p>
+          <p className="text-xs text-albor-green/80">50.00 BOBC minted to wallet.</p>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ const PaymentsFlow = () => (
     <div className="w-full h-full bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-900/70 dark:to-slate-900 rounded-2xl p-6 lg:p-8 shadow-xl border border-slate-200/80 dark:border-slate-800">
         <div className="flex flex-col h-full space-y-4">
             <div className="flex items-center space-x-2">
-                <Store className="w-5 h-5 text-verto-purple"/>
+                <Store className="w-5 h-5 text-albor-purple"/>
                 <h3 className="font-semibold text-slate-800 dark:text-slate-200">Merchant Checkout</h3>
             </div>
             {/* Mock UI for POS */}
@@ -97,12 +97,12 @@ const PaymentsFlow = () => (
                 <div className="p-2 bg-white rounded-lg"></div>
             </div>
             {/* Mock UI for Customer Confirmation */}
-            <div className="bg-verto-purple/10 rounded-lg p-4 flex items-center justify-between">
+            <div className="bg-albor-purple/10 rounded-lg p-4 flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                    <Smartphone className="w-5 h-5 text-verto-purple"/>
+                    <Smartphone className="w-5 h-5 text-albor-purple"/>
                     <div>
-                        <p className="font-semibold text-verto-purple text-sm">Customer Payment</p>
-                        <p className="text-xs text-verto-purple/80">Scan, tap, and go. Gas sponsored.</p>
+                        <p className="font-semibold text-albor-purple text-sm">Customer Payment</p>
+                        <p className="text-xs text-albor-purple/80">Scan, tap, and go. Gas sponsored.</p>
                     </div>
                 </div>
                 <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-green-500/20">
@@ -119,8 +119,8 @@ const ComplianceFlow = () => (
     <div className="w-full h-full bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-900/70 dark:to-slate-900 rounded-2xl p-6 lg:p-8 shadow-xl border border-slate-200/80 dark:border-slate-800">
         <div className="flex flex-col h-full space-y-4">
             <div className="flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-verto-blue"/>
-                <h3 className="font-semibold text-slate-800 dark:text-slate-200">Verto AI Compliance Dashboard</h3>
+                <Shield className="w-5 h-5 text-albor-blue"/>
+                <h3 className="font-semibold text-slate-800 dark:text-slate-200">Albor AI Compliance Dashboard</h3>
             </div>
             {/* Mock UI for Compliance Dashboard */}
             <div className="bg-white dark:bg-slate-800/50 rounded-lg p-4 flex-grow space-y-4">
@@ -139,12 +139,12 @@ const ComplianceFlow = () => (
                     </div>
                 </div>
             </div>
-             <div className="bg-verto-blue/10 rounded-lg p-4 flex items-center justify-between">
+             <div className="bg-albor-blue/10 rounded-lg p-4 flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                    <FileText className="w-5 h-5 text-verto-blue"/>
+                    <FileText className="w-5 h-5 text-albor-blue"/>
                     <div>
-                        <p className="font-semibold text-verto-blue text-sm">Com Report</p>
-                        <p className="text-xs text-verto-blue/80">Every action is logged and verifiable.</p>
+                        <p className="font-semibold text-albor-blue text-sm">Com Report</p>
+                        <p className="text-xs text-albor-blue/80">Every action is logged and verifiable.</p>
                     </div>
                 </div>
                  <span className="text-xs font-mono text-slate-500">TXN_45b31... VERIFIED</span>
@@ -160,7 +160,7 @@ export default function PillarsSection() {
   const pillars = {
     distribution: {
       label: "Distribution",
-      color: "verto-green",
+      color: "albor-green",
       title: "On-Demand Minting",
       description: "Instantly turn cash into stablecoins at any retail point. Our platform equips agent partners, from kiosks to mobile operators, to serve as on-ramps for your digital currency.",
       visual: <DistributionFlow />,
@@ -173,7 +173,7 @@ export default function PillarsSection() {
     },
     payments: {
       label: "Payments",
-      color: "verto-purple",
+      color: "albor-purple",
       title: "Frictionless Checkout",
       description: "Our stack removes all blockchain complexity from payments. A single API lets merchants accept your stablecoin from any wallet, bank, or exchange, seamlessly.",
       visual: <PaymentsFlow />,
@@ -186,9 +186,9 @@ export default function PillarsSection() {
     },
     compliance: {
       label: "Compliance",
-      color: "verto-blue",
+      color: "albor-blue",
       title: "AI-Powered Compliance",
-      description: "Verto's AI engine replaces manual, periodic counterparty audits with continuous, explainable, and automated oversight across your entire ecosystem.",
+      description: "Albor's AI engine replaces manual, periodic counterparty audits with continuous, explainable, and automated oversight across your entire ecosystem.",
       visual: <ComplianceFlow />,
       features: [
         { icon: BarChart3, title: "Explainable Risk Ratings", description: "AI generates clear, transparent risk scores for every wallet, token, and protocol, with full data lineage." },

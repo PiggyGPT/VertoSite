@@ -132,7 +132,7 @@ const PaymentsVisual = () => {
             <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-purple-600/60 shadow-lg ring-4 ring-purple-600/30' : 'scale-100 bg-purple-600 hover:bg-purple-600/90'} hover:scale-105`}>
               <Zap className="w-4 h-4" /><span>Pay 12.00 USDC</span>
             </button>
-            <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Verto</p>
+            <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Albor</p>
           </div>
         </div>
 
@@ -146,7 +146,7 @@ const PaymentsVisual = () => {
               <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
               <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
             </div>
-            <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
+            <p className="text-xs text-slate-400 mt-4">Powered by Albor</p>
           </div>
         </div>
       </div>

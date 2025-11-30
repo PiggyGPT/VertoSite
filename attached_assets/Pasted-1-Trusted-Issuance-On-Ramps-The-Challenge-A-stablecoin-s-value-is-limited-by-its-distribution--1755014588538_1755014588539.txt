@@ -2,7 +2,7 @@
 
 The Challenge: A stablecoin's value is limited by its distribution. Scaling through traditional banking rails is slow, capital-intensive, and fails to reach a mass audience, while direct retail on-ramps have historically lacked institutional-grade compliance.
 
-The Verto Solution: Our platform enables you to mint stablecoins directly at the point of value-in—whether at a bank, a partner kiosk, or through an agent network. Your KYC/AML policies are embedded and enforced at the moment of creation, not as an afterthought.
+The Albor Solution: Our platform enables you to mint stablecoins directly at the point of value-in—whether at a bank, a partner kiosk, or through an agent network. Your KYC/AML policies are embedded and enforced at the moment of creation, not as an afterthought.
 
 This allows you to:
 
@@ -18,7 +18,7 @@ This allows you to:
 
 The Challenge: Driving adoption is impossible when the user experience is broken. A fragmented ecosystem of wallets, exchanges, and chains creates high integration costs for merchants and a confusing, high-friction experience for end-users.
 
-The Verto Solution: We provide a universal payment stack with plug-and-play APIs and SDKs. This allows any merchant to accept your stablecoin—alongside other digital assets—from any wallet, CEX, or bank account through a single, simple integration.
+The Albor Solution: We provide a universal payment stack with plug-and-play APIs and SDKs. This allows any merchant to accept your stablecoin—alongside other digital assets—from any wallet, CEX, or bank account through a single, simple integration.
 
 This allows you to:
 
@@ -34,7 +34,7 @@ This allows you to:
 
 The Challenge: Operating on public blockchains creates an immense compliance burden. Manually tracing funds across multiple chains to satisfy regulators is operationally untenable and exposes your institution to significant risk.
 
-The Verto Solution: Our AI-powered compliance engine provides a real-time, consolidated audit trail for every transaction on any chain. It acts as your institutional-grade control tower, allowing you to safely access public market liquidity with the same level of routing assurance and compliance as the SWIFT network.
+The Albor Solution: Our AI-powered compliance engine provides a real-time, consolidated audit trail for every transaction on any chain. It acts as your institutional-grade control tower, allowing you to safely access public market liquidity with the same level of routing assurance and compliance as the SWIFT network.
 
 This allows you to:
 

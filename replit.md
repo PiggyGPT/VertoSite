@@ -1,7 +1,7 @@
-# Verto - Institutional Stablecoin Rails Platform
+# Albor - Institutional Stablecoin Rails Platform
 
 ## Overview
-Verto is a comprehensive web application providing a marketing and informational platform for institutional stablecoin infrastructure services. It highlights Verto's offering as a unified solution for minting, moving, and reconciling stablecoins across various blockchain networks, emphasizing institutional-grade compliance and controls. The platform aims to combine the accessibility of M-Pesa, the seamlessness of Stripe, and the compliance rigor of SWIFT, targeting banks, payment service providers, and fintech companies for stablecoin operations. Its vision includes enabling digital asset operations for trading, payments, and distribution on any chain, with ambitions to capture institutional capital and provide a secure on-ramp for DeFi products.
+Albor is a comprehensive web application providing a marketing and informational platform for institutional stablecoin infrastructure services. It highlights Albor's offering as a unified solution for minting, moving, and reconciling stablecoins across various blockchain networks, emphasizing institutional-grade compliance and controls. The platform aims to combine the accessibility of M-Pesa, the seamlessness of Stripe, and the compliance rigor of SWIFT, targeting banks, payment service providers, and fintech companies for stablecoin operations. Its vision includes enabling digital asset operations for trading, payments, and distribution on any chain, with ambitions to capture institutional capital and provide a secure on-ramp for DeFi products.
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
@@ -10,10 +10,10 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Architecture
 - **Technology Stack**: React 18 with TypeScript, Vite for build processes.
-- **UI/UX**: shadcn/ui components built on Radix UI primitives, styled with Tailwind CSS using a custom Verto brand design system.
+- **UI/UX**: shadcn/ui components built on Radix UI primitives, styled with Tailwind CSS using a custom Albor brand design system.
 - **State Management**: TanStack React Query for server state.
 - **Routing**: Wouter for client-side routing.
-- **Design System**: Features General Sans font, custom Verto color palette (purple, blue, green, orange, grayscale), responsive design with a mobile-first approach, and WCAG-compliant accessibility.
+- **Design System**: Features General Sans font, custom Albor color palette (purple, blue, green, orange, grayscale), responsive design with a mobile-first approach, and WCAG-compliant accessibility.
 - **Dark Mode**: Automatic system detection with theme persistence via localStorage, comprehensive coverage, and brand-colored gradients for sections.
 - **Content Strategy**: Marketing-focused single-page application with sectioned content (hero, problem, solution, AI capabilities, pilot programs, team), strategic CTAs, and updated trust logos for credibility.
 - **Dynamic Features**: Dynamic hero CTAs, interactive navigation that scrolls to and activates specific content pillars, and page-specific content with targeted CTAs and stakeholder-specific problem sections.

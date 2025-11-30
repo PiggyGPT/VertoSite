@@ -69,17 +69,17 @@ export default function HeroSection() {
   const orderedKeys = ["distribution", "trading", "payments", "service"];
 
   const pillars = {
-    distribution: { label: "Tokenize Deposits", color: "verto-purple", icon: Zap },
-    trading: { label: "Attract Liquidity", color: "verto-blue", icon: Store },
-    payments: { label: "Transact Globally", color: "verto-green", icon: Globe },
-    service: { label: "Secure Compliance", color: "verto-orange", icon: Shield },
+    distribution: { label: "Tokenize Deposits", color: "albor-purple", icon: Zap },
+    trading: { label: "Attract Liquidity", color: "albor-blue", icon: Store },
+    payments: { label: "Transact Globally", color: "albor-green", icon: Globe },
+    service: { label: "Secure Compliance", color: "albor-orange", icon: Shield },
   };
 
   const colorMap: { [key: string]: string } = {
-    'verto-green': '#22c55e',
-    'verto-blue': '#3b82f6',
-    'verto-purple': '#8b5cf6',
-    'verto-orange': '#f97316',
+    'albor-green': '#22c55e',
+    'albor-blue': '#3b82f6',
+    'albor-purple': '#8b5cf6',
+    'albor-orange': '#f97316',
   };
 
   const getAccentColor = (colorName: string) => colorMap[colorName] || '#22c55e';
@@ -234,7 +234,7 @@ export default function HeroSection() {
           <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
               const pillar = pillars[key as keyof typeof pillars];
-              const pillarColor = pillar?.color || 'verto-green';
+              const pillarColor = pillar?.color || 'albor-green';
               const accentColor = getAccentColor(pillarColor);
               const IconComponent = pillar?.icon || TrendingUp;
               const isActive = index === currentStep;

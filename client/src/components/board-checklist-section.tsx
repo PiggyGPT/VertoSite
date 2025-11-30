@@ -43,16 +43,16 @@ export default function PilotProgramSection() {
 
           <div className="max-w-3xl mx-auto">
             {/* TimelineItem components remain unchanged */}
-            <TimelineItem phase="Days 1-30" title="Foundation & Liquidity Onboarding" icon={Rocket} color="verto-orange">
-              <p>Integrate core banking systems, onboard 3-5 anchor partners, and connect with pre-vetted market makers to establish initial liquidity pools.</p>
+            <TimelineItem phase="Days 1-90" title="Foundation & Liquidity Onboarding" icon={Rocket} color="albor-orange">
+              <p>We integrate your core banking systems, onboard your team to run operations, and connect you with pre-vetted market makers to establish immediate liquidity.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 31-60" title="Live Transaction Testing" icon={Target} color="verto-green">
-              <p>Execute real-world payments and redemptions while market makers provide continuous liquidity. Validate user experience and liquidity depth under real conditions.</p>
+            <TimelineItem phase="Days 91-120" title="Controlled Pilot Operations" icon={Target} color="albor-green">
+              <p>Your team operates the pilot with our 24/7 SOC support, protocol guidance, and performance monitoring to validate operational readiness.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 61-90" title="Performance & Scale Planning" icon={BarChart3} color="verto-blue">
-              <p>Analyze liquidity metrics, transaction data, and compliance reports to present a data-backed plan for full network rollout with sustainable liquidity.</p>
+            <TimelineItem phase="Days 120+" title="Enterprise Scaling" icon={BarChart3} color="albor-blue">
+              <p>We transition your team to full production operations with proven metrics and a clear path to scale across your enterprise.</p>
             </TimelineItem>
           </div>
 

@@ -9,7 +9,7 @@ This version is tuned so a decision‑maker at a bank, PSP, or fintech can skim 
 
 ***
 
-# **VERTO — Institutional Stablecoin Rails, From Concept to Live**
+# **Albor — Institutional Stablecoin Rails, From Concept to Live**
 
 ***
 
@@ -43,9 +43,9 @@ _Know exactly what it takes to launch safely._
 
 ***
 
-## **The Verto Infrastructure Stack**
+## **The Albor Infrastructure Stack**
 
-Verto leverages **proven models** and tailors them into blockchain‑native rails — delivering familiar user experiences with institutional‑grade controls.
+Albor leverages **proven models** and tailors them into blockchain‑native rails — delivering familiar user experiences with institutional‑grade controls.
 
 - **M‑Pesa** — cash‑to‑digital access anywhere through existing retail agents.  
 - **Stripe** — instant merchant onboarding and payments with developer‑first APIs.  
@@ -97,9 +97,9 @@ Predictable, regulator‑safe settlement across the blockchain ecosystem — DeF
 
 ***
 
-## **Verto AI — The Institutional Brain Powering It All**
+## **Albor AI — The Institutional Brain Powering It All**
 
-Verto’s **Agentic AI** is the control layer behind every mint, payment, and settlement — turning multi‑chain complexity into one compliant, seamless workflow.
+Albor’s **Agentic AI** is the control layer behind every mint, payment, and settlement — turning multi‑chain complexity into one compliant, seamless workflow.
 
 ***
 

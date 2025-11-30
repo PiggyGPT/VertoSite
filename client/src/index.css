@@ -25,26 +25,26 @@
   --ring: hsl(202.8169, 89.1213%, 53.1373%);
   --radius: 1.3rem;
 
-  /* Verto Brand Colors - Official Brand Palette */
-  --verto-gradient-start: hsl(34, 86%, 61%); /* EEAA4A */
-  --verto-gradient-pink: hsl(20, 95%, 49%); /* EF660B */
-  --verto-gradient-middle: hsl(257, 100%, 72%); /* 8F73FE */
-  --verto-gradient-end: hsl(217, 100%, 56%); /* 217DFE */
-  --verto-purple: hsl(257, 100%, 72%);
-  --verto-blue: hsl(217, 100%, 56%);
-  --verto-green: hsl(127, 80%, 45%);
-  --verto-orange: hsl(34, 86%, 61%);
-  --verto-pink: hsl(20, 95%, 49%);
-  --verto-cyan: hsl(185, 80%, 55%);
+  /* Albor Brand Colors - Official Brand Palette */
+  --albor-gradient-start: hsl(34, 86%, 61%); /* EEAA4A */
+  --albor-gradient-pink: hsl(20, 95%, 49%); /* EF660B */
+  --albor-gradient-middle: hsl(257, 100%, 72%); /* 8F73FE */
+  --albor-gradient-end: hsl(217, 100%, 56%); /* 217DFE */
+  --albor-purple: hsl(257, 100%, 72%);
+  --albor-blue: hsl(217, 100%, 56%);
+  --albor-green: hsl(127, 80%, 45%);
+  --albor-orange: hsl(34, 86%, 61%);
+  --albor-pink: hsl(20, 95%, 49%);
+  --albor-cyan: hsl(185, 80%, 55%);
   
-  /* Verto Gray Scale */
-  --verto-gray-50: hsl(210, 20%, 98%);
-  --verto-gray-100: hsl(220, 14%, 93%);
-  --verto-gray-200: hsl(220, 13%, 91%);
-  --verto-gray-400: hsl(218, 11%, 65%);
-  --verto-gray-500: hsl(220, 9%, 46%);
-  --verto-gray-600: hsl(215, 14%, 34%);
-  --verto-gray-900: hsl(220, 39%, 11%);
+  /* Albor Gray Scale */
+  --albor-gray-50: hsl(210, 20%, 98%);
+  --albor-gray-100: hsl(220, 14%, 93%);
+  --albor-gray-200: hsl(220, 13%, 91%);
+  --albor-gray-400: hsl(218, 11%, 65%);
+  --albor-gray-500: hsl(220, 9%, 46%);
+  --albor-gray-600: hsl(215, 14%, 34%);
+  --albor-gray-900: hsl(220, 39%, 11%);
 
   /* Font Family */
   --font-sans: 'General Sans', system-ui, -apple-system, sans-serif;
@@ -74,12 +74,12 @@
     animation: slideUp 0.6s ease-out;
   }
 
-  .verto-gradient {
-    background: linear-gradient(135deg, var(--verto-gradient-start), var(--verto-gradient-middle), var(--verto-gradient-end));
+  .albor-gradient {
+    background: linear-gradient(135deg, var(--albor-gradient-start), var(--albor-gradient-middle), var(--albor-gradient-end));
   }
 
-  .verto-gradient-text {
-    background: linear-gradient(135deg, var(--verto-gradient-start), var(--verto-gradient-middle), var(--verto-gradient-end));
+  .albor-gradient-text {
+    background: linear-gradient(135deg, var(--albor-gradient-start), var(--albor-gradient-middle), var(--albor-gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

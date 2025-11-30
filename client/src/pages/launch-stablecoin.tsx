@@ -117,12 +117,13 @@ export default function LaunchStablecoin() {
       <BoardChecklistSection />
       <div id="pilot">
         <ProblemSection
-          title="Capture the $300B Market or Cede to It"
-          subtitle="Tether and Circle are actively competing for your clients and their liquidity."
+          title="Why Now?"
+          subtitle="Your core business is now in a time-sensitive technology race.
+          Lead the market or be left behind."
           customQuotes={[
             {
               icon: "CreditCard",
-              color: "verto-blue",
+              color: "albor-blue",
               persona: "Head of Corporate Banking",
               company: "Panama Bank",
               quote:
@@ -130,7 +131,7 @@ export default function LaunchStablecoin() {
             },
             {
               icon: "Shield",
-              color: "verto-green",
+              color: "albor-green",
               persona: "Economic Advisor",
               company: "Bolivian Central Bank",
               quote:
@@ -138,7 +139,7 @@ export default function LaunchStablecoin() {
             },
             {
               icon: "BarChart3",
-              color: "verto-purple",
+              color: "albor-purple",
               persona: "CEO",
               company: "Guatemala Commodities",
               quote:

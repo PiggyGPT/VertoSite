@@ -83,10 +83,10 @@ export default function TeamSection({
   customInsights
 }: TeamSectionProps = {}) {
 const teamMembers = [
-{ name: "David Cass", role: "CEO", roleColor: "verto-blue", image: davidImage, description: "CISO at GSR and IBM with 25+ years in security leadership. Harvard faculty, former Federal Reserve regulator. Wharton and MIT graduate.", testId: "team-david" },
-{ name: "Daniel Garrie", role: "General Counsel", roleColor: "verto-green", image: danielImage, description: "Harvard professor with 20+ years in compliance frameworks for DOJ and DTCC. Built and exited three tech companies. JD from Rutgers.", testId: "team-daniel" },
-{ name: "Hisham Anwar", role: "CTO", roleColor: "verto-orange", image: hishamImage, description: "Serial entrepreneur with successful exits to Microsoft and Google. Former Head of Product at Google and CEO of BrightBytes. Holds an Masters from MIT.", testId: "team-hisham" },
-{ name: "Nilesh Khaitan", role: "CPO", roleColor: "verto-purple", image: nileshImage, description: "Launched Venmo/PayPal crypto offering to 90M+ users. Former Product Leader at Microsoft and Bright Machines. Boston University CS.", testId: "team-nilesh" },
+{ name: "David Cass", role: "CEO", roleColor: "albor-blue", image: davidImage, description: "CISO at GSR and IBM with 25+ years in security leadership. Harvard faculty, former Federal Reserve regulator. Wharton and MIT graduate.", testId: "team-david" },
+{ name: "Daniel Garrie", role: "General Counsel", roleColor: "albor-green", image: danielImage, description: "Harvard professor with 20+ years in compliance frameworks for DOJ and DTCC. Built and exited three tech companies. JD from Rutgers.", testId: "team-daniel" },
+{ name: "Hisham Anwar", role: "CTO", roleColor: "albor-orange", image: hishamImage, description: "Serial entrepreneur with successful exits to Microsoft and Google. Former Head of Product at Google and CEO of BrightBytes. Holds an Masters from MIT.", testId: "team-hisham" },
+{ name: "Nilesh Khaitan", role: "CPO", roleColor: "albor-purple", image: nileshImage, description: "Launched Venmo/PayPal crypto offering to 90M+ users. Former Product Leader at Microsoft and Bright Machines. Boston University CS.", testId: "team-nilesh" },
 ];
 
 return (
@@ -115,11 +115,11 @@ We've scaled initiatives at the world's leading financial and technology institu
 <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-8 tracking-tight">Mission</h2>
 <blockquote>
 <div className="relative">
-<Quote className="absolute -top-4 -left-4 w-6 h-6 md:w-9 md:h-9 text-verto-blue/30 dark:text-verto-blue/20 transform rotate-180" />
+<Quote className="absolute -top-4 -left-4 w-6 h-6 md:w-9 md:h-9 text-albor-blue/30 dark:text-albor-blue/20 transform rotate-180" />
 <p className="text-1xl md:text-2xl font-light text-slate-700 dark:text-slate-300 leading-tight md:leading-snug italic px-8 md:px-12">
 Creating a safer, more open financial future by making digital assets accessible, trusted, and usable for everyone, everywhere.
 </p>
-<Quote className="absolute -bottom-4 -right-4 w-6 h-6 md:w-9 md:h-9 text-verto-blue/30 dark:text-verto-blue/20" />
+<Quote className="absolute -bottom-4 -right-4 w-6 h-6 md:w-9 md:h-9 text-albor-blue/30 dark:text-albor-blue/20" />
 </div>
 </blockquote>
 </div>

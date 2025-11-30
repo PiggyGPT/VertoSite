@@ -6,19 +6,19 @@ export interface PageSEO {
 
 export const pageSEOData: Record<string, PageSEO> = {
   home: {
-    title: "VERTO — Launch your stablecoin in 90 days.",
-    description: "Digital Asset Operations Platform for trading, payments, and distribution on any chain."
+    title: "Albor — Launch your stablecoin in 90 days.",
+    description: "Full-stack stablecoin infrastrcutre for distribution, liquidity and payments on any chain."
   },
   "launch-stablecoin": {
-    title: "Launch Your Stablecoin in 90 Days — VERTO",
-    description: "Activate your network with Verto's complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance."
+    title: "Launch Your Stablecoin in 90 Days — Albor",
+    description: "Activate your network with Albor's complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance."
   },
   "offer-defi-products": {
-    title: "Launch DeFi Products in 90 Days — VERTO", 
+    title: "Launch DeFi Products in 90 Days — Albor", 
     description: "Securely expand your digital asset offerings and access multi-chain liquidity, while maintaining full regulatory compliance and risk controls."
   },
   "secure-defi-ops": {
-    title: "Secure DeFi Operations in 90 Days — VERTO",
+    title: "Secure DeFi Operations in 90 Days — Albor",
     description: "Enable your trading desk to securely execute trading opportunities on any chain, with AI-powered risk management and compliance."
   }
 };

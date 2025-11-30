@@ -48,7 +48,7 @@ export default function Footer() {
                             <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
-                            Digital Asset Operations Platform for compliant trading, payments, and distribution on any chain.
+                            Non-custodial stablecoin infrastructure to capture dollar liquidity on any chain.
                         </p>
                     </div>
 

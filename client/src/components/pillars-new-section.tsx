@@ -93,7 +93,7 @@ const MintContent = ({ voucherId, amount }: { voucherId: string; amount: string 
         <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
       </div>
       <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
-        <QRCodeSVG value={`https://verto.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
+        <QRCodeSVG value={`https://albor.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
       </div>
     </div>
   );
@@ -434,7 +434,7 @@ const PolishedPaymentsFlow = () => {
               <QRCodeSVG value="https://albor.exchange/pay?id=4928" size={120} fgColor="#000000" />
             </div>
             <button
-              className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}
+              className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-albor-purple/60 shadow-lg ring-4 ring-albor-purple/30' : 'scale-100 bg-albor-purple hover:bg-albor-purple/90'} hover:scale-105`}
             >
               Pay Now
             </button>
@@ -490,7 +490,7 @@ const PolishedPaymentsFlow = () => {
               <span>Rate: 1 BOBC ≈ 0.10 USDC</span>
               <span>Fees: 0.00 USDC</span>
             </div>
-            <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-verto-purple/60 shadow-lg ring-4 ring-verto-purple/30' : 'scale-100 bg-verto-purple hover:bg-verto-purple/90'} hover:scale-105`}>
+            <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-albor-purple/60 shadow-lg ring-4 ring-albor-purple/30' : 'scale-100 bg-albor-purple hover:bg-albor-purple/90'} hover:scale-105`}>
               <Zap className="w-4 h-4" />
               <span>Pay 12.00 USDC</span>
             </button>
@@ -527,7 +527,7 @@ const PolishedPaymentsFlow = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
-                <span className="text-xs font-semibold text-verto-green flex items-center gap-1">
+                <span className="text-xs font-semibold text-albor-green flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3" />
                   Confirmed
                 </span>
@@ -945,7 +945,7 @@ const PolishedComplianceFlow = () => {
               </div>
             </div>
             <button className="flex items-center justify-center w-full space-x-2 mt-6 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-              <MessageCircle className="w-5 h-5 text-verto-blue" />
+              <MessageCircle className="w-5 h-5 text-albor-blue" />
               <span>Explain with AI</span>
             </button>
           </div>
@@ -1154,24 +1154,24 @@ const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
     transition={{ duration: 0.4 }}
     className="relative rounded-xl p-4 md:p-6 mt-0 mb-8 overflow-hidden transition-all duration-300 border"
     style={{
-      background: `linear-gradient(135deg, ${colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.04)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.04)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.04)' : 'rgba(249, 115, 22, 0.04)'})`,
-      borderColor: colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.1)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.1)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.1)' : 'rgba(249, 115, 22, 0.1)'
+      background: `linear-gradient(135deg, ${colorClasses.bg === 'bg-albor-green' ? 'rgba(34, 197, 94, 0.04)' : colorClasses.bg === 'bg-albor-blue' ? 'rgba(59, 130, 246, 0.04)' : colorClasses.bg === 'bg-albor-purple' ? 'rgba(139, 92, 246, 0.04)' : 'rgba(249, 115, 22, 0.04)'})`,
+      borderColor: colorClasses.bg === 'bg-albor-green' ? 'rgba(34, 197, 94, 0.1)' : colorClasses.bg === 'bg-albor-blue' ? 'rgba(59, 130, 246, 0.1)' : colorClasses.bg === 'bg-albor-purple' ? 'rgba(139, 92, 246, 0.1)' : 'rgba(249, 115, 22, 0.1)'
     }}
   >
     <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 relative z-10">
       <div className="flex-shrink-0">
-        <img src={image} alt={name} className="w-12 h-12 rounded-full object-cover ring-3 ring-opacity-30 flex-shrink-0" style={{ borderColor: colorClasses.text === 'text-verto-green' ? 'rgba(34, 197, 94, 0.3)' : colorClasses.text === 'text-verto-blue' ? 'rgba(59, 130, 246, 0.3)' : colorClasses.text === 'text-verto-purple' ? 'rgba(139, 92, 246, 0.3)' : 'rgba(249, 115, 22, 0.3)' }} />
+        <img src={image} alt={name} className="w-12 h-12 rounded-full object-cover ring-3 ring-opacity-30 flex-shrink-0" style={{ borderColor: colorClasses.text === 'text-albor-green' ? 'rgba(34, 197, 94, 0.3)' : colorClasses.text === 'text-albor-blue' ? 'rgba(59, 130, 246, 0.3)' : colorClasses.text === 'text-albor-purple' ? 'rgba(139, 92, 246, 0.3)' : 'rgba(249, 115, 22, 0.3)' }} />
       </div>
       <div className="flex-grow">
         <div className="flex items-start gap-2 mb-2">
-          <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }} />
+          <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" style={{ color: colorClasses.text === 'text-albor-green' ? '#22c55e' : colorClasses.text === 'text-albor-blue' ? '#3b82f6' : colorClasses.text === 'text-albor-purple' ? '#8b5cf6' : '#f97316' }} />
           <blockquote className="text-sm md:text-base font-medium leading-snug text-slate-700 dark:text-slate-200">
             <p>"{quote}"</p>
           </blockquote>
         </div>
-        <footer className="mt-3 pt-3 border-t border-opacity-10" style={{ borderColor: colorClasses.text === 'text-verto-green' ? 'rgba(34, 197, 94, 0.2)' : colorClasses.text === 'text-verto-blue' ? 'rgba(59, 130, 246, 0.2)' : colorClasses.text === 'text-verto-purple' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(249, 115, 22, 0.2)' }}>
+        <footer className="mt-3 pt-3 border-t border-opacity-10" style={{ borderColor: colorClasses.text === 'text-albor-green' ? 'rgba(34, 197, 94, 0.2)' : colorClasses.text === 'text-albor-blue' ? 'rgba(59, 130, 246, 0.2)' : colorClasses.text === 'text-albor-purple' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(249, 115, 22, 0.2)' }}>
           <p className="text-xs font-semibold text-slate-800 dark:text-slate-100">{name}</p>
-          <p className="text-xs mt-0.5" style={{ color: colorClasses.text === 'text-verto-green' ? '#22c55e' : colorClasses.text === 'text-verto-blue' ? '#3b82f6' : colorClasses.text === 'text-verto-purple' ? '#8b5cf6' : '#f97316' }}>{title}</p>
+          <p className="text-xs mt-0.5" style={{ color: colorClasses.text === 'text-albor-green' ? '#22c55e' : colorClasses.text === 'text-albor-blue' ? '#3b82f6' : colorClasses.text === 'text-albor-purple' ? '#8b5cf6' : '#f97316' }}>{title}</p>
         </footer>
       </div>
     </div>
@@ -1183,7 +1183,7 @@ const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentTyp
   <div className="flex items-start">
     <div className="flex-shrink-0">
       <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
-        <Icon className="w-6 h-6 text-verto-blue" />
+        <Icon className="w-6 h-6 text-albor-blue" />
       </div>
     </div>
     <div className="ml-4">
@@ -1288,7 +1288,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "verto-purple", title: "Banking APIs", icon: Workflow,
+      label: "Tokenize Deposits", color: "albor-purple", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
@@ -1301,7 +1301,7 @@ export default function PillarsSection({
       cta: "Explore APIs"
     },
     trading: {
-      label: "Attract Liquidity", color: "verto-blue", title: "Decentralized Exchange", icon: Coins,
+      label: "Attract Liquidity", color: "albor-blue", title: "Decentralized Exchange", icon: Coins,
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
@@ -1314,11 +1314,11 @@ export default function PillarsSection({
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "verto-green", title: "Patent-Pending Router", icon: Globe,
+      label: "Transact Globally", color: "albor-green", title: "Patent-Pending Router", icon: Globe,
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
-        quote: "Stablecoins drive volume by meeting users where they are - whether they hold USDC on Coinbase, USDT on Binance, or fiat in their bank - with a simple, reliable experience.",
+        quote: "Stablecoins drive volume by letting users seamlessly transact with their existing funds - fiat in their banks or crypto in wallets or exchanges.",
         name: "Nilesh Khaitan",
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
@@ -1327,7 +1327,7 @@ export default function PillarsSection({
       cta: "Explore Router"
     },
     service: {
-      label: "Secure Compliance", color: "verto-orange", icon: Shield,
+      label: "Secure Compliance", color: "albor-orange", icon: Shield,
       title: "Sovereign Infrastructure",
       description: "Satisfy regulatory and risk committee mandates by controling your keys and your data",
       visual: <ExecutiveServiceFlow />,
@@ -1367,16 +1367,16 @@ export default function PillarsSection({
   );
 
   const colorMap = {
-    'verto-green': { border: 'border-verto-green', text: 'text-verto-green', bg: 'bg-verto-green' },
-    'verto-purple': { border: 'border-verto-purple', text: 'text-verto-purple', bg: 'bg-verto-purple' },
-    'verto-blue': { border: 'border-verto-blue', text: 'text-verto-blue', bg: 'bg-verto-blue' },
-    'verto-cyan': { border: 'border-verto-cyan', text: 'text-verto-cyan', bg: 'bg-verto-cyan' },
-    'verto-orange': { border: 'border-verto-orange', text: 'text-verto-orange', bg: 'bg-verto-orange' },
+    'albor-green': { border: 'border-albor-green', text: 'text-albor-green', bg: 'bg-albor-green' },
+    'albor-purple': { border: 'border-albor-purple', text: 'text-albor-purple', bg: 'bg-albor-purple' },
+    'albor-blue': { border: 'border-albor-blue', text: 'text-albor-blue', bg: 'bg-albor-blue' },
+    'albor-cyan': { border: 'border-albor-cyan', text: 'text-albor-cyan', bg: 'bg-albor-cyan' },
+    'albor-orange': { border: 'border-albor-orange', text: 'text-albor-orange', bg: 'bg-albor-orange' },
   };
 
   const activeTab = orderedKeys[currentStep];
   const activePillar = orderedPillars[activeTab as keyof typeof orderedPillars];
-  const activeColors = activePillar ? colorMap[activePillar.color as keyof typeof colorMap] : colorMap['verto-green'];
+  const activeColors = activePillar ? colorMap[activePillar.color as keyof typeof colorMap] : colorMap['albor-green'];
   
   // Get accent colors for the steps
   const stepColors = orderedKeys.map(key => {
@@ -1386,10 +1386,10 @@ export default function PillarsSection({
   
   const getAccentColor = (colorName: string) => {
     const colors: { [key: string]: string } = {
-      'verto-green': '#22c55e',
-      'verto-blue': '#3b82f6',
-      'verto-purple': '#8b5cf6',
-      'verto-orange': '#f97316',
+      'albor-green': '#22c55e',
+      'albor-blue': '#3b82f6',
+      'albor-purple': '#8b5cf6',
+      'albor-orange': '#f97316',
     };
     return colors[colorName] || '#22c55e';
   };

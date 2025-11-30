@@ -4,7 +4,7 @@ import { useCalendlyModal } from "./calendly-modal";
 const ReasonCard = ({ icon: Icon, title, children }: { icon: any, title: string, children: React.ReactNode }) => (
     <div className="bg-white/50 dark:bg-slate-800/50 p-4 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 backdrop-blur-lg shadow-lg">
         <div className="flex items-center space-x-3 mb-3">
-            <Icon className="w-5 h-5 text-verto-blue" />
+            <Icon className="w-5 h-5 text-albor-blue" />
             <h4 className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">{title}</h4>
         </div>
         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">

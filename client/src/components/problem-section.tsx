@@ -27,25 +27,25 @@ interface PainPointCardProps {
 }
 
 const colorMap: { [key: string]: { bg: string; border: string; text: string; quote: string } } = {
-  'verto-green': { 
+  'albor-green': { 
     bg: 'rgba(34, 197, 94, 0.04)',
     border: 'rgba(34, 197, 94, 0.1)',
     text: '#22c55e',
     quote: '#22c55e'
   },
-  'verto-blue': { 
+  'albor-blue': { 
     bg: 'rgba(59, 130, 246, 0.04)',
     border: 'rgba(59, 130, 246, 0.1)',
     text: '#3b82f6',
     quote: '#3b82f6'
   },
-  'verto-purple': { 
+  'albor-purple': { 
     bg: 'rgba(139, 92, 246, 0.04)',
     border: 'rgba(139, 92, 246, 0.1)',
     text: '#8b5cf6',
     quote: '#8b5cf6'
   },
-  'verto-orange': { 
+  'albor-orange': { 
     bg: 'rgba(249, 115, 22, 0.04)',
     border: 'rgba(249, 115, 22, 0.1)',
     text: '#f97316',
@@ -54,7 +54,7 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
 };
 
 const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }: PainPointCardProps) => {
-  const colors = colorMap[color] || colorMap['verto-green'];
+  const colors = colorMap[color] || colorMap['albor-green'];
   
   return (
     <motion.div 
@@ -113,21 +113,21 @@ export default function ProblemSection({
     
     const defaultPainPoints = [
         {
-            icon: Landmark, color: 'verto-green', persona: 'Head of Innovation', company: 'Global Bank',
+            icon: Landmark, color: 'albor-green', persona: 'Head of Innovation', company: 'Global Bank',
             quote: 'How do we make our digital currency usable across our global network, without compromising the trust we\'ve built over decades?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
         },
         {
-            icon: Repeat, color: 'verto-blue', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
+            icon: Repeat, color: 'albor-blue', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
             quote: 'Our clients are withdrawing assets daily to chase yield we can\'t offer. We\'re becoming a free on-ramp to an ecosystem that\'s eating our lunch.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
             ctaLink: '/solutions/exchanges'
         },
         {
-            icon: BarChart3, color: 'verto-purple', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
+            icon: BarChart3, color: 'albor-purple', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
             quote: 'How do I give my traders the speed to execute time-sensitive alpha on-chain without signing off on a potential eight-figure mistake?',
             testId: 'quote-trading',
             ctaText: 'Explore Trading Solutions',

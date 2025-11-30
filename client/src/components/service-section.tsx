@@ -152,7 +152,7 @@ export default function ServiceSection() {
               <ServiceVisual />
             </div>
             <div className="space-y-6 md:space-y-8 mt-10 mb-10">
-              <FeatureItem icon={Database} title="Data Sovereignty & Control" description="Deploy Verto nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." />
+              <FeatureItem icon={Database} title="Data Sovereignty & Control" description="Deploy Albor nodes in your environment—on-prem or private cloud—so your keys and data never leave your perimeter." />
               <FeatureItem icon={LifeBuoy} title="Embedded Global Expertise" description="Our Security Operations Centers provide continuous, round-the-clock monitoring and incident response." />
               <FeatureItem icon={ShieldCheck} title="Institutional Rigor" description="Leadership from the Federal Reserve, Google, and PayPal translates TradFi risk management to digital assets." />
             </div>
