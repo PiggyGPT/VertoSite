@@ -37,31 +37,24 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
     prevStepRef.current = currentStep;
   }, [currentStep]);
 
-  // Handle scroll - disable auto-play and reset to first tab (but not if due to tab click)
+  // Handle scroll - disable auto-play and reset to first tab only on user scroll (not tab clicks)
   useEffect(() => {
     const handleScroll = () => {
-      // Skip reset if scroll was triggered by tab click
-      if (isClickRef.current) {
-        isClickRef.current = false;
-        return;
+      // Only reset if auto-play is currently active (user hasn't interacted yet)
+      if (isAutoPlaying) {
+        setIsAutoPlaying(false);
+        setCurrentStep(0);
+        setAnimatedStep(0);
       }
-      setIsAutoPlaying(false);
-      setCurrentStep(0);
-      setAnimatedStep(0);
     };
     window.addEventListener('scroll', handleScroll, { once: false });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isAutoPlaying]);
 
   const handlePillarClick = (index: number) => {
-    isClickRef.current = true;
     setCurrentStep(index);
     setIsAutoPlaying(false);
     if (onPillarClick) onPillarClick(index);
-    // Reset flag after scroll completes
-    setTimeout(() => {
-      isClickRef.current = false;
-    }, 1000);
   };
 
   return (

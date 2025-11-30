@@ -1728,10 +1728,9 @@ export default function PillarsSection({
   const [isNavScrolled, setIsNavScrolled] = useState(false);
   const prevStepRef = useRef(0);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
-  const isClickRef = useRef(false);
   const { openModal, CalendlyModal } = useCalendlyModal();
 
-  // Detect scroll for glass effect and disable auto-play on scroll (but not if due to tab click)
+  // Detect scroll for glass effect and disable auto-play on scroll only if currently auto-playing
   useEffect(() => {
     const handleScroll = () => {
       const pillarNav = document.getElementById('pillar-navigation');
@@ -1739,19 +1738,16 @@ export default function PillarsSection({
         const navTop = pillarNav.getBoundingClientRect().top;
         setIsNavScrolled(navTop <= 80);
       }
-      // Skip reset if scroll was triggered by tab click
-      if (isClickRef.current) {
-        isClickRef.current = false;
-        return;
+      // Only reset if auto-play is currently active (user hasn't interacted yet)
+      if (isAutoPlaying) {
+        setIsAutoPlaying(false);
+        setCurrentStep(0);
+        setAnimatedStep(0);
       }
-      // Disable auto-play when user scrolls and reset to first tab
-      setIsAutoPlaying(false);
-      setCurrentStep(0);
-      setAnimatedStep(0);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isAutoPlaying]);
 
   // Auto-scroll mobile tabs container to center active tab (only on manual click, not auto-play)
   useEffect(() => {
@@ -1783,17 +1779,12 @@ export default function PillarsSection({
   }, [isAutoPlaying, orderedKeys.length]);
 
   const handleStepClick = (index: number) => {
-    isClickRef.current = true;
     setCurrentStep(index);
     setIsAutoPlaying(false);
     // Scroll to pillar content
     setTimeout(() => {
       document.getElementById('pillar-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 50);
-    // Reset flag after scroll completes
-    setTimeout(() => {
-      isClickRef.current = false;
-    }, 1000);
   };
 
   // Listen for pillar activation events from hero CTAs
