@@ -42,14 +42,14 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
   'albor-plum': { 
     bg: 'rgba(109, 85, 158, 0.04)',
     border: 'rgba(109, 85, 158, 0.1)',
-    text: '#6D559E',
-    quote: '#6D559E'
+    text: '#A18DE5',
+    quote: '#A18DE5'
   },
   'albor-teal': { 
     bg: 'rgba(0, 77, 64, 0.04)',
     border: 'rgba(0, 77, 64, 0.1)',
-    text: '#007B80',
-    quote: '#007B80'
+    text: '#83F4EC',
+    quote: '#83F4EC'
   }
 };
 

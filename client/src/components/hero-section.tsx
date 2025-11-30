@@ -27,8 +27,8 @@ export default function HeroSection() {
   const colorMap: { [key: string]: string } = {
     'albor-gold': '#FDB94E',
     'albor-copper': '#A66E4E',
-    'albor-plum': '#6D559E',
-    'albor-teal': '#007B80',
+    'albor-plum': '#A18DE5',
+    'albor-teal': '#83F4EC',
   };
 
   const getAccentColor = (colorName: string) => colorMap[colorName] || '#FDB94E';

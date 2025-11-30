@@ -21,10 +21,10 @@ export function DynamicBackground() {
 
   // Brand colors for dawn progression
   const brandColors = [
-    '#FDB94E', // Burnished Gold (Core Value/Dawn Light)
+    '#vio', // Burnished Gold (Core Value/Dawn Light)
     '#A66E4E', // Muted Copper (Metallic Transition)
-    '#6D559E', // Deep Plum Violet (Atmospheric Luxury)
-    '#007B80', // Corporate Teal/Pine (Growth & Stability)
+    '#A18DE5', // Deep Plum Violet (Atmospheric Luxury)
+    '#004D40', // Corporate Teal/Pine (Growth & Stability)
     ];
   // Dark base that stays throughout
   const darkBase = '#080C1A';
