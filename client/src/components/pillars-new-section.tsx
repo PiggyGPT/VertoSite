@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useCalendlyModal } from "./calendly-modal";
-import { motion, AnimatePresence } from "framer-motion";
 
 // ===== ANIMATION CONSTANTS & STYLES =====
 
