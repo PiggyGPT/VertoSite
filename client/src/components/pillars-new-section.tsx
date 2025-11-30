@@ -1174,11 +1174,12 @@ const MintingVisual = () => {
               </div>
             </div>
 
-            <div className="absolute inset-0 flex items-end justify-center pb-6 z-10 pointer-events-none">
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
               <motion.div 
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="w-[85%] bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-600 p-5 overflow-hidden relative"
+                initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                className="w-80 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-600 p-5 overflow-hidden relative"
               >
                 <div className="absolute top-0 left-0 right-0 h-1 bg-slate-100 dark:bg-slate-700">
                   <motion.div 
