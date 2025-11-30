@@ -21,12 +21,11 @@ export function DynamicBackground() {
 
   // Brand colors for dawn progression
   const brandColors = [
-    '#FDB94E', // Yellow (sunrise)
-    '#A66E4E', // Purple (pre-dawn)
-    '#6D559E', // Blue (early dawn)
-    '#3B3B5B', // Orange (full sunrise)
-  ];
-
+    '#FDB94E', // Burnished Gold (Core Value/Dawn Light)
+    '#A66E4E', // Muted Copper (Metallic Transition)
+    '#6D559E', // Deep Plum Violet (Atmospheric Luxury)
+    '#004D40', // Corporate Teal/Pine (Growth & Stability)
+    ];
   // Dark base that stays throughout
   const darkBase = '#080C1A';
 

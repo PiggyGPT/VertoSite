@@ -115,11 +115,11 @@ We've scaled initiatives at the world's leading financial and technology institu
 <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-8 tracking-tight">Mission</h2>
 <blockquote>
 <div className="relative">
-<Quote className="absolute -top-4 -left-4 w-6 h-6 md:w-9 md:h-9 text-albor-blue/30 dark:text-albor-blue/20 transform rotate-180" />
+<Quote className="absolute -top-4 -left-4 w-6 h-6 md:w-9 md:h-9 text-albor-copper/30 dark:text-albor-copper/20 transform rotate-180" />
 <p className="text-1xl md:text-2xl font-light text-slate-700 dark:text-slate-300 leading-tight md:leading-snug italic px-8 md:px-12">
 Creating a safer, more open financial future by making digital assets accessible, trusted, and usable for everyone, everywhere.
 </p>
-<Quote className="absolute -bottom-4 -right-4 w-6 h-6 md:w-9 md:h-9 text-albor-blue/30 dark:text-albor-blue/20" />
+<Quote className="absolute -bottom-4 -right-4 w-6 h-6 md:w-9 md:h-9 text-albor-copper/30 dark:text-albor-copper/20" />
 </div>
 </blockquote>
 </div>

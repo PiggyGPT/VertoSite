@@ -1288,7 +1288,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "albor-purple", title: "Banking APIs", icon: Workflow,
+      label: "Tokenize Deposits", color: "albor-gold", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
@@ -1301,7 +1301,7 @@ export default function PillarsSection({
       cta: "Explore APIs"
     },
     trading: {
-      label: "Attract Liquidity", color: "albor-blue", title: "Decentralized Exchange", icon: Coins,
+      label: "Attract Liquidity", color: "albor-copper", title: "Decentralized Exchange", icon: Coins,
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
@@ -1314,7 +1314,7 @@ export default function PillarsSection({
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "albor-green", title: "Patent-Pending Router", icon: Globe,
+      label: "Transact Globally", color: "albor-plum", title: "Patent-Pending Router", icon: Globe,
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
@@ -1327,7 +1327,7 @@ export default function PillarsSection({
       cta: "Explore Router"
     },
     service: {
-      label: "Secure Compliance", color: "albor-orange", icon: Shield,
+      label: "Secure Compliance", color: "albor-teal", icon: Shield,
       title: "Sovereign Infrastructure",
       description: "Satisfy regulatory and risk committee mandates by controling your keys and your data",
       visual: <ExecutiveServiceFlow />,
@@ -1367,6 +1367,10 @@ export default function PillarsSection({
   );
 
   const colorMap = {
+    'albor-gold': { border: 'border-albor-gold', text: 'text-albor-gold', bg: 'bg-albor-gold' },
+    'albor-copper': { border: 'border-albor-copper', text: 'text-albor-copper', bg: 'bg-albor-copper' },
+    'albor-plum': { border: 'border-albor-plum', text: 'text-albor-plum', bg: 'bg-albor-plum' },
+    'albor-teal': { border: 'border-albor-teal', text: 'text-albor-teal', bg: 'bg-albor-teal' },
     'albor-green': { border: 'border-albor-green', text: 'text-albor-green', bg: 'bg-albor-green' },
     'albor-purple': { border: 'border-albor-purple', text: 'text-albor-purple', bg: 'bg-albor-purple' },
     'albor-blue': { border: 'border-albor-blue', text: 'text-albor-blue', bg: 'bg-albor-blue' },
@@ -1386,12 +1390,16 @@ export default function PillarsSection({
   
   const getAccentColor = (colorName: string) => {
     const colors: { [key: string]: string } = {
-      'albor-purple': '#3B3B5B',
-      'albor-blue': '#6D559E',
-      'albor-green': '#A66E4E',
-      'albor-orange': '#FDB94E',
+      'albor-gold': '#FDB94E',
+      'albor-copper': '#A66E4E',
+      'albor-plum': '#6D559E',
+      'albor-teal': '#004D40',
+      'albor-purple': '#FDB94E',
+      'albor-blue': '#A66E4E',
+      'albor-green': '#6D559E',
+      'albor-orange': '#004D40',
     };
-    return colors[colorName] || '#3B3B5B';
+    return colors[colorName] || '#FDB94E';
   };
 
   return (

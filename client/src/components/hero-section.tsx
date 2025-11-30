@@ -18,20 +18,20 @@ export default function HeroSection() {
   const orderedKeys = ["distribution", "trading", "payments", "service"];
 
   const pillars = {
-    distribution: { label: "Tokenize Deposits", color: "albor-purple", icon: Zap },
-    trading: { label: "Attract Liquidity", color: "albor-blue", icon: Store },
-    payments: { label: "Transact Globally", color: "albor-green", icon: Globe },
-    service: { label: "Secure Compliance", color: "albor-orange", icon: Shield },
+    distribution: { label: "Tokenize Deposits", color: "albor-gold", icon: Zap },
+    trading: { label: "Attract Liquidity", color: "albor-copper", icon: Store },
+    payments: { label: "Transact Globally", color: "albor-plum", icon: Globe },
+    service: { label: "Secure Compliance", color: "albor-teal", icon: Shield },
   };
 
   const colorMap: { [key: string]: string } = {
-    'albor-green': '#22c55e',
-    'albor-blue': '#3b82f6',
-    'albor-purple': '#8b5cf6',
-    'albor-orange': '#f97316',
+    'albor-gold': '#FDB94E',
+    'albor-copper': '#A66E4E',
+    'albor-plum': '#6D559E',
+    'albor-teal': '#004D40',
   };
 
-  const getAccentColor = (colorName: string) => colorMap[colorName] || '#22c55e';
+  const getAccentColor = (colorName: string) => colorMap[colorName] || '#FDB94E';
 
   // Auto-advance every 10 seconds
   useEffect(() => {

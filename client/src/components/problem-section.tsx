@@ -27,34 +27,34 @@ interface PainPointCardProps {
 }
 
 const colorMap: { [key: string]: { bg: string; border: string; text: string; quote: string } } = {
-  'albor-green': { 
-    bg: 'rgba(34, 197, 94, 0.04)',
-    border: 'rgba(34, 197, 94, 0.1)',
-    text: '#22c55e',
-    quote: '#22c55e'
+  'albor-gold': { 
+    bg: 'rgba(253, 185, 78, 0.04)',
+    border: 'rgba(253, 185, 78, 0.1)',
+    text: '#FDB94E',
+    quote: '#FDB94E'
   },
-  'albor-blue': { 
-    bg: 'rgba(59, 130, 246, 0.04)',
-    border: 'rgba(59, 130, 246, 0.1)',
-    text: '#3b82f6',
-    quote: '#3b82f6'
+  'albor-copper': { 
+    bg: 'rgba(166, 110, 78, 0.04)',
+    border: 'rgba(166, 110, 78, 0.1)',
+    text: '#A66E4E',
+    quote: '#A66E4E'
   },
-  'albor-purple': { 
-    bg: 'rgba(139, 92, 246, 0.04)',
-    border: 'rgba(139, 92, 246, 0.1)',
-    text: '#8b5cf6',
-    quote: '#8b5cf6'
+  'albor-plum': { 
+    bg: 'rgba(109, 85, 158, 0.04)',
+    border: 'rgba(109, 85, 158, 0.1)',
+    text: '#6D559E',
+    quote: '#6D559E'
   },
-  'albor-orange': { 
-    bg: 'rgba(249, 115, 22, 0.04)',
-    border: 'rgba(249, 115, 22, 0.1)',
-    text: '#f97316',
-    quote: '#f97316'
+  'albor-teal': { 
+    bg: 'rgba(0, 77, 64, 0.04)',
+    border: 'rgba(0, 77, 64, 0.1)',
+    text: '#004D40',
+    quote: '#004D40'
   }
 };
 
 const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }: PainPointCardProps) => {
-  const colors = colorMap[color] || colorMap['albor-green'];
+  const colors = colorMap[color] || colorMap['albor-gold'];
   
   return (
     <motion.div 
@@ -113,21 +113,21 @@ export default function ProblemSection({
     
     const defaultPainPoints = [
         {
-            icon: Landmark, color: 'albor-green', persona: 'Head of Innovation', company: 'Global Bank',
+            icon: Landmark, color: 'albor-gold', persona: 'Head of Innovation', company: 'Global Bank',
             quote: 'How do we make our digital currency usable across our global network, without compromising the trust we\'ve built over decades?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
         },
         {
-            icon: Repeat, color: 'albor-blue', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
+            icon: Repeat, color: 'albor-copper', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
             quote: 'Our clients are withdrawing assets daily to chase yield we can\'t offer. We\'re becoming a free on-ramp to an ecosystem that\'s eating our lunch.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
             ctaLink: '/solutions/exchanges'
         },
         {
-            icon: BarChart3, color: 'albor-purple', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
+            icon: BarChart3, color: 'albor-plum', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
             quote: 'How do I give my traders the speed to execute time-sensitive alpha on-chain without signing off on a potential eight-figure mistake?',
             testId: 'quote-trading',
             ctaText: 'Explore Trading Solutions',

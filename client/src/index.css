@@ -26,16 +26,14 @@
   --radius: 1.3rem;
 
   /* Albor Brand Colors - Official Brand Palette */
-  --albor-gradient-start: hsl(34, 86%, 61%); /* EEAA4A */
-  --albor-gradient-pink: hsl(20, 95%, 49%); /* EF660B */
-  --albor-gradient-middle: hsl(257, 100%, 72%); /* 8F73FE */
-  --albor-gradient-end: hsl(217, 100%, 56%); /* 217DFE */
-  --albor-purple: hsl(240, 20.8%, 29.4%);
-  --albor-blue: hsl(271, 30.0%, 47.6%);
-  --albor-green: hsl(19, 36.9%, 47.8%);
-  --albor-orange: hsl(39, 99.2%, 64.7%);
-  --albor-pink: hsl(20, 95%, 49%);
-  --albor-cyan: hsl(185, 80%, 55%);
+  --albor-gold: hsl(37.9, 98.6%, 57.6%); /* #FDB94E - Burnished Gold */
+  --albor-copper: hsl(19.2, 36.6%, 47.8%); /* #A66E4E - Muted Copper */
+  --albor-plum: hsl(270, 27.1%, 47.3%); /* #6D559E - Deep Plum Violet */
+  --albor-teal: hsl(171, 100%, 15.7%); /* #004D40 - Corporate Teal/Pine */
+  --albor-purple: hsl(37.9, 98.6%, 57.6%);
+  --albor-blue: hsl(19.2, 36.6%, 47.8%);
+  --albor-green: hsl(270, 27.1%, 47.3%);
+  --albor-orange: hsl(171, 100%, 15.7%);
   
   /* Albor Gray Scale */
   --albor-gray-50: hsl(210, 20%, 98%);
