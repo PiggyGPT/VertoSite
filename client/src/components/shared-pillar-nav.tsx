@@ -6,6 +6,17 @@ interface SharedPillarNavProps {
   onStepClick?: (step: number) => void;
 }
 
+const progressBarAnimation = `
+  @keyframes fillBorder {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+`;
+
 export default function SharedPillarNav({ currentStep = 0, onStepClick }: SharedPillarNavProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [isFixed, setIsFixed] = useState(false);
@@ -92,6 +103,7 @@ export default function SharedPillarNav({ currentStep = 0, onStepClick }: Shared
         ? `${isFixed ? 'fixed top-16 left-0 right-0 z-40 backdrop-blur-md border-b border-white/20' : 'relative border-b border-white/10'}` 
         : 'hidden'
     }`}>
+      <style>{progressBarAnimation}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
           {orderedKeys.map((key, index) => {
@@ -108,9 +120,24 @@ export default function SharedPillarNav({ currentStep = 0, onStepClick }: Shared
                 onClick={() => handleStepClick(index)}
                 className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 py-6 sm:py-8 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start border-b-2 transition-colors`}
                 style={{
-                  borderBottomColor: isActive ? accentColor : 'transparent'
+                  borderBottomColor: isActive ? accentColor : 'transparent',
+                  overflow: 'hidden'
                 }}
               >
+                {isActive && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      height: '2px',
+                      backgroundColor: accentColor,
+                      animation: 'fillBorder 10s linear forwards',
+                      width: '100%'
+                    }}
+                  />
+                )}
+              
                 <IconComponent 
                   className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors"
                   style={{
