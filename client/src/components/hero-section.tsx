@@ -118,13 +118,15 @@ export default function HeroSection() {
     const handleScroll = () => {
       const navContainer = navContainerRef.current;
       const pillarContent = document.getElementById('pillar-content');
+      const infrastructureSection = document.getElementById('infrastructure');
       
-      if (navContainer && pillarContent) {
+      if (navContainer && pillarContent && infrastructureSection) {
         const navTop = navContainer.getBoundingClientRect().top;
         const pillarTop = pillarContent.getBoundingClientRect().top;
+        const infrastructureBottom = infrastructureSection.getBoundingClientRect().bottom;
         
-        // Sticky if scrolled past nav and before end of pillars
-        setIsNavScrolled(navTop <= 0 && pillarTop > -window.innerHeight);
+        // Sticky if: nav scrolled past AND pillar still visible AND within infrastructure section
+        setIsNavScrolled(navTop <= 0 && pillarTop > -window.innerHeight && infrastructureBottom > 0);
       }
     };
     
