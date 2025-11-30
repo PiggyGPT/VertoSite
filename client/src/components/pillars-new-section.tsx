@@ -522,19 +522,6 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
       </div>
     </div>
 
-    <div className="mb-4">
-        <p className="text-xs text-slate-500 mb-2">PAY WITH</p>
-        <div className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800 rounded-xl mb-4">
-            <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            </div>
-            <div>
-                 <p className="text-sm font-semibold text-slate-900 dark:text-white">John Doe</p>
-                 <p className="text-xs text-slate-500">Personal Account</p>
-            </div>
-        </div>
-    </div>
-
     <div className="space-y-3 mb-4">
       {/* Option 1: Coinbase */}
       <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'coinbase' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/10' : 'border-slate-200 dark:border-slate-700 opacity-50'}`}>
