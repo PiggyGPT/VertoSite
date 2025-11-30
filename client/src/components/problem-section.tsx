@@ -48,8 +48,8 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
   'albor-teal': { 
     bg: 'rgba(0, 77, 64, 0.04)',
     border: 'rgba(0, 77, 64, 0.1)',
-    text: '#004D40',
-    quote: '#004D40'
+    text: '#007B80',
+    quote: '#007B80'
   }
 };
 

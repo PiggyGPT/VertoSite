@@ -1393,11 +1393,11 @@ export default function PillarsSection({
       'albor-gold': '#FDB94E',
       'albor-copper': '#A66E4E',
       'albor-plum': '#6D559E',
-      'albor-teal': '#004D40',
+      'albor-teal': '#007B80',
       'albor-purple': '#FDB94E',
       'albor-blue': '#A66E4E',
       'albor-green': '#6D559E',
-      'albor-orange': '#004D40',
+      'albor-orange': '#007B80',
     };
     return colors[colorName] || '#FDB94E';
   };
