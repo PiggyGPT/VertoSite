@@ -101,7 +101,7 @@ const MintContent = ({ voucherId, amount }: { voucherId: string; amount: string 
 
 
 // --- VISUAL 1: Distribution (Animated Flow) ---
-const ExecutiveDistributionFlow = () => {
+const ExecutiveDistributionFlow = ({ accentColor = '#A18DE5' }: { accentColor?: string } = {}) => {
   // State to control the flow between two main panels: 0: dashboard, 1: voucher, 2: wallet
   const [currentPanel, setCurrentPanel] = useState(0);
   // State to control the visibility of the single popup container
@@ -233,9 +233,12 @@ const ExecutiveDistributionFlow = () => {
 
             {/* Button that triggers the popup directly with typing animation */}
             <button
-              className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500
-                                ${isIssueButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}
-                            `}
+              className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4`}
+              style={{
+                backgroundColor: isIssueButtonClicked ? accentColor + '80' : accentColor,
+                opacity: isIssueButtonClicked ? 0.9 : 1,
+                transform: isIssueButtonClicked ? 'scale(0.95)' : 'scale(1)',
+              }}
               onClick={() => { }} // Disabled for the animation loop
             >
               <Zap className="w-4 h-4" />
@@ -290,7 +293,7 @@ const ExecutiveDistributionFlow = () => {
             </div>
 
             <div className="flex gap-2 my-4">
-              <button className="flex-1 py-2 px-4 bg-green-500 hover:bg-green-500/90 text-white text-sm font-semibold rounded-lg transition-colors">
+              <button className="flex-1 py-2 px-4 text-white text-sm font-semibold rounded-lg transition-colors hover:opacity-90" style={{ backgroundColor: accentColor }}>
                 Pay
               </button>
               <button className="flex-1 py-2 px-4 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-sm font-semibold rounded-lg transition-colors">
@@ -343,9 +346,11 @@ const ExecutiveDistributionFlow = () => {
               {/* Issue Button now replaces the keypad and right arrow button */}
               <button
                 onClick={() => { }} // Disabled for animation
-                className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500
-                                ${isEnterButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}
-                            `}
+                className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200`}
+                style={{
+                  backgroundColor: isEnterButtonClicked ? accentColor + '80' : accentColor,
+                  transform: isEnterButtonClicked ? 'scale(0.95)' : 'scale(1)',
+                }}
               >
                 <Zap className="w-5 h-5" />
                 <span>Issue BOBC</span>
@@ -362,7 +367,7 @@ const ExecutiveDistributionFlow = () => {
 
 
 // --- VISUAL 2: Payments (Animated Flow) ---
-const PolishedPaymentsFlow = () => {
+const PolishedPaymentsFlow = ({ accentColor = '#83F4EC' }: { accentColor?: string } = {}) => {
   const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
   const [buttonClicked, setButtonClicked] = useState(false);
 
@@ -434,7 +439,11 @@ const PolishedPaymentsFlow = () => {
               <QRCodeSVG value="https://albor.exchange/pay?id=4928" size={120} fgColor="#000000" />
             </div>
             <button
-              className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 ${buttonClicked && currentPanel === 0 ? 'scale-90 bg-albor-purple/60 shadow-lg ring-4 ring-albor-purple/30' : 'scale-100 bg-albor-purple hover:bg-albor-purple/90'} hover:scale-105`}
+              className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 hover:scale-105`}
+              style={{
+                backgroundColor: buttonClicked && currentPanel === 0 ? accentColor + '60' : accentColor,
+                transform: buttonClicked && currentPanel === 0 ? 'scale(0.9)' : 'scale(1)',
+              }}
             >
               Pay Now
             </button>
@@ -490,7 +499,13 @@ const PolishedPaymentsFlow = () => {
               <span>Rate: 1 BOBC ≈ 0.10 USDC</span>
               <span>Fees: 0.00 USDC</span>
             </div>
-            <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 ${buttonClicked && currentPanel === 1 ? 'scale-90 bg-albor-purple/60 shadow-lg ring-4 ring-albor-purple/30' : 'scale-100 bg-albor-purple hover:bg-albor-purple/90'} hover:scale-105`}>
+            <button 
+              className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:scale-105`}
+              style={{
+                backgroundColor: buttonClicked && currentPanel === 1 ? accentColor + '60' : accentColor,
+                transform: buttonClicked && currentPanel === 1 ? 'scale(0.9)' : 'scale(1)',
+              }}
+            >
               <Zap className="w-4 h-4" />
               <span>Pay 12.00 USDC</span>
             </button>
@@ -574,7 +589,7 @@ const useTypingAnimation = (text: string, start: boolean, duration = 50) => {
 
 
 // --- Main Component: ExecutiveLiquidityFlow ---
-const ExecutiveLiquidityFlow = () => {
+const ExecutiveLiquidityFlow = ({ accentColor = '#4D88FF' }: { accentColor?: string } = {}) => {
   const [currentPanel, setCurrentPanel] = useState(0);
   // Centralized state object for all animations within the panels
   const [animationState, setAnimationState] = useState({
@@ -1316,7 +1331,7 @@ export default function PillarsSection({
     distribution: {
       label: "Tokenize Deposits", color: "albor-plum", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
-      visual: <ExecutiveDistributionFlow />,
+      visual: <ExecutiveDistributionFlow accentColor="#A18DE5" />,
       founderQuote: {
         quote: "Stablecoins build trust on a non-negotiable principle: real-time settlement of both deposits and withdrawals with balanced sheets.",
         name: "David Cass",
@@ -1329,7 +1344,7 @@ export default function PillarsSection({
     trading: {
       label: "Attract Liquidity", color: "albor-blue", title: "Decentralized Exchange", icon: Coins,
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
-      visual: <ExecutiveLiquidityFlow />,
+      visual: <ExecutiveLiquidityFlow accentColor="#4D88FF" />,
       founderQuote: {
         quote: "Stablecoins build deep liquidity by attracting institutional market makers. They require both competitive yield and regulatory compliance - you can't sacrifice one for the other.",
         name: "David Cass",
@@ -1342,7 +1357,7 @@ export default function PillarsSection({
     payments: {
       label: "Transact Globally", color: "albor-teal", title: "Patent-Pending Router", icon: Globe,
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
-      visual: <PolishedPaymentsFlow />,
+      visual: <PolishedPaymentsFlow accentColor="#83F4EC" />,
       founderQuote: {
         quote: "Stablecoins drive volume by letting users seamlessly transact with their existing funds - fiat in their banks or crypto in wallets or exchanges.",
         name: "Nilesh Khaitan",
