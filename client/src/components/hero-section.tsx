@@ -113,26 +113,15 @@ export default function HeroSection() {
     }
   }, [currentStep, isAutoPlaying]);
 
-  // Detect scroll for sticky nav glass effect
+  // Detect scroll for sticky nav glass effect - only hide after pillars section
   useEffect(() => {
-    let ticking = false;
-    
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const navContainer = navContainerRef.current;
-          const infrastructureSection = document.getElementById('infrastructure');
-          
-          if (navContainer && infrastructureSection) {
-            const navRect = navContainer.getBoundingClientRect();
-            const infraRect = infrastructureSection.getBoundingClientRect();
-            
-            // Show sticky nav when nav has scrolled past top AND infrastructure section still has significant content visible
-            setIsNavScrolled(navRect.top <= 0 && infraRect.bottom > 200);
-          }
-          ticking = false;
-        });
-        ticking = true;
+      const infrastructureSection = document.getElementById('infrastructure');
+      
+      if (infrastructureSection) {
+        const infraRect = infrastructureSection.getBoundingClientRect();
+        // Hide sticky styles only when infrastructure section is completely above viewport
+        setIsNavScrolled(infraRect.bottom > 0);
       }
     };
     
@@ -237,7 +226,7 @@ export default function HeroSection() {
       </section>
 
       {/* Pillar Navigation - Full Width at Bottom with Bottom Border */}
-      <div ref={navContainerRef} className={`w-full mt-0.5 transition-all duration-300 ${isNavScrolled ? 'fixed left-0 right-0 top-16 z-50 backdrop-blur-md bg-slate-900/40 border-b border-white/20' : 'border-b border-white/10'}`}>
+      <div ref={navContainerRef} className={`w-full mt-0.5 border-b ${isNavScrolled ? 'sticky top-16 z-50 backdrop-blur-md bg-slate-900/40 border-white/20' : 'border-white/10'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
