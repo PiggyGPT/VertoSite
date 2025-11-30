@@ -11,18 +11,19 @@ interface HeroSectionProps {
 export default function HeroSection({ onPillarClick, currentStep: externalStep = 0 }: HeroSectionProps) {
   const { openModal, CalendlyModal } = useCalendlyModal();
   const [currentStep, setCurrentStep] = useState(externalStep);
+  const [animatedStep, setAnimatedStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
   const prevStepRef = useRef(0);
 
   const orderedKeys = ["distribution", "trading", "payments", "service"];
 
-  // Auto-advance every 10 seconds
+  // Auto-advance nav animation every 3 seconds (without switching actual tabs)
   useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(() => {
-      setCurrentStep(prev => (prev + 1) % orderedKeys.length);
-    }, 10000);
+      setAnimatedStep(prev => (prev + 1) % orderedKeys.length);
+    }, 3000);
     return () => clearInterval(timer);
   }, [isAutoPlaying, orderedKeys.length]);
 
@@ -118,7 +119,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
         </div>
       </section>
 
-      <SharedPillarNav currentStep={currentStep} onStepClick={handlePillarClick} />
+      <SharedPillarNav currentStep={currentStep} animatedStep={animatedStep} isAutoPlaying={isAutoPlaying} onStepClick={handlePillarClick} />
 
       <CalendlyModal />
     </div>
