@@ -494,7 +494,7 @@ const PolishedPaymentsFlow = () => {
               <Zap className="w-4 h-4" />
               <span>Pay 12.00 USDC</span>
             </button>
-            <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Verto</p>
+            <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Albor</p>
           </div>
         </div>
 
@@ -543,7 +543,7 @@ const PolishedPaymentsFlow = () => {
                 0x7c8f9a2b...d4e5
               </p>
             </div>
-            <p className="text-xs text-slate-400 mt-4">Powered by Verto</p>
+            <p className="text-xs text-slate-400 mt-4">Powered by Albor</p>
           </div>
         </div>
       </div>
@@ -1152,7 +1152,7 @@ const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
     initial={{ opacity: 0, y: 8 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4 }}
-    className="relative rounded-xl p-4 md:p-6 mt-6 mb-4 overflow-hidden transition-all duration-300 border"
+    className="relative rounded-xl p-4 md:p-6 mt-0 mb-8 overflow-hidden transition-all duration-300 border"
     style={{
       background: `linear-gradient(135deg, ${colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.04)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.04)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.04)' : 'rgba(249, 115, 22, 0.04)'})`,
       borderColor: colorClasses.bg === 'bg-verto-green' ? 'rgba(34, 197, 94, 0.1)' : colorClasses.bg === 'bg-verto-blue' ? 'rgba(59, 130, 246, 0.1)' : colorClasses.bg === 'bg-verto-purple' ? 'rgba(139, 92, 246, 0.1)' : 'rgba(249, 115, 22, 0.1)'
@@ -1397,7 +1397,7 @@ export default function PillarsSection({
   return (
     <div id="infrastructure" className="relative">
       {/* The main content container now has more consistent padding */}
-      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 scroll-mt-28">
+      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-28 scroll-mt-28">
         {/* Founder Quote Banner - moved to top */}
         {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
 
