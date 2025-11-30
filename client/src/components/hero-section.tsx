@@ -120,7 +120,7 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-20 w-full sm:w-auto">
             <button
-              onClick={openModal}
+              onClick={() => openModal("Schedule Demo")}
               className="px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
               data-testid="hero-schedule-demo"
             >
@@ -128,7 +128,7 @@ export default function HeroSection() {
               Schedule Demo
             </button>
             <button
-              onClick={openModal}
+              onClick={() => openModal("Contact Sales")}
               className="px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
               data-testid="hero-contact-sales"
             >
@@ -220,7 +220,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <CalendlyModal title="Schedule Consultation" />
+      <CalendlyModal />
     </div>
   );
 }

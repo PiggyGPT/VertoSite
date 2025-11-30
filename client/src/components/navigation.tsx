@@ -51,7 +51,7 @@ export default function Navigation() {
 
           <div className="flex items-center space-x-4">
             <button
-              onClick={openModal}
+              onClick={() => openModal("Schedule Demo")}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
@@ -68,7 +68,7 @@ export default function Navigation() {
               Schedule Demo
             </button>
             <button
-              onClick={openModal}
+              onClick={() => openModal("Schedule Demo")}
               className="md:hidden inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-xs transition-all hover:bg-slate-50 dark:hover:bg-white/10"
               data-testid="mobile-schedule-demo"
             >
@@ -80,7 +80,7 @@ export default function Navigation() {
       </div>
 
       
-      <CalendlyModal title="Launch Your Pilot Program" />
+      <CalendlyModal />
     </nav>
   );
 }

@@ -102,7 +102,7 @@ export default function CompetitiveDiffSection() {
                     {/* CTA Button - Enhanced */}
                     <div className="flex justify-center">
                     <button
-                        onClick={openModal}
+                        onClick={() => openModal("Schedule Demo")}
                         className="px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
                     >
                         <Calendar className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default function CompetitiveDiffSection() {
                 </div>
             </div>
 
-            <CalendlyModal title="Schedule a Demo" />
+            <CalendlyModal />
         </section>
     );
 }

@@ -71,11 +71,15 @@ export default function CalendlyModal({ isOpen, onClose, title = "Schedule a Con
   );
 }
 
-// The useCalendlyModal hook remains unchanged and works perfectly with this.
+// The useCalendlyModal hook
 export function useCalendlyModal() {
   const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = useState("Schedule a Consultation");
 
-  const openModal = () => setIsOpen(true);
+  const openModal = (modalTitle?: string) => {
+    if (modalTitle) setTitle(modalTitle);
+    setIsOpen(true);
+  };
   const closeModal = () => setIsOpen(false);
 
   return {
@@ -83,7 +87,7 @@ export function useCalendlyModal() {
     openModal,
     closeModal,
     CalendlyModal: (props: Omit<CalendlyModalProps, 'isOpen' | 'onClose'>) => (
-      <CalendlyModal {...props} isOpen={isOpen} onClose={closeModal} />
+      <CalendlyModal {...props} isOpen={isOpen} onClose={closeModal} title={title} />
     )
   };
 }

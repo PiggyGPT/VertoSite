@@ -1421,7 +1421,7 @@ export default function PillarsSection({
               )) || []}
             </div>
             <motion.button
-              onClick={openModal}
+              onClick={() => openModal(`Get Started with ${activePillar?.label || 'Service'}`)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
@@ -1449,7 +1449,7 @@ export default function PillarsSection({
         </div>
       </div>
 
-      <CalendlyModal title={`Get Started with ${activePillar?.label || 'Service'}`} />
+      <CalendlyModal />
     </div>
   );
 }
