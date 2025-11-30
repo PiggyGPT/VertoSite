@@ -144,7 +144,7 @@ export default function HeroSection() {
         const navHeight = 64; // h-16 = 64px
         const elementTop = element.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
-          top: elementTop - navHeight,
+          top: elementTop + navHeight,
           behavior: 'smooth'
         });
       }
