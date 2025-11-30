@@ -1386,12 +1386,12 @@ export default function PillarsSection({
   
   const getAccentColor = (colorName: string) => {
     const colors: { [key: string]: string } = {
-      'albor-green': '#22c55e',
-      'albor-blue': '#3b82f6',
-      'albor-purple': '#8b5cf6',
-      'albor-orange': '#f97316',
+      'albor-purple': '#3B3B5B',
+      'albor-blue': '#6D559E',
+      'albor-green': '#A66E4E',
+      'albor-orange': '#FDB94E',
     };
-    return colors[colorName] || '#22c55e';
+    return colors[colorName] || '#3B3B5B';
   };
 
   return (

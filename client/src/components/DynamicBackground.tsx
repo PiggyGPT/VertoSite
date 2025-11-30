@@ -21,14 +21,14 @@ export function DynamicBackground() {
 
   // Brand colors for dawn progression
   const brandColors = [
-    '#EEAA4A', // Yellow (sunrise)
-    '#8F73FE', // Purple (pre-dawn)
-    '#217DFE', // Blue (early dawn)
-    '#EF660B', // Orange (full sunrise)
+    '#FDB94E', // Yellow (sunrise)
+    '#A66E4E', // Purple (pre-dawn)
+    '#6D559E', // Blue (early dawn)
+    '#3B3B5B', // Orange (full sunrise)
   ];
 
   // Dark base that stays throughout
-  const darkBase = '#070911';
+  const darkBase = '#080C1A';
 
   // Determine which transition we're in (0-3)
   const stage = Math.min(Math.floor(scrollPercent * 4), 3);
