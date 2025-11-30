@@ -109,7 +109,7 @@ export default function CompetitiveDiffSection() {
                                         Feature
                                     </th>
                                     <th className="py-3 px-3 text-center" style={{ width: '32.5%' }}>
-                                        <img src="/logos/svg/albor.svg" alt="Albor" style={{ height: '24px', width: 'auto', margin: '0 auto', display: 'block' }} />
+                                        <img src="/logos/svg/albor.svg" alt="Albor" style={{ height: '12px', width: 'auto', margin: '0 auto', display: 'block' }} />
                                     </th>
                                     <th className="text-center py-3 px-3 font-semibold text-slate-600 dark:text-slate-400 text-xs" style={{ width: '32.5%' }}>
                                         Others
