@@ -45,7 +45,7 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="md:col-span-4">
                         <Link href="/" className="inline-block">
-                            <img src="/logos/albor_logo.png" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
+                            <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
                             Non-custodial stablecoin infrastructure to capture dollar liquidity on any chain.
