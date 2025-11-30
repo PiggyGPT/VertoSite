@@ -1,46 +1,16 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { 
-  User, Settings, ChevronDown, Zap, Lock, ArrowRight, Globe, Server,
-  Smartphone, Landmark, ScanLine, CheckCircle, 
-  Fingerprint, RefreshCw, FileText 
+  Zap, Globe, Server, ArrowRight, Smartphone, 
+  CreditCard, Landmark, ScanLine, CheckCircle, 
+  Fingerprint, ChevronDown, RefreshCw, FileText 
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import { motion, AnimatePresence } from "framer-motion";
 import nileshImage from "@assets/nilesh_1754986415369.png";
 
-const FeatureItem = ({ icon: Icon, title, description }: any) => (
-  <div className="flex items-start">
-    <div className="flex-shrink-0">
-      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
-        <Icon className="w-6 h-6 text-purple-500" />
-      </div>
-    </div>
-    <div className="ml-4">
-      <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
-      <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{description}</p>
-    </div>
-  </div>
-);
+// --- Sub-components for specific animation phases ---
 
-const FounderBanner = () => (
-  <div className="rounded-xl p-6 md:p-8 mt-8">
-    <div className="flex flex-col md:flex-row items-start gap-6">
-      <img src={nileshImage} alt="Nilesh Khaitan" className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
-      <div>
-        <blockquote className="text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 border-purple-500 pl-5">
-          <p>"At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments."</p>
-        </blockquote>
-        <footer className="mt-4">
-          <p className="font-semibold text-slate-900 dark:text-white">Nilesh Khaitan</p>
-          <p className="text-sm font-medium text-purple-500">CPO | Ex-Venmo/PayPal Crypto</p>
-        </footer>
-      </div>
-    </div>
-  </div>
-);
-
-// Sub-components for specific animation phases
-
+// 1. Merchant creating the invoice
 const MerchantCreate = ({ amount }: { amount: string }) => (
   <div className="flex flex-col h-full items-center justify-center p-6 text-center">
     <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6">
@@ -58,6 +28,7 @@ const MerchantCreate = ({ amount }: { amount: string }) => (
   </div>
 );
 
+// 2. The QR Code Display
 const QRDisplay = () => (
   <div className="flex flex-col h-full items-center p-6 text-center bg-white dark:bg-slate-900">
     <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
@@ -72,6 +43,7 @@ const QRDisplay = () => (
   </div>
 );
 
+// 3. User Selection (Coinbase -> EU Bank)
 const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
   <div className="flex flex-col h-full p-6">
     <div className="flex items-center justify-between mb-6">
@@ -80,6 +52,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
     </div>
 
     <div className="space-y-3 mb-6">
+      {/* Option 1: Coinbase (Dimmed when Bank selected) */}
       <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'coinbase' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/10' : 'border-slate-200 dark:border-slate-700 opacity-50'}`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -92,6 +65,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
         </div>
       </div>
 
+      {/* Option 2: EU Bank (Active) */}
       <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'bank' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20 shadow-md ring-1 ring-purple-500' : 'border-slate-200 dark:border-slate-700'}`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -126,6 +100,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
   </div>
 );
 
+// 4. The "Trading Section" Logic (Route Calculation)
 const RouteLogic = () => (
   <div className="absolute inset-0 bg-slate-900/95 backdrop-blur-md z-20 p-6 flex flex-col font-mono text-xs">
     <div className="flex items-center gap-2 mb-4 text-purple-400">
@@ -136,6 +111,7 @@ const RouteLogic = () => (
     <div className="space-y-4 relative">
       <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-slate-700" />
       
+      {/* Step 1 */}
       <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="relative pl-8">
         <div className="absolute left-0 top-0 w-6 h-6 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center z-10">1</div>
         <div className="bg-slate-800 p-2 rounded border border-slate-700">
@@ -144,6 +120,7 @@ const RouteLogic = () => (
         </div>
       </motion.div>
 
+      {/* Step 2 */}
       <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.8 }} className="relative pl-8">
         <div className="absolute left-0 top-0 w-6 h-6 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center z-10">2</div>
         <div className="bg-slate-800 p-2 rounded border border-slate-700">
@@ -152,6 +129,7 @@ const RouteLogic = () => (
         </div>
       </motion.div>
 
+      {/* Step 3 */}
       <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 1.4 }} className="relative pl-8">
         <div className="absolute left-0 top-0 w-6 h-6 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center z-10">3</div>
         <div className="bg-slate-800 p-2 rounded border border-slate-700">
@@ -167,6 +145,7 @@ const RouteLogic = () => (
   </div>
 );
 
+// 5. Biometric Signing
 const SigningOverlay = () => (
   <div className="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-800 rounded-t-2xl p-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] flex flex-col items-center animate-in slide-in-from-bottom duration-500">
     <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
@@ -185,6 +164,7 @@ const SigningOverlay = () => (
   </div>
 );
 
+// 6 & 7. Execution & Reconciliation
 const Reconciliation = ({ complete }: { complete: boolean }) => (
   <div className="flex flex-col h-full p-6">
     <div className="flex items-center justify-center mb-6 mt-4">
@@ -227,46 +207,55 @@ const Reconciliation = ({ complete }: { complete: boolean }) => (
   </div>
 );
 
+// --- Main Visual Component ---
+
 const PaymentsVisual = () => {
   const [phase, setPhase] = useState(0);
   const [amountInput, setAmountInput] = useState("");
+  
+  // Phase Definitions:
+  // 0: Input (0s - 2s)
+  // 1: QR (2s - 5s)
+  // 2: Method Select Coinbase (5s - 6s)
+  // 3: Method Select Bank (6s - 8s)
+  // 4: Button Click (8s - 8.5s)
+  // 5: Routing Logic "Trading Style" (8.5s - 12s)
+  // 6: Signing (12s - 14.5s)
+  // 7: Reconciliation (14.5s - 19s)
 
   useEffect(() => {
     const sequence = async () => {
       while (true) {
-        setPhase(0); 
-        setAmountInput("");
+        // Reset
+        setPhase(0); setAmountInput("");
         
+        // Typing animation
         await new Promise(r => setTimeout(r, 500));
-        setAmountInput("1"); 
-        await new Promise(r => setTimeout(r, 100));
-        setAmountInput("12"); 
-        await new Promise(r => setTimeout(r, 100));
-        setAmountInput("120"); 
-        await new Promise(r => setTimeout(r, 1500));
+        setAmountInput("1"); await new Promise(r => setTimeout(r, 100));
+        setAmountInput("12"); await new Promise(r => setTimeout(r, 100));
+        setAmountInput("120"); await new Promise(r => setTimeout(r, 1500));
         
-        setPhase(1); 
-        await new Promise(r => setTimeout(r, 3000));
+        // QR Code
+        setPhase(1); await new Promise(r => setTimeout(r, 3000));
         
-        setPhase(2); 
-        await new Promise(r => setTimeout(r, 1000));
+        // Selection: Default Coinbase
+        setPhase(2); await new Promise(r => setTimeout(r, 1000));
         
-        setPhase(3); 
-        await new Promise(r => setTimeout(r, 2000));
+        // Selection: Switch to Bank
+        setPhase(3); await new Promise(r => setTimeout(r, 2000));
         
-        setPhase(4); 
-        await new Promise(r => setTimeout(r, 500));
+        // Click Pay
+        setPhase(4); await new Promise(r => setTimeout(r, 500));
         
-        setPhase(5); 
-        await new Promise(r => setTimeout(r, 3500));
+        // Logic Overlay (Trading Style)
+        setPhase(5); await new Promise(r => setTimeout(r, 3500));
         
-        setPhase(6); 
-        await new Promise(r => setTimeout(r, 2000));
+        // Signing
+        setPhase(6); await new Promise(r => setTimeout(r, 2000));
         
-        setPhase(7); 
-        await new Promise(r => setTimeout(r, 1500));
-        setPhase(8); 
-        await new Promise(r => setTimeout(r, 4000));
+        // Execution
+        setPhase(7); await new Promise(r => setTimeout(r, 1500)); // Processing
+        setPhase(8); await new Promise(r => setTimeout(r, 4000)); // Complete
       }
     };
     sequence();
@@ -276,6 +265,7 @@ const PaymentsVisual = () => {
     <div className="relative min-h-[420px] md:min-h-[480px] flex items-center justify-center p-4">
       <div className="relative w-full max-w-[320px] h-[500px] bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl border-4 border-slate-200 dark:border-slate-800 overflow-hidden font-sans">
         
+        {/* Header Bar (Fake Phone UI) */}
         <div className="absolute top-0 left-0 right-0 h-14 z-10 flex justify-between items-center px-6">
           <span className="text-xs font-semibold text-slate-400">9:41</span>
           <div className="flex gap-1.5">
@@ -284,41 +274,49 @@ const PaymentsVisual = () => {
           </div>
         </div>
 
+        {/* Content Area */}
         <div className="pt-14 h-full relative">
           <AnimatePresence mode="wait">
             
+            {/* Phase 0: Input */}
             {phase === 0 && (
               <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -50 }} className="absolute inset-0">
                 <MerchantCreate amount={amountInput} />
               </motion.div>
             )}
 
+            {/* Phase 1: QR */}
             {phase === 1 && (
               <motion.div key="qr" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, scale: 0.9 }} className="absolute inset-0">
                 <QRDisplay />
               </motion.div>
             )}
 
+            {/* Phase 2, 3, 4: Payment Selection */}
             {(phase === 2 || phase === 3 || phase === 4) && (
               <motion.div key="select" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} className="absolute inset-0">
                 <PaymentSelection method={phase >= 3 ? 'bank' : 'coinbase'} onPay={phase === 4} />
               </motion.div>
             )}
 
+            {/* Phase 5: Smart Routing (Trading Logic Overlay) */}
             {phase === 5 && (
               <motion.div key="logic" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 z-20">
                 <RouteLogic />
               </motion.div>
             )}
 
+            {/* Phase 6: Signing */}
             {phase === 6 && (
               <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm z-20" />
                 <SigningOverlay />
+                {/* Background remains last state visually */}
                 <PaymentSelection method='bank' onPay={true} />
               </div>
             )}
 
+            {/* Phase 7/8: Reconciliation */}
             {(phase === 7 || phase === 8) && (
               <motion.div key="done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="absolute inset-0">
                 <Reconciliation complete={phase === 8} />
@@ -332,6 +330,39 @@ const PaymentsVisual = () => {
   );
 };
 
+// --- Page Components ---
+
+const FeatureItem = ({ icon: Icon, title, description }: any) => (
+  <div className="flex items-start">
+    <div className="flex-shrink-0">
+      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-purple-50 dark:bg-slate-800">
+        <Icon className="w-6 h-6 text-purple-600 dark:text-purple-500" />
+      </div>
+    </div>
+    <div className="ml-4">
+      <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
+      <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{description}</p>
+    </div>
+  </div>
+);
+
+const FounderBanner = () => (
+  <div className="rounded-xl p-6 md:p-8 mt-8">
+    <div className="flex flex-col md:flex-row items-start gap-6">
+      <img src={nileshImage} alt="Nilesh Khaitan" className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
+      <div>
+        <blockquote className="text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 border-purple-500 pl-5">
+          <p>"At PayPal, we optimized every click to convert millions. Now we bring you a familiar, reliable checkout to seamlessly accept multi-chain payments."</p>
+        </blockquote>
+        <footer className="mt-4">
+          <p className="font-semibold text-slate-900 dark:text-white">Nilesh Khaitan</p>
+          <p className="text-sm font-medium text-purple-500">CPO | Ex-Venmo/PayPal Crypto</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+);
+
 export default function PaymentsSection() {
   return (
     <section className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16">
@@ -340,23 +371,28 @@ export default function PaymentsSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
           <div className="lg:col-span-1">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-purple-500">Payments</p>
-              <h3 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mt-2 mb-4 tracking-tight">Frictionless Checkout</h3>
-              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">Send and receive digital asset payments between any wallet, exchange or bank, with industry-leading conversion.</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">Payments</p>
+              <h3 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mt-2 mb-4 tracking-tight">Smart Fiat On-Ramps</h3>
+              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">Accept payments from any wallet or bank account. Our smart router instantly converts EU Bank transfers into on-chain stablecoins.</p>
             </div>
+            
+            {/* Mobile Visual */}
             <div className="lg:hidden my-10">
               <PaymentsVisual />
             </div>
+
             <div className="space-y-6 md:space-y-8 mt-10 mb-10">
-              <FeatureItem icon={Zap} title="Boost Conversion" description="One-tap UX with sponsored gas removes friction and dramatically increases payment completion rates." />
-              <FeatureItem icon={Globe} title="Universal Acceptance" description="A single API unlocks a global payment ecosystem, driving real-world utility and adoption for your asset." />
-              <FeatureItem icon={Server} title="Automated Back-Office" description="We automate multi-chain routing, execution, and reconciliation to reduce operational overhead." />
+              <FeatureItem icon={Zap} title="Instant SEPA Settlement" description="Users pay via standard bank transfer; you receive stablecoins on-chain in seconds via Monerium integration." />
+              <FeatureItem icon={Server} title="Smart Execution Routing" description="We automatically route fiat through the most efficient liquidity pools (EUR → EURe → BSD) to minimize slippage." />
+              <FeatureItem icon={Globe} title="Universal Checkout" description="One interface for Crypto Wallets, Apple Pay, and Bank Transfers, unifying your receivables into a single ledger." />
             </div>
-            <button className="inline-flex items-center px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors">
+            <button className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-purple-600/20">
               <span>Explore Payments API</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </button>
           </div>
+          
+          {/* Desktop Visual */}
           <div className="hidden lg:flex lg:col-span-1 justify-center">
             <div className="w-full max-w-md">
               <PaymentsVisual />
