@@ -1337,7 +1337,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
+      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage compliance integrations for real-time AML/KYC across all transactions." },{ icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." },],
       cta: "Explore Compliance"
     },
   };

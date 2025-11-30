@@ -115,20 +115,28 @@ export default function HeroSection() {
 
   // Detect scroll for sticky nav glass effect
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const navContainer = navContainerRef.current;
-      const infrastructureSection = document.getElementById('infrastructure');
-      
-      if (navContainer && infrastructureSection) {
-        const navRect = navContainer.getBoundingClientRect();
-        const infraRect = infrastructureSection.getBoundingClientRect();
-        
-        // Show sticky nav when nav has scrolled past top AND infrastructure section is still visible
-        setIsNavScrolled(navRect.top <= 0 && infraRect.bottom > 100);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const navContainer = navContainerRef.current;
+          const infrastructureSection = document.getElementById('infrastructure');
+          
+          if (navContainer && infrastructureSection) {
+            const navRect = navContainer.getBoundingClientRect();
+            const infraRect = infrastructureSection.getBoundingClientRect();
+            
+            // Show sticky nav when nav has scrolled past top AND infrastructure section still has significant content visible
+            setIsNavScrolled(navRect.top <= 0 && infraRect.bottom > 200);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
