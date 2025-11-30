@@ -1140,43 +1140,69 @@ const ExecutiveServiceFlow = () => {
 };
 
 
-// DESIGN CHANGE: Create a subtle, blended founder quote banner.
+// DESIGN CHANGE: Create a subtle, blended founder quote banner with brand colors.
+const getBrandColor = (textClass: string) => {
+  const colorMap: { [key: string]: { hex: string; rgba: string } } = {
+    'text-albor-plum': { hex: '#A18DE5', rgba: 'rgba(161, 141, 229, 0.3)' },
+    'text-albor-blue': { hex: '#4D88FF', rgba: 'rgba(77, 136, 255, 0.3)' },
+    'text-albor-teal': { hex: '#83F4EC', rgba: 'rgba(131, 244, 236, 0.3)' },
+    'text-albor-gold': { hex: '#FDB94E', rgba: 'rgba(253, 185, 78, 0.3)' },
+  };
+  return colorMap[textClass] || { hex: '#FDB94E', rgba: 'rgba(253, 185, 78, 0.3)' };
+};
+
 const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
   quote: string;
   name: string;
   title: string;
   image: string;
   colorClasses: any;
-}) => (
-  <motion.div 
-    initial={{ opacity: 0, y: 8 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4 }}
-    className="relative rounded-xl p-4 md:p-6 mt-0 mb-8 overflow-hidden transition-all duration-300 border"
-    style={{
-      background: `linear-gradient(135deg, ${colorClasses.bg === 'bg-albor-green' ? 'rgba(34, 197, 94, 0.04)' : colorClasses.bg === 'bg-albor-blue' ? 'rgba(59, 130, 246, 0.04)' : colorClasses.bg === 'bg-albor-purple' ? 'rgba(139, 92, 246, 0.04)' : 'rgba(249, 115, 22, 0.04)'})`,
-      borderColor: colorClasses.bg === 'bg-albor-green' ? 'rgba(34, 197, 94, 0.1)' : colorClasses.bg === 'bg-albor-blue' ? 'rgba(59, 130, 246, 0.1)' : colorClasses.bg === 'bg-albor-purple' ? 'rgba(139, 92, 246, 0.1)' : 'rgba(249, 115, 22, 0.1)'
-    }}
-  >
-    <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 relative z-10">
-      <div className="flex-shrink-0">
-        <img src={image} alt={name} className="w-12 h-12 rounded-full object-cover ring-3 ring-opacity-30 flex-shrink-0" style={{ borderColor: colorClasses.text === 'text-albor-green' ? 'rgba(34, 197, 94, 0.3)' : colorClasses.text === 'text-albor-blue' ? 'rgba(59, 130, 246, 0.3)' : colorClasses.text === 'text-albor-purple' ? 'rgba(139, 92, 246, 0.3)' : 'rgba(249, 115, 22, 0.3)' }} />
-      </div>
-      <div className="flex-grow">
-        <div className="flex items-start gap-2 mb-2">
-          <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" style={{ color: colorClasses.text === 'text-albor-green' ? '#22c55e' : colorClasses.text === 'text-albor-blue' ? '#3b82f6' : colorClasses.text === 'text-albor-purple' ? '#8b5cf6' : '#f97316' }} />
-          <blockquote className="text-sm md:text-base font-medium leading-snug text-slate-700 dark:text-slate-200">
-            <p>"{quote}"</p>
-          </blockquote>
+}) => {
+  const brandColor = getBrandColor(colorClasses.text);
+  const bgRgba = colorClasses.text === 'text-albor-plum' ? 'rgba(161, 141, 229, 0.04)' : 
+                  colorClasses.text === 'text-albor-blue' ? 'rgba(77, 136, 255, 0.04)' : 
+                  colorClasses.text === 'text-albor-teal' ? 'rgba(131, 244, 236, 0.04)' : 
+                  'rgba(253, 185, 78, 0.04)';
+  const borderRgba = colorClasses.text === 'text-albor-plum' ? 'rgba(161, 141, 229, 0.1)' : 
+                     colorClasses.text === 'text-albor-blue' ? 'rgba(77, 136, 255, 0.1)' : 
+                     colorClasses.text === 'text-albor-teal' ? 'rgba(131, 244, 236, 0.1)' : 
+                     'rgba(253, 185, 78, 0.1)';
+  const footerBorderRgba = colorClasses.text === 'text-albor-plum' ? 'rgba(161, 141, 229, 0.2)' : 
+                           colorClasses.text === 'text-albor-blue' ? 'rgba(77, 136, 255, 0.2)' : 
+                           colorClasses.text === 'text-albor-teal' ? 'rgba(131, 244, 236, 0.2)' : 
+                           'rgba(253, 185, 78, 0.2)';
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="relative rounded-xl p-4 md:p-6 mt-0 mb-8 overflow-hidden transition-all duration-300 border"
+      style={{
+        background: `linear-gradient(135deg, ${bgRgba})`,
+        borderColor: borderRgba
+      }}
+    >
+      <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 relative z-10">
+        <div className="flex-shrink-0">
+          <img src={image} alt={name} className="w-12 h-12 rounded-full object-cover ring-3 ring-opacity-30 flex-shrink-0" style={{ borderColor: brandColor.rgba }} />
         </div>
-        <footer className="mt-3 pt-3 border-t border-opacity-10" style={{ borderColor: colorClasses.text === 'text-albor-green' ? 'rgba(34, 197, 94, 0.2)' : colorClasses.text === 'text-albor-blue' ? 'rgba(59, 130, 246, 0.2)' : colorClasses.text === 'text-albor-purple' ? 'rgba(139, 92, 246, 0.2)' : 'rgba(249, 115, 22, 0.2)' }}>
-          <p className="text-xs font-semibold text-slate-800 dark:text-slate-100">{name}</p>
-          <p className="text-xs mt-0.5" style={{ color: colorClasses.text === 'text-albor-green' ? '#22c55e' : colorClasses.text === 'text-albor-blue' ? '#3b82f6' : colorClasses.text === 'text-albor-purple' ? '#8b5cf6' : '#f97316' }}>{title}</p>
-        </footer>
+        <div className="flex-grow">
+          <div className="flex items-start gap-2 mb-2">
+            <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" style={{ color: brandColor.hex }} />
+            <blockquote className="text-sm md:text-base font-medium leading-snug text-slate-700 dark:text-slate-200">
+              <p>"{quote}"</p>
+            </blockquote>
+          </div>
+          <footer className="mt-3 pt-3 border-t border-opacity-10" style={{ borderColor: footerBorderRgba }}>
+            <p className="text-xs font-semibold text-slate-800 dark:text-slate-100">{name}</p>
+            <p className="text-xs mt-0.5" style={{ color: brandColor.hex }}>{title}</p>
+          </footer>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 // DESIGN CHANGE: Define the FeatureItem with larger text and better spacing.
 const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentType<any>, title: string, children: React.ReactNode }) => (
