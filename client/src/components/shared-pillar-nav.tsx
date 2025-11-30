@@ -57,16 +57,18 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-scroll mobile tabs to center active tab when step changes
+  // Auto-scroll mobile tabs to center active tab (during auto-play and when manually clicking)
   useEffect(() => {
     if (tabsContainerRef.current && window.innerWidth < 640) {
       const container = tabsContainerRef.current;
-      const activeTab = container.querySelector(`[data-tab-index="${currentStep}"]`);
+      // Use animatedStep during auto-play, currentStep otherwise
+      const tabIndex = isAutoPlaying ? animatedStep : currentStep;
+      const activeTab = container.querySelector(`[data-tab-index="${tabIndex}"]`);
       if (activeTab) {
         activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
-  }, [currentStep]);
+  }, [currentStep, animatedStep, isAutoPlaying]);
 
   const handleStepClick = (index: number) => {
     if (onStepClick) onStepClick(index);
