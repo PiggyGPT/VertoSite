@@ -1288,7 +1288,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "albor-gold", title: "Banking APIs", icon: Workflow,
+      label: "Tokenize Deposits", color: "albor-plum", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
@@ -1301,7 +1301,7 @@ export default function PillarsSection({
       cta: "Explore APIs"
     },
     trading: {
-      label: "Attract Liquidity", color: "albor-copper", title: "Decentralized Exchange", icon: Coins,
+      label: "Attract Liquidity", color: "albor-blue", title: "Decentralized Exchange", icon: Coins,
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
@@ -1314,7 +1314,7 @@ export default function PillarsSection({
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "albor-plum", title: "Patent-Pending Router", icon: Globe,
+      label: "Transact Globally", color: "albor-teal", title: "Patent-Pending Router", icon: Globe,
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
@@ -1327,7 +1327,7 @@ export default function PillarsSection({
       cta: "Explore Router"
     },
     service: {
-      label: "Secure Compliance", color: "albor-teal", icon: Shield,
+      label: "Secure Compliance", color: "albor-gold", icon: Shield,
       title: "Sovereign Infrastructure",
       description: "Satisfy regulatory and risk committee mandates by controling your keys and your data",
       visual: <ExecutiveServiceFlow />,
@@ -1393,9 +1393,9 @@ export default function PillarsSection({
       'albor-gold': '#FDB94E',
       'albor-copper': '#A66E4E',
       'albor-plum': '#A18DE5',
+      'albor-blue': '#1A2F60',
       'albor-teal': '#83F4EC',
       'albor-purple': '#FDB94E',
-      'albor-blue': '#A66E4E',
       'albor-green': '#A18DE5',
       'albor-orange': '#83F4EC',
     };

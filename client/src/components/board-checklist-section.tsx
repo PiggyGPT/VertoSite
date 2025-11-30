@@ -43,11 +43,11 @@ export default function PilotProgramSection() {
 
           <div className="max-w-3xl mx-auto">
             {/* TimelineItem components remain unchanged */}
-            <TimelineItem phase="Days 1-90" title="Foundation & Liquidity Onboarding" icon={Rocket} color="albor-gold">
+            <TimelineItem phase="Days 1-90" title="Foundation & Liquidity Onboarding" icon={Rocket} color="albor-plum">
               <p>We integrate your core banking systems, onboard your team to run operations, and connect you with pre-vetted market makers to establish immediate liquidity.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 91-120" title="Controlled Pilot Operations" icon={Target} color="albor-plum">
+            <TimelineItem phase="Days 91-120" title="Controlled Pilot Operations" icon={Target} color="albor-blue">
               <p>Your team operates the pilot with our 24/7 SOC support, protocol guidance, and performance monitoring to validate operational readiness.</p>
             </TimelineItem>
 

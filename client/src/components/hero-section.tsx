@@ -18,17 +18,17 @@ export default function HeroSection() {
   const orderedKeys = ["distribution", "trading", "payments", "service"];
 
   const pillars = {
-    distribution: { label: "Tokenize Deposits", color: "albor-gold", icon: Zap },
-    trading: { label: "Attract Liquidity", color: "albor-copper", icon: Store },
-    payments: { label: "Transact Globally", color: "albor-plum", icon: Globe },
-    service: { label: "Secure Compliance", color: "albor-teal", icon: Shield },
+    distribution: { label: "Tokenize Deposits", color: "albor-plum", icon: Zap },
+    trading: { label: "Attract Liquidity", color: "albor-blue", icon: Store },
+    payments: { label: "Transact Globally", color: "albor-teal", icon: Globe },
+    service: { label: "Secure Compliance", color: "albor-gold", icon: Shield },
   };
 
   const colorMap: { [key: string]: string } = {
-    'albor-gold': '#FDB94E',
-    'albor-copper': '#A66E4E',
     'albor-plum': '#A18DE5',
+    'albor-blue': '#1A2F60',
     'albor-teal': '#83F4EC',
+    'albor-gold': '#FDB94E',
   };
 
   const getAccentColor = (colorName: string) => colorMap[colorName] || '#FDB94E';
