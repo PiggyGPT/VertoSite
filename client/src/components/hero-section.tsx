@@ -120,12 +120,11 @@ export default function HeroSection() {
       const infrastructureSection = document.getElementById('infrastructure');
       
       if (navContainer && infrastructureSection) {
-        const navTop = navContainer.getBoundingClientRect().top;
-        const infrastructureTop = infrastructureSection.getBoundingClientRect().top;
-        const infrastructureBottom = infrastructureSection.getBoundingClientRect().bottom;
+        const navRect = navContainer.getBoundingClientRect();
+        const infraRect = infrastructureSection.getBoundingClientRect();
         
-        // Sticky if: nav scrolled past AND still within infrastructure section bounds
-        setIsNavScrolled(navTop <= 0 && infrastructureTop <= 0 && infrastructureBottom > navContainer.offsetHeight);
+        // Show sticky nav when nav has scrolled past top AND infrastructure section is still visible
+        setIsNavScrolled(navRect.top <= 0 && infraRect.bottom > 100);
       }
     };
     
@@ -230,7 +229,7 @@ export default function HeroSection() {
       </section>
 
       {/* Pillar Navigation - Full Width at Bottom with Bottom Border */}
-      <div ref={navContainerRef} className={`w-full mt-0.5 transition-all duration-300 ${isNavScrolled ? 'sticky top-0 z-50 backdrop-blur-md bg-slate-900/40 border-b border-white/20' : 'border-b border-white/10'}`}>
+      <div ref={navContainerRef} className={`w-full mt-0.5 transition-all duration-300 ${isNavScrolled ? 'fixed left-0 right-0 top-16 z-50 backdrop-blur-md bg-slate-900/40 border-b border-white/20' : 'border-b border-white/10'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
             {orderedKeys.map((key, index) => {
