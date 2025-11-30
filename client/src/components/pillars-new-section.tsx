@@ -1420,9 +1420,9 @@ export default function PillarsSection({
     distribution: {
       label: "Tokenize Deposits", color: "albor-plum", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
-      visual: <ExecutiveDistributionFlow accentColor="#A18DE5" />,
+      visual: <ExecutiveDistributionFlow accentColor="#4D88FF" />,
       founderQuote: {
-        quote: "Stablecoins build trust on a non-negotiable principle: real-time settlement of both deposits and withdrawals with balanced sheets.",
+        quote: "Building trust in a stablecoin begins with two non-negotiable fundamentals: real-time settlement of deposits and withdrawals, and transparent asset backing.",
         name: "David Cass",
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
@@ -1446,7 +1446,7 @@ export default function PillarsSection({
     payments: {
       label: "Transact Globally", color: "albor-teal", title: "Patent-Pending Router", icon: Globe,
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
-      visual: <PolishedPaymentsFlow accentColor="#83F4EC" />,
+      visual: <PolishedPaymentsFlow accentColor="#4D88FF" />,
       founderQuote: {
         quote: "Stablecoins drive volume by letting users seamlessly transact with their existing funds - fiat in their banks or crypto in wallets or exchanges.",
         name: "Nilesh Khaitan",
