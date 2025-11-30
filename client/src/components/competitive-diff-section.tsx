@@ -48,9 +48,10 @@ export default function CompetitiveDiffSection() {
                     </p>
                 </div>
 
-                {/* Comparison Table & CTA - Centered Container */}
+                {/* Comparison - Desktop Table & Mobile Cards */}
                 <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                    <div className="mb-12 overflow-x-auto">
+                    {/* Desktop Table */}
+                    <div className="mb-12 overflow-x-auto hidden md:block">
                         <table className="border-collapse w-full">
                             <thead>
                                 <tr className="border-b-2 border-slate-200 dark:border-slate-700">
@@ -97,6 +98,45 @@ export default function CompetitiveDiffSection() {
                                 })}
                             </tbody>
                         </table>
+                    </div>
+
+                    {/* Mobile Cards */}
+                    <div className="mb-12 md:hidden grid gap-4">
+                        {features.map((feature, index) => {
+                            const Icon = feature.icon;
+                            return (
+                                <div key={index} className="border border-slate-200 dark:border-slate-700 rounded-lg p-4 space-y-3">
+                                    {/* Feature Name */}
+                                    <div className="flex items-center gap-3 pb-3 border-b border-slate-200 dark:border-slate-700">
+                                        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                                            <Icon className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                                        </div>
+                                        <span className="font-semibold text-slate-900 dark:text-white">
+                                            {feature.name}
+                                        </span>
+                                    </div>
+
+                                    {/* Albor vs Competitors */}
+                                    <div className="space-y-2">
+                                        <div>
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <img src="/logos/svg/albor.svg" alt="Albor" className="h-3 w-auto" />
+                                                <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Albor</span>
+                                            </div>
+                                            <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                                                {feature.albor}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Competitors</p>
+                                            <p className="text-sm text-slate-700 dark:text-slate-300">
+                                                {feature.competitors}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
 
                     {/* CTA Button - Enhanced */}
