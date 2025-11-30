@@ -1419,7 +1419,7 @@ export default function PillarsSection({
     distribution: {
       label: "Tokenize Deposits", color: "albor-plum", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
-      visual: <ExecutiveServiceFlow />,
+      visual: <PolishedComplianceFlow />,
       founderQuote: {
         quote: "Building trust in a stablecoin begins with two non-negotiable fundamentals: real-time settlement of deposits and withdrawals, and transparent asset backing.",
         name: "David Cass",
