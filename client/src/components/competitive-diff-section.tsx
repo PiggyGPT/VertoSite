@@ -54,7 +54,7 @@ export default function CompetitiveDiffSection() {
                     <div className="mb-12 overflow-x-auto hidden md:block">
                         <table className="border-collapse w-full">
                             <thead>
-                                <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                                <tr className="border-b border-white/10">
                                     <th className="text-left py-3 px-4 font-semibold text-slate-900 dark:text-white text-base" style={{ width: '29%' }}>
                                         Capability
                                     </th>
@@ -72,7 +72,7 @@ export default function CompetitiveDiffSection() {
                                 {features.map((feature, index) => {
                                     const Icon = feature.icon;
                                     return (
-                                        <tr key={index} className="border-b border-slate-100 dark:border-slate-800">
+                                        <tr key={index} className="border-b border-white/10">
                                             <td className="py-4 px-4">
                                                 <div className="flex items-center gap-3">
                                                     <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
@@ -104,7 +104,7 @@ export default function CompetitiveDiffSection() {
                     <div className="mb-12 md:hidden overflow-x-auto">
                         <table className="border-collapse w-full">
                             <thead>
-                                <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                                <tr className="border-b border-white/10">
                                     <th className="text-left py-3 px-3 font-semibold text-slate-900 dark:text-white text-xs" style={{ width: '35%' }}>
                                         Feature
                                     </th>
@@ -120,7 +120,7 @@ export default function CompetitiveDiffSection() {
                                 {features.map((feature, index) => {
                                     const Icon = feature.icon;
                                     return (
-                                        <tr key={index} className="border-b border-slate-100 dark:border-slate-800">
+                                        <tr key={index} className="border-b border-white/10">
                                             <td className="py-3 px-3">
                                                 <div className="flex items-center gap-2">
                                                     <div className="hidden md:flex flex-shrink-0 w-5 h-5 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
