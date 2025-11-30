@@ -25,13 +25,13 @@
   --ring: hsl(202.8169, 89.1213%, 53.1373%);
   --radius: 1.3rem;
 
-  /* Albor Brand Colors - Official Final Palette */
+  /* Albor Brand Colors - Official Final Palette (Brightened) */
   --albor-foundation: hsl(220.3, 3.8%, 12.0%); /* #1E1F2B - Background */
   --albor-dawn: hsl(37.9, 86.8%, 64.7%); /* #F1BD76 - Primary Accent */
   --albor-white: hsl(0, 0%, 100%); /* #FFFFFF - Text/Data */
-  --albor-teal: hsl(199.4, 37.8%, 40.4%); /* #2B697A - Growth/Success */
-  --albor-blue: hsl(217.3, 100%, 59.8%); /* #4D88FF - Trust/Links */
-  --albor-innovation: hsl(268.6, 34.8%, 45.5%); /* #5C4C8C - Decorative */
+  --albor-teal: hsl(174.8, 64.8%, 63.3%); /* #4FC4D1 - Growth/Success (brightened) */
+  --albor-blue: hsl(222, 100%, 66.3%); /* #6BA3FF - Trust/Links (brightened) */
+  --albor-innovation: hsl(268.6, 60.4%, 65.9%); /* #9E7FD9 - Decorative (brightened) */
   
   /* Deprecated - kept for backwards compatibility */
   --albor-gold: hsl(37.9, 86.8%, 64.7%); /* #F1BD76 - Now using Dawn */

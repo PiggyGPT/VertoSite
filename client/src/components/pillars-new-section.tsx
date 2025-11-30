@@ -101,7 +101,7 @@ const MintContent = ({ voucherId, amount }: { voucherId: string; amount: string 
 
 
 // --- VISUAL 1: Distribution (Animated Flow) ---
-const ExecutiveDistributionFlow = ({ accentColor = '#5C4C8C' }: { accentColor?: string } = {}) => {
+const ExecutiveDistributionFlow = ({ accentColor = '#9E7FD9' }: { accentColor?: string } = {}) => {
   // State to control the flow between two main panels: 0: dashboard, 1: voucher, 2: wallet
   const [currentPanel, setCurrentPanel] = useState(0);
   // State to control the visibility of the single popup container
@@ -367,7 +367,7 @@ const ExecutiveDistributionFlow = ({ accentColor = '#5C4C8C' }: { accentColor?: 
 
 
 // --- VISUAL 2: Payments (Animated Flow) ---
-const PolishedPaymentsFlow = ({ accentColor = '#2B697A' }: { accentColor?: string } = {}) => {
+const PolishedPaymentsFlow = ({ accentColor = '#4FC4D1' }: { accentColor?: string } = {}) => {
   const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
   const [buttonClicked, setButtonClicked] = useState(false);
 
