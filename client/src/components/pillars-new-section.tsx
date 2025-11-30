@@ -1292,7 +1292,7 @@ export default function PillarsSection({
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
-        quote: "Trust in a stablecoin is built on two non-negotiable principles: verifiable reserves and real-time settlement of both deposits and withdrawals.",
+        quote: "Trust in a stablecoin is built on a non-negotiable principle: real-time settlement of both deposits and withdrawals with balanced sheets.",
         name: "David Cass",
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage

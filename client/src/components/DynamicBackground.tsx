@@ -57,8 +57,8 @@ export function DynamicBackground() {
     glowColor = brandColors[3];
   }
 
-  // Opacity increases as we scroll (dawn gets brighter)
-  const glowOpacity = 0.40 + (scrollPercent * 0.25); // 25% to 60%
+  // Opacity decreases as we scroll (hero 0.5, rest 0.1)
+  const glowOpacity = 0.5 - (scrollPercent * 0.4);
 
   return (
     <>

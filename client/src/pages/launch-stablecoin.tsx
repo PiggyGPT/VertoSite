@@ -124,24 +124,25 @@ export default function LaunchStablecoin() {
               icon: "CreditCard",
               color: "verto-blue",
               persona: "Head of Corporate Banking",
-              company: "Panama",
+              company: "Panama Bank",
               quote:
-                "Our corporate clients are fleeing their treasuries to USDC for T+0 settlements. We need to launch our own digital dollar to pull that liquidity back onto our balance sheets.",
+                "Our corporate clients are fleeing their treasuries to USDC for T+0 settlements. We need to match their offerings to pull that liquidity back onto our balance sheets.",
             },
             {
               icon: "Shield",
               color: "verto-green",
-              persona: "Central Bank Advisor",
-              company: "Bolivia",
+              persona: "Economic Advisor",
+              company: "Bolivian Central Bank",
               quote:
                 "The rise in USDT has been draining our dollar reserves and inflating our currency. We need to formalize this demand and restore FX liquidity to the Boliviano.",
             },
             {
               icon: "BarChart3",
               color: "verto-purple",
-              persona: "CEO, Commodities Exchange",
-              company: "Guatemala",
-              quote: "Our Gold ETF can't compete with PAXG's 24/7 liquidity against USDC. We need to compete in the same pools and capture that market share.",
+              persona: "CEO",
+              company: "Guatemala Commodities",
+              quote:
+                "Our Gold instruments can't compete with PAXG's 24/7 global liquidity against USDC. We need to compete in the same pools and capture that market share.",
             },
           ]}
         />
