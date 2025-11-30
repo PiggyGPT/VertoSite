@@ -103,11 +103,7 @@ export default function CompetitiveDiffSection() {
                     <div className="text-center">
                     <button
                         onClick={openModal}
-                        className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-xl shadow-black/20 dark:shadow-black/40 hover:shadow-2xl hover:shadow-black/30 dark:hover:shadow-black/50"
-                        style={{
-                            background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
-                            color: "white",
-                        }}
+                        className="px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
                     >
                         <Calendar className="w-4 h-4" />
                         <span>Schedule Demo</span>
