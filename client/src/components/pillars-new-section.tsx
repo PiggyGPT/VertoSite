@@ -1723,7 +1723,6 @@ export default function PillarsSection({
   
   const [currentStep, setCurrentStep] = useState(0);
   const [animatedStep, setAnimatedStep] = useState(0);
-  const [displayedStep, setDisplayedStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
   const [isNavScrolled, setIsNavScrolled] = useState(false);
@@ -1774,15 +1773,6 @@ export default function PillarsSection({
     }, 3000);
     return () => clearInterval(timer);
   }, [isAutoPlaying, orderedKeys.length]);
-
-  // Update displayed step to lag behind animated step by one, reset when cycling back to 0
-  useEffect(() => {
-    if (animatedStep === 0) {
-      setDisplayedStep(0);
-    } else {
-      setDisplayedStep(animatedStep - 1);
-    }
-  }, [animatedStep]);
 
   const handleStepClick = (index: number) => {
     setCurrentStep(index);
