@@ -1,4 +1,4 @@
-import { Calendar, TrendingUp, Shield, DollarSign, Router } from "lucide-react";
+import { Calendar, TrendingUp, Shield, DollarSign, Navigation2 } from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
 export default function CompetitiveDiffSection() {
@@ -14,7 +14,7 @@ export default function CompetitiveDiffSection() {
         },
         {
             name: "Transaction Routing",
-            icon: Router,
+            icon: Navigation2,
             albor: "Non-Custodial, CEX + DEX",
             competitors: "CEX Deposits & Withdrawals",
             alborHas: true
