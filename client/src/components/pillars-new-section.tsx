@@ -129,14 +129,13 @@ import {
   LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
   ChevronDown, Landmark, History, Link, Clock, Plus,
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-  Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow
+  Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow, Calendar, Quote
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
 import danielImage from "@assets/daniel_1754986415369.png";
 import hishamImage from "@assets/hisham_1754986415368.png";
 import nileshImage from "@assets/nilesh_1754986415369.png";
-import { Quote } from "lucide-react";
 
 // --- Simplified Visual Container - No Background Interference ---
 const VisualContainer = ({ children }: { children: React.ReactNode }) => (
@@ -1559,10 +1558,10 @@ export default function PillarsSection({
               )) || []}
             </div>
             <motion.button
-              onClick={() => openModal(`Get Started with ${activePillar?.label || 'Service'}`)}
+              onClick={() => openModal("Schedule Demo")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
+              className="group inline-flex items-center gap-2 px-6 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:scale-105 transition-all duration-300"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
               }}
@@ -1573,8 +1572,9 @@ export default function PillarsSection({
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
               }}
             >
-              <span>{activePillar?.cta || 'Get Started'}</span>
-              <ArrowRight className="w-4 h-4" />
+              <Calendar className="w-4 h-4" />
+              <span>Schedule Demo</span>
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </div>
 
