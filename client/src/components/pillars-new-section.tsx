@@ -477,9 +477,33 @@ const MerchantCreate = ({ amount }: { amount: string }) => (
 );
 
 // 2. The QR Code Display (Updated with User Details)
-const QRDisplay = () => (
-  <div className="flex flex-col h-full items-center p-6 text-center bg-white dark:bg-slate-900 pt-14">
-    <div className="flex items-center gap-3 mb-2">
+const QRDisplay = () => {
+  const [showAmount, setShowAmount] = useState(false);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setShowAmount(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="flex flex-col h-full items-center p-6 text-center bg-white dark:bg-slate-900 pt-14">
+      {/* Header - Similar to Calculating Route */}
+      <div className="w-full mb-6 pb-3 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center gap-2 mb-2 text-purple-500 justify-center">
+          <RefreshCw className="w-3 h-3 animate-spin" />
+          <span className="text-xs font-bold tracking-widest">CALCULATING PRICE</span>
+        </div>
+        <div className="h-0.5 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+          <motion.div 
+            className="h-full bg-purple-500"
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 2 }}
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center gap-3 mb-2">
        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
           <User className="w-5 h-5 text-slate-500" />
        </div>
@@ -501,12 +525,19 @@ const QRDisplay = () => (
       <span className="text-lg font-medium text-slate-500 ml-1">BSD</span>
     </div>
 
+    {showAmount && (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-slate-600 dark:text-slate-300 mb-4">
+        €60.00 EUR
+      </motion.div>
+    )}
+
     <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-lg mt-auto">
       <ScanLine className="w-4 h-4 animate-pulse" />
       <span className="text-sm font-medium">Scanning...</span>
     </div>
   </div>
-);
+  );
+};
 
 // 3. User Selection (Updated with Payer Name & Breakdown)
 const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
@@ -748,7 +779,7 @@ const PaymentsVisual = () => {
         setAmountInput("120"); await new Promise(r => setTimeout(r, 1500));
         
         // QR
-        setPhase(1); await new Promise(r => setTimeout(r, 3000));
+        setPhase(1); await new Promise(r => setTimeout(r, 2000));
         
         // Select Coinbase
         setPhase(2); await new Promise(r => setTimeout(r, 1000));
