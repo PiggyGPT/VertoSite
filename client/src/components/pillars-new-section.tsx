@@ -1329,7 +1329,7 @@ export default function PillarsSection({
     service: {
       label: "Secure Compliance", color: "verto-orange", icon: Shield,
       title: "Sovereign Infrastructure",
-      description: "Satisfy regulatory and risk committee mandates by controling your keys and data",
+      description: "Satisfy regulatory and risk committee mandates by controling your keys and your data",
       visual: <ExecutiveServiceFlow />,
       founderQuote: {
         quote: "No regulated financial institution should cede their monetary or data sovereignty. You either control your infrastructure or you don't control your business.",
@@ -1337,7 +1337,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
+      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, ],
       cta: "Explore Compliance"
     },
   };

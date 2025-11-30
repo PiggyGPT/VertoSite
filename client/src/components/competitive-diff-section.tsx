@@ -13,7 +13,7 @@ export default function CompetitiveDiffSection() {
             alborHas: true
         },
         {
-            name: "Payments Routing",
+            name: "Transaction Routing",
             icon: Globe,
             albor: "Non-Custodial, CEX + DEX",
             competitors: "CEX Deposits & Withdrawals",
@@ -27,7 +27,7 @@ export default function CompetitiveDiffSection() {
             alborHas: true
         },
         {
-            name: "Full-Stack Sovereignty",
+            name: "Data Sovereignty",
             icon: Lock,
             albor: "Self-Hosted Deployment",
             competitors: "US-Based Hosting",
