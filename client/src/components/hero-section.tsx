@@ -117,16 +117,15 @@ export default function HeroSection() {
   useEffect(() => {
     const handleScroll = () => {
       const navContainer = navContainerRef.current;
-      const pillarContent = document.getElementById('pillar-content');
       const infrastructureSection = document.getElementById('infrastructure');
       
-      if (navContainer && pillarContent && infrastructureSection) {
+      if (navContainer && infrastructureSection) {
         const navTop = navContainer.getBoundingClientRect().top;
-        const pillarTop = pillarContent.getBoundingClientRect().top;
+        const infrastructureTop = infrastructureSection.getBoundingClientRect().top;
         const infrastructureBottom = infrastructureSection.getBoundingClientRect().bottom;
         
-        // Sticky if: nav scrolled past AND pillar still visible AND within infrastructure section
-        setIsNavScrolled(navTop <= 0 && pillarTop > -window.innerHeight && infrastructureBottom > 0);
+        // Sticky if: nav scrolled past AND still within infrastructure section bounds
+        setIsNavScrolled(navTop <= 0 && infrastructureTop <= 0 && infrastructureBottom > navContainer.offsetHeight);
       }
     };
     
