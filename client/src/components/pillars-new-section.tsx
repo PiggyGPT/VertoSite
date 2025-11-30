@@ -1729,7 +1729,7 @@ export default function PillarsSection({
   const tabsContainerRef = useRef<HTMLDivElement>(null);
   const { openModal, CalendlyModal } = useCalendlyModal();
 
-  // Detect scroll for glass effect
+  // Detect scroll for glass effect and disable auto-play on scroll
   useEffect(() => {
     const handleScroll = () => {
       const pillarNav = document.getElementById('pillar-navigation');
@@ -1737,6 +1737,8 @@ export default function PillarsSection({
         const navTop = pillarNav.getBoundingClientRect().top;
         setIsNavScrolled(navTop <= 80);
       }
+      // Disable auto-play when user scrolls
+      setIsAutoPlaying(false);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -1762,12 +1764,12 @@ export default function PillarsSection({
     prevStepRef.current = currentStep;
   }, [currentStep]);
 
-  // Auto-advance every 10 seconds
+  // Auto-advance every 5 seconds
   useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(() => {
       setCurrentStep(prev => (prev + 1) % orderedKeys.length);
-    }, 10000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [isAutoPlaying, orderedKeys.length]);
 
