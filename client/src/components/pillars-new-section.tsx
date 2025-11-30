@@ -1397,7 +1397,7 @@ export default function PillarsSection({
   return (
     <div id="infrastructure" className="relative">
       {/* The main content container now has more consistent padding */}
-      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-28 scroll-mt-28">
+      <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-6 lg:pt-8 pb-16 md:pb-24 lg:pb-28 scroll-mt-28">
         {/* Founder Quote Banner - moved to top */}
         {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
 

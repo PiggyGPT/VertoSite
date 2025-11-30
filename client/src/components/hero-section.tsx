@@ -155,7 +155,7 @@ export default function HeroSection() {
               To Global Dollars.
           </h1>
 
-          <p className="text-base sm:text-xl md:text-2xl text-slate-400 leading-relaxed mb-12 max-w-2xl">
+          <p className="text-base sm:text-xl md:text-2xl text-slate-300 leading-relaxed mb-12 max-w-2xl">
             Capture liquidity from the $300B stablecoin market with compliant infrastructure.
           </p>
 
