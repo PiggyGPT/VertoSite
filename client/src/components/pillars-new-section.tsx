@@ -510,7 +510,7 @@ const QRDisplay = () => (
 
 // 3. User Selection (Updated with Payer Name & Breakdown)
 const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
-  <div className="flex flex-col h-full p-6">
+  <div className="flex flex-col h-full px-6 pt-8 pb-6">
     <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
       <div>
         <p className="text-xs text-slate-500 uppercase tracking-wide">Paying</p>
