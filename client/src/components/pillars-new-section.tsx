@@ -526,21 +526,43 @@ const QRDisplay = () => {
 // 3. User Selection (Updated with Payer Name & Breakdown)
 const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
   <div className="flex flex-col h-full px-6 pt-14 pb-6">
-    {/* Header - Calculating Price */}
-    <div className="w-full mb-6 pb-3 border-b border-slate-200 dark:border-slate-700">
-      <div className="flex items-center gap-2 mb-2 text-purple-500 justify-center">
-        <RefreshCw className="w-3 h-3 animate-spin" />
-        <span className="text-xs font-bold tracking-widest">CALCULATING PRICE</span>
+    {/* Step 1: Select Instrument - Show payment options */}
+    {method === 'coinbase' && !onPay && (
+      <div className="flex items-center justify-center mb-6 pb-3">
+        <div className="flex items-center gap-2 text-slate-500">
+          <RefreshCw className="w-3 h-3" />
+          <span className="text-xs font-bold tracking-widest">SELECT PAYMENT METHOD</span>
+        </div>
       </div>
-      <div className="h-0.5 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-        <motion.div 
-          className="h-full bg-purple-500"
-          initial={{ width: "0%" }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 2 }}
-        />
+    )}
+
+    {/* Step 2: Calculating Price - Show after bank selected */}
+    {method === 'bank' && !onPay && (
+      <div className="w-full mb-6 pb-3 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center gap-2 mb-2 text-purple-500 justify-center">
+          <RefreshCw className="w-3 h-3 animate-spin" />
+          <span className="text-xs font-bold tracking-widest">CALCULATING PRICE</span>
+        </div>
+        <div className="h-0.5 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+          <motion.div 
+            className="h-full bg-purple-500"
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 2 }}
+          />
+        </div>
       </div>
-    </div>
+    )}
+
+    {/* Step 3: Show Review - After pay click or during review */}
+    {onPay && (
+      <div className="w-full mb-6 pb-3 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center gap-2 mb-2 text-green-600 justify-center">
+          <CheckCircle className="w-3 h-3" />
+          <span className="text-xs font-bold tracking-widest">PRICE CONFIRMED</span>
+        </div>
+      </div>
+    )}
 
     <div className="flex items-center justify-between mb-12 pb-4 border-b border-slate-100 dark:border-slate-800">
       <div>
