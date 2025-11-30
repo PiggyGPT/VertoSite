@@ -68,7 +68,7 @@ export default function PilotProgramSection() {
           <div className="mt-10 sm:mt-12 text-center">
             <button
               onClick={() => openModal("Schedule Demo")}
-              className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm sm:text-base gap-2"
+              className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm gap-2 min-w-[160px]"
             >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Schedule Demo</span>
