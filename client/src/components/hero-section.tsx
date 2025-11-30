@@ -25,9 +25,9 @@ export default function HeroSection() {
   };
 
   const colorMap: { [key: string]: string } = {
-    'albor-plum': '#9E7FD9',
-    'albor-blue': '#6BA3FF',
-    'albor-teal': '#4FC4D1',
+    'albor-plum': '#A885FF',
+    'albor-blue': '#4D88FF',
+    'albor-teal': '#5DD4E0',
     'albor-gold': '#F1BD76',
   };
 

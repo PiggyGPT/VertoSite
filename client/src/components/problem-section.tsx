@@ -40,22 +40,22 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
     quote: '#F1BD76'
   },
   'albor-plum': { 
-    bg: 'rgba(158, 127, 217, 0.04)',
-    border: 'rgba(158, 127, 217, 0.1)',
-    text: '#9E7FD9',
-    quote: '#9E7FD9'
+    bg: 'rgba(168, 133, 255, 0.04)',
+    border: 'rgba(168, 133, 255, 0.1)',
+    text: '#A885FF',
+    quote: '#A885FF'
   },
   'albor-blue': { 
-    bg: 'rgba(107, 163, 255, 0.04)',
-    border: 'rgba(107, 163, 255, 0.1)',
-    text: '#6BA3FF',
-    quote: '#6BA3FF'
+    bg: 'rgba(77, 136, 255, 0.04)',
+    border: 'rgba(77, 136, 255, 0.1)',
+    text: '#4D88FF',
+    quote: '#4D88FF'
   },
   'albor-teal': { 
-    bg: 'rgba(79, 196, 209, 0.04)',
-    border: 'rgba(79, 196, 209, 0.1)',
-    text: '#4FC4D1',
-    quote: '#4FC4D1'
+    bg: 'rgba(93, 212, 224, 0.04)',
+    border: 'rgba(93, 212, 224, 0.1)',
+    text: '#5DD4E0',
+    quote: '#5DD4E0'
   }
 };
 

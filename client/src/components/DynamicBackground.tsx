@@ -19,12 +19,12 @@ export function DynamicBackground() {
     };
   }, []);
 
-  // Brand colors - Official Albor Palette (brightened)
+  // Brand colors - Official Albor Palette
   const brandColors = [
     '#F1BD76', // Dawn
-    '#6BA3FF', // Trust Blue (brightened)
-    '#4FC4D1', // Growth Teal (brightened)
-    '#9E7FD9', // Innovation (brightened)
+    '#4D88FF', // Trust Blue
+    '#5DD4E0', // Growth Teal (matched)
+    '#A885FF', // Innovation (matched)
   ];
   // Dark base that stays throughout
   const darkBase = '#1E1F2B';
