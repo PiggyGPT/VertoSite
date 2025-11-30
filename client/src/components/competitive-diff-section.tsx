@@ -100,36 +100,42 @@ export default function CompetitiveDiffSection() {
                         </table>
                     </div>
 
-                    {/* Mobile Cards */}
+                    {/* Mobile Cards - Competitive Focus */}
                     <div className="mb-12 md:hidden grid gap-4">
                         {features.map((feature, index) => {
                             const Icon = feature.icon;
                             return (
-                                <div key={index} className="border border-slate-200 dark:border-slate-700 rounded-lg p-4 space-y-3">
-                                    {/* Feature Name */}
-                                    <div className="flex items-center gap-3 pb-3 border-b border-slate-200 dark:border-slate-700">
-                                        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                                            <Icon className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                                <div key={index} className="relative overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+                                    {/* Feature Header */}
+                                    <div className="bg-slate-50 dark:bg-slate-800/50 px-4 py-3 flex items-center gap-2 border-b border-slate-200 dark:border-slate-700">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                                            <Icon className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
                                         </div>
-                                        <span className="font-semibold text-slate-900 dark:text-white">
+                                        <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                                             {feature.name}
-                                        </span>
+                                        </h3>
                                     </div>
 
-                                    {/* Albor vs Competitors */}
-                                    <div className="space-y-2">
-                                        <div>
-                                            <div className="flex items-center gap-2 mb-1">
-                                                <img src="/logos/svg/albor.svg" alt="Albor" className="h-3 w-auto" />
-                                                <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Albor</span>
+                                    {/* Split Comparison */}
+                                    <div className="grid grid-cols-2 divide-x divide-slate-200 dark:divide-slate-700">
+                                        {/* Albor - Highlighted */}
+                                        <div className="bg-gradient-to-br from-slate-900/5 to-transparent dark:from-white/5 dark:to-transparent p-4 space-y-2">
+                                            <div className="inline-block">
+                                                <span className="text-xs font-bold px-2 py-1 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center gap-1">
+                                                    <span style={{ color: '#F1BD76' }}>★</span> Albor
+                                                </span>
                                             </div>
-                                            <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                                            <p className="text-sm font-bold text-slate-900 dark:text-white leading-snug">
                                                 {feature.albor}
                                             </p>
                                         </div>
-                                        <div>
-                                            <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Competitors</p>
-                                            <p className="text-sm text-slate-700 dark:text-slate-300">
+
+                                        {/* Competitors - Muted */}
+                                        <div className="bg-slate-50/50 dark:bg-slate-900/30 p-4 space-y-2">
+                                            <span className="text-xs font-semibold text-slate-500 dark:text-slate-500">
+                                                Others
+                                            </span>
+                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-snug line-through opacity-75">
                                                 {feature.competitors}
                                             </p>
                                         </div>
