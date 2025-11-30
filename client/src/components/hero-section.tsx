@@ -1,10 +1,16 @@
 import { Phone, Calendar } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useCalendlyModal } from "./calendly-modal";
+import SharedPillarNav from "./shared-pillar-nav";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  onPillarClick?: (index: number) => void;
+  currentStep?: number;
+}
+
+export default function HeroSection({ onPillarClick, currentStep: externalStep = 0 }: HeroSectionProps) {
   const { openModal, CalendlyModal } = useCalendlyModal();
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(externalStep);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
   const prevStepRef = useRef(0);
@@ -32,6 +38,7 @@ export default function HeroSection() {
   const handlePillarClick = (index: number) => {
     setCurrentStep(index);
     setIsAutoPlaying(false);
+    if (onPillarClick) onPillarClick(index);
   };
 
   return (
@@ -108,6 +115,8 @@ export default function HeroSection() {
 
         </div>
       </section>
+
+      <SharedPillarNav currentStep={currentStep} onStepClick={handlePillarClick} />
 
       <CalendlyModal />
     </div>

@@ -27,7 +27,7 @@ export function DynamicBackground() {
     '#A885FF', // Innovation (matched)
   ];
   // Dark base that stays throughout
-  const darkBase = '#0F1926';
+  const darkBase = '#131B2E';
 
   // Determine which transition we're in (0-3)
   const stage = Math.min(Math.floor(scrollPercent * 4), 3);

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
-import SharedPillarNav from "@/components/shared-pillar-nav";
 import ProblemSection from "@/components/problem-section";
 import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
@@ -121,9 +120,8 @@ export default function LaunchStablecoin() {
     <div className="min-h-screen transition-colors">
       <Navigation />
       <div id="hero">
-        <HeroSection />
+        <HeroSection currentStep={currentStep} onPillarClick={(index) => setCurrentStep(index)} />
       </div>
-      <SharedPillarNav currentStep={currentStep} onStepClick={(index) => setCurrentStep(index)} />
       <div id="infrastructure">
         <PillarsSection />
       </div>
