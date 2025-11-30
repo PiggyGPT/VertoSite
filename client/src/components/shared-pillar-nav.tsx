@@ -32,16 +32,18 @@ export default function SharedPillarNav({ currentStep = 0, onStepClick }: Shared
   useEffect(() => {
     const handleScroll = () => {
       const navContainer = navContainerRef.current;
+      const heroSection = document.getElementById('hero');
       const pillarEnd = document.getElementById('pillar-end');
       
-      if (navContainer && pillarEnd) {
-        const navRect = navContainer.getBoundingClientRect();
+      if (navContainer && heroSection && pillarEnd) {
+        const heroRect = heroSection.getBoundingClientRect();
         const pillarEndRect = pillarEnd.getBoundingClientRect();
         const mainNavHeight = 64; // h-16
         
-        // Nav should become fixed when it reaches the top of viewport (during scroll)
-        // and should stay fixed as long as pillar section is visible
-        const shouldBeFixed = navRect.top <= mainNavHeight && pillarEndRect.top > mainNavHeight;
+        // Nav should be fixed only if:
+        // 1. Hero has scrolled past the top (heroRect.bottom <= mainNavHeight means hero scrolled up/out)
+        // 2. AND we're still in the pillars section (pillarEndRect.top > mainNavHeight)
+        const shouldBeFixed = heroRect.bottom <= mainNavHeight && pillarEndRect.top > mainNavHeight;
         setIsFixed(shouldBeFixed);
         
         // Hide when scrolled past the end of pillars section
