@@ -1393,7 +1393,7 @@ export default function PillarsSection({
       'albor-gold': '#FDB94E',
       'albor-copper': '#A66E4E',
       'albor-plum': '#A18DE5',
-      'albor-blue': '#1A2F60',
+      'albor-blue': '#4D88FF',
       'albor-teal': '#83F4EC',
       'albor-purple': '#FDB94E',
       'albor-green': '#A18DE5',
