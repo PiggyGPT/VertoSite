@@ -1197,8 +1197,8 @@ const MintingVisual = () => {
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                        transition={{ delay: 0, duration: 0.3, ease: "easeOut" }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors will-change-auto"
                       >
                         <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center font-semibold text-xs flex-col justify-center ${
                           animationState.statusPopupState === 'waiting' ? 'bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-300 dark:border-indigo-600' :
@@ -1222,8 +1222,8 @@ const MintingVisual = () => {
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                        transition={{ delay: 0.05, duration: 0.3, ease: "easeOut" }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors will-change-auto"
                       >
                         <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
                           animationState.statusPopupState === 'received' ? 'bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-300 dark:border-indigo-600' :
@@ -1247,8 +1247,8 @@ const MintingVisual = () => {
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                        transition={{ delay: 0.1, duration: 0.3, ease: "easeOut" }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors will-change-auto"
                       >
                         <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
                           animationState.statusPopupState === 'minting' ? 'bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-300 dark:border-indigo-600' :
@@ -1272,8 +1272,8 @@ const MintingVisual = () => {
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                        transition={{ delay: 0.15, duration: 0.3, ease: "easeOut" }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors will-change-auto"
                       >
                         <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
                           animationState.statusPopupState === 'complete' ? 'bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-600' :
@@ -1339,7 +1339,7 @@ const MintingVisual = () => {
                   <div className="text-right">
                     <p className="text-[10px] text-slate-400 uppercase">Wire Ref</p>
                     <div className="flex items-center gap-1">
-                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">REF-MR-8821</span>
+                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">0x38F1...8821</span>
                     </div>
                   </div>
                 </div>
@@ -1369,7 +1369,7 @@ const MintingVisual = () => {
                   <div className="text-right">
                     <p className="text-[10px] text-slate-400 uppercase">On-Chain Memo</p>
                     <div className="flex items-center gap-1">
-                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">REF-MR-8821</span>
+                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">0x38F1...8821</span>
                     </div>
                   </div>
                 </div>
@@ -1814,7 +1814,7 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Issue tokens to client wallets against verified fiat deposits in Virtual IBANs." }, { icon: CreditCard, title: "Automated Redemption", description: "Streamline token redemption by auto-triggering fiat wires against token burns." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Auto-trigger token mints to client wallets against verified fiat deposits in Virtual IBANs." }, { icon: CreditCard, title: "Automated Redemption", description: "Streamline token redemption by auto-triggering fiat wires against token burns." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Explore APIs"
     },
     trading: {
@@ -1827,7 +1827,7 @@ export default function PillarsSection({
         title: "Chairman | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: Store, title: "Create Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "Automate Market Making", description: "Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." }, { icon: Lock, title: "Distribute Yield Instantly", description: "Reward LPs with fees from every trade, distributed automatically per block." },],
+      features: [{ icon: Store, title: "On-Chain Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "Automated Market Making", description: "Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." }, { icon: Lock, title: "Instant Yield Distribution", description: "Reward LPs with fees from every trade, distributed automatically per block." },],
       cta: "Explore DEX"
     },
     payments: {
@@ -1840,7 +1840,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Route, title: " Find Optimal Trade Routes", description: "Scan relevant CEXs and DEXs to find the optimal transcation path for every trade." }, { icon: KeyIcon, title: "Execute with Single Signature", description: "Orchestrate multi-step routes with a single approval from the trader's wallet." }, { icon: Zap, title: "Distribute Fees Atomically", description: "Include partner fee transfers within the executed trade route." },],
+      features: [{ icon: Route, title: "Optimal Pathfinder", description: "Scan relevant CEXs and DEXs to find the optimal transcation path for every trade." }, { icon: KeyIcon, title: "Single Signature Execution", description: "Orchestrate multi-step routes with a single approval from the trader's wallet." }, { icon: Zap, title: "Atomic Fee Distribution", description: "Include partner fee transfers within the executed trade route." },],
       cta: "Explore Router"
     },
     service: {
