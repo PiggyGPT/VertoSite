@@ -8,6 +8,7 @@ interface SharedPillarNavProps {
 
 export default function SharedPillarNav({ currentStep = 0, onStepClick }: SharedPillarNavProps) {
   const [isVisible, setIsVisible] = useState(true);
+  const [isFixed, setIsFixed] = useState(false);
   const navContainerRef = useRef<HTMLDivElement>(null);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
@@ -30,13 +31,21 @@ export default function SharedPillarNav({ currentStep = 0, onStepClick }: Shared
 
   useEffect(() => {
     const handleScroll = () => {
-      const pillarContent = document.getElementById('pillar-content');
+      const navContainer = navContainerRef.current;
       const pillarEnd = document.getElementById('pillar-end');
       
-      if (pillarEnd) {
+      if (navContainer && pillarEnd) {
+        const navRect = navContainer.getBoundingClientRect();
         const pillarEndRect = pillarEnd.getBoundingClientRect();
+        const mainNavHeight = 64; // h-16
+        
+        // Nav should become fixed when it reaches the top of viewport (during scroll)
+        // and should stay fixed as long as pillar section is visible
+        const shouldBeFixed = navRect.top <= mainNavHeight && pillarEndRect.top > mainNavHeight;
+        setIsFixed(shouldBeFixed);
+        
         // Hide when scrolled past the end of pillars section
-        setIsVisible(pillarEndRect.top > 64); // 64px = height of main nav
+        setIsVisible(pillarEndRect.top > mainNavHeight);
       }
     };
     
@@ -67,7 +76,7 @@ export default function SharedPillarNav({ currentStep = 0, onStepClick }: Shared
   return (
     <div ref={navContainerRef} className={`w-full transition-all duration-300 ${
       isVisible 
-        ? 'sticky top-16 z-40 backdrop-blur-md bg-slate-900/40 border-b border-white/20' 
+        ? `${isFixed ? 'fixed top-16 left-0 right-0 z-40' : 'relative'} backdrop-blur-md bg-slate-900/40 border-b border-white/20` 
         : 'hidden'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
