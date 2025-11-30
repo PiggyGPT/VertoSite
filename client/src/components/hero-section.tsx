@@ -1,4 +1,5 @@
-import { Phone, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
+import { SiTelegram } from "react-icons/si";
 import { useState, useRef, useEffect } from "react";
 import { useCalendlyModal } from "./calendly-modal";
 import SharedPillarNav from "./shared-pillar-nav";
@@ -54,7 +55,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
           </h1>
 
           <p className="text-base sm:text-xl md:text-2xl text-slate-300 leading-relaxed mb-12 max-w-2xl">
-            Capture liquidity from the $300B stablecoin market with compliant infrastructure.
+            Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-20 w-full sm:w-auto">
@@ -66,14 +67,16 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
               <Calendar className="w-4 h-4" />
               Schedule Demo
             </button>
-            <button
-              onClick={() => openModal("Contact Sales")}
+            <a
+              href="https://t.me/nileshkhaitan"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
-              data-testid="hero-contact-sales"
+              data-testid="hero-contact-telegram"
             >
-              <Phone className="w-4 h-4" />
-              Contact Sales
-            </button>
+              <SiTelegram className="w-4 h-4" />
+              Contact Us
+            </a>
           </div>
 
           {/* Social Proof */}
