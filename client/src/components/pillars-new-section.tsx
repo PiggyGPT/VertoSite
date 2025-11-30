@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useCalendlyModal } from "./calendly-modal";
+import {
+  cursorStyle,
+  DISTRIBUTION_ANIMATION_TIMINGS,
+  PAYMENTS_ANIMATION_TIMINGS,
+  PANEL_TRANSITION_CLASSES,
+  POPUP_TRANSITION_CLASSES,
+  getButtonStyle,
+  DISTRIBUTION_FLOW_STEPS,
+} from "./pillars-animations";
 
 interface CustomFounderQuote {
   pillarKey: string;
@@ -39,22 +48,6 @@ const VisualContainer = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 );
-
-// CSS for the typing cursor animation
-const cursorStyle = `
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-  .typing-cursor {
-    animation: blink 1s step-end infinite;
-    width: 4px;
-    height: 3rem;
-    background-color: #22c55e;
-    display: inline-block;
-    vertical-align: sub;
-    margin-left: 4px;
-  }
-`;
 
 // Reusable Header component for consistent styling
 const Header = ({ title, subtitle, icon, badgeText }: {
