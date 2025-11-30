@@ -1,6 +1,7 @@
-import { Landmark, Repeat, BarChart3, ArrowRight, CreditCard, Shield, TrendingDown, Users, Target, Quote } from "lucide-react";
+import { Landmark, Repeat, BarChart3, ArrowRight, CreditCard, Shield, TrendingDown, Users, Target, Quote, Calendar } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import { useCalendlyModal } from "./calendly-modal";
 
 // Icon mapping for custom quotes
 const iconMap = {
@@ -126,6 +127,7 @@ export default function ProblemSection({
   description = "We understand the unique operational, security, and compliance challenges institutions face when transacting on public blockchains.",
   customQuotes
 }: ProblemSectionProps = {}) {
+    const { openModal, CalendlyModal } = useCalendlyModal();
     
     const defaultPainPoints = [
         {
@@ -176,12 +178,26 @@ export default function ProblemSection({
                 </div>
 
                 {/* Pain Points Grid */}
-                <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mb-12">
                     {painPoints.map((point, index) => (
                        <PainPointCard key={index} {...point} />
                     ))}
                 </div>
+
+                {/* CTA Button */}
+                <div className="text-center">
+                  <button
+                    onClick={() => openModal("Schedule Demo")}
+                    className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm gap-2 min-w-[160px]"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    <span>Schedule Demo</span>
+                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
             </div>
+
+            <CalendlyModal />
         </section>
     );
 }
