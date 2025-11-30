@@ -13,12 +13,12 @@ const TimelineItem = ({ phase, title, icon: Icon, color, children }: { phase: st
     <div className="absolute left-[-9px] sm:left-[-11px] top-6 sm:top-8 flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-slate-800 ring-4 ring-white dark:ring-slate-800">
       <div className={`w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-${color} transition-colors`}></div>
     </div>
-    <p className={`text-xs sm:text-sm font-semibold uppercase tracking-wider text-${color}`}>{phase}</p>
-    <h4 className="mt-1 text-lg sm:text-xl font-semibold text-slate-800 dark:text-slate-100 flex items-center">
+    <p className={`text-sm sm:text-base font-semibold uppercase tracking-wider text-${color}`}>{phase}</p>
+    <h4 className="mt-1 text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-100 flex items-center">
       <Icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-slate-500 dark:text-slate-400" />
       {title}
     </h4>
-    <div className="mt-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+    <div className="mt-3 text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
       {children}
     </div>
   </div>

@@ -1294,10 +1294,10 @@ export default function PillarsSection({
       founderQuote: {
         quote: "Trust in a stablecoin is built on two non-negotiable principles: verifiable reserves and real-time settlement of both deposits and withdrawals.",
         name: "David Cass",
-        title: "CEO | Former Federal Reserve Regulator",
+        title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Receive Fiat → Issue Tokens", description: "Issue tokens to client wallets against verified fiat deposits in real-time." }, { icon: CreditCard, title: "Burn Tokens → Transfer Fiat", description: "Trigger fiat wires against redeemed tokens, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Receive Fiat → Issue Tokens", description: "Issue tokens to client wallets against verified fiat deposits in real-time." }, { icon: CreditCard, title: "Burn Tokens → Send Fiat", description: "Trigger fiat wires against redeemed tokens, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Explore APIs"
     },
     trading: {
