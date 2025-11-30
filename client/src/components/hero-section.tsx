@@ -15,6 +15,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
   const prevStepRef = useRef(0);
+  const isClickRef = useRef(false);
 
   const orderedKeys = ["distribution", "trading", "payments", "service"];
 
@@ -36,9 +37,14 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
     prevStepRef.current = currentStep;
   }, [currentStep]);
 
-  // Handle scroll - disable auto-play and reset to first tab
+  // Handle scroll - disable auto-play and reset to first tab (but not if due to tab click)
   useEffect(() => {
     const handleScroll = () => {
+      // Skip reset if scroll was triggered by tab click
+      if (isClickRef.current) {
+        isClickRef.current = false;
+        return;
+      }
       setIsAutoPlaying(false);
       setCurrentStep(0);
       setAnimatedStep(0);
@@ -48,9 +54,14 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
   }, []);
 
   const handlePillarClick = (index: number) => {
+    isClickRef.current = true;
     setCurrentStep(index);
     setIsAutoPlaying(false);
     if (onPillarClick) onPillarClick(index);
+    // Reset flag after scroll completes
+    setTimeout(() => {
+      isClickRef.current = false;
+    }, 1000);
   };
 
   return (
