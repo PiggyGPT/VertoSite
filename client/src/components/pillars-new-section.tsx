@@ -1444,10 +1444,10 @@ export default function PillarsSection({
             </div>
           </div>
         </div>
-      </div>
 
-      {/* DESIGN CHANGE: Founder Insight Banner moved between content and navigation */}
-      {activePillar?.founderQuote && <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16"><FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} /></div>}
+        {/* DESIGN CHANGE: Founder Insight Banner moved to bottom, after benefits and UX slideshow */}
+        {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
+      </div>
 
       <CalendlyModal title={`Get Started with ${activePillar?.label || 'Service'}`} />
     </div>

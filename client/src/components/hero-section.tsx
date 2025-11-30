@@ -180,7 +180,7 @@ export default function HeroSection() {
 
           {/* Social Proof */}
           <div className="flex flex-col items-center gap-8 w-full border-t border-white/10 pt-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em]">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-[0.2em]">
               Founded by leaders from
             </p>
             <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-80 hover:opacity-100 transition-opacity">
