@@ -1722,6 +1722,7 @@ export default function PillarsSection({
   const orderedKeys = customOrder || defaultOrder;
   
   const [currentStep, setCurrentStep] = useState(0);
+  const [animatedStep, setAnimatedStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
   const [isNavScrolled, setIsNavScrolled] = useState(false);
@@ -1764,11 +1765,11 @@ export default function PillarsSection({
     prevStepRef.current = currentStep;
   }, [currentStep]);
 
-  // Auto-advance every 3 seconds
+  // Auto-advance nav animation every 3 seconds (without switching actual tabs)
   useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(() => {
-      setCurrentStep(prev => (prev + 1) % orderedKeys.length);
+      setAnimatedStep(prev => (prev + 1) % orderedKeys.length);
     }, 3000);
     return () => clearInterval(timer);
   }, [isAutoPlaying, orderedKeys.length]);
