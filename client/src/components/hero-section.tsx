@@ -137,14 +137,16 @@ export default function HeroSection() {
     setIsAutoPlaying(false);
     // Trigger event for PillarsSection to listen
     window.dispatchEvent(new CustomEvent('activatePillar', { detail: orderedKeys[index] }));
-    // Scroll to pillar content, accounting for nav bar height (64px)
+    // Scroll to pillar content showing both main nav and pillar nav
     setTimeout(() => {
       const element = document.getElementById('pillar-content');
-      if (element) {
-        const navHeight = 64; // h-16 = 64px
+      if (element && navContainerRef.current) {
+        const mainNavHeight = 64; // h-16 = 64px
+        const pillarNavHeight = navContainerRef.current.offsetHeight;
+        const totalNavHeight = mainNavHeight + pillarNavHeight;
         const elementTop = element.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
-          top: elementTop + navHeight,
+          top: elementTop - totalNavHeight,
           behavior: 'smooth'
         });
       }

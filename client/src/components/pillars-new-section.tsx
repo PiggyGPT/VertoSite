@@ -1318,7 +1318,7 @@ export default function PillarsSection({
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
-        quote: "Stablecoins drive adoption by meeting users where they are - whether they hold USDC on Coinbase, USDT on Binance, or fiat in their bank - with a simple, reliable experience.",
+        quote: "Stablecoins drive volume by meeting users where they are - whether they hold USDC on Coinbase, USDT on Binance, or fiat in their bank - with a simple, reliable experience.",
         name: "Nilesh Khaitan",
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
