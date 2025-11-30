@@ -100,49 +100,52 @@ export default function CompetitiveDiffSection() {
                         </table>
                     </div>
 
-                    {/* Mobile Cards - Competitive Focus */}
-                    <div className="mb-12 md:hidden grid gap-4">
-                        {features.map((feature, index) => {
-                            const Icon = feature.icon;
-                            return (
-                                <div key={index} className="relative overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
-                                    {/* Feature Header */}
-                                    <div className="bg-slate-50 dark:bg-slate-800/50 px-4 py-3 flex items-center gap-2 border-b border-slate-200 dark:border-slate-700">
-                                        <div className="flex-shrink-0 w-6 h-6 rounded bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                                            <Icon className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
-                                        </div>
-                                        <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-                                            {feature.name}
-                                        </h3>
-                                    </div>
-
-                                    {/* Split Comparison */}
-                                    <div className="grid grid-cols-2 divide-x divide-slate-200 dark:divide-slate-700">
-                                        {/* Albor - Highlighted */}
-                                        <div className="bg-gradient-to-br from-slate-900/5 to-transparent dark:from-white/5 dark:to-transparent p-4 space-y-2">
-                                            <div className="inline-block">
-                                                <span className="text-xs font-bold px-2 py-1 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center gap-1">
-                                                    <span style={{ color: '#F1BD76' }}>★</span> Albor
+                    {/* Mobile Table */}
+                    <div className="mb-12 md:hidden overflow-x-auto">
+                        <table className="border-collapse w-full">
+                            <thead>
+                                <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                                    <th className="text-left py-3 px-3 font-semibold text-slate-900 dark:text-white text-xs" style={{ width: '35%' }}>
+                                        Feature
+                                    </th>
+                                    <th className="text-center py-3 px-3" style={{ width: '32.5%' }}>
+                                        <img src="/logos/svg/albor.svg" alt="Albor" className="h-3.5 w-auto" />
+                                    </th>
+                                    <th className="text-center py-3 px-3 font-semibold text-slate-600 dark:text-slate-400 text-xs" style={{ width: '32.5%' }}>
+                                        Others
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {features.map((feature, index) => {
+                                    const Icon = feature.icon;
+                                    return (
+                                        <tr key={index} className="border-b border-slate-100 dark:border-slate-800">
+                                            <td className="py-3 px-3">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="flex-shrink-0 w-5 h-5 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                                                        <Icon className="w-3 h-3 text-slate-600 dark:text-slate-400" />
+                                                    </div>
+                                                    <span className="font-semibold text-slate-900 dark:text-white text-xs">
+                                                        {feature.name}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td className="py-3 px-3 text-center">
+                                                <span className="text-xs font-semibold text-slate-900 dark:text-white leading-tight">
+                                                    {feature.albor}
                                                 </span>
-                                            </div>
-                                            <p className="text-sm font-bold text-slate-900 dark:text-white leading-snug">
-                                                {feature.albor}
-                                            </p>
-                                        </div>
-
-                                        {/* Competitors - Muted */}
-                                        <div className="bg-slate-50/50 dark:bg-slate-900/30 p-4 space-y-2">
-                                            <span className="text-xs font-semibold text-slate-500 dark:text-slate-500">
-                                                Others
-                                            </span>
-                                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-snug line-through opacity-75">
-                                                {feature.competitors}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                                            </td>
+                                            <td className="py-3 px-3 text-center">
+                                                <span className="text-xs text-slate-600 dark:text-slate-400 leading-tight">
+                                                    {feature.competitors}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
                     </div>
 
                     {/* CTA Button - Enhanced */}
