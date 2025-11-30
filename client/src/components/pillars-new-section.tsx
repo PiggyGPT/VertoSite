@@ -497,7 +497,7 @@ const QRDisplay = () => (
     </div>
     
     <div className="mb-2">
-      <span className="text-3xl font-bold text-slate-900 dark:text-white">120.00</span>
+      <span className="text-3xl font-bold text-slate-900 dark:text-white">1,200.00</span>
       <span className="text-lg font-medium text-slate-500 ml-1">BSD</span>
     </div>
 
@@ -518,7 +518,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
       </div>
        <div className="text-right">
         <p className="text-xs text-slate-500 uppercase tracking-wide">Amount</p>
-        <p className="font-bold text-slate-900 dark:text-white">120.00 BSD</p>
+        <p className="font-bold text-slate-900 dark:text-white">1,200.00 BSD</p>
       </div>
     </div>
 
@@ -554,7 +554,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pt-2 border-t border-purple-200 dark:border-purple-900/50 space-y-1">
              <div className="flex justify-between text-xs">
                <span className="text-slate-500">Rate</span>
-               <span className="font-mono text-slate-700 dark:text-slate-300">1 EUR = 1.00 BSD</span>
+               <span className="font-mono text-slate-700 dark:text-slate-300">1 EUR = 20 BSD</span>
              </div>
              <div className="flex justify-between text-xs">
                <span className="text-slate-500">Network Fee</span>
@@ -562,7 +562,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
              </div>
               <div className="flex justify-between text-xs font-bold pt-1 mt-1 border-t border-dashed border-purple-200 dark:border-purple-900/30">
                <span className="text-slate-700 dark:text-slate-300">Total</span>
-               <span className="font-mono text-purple-700 dark:text-purple-400">€120.00</span>
+               <span className="font-mono text-purple-700 dark:text-purple-400">€60.00</span>
              </div>
            </motion.div>
         )}
@@ -570,7 +570,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
     </div>
 
     <button className={`mt-auto w-full py-3 text-white rounded-xl font-semibold transition-all duration-200 ${onPay ? 'bg-purple-700 scale-95' : 'bg-purple-600 hover:bg-purple-700'}`}>
-      Pay €120.00
+      Pay €60.00
     </button>
   </div>
 );
@@ -579,6 +579,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
 const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing' | 'complete' }) => {
     const isExecuting = status === 'executing' || status === 'complete';
     const isComplete = status === 'complete';
+    const isCalculating = status === 'calculating';
 
     return (
     <div className="absolute inset-0 bg-slate-900/95 backdrop-blur-md z-20 flex flex-col font-mono text-xs overflow-hidden">
@@ -586,7 +587,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
       <div className="p-6 pb-2">
         <div className="flex items-center gap-2 mb-1 text-purple-400">
             {isComplete ? <CheckCircle className="w-4 h-4 text-green-500" /> : <RefreshCw className="w-4 h-4 animate-spin" />}
-            <span className="font-bold tracking-wider">{isComplete ? 'SETTLEMENT COMPLETE' : 'EXECUTING ROUTE'}</span>
+            <span className="font-bold tracking-wider">{isComplete ? 'SETTLEMENT COMPLETE' : isCalculating ? 'CALCULATING ROUTE' : 'EXECUTING ROUTE'}</span>
         </div>
         <div className="h-0.5 w-full bg-slate-800 rounded-full mt-2 overflow-hidden">
             <motion.div 
@@ -609,7 +610,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
           </div>
           <div className="bg-slate-800 p-2 rounded border border-slate-700">
             <span className="text-blue-400">INPUT:</span> <span className="text-white">SEPA_INSTANT</span>
-            <div className="text-slate-400 mt-1">€120.00 EUR → Monerium IBAN</div>
+            <div className="text-slate-400 mt-1">€60.00 EUR → Monerium IBAN</div>
           </div>
         </motion.div>
   
@@ -626,12 +627,34 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
   
         {/* Step 3 */}
         <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.4 }} className="relative pl-8">
-            <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 delay-700 ${isComplete ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
-              {isComplete ? <CheckCircle className="w-4 h-4 text-white" /> : "3"}
+            <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 delay-700 ${isExecuting ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
+              {isExecuting ? <CheckCircle className="w-4 h-4 text-white" /> : "3"}
             </div>
           <div className="bg-slate-800 p-2 rounded border border-slate-700">
             <span className="text-green-400">SWAP:</span> <span className="text-white">EURe → BSD</span>
             <div className="text-slate-400 mt-1">Pool: Albor Institutional V2</div>
+          </div>
+        </motion.div>
+
+        {/* Step 4 */}
+        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.6 }} className="relative pl-8">
+            <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 ${isExecuting ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
+              {isExecuting ? <CheckCircle className="w-4 h-4 text-white" /> : "4"}
+            </div>
+          <div className="bg-slate-800 p-2 rounded border border-slate-700">
+            <span className="text-cyan-400">TRANSFER:</span> <span className="text-white">→ Maria Silva</span>
+            <div className="text-slate-400 mt-1">1,200.00 BSD</div>
+          </div>
+        </motion.div>
+
+        {/* Step 5 */}
+        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.8 }} className="relative pl-8">
+            <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 ${isComplete ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
+              {isComplete ? <CheckCircle className="w-4 h-4 text-white" /> : "5"}
+            </div>
+          <div className="bg-slate-800 p-2 rounded border border-slate-700">
+            <span className="text-orange-400">FEE:</span> <span className="text-white">Albor Network</span>
+            <div className="text-slate-400 mt-1">Sponsored by Albor</div>
           </div>
         </motion.div>
       </div>
@@ -651,7 +674,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
                     <Fingerprint className="w-8 h-8 text-purple-600 dark:text-purple-400 animate-pulse" />
                     </div>
                     <h3 className="font-bold text-lg text-slate-900 dark:text-white font-sans">Sign Transaction</h3>
-                    <p className="text-sm text-slate-500 mb-6 font-sans">Authorize swap of €120.00</p>
+                    <p className="text-sm text-slate-500 mb-6 font-sans">Authorize swap of €60.00</p>
                     <div className="w-full h-1 bg-slate-100 dark:bg-slate-700 rounded overflow-hidden">
                     <motion.div 
                         initial={{ width: "0%" }} 
@@ -688,12 +711,16 @@ const Receipt = () => (
           <span className="font-medium text-slate-900 dark:text-white">Maria Silva</span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-slate-500">Method</span>
-          <span className="font-medium text-slate-900 dark:text-white">SEPA Instant</span>
+          <span className="text-slate-500">Amount</span>
+          <span className="font-medium text-slate-900 dark:text-white">1,200.00 BSD</span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-slate-500">Total</span>
-          <span className="font-bold text-slate-900 dark:text-white">€120.00</span>
+          <span className="text-slate-500">Method</span>
+          <span className="font-medium text-slate-900 dark:text-white">SEPA Instant (€60.00)</span>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="text-slate-500">Fee</span>
+          <span className="font-medium text-green-600">Sponsored</span>
         </div>
       </div>
       
