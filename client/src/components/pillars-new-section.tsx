@@ -511,7 +511,7 @@ const QRDisplay = () => (
 // 3. User Selection (Updated with Payer Name & Breakdown)
 const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
   <div className="flex flex-col h-full px-6 pt-8 pb-6">
-    <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+    <div className="flex items-center justify-between mb-12 pb-4 border-b border-slate-100 dark:border-slate-800">
       <div>
         <p className="text-xs text-slate-500 uppercase tracking-wide">Paying</p>
         <p className="font-bold text-slate-900 dark:text-white">Maria Silva</p>
@@ -653,7 +653,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
               {isComplete ? <CheckCircle className="w-4 h-4 text-white" /> : "5"}
             </div>
           <div className="bg-slate-800 p-2 rounded border border-slate-700">
-            <span className="text-orange-400">FEE:</span> <span className="text-white">Albor Network</span>
+            <span className="text-orange-400">FEE:</span> <span className="text-white">Banco Bisa</span>
             <div className="text-slate-400 mt-1">Sponsored by Albor</div>
           </div>
         </motion.div>
