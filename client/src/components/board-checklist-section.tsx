@@ -37,22 +37,22 @@ export default function PilotProgramSection() {
               Launch Your Pilot in 90 Days
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed px-2">
-              Our program is structured to deliver the quantifiable data your board and regulators need to scale with confidence.
+              De-risk your launch with a phased strategy that proves liquidity, network adoption, and operational readiness.
             </p>
           </div>
 
           <div className="max-w-3xl mx-auto">
             {/* TimelineItem components remain unchanged */}
-            <TimelineItem phase="Days 1-30" title="Foundation & Integration" icon={Rocket} color="verto-orange">
-              <p>Set governance, security, and compliance controls. Deploy the self-hosted stack, integrate with core systems, and onboard initial agents and merchants. Encode policies into Verto’s AI engine for automated enforcement.</p>
+            <TimelineItem phase="Days 1-30" title="Foundation & Liquidity Onboarding" icon={Rocket} color="verto-orange">
+              <p>Integrate core banking systems, onboard 3-5 anchor partners, and connect with pre-vetted market makers to establish initial liquidity pools.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 31-60" title="Live Operations & Monitoring" icon={Target} color="verto-green">
-              <p>Go live with limited issuance and payments. Operate under 24×7 monitoring by Verto’s global security and platform teams. Track adoption, performance, and compliance while validating operational readiness.</p>
+            <TimelineItem phase="Days 31-60" title="Live Transaction Testing" icon={Target} color="verto-green">
+              <p>Execute real-world payments and redemptions while market makers provide continuous liquidity. Validate user experience and liquidity depth under real conditions.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 61-90" title="Analysis & Strategic Reporting" icon={BarChart3} color="verto-blue">
-              <p>Deliver full regulatory audit trail, ROI/TCO benchmarking, and stress-tested performance data. Close remediation items and present a phased enterprise rollout plan with governance and controls in place.</p>
+            <TimelineItem phase="Days 61-90" title="Performance & Scale Planning" icon={BarChart3} color="verto-blue">
+              <p>Analyze liquidity metrics, transaction data, and compliance reports to present a data-backed plan for full network rollout with sustainable liquidity.</p>
             </TimelineItem>
           </div>
 
