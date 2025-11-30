@@ -1398,6 +1398,9 @@ export default function PillarsSection({
     <div id="infrastructure" className="relative">
       {/* The main content container now has more consistent padding */}
       <div id="pillar-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 scroll-mt-28">
+        {/* Founder Quote Banner - moved to top */}
+        {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center">
           {/* Left Column: Text Content */}
           <div className="lg:col-span-1">
@@ -1444,9 +1447,6 @@ export default function PillarsSection({
             </div>
           </div>
         </div>
-
-        {/* DESIGN CHANGE: Founder Insight Banner moved to bottom, after benefits and UX slideshow */}
-        {activePillar?.founderQuote && <FounderInsightBanner {...activePillar.founderQuote} colorClasses={activeColors} />}
       </div>
 
       <CalendlyModal title={`Get Started with ${activePillar?.label || 'Service'}`} />
