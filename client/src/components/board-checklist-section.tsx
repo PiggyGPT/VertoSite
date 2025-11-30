@@ -43,7 +43,7 @@ export default function PilotProgramSection() {
 
           <div className="max-w-3xl mx-auto">
             {/* TimelineItem components remain unchanged */}
-            <TimelineItem phase="Days 1-90" title="Foundation & Liquidity Onboarding" icon={Rocket} color="albor-blue">
+            <TimelineItem phase="Days 1-90" title="Foundation & Liquidity Onboarding" icon={Rocket} color="albor-plum">
               <p>We integrate your core banking systems, onboard your team to run operations, and connect you with pre-vetted market makers to establish immediate liquidity.</p>
             </TimelineItem>
 
