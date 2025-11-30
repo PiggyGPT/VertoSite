@@ -575,7 +575,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
       </div>
     </div>
 
-    <div className="space-y-3 mb-4">
+    <div className="space-y-3 mb-2">
       {/* Option 1: Coinbase */}
       <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'coinbase' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/10' : 'border-slate-200 dark:border-slate-700 opacity-50'}`}>
         <div className="flex items-center gap-3">
@@ -602,8 +602,8 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
           {method === 'bank' && <CheckCircle className="w-5 h-5 text-purple-600" />}
         </div>
         
-        {/* Expanded Breakdown */}
-        {method === 'bank' && (
+        {/* Expanded Breakdown - Only show when confirmed (onPay) */}
+        {method === 'bank' && onPay && (
            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pt-2 border-t border-purple-200 dark:border-purple-900/50 space-y-1">
              <div className="flex justify-between text-xs">
                <span className="text-slate-500">Rate</span>
