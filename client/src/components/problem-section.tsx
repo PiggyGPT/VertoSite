@@ -45,9 +45,15 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
     text: '#A18DE5',
     quote: '#A18DE5'
   },
+  'albor-blue': { 
+    bg: 'rgba(77, 136, 255, 0.04)',
+    border: 'rgba(77, 136, 255, 0.1)',
+    text: '#4D88FF',
+    quote: '#4D88FF'
+  },
   'albor-teal': { 
-    bg: 'rgba(0, 77, 64, 0.04)',
-    border: 'rgba(0, 77, 64, 0.1)',
+    bg: 'rgba(131, 244, 236, 0.04)',
+    border: 'rgba(131, 244, 236, 0.1)',
     text: '#83F4EC',
     quote: '#83F4EC'
   }
@@ -113,21 +119,21 @@ export default function ProblemSection({
     
     const defaultPainPoints = [
         {
-            icon: Landmark, color: 'albor-gold', persona: 'Head of Innovation', company: 'Global Bank',
+            icon: Landmark, color: 'albor-blue', persona: 'Head of Innovation', company: 'Global Bank',
             quote: 'How do we make our digital currency usable across our global network, without compromising the trust we\'ve built over decades?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
             ctaLink: '/solutions/banking'
         },
         {
-            icon: Repeat, color: 'albor-copper', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
+            icon: Repeat, color: 'albor-teal', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
             quote: 'Our clients are withdrawing assets daily to chase yield we can\'t offer. We\'re becoming a free on-ramp to an ecosystem that\'s eating our lunch.',
             testId: 'quote-exchange',
             ctaText: 'Explore Exchange Solutions',
             ctaLink: '/solutions/exchanges'
         },
         {
-            icon: BarChart3, color: 'albor-plum', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
+            icon: BarChart3, color: 'albor-gold', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
             quote: 'How do I give my traders the speed to execute time-sensitive alpha on-chain without signing off on a potential eight-figure mistake?',
             testId: 'quote-trading',
             ctaText: 'Explore Trading Solutions',
