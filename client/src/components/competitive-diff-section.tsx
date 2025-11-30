@@ -59,7 +59,7 @@ export default function CompetitiveDiffSection() {
                                     </th>
                                     <th className="text-center py-3 px-4 font-semibold" style={{ width: '40%' }}>
                                         <div className="flex items-center justify-center">
-                                            <img src="/logos/albor_logo.png" alt="Albor Logo" className="h-4 w-auto drop-shadow-md" />
+                                            <img src="/logos/albor_logo.svg" alt="Albor Logo" className="h-4 w-auto drop-shadow-md" />
                                         </div>
                                     </th>
                                     <th className="text-center py-3 px-4 font-semibold text-slate-600 dark:text-slate-400 text-base" style={{ width: '30%' }}>
