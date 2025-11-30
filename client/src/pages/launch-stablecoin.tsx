@@ -134,15 +134,14 @@ export default function LaunchStablecoin() {
               persona: "Central Bank Advisor",
               company: "Bolivia",
               quote:
-                "The rise in USDT has been draining our FX reserves and inflating our currency. We need a regulated stablecoin to formalize this demand and restore dollar liquidity to the Boliviano.",
+                "The rise in USDT has been draining our dollar reserves and inflating our currency. We need to formalize this demand and restore FX liquidity to the Boliviano.",
             },
             {
               icon: "BarChart3",
               color: "verto-purple",
               persona: "CEO, Commodities Exchange",
               company: "Guatemala",
-              quote:
-                "Our Gold ETF can't compete with PAXG's 24/7 liquidity against USDC. We need our own tokenized gold to compete in the same pools and capture that market share.",
+              quote: "Our Gold ETF can't compete with PAXG's 24/7 liquidity against USDC. We need to compete in the same pools and capture that market share.",
             },
           ]}
         />
