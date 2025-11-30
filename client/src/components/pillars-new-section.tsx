@@ -1141,7 +1141,7 @@ const MintingVisual = () => {
 
         {/* PANEL 1: INSTRUCTIONS + POPUP */}
         <div className={getPanelClasses(1)}>
-          <div className="w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative bg-white dark:bg-slate-900 overflow-hidden">
+          <div className="w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative bg-white dark:bg-slate-900 overflow-hidden justify-end">
             <div className={`transition-all duration-500 ${['waiting', 'received', 'minting'].includes(animationState.statusPopupState) ? 'opacity-40 blur-[1px]' : 'opacity-100 blur-0'}`}>
               <div className="flex items-center justify-between mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
                 <div className="flex items-center gap-2">
@@ -1736,7 +1736,7 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Receive Fiat → Issue Tokens", description: "Issue tokens to client wallets against verified fiat deposits in real-time." }, { icon: CreditCard, title: "Burn Tokens → Send Fiat", description: "Trigger fiat wires against redeemed tokens, maintaining full control over your liquidity." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Fiat On-Ramp", description: "Issue tokens to client wallets against verified fiat deposits in Virtual IBANs." }, { icon: CreditCard, title: "Automated Redemption", description: "Streamline token redemption by auto-triggering fiat wires against token burns." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Explore APIs"
     },
     trading: {
