@@ -611,7 +611,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
              </div>
              <div className="flex justify-between text-xs">
                <span className="text-slate-500">Network Fee</span>
-               <span className="font-mono text-green-600">Sponsored</span>
+               <span className="font-mono text-slate-700 dark:text-slate-300">3.00 BSD</span>
              </div>
               <div className="flex justify-between text-xs font-bold pt-1 mt-1 border-t border-dashed border-purple-200 dark:border-purple-900/30">
                <span className="text-slate-700 dark:text-slate-300">Total</span>
@@ -773,7 +773,7 @@ const Receipt = () => (
         </div>
         <div className="flex justify-between items-center">
           <span className="text-slate-500">Fee</span>
-          <span className="font-medium text-green-600">Sponsored</span>
+          <span className="font-medium text-slate-900 dark:text-white">3.00 BSD</span>
         </div>
       </div>
       
