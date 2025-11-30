@@ -19,14 +19,14 @@ export function DynamicBackground() {
     };
   }, []);
 
-  // Brand colors for dawn progression
+  // Brand colors - Official Albor Palette
   const brandColors = [
-    '#F1BD76', // Burnished Gold (Core Value/Dawn Light)
-    '#A66E4E', // Muted Copper (Metallic Transition)
-    '#004D40', // Corporate Teal/Pine (Growth & Stability)
-    '#6D559E', // Deep Plum Violet (Atmospheric Luxury)
-    ];
-  // Dark base that stays throughout
+    '#F1BD76', // Dawn
+    '#4D88FF', // Trust Blue
+    '#2B697A', // Growth Teal
+    '#5C4C8C', // Innovation
+  ];
+  // Dark base - Foundation
   const darkBase = '#1E1F2B';
 
   // Determine which transition we're in (0-3)
