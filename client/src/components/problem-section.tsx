@@ -27,6 +27,12 @@ interface PainPointCardProps {
 }
 
 const colorMap: { [key: string]: { bg: string; border: string; text: string; quote: string } } = {
+  'albor-innovation': { 
+    bg: 'rgba(168, 133, 255, 0.04)',
+    border: 'rgba(168, 133, 255, 0.1)',
+    text: '#A885FF',
+    quote: '#A885FF'
+  },
   'albor-gold': { 
     bg: 'rgba(241, 189, 118, 0.04)',
     border: 'rgba(241, 189, 118, 0.1)',
@@ -123,7 +129,7 @@ export default function ProblemSection({
     
     const defaultPainPoints = [
         {
-            icon: Landmark, color: 'albor-plum', persona: 'Head of Innovation', company: 'Global Bank',
+            icon: Landmark, color: 'albor-innovation', persona: 'Head of Innovation', company: 'Global Bank',
             quote: 'How do we make our digital currency usable across our global network, without compromising the trust we\'ve built over decades?',
             testId: 'quote-bank',
             ctaText: 'Explore Banking Solutions',
