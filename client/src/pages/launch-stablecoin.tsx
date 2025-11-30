@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
+import SharedPillarNav from "@/components/shared-pillar-nav";
 import ProblemSection from "@/components/problem-section";
 import BoardChecklistSection from "@/components/board-checklist-section";
 import WhyNowSection from "@/components/why-now-section";
@@ -98,11 +99,23 @@ const stablecoinWhyNowReasons = [
 ];
 
 export default function LaunchStablecoin() {
+  const [currentStep, setCurrentStep] = useState(0);
+
   useEffect(() => {
     updatePageSEO("launch-stablecoin");
   }, []);
 
+  useEffect(() => {
+    const handlePillarActivate = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      const pillarKey = customEvent.detail;
+      const keys = ["distribution", "trading", "payments", "service"];
+      setCurrentStep(keys.indexOf(pillarKey));
+    };
 
+    window.addEventListener('activatePillar', handlePillarActivate);
+    return () => window.removeEventListener('activatePillar', handlePillarActivate);
+  }, []);
 
   return (
     <div className="min-h-screen transition-colors">
@@ -110,9 +123,11 @@ export default function LaunchStablecoin() {
       <div id="hero">
         <HeroSection />
       </div>
+      <SharedPillarNav currentStep={currentStep} onStepClick={(index) => setCurrentStep(index)} />
       <div id="infrastructure">
         <PillarsSection />
       </div>
+      <div id="pillar-end"></div>
       <CompetitiveDiffSection />
       <BoardChecklistSection />
       <div id="pilot">
@@ -123,7 +138,7 @@ export default function LaunchStablecoin() {
           customQuotes={[
             {
               icon: "CreditCard",
-              color: "albor-innovation",
+              color: "albor-blue",
               persona: "Head of Corporate Banking",
               company: "Panama Bank",
               quote:
@@ -131,7 +146,7 @@ export default function LaunchStablecoin() {
             },
             {
               icon: "Shield",
-              color: "albor-teal",
+              color: "albor-green",
               persona: "Economic Advisor",
               company: "Bolivian Central Bank",
               quote:
@@ -139,11 +154,11 @@ export default function LaunchStablecoin() {
             },
             {
               icon: "BarChart3",
-              color: "albor-blue",
+              color: "albor-purple",
               persona: "CEO",
               company: "Guatemala Commodities",
               quote:
-                "Our Gold instruments can't compete with PAXG's 24/7 global liquidity against USDC. We need to compete in the same pools and capture that market share.",
+                "Our Gold instruments can't compete with PAXG's 24/7 global access and liquidity against USDC. We need to compete in the same pools and capture that market share.",
             },
           ]}
         />

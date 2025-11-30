@@ -1,8 +1,5 @@
 import { Phone, Calendar } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import {
-  Zap, Store, Globe, Shield, TrendingUp
-} from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
 export default function HeroSection() {
@@ -10,28 +7,9 @@ export default function HeroSection() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isWrappingAround, setIsWrappingAround] = useState(false);
-  const [isNavScrolled, setIsNavScrolled] = useState(false);
   const prevStepRef = useRef(0);
-  const tabsContainerRef = useRef<HTMLDivElement>(null);
-  const navContainerRef = useRef<HTMLDivElement>(null);
 
   const orderedKeys = ["distribution", "trading", "payments", "service"];
-
-  const pillars = {
-    distribution: { label: "Tokenize Deposits", color: "albor-plum", icon: Zap },
-    trading: { label: "Attract Liquidity", color: "albor-blue", icon: Store },
-    payments: { label: "Transact Globally", color: "albor-teal", icon: Globe },
-    service: { label: "Secure Compliance", color: "albor-gold", icon: Shield },
-  };
-
-  const colorMap: { [key: string]: string } = {
-    'albor-plum': '#A885FF',
-    'albor-blue': '#4D88FF',
-    'albor-teal': '#5DD4E0',
-    'albor-gold': '#F1BD76',
-  };
-
-  const getAccentColor = (colorName: string) => colorMap[colorName] || '#FDB94E';
 
   // Auto-advance every 10 seconds
   useEffect(() => {
@@ -51,55 +29,9 @@ export default function HeroSection() {
     prevStepRef.current = currentStep;
   }, [currentStep]);
 
-  // Auto-scroll mobile tabs container to center active tab (only on manual click, not auto-play)
-  useEffect(() => {
-    if (tabsContainerRef.current && window.innerWidth < 640 && !isAutoPlaying) {
-      const container = tabsContainerRef.current;
-      const activeTab = container.querySelector(`[data-tab-index="${currentStep}"]`);
-      if (activeTab) {
-        activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-    }
-  }, [currentStep, isAutoPlaying]);
-
-  // Detect scroll for sticky nav glass effect
-  useEffect(() => {
-    const handleScroll = () => {
-      const navContainer = navContainerRef.current;
-      const pillarContent = document.getElementById('pillar-content');
-      
-      if (navContainer && pillarContent) {
-        const navTop = navContainer.getBoundingClientRect().top;
-        const pillarTop = pillarContent.getBoundingClientRect().top;
-        
-        // Sticky if scrolled past nav and before end of pillars
-        setIsNavScrolled(navTop <= 0 && pillarTop > -window.innerHeight);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleStepClick = (index: number) => {
+  const handlePillarClick = (index: number) => {
     setCurrentStep(index);
     setIsAutoPlaying(false);
-    // Trigger event for PillarsSection to listen
-    window.dispatchEvent(new CustomEvent('activatePillar', { detail: orderedKeys[index] }));
-    // Scroll to pillar content showing both main nav and pillar nav
-    setTimeout(() => {
-      const element = document.getElementById('pillar-content');
-      if (element && navContainerRef.current) {
-        const mainNavHeight = 64; // h-16 = 64px
-        const pillarNavHeight = navContainerRef.current.offsetHeight;
-        const totalNavHeight = mainNavHeight + pillarNavHeight;
-        const elementTop = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: elementTop - totalNavHeight,
-          behavior: 'smooth'
-        });
-      }
-    }, 50);
   };
 
   return (
@@ -176,49 +108,6 @@ export default function HeroSection() {
 
         </div>
       </section>
-
-      {/* Pillar Navigation - Full Width at Bottom with Bottom Border */}
-      <div ref={navContainerRef} className={`w-full mt-0.5 transition-all duration-300 ${isNavScrolled ? 'sticky top-16 z-40 backdrop-blur-md bg-slate-900/40 border-b border-white/20' : 'border-b border-white/10'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
-            {orderedKeys.map((key, index) => {
-              const pillar = pillars[key as keyof typeof pillars];
-              const pillarColor = pillar?.color || 'albor-green';
-              const accentColor = getAccentColor(pillarColor);
-              const IconComponent = pillar?.icon || TrendingUp;
-              const isActive = index === currentStep;
-              
-              return (
-                <button
-                  key={index}
-                  data-tab-index={index}
-                  onClick={() => handleStepClick(index)}
-                  className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 py-6 sm:py-8 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start border-b-2 transition-colors ${
-                    isActive ? 'border-b-2' : 'border-b-transparent'
-                  }`}
-                  style={{
-                    borderBottomColor: isActive ? accentColor : 'transparent'
-                  }}
-                >
-                  <IconComponent 
-                    className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors"
-                    style={{
-                      color: isActive ? accentColor : '#94a3b8'
-                    }}
-                  />
-                  <p className={`text-sm font-semibold transition-colors whitespace-nowrap ${
-                    isActive
-                      ? 'text-slate-900 dark:text-white' 
-                      : 'text-slate-500 dark:text-slate-400'
-                  }`}>
-                    {pillar?.label}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
 
       <CalendlyModal />
     </div>
