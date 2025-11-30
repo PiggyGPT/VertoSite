@@ -460,7 +460,7 @@ const ExecutiveDistributionFlow = ({ accentColor = '#A885FF' }: { accentColor?: 
 
 // 1. Merchant creating the invoice
 const MerchantCreate = ({ amount }: { amount: string }) => (
-  <div className="flex flex-col h-full items-center justify-center p-6 text-center">
+  <div className="flex flex-col h-full items-center justify-center p-6 text-center pt-14">
     <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6">
       <Smartphone className="w-8 h-8 text-purple-600 dark:text-purple-400" />
     </div>
@@ -478,7 +478,7 @@ const MerchantCreate = ({ amount }: { amount: string }) => (
 
 // 2. The QR Code Display (Updated with User Details)
 const QRDisplay = () => (
-  <div className="flex flex-col h-full items-center p-6 text-center bg-white dark:bg-slate-900">
+  <div className="flex flex-col h-full items-center p-6 text-center bg-white dark:bg-slate-900 pt-14">
     <div className="flex items-center gap-3 mb-2">
        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
           <User className="w-5 h-5 text-slate-500" />
@@ -510,7 +510,7 @@ const QRDisplay = () => (
 
 // 3. User Selection (Updated with Payer Name & Breakdown)
 const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
-  <div className="flex flex-col h-full px-6 pt-8 pb-6">
+  <div className="flex flex-col h-full px-6 pt-14 pb-6">
     <div className="flex items-center justify-between mb-12 pb-4 border-b border-slate-100 dark:border-slate-800">
       <div>
         <p className="text-xs text-slate-500 uppercase tracking-wide">Paying</p>
@@ -693,7 +693,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
 
 // 5. Final Receipt
 const Receipt = () => (
-    <div className="flex flex-col h-full p-6 bg-white dark:bg-slate-900">
+    <div className="flex flex-col h-full p-6 bg-white dark:bg-slate-900 pt-14">
       <div className="flex items-center justify-center mb-6 mt-8">
         <div className="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
           <CheckCircle className="w-8 h-8" />
