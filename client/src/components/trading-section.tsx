@@ -10,7 +10,7 @@ const FeatureItem = ({ icon: Icon, title, description }: any) => (
         <Icon className="w-6 h-6 text-blue-500" />
       </div>
     </div>
-    <div className="ml-4">
+    <div className="ml-4"
       <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
       <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{description}</p>
     </div>

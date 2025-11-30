@@ -129,7 +129,8 @@ import {
   LifeBuoy, Lock, ArrowRight, Route, Shield, MessageCircle,
   ChevronDown, Landmark, History, Link, Clock, Plus,
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
-  Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow, Calendar, Quote
+  Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow, Calendar, Quote,
+  Loader2, Building, Blocks, ArrowUpRight, ArrowDownLeft, Hash, RefreshCw
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -1004,7 +1005,316 @@ const ComplianceReportPanel = () => {
   );
 };
 
-// --- VISUAL 4: Compliance (Animated Flow) ---
+// --- VISUAL 4: Minting (Deposit to Mint Flow) ---
+const MintingVisual = () => {
+  const [currentPanel, setCurrentPanel] = useState(0);
+  const [animationState, setAnimationState] = useState({
+    typingAmount: false, 
+    isSubmitting: false,
+    showInstructions: false,
+    statusPopupState: 'waiting' as 'waiting' | 'received' | 'minting' | 'complete',
+    showLedger: false,
+    reconciled: false
+  });
+
+  useEffect(() => {
+    if (currentPanel === 0) {
+      setAnimationState({
+        typingAmount: false, isSubmitting: false,
+        showInstructions: false, statusPopupState: 'waiting',
+        showLedger: false, reconciled: false
+      });
+      const timers = [
+        setTimeout(() => setAnimationState(s => ({ ...s, typingAmount: true })), 300),
+        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 1800),
+      ];
+      return () => timers.forEach(clearTimeout);
+    } 
+    else if (currentPanel === 1) {
+      const timers = [
+        setTimeout(() => setAnimationState(s => ({ ...s, showInstructions: true })), 200),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'received' })), 2500),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'minting' })), 4000),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'complete' })), 5500),
+      ];
+      return () => timers.forEach(clearTimeout);
+    }
+    else if (currentPanel === 2) {
+      const timers = [
+        setTimeout(() => setAnimationState(s => ({ ...s, showLedger: true })), 200),
+        setTimeout(() => setAnimationState(s => ({ ...s, reconciled: true })), 1500),
+      ];
+      return () => timers.forEach(clearTimeout);
+    }
+  }, [currentPanel]);
+
+  useEffect(() => {
+    const cyclePanels = () => setCurrentPanel(prev => (prev + 1) % 3);
+    const intervalId = setInterval(cyclePanels, 8500);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
+
+  const getPanelClasses = (panelIndex: number) => {
+    if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
+    if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
+    return `${panelBaseClasses} ${panelHiddenRightClasses}`;
+  };
+
+  const amountText = useTypingAnimation(`70,000.00`, animationState.typingAmount);
+
+  return (
+    <VisualContainer>
+      <div className="relative w-full max-w-md mx-auto h-[480px] font-sans overflow-hidden">
+        {/* PANEL 0: REQUEST UI */}
+        <div className={getPanelClasses(0)}>
+          <div className="w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col bg-white dark:bg-slate-900">
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center">
+                  <ArrowUpRight className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">New Mint Request</h3>
+                  <p className="text-xs text-slate-500">Partner Portal</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 px-2 py-1 bg-green-50 dark:bg-green-900/20 rounded border border-green-100 dark:border-green-800">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-green-700 dark:text-green-400 text-[10px] font-semibold uppercase">Live</span>
+              </div>
+            </div>
+
+            <div className="space-y-6 flex-grow">
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Client</label>
+                <div className="w-full p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-700 dark:text-indigo-300 font-bold text-xs">
+                    MR
+                  </div>
+                  <div>
+                    <span className="block text-slate-900 dark:text-white font-medium text-sm">Maria Rodriguez</span>
+                    <span className="block text-slate-400 text-xs">ID: 8821-MR</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Asset & Amount</label>
+                <div className="w-full p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-900 dark:text-white font-medium">BSD</span>
+                    <span className="text-xs text-slate-400 bg-slate-200 dark:bg-slate-700 px-1 rounded">Stable</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-slate-400 mr-2 text-sm">Bs</span>
+                    <span className="text-slate-900 dark:text-white font-mono text-lg">{amountText}<motion.span className="animate-pulse">|</motion.span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-3 bg-indigo-50 dark:bg-indigo-900/10 rounded border border-indigo-100 dark:border-indigo-800/30">
+                <p className="text-xs text-indigo-800 dark:text-indigo-300 leading-snug">
+                  <span className="font-bold">Note:</span> Initiating this request will generate a unique reference code for Maria's deposit at Banco Bisa.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-auto">
+              <button className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${animationState.isSubmitting ? 'bg-slate-100 text-slate-400 dark:bg-slate-800' : 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-none'}`}>
+                {animationState.isSubmitting ? (
+                  <>
+                    <RefreshCw className="w-4 h-4 animate-spin" />
+                    <span>Allocating Virtual IBAN...</span>
+                  </>
+                ) : (
+                  <span>Generate Deposit Instructions</span>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* PANEL 1: INSTRUCTIONS + POPUP */}
+        <div className={getPanelClasses(1)}>
+          <div className="w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative bg-white dark:bg-slate-900 overflow-hidden">
+            <div className={`transition-all duration-500 ${['waiting', 'received', 'minting'].includes(animationState.statusPopupState) ? 'opacity-40 blur-[1px]' : 'opacity-100 blur-0'}`}>
+              <div className="flex items-center justify-between mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold font-serif">B</div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Banco Bisa</h3>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-widest">Wire Instructions</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded border border-slate-200 dark:border-slate-700">
+                  <p className="text-xs text-slate-400 uppercase">Beneficiary Name</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-white">Stablecorp Settlement Ltd</p>
+                </div>
+                
+                <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded border border-slate-200 dark:border-slate-700">
+                  <p className="text-xs text-slate-400 uppercase">Account Number</p>
+                  <p className="font-mono text-sm text-slate-900 dark:text-white tracking-wider">293-192-992-11</p>
+                </div>
+
+                <div className="bg-yellow-50 dark:bg-yellow-900/10 p-3 rounded border border-yellow-200 dark:border-yellow-700/50">
+                  <p className="text-xs text-yellow-600 dark:text-yellow-500 uppercase font-bold flex items-center gap-1">
+                    <ArrowRight className="w-3 h-3" /> Mandatory Reference
+                  </p>
+                  <p className="font-mono text-xl font-bold text-slate-900 dark:text-white mt-1 tracking-widest">REF-MR-8821</p>
+                  <p className="text-[10px] text-slate-500 mt-1">Must be included in wire memo for auto-minting.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+              <motion.div 
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="w-[85%] bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-600 p-5 overflow-hidden relative"
+              >
+                <div className="absolute top-0 left-0 right-0 h-1 bg-slate-100 dark:bg-slate-700">
+                  <motion.div 
+                    className="h-full bg-indigo-500"
+                    initial={{ width: "0%" }}
+                    animate={{ 
+                      width: animationState.statusPopupState === 'waiting' ? "30%" : 
+                             animationState.statusPopupState === 'received' ? "70%" : "100%" 
+                    }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+
+                <div className="mt-2 text-center">
+                  <div className="w-12 h-12 mx-auto rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center mb-3">
+                    {animationState.statusPopupState === 'waiting' && <Loader2 className="w-6 h-6 text-indigo-500 animate-spin" />}
+                    {animationState.statusPopupState === 'received' && <CheckCircle className="w-6 h-6 text-green-500" />}
+                    {animationState.statusPopupState === 'minting' && <RefreshCw className="w-6 h-6 text-blue-500 animate-spin" />}
+                    {animationState.statusPopupState === 'complete' && <CheckCircle className="w-6 h-6 text-indigo-500" />}
+                  </div>
+
+                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">
+                    {animationState.statusPopupState === 'waiting' && "Waiting for Wire..."}
+                    {animationState.statusPopupState === 'received' && "Deposit Detected"}
+                    {animationState.statusPopupState === 'minting' && "Minting BSD..."}
+                    {animationState.statusPopupState === 'complete' && "Mint Complete"}
+                  </h4>
+                  
+                  <p className="text-xs text-slate-500 mt-1">
+                    {animationState.statusPopupState === 'waiting' && "Scanning Banco Bisa rails for Ref: MR-8821"}
+                    {animationState.statusPopupState === 'received' && "Confirmed 70,000.00 Bs from Maria R."}
+                    {animationState.statusPopupState === 'minting' && "Issuing stablecoins to client wallet"}
+                    {animationState.statusPopupState === 'complete' && "Funds available in wallet"}
+                  </p>
+
+                  {(animationState.statusPopupState === 'received' || animationState.statusPopupState === 'minting') && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-4 bg-slate-50 dark:bg-slate-900/50 rounded p-2 text-xs font-mono text-slate-600 dark:text-slate-400"
+                    >
+                      Match Found: <span className="font-bold text-indigo-600 dark:text-indigo-400">REF-MR-8821</span>
+                    </motion.div>
+                  )}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* PANEL 2: RECONCILIATION */}
+        <div className={getPanelClasses(2)}>
+          <div className="w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col bg-white dark:bg-slate-900">
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Core Ledger</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Proof of Reconciliation</p>
+              </div>
+              <Landmark className="w-6 h-6 text-slate-400" />
+            </div>
+
+            <div className="flex-grow flex flex-col justify-center relative">
+              <div className="absolute left-[18px] top-[40px] bottom-[40px] w-0.5 bg-indigo-100 dark:bg-slate-800 z-0"></div>
+
+              <div className="relative z-10 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-lg p-3 mb-6 shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Building className="w-3 h-3 text-blue-600" />
+                    </div>
+                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300">BANCO BISA</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-400">10:42:01 AM</span>
+                </div>
+                <div className="flex justify-between items-end">
+                  <div>
+                    <p className="text-xs text-slate-500">Credit Amount</p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">70,000.00 Bs</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[10px] text-slate-400 uppercase">Wire Ref</p>
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">REF-MR-8821</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex justify-center z-20">
+                <div className="bg-indigo-600 text-white p-1.5 rounded-full shadow-lg">
+                  <ArrowDownLeft className="w-4 h-4" />
+                </div>
+              </div>
+
+              <div className="relative z-10 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-lg p-3 mt-6 shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center">
+                      <Blocks className="w-3 h-3 text-indigo-600" />
+                    </div>
+                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300">POLYGON POS</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-400">10:42:04 AM</span>
+                </div>
+                <div className="flex justify-between items-end">
+                  <div>
+                    <p className="text-xs text-slate-500">Mint Amount</p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">70,000.00 BSD</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[10px] text-slate-400 uppercase">On-Chain Memo</p>
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">REF-MR-8821</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={`mt-auto pt-3 border-t border-slate-100 dark:border-slate-800 transition-opacity duration-500 ${animationState.reconciled ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-slate-500">Total Settlement Time: 3s</span>
+                <div className="flex items-center gap-1 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/10 px-2 py-1 rounded-full">
+                  <CheckCircle className="w-3 h-3" />
+                  <span className="text-xs font-bold">RECONCILED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </VisualContainer>
+  );
+};
+
+// --- VISUAL 5: Compliance (Animated Flow) ---
 const PolishedComplianceFlow = () => {
   const [currentPanel, setCurrentPanel] = useState(0); // 0: ratings, 1: policy, 2: report
 
@@ -1419,7 +1729,7 @@ export default function PillarsSection({
     distribution: {
       label: "Tokenize Deposits", color: "albor-plum", title: "Banking APIs", icon: Workflow,
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
-      visual: <PolishedComplianceFlow />,
+      visual: <MintingVisual />,
       founderQuote: {
         quote: "Building trust in a stablecoin begins with two non-negotiable fundamentals: real-time settlement of deposits and withdrawals, and transparent asset backing.",
         name: "David Cass",
