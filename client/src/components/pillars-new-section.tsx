@@ -1292,7 +1292,7 @@ export default function PillarsSection({
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <ExecutiveDistributionFlow />,
       founderQuote: {
-        quote: "Trust in a stablecoin is built on a non-negotiable principle: real-time settlement of both deposits and withdrawals with balanced sheets.",
+        quote: "Stablecoins build trust on a non-negotiable principle: real-time settlement of both deposits and withdrawals with balanced sheets.",
         name: "David Cass",
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
@@ -1305,7 +1305,7 @@ export default function PillarsSection({
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
-        quote: "Deep liquidity requires attracting institutional market makers. They require both competitive yield and regulatory compliance - you can't sacrifice one for the other.",
+        quote: "Stablecoins build deep liquidity by attracting institutional market makers. They require both competitive yield and regulatory compliance - you can't sacrifice one for the other.",
         name: "David Cass",
         title: "Chairman | Former CISO at GSR",
         image: davidImage
@@ -1318,7 +1318,7 @@ export default function PillarsSection({
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
-        quote: "Payment adoption happens when the infrastructure disappears. Users need a simple, reliable experience regardless of the underlying complexity.",
+        quote: "Stablecoins drive adoption by meeting users where they are - whether they hold USDC on Coinbase, USDT on Binance, or fiat in their bank - with a simple, reliable experience.",
         name: "Nilesh Khaitan",
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage

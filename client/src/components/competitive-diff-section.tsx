@@ -15,7 +15,7 @@ export default function CompetitiveDiffSection() {
         {
             name: "Payments Routing",
             icon: Globe,
-            albor: "Non-Custodial, CeFi + DeFi",
+            albor: "Non-Custodial, CEX + DEX",
             competitors: "CEX Deposits & Withdrawals",
             alborHas: true
         },
