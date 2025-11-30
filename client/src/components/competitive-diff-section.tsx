@@ -1,4 +1,4 @@
-import { Calendar, Zap, Lock, Globe, Server } from "lucide-react";
+import { Calendar, TrendingUp, Shield, DollarSign, Router } from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
 export default function CompetitiveDiffSection() {
@@ -7,28 +7,28 @@ export default function CompetitiveDiffSection() {
     const features = [
         {
             name: "Liquidity Engine",
-            icon: Zap,
+            icon: TrendingUp,
             albor: "Non-Custodial DEX",
             competitors: "None",
             alborHas: true
         },
         {
             name: "Transaction Routing",
-            icon: Globe,
+            icon: Router,
             albor: "Non-Custodial, CEX + DEX",
             competitors: "CEX Deposits & Withdrawals",
             alborHas: true
         },
         {
             name: "Fee Distribution",
-            icon: Server,
+            icon: DollarSign,
             albor: "Non-Custodial, Atomic",
             competitors: "CEX Payouts, Manual",
             alborHas: true
         },
         {
             name: "Data Sovereignty",
-            icon: Lock,
+            icon: Shield,
             albor: "Self-Hosted Deployment",
             competitors: "US-Based Hosting",
             alborHas: true
