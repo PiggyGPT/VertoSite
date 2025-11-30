@@ -1177,13 +1177,13 @@ const MintingVisual = () => {
             <AnimatePresence>
               {currentPanel === 1 && (
                 <motion.div 
-                  className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+                  className="fixed bottom-8 left-0 right-0 z-50 pointer-events-none px-4 md:px-8"
                   initial={{ scale: 0.85, opacity: 0, y: 40 }}
                   animate={{ scale: 1, opacity: 1, y: 0 }}
                   exit={{ scale: 0.85, opacity: 0, y: 60 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                  <div className="w-96 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 overflow-hidden">
+                  <div className="w-full bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 overflow-hidden">
                     <div className="flex items-center justify-between mb-5 pb-4 border-b border-slate-200 dark:border-slate-700">
                       <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400"></div>
