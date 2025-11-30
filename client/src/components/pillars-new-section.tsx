@@ -1764,12 +1764,12 @@ export default function PillarsSection({
     prevStepRef.current = currentStep;
   }, [currentStep]);
 
-  // Auto-advance every 5 seconds
+  // Auto-advance every 3 seconds
   useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(() => {
       setCurrentStep(prev => (prev + 1) % orderedKeys.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [isAutoPlaying, orderedKeys.length]);
 
