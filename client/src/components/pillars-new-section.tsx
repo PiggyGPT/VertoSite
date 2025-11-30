@@ -1318,7 +1318,7 @@ export default function PillarsSection({
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PolishedPaymentsFlow />,
       founderQuote: {
-        quote: "Stablecoins drive volume by meeting users where they are - whether they hold fiat in their bank, USDC on Coinbase, or USDT in their wallets - with a simple, reliable experience.",
+        quote: "Stablecoins drive volume by meeting users where they are - whether they hold USDC on Coinbase, USDT on Binance, or fiat in their bank - with a simple, reliable experience.",
         name: "Nilesh Khaitan",
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
@@ -1337,7 +1337,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage compliance integrations for real-time AML/KYC across all transactions." },{ icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." },],
+      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy in your infrastructure or our dedicated, SOC2-certified enterprise cloud." }, { icon: ShieldCheck, title: "Automate Compliance Screening", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." },],
       cta: "Explore Compliance"
     },
   };
