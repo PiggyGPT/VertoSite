@@ -130,7 +130,8 @@ import {
   ChevronDown, Landmark, History, Link, Clock, Plus,
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
   Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow, Calendar, Quote,
-  Loader2, Building, Blocks, ArrowUpRight, ArrowDownLeft, Hash, RefreshCw
+  Loader2, Building, Blocks, ArrowUpRight, ArrowDownLeft, Hash, RefreshCw,
+  Smartphone, ScanLine, Fingerprint
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -455,203 +456,297 @@ const ExecutiveDistributionFlow = ({ accentColor = '#A885FF' }: { accentColor?: 
 // ExecutiveDistributionFlow component defined above
 
 
-// --- VISUAL 2: Payments (Animated Flow) ---
-const PolishedPaymentsFlow = ({ accentColor = '#5DD4E0' }: { accentColor?: string } = {}) => {
-  const [currentPanel, setCurrentPanel] = useState(0); // 0: payment request, 1: checkout, 2: confirmation
-  const [buttonClicked, setButtonClicked] = useState(false);
+// --- VISUAL 2: Payments (New Advanced Animation) ---
 
-  // Auto animation cycle - 3 panels with button click timing
-  useEffect(() => {
-    const cycle = setInterval(() => {
-      setCurrentPanel(prev => {
-        if (prev === 0) {
-          // Show button click animation before transition
-          setButtonClicked(true);
-          setTimeout(() => {
-            setButtonClicked(false);
-          }, 500);
-          // Delay panel transition to show button click
-          setTimeout(() => {
-            setCurrentPanel(1);
-          }, 600);
-          return prev; // Don't change panel immediately
-        } else if (prev === 1) {
-          // Show button click animation before transition
-          setButtonClicked(true);
-          setTimeout(() => {
-            setButtonClicked(false);
-          }, 500);
-          // Delay panel transition to show button click
-          setTimeout(() => {
-            setCurrentPanel(2);
-          }, 600);
-          return prev; // Don't change panel immediately
-        } else {
-          return 0; // Reset to beginning
-        }
-      });
-    }, 3500); // Switch every 3.5 seconds
+// Sub-components for specific animation phases
+const MerchantCreate = ({ amount }: { amount: string }) => (
+  <div className="flex flex-col h-full items-center justify-center p-6 text-center">
+    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6">
+      <Smartphone className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+    </div>
+    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Create Payment</h3>
+    <p className="text-slate-500 mb-6">Enter amount to receive</p>
+    <div className="flex items-baseline justify-center gap-1 mb-8">
+      <span className="text-4xl font-bold text-slate-900 dark:text-white">{amount}</span>
+      <span className="text-xl font-medium text-slate-500">BSD</span>
+    </div>
+    <button className="w-full py-3 bg-purple-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-600/20">
+      Generate Invoice
+    </button>
+  </div>
+);
 
-    return () => clearInterval(cycle);
-  }, []);
+const QRDisplay = () => (
+  <div className="flex flex-col h-full items-center p-6 text-center bg-white dark:bg-slate-900">
+    <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
+    <p className="text-xs text-slate-500 mb-4">PAYMENT REQUEST #8821</p>
+    <div className="p-4 bg-white rounded-xl border-2 border-slate-100 dark:border-slate-800 shadow-sm mb-6">
+      <QRCodeSVG value="https://albor.io/pay/8821" size={140} />
+    </div>
+    <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-lg">
+      <ScanLine className="w-4 h-4" />
+      <span className="text-sm font-medium">Scanning...</span>
+    </div>
+  </div>
+);
 
-  // Define static classes for intentional left-to-right panning workflow
-  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
-  const panelVisibleClasses = "opacity-100 translate-x-0";
-  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
-  const panelHiddenRightClasses = "opacity-0 translate-x-full";
+const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPay: boolean }) => (
+  <div className="flex flex-col h-full p-6">
+    <div className="flex items-center justify-between mb-6">
+      <span className="font-bold text-slate-900 dark:text-white">Checkout</span>
+      <span className="text-sm text-slate-500">€120.00 Due</span>
+    </div>
 
-  // Panel class assignments for intentional workflow panning
-  const panel1Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
-  const panel2Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel < 1 ? panelHiddenRightClasses : panelHiddenLeftClasses}`;
-  const panel3Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
-
-  return (
-    <VisualContainer>
-      <div className="relative w-full max-w-lg mx-auto h-[410px]">
-        {/* Panel 1: Payment Request / QR Code */}
-        <div
-          className={panel1Classes}
-          style={{ zIndex: currentPanel === 0 ? 3 : 1 }}
-        >
-          <div className=" w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
-            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">PAYMENT #4928</p>
-            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-            <p className="text-sm text-slate-500 dark:text-slate-400">AMOUNT DUE</p>
-            <div className="flex items-baseline gap-2">
-              <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
-              <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
+    <div className="space-y-3 mb-6">
+      <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'coinbase' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/10' : 'border-slate-200 dark:border-slate-700 opacity-50'}`}>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+            <div>
+              <p className="font-semibold text-sm text-slate-900 dark:text-white">Coinbase Wallet</p>
+              <p className="text-xs text-slate-500">USDC Balance</p>
             </div>
-            <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700">
-              <QRCodeSVG value="https://albor.exchange/pay?id=4928" size={120} fgColor="#000000" />
-            </div>
-            <button
-              className={`w-full mt-4 py-3 text-white text-sm font-semibold rounded-lg font-sans transition-all duration-300 hover:scale-105`}
-              style={{
-                backgroundColor: buttonClicked && currentPanel === 0 ? accentColor + '60' : accentColor,
-                transform: buttonClicked && currentPanel === 0 ? 'scale(0.9)' : 'scale(1)',
-              }}
-            >
-              Pay Now
-            </button>
-            <p className="text-xs text-slate-400 mt-6">Powered by Albor</p>
-          </div>
-        </div>
-
-        {/* Panel 2: Checkout UI */}
-        <div
-          className={panel2Classes}
-          style={{ zIndex: currentPanel === 1 ? 3 : 1 }}
-        >
-          <div className=" w-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4 h-full">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                  <User className="w-5 h-5 text-slate-500" />
-                </div>
-                <p className="font-bold text-lg text-slate-800 dark:text-slate-200">John Doe</p>
-              </div>
-              <Settings className="w-5 h-5 text-slate-400 cursor-pointer" />
-            </div>
-            <div className="flex flex-col space-y-2">
-              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pay with</p>
-              <div className="relative p-4 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div>
-                    <p className="text-s font-semibold text-slate-800 dark:text-slate-200">Coinbase</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">12,500.50 USDC</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-slate-800 dark:text-slate-200">12.00 USDC</span>
-                  <ChevronDown className="w-5 h-5 text-slate-400" />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col space-y-1">
-              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">To</p>
-              <div className="relative p-2 rounded-lg flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div>
-                    <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">Tia Store</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Payment #4928</p>
-                  </div>
-                </div>
-                <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">120.00 BOBC</span>
-              </div>
-            </div>
-
-            <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-dashed border-slate-200 dark:border-slate-700">
-              <span>Rate: 1 BOBC ≈ 0.10 USDC</span>
-              <span>Fees: 0.00 USDC</span>
-            </div>
-            <button 
-              className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:scale-105`}
-              style={{
-                backgroundColor: buttonClicked && currentPanel === 1 ? accentColor + '60' : accentColor,
-                transform: buttonClicked && currentPanel === 1 ? 'scale(0.9)' : 'scale(1)',
-              }}
-            >
-              <Zap className="w-4 h-4" />
-              <span>Pay 12.00 USDC</span>
-            </button>
-            <p className="text-center text-xs text-slate-400 mt-auto flex items-center justify-center gap-1.5 pb-6"><Lock className="w-3 h-3" /> Secured by Albor</p>
-          </div>
-        </div>
-
-        {/* Panel 3: Payment Confirmation */}
-        <div
-          className={panel3Classes}
-          style={{ zIndex: currentPanel === 2 ? 3 : 1 }}
-        >
-          <div className=" w-full max-w-xs mx-auto rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
-            <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Payment Confirmed</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:52:34</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">TXN #8721-CONF</p>
-            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-
-            <div className="w-full text-center mb-4">
-              <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">RECEIVED</p>
-              <p className="text-3xl font-bold text-slate-800 dark:text-slate-200">120.00</p>
-              <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Paid 12.00 USDC</p>
-            </div>
-
-            <div className="w-full space-y-3 text-left flex-grow">
-              <div className="flex justify-between">
-                <span className="text-xs text-slate-500 dark:text-slate-400">From:</span>
-                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">John Doe</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-xs text-slate-500 dark:text-slate-400">To:</span>
-                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">Tia Store</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
-                <span className="text-xs font-semibold text-albor-green flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3" />
-                  Confirmed
-                </span>
-              </div>
-            </div>
-
-            <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-            <div className="w-full p-3  rounded-lg">
-              <p className="text-xs text-slate-600 dark:text-slate-400 text-center">
-                Transaction Hash
-              </p>
-              <p className="text-xs font-mono text-slate-800 dark:text-slate-200 text-center break-all">
-                0x7c8f9a2b...d4e5
-              </p>
-            </div>
-            <p className="text-xs text-slate-400 mt-4">Powered by Albor</p>
           </div>
         </div>
       </div>
-    </VisualContainer>
+
+      <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'bank' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20 shadow-md ring-1 ring-purple-500' : 'border-slate-200 dark:border-slate-700'}`}>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-slate-800 dark:bg-slate-200 flex items-center justify-center">
+              <Landmark className="w-4 h-4 text-white dark:text-slate-900" />
+            </div>
+            <div>
+              <p className="font-semibold text-sm text-slate-900 dark:text-white">EU Bank (SEPA)</p>
+              <p className="text-xs text-slate-500">Instant Settlement</p>
+            </div>
+          </div>
+          {method === 'bank' && <CheckCircle className="w-5 h-5 text-purple-600" />}
+        </div>
+        {method === 'bank' && (
+           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="mt-3 pt-3 border-t border-purple-200 dark:border-purple-900/50">
+             <div className="flex justify-between text-xs mb-1">
+               <span className="text-slate-500">Rate</span>
+               <span className="font-mono text-slate-700 dark:text-slate-300">1 EUR = 0.998 BSD</span>
+             </div>
+             <div className="flex justify-between text-xs">
+               <span className="text-slate-500">Fee</span>
+               <span className="font-mono text-green-600">€0.00 (Sponsored)</span>
+             </div>
+           </motion.div>
+        )}
+      </div>
+    </div>
+
+    <button className={`mt-auto w-full py-3 text-white rounded-xl font-semibold transition-all duration-200 ${onPay ? 'bg-purple-700 scale-95' : 'bg-purple-600 hover:bg-purple-700'}`}>
+      Pay €120.00
+    </button>
+  </div>
+);
+
+const RouteLogic = () => (
+  <div className="absolute inset-0 bg-slate-900/95 backdrop-blur-md z-20 p-6 flex flex-col font-mono text-xs">
+    <div className="flex items-center gap-2 mb-4 text-purple-400">
+      <RefreshCw className="w-4 h-4 animate-spin" />
+      <span className="font-bold tracking-wider">COMPUTING SETTLEMENT ROUTE</span>
+    </div>
+    
+    <div className="space-y-4 relative">
+      <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-slate-700" />
+      
+      <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="relative pl-8">
+        <div className="absolute left-0 top-0 w-6 h-6 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center z-10">1</div>
+        <div className="bg-slate-800 p-2 rounded border border-slate-700">
+          <span className="text-blue-400">INPUT:</span> <span className="text-white">SEPA_INSTANT</span>
+          <div className="text-slate-400 mt-1">€120.00 EUR → Monerium IBAN</div>
+        </div>
+      </motion.div>
+
+      <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.8 }} className="relative pl-8">
+        <div className="absolute left-0 top-0 w-6 h-6 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center z-10">2</div>
+        <div className="bg-slate-800 p-2 rounded border border-slate-700">
+          <span className="text-yellow-400">MINT:</span> <span className="text-white">EURe (On-Chain)</span>
+          <div className="text-slate-400 mt-1">Provider: Monerium EMI</div>
+        </div>
+      </motion.div>
+
+      <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 1.4 }} className="relative pl-8">
+        <div className="absolute left-0 top-0 w-6 h-6 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center z-10">3</div>
+        <div className="bg-slate-800 p-2 rounded border border-slate-700">
+          <span className="text-green-400">SWAP:</span> <span className="text-white">EURe → BSD</span>
+          <div className="text-slate-400 mt-1">Pool: Albor Institutional V2</div>
+        </div>
+      </motion.div>
+    </div>
+    
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }} className="mt-auto p-3 bg-green-900/20 border border-green-500/30 rounded text-green-400 text-center">
+      OPTIMAL ROUTE LOCKED
+    </motion.div>
+  </div>
+);
+
+const SigningOverlay = () => (
+  <div className="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-800 rounded-t-2xl p-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] flex flex-col items-center animate-in slide-in-from-bottom duration-500">
+    <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+      <Fingerprint className="w-8 h-8 text-purple-600 dark:text-purple-400 animate-pulse" />
+    </div>
+    <h3 className="font-bold text-lg text-slate-900 dark:text-white">Sign Transaction</h3>
+    <p className="text-sm text-slate-500 mb-6">Confirm payment of €120.00</p>
+    <div className="w-full h-1 bg-slate-100 dark:bg-slate-700 rounded overflow-hidden">
+      <motion.div 
+        initial={{ width: "0%" }} 
+        animate={{ width: "100%" }} 
+        transition={{ duration: 1.5 }} 
+        className="h-full bg-purple-600" 
+      />
+    </div>
+  </div>
+);
+
+const Reconciliation = ({ complete }: { complete: boolean }) => (
+  <div className="flex flex-col h-full p-6">
+    <div className="flex items-center justify-center mb-6 mt-4">
+      <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${complete ? 'bg-green-100 text-green-600' : 'bg-slate-100 text-slate-400'}`}>
+        {complete ? <CheckCircle className="w-6 h-6" /> : <RefreshCw className="w-6 h-6 animate-spin" />}
+      </div>
+    </div>
+    
+    <div className="text-center mb-8">
+      <h3 className="font-bold text-xl text-slate-900 dark:text-white">
+        {complete ? 'Payment Successful' : 'Processing...'}
+      </h3>
+      <p className="text-slate-500 text-sm">TXID: 0x8a...4b29</p>
+    </div>
+
+    <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 space-y-3 text-sm">
+      <div className="flex justify-between items-center">
+        <span className="text-slate-500">Method</span>
+        <span className="font-medium text-slate-900 dark:text-white">SEPA Instant</span>
+      </div>
+      <div className="flex justify-between items-center">
+        <span className="text-slate-500">Converted</span>
+        <span className="font-medium text-slate-900 dark:text-white">€120.00 → 119.76 BSD</span>
+      </div>
+      <div className="flex justify-between items-center">
+        <span className="text-slate-500">Network Fee</span>
+        <span className="font-medium text-green-600">Sponsored</span>
+      </div>
+      <div className="border-t border-slate-200 dark:border-slate-700 my-2 pt-2 flex justify-between items-center">
+        <span className="font-bold text-slate-900 dark:text-white">Total Paid</span>
+        <span className="font-bold text-slate-900 dark:text-white">€120.00</span>
+      </div>
+    </div>
+    
+    {complete && (
+      <button className="mt-auto w-full py-3 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-xl font-medium flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800">
+        <FileText className="w-4 h-4" /> Download Receipt
+      </button>
+    )}
+  </div>
+);
+
+const PaymentsVisual = () => {
+  const [phase, setPhase] = useState(0);
+  const [amountInput, setAmountInput] = useState("");
+
+  useEffect(() => {
+    const sequence = async () => {
+      while (true) {
+        setPhase(0); 
+        setAmountInput("");
+        
+        await new Promise(r => setTimeout(r, 500));
+        setAmountInput("1"); 
+        await new Promise(r => setTimeout(r, 100));
+        setAmountInput("12"); 
+        await new Promise(r => setTimeout(r, 100));
+        setAmountInput("120"); 
+        await new Promise(r => setTimeout(r, 1500));
+        
+        setPhase(1); 
+        await new Promise(r => setTimeout(r, 3000));
+        
+        setPhase(2); 
+        await new Promise(r => setTimeout(r, 1000));
+        
+        setPhase(3); 
+        await new Promise(r => setTimeout(r, 2000));
+        
+        setPhase(4); 
+        await new Promise(r => setTimeout(r, 500));
+        
+        setPhase(5); 
+        await new Promise(r => setTimeout(r, 3500));
+        
+        setPhase(6); 
+        await new Promise(r => setTimeout(r, 2000));
+        
+        setPhase(7); 
+        await new Promise(r => setTimeout(r, 1500));
+        setPhase(8); 
+        await new Promise(r => setTimeout(r, 4000));
+      }
+    };
+    sequence();
+  }, []);
+
+  return (
+    <div className="relative min-h-[420px] md:min-h-[480px] flex items-center justify-center p-4">
+      <div className="relative w-full max-w-[320px] h-[500px] bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl border-4 border-slate-200 dark:border-slate-800 overflow-hidden font-sans">
+        
+        <div className="absolute top-0 left-0 right-0 h-14 z-10 flex justify-between items-center px-6">
+          <span className="text-xs font-semibold text-slate-400">9:41</span>
+          <div className="flex gap-1.5">
+            <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800" />
+            <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800" />
+          </div>
+        </div>
+
+        <div className="pt-14 h-full relative">
+          <AnimatePresence mode="wait">
+            
+            {phase === 0 && (
+              <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -50 }} className="absolute inset-0">
+                <MerchantCreate amount={amountInput} />
+              </motion.div>
+            )}
+
+            {phase === 1 && (
+              <motion.div key="qr" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, scale: 0.9 }} className="absolute inset-0">
+                <QRDisplay />
+              </motion.div>
+            )}
+
+            {(phase === 2 || phase === 3 || phase === 4) && (
+              <motion.div key="select" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} className="absolute inset-0">
+                <PaymentSelection method={phase >= 3 ? 'bank' : 'coinbase'} onPay={phase === 4} />
+              </motion.div>
+            )}
+
+            {phase === 5 && (
+              <motion.div key="logic" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 z-20">
+                <RouteLogic />
+              </motion.div>
+            )}
+
+            {phase === 6 && (
+              <div className="absolute inset-0">
+                <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm z-20" />
+                <SigningOverlay />
+                <PaymentSelection method='bank' onPay={true} />
+              </div>
+            )}
+
+            {(phase === 7 || phase === 8) && (
+              <motion.div key="done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="absolute inset-0">
+                <Reconciliation complete={phase === 8} />
+              </motion.div>
+            )}
+
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -1840,7 +1935,7 @@ export default function PillarsSection({
     payments: {
       label: "Transact Globally", color: "albor-teal", title: "Patent-Pending Router", icon: Globe,
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
-      visual: <PolishedPaymentsFlow accentColor="#4D88FF" />,
+      visual: <PaymentsVisual />,
       founderQuote: {
         quote: "Stablecoins drive volume by letting users seamlessly transact with their existing funds - fiat in their banks or crypto in wallets or exchanges.",
         name: "Nilesh Khaitan",
