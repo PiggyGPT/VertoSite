@@ -3,10 +3,11 @@ import { Zap, Store, Globe, Shield } from "lucide-react";
 
 interface SharedPillarNavProps {
   currentStep?: number;
+  displayedStep?: number;
   onStepClick?: (step: number) => void;
 }
 
-export default function SharedPillarNav({ currentStep = 0, onStepClick }: SharedPillarNavProps) {
+export default function SharedPillarNav({ currentStep = 0, displayedStep = 0, onStepClick }: SharedPillarNavProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [isFixed, setIsFixed] = useState(false);
   const navContainerRef = useRef<HTMLDivElement>(null);
@@ -99,7 +100,7 @@ export default function SharedPillarNav({ currentStep = 0, onStepClick }: Shared
             const pillarColor = pillar?.color || 'albor-green';
             const accentColor = getAccentColor(pillarColor);
             const IconComponent = pillar?.icon;
-            const isActive = index === currentStep;
+            const isActive = index === displayedStep;
             
             return (
               <button
