@@ -47,7 +47,7 @@ export default function PilotProgramSection() {
               <p>We integrate your core banking systems, onboard your team to run operations, and connect you with pre-vetted market makers to establish immediate liquidity.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 91-120" title="Controlled Pilot Operations" icon={Target} color="albor-copper">
+            <TimelineItem phase="Days 91-120" title="Controlled Pilot Operations" icon={Target} color="albor-plum">
               <p>Your team operates the pilot with our 24/7 SOC support, protocol guidance, and performance monitoring to validate operational readiness.</p>
             </TimelineItem>
 
