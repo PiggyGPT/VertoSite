@@ -1205,11 +1205,11 @@ const FounderInsightBanner = ({ quote, name, title, image, colorClasses }: {
 };
 
 // DESIGN CHANGE: Define the FeatureItem with larger text and better spacing.
-const FeatureItem = ({ icon: Icon, title, children }: { icon: React.ComponentType<any>, title: string, children: React.ReactNode }) => (
+const FeatureItem = ({ icon: Icon, title, children, iconColor }: { icon: React.ComponentType<any>, title: string, children: React.ReactNode, iconColor?: string }) => (
   <div className="flex items-start">
     <div className="flex-shrink-0">
       <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
-        <Icon className="w-6 h-6 text-albor-blue" />
+        <Icon className="w-6 h-6" style={{ color: iconColor || '#4D88FF' }} />
       </div>
     </div>
     <div className="ml-4">
@@ -1451,7 +1451,7 @@ export default function PillarsSection({
 
             <div className="space-y-6 md:space-y-8 mt-10 mb-10">
               {activePillar?.features?.map((feature: any) => (
-                <FeatureItem key={feature.title} icon={feature.icon} title={feature.title}>{feature.description}</FeatureItem>
+                <FeatureItem key={feature.title} icon={feature.icon} title={feature.title} iconColor={getAccentColor(activePillar?.color || 'albor-blue')}>{feature.description}</FeatureItem>
               )) || []}
             </div>
             <motion.button
