@@ -67,13 +67,12 @@ export default function PilotProgramSection() {
           {/* --- NEW CTA SECTION --- */}
           <div className="mt-10 sm:mt-12 text-center">
             <button
-              onClick={() => openModal("Apply for the Pilot Program")}
+              onClick={() => openModal("Schedule Demo")}
               className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm sm:text-base"
             >
-              <span>Apply for the Pilot Program</span>
+              <span>Schedule Demo</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
             </button>
-            <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">Limited spots available for our next cohort.</p>
           </div>
 
         </div>

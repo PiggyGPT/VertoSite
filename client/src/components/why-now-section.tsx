@@ -69,11 +69,11 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                 {/* Call to Action */}
                 <div className="relative max-w-7xl mx-auto mt-10 sm:mt-12 text-center">
                     <button
-                        onClick={() => openModal("Launch Pilot in 90 Days")}
+                        onClick={() => openModal("Schedule Demo")}
                         className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 shadow-lg text-sm sm:text-base"
                         data-testid="launch-pilot-cta"
                     >
-                        Launch Pilot in 90 Days
+                        Schedule Demo
                         <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
