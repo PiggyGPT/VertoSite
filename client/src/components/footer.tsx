@@ -34,8 +34,7 @@ export function PilotCtaSection() {
 export default function Footer() {
     const footerLinks = {
         "Company": ["About Us", "Careers", "Platform"],
-        "Contact Us": ["Email", "X", "Telegram"],
-        "Solutions": ["Banking APIs", "Decentralized Exchange", "Patent-Pending Router", "Sovereign Infrastructure"]
+        "Contact Us": ["Email", "X", "Telegram"]
     };
 
     return (
@@ -53,7 +52,7 @@ export default function Footer() {
                     </div>
 
                     {/* Links */}
-                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-2 gap-6 sm:gap-8">
                         {Object.entries(footerLinks).map(([title, links]) => (
                              <div key={title}>
                                 <h4 className="font-semibold text-white tracking-wider uppercase text-sm mb-4">{title}</h4>
