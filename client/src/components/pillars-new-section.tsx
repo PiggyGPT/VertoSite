@@ -77,7 +77,7 @@ const getPanelClasses = (
 
 // Panel transition classes template
 const PANEL_TRANSITION_CLASSES = {
-  base: "absolute inset-0 transition-all duration-1000 ease-in-out",
+  base: "absolute inset-0 transition-all duration-500 ease-in-out",
   visible: "opacity-100 translate-x-0",
   hiddenLeft: "opacity-0 -translate-x-full",
   hiddenRight: "opacity-0 translate-x-full",
@@ -274,7 +274,7 @@ const ExecutiveDistributionFlow = () => {
                     break;
                 case 9:
                     clearInterval(interval);
-                    timeout = setTimeout(() => setAnimationStep(0), 1000);
+                    timeout = setTimeout(() => setAnimationStep(0), 400);
                     break;
             }
         };
@@ -287,7 +287,7 @@ const ExecutiveDistributionFlow = () => {
         };
     }, [animationStep]);
 
-    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+    const panelBaseClasses = "absolute inset-0 transition-all duration-500 ease-in-out";
     const panelVisibleClasses = "opacity-100 translate-x-0";
     const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
     const panelHiddenRightClasses = "opacity-0 translate-x-full";
@@ -958,7 +958,7 @@ const ExecutiveLiquidityFlow = () => {
                     break;
                 case 9:
                     clearInterval(interval);
-                    timeout = setTimeout(() => setAnimationStep(0), 1000);
+                    timeout = setTimeout(() => setAnimationStep(0), 400);
                     break;
             }
         };
@@ -971,7 +971,7 @@ const ExecutiveLiquidityFlow = () => {
         };
     }, [animationStep]);
 
-    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+    const panelBaseClasses = "absolute inset-0 transition-all duration-500 ease-in-out";
     const panelVisibleClasses = "opacity-100 translate-x-0";
     const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
     const panelHiddenRightClasses = "opacity-0 translate-x-full";
