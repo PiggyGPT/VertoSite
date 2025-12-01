@@ -434,8 +434,8 @@ const ExecutiveDistributionFlow = () => {
 // 1. Merchant creating the invoice
 const MerchantCreate = ({ amount }: { amount: string }) => (
   <div className="flex flex-col h-full items-center justify-center p-6 text-center pt-14">
-    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6">
-      <Smartphone className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+    <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(77, 136, 255, 0.1)' }}>
+      <Smartphone className="w-8 h-8" style={{ color: 'var(--albor-blue)' }} />
     </div>
     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Create Payment</h3>
     <p className="text-slate-500 mb-6">Enter amount to receive</p>
@@ -443,7 +443,7 @@ const MerchantCreate = ({ amount }: { amount: string }) => (
       <span className="text-4xl font-bold text-slate-900 dark:text-white">{amount}</span>
       <span className="text-xl font-medium text-slate-500">BSD</span>
     </div>
-    <button className="w-full py-3 bg-purple-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-600/20">
+    <button className="w-full py-3 text-white rounded-xl font-semibold shadow-lg" style={{ backgroundColor: 'var(--albor-blue)', boxShadow: 'rgba(77, 136, 255, 0.2) 0 10px 15px -3px' }}>
       Generate Invoice
     </button>
   </div>
@@ -544,7 +544,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
 
     <div className="space-y-3 mb-2">
       {/* Option 1: Coinbase */}
-      <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'coinbase' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/10' : 'border-slate-200 dark:border-slate-700 opacity-50'}`}>
+      <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'coinbase' ? 'border-slate-200 dark:border-slate-700 opacity-50' : 'border-slate-200 dark:border-slate-700 opacity-50'}`} style={method === 'coinbase' ? { borderColor: 'rgba(77, 136, 255, 0.5)', backgroundColor: 'rgba(77, 136, 255, 0.05)' } : {}}>
         <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">C</div>
             <div>
@@ -555,7 +555,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
       </div>
 
       {/* Option 2: EU Bank */}
-      <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'bank' ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20 shadow-md ring-1 ring-purple-500' : 'border-slate-200 dark:border-slate-700'}`}>
+      <div className={`p-4 rounded-xl border transition-all duration-300 ${method === 'bank' ? 'shadow-md' : 'border-slate-200 dark:border-slate-700'}`} style={method === 'bank' ? { borderColor: 'rgba(77, 136, 255, 0.5)', backgroundColor: 'rgba(77, 136, 255, 0.05)', boxShadow: '0 0 0 1px rgba(77, 136, 255, 0.5)' } : {}}>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-slate-800 dark:bg-slate-200 flex items-center justify-center">
@@ -566,12 +566,12 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
               <p className="text-xs text-slate-500">Instant Settlement</p>
             </div>
           </div>
-          {method === 'bank' && <CheckCircle className="w-5 h-5 text-purple-600" />}
+          {method === 'bank' && <CheckCircle className="w-5 h-5" style={{ color: 'var(--albor-blue)' }} />}
         </div>
         
         {/* Expanded Breakdown - Only show when confirmed (onPay) */}
         {method === 'bank' && onPay && (
-           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pt-2 border-t border-purple-200 dark:border-purple-900/50 space-y-1">
+           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pt-2 space-y-1" style={{ borderTop: '1px solid rgba(77, 136, 255, 0.2)' }}>
              <div className="flex justify-between text-xs">
                <span className="text-slate-500">Rate</span>
                <span className="font-mono text-slate-700 dark:text-slate-300">1 EUR = 20 BSD</span>
@@ -580,16 +580,16 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
                <span className="text-slate-500">Network Fee</span>
                <span className="font-mono text-slate-700 dark:text-slate-300">3.00 BSD</span>
              </div>
-              <div className="flex justify-between text-xs font-bold pt-1 mt-1 border-t border-dashed border-purple-200 dark:border-purple-900/30">
+              <div className="flex justify-between text-xs font-bold pt-1 mt-1 border-t border-dashed" style={{ borderColor: 'rgba(77, 136, 255, 0.2)' }}>
                <span className="text-slate-700 dark:text-slate-300">Total</span>
-               <span className="font-mono text-purple-700 dark:text-purple-400">€60.00</span>
+               <span className="font-mono" style={{ color: 'var(--albor-blue)' }}>€60.00</span>
              </div>
            </motion.div>
         )}
       </div>
     </div>
 
-    <button className={`mt-auto w-full py-3 text-white rounded-xl font-semibold transition-all duration-200 ${onPay ? 'bg-purple-700 scale-95' : 'bg-purple-600 hover:bg-purple-700'}`}>
+    <button className={`mt-auto w-full py-3 text-white rounded-xl font-semibold transition-all duration-200 ${onPay ? 'scale-95' : 'hover:opacity-90'}`} style={{ backgroundColor: 'var(--albor-blue)' }}>
       Pay 1,200.00 BSD
     </button>
   </div>
@@ -605,13 +605,14 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
     <div className="absolute inset-0 bg-slate-900/95 backdrop-blur-md z-20 flex flex-col font-mono text-xs overflow-hidden">
       {/* Header */}
       <div className="p-6 pb-2">
-        <div className="flex items-center gap-2 mb-1 text-purple-400">
+        <div className="flex items-center gap-2 mb-1" style={{ color: 'var(--albor-blue)' }}>
             {isComplete ? <CheckCircle className="w-4 h-4 text-green-500" /> : <RefreshCw className="w-4 h-4 animate-spin" />}
             <span className="font-bold tracking-wider">{isComplete ? 'SETTLEMENT COMPLETE' : isCalculating ? 'CALCULATING ROUTE' : 'EXECUTING ROUTE'}</span>
         </div>
         <div className="h-0.5 w-full bg-slate-800 rounded-full mt-2 overflow-hidden">
             <motion.div 
-                className="h-full bg-purple-500"
+                className="h-full"
+                style={{ backgroundColor: 'var(--albor-blue)' }}
                 initial={{ width: "0%" }}
                 animate={{ width: isComplete ? "100%" : isExecuting ? "66%" : "10%" }}
                 transition={{ duration: 0.5 }}
@@ -690,8 +691,8 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
                 className="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-800 rounded-t-2xl p-6 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]"
             >
                 <div className="flex flex-col items-center">
-                    <div className="w-14 h-14 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
-                    <Fingerprint className="w-8 h-8 text-purple-600 dark:text-purple-400 animate-pulse" />
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(77, 136, 255, 0.1)' }}>
+                    <Fingerprint className="w-8 h-8 animate-pulse" style={{ color: 'var(--albor-blue)' }} />
                     </div>
                     <h3 className="font-bold text-lg text-slate-900 dark:text-white font-sans">Sign Transaction</h3>
                     <p className="text-sm text-slate-500 mb-6 font-sans">Authorize swap of €60.00</p>
@@ -700,7 +701,8 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
                         initial={{ width: "0%" }} 
                         animate={{ width: "100%" }} 
                         transition={{ duration: 1.5 }} 
-                        className="h-full bg-purple-600" 
+                        className="h-full"
+                        style={{ backgroundColor: 'var(--albor-blue)' }}
                     />
                     </div>
                 </div>
@@ -768,31 +770,31 @@ const PaymentsVisual = () => {
         setAmountInput("1200.00"); await new Promise(r => setTimeout(r, 1500));
         
         // QR
-        setPhase(1); await new Promise(r => setTimeout(r, 2000));
+        setPhase(1); await new Promise(r => setTimeout(r, 2500));
         
         // Select Coinbase
-        setPhase(2); await new Promise(r => setTimeout(r, 1500));
+        setPhase(2); await new Promise(r => setTimeout(r, 1000));
         
         // Select Bank (Breakdown visible) - Calculating
-        setPhase(3); await new Promise(r => setTimeout(r, 1750));
+        setPhase(3); await new Promise(r => setTimeout(r, 2500));
         
         // Click - Price Confirmed (show button animation)
-        setPhase(4); await new Promise(r => setTimeout(r, 2000));
+        setPhase(4); await new Promise(r => setTimeout(r, 2500));
         
         // Route: Calculating
-        setPhase(5); await new Promise(r => setTimeout(r, 2000));
+        setPhase(5); await new Promise(r => setTimeout(r, 2500));
         
         // Route: Signing
-        setPhase(6); await new Promise(r => setTimeout(r, 2000));
+        setPhase(6); await new Promise(r => setTimeout(r, 2500));
         
         // Route: Executing
-        setPhase(7); await new Promise(r => setTimeout(r, 3500)); 
+        setPhase(7); await new Promise(r => setTimeout(r, 2500)); 
         
         // Route: Complete
-        setPhase(8); await new Promise(r => setTimeout(r, 1000));
+        setPhase(8); await new Promise(r => setTimeout(r, 2500));
 
         // Receipt
-        setPhase(9); await new Promise(r => setTimeout(r, 4000));
+        setPhase(9); await new Promise(r => setTimeout(r, 2500));
       }
     };
     sequence();
@@ -2260,7 +2262,7 @@ export default function PillarsSection({
     trading: {
       label: "Attract Liquidity", color: "albor-blue", title: "Decentralized Exchange", icon: Coins,
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
-      visual: <ExecutiveLiquidityFlow accentColor="#4D88FF" />,
+      visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
         quote: "Stablecoins build deep liquidity by attracting institutional market makers. They require both competitive yield and regulatory compliance - you can't sacrifice one for the other.",
         name: "David Cass",
