@@ -156,7 +156,7 @@ export default function LaunchStablecoin() {
               persona: "CEO",
               company: "Guatemala Commodities",
               quote:
-                "Our Gold instruments can't compete with PAXG's 24/7 global access and liquidity against USDC. We need to compete in the same pools and capture that market share.",
+                "Our Gold instruments can't compete with PAXG's 24/7 global access and liquidity against USDC. We need to compete in the same pools to capture that market share.",
             },
           ]}
         />
