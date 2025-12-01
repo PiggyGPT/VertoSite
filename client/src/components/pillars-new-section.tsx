@@ -1285,16 +1285,16 @@ const MintingVisual = () => {
       });
       const timers = [
         setTimeout(() => setAnimationState(s => ({ ...s, typingAmount: true })), 300),
-        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 400),
+        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 150),
       ];
       return () => timers.forEach(clearTimeout);
     } 
     else if (currentPanel === 1) {
       const timers = [
         setTimeout(() => setAnimationState(s => ({ ...s, showInstructions: true })), 200),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'received' })), 2500),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'minting' })), 4000),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'complete' })), 5500),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'received' })), 3000),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'minting' })), 4500),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'complete' })), 6000),
       ];
       return () => timers.forEach(clearTimeout);
     }
@@ -1324,7 +1324,7 @@ const MintingVisual = () => {
     return `${panelBaseClasses} ${panelHiddenRightClasses}`;
   };
 
-  const amountText = useTypingAnimation(`70,000.00`, animationState.typingAmount);
+  const amountText = useTypingAnimation(`70,000.00`, animationState.typingAmount, 75);
 
   return (
     <VisualContainer>

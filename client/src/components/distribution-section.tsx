@@ -96,7 +96,7 @@ const DistributionVisual = () => {
         case 0:
           setCurrentPanel(0); setShowKeypadPopup(false); setAmount(''); setMintAmount('');
           setIssueButtonClicked(false); setEnterButtonClicked(false);
-          timeout = setTimeout(() => setAnimationStep(1), 2000); break;
+          timeout = setTimeout(() => setAnimationStep(1), 500); break;
         case 1: setIssueButtonClicked(true); timeout = setTimeout(() => setAnimationStep(2), 300); break;
         case 2: setIssueButtonClicked(false); setShowKeypadPopup(true); timeout = setTimeout(() => setAnimationStep(3), 500); break;
         case 3: setAmount('50'); timeout = setTimeout(() => setAnimationStep(4), 1500); break;
