@@ -154,6 +154,7 @@ export default function CompetitiveDiffSection() {
                         onClick={() => openModal("Schedule Demo")}
                         className="group px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
                     >
+                        <Calendar className="w-4 h-4" />
                         <span>Schedule Demo</span>
                     </button>
                     <a

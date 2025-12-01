@@ -2350,6 +2350,7 @@ export default function PillarsSection({
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
               }}
             >
+              <Calendar className="w-4 h-4" />
               <span>Schedule Demo</span>
             </motion.button>
           </div>

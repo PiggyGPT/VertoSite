@@ -79,6 +79,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
               className="px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
               data-testid="hero-schedule-demo"
             >
+              <Calendar className="w-4 h-4" />
               Schedule Demo
             </button>
             <a
