@@ -8,29 +8,17 @@ export interface PageSEO {
 
 export const pageSEOData: Record<string, PageSEO> = {
   home: {
-    title: "Connect Your Assets To Global Dollars — Albor Stablecoin Platform",
-    description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure for distribution, payments, and non-custodial trading.",
-    image: "/favicon.png",
-    imageAlt: "Albor - Connect Your Assets To Global Dollars"
-  },
-  "launch-stablecoin": {
-    title: "Launch Your Stablecoin in 90 Days — Albor",
-    description: "Full-stack stablecoin infrastructure with banking APIs, decentralized exchange, patent-pending router, and sovereign infrastructure for compliant operations across any chain.",
+    title: "Connect Your Assets To Digital Dollars — Albor Stablecoin Platform",
+    description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.",
     image: "/favicon.png",
     imageAlt: "Launch Your Stablecoin with Albor"
   },
-  "offer-defi-products": {
-    title: "Offer DeFi Products — Albor Stablecoin Platform",
-    description: "Create on-chain liquidity pools, enable non-custodial trading, and attract market makers with Albor's decentralized exchange and liquidity infrastructure.",
+  "launch-stablecoin": {
+    title: "Connect Your Assets To Digital Dollars — Albor Stablecoin Platform",
+    description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.",
     image: "/favicon.png",
-    imageAlt: "DeFi Products with Albor"
+    imageAlt: "Launch Your Stablecoin with Albor"
   },
-  "secure-defi-ops": {
-    title: "Secure Compliance & Infrastructure — Albor",
-    description: "Self-hosted deployment, 24/7 SOC monitoring, automated compliance screening, and full data sovereignty for your stablecoin operations.",
-    image: "/favicon.png",
-    imageAlt: "Secure DeFi Operations with Albor"
-  }
 };
 
 export function updatePageSEO(pageKey: string) {
