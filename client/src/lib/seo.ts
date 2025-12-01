@@ -2,24 +2,34 @@
 export interface PageSEO {
   title: string;
   description: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export const pageSEOData: Record<string, PageSEO> = {
   home: {
-    title: "Albor — Launch your stablecoin in 90 days.",
-    description: "Full-stack stablecoin infrastrcutre for distribution, liquidity and payments on any chain."
+    title: "Connect Your Assets To Global Dollars — Albor Stablecoin Platform",
+    description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure for distribution, payments, and non-custodial trading.",
+    image: "https://albor.com/og-image.png",
+    imageAlt: "Albor - Connect Your Assets To Global Dollars"
   },
   "launch-stablecoin": {
     title: "Launch Your Stablecoin in 90 Days — Albor",
-    description: "Activate your network with Albor's complete operational stack for stablecoin distribution, payments, and AI-powered security & compliance."
+    description: "Full-stack stablecoin infrastructure with banking APIs, decentralized exchange, patent-pending router, and sovereign infrastructure for compliant operations across any chain.",
+    image: "https://albor.com/launch-stablecoin-og.png",
+    imageAlt: "Launch Your Stablecoin with Albor"
   },
   "offer-defi-products": {
-    title: "Launch DeFi Products in 90 Days — Albor", 
-    description: "Securely expand your digital asset offerings and access multi-chain liquidity, while maintaining full regulatory compliance and risk controls."
+    title: "Offer DeFi Products — Albor Stablecoin Platform",
+    description: "Create on-chain liquidity pools, enable non-custodial trading, and attract market makers with Albor's decentralized exchange and liquidity infrastructure.",
+    image: "https://albor.com/defi-products-og.png",
+    imageAlt: "DeFi Products with Albor"
   },
   "secure-defi-ops": {
-    title: "Secure DeFi Operations in 90 Days — Albor",
-    description: "Enable your trading desk to securely execute trading opportunities on any chain, with AI-powered risk management and compliance."
+    title: "Secure Compliance & Infrastructure — Albor",
+    description: "Self-hosted deployment, 24/7 SOC monitoring, automated compliance screening, and full data sovereignty for your stablecoin operations.",
+    image: "https://albor.com/secure-ops-og.png",
+    imageAlt: "Secure DeFi Operations with Albor"
   }
 };
 
@@ -54,6 +64,25 @@ export function updatePageSEO(pageKey: string) {
   }
   ogDescription.setAttribute('content', seoData.description);
   
+  // Update Open Graph image
+  if (seoData.image) {
+    let ogImage = document.querySelector('meta[property="og:image"]');
+    if (!ogImage) {
+      ogImage = document.createElement('meta');
+      ogImage.setAttribute('property', 'og:image');
+      document.head.appendChild(ogImage);
+    }
+    ogImage.setAttribute('content', seoData.image);
+    
+    let ogImageAlt = document.querySelector('meta[property="og:image:alt"]');
+    if (!ogImageAlt) {
+      ogImageAlt = document.createElement('meta');
+      ogImageAlt.setAttribute('property', 'og:image:alt');
+      document.head.appendChild(ogImageAlt);
+    }
+    ogImageAlt.setAttribute('content', seoData.imageAlt || seoData.title);
+  }
+  
   // Update Twitter title
   let twitterTitle = document.querySelector('meta[name="twitter:title"]');
   if (!twitterTitle) {
@@ -71,4 +100,23 @@ export function updatePageSEO(pageKey: string) {
     document.head.appendChild(twitterDescription);
   }
   twitterDescription.setAttribute('content', seoData.description);
+  
+  // Update Twitter image
+  if (seoData.image) {
+    let twitterImage = document.querySelector('meta[name="twitter:image"]');
+    if (!twitterImage) {
+      twitterImage = document.createElement('meta');
+      twitterImage.setAttribute('name', 'twitter:image');
+      document.head.appendChild(twitterImage);
+    }
+    twitterImage.setAttribute('content', seoData.image);
+    
+    let twitterImageAlt = document.querySelector('meta[name="twitter:image:alt"]');
+    if (!twitterImageAlt) {
+      twitterImageAlt = document.createElement('meta');
+      twitterImageAlt.setAttribute('name', 'twitter:image:alt');
+      document.head.appendChild(twitterImageAlt);
+    }
+    twitterImageAlt.setAttribute('content', seoData.imageAlt || seoData.title);
+  }
 }
