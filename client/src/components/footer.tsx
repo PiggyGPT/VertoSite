@@ -2,7 +2,6 @@ import { ArrowRight, Mail } from "lucide-react";
 import { SiX, SiTelegram } from "react-icons/si";
 import { Link } from "wouter";
 import { useCalendlyModal } from "./calendly-modal";
-import { useState } from "react";
 
 // This is the new, dedicated Call-to-Action section that lives right above the footer.
 export function PilotCtaSection() {
@@ -33,15 +32,8 @@ export function PilotCtaSection() {
 
 // The new, refined footer component.
 export default function Footer() {
-    const [activeTab, setActiveTab] = useState(0);
-    
-    const solutionTabs = [
-        { name: "Launch Your Stablecoin", href: "/launch-stablecoin" },
-        { name: "Offer DeFi Products", href: "/offer-defi-products" },
-        { name: "Secure Compliance & Infrastructure", href: "/secure-defi-ops" }
-    ];
-    
     const footerLinks = {
+        "Solutions": ["Banking APIs", "Decentralized Exchange", "Patent-Pending Router", "Sovereign Infrastructure"],
         "Company": ["About Us", "Careers", "Platform"],
         "Contact Us": ["Email", "X", "Telegram"]
     };
@@ -60,70 +52,55 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Solutions Tabs and Links */}
-                    <div className="md:col-span-8 space-y-8">
-                        {/* Solutions Tabs */}
-                        <div>
-                            <h4 className="font-semibold text-white tracking-wider uppercase text-sm mb-4">Solutions</h4>
-                            <div className="flex flex-col sm:flex-row gap-2 mb-4 flex-wrap">
-                                {solutionTabs.map((tab, index) => (
-                                    <Link
-                                        key={index}
-                                        href={tab.href}
-                                        onClick={() => {
-                                            setActiveTab(index);
-                                            setTimeout(() => window.scrollTo(0, 0), 100);
-                                        }}
-                                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                                            activeTab === index
-                                                ? "bg-blue-500 text-white"
-                                                : "text-slate-400 hover:text-white"
-                                        }`}
-                                    >
-                                        {tab.name}
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                        
-                        {/* Other Links */}
-                        <div className="grid grid-cols-2 gap-6 sm:gap-8">
-                            {Object.entries(footerLinks).map(([title, links]) => (
-                                 <div key={title}>
-                                    <h4 className="font-semibold text-white tracking-wider uppercase text-sm mb-4">{title}</h4>
-                                    <ul className="space-y-3">
-                                        {links.map(link => {
-                                            let href = "#";
-                                            if (link === "Platform") href = "#infrastructure";
-                                            else if (link === "Email") href = "mailto:info@albor.ai";
-                                            else if (link === "X") href = "https://x.com/Albor_AI";
-                                            else if (link === "Telegram") href = "https://t.me/AlborAI";
-                                            
-                                            return (
-                                                <li key={link}>
-                                                    <a 
-                                                        href={href} 
-                                                        className="text-slate-400 hover:text-white transition-colors duration-200"
-                                                        {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                                        {...(href === "#infrastructure" ? { 
-                                                            onClick: (e) => {
-                                                                e.preventDefault();
-                                                                const element = document.getElementById('infrastructure');
-                                                                if (element) {
-                                                                    element.scrollIntoView({ behavior: 'smooth' });
-                                                                }
+                    {/* Links */}
+                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                        {Object.entries(footerLinks).map(([title, links]) => (
+                             <div key={title}>
+                                <h4 className="font-semibold text-white tracking-wider uppercase text-sm mb-4">{title}</h4>
+                                <ul className="space-y-3">
+                                    {links.map((link, index) => {
+                                        let href = "#";
+                                        // Solutions links - scroll to pillar tabs
+                                        if (title === "Solutions") {
+                                            const pillarMap: Record<string, string> = {
+                                                "Banking APIs": "0",
+                                                "Decentralized Exchange": "1",
+                                                "Patent-Pending Router": "2",
+                                                "Sovereign Infrastructure": "3"
+                                            };
+                                            href = `/#pillar-${pillarMap[link] || '0'}`;
+                                        }
+                                        // Company links
+                                        else if (link === "Platform") href = "#infrastructure";
+                                        // Contact Us links
+                                        else if (link === "Email") href = "mailto:info@albor.ai";
+                                        else if (link === "X") href = "https://x.com/Albor_AI";
+                                        else if (link === "Telegram") href = "https://t.me/AlborAI";
+                                        
+                                        return (
+                                            <li key={link}>
+                                                <a 
+                                                    href={href} 
+                                                    className="text-slate-400 hover:text-white transition-colors duration-200"
+                                                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                                                    {...(href === "#infrastructure" ? { 
+                                                        onClick: (e) => {
+                                                            e.preventDefault();
+                                                            const element = document.getElementById('infrastructure');
+                                                            if (element) {
+                                                                element.scrollIntoView({ behavior: 'smooth' });
                                                             }
-                                                        } : {})}
-                                                    >
-                                                        {link}
-                                                    </a>
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
+                                                        }
+                                                    } : {})}
+                                                >
+                                                    {link}
+                                                </a>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
