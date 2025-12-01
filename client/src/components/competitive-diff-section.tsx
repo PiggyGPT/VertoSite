@@ -163,6 +163,7 @@ export default function CompetitiveDiffSection() {
                         rel="noopener noreferrer"
                         className="group px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
                     >
+                        <Send className="w-4 h-4 hidden md:inline" />
                         <span>Contact Us</span>
                     </a>
                     </div>
