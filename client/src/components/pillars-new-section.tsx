@@ -1039,6 +1039,7 @@ const MintingVisual = () => {
     typingAmount: false, 
     isSubmitting: false,
     showInstructions: false,
+    showToastPopup: false,
     statusPopupState: 'waiting' as 'waiting' | 'received' | 'minting' | 'complete',
     showLedger: false,
     reconciled: false
@@ -1048,7 +1049,7 @@ const MintingVisual = () => {
     if (currentPanel === 0) {
       setAnimationState({
         typingAmount: false, isSubmitting: false,
-        showInstructions: false, statusPopupState: 'waiting',
+        showInstructions: false, showToastPopup: false, statusPopupState: 'waiting',
         showLedger: false, reconciled: false
       });
       const timers = [
@@ -1060,9 +1061,10 @@ const MintingVisual = () => {
     else if (currentPanel === 1) {
       const timers = [
         setTimeout(() => setAnimationState(s => ({ ...s, showInstructions: true })), 200),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'received' })), 1500),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'minting' })), 3000),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'complete' })), 3500),
+        setTimeout(() => setAnimationState(s => ({ ...s, showToastPopup: true, statusPopupState: 'waiting' })), 2000),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'received' })), 3000),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'minting' })), 4500),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'complete' })), 6000),
       ];
       return () => timers.forEach(clearTimeout);
     }
@@ -1077,7 +1079,7 @@ const MintingVisual = () => {
 
   useEffect(() => {
     const cyclePanels = () => setCurrentPanel(prev => (prev + 1) % 3);
-    const intervalId = setInterval(cyclePanels, 5000);
+    const intervalId = setInterval(cyclePanels, 8500);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -1165,7 +1167,7 @@ const MintingVisual = () => {
         {/* PANEL 1: INSTRUCTIONS + POPUP */}
         <div className={getPanelClasses(1)}>
           <div className="w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative bg-white dark:bg-slate-900 overflow-hidden">
-            <div className={`transition-all duration-500 ${['waiting', 'received', 'minting'].includes(animationState.statusPopupState) ? 'opacity-40 blur-[1px]' : 'opacity-100 blur-0'}`}>
+            <div className={`transition-all duration-500 ${animationState.showToastPopup && ['waiting', 'received', 'minting'].includes(animationState.statusPopupState) ? 'opacity-40 blur-[1px]' : 'opacity-100 blur-0'}`}>
               <div className="flex items-center justify-between mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold font-serif">B</div>
@@ -1198,7 +1200,7 @@ const MintingVisual = () => {
             </div>
 
             <AnimatePresence>
-              {currentPanel === 1 && (
+              {currentPanel === 1 && animationState.showToastPopup && (
                 <motion.div 
                   className="fixed bottom-8 left-0 right-0 z-50 pointer-events-none px-4 md:px-8"
                   initial={{ scale: 0.85, opacity: 0, y: 40 }}
