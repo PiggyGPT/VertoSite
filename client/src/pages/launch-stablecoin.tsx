@@ -152,7 +152,7 @@ export default function LaunchStablecoin() {
             },
             {
               icon: "BarChart3",
-              color: "albor-purple",
+              color: "albor-gold",
               persona: "CEO",
               company: "Guatemala Commodities",
               quote:
