@@ -52,11 +52,23 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
     text: '#A885FF',
     quote: '#A885FF'
   },
+  'albor-purple': {
+    bg: 'rgba(168, 133, 255, 0.04)',
+    border: 'rgba(168, 133, 255, 0.1)',
+    text: '#A885FF',
+    quote: '#A885FF'
+  },
   'albor-blue': { 
     bg: 'rgba(77, 136, 255, 0.04)',
     border: 'rgba(77, 136, 255, 0.1)',
     text: '#4D88FF',
     quote: '#4D88FF'
+  },
+  'albor-green': {
+    bg: 'rgba(168, 133, 255, 0.04)',
+    border: 'rgba(168, 133, 255, 0.1)',
+    text: '#A885FF',
+    quote: '#A885FF'
   },
   'albor-teal': { 
     bg: 'rgba(93, 212, 224, 0.04)',
