@@ -60,7 +60,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
   return (
     <div className="min-h-screen text-white selection:bg-white/20 font-sans flex flex-col">
       
-      <section className="flex-grow flex flex-col items-center justify-center pt-24 pb-8 relative overflow-hidden">
+      <section className="flex-grow flex flex-col items-center justify-center pt-16 md:pt-24 pb-8 relative overflow-hidden">
         
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
