@@ -883,125 +883,223 @@ const useTypingAnimation = (text: string, start: boolean, duration = 50) => {
 };
 
 
-// --- Main Component: ExecutiveLiquidityFlow ---
-const ExecutiveLiquidityFlow = ({ accentColor = '#4D88FF' }: { accentColor?: string } = {}) => {
-  const [currentPanel, setCurrentPanel] = useState(0);
-  // Centralized state object for all animations within the panels
-  const [animationState, setAnimationState] = useState({
-    typingSource: false,
-    typingSourceToken: false,
-    typingDestination: false,
-    typingDestinationToken: false,
-    isGenerating: false,
-    showToast: false,
-    signatures: { maria: false, john: false },
-    isExecuting: false,
-    visibleSteps: [],
-  });
+// --- Main Component: ExecutiveLiquidityFlow - Liquidity Pool Animation ---
+const ExecutiveLiquidityFlow = () => {
+    const [currentPanel, setCurrentPanel] = useState(0);
+    const [showPopup, setShowPopup] = useState(false);
+    const [amount, setAmount] = useState('');
+    const [addedLiquidity, setAddedLiquidity] = useState(0);
+    const [compoundingYield, setCompoundingYield] = useState(0.0);
+    const [signatureState, setSignatureState] = useState('idle');
+    const [isAddButtonClicked, setAddButtonClicked] = useState(false);
+    const [isConfirmButtonClicked, setConfirmButtonClicked] = useState(false);
+    const [animationStep, setAnimationStep] = useState(0);
 
-  // This effect controls the main animation cycle between the three panels.
-  useEffect(() => {
-    // Reset all states when the panel cycle begins
-    if (currentPanel === 0) {
-      setAnimationState({
-        typingSource: false,
-        typingSourceToken: false,
-        typingDestination: false,
-        typingDestinationToken: false,
-        isGenerating: false,
-        showToast: false,
-        signatures: { maria: false, john: false },
-        isExecuting: false,
-        visibleSteps: [],
-      });
-      // Sequence of typing animations for Panel 0
-      const timers = [
-        setTimeout(() => setAnimationState(s => ({ ...s, typingSource: true })), 300),
-        setTimeout(() => setAnimationState(s => ({ ...s, typingSourceToken: true })), 1200),
-        setTimeout(() => setAnimationState(s => ({ ...s, typingDestination: true })), 1500),
-        setTimeout(() => setAnimationState(s => ({ ...s, typingDestinationToken: true })), 2400),
-        setTimeout(() => setAnimationState(s => ({ ...s, isGenerating: true })), 2700),
-      ];
-      // Cleanup timers when the panel changes
-      return () => timers.forEach(clearTimeout);
-    } else if (currentPanel === 1) {
-      // Sequence of animations for Panel 1
-      const timers = [
-        setTimeout(() => {
-          setAnimationState(s => ({ ...s, showToast: true }));
-        }, 2000),
-        setTimeout(() => {
-          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, maria: true } }));
-        }, 2500),
-        setTimeout(() => {
-          setAnimationState(s => ({ ...s, signatures: { ...s.signatures, john: true } }));
-        }, 4000),
-        setTimeout(() => {
-          setAnimationState(s => ({ ...s, showToast: false }));
-        }, 6000),
-        setTimeout(() => {
-          setAnimationState(s => ({ ...s, isExecuting: true }));
-        }, 4500),
-      ];
-      return () => timers.forEach(clearTimeout);
-    }
-  }, [currentPanel]);
+    useEffect(() => {
+        let timeout: NodeJS.Timeout;
+        let interval: NodeJS.Timeout;
 
+        const runAnimationStep = (step: number) => {
+            switch (step) {
+                case 0:
+                    setCurrentPanel(0);
+                    setShowPopup(false);
+                    setAmount('');
+                    setAddedLiquidity(0);
+                    setCompoundingYield(0.0);
+                    setSignatureState('idle');
+                    setAddButtonClicked(false);
+                    setConfirmButtonClicked(false);
+                    timeout = setTimeout(() => setAnimationStep(1), 2000);
+                    break;
+                case 1:
+                    setAddButtonClicked(true);
+                    timeout = setTimeout(() => setAnimationStep(2), 300);
+                    break;
+                case 2:
+                    setAddButtonClicked(false);
+                    setShowPopup(true);
+                    timeout = setTimeout(() => setAnimationStep(3), 500);
+                    break;
+                case 3:
+                    setAmount('10,000');
+                    timeout = setTimeout(() => setAnimationStep(4), 1500);
+                    break;
+                case 4:
+                    setConfirmButtonClicked(true);
+                    timeout = setTimeout(() => setAnimationStep(5), 300);
+                    break;
+                case 5:
+                    setConfirmButtonClicked(false);
+                    setSignatureState('awaiting');
+                    timeout = setTimeout(() => setAnimationStep(6), 2500);
+                    break;
+                case 6:
+                    setSignatureState('received');
+                    timeout = setTimeout(() => setAnimationStep(7), 1500);
+                    break;
+                case 7:
+                    setShowPopup(false);
+                    setAddedLiquidity(10000);
+                    setAmount('');
+                    timeout = setTimeout(() => setAnimationStep(8), 700);
+                    break;
+                case 8:
+                    setCurrentPanel(2);
+                    setCompoundingYield(0.0);
+                    interval = setInterval(() => {
+                        setCompoundingYield(prev => prev + 0.045);
+                    }, 50);
+                    timeout = setTimeout(() => setAnimationStep(9), 5000);
+                    break;
+                case 9:
+                    clearInterval(interval);
+                    timeout = setTimeout(() => setAnimationStep(0), 1000);
+                    break;
+            }
+        };
 
-  // Effect to manage the cycling of panels
-  useEffect(() => {
-    const cyclePanels = () => {
-      setCurrentPanel(prev => (prev + 1) % 3);
-    };
-    const intervalId = setInterval(cyclePanels, 7000); // Cycle every 7 seconds
-    return () => clearInterval(intervalId);
-  }, []);
+        runAnimationStep(animationStep);
 
-  // --- Panel Class Management for Left-to-Right Pan ---
-  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
-  const panelVisibleClasses = "opacity-100 translate-x-0";
-  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
-  const panelHiddenRightClasses = "opacity-0 translate-x-full";
+        return () => {
+            if (timeout) clearTimeout(timeout);
+            if (interval) clearInterval(interval);
+        };
+    }, [animationStep]);
 
-  const getPanelClasses = (panelIndex: number) => {
-    if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
-    if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
-    return `${panelBaseClasses} ${panelHiddenRightClasses}`;
-  };
+    const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+    const panelVisibleClasses = "opacity-100 translate-x-0";
+    const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+    const panelHiddenRightClasses = "opacity-0 translate-x-full";
 
-  return (
-    <VisualContainer>
-      <div className="relative w-full max-w-md mx-auto h-[480px] font-sans overflow-hidden">
-        {/* Panel 1: API Payment Request */}
-        <div className={getPanelClasses(0)}>
-          <ApiRequestPanel
-            typingState={{
-              source: animationState.typingSource,
-              sourceToken: animationState.typingSourceToken,
-              destination: animationState.typingDestination,
-              destinationToken: animationState.typingDestinationToken,
-            }}
-            isGenerating={animationState.isGenerating}
-          />
-        </div>
+    const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+    const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
-        {/* Panel 2: Route Creation & Signatures */}
-        <div className={getPanelClasses(1)}>
-          <RouteCreationPanel
-            signatures={animationState.signatures}
-            showSignatureToast={animationState.showToast}
-            isExecuting={animationState.isExecuting}
-            currentPanel={currentPanel}
-          />
-        </div>
+    const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800 ${showPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
+    const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
 
-        {/* Panel 3: Compliance & Execution Report */}
-        <div className={getPanelClasses(2)}>
-          <ComplianceReportPanel />
-        </div>
-      </div>
-    </VisualContainer>
-  );
+    return (
+        <VisualContainer>
+            <style>{cursorStyle}</style>
+            <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+                {/* Panel 0: Pool Overview */}
+                <div className={panel0Classes} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
+                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                        <Header title="Liquidity Pool" subtitle="BSD / USDC" icon={<Briefcase className="w-5 h-5 text-slate-400" />} />
+                        <div className="p-4 rounded-lg">
+                            <div className="flex items-center justify-between mb-4">
+                                <div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Total Liquidity</p>
+                                    <p className="text-2xl font-bold text-green-500 tracking-tight">$4,950,000.00</p>
+                                </div>
+                                <DollarSign className="w-8 h-8 text-green-500/30" />
+                            </div>
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
+                                    <p className="text-2xl font-bold text-green-500 tracking-tight">14.5%</p>
+                                </div>
+                                <TrendingUp className="w-8 h-8 text-green-500/30" />
+                            </div>
+                        </div>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500 ${isAddButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}`}>
+                            <Plus className="w-4 h-4" /> <span>Add Liquidity</span>
+                        </button>
+                        <div className="flex-grow mt-4 flex flex-col justify-end">
+                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-4 border border-slate-100 dark:border-slate-800">
+                                <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Monthly Volume</p>
+                                <p className="text-3xl font-bold text-slate-800 dark:text-slate-100">$15,000,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Panel 2: Your Position */}
+                <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 2 }}>
+                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                        <Header title="Your Position" subtitle="BSD / USDC" icon={<User className="w-5 h-5 text-slate-400" />} />
+                        <div className="p-4 rounded-lg">
+                            <div className="flex items-center justify-between mb-4">
+                                <div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Your Liquidity</p>
+                                    <p className="text-2xl font-bold text-green-500 tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
+                                </div>
+                                <DollarSign className="w-8 h-8 text-green-500/30" />
+                            </div>
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Fees Earned</p>
+                                    <p className="text-2xl font-bold text-green-500 tracking-tight">${compoundingYield.toFixed(2)}</p>
+                                </div>
+                                <TrendingUp className="w-8 h-8 text-green-500/30" />
+                            </div>
+                        </div>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold rounded-lg transition-all duration-200 my-4`}>
+                            <ArrowRight className="w-4 h-4 rotate-180" /> <span>Withdraw Liquidity</span>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Popup Container */}
+                <div className={keypadPopupContainerClasses}>
+                    <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4 min-h-[300px]`}>
+                        <Header title="Add Liquidity" subtitle="Enter deposit amount" icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
+
+                        {signatureState === 'idle' && (
+                            <div className="flex-grow flex flex-col items-center justify-center text-center">
+                                <div className="flex flex-col gap-3 w-full px-4">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                        <div className="flex flex-col items-start">
+                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit Amount</span>
+                                            <div className="flex items-baseline">
+                                                <span className="text-3xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
+                                                <span className="typing-cursor"></span>
+                                            </div>
+                                        </div>
+                                        <span className="text-xl font-semibold text-slate-500">USDC</span>
+                                    </div>
+
+                                    <div className="flex items-center justify-center">
+                                        <Plus className="w-5 h-5 text-slate-300" />
+                                    </div>
+
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                        <div className="flex flex-col items-start">
+                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Matching Amount</span>
+                                            <span className="text-3xl font-bold text-slate-800 dark:text-slate-100">
+                                                {amount ? (parseInt(amount.replace(/,/g, '')) * 12.5).toLocaleString() : '0'}
+                                            </span>
+                                        </div>
+                                        <span className="text-xl font-semibold text-slate-500">BSD</span>
+                                    </div>
+                                    <p className="text-xs text-center text-slate-400 mt-1">1 USDC = 12.50 BSD</p>
+                                </div>
+                                <button className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500 ${isConfirmButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}`}>
+                                    <CheckCircle className="w-5 h-5" /> <span>Confirm Deposit</span>
+                                </button>
+                            </div>
+                        )}
+
+                        {signatureState === 'awaiting' && (
+                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
+                                <Loader2 className="w-12 h-12 text-green-500 spin" />
+                                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
+                                <p className="text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
+                            </div>
+                        )}
+
+                        {signatureState === 'received' && (
+                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
+                                <CheckCircle className="w-12 h-12 text-green-500" />
+                                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
+                                <p className="text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </VisualContainer>
+    );
 };
 
 // --- Sub-component for Panel 1: API Request (Updated Animation) ---
