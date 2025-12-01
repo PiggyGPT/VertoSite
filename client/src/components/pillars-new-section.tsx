@@ -1053,8 +1053,8 @@ const MintingVisual = () => {
         showLedger: false, reconciled: false
       });
       const timers = [
-        setTimeout(() => setAnimationState(s => ({ ...s, typingAmount: true })), 500),
-        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 1500),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingAmount: true })), 250),
+        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 750),
       ];
       return () => timers.forEach(clearTimeout);
     } 
