@@ -2275,7 +2275,7 @@ export default function PillarsSection({
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PaymentsVisual />,
       founderQuote: {
-        quote: "Stablecoins drive volume when any user, anywhere can trade them with their existing funds — fiat in banks or crypto in wallets.",
+        quote: "Stablecoins drive volume when any user, anywhere can trade them with their existing funds — be it fiat in banks or crypto in wallets.",
         name: "Nilesh Khaitan",
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
