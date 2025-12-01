@@ -1955,31 +1955,51 @@ const ExecutiveServiceFlow = () => {
           </div>
         </div>
 
-        {/* Panel 1: SOC Monitoring */}
+        {/* Panel 1: Key Provider & Governance */}
         <div className={panel1Classes} style={{ zIndex: currentPanel === 1 ? 3 : 2 }}>
           <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
-            <Header title="24/7 SOC Monitoring" subtitle="Active Location" icon={<Monitor className="w-5 h-5 text-slate-400" />} />
-            <div className="p-3 lg:p-4 rounded-lg space-y-3 lg:space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">Active Location</p>
-                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">{activeSOC}</p>
+            <Header title="Key Provider & Governance" subtitle="Integrated Protection" icon={<KeyIcon className="w-5 h-5 text-slate-400" />} />
+            <div className="p-3 lg:p-4 rounded-lg space-y-4 lg:space-y-5 flex-grow flex flex-col justify-center">
+              {/* Fireblocks Integration */}
+              <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                    <KeyIcon className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">Fireblocks</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Institutional Wallet</p>
+                  </div>
                 </div>
-                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                <CheckCircle className="w-5 h-5 text-green-500" />
               </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">Local Time</p>
-                  <p className="text-xl lg:text-2xl font-bold font-mono text-white tracking-tight">{formattedTime}</p>
+
+              {/* Policy 1: Multi-Sig Approval */}
+              <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                    <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">Multi-Sig Approval</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">3 of 5 Signers Required</p>
+                  </div>
                 </div>
-                <Clock className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
+                <CheckCircle className="w-5 h-5 text-green-500" />
               </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">Status</p>
-                  <p className="text-xl lg:text-2xl font-bold text-green-400 tracking-tight">Active</p>
+
+              {/* Policy 2: Transaction Limits */}
+              <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                    <DollarSign className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">Daily Tx Limit</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">$10M per 24 hours</p>
+                  </div>
                 </div>
-                <ShieldCheck className="w-6 lg:w-8 h-6 lg:h-8 text-green-500" />
+                <CheckCircle className="w-5 h-5 text-green-500" />
               </div>
             </div>
           </div>
