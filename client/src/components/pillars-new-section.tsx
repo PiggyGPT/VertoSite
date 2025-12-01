@@ -764,8 +764,8 @@ const PaymentsVisual = () => {
         // Input
         await new Promise(r => setTimeout(r, 500));
         setAmountInput("1"); await new Promise(r => setTimeout(r, 100));
-        setAmountInput("12"); await new Promise(r => setTimeout(r, 100));
-        setAmountInput("120"); await new Promise(r => setTimeout(r, 1500));
+        setAmountInput("1200"); await new Promise(r => setTimeout(r, 100));
+        setAmountInput("1200.00"); await new Promise(r => setTimeout(r, 1500));
         
         // QR
         setPhase(1); await new Promise(r => setTimeout(r, 2000));
