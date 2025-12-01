@@ -1740,8 +1740,13 @@ const PolishedComplianceFlow = () => {
   const [currentPanel, setCurrentPanel] = useState(0); // 0: ratings, 1: policy, 2: report
 
   useEffect(() => {
+    const panelOrder = [1, 2, 0]; // Show Key Provider -> Compliance -> Infrastructure
     const cycle = setInterval(() => {
-      setCurrentPanel(prev => (prev + 1) % 3);
+      setCurrentPanel(prev => {
+        const currentIndex = panelOrder.indexOf(prev);
+        const nextIndex = (currentIndex + 1) % panelOrder.length;
+        return panelOrder[nextIndex];
+      });
     }, 2000); // Switch every 2 seconds
     return () => clearInterval(cycle);
   }, []);
@@ -2008,7 +2013,7 @@ const ExecutiveServiceFlow = () => {
         {/* Panel 2: Compliance Integrations */}
         <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 1 }}>
           <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
-            <Header title="Integrated Providers" subtitle="Built-in Compliance Stack" icon={<Shield className="w-5 h-5 text-slate-400" />} />
+            <Header title="Compliance Providers" subtitle="Built-in Compliance Stack" icon={<Shield className="w-5 h-5 text-slate-400" />} />
             <div className="p-3 lg:p-4 rounded-lg space-y-4 lg:space-y-5 flex-grow flex flex-col justify-center">
               {/* Anchain - Compliance Tool */}
               <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
