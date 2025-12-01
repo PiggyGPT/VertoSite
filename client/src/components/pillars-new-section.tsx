@@ -1628,15 +1628,21 @@ const MintingVisual = () => {
                       </motion.div>
                     </div>
 
-                    {(animationState.statusPopupState === 'received' || animationState.statusPopupState === 'minting') && (
-                      <motion.div 
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3 text-[10px] font-mono text-indigo-700 dark:text-indigo-400 text-center"
-                      >
-                        Reference: <span className="font-bold">REF-MR-8821</span>
-                      </motion.div>
-                    )}
+                    <motion.div 
+                      animate={{ opacity: ['waiting', 'received', 'minting'].includes(animationState.statusPopupState) || animationState.statusPopupState === 'complete' ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className={`mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 rounded-lg p-3 text-[10px] font-mono text-center will-change-auto ${
+                        animationState.statusPopupState === 'complete' 
+                          ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400'
+                          : 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400'
+                      }`}
+                    >
+                      {animationState.statusPopupState === 'complete' ? (
+                        <>TX Hash: <span className="font-bold">0x7c8f...a2b9</span></>
+                      ) : (
+                        <>Reference: <span className="font-bold">REF-MR-8821</span></>
+                      )}
+                    </motion.div>
                   </div>
                 </motion.div>
               )}
