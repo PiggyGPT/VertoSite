@@ -358,6 +358,9 @@ const ExecutiveDistributionFlow = () => {
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4`}>
                             <ArrowRight className="w-4 h-4 rotate-180" /> <span>Withdraw Liquidity</span>
                         </button>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200`}>
+                            <Gift className="w-4 h-4" /> <span>Collect Fees</span>
+                        </button>
                     </div>
                 </div>
 
@@ -1038,6 +1041,9 @@ const ExecutiveLiquidityFlow = () => {
                         </div>
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4`}>
                             <ArrowRight className="w-4 h-4 rotate-180" /> <span>Withdraw Liquidity</span>
+                        </button>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200`}>
+                            <Gift className="w-4 h-4" /> <span>Collect Fees</span>
                         </button>
                     </div>
                 </div>
