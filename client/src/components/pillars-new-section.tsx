@@ -1833,39 +1833,53 @@ const ServiceVisualContainer = ({ children }: { children: React.ReactNode }) => 
   </div>
 );
 
-// CSS for the pulsing green dot animation
-const animationStyles = `
-  @keyframes pulse-green {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-    }
-    50% {
-      box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
-    }
-  }
-  .animate-pulse-green {
-    animation: pulse-green 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
-  }
-`;
-
-// A reusable header component for consistent styling within the dashboard
-const ServiceHeader = ({ title, icon }: { title: string; icon: React.ReactNode }) => (
-  <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
-    {icon && React.cloneElement(icon as React.ReactElement, { className: 'w-3 h-3' })}
-    <span>{title}</span>
-  </div>
-);
-
-// --- Main Dashboard Component ---
+// --- Main Dashboard Component: Self-Hosted Dashboard Animation ---
 const ExecutiveServiceFlow = () => {
-  // State for the active SOC location and the simulated time
+  const [currentPanel, setCurrentPanel] = useState(0);
   const [activeSOC, setActiveSOC] = useState('New York');
-  const [timeData, setTimeData] = useState({ hours: 6, minutes: 0 }); // Start at 06:00
+  const [timeData, setTimeData] = useState({ hours: 6, minutes: 0 });
+  const [complianceScore, setComplianceScore] = useState(0);
+  const [animationStep, setAnimationStep] = useState(0);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    let interval: NodeJS.Timeout;
+
+    const runAnimationStep = (step: number) => {
+      switch (step) {
+        case 0:
+          setCurrentPanel(0);
+          setComplianceScore(0);
+          timeout = setTimeout(() => setAnimationStep(1), 2000);
+          break;
+        case 1:
+          setCurrentPanel(1);
+          timeout = setTimeout(() => setAnimationStep(2), 2500);
+          break;
+        case 2:
+          setCurrentPanel(2);
+          interval = setInterval(() => {
+            setComplianceScore(prev => Math.min(prev + 1.5, 98));
+          }, 30);
+          timeout = setTimeout(() => setAnimationStep(3), 5000);
+          break;
+        case 3:
+          clearInterval(interval);
+          timeout = setTimeout(() => setAnimationStep(0), 1500);
+          break;
+      }
+    };
+
+    runAnimationStep(animationStep);
+
+    return () => {
+      if (timeout) clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
+  }, [animationStep]);
 
   useEffect(() => {
     const locations = ['New York', 'Barcelona', 'Singapore'];
-
-    // Interval to update the clock every 50ms for a smooth animation
     const clockInterval = setInterval(() => {
       setTimeData(prevTime => {
         let newMinutes = prevTime.minutes + 10;
@@ -1876,94 +1890,126 @@ const ExecutiveServiceFlow = () => {
           newHours = (newHours + 1) % 24;
         }
 
-        // Change active SOC based on 8-hour shifts
-        // 06:00 - 14:00 -> New York
-        // 14:00 - 22:00 -> Barcelona
-        // 22:00 - 06:00 -> Singapore
         if (newHours >= 6 && newHours < 14) {
-          setActiveSOC(locations[0]); // New York
+          setActiveSOC(locations[0]);
         } else if (newHours >= 14 && newHours < 22) {
-          setActiveSOC(locations[1]); // Barcelona
+          setActiveSOC(locations[1]);
         } else {
-          setActiveSOC(locations[2]); // Singapore
+          setActiveSOC(locations[2]);
         }
 
         return { hours: newHours, minutes: newMinutes };
       });
-    }, 50); // Faster interval for smoother clock
+    }, 50);
 
     return () => clearInterval(clockInterval);
   }, []);
 
-  // Format the time for display with leading zeros
   const formattedTime = `${String(timeData.hours).padStart(2, '0')}:${String(timeData.minutes).padStart(2, '0')}`;
 
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
+
+  const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+  const panel1Classes = `${panelBaseClasses} ${currentPanel === 1 ? panelVisibleClasses : currentPanel > 1 ? panelHiddenLeftClasses : panelHiddenRightClasses}`;
+  const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
+
   return (
-    <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
-      <style>{animationStyles}</style>
-      <div className="w-full max-w-xs md:max-w-sm p-4 md:p-5 rounded-2xl shadow-xl  border border-slate-200 dark:border-slate-700 flex flex-col space-y-4 md:space-y-5">
-
-        {/* Dashboard Header */}
-        <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
-          <h1 className="text-base font-bold text-slate-600 dark:text-slate-300">Service Dashboard</h1>
-          <div className="flex items-center space-x-1.5 px-2.5 py-1 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 rounded-full">
-            <ShieldCheck className="w-3 h-3" />
-            <span className="text-xs font-semibold uppercase tracking-wider">24/7 SOC</span>
-          </div>
-        </div>
-
-        {/* Section 1: Cluster & Environment */}
-        <div>
-          <ServiceHeader title="Self-Hosted Deployment" icon={<Server />} />
-          <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-            <div className="flex justify-between items-center mb-3">
-              <div>
-                <p className="text-xs font-medium text-slate-400 dark:text-slate-500">Operational Status</p>
-                <div className="flex items-center gap-2 mt-1">
-                  <CheckCircle className="w-3 h-3 text-green-500" />
-                  <p className="text-xl font-bold text-green-500 tracking-tight">99.99%</p>
+    <VisualContainer>
+      <div className="relative w-full max-w-sm lg:max-w-md mx-auto min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+        {/* Panel 0: Infrastructure Overview */}
+        <div className={panel0Classes} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
+          <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
+            <Header title="Infrastructure" subtitle="Self-Hosted Deployment" icon={<Server className="w-5 h-5 text-slate-400" />} />
+            <div className="p-3 lg:p-4 rounded-lg">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Operational Status</p>
+                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">99.99%</p>
                 </div>
+                <CheckCircle className="w-6 lg:w-8 h-6 lg:h-8 text-green-500" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                <Cpu className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Environment</p>
+                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">Production</p>
+                </div>
+                <Cpu className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
               </div>
-            </div>
-            <div className="flex justify-between items-center text-sm">
-              <div className="flex-1">
-                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Environment</p>
-                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Production</p>
-              </div>
-              <div className="flex-1 text-right">
-                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Location</p>
-                <p className="text-sm text-slate-600 dark:text-slate-300 mt-0.5">sa-east1-siloed</p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Region</p>
+                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">sa-east-1</p>
+                </div>
+                <Globe className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Section 2: Active SOC Monitoring */}
-        <div>
-          <ServiceHeader title="Active SOC Monitoring" icon={<Monitor />} />
-          <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
-            <div className="flex items-center gap-4">
-              <div className="relative p-2 rounded-full bg-green-500 animate-pulse-green">
-                <Monitor className="w-4 h-4 text-white" />
+        {/* Panel 1: SOC Monitoring */}
+        <div className={panel1Classes} style={{ zIndex: currentPanel === 1 ? 3 : 2 }}>
+          <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
+            <Header title="24/7 SOC Monitoring" subtitle="Active Location" icon={<Monitor className="w-5 h-5 text-slate-400" />} />
+            <div className="p-3 lg:p-4 rounded-lg space-y-3 lg:space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Active Location</p>
+                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">{activeSOC}</p>
+                </div>
+                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
               </div>
-              <div className="flex flex-col">
-                <p className="text-base font-semibold text-slate-600 dark:text-slate-300">{activeSOC}</p>
-                <span className="text-xs font-bold text-green-500 uppercase">Active</span>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Local Time</p>
+                  <p className="text-xl lg:text-2xl font-bold font-mono text-white tracking-tight">{formattedTime}</p>
+                </div>
+                <Clock className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
               </div>
-            </div>
-            {/* Digital clock displaying the time */}
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-              <span className="text-xl font-mono font-semibold text-slate-600 dark:text-slate-300 tracking-tight">{formattedTime}</span>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Status</p>
+                  <p className="text-xl lg:text-2xl font-bold text-green-400 tracking-tight">Active</p>
+                </div>
+                <ShieldCheck className="w-6 lg:w-8 h-6 lg:h-8 text-green-500" />
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Panel 2: Compliance Status */}
+        <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 1 }}>
+          <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
+            <Header title="Compliance Status" subtitle="Security Posture" icon={<Shield className="w-5 h-5 text-slate-400" />} />
+            <div className="p-3 lg:p-4 rounded-lg space-y-3 lg:space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Compliance Score</p>
+                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">{complianceScore.toFixed(0)}%</p>
+                </div>
+                <CheckCircle className="w-6 lg:w-8 h-6 lg:h-8 text-green-500" />
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">AML/KYC Status</p>
+                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">Verified</p>
+                </div>
+                <KeyIcon className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Data Sovereignty</p>
+                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">Secured</p>
+                </div>
+                <Lock className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </VisualContainer>
   );
 };
 
