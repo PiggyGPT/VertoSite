@@ -1417,12 +1417,8 @@ const MintingVisual = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">New Mint Request</h3>
-                  <p className="text-xs text-slate-500">Partner Portal</p>
+                  <p className="text-xs text-slate-500">Banco Bisa</p>
                 </div>
-              </div>
-              <div className="flex items-center gap-1.5 px-2 py-1 bg-green-50 dark:bg-green-900/20 rounded border border-green-100 dark:border-green-800">
-                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-green-700 dark:text-green-400 text-[10px] font-semibold uppercase">Live</span>
               </div>
             </div>
 
@@ -1448,7 +1444,7 @@ const MintingVisual = () => {
                     <span className="text-xs text-slate-400 bg-slate-200 dark:bg-slate-700 px-1 rounded">Stable</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="text-slate-400 mr-2 text-sm">Bs</span>
+                    <span className="text-slate-400 mr-2 text-sm">BOB</span>
                     <span className="text-slate-900 dark:text-white font-mono text-lg">{amountText}<motion.span className="animate-pulse">|</motion.span></span>
                   </div>
                 </div>
@@ -1526,7 +1522,10 @@ const MintingVisual = () => {
                         <div className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400"></div>
                         Mint Process
                       </h4>
-                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">LIVE</span>
+                      <div className="flex items-center gap-1.5 px-2 py-1 bg-green-50 dark:bg-green-900/20 rounded border border-green-100 dark:border-green-800">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                        <span className="text-green-700 dark:text-green-400 text-[10px] font-semibold uppercase">Live</span>
+                      </div>
                     </div>
                     
                     <div className="space-y-3">
@@ -1576,7 +1575,7 @@ const MintingVisual = () => {
                         </div>
                         <div className="flex-1">
                           <p className="text-xs font-semibold text-slate-900 dark:text-white">Deposit Detected</p>
-                          <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Confirmed 70,000.00 Bs from Maria R.</p>
+                          <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Confirmed 70,000.00 BOB from Maria R.</p>
                         </div>
                       </motion.div>
 
@@ -1677,7 +1676,7 @@ const MintingVisual = () => {
                 <div className="flex justify-between items-end">
                   <div>
                     <p className="text-xs text-slate-500">Credit Amount</p>
-                    <p className="text-sm font-semibold text-slate-900 dark:text-white">70,000.00 Bs</p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">70,000.00 BOB</p>
                   </div>
                   <div className="text-right">
                     <p className="text-[10px] text-slate-400 uppercase">Wire Ref</p>
@@ -1710,7 +1709,7 @@ const MintingVisual = () => {
                     <p className="text-sm font-semibold text-slate-900 dark:text-white">70,000.00 BSD</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px] text-slate-400 uppercase">On-Chain Memo</p>
+                    <p className="text-[10px] text-slate-400 uppercase">Tx Hash</p>
                     <div className="flex items-center gap-1">
                       <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">0x38F1...8821</span>
                     </div>
