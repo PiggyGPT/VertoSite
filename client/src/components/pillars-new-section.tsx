@@ -310,16 +310,16 @@ const ExecutiveDistributionFlow = () => {
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Total Liquidity</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">$4,950,000.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">$4,950,000.00</p>
                                 </div>
-                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">14.5%</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">14.5%</p>
                                 </div>
-                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                         </div>
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4 bg-blue-500 ${isAddButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600 hover:scale-105'}`}>
@@ -342,16 +342,16 @@ const ExecutiveDistributionFlow = () => {
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Your Liquidity</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
                                 </div>
-                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Fees Earned</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${compoundingYield.toFixed(2)}</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">${compoundingYield.toFixed(2)}</p>
                                 </div>
-                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                         </div>
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4`}>
@@ -402,7 +402,7 @@ const ExecutiveDistributionFlow = () => {
 
                         {signatureState === 'awaiting' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
-                                <Loader2 className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500 spin" />
+                                <Loader2 className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500 animate-spin" />
                                 <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
                                 <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
                             </div>
@@ -410,7 +410,7 @@ const ExecutiveDistributionFlow = () => {
 
                         {signatureState === 'received' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
-                                <CheckCircle className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500" />
+                                <CheckCircle className="w-10 lg:w-12 h-10 lg:h-12 text-white" />
                                 <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
                                 <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
                             </div>
@@ -990,16 +990,16 @@ const ExecutiveLiquidityFlow = () => {
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Total Liquidity</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">$4,950,000.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">$4,950,000.00</p>
                                 </div>
-                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">14.5%</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">14.5%</p>
                                 </div>
-                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                         </div>
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4 bg-blue-500 ${isAddButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600 hover:scale-105'}`}>
@@ -1022,16 +1022,16 @@ const ExecutiveLiquidityFlow = () => {
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Your Liquidity</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
                                 </div>
-                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Fees Earned</p>
-                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${compoundingYield.toFixed(2)}</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">${compoundingYield.toFixed(2)}</p>
                                 </div>
-                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
                         </div>
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4`}>
@@ -1082,7 +1082,7 @@ const ExecutiveLiquidityFlow = () => {
 
                         {signatureState === 'awaiting' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
-                                <Loader2 className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500 spin" />
+                                <Loader2 className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500 animate-spin" />
                                 <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
                                 <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
                             </div>
@@ -1090,7 +1090,7 @@ const ExecutiveLiquidityFlow = () => {
 
                         {signatureState === 'received' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
-                                <CheckCircle className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500" />
+                                <CheckCircle className="w-10 lg:w-12 h-10 lg:h-12 text-white" />
                                 <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
                                 <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
                             </div>
