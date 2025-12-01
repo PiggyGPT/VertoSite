@@ -31,22 +31,6 @@ const Header = ({ title, subtitle, icon }: any) => (
   </div>
 );
 
-const MintContent = ({ voucherId, amount }: any) => (
-  <div className="w-full max-w-xs mx-auto rounded-2xl shadow-xl p-6 flex flex-col items-center text-center font-mono border border-slate-200 dark:border-slate-700 h-full">
-    <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">Tia Store</h3>
-    <p className="text-xs text-slate-500 dark:text-slate-400">14 AUG 2025, 09:48:12</p>
-    <p className="text-xs text-slate-500 dark:text-slate-400">MINT #{voucherId}</p>
-    <div className="my-4 border-t border-dashed border-slate-300 dark:border-slate-700 w-full"></div>
-    <p className="text-sm text-slate-500 dark:text-slate-400">SCAN TO CLAIM</p>
-    <div className="flex items-baseline justify-center gap-2 my-2">
-      <p className="text-4xl font-bold text-slate-800 dark:text-slate-200">{amount}.00</p>
-      <p className="text-lg font-mono text-slate-600 dark:text-slate-300">BOBC</p>
-    </div>
-    <div className="p-2 bg-white rounded-lg mt-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
-      <QRCodeSVG value={`https://albor.exchange/claim?amount=${amount}.00&id=${voucherId}`} size={120} />
-    </div>
-  </div>
-);
 
 const FeatureItem = ({ icon: Icon, title, description }: any) => (
   <div className="flex items-start">
@@ -62,22 +46,6 @@ const FeatureItem = ({ icon: Icon, title, description }: any) => (
   </div>
 );
 
-const FounderBanner = () => (
-  <div className="rounded-xl p-6 md:p-8 mt-8">
-    <div className="flex flex-col md:flex-row items-start gap-6">
-      <img src={davidImage} alt="David Cass" className="w-16 h-16 rounded-full object-cover ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0" />
-      <div>
-        <blockquote className="text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 border-green-500 pl-5">
-          <p>"The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook."</p>
-        </blockquote>
-        <footer className="mt-4">
-          <p className="font-semibold text-slate-900 dark:text-white">David Cass</p>
-          <p className="text-sm font-medium text-green-500">CEO | Former Federal Reserve Regulator</p>
-        </footer>
-      </div>
-    </div>
-  </div>
-);
 
 const DistributionVisual = () => {
   const [currentPanel, setCurrentPanel] = useState(0);

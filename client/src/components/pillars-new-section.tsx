@@ -168,7 +168,7 @@ const ExecutiveDistributionFlow = () => {
                 case 5:
                     setConfirmButtonClicked(false);
                     setSignatureState('awaiting');
-                    timeout = setTimeout(() => setAnimationStep(6), 2500);
+                    timeout = setTimeout(() => setAnimationStep(6), 500);
                     break;
                 case 6:
                     setSignatureState('received');
@@ -1032,238 +1032,6 @@ const ExecutiveLiquidityFlow = () => {
     );
 };
 
-// --- Sub-component for Panel 1: API Request (Updated Animation) ---
-const ApiRequestPanel = ({ typingState, isGenerating }: { typingState: any, isGenerating: boolean }) => {
-  const cursorStyle = `
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-    .typing-cursor {
-      animation: blink 1s step-end infinite;
-      width: 4px;
-      height: 3rem;
-      background-color: #22c55e;
-      display: inline-block;
-      vertical-align: sub;
-      margin-left: 4px;
-    }
-  `;
-
-  return (
-    <div className="w-full h-full rounded-2xl shadow-2xl border border-slate-700 bg-slate-900 flex flex-col p-6 overflow-hidden">
-      <style>{cursorStyle}</style>
-      
-      {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-slate-700 mb-6">
-        <div>
-          <h3 className="font-bold text-lg text-slate-100">Route Optimization</h3>
-          <p className="text-xs text-slate-400">Real-time computation</p>
-        </div>
-        <Cpu className={`w-6 h-6 text-green-500 ${isGenerating ? 'animate-spin' : ''}`} />
-      </div>
-
-      {/* Status Content */}
-      <div className="flex-grow flex flex-col justify-center space-y-6">
-        {/* Typing Animation - Source */}
-        <div className="space-y-2">
-          <p className="text-xs text-slate-400 uppercase tracking-wider">Source</p>
-          <div className="bg-slate-800 p-3 rounded border border-slate-700 font-mono text-sm">
-            <span className="text-cyan-400">fb_solana_wallet_0x</span>
-            <span className="text-amber-300">{typingState.source && 'ab1a2b'}</span>
-            {typingState.source && !typingState.sourceToken && <span className="typing-cursor"></span>}
-          </div>
-        </div>
-
-        {/* Destination */}
-        <div className="space-y-2">
-          <p className="text-xs text-slate-400 uppercase tracking-wider">Destination</p>
-          <div className="bg-slate-800 p-3 rounded border border-slate-700 font-mono text-sm">
-            <span className="text-purple-400">merchant_store_0x</span>
-            <span className="text-amber-300">{typingState.destination && '3c4d9e8f'}</span>
-            {typingState.destination && !typingState.destinationToken && <span className="typing-cursor"></span>}
-          </div>
-        </div>
-
-        {/* Amount */}
-        <div className="space-y-2">
-          <p className="text-xs text-slate-400 uppercase tracking-wider">Amount</p>
-          <div className="bg-slate-800 p-3 rounded border border-slate-700 font-mono text-sm">
-            <span className="text-green-400">25,000.00</span>
-            <span className="text-slate-400 ml-2">BOBC</span>
-            {typingState.destinationToken && !isGenerating && <span className="typing-cursor"></span>}
-          </div>
-        </div>
-      </div>
-
-      {/* Status Message */}
-      <div className={`mt-6 p-4 rounded bg-slate-800/50 border border-slate-700 transition-opacity duration-500 ${isGenerating ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="flex items-center gap-2 justify-center">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-          <span className="text-xs text-slate-300">Generating optimal route...</span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// --- Sub-component for Panel 2: Route Creation ---
-const RouteCreationPanel = ({ signatures, showSignatureToast, isExecuting, currentPanel }: { signatures: any, showSignatureToast: boolean, isExecuting: boolean, currentPanel: number }) => {
-  const routeSteps = useMemo(() => [
-    { id: 1, title: 'Withdraw from Fireblocks', subtitle: '250.00 USDC', network: 'Solana' },
-    { id: 2, title: 'Bridge via CCTP', subtitle: '250.00 USDC', network: 'Solana' },
-    { id: 3, title: 'Swap on Curve Finance', subtitle: '250.00 USDC to 25,000 BOBC', network: 'Arbitrum' },
-    { id: 4, title: 'Pay Tia Store', subtitle: '0x3h5h..4243', network: 'Arbitrum' },
-  ], []);
-
-  const signatureItems = useMemo(() => [
-    { key: 'maria', name: 'Maria Silva', role: 'Fireblocks', signed: signatures.maria },
-    { key: 'john', name: 'John Doe', role: 'Copper', signed: signatures.john },
-  ], [signatures]);
-
-  // Framer Motion variants for staggered list items
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Staggers the children's animations by 0.2 seconds
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
-  return (
-    <div className=" w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col relative">
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Batched Transaction Route</h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">TXID: 9e3b...a8c5</p>
-        </div>
-        <FileText className="w-6 h-6 text-slate-400" />
-      </div>
-
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={currentPanel === 1 ? "show" : "hidden"} // Animate only when this panel is active
-        className={`space-y-3 mb-5 flex-grow transition-all duration-500 ${showSignatureToast ? 'blur-sm' : ''}`}
-      >
-        <AnimatePresence>
-          {routeSteps.map((step) => (
-            <motion.div
-              key={step.id}
-              variants={itemVariants}
-              className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 transition-all duration-500 "
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-lg text-slate-700 dark:text-slate-200 w-6 text-center">{step.id}.</span>
-                  <span className="text-sm text-slate-600 dark:text-slate-400">{step.title}</span>
-                </div>
-                <span className="text-xs text-slate-400 dark:text-slate-600 font-mono italic">{step.network}</span>
-              </div>
-              <p className="text-xs text-slate-500 dark:text-slate-500 ml-8 mt-1">{step.subtitle}</p>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
-
-      <AnimatePresence>
-        {showSignatureToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 100 }}
-            transition={{ type: "spring", damping: 20, stiffness: 80 }}
-            className="absolute bottom-4 left-4 right-4 p-5 bg-slate-950 shadow-xl shadow-slate-900/50 rounded-2xl border border-slate-700"
-          >
-            <div className="flex items-center mb-3">
-              <FileText className="w-6 h-6 text-slate-400 mr-3" />
-              <p className="text-lg font-bold text-slate-200">Awaiting Signatures (2/2)</p>
-            </div>
-            <div className="space-y-2">
-              {signatureItems.map((item: any) => (
-                <div key={item.key} className={`flex items-center justify-between p-3 rounded-lg transition-all duration-500 ${item.signed ? 'bg-green-900/30 border border-green-700' : 'bg-slate-800/50'}`}>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className={`w-6 h-6 transition-colors duration-300 ${item.signed ? 'text-green-500' : 'text-slate-600'}`} />
-                    <span className={`text-base font-medium ${item.signed ? 'text-green-300' : 'text-slate-400'}`}>{item.name}</span>
-                  </div>
-                  <span className={`font-bold text-sm ${item.signed ? 'text-blue-400' : 'text-slate-600'}`}>{item.role}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {isExecuting && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm"
-          >
-            <div className="inline-flex items-center gap-2 text-slate-300 text-sm">
-              <Cpu className="w-5 h-5 animate-spin" />
-              <span>Executing route...</span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-// --- Sub-component for Panel 3: Compliance Report ---
-const ComplianceReportPanel = () => {
-  return (
-    <div className=" w-full h-full mx-auto rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Compliant Audit Trail</h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">TXID: 4a7f...9d1b</p>
-        </div>
-        <FileText className="w-6 h-6 text-slate-400" />
-      </div>
-
-      <div className="p-3 bg-green-50 dark:bg-green-900/30 rounded-lg border border-green-200 dark:border-green-700 flex items-center gap-3 mb-5">
-        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
-        <p className="font-semibold text-green-800 dark:text-green-200">Execution Successful</p>
-      </div>
-
-      <div className="mb-5">
-        <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Compliance Checks</p>
-        <div className="space-y-2">
-          <div className="flex items-center justify-between p-2  rounded-md text-sm">
-            <span className="text-slate-600 dark:text-slate-300">Sanctions & AML</span>
-            <span className="font-medium text-green-600 dark:text-green-400">Passed</span>
-          </div>
-          <div className="flex items-center justify-between p-2  rounded-md text-sm">
-            <span className="text-slate-600 dark:text-slate-300">Counterparty</span>
-            <span className="font-medium text-green-600 dark:text-green-400">Verified</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-auto">
-        <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Execution Details</p>
-        <div className="text-xs space-y-1 text-slate-600 dark:text-slate-400 p-3  rounded-md font-mono">
-          <div className="flex justify-between"><span>Net Cost:</span> <span>25,022.50 USDC</span></div>
-          <div className="flex justify-between"><span>Price:</span> <span>1 BOBC = 0.999 USDC</span></div>
-          <div className="flex justify-between"><span>Duration:</span> <span>3.2 seconds</span></div>
-          <div className="flex justify-between"><span>Solana Hash:</span> <span className="overflow-hidden overflow-ellipsis whitespace-nowrap">4Fv8...a1b4</span></div>
-          <div className="flex justify-between"><span>Arbitrum Hash:</span> <span className="overflow-hidden overflow-ellipsis whitespace-nowrap">0x9cE4...d7a8</span></div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 // --- VISUAL 4: Minting (Deposit to Mint Flow) ---
 const MintingVisual = () => {
   const [currentPanel, setCurrentPanel] = useState(0);
@@ -1284,17 +1052,17 @@ const MintingVisual = () => {
         showLedger: false, reconciled: false
       });
       const timers = [
-        setTimeout(() => setAnimationState(s => ({ ...s, typingAmount: true })), 300),
-        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 150),
+        setTimeout(() => setAnimationState(s => ({ ...s, typingAmount: true })), 500),
+        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 1500),
       ];
       return () => timers.forEach(clearTimeout);
     } 
     else if (currentPanel === 1) {
       const timers = [
         setTimeout(() => setAnimationState(s => ({ ...s, showInstructions: true })), 200),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'received' })), 3000),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'minting' })), 4500),
-        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'complete' })), 6000),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'received' })), 1500),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'minting' })), 3000),
+        setTimeout(() => setAnimationState(s => ({ ...s, statusPopupState: 'complete' })), 3500),
       ];
       return () => timers.forEach(clearTimeout);
     }
@@ -1309,7 +1077,7 @@ const MintingVisual = () => {
 
   useEffect(() => {
     const cyclePanels = () => setCurrentPanel(prev => (prev + 1) % 3);
-    const intervalId = setInterval(cyclePanels, 8500);
+    const intervalId = setInterval(cyclePanels, 5000);
     return () => clearInterval(intervalId);
   }, []);
 
