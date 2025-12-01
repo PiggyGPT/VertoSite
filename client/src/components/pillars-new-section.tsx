@@ -829,14 +829,16 @@ const PaymentsVisual = () => {
     <div className="relative min-h-[420px] md:min-h-[480px] flex items-center justify-center p-4">
       <div className="relative w-full max-w-[320px] h-[500px] bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl border-4 border-slate-200 dark:border-slate-800 overflow-hidden font-sans">
         
-        {/* Header Bar */}
-        <div className="absolute top-0 left-0 right-0 h-14 z-10 flex justify-between items-center px-6">
-          <span className="text-xs font-semibold text-slate-400">9:41</span>
-          <div className="flex gap-1.5">
-            <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800" />
-            <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800" />
+        {/* Header Bar - Hidden during payment selection phases */}
+        {!(phase >= 2 && phase <= 4) && (
+          <div className="absolute top-0 left-0 right-0 h-14 z-10 flex justify-between items-center px-6">
+            <span className="text-xs font-semibold text-slate-400">9:41</span>
+            <div className="flex gap-1.5">
+              <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800" />
+              <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800" />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Content Area */}
         <div className="pt-14 h-full relative">
