@@ -1985,31 +1985,51 @@ const ExecutiveServiceFlow = () => {
           </div>
         </div>
 
-        {/* Panel 2: Compliance Status */}
+        {/* Panel 2: Compliance Integrations */}
         <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 1 }}>
           <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
-            <Header title="Compliance Status" subtitle="Security Posture" icon={<Shield className="w-5 h-5 text-slate-400" />} />
-            <div className="p-3 lg:p-4 rounded-lg space-y-3 lg:space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">Compliance Score</p>
-                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">{complianceScore.toFixed(0)}%</p>
+            <Header title="Integrated Providers" subtitle="Built-in Compliance Stack" icon={<Shield className="w-5 h-5 text-slate-400" />} />
+            <div className="p-3 lg:p-4 rounded-lg space-y-4 lg:space-y-5 flex-grow flex flex-col justify-center">
+              {/* Anchain - Compliance Tool */}
+              <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">Anchain</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Compliance Tool</p>
+                  </div>
                 </div>
-                <CheckCircle className="w-6 lg:w-8 h-6 lg:h-8 text-green-500" />
+                <CheckCircle className="w-5 h-5 text-green-500" />
               </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">AML/KYC Status</p>
-                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">Verified</p>
+
+              {/* Notabene - Travel Rule Provider */}
+              <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                    <Network className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">Notabene</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Travel Rule Provider</p>
+                  </div>
                 </div>
-                <KeyIcon className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
+                <CheckCircle className="w-5 h-5 text-green-500" />
               </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">Data Sovereignty</p>
-                  <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">Secured</p>
+
+              {/* Sumsub - KYC Provider */}
+              <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                    <Fingerprint className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">Sumsub</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">KYC Provider</p>
+                  </div>
                 </div>
-                <Lock className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
+                <CheckCircle className="w-5 h-5 text-green-500" />
               </div>
             </div>
           </div>
