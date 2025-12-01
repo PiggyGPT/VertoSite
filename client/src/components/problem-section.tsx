@@ -199,7 +199,6 @@ export default function ProblemSection({
                     rel="noopener noreferrer"
                     className="group inline-flex items-center justify-center px-8 py-4 bg-transparent border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all duration-300 text-sm gap-2 min-w-[160px]"
                   >
-                    <Send className="w-4 h-4" />
                     <span>Contact Us</span>
                   </a>
                 </div>
