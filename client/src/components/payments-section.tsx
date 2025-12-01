@@ -120,7 +120,7 @@ const PaymentSelection = ({ method, onPay }: { method: 'coinbase' | 'bank', onPa
       </div>
     </div>
 
-    <button className={`mt-auto w-full py-3 text-white rounded-xl font-semibold transition-all duration-200 ${onPay ? 'bg-purple-700 scale-95' : 'bg-purple-600 hover:bg-purple-700'}`}>
+    <button className={`mt-auto w-full py-3 text-white rounded-xl font-semibold transition-all duration-200 ${onPay ? 'bg-purple-700 scale-95' : 'bg-purple-500 hover:bg-purple-700'}`}>
       Pay €120.00
     </button>
   </div>
