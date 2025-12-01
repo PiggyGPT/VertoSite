@@ -432,7 +432,7 @@ const ExecutiveDistributionFlow = () => {
 // --- VISUAL 2: Payments (Updated Advanced Animation) ---
 
 // 1. Merchant creating the invoice
-const MerchantCreate = ({ amount }: { amount: string }) => (
+const MerchantCreate = ({ amount, isClicked }: { amount: string, isClicked: boolean }) => (
   <div className="flex flex-col h-full items-center justify-center p-6 text-center pt-14">
     <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6">
       <Smartphone className="w-8 h-8 text-purple-600 dark:text-purple-400" />
@@ -443,7 +443,7 @@ const MerchantCreate = ({ amount }: { amount: string }) => (
       <span className="text-4xl font-bold text-slate-900 dark:text-white">{amount}</span>
       <span className="text-xl font-medium text-slate-500">BSD</span>
     </div>
-    <button className="w-full py-3 bg-purple-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-600/20">
+    <button className={`w-full py-3 bg-purple-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-600/20 transition-transform duration-100 ${isClicked ? 'scale-95' : ''}`}>
       Generate Invoice
     </button>
   </div>
@@ -756,20 +756,25 @@ const Receipt = () => (
 const PaymentsVisual = () => {
   const [phase, setPhase] = useState(0);
   const [amountInput, setAmountInput] = useState("");
+  const [isGenerateInvoiceClicked, setIsGenerateInvoiceClicked] = useState(false);
 
   useEffect(() => {
     const sequence = async () => {
       while (true) {
         // Reset
-        setPhase(0); setAmountInput("");
+        setPhase(0); setAmountInput(""); setIsGenerateInvoiceClicked(false);
         
         // Input
         await new Promise(r => setTimeout(r, 500));
         setAmountInput("1"); await new Promise(r => setTimeout(r, 100));
         setAmountInput("1200"); await new Promise(r => setTimeout(r, 100));
-        setAmountInput("1200.00"); await new Promise(r => setTimeout(r, 1500));
+        setAmountInput("1200.00"); await new Promise(r => setTimeout(r, 1300));
+        
+        // Generate Invoice button click animation
+        setIsGenerateInvoiceClicked(true); await new Promise(r => setTimeout(r, 200));
         
         // QR
+        setIsGenerateInvoiceClicked(false);
         setPhase(1); await new Promise(r => setTimeout(r, 2500));
         
         // Select Coinbase
@@ -822,7 +827,7 @@ const PaymentsVisual = () => {
             {/* Phase 0: Input */}
             {phase === 0 && (
               <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -50 }} className="absolute inset-0">
-                <MerchantCreate amount={amountInput} />
+                <MerchantCreate amount={amountInput} isClicked={isGenerateInvoiceClicked} />
               </motion.div>
             )}
 
