@@ -635,7 +635,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
         </motion.div>
   
         {/* Step 2 */}
-        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.2 }} className="relative pl-8">
+        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.4 }} className="relative pl-8">
             <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 delay-300 ${isExecuting ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
                {isExecuting ? <CheckCircle className="w-4 h-4 text-white" /> : "2"}
             </div>
@@ -646,7 +646,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
         </motion.div>
   
         {/* Step 3 */}
-        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.4 }} className="relative pl-8">
+        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.8 }} className="relative pl-8">
             <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 delay-700 ${isExecuting ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
               {isExecuting ? <CheckCircle className="w-4 h-4 text-white" /> : "3"}
             </div>
@@ -657,7 +657,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
         </motion.div>
 
         {/* Step 4 */}
-        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.6 }} className="relative pl-8">
+        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 1.2 }} className="relative pl-8">
             <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 ${isExecuting ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
               {isExecuting ? <CheckCircle className="w-4 h-4 text-white" /> : "4"}
             </div>
@@ -668,7 +668,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
         </motion.div>
 
         {/* Step 5 */}
-        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 0.8 }} className="relative pl-8">
+        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: status === 'signing' ? 0.3 : 1 }} transition={{ delay: 1.6 }} className="relative pl-8">
             <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border flex items-center justify-center z-10 transition-colors duration-500 ${isComplete ? 'bg-green-500 border-green-500' : 'bg-slate-800 border-slate-600'}`}>
               {isComplete ? <CheckCircle className="w-4 h-4 text-white" /> : "5"}
             </div>
@@ -786,7 +786,7 @@ const PaymentsVisual = () => {
         setPhase(6); await new Promise(r => setTimeout(r, 2000));
         
         // Route: Executing
-        setPhase(7); await new Promise(r => setTimeout(r, 1500)); 
+        setPhase(7); await new Promise(r => setTimeout(r, 3500)); 
         
         // Route: Complete
         setPhase(8); await new Promise(r => setTimeout(r, 1000));
@@ -2275,7 +2275,7 @@ export default function PillarsSection({
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PaymentsVisual />,
       founderQuote: {
-        quote: "Stablecoins drive volume by letting users seamlessly transact with their existing funds - fiat in their banks or crypto in wallets or exchanges.",
+        quote: "Stablecoins drive volume when users can seamlessly transact with their existing funds - whether it's fiat in their banks or crypto in wallets or exchanges.",
         name: "Nilesh Khaitan",
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
