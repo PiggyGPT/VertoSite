@@ -1621,7 +1621,7 @@ const MintingVisual = () => {
                           }
                         </div>
                         <div className="flex-1">
-                          <p className="text-xs font-semibold text-slate-900 dark:text-white">Mint Complete</p>
+                          <p className="text-xs font-semibold text-slate-900 dark:text-white">On-Ramp Complete</p>
                           <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Funds available in wallet</p>
                         </div>
                       </motion.div>
@@ -1681,7 +1681,7 @@ const MintingVisual = () => {
                   <div className="text-right">
                     <p className="text-[10px] text-slate-400 uppercase">Wire Ref</p>
                     <div className="flex items-center gap-1">
-                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">0x38F1...8821</span>
+                      <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">8F1A-8821</span>
                     </div>
                   </div>
                 </div>
@@ -2254,7 +2254,7 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Auto-trigger token mints to client wallets against verified fiat deposits in Virtual IBANs." }, { icon: CreditCard, title: "Automated Redemption", description: "Streamline token redemption by auto-triggering fiat wires against token burns." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Auto-trigger token mints to client wallets against verified fiat deposits in omnibus accounts." }, { icon: CreditCard, title: "Automated Off-Ramp", description: "Auto-trigger fiat wires against verified token deposits from client wallets." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Explore APIs"
     },
     trading: {
