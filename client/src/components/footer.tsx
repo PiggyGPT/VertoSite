@@ -33,9 +33,9 @@ export function PilotCtaSection() {
 // The new, refined footer component.
 export default function Footer() {
     const footerLinks = {
-        "Solutions": ["Banking APIs", "Decentralized Exchange", "Patent-Pending Router", "Sovereign Infrastructure"],
         "Company": ["About Us", "Careers", "Platform"],
-        "Contact Us": ["Email", "X", "Telegram"]
+        "Contact Us": ["Email", "X", "Telegram"],
+        "Solutions": ["Banking APIs", "Decentralized Exchange", "Patent-Pending Router", "Sovereign Infrastructure"]
     };
 
     return (
