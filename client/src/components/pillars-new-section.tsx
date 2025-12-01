@@ -295,8 +295,8 @@ const ExecutiveDistributionFlow = () => {
     const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
     const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
-    const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800 ${showPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
-    const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
+    const keypadPopupClasses = `w-full rounded-t-3xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800 max-h-[70vh] overflow-y-auto ${showPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
+    const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 flex flex-col justify-end ${showPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
 
     return (
         <VisualContainer>
@@ -362,37 +362,37 @@ const ExecutiveDistributionFlow = () => {
 
                 {/* Popup Container */}
                 <div className={keypadPopupContainerClasses}>
-                    <div className={`${keypadPopupClasses} p-6 lg:p-8 flex flex-col space-y-3 lg:space-y-4 min-h-[280px] lg:min-h-[300px]`}>
+                    <div className={`${keypadPopupClasses} p-4 lg:p-6 flex flex-col space-y-2 lg:space-y-3`}>
                         <Header title="Add Liquidity" subtitle="Enter deposit amount" icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
 
                         {signatureState === 'idle' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center">
-                                <div className="flex flex-col gap-2 lg:gap-3 w-full px-3 lg:px-4">
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                <div className="flex flex-col gap-2 w-full px-2 lg:px-3">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
-                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit Amount</span>
+                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit</span>
                                             <div className="flex items-baseline">
-                                                <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
+                                                <span className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
                                                 <span className="typing-cursor"></span>
                                             </div>
                                         </div>
-                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">USDC</span>
+                                        <span className="text-base lg:text-lg font-semibold text-slate-500">USDC</span>
                                     </div>
 
                                     <div className="flex items-center justify-center">
                                         <Plus className="w-4 lg:w-5 h-4 lg:h-5 text-slate-300" />
                                     </div>
 
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
-                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Matching Amount</span>
-                                            <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">
+                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Match</span>
+                                            <span className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-100">
                                                 {amount ? (parseInt(amount.replace(/,/g, '')) * 12.5).toLocaleString() : '0'}
                                             </span>
                                         </div>
-                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">BSD</span>
+                                        <span className="text-base lg:text-lg font-semibold text-slate-500">BSD</span>
                                     </div>
-                                    <p className="text-xs text-center text-slate-400 mt-1">1 USDC = 12.50 BSD</p>
+                                    <p className="text-xs text-center text-slate-400">Rate: 1 USDC = 12.50 BSD</p>
                                 </div>
                                 <button className={`flex items-center justify-center w-full mt-3 lg:mt-4 space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-sm lg:text-base font-semibold rounded-lg transition-all duration-200 bg-blue-500 ${isConfirmButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600'}`}>
                                     <CheckCircle className="w-4 lg:w-5 h-4 lg:h-5" /> <span>Confirm Deposit</span>
@@ -975,8 +975,8 @@ const ExecutiveLiquidityFlow = () => {
     const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
     const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
 
-    const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800 ${showPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
-    const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
+    const keypadPopupClasses = `w-full rounded-t-3xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800 max-h-[70vh] overflow-y-auto ${showPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
+    const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 flex flex-col justify-end ${showPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
 
     return (
         <VisualContainer>
@@ -1042,37 +1042,37 @@ const ExecutiveLiquidityFlow = () => {
 
                 {/* Popup Container */}
                 <div className={keypadPopupContainerClasses}>
-                    <div className={`${keypadPopupClasses} p-6 lg:p-8 flex flex-col space-y-3 lg:space-y-4 min-h-[280px] lg:min-h-[300px]`}>
+                    <div className={`${keypadPopupClasses} p-4 lg:p-6 flex flex-col space-y-2 lg:space-y-3`}>
                         <Header title="Add Liquidity" subtitle="Enter deposit amount" icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
 
                         {signatureState === 'idle' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center">
-                                <div className="flex flex-col gap-2 lg:gap-3 w-full px-3 lg:px-4">
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                <div className="flex flex-col gap-2 w-full px-2 lg:px-3">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
-                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit Amount</span>
+                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit</span>
                                             <div className="flex items-baseline">
-                                                <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
+                                                <span className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
                                                 <span className="typing-cursor"></span>
                                             </div>
                                         </div>
-                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">USDC</span>
+                                        <span className="text-base lg:text-lg font-semibold text-slate-500">USDC</span>
                                     </div>
 
                                     <div className="flex items-center justify-center">
                                         <Plus className="w-4 lg:w-5 h-4 lg:h-5 text-slate-300" />
                                     </div>
 
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
-                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Matching Amount</span>
-                                            <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">
+                                            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Match</span>
+                                            <span className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-100">
                                                 {amount ? (parseInt(amount.replace(/,/g, '')) * 12.5).toLocaleString() : '0'}
                                             </span>
                                         </div>
-                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">BSD</span>
+                                        <span className="text-base lg:text-lg font-semibold text-slate-500">BSD</span>
                                     </div>
-                                    <p className="text-xs text-center text-slate-400 mt-1">1 USDC = 12.50 BSD</p>
+                                    <p className="text-xs text-center text-slate-400">Rate: 1 USDC = 12.50 BSD</p>
                                 </div>
                                 <button className={`flex items-center justify-center w-full mt-3 lg:mt-4 space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-sm lg:text-base font-semibold rounded-lg transition-all duration-200 bg-blue-500 ${isConfirmButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600'}`}>
                                     <CheckCircle className="w-4 lg:w-5 h-4 lg:h-5" /> <span>Confirm Deposit</span>
