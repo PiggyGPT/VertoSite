@@ -1056,12 +1056,12 @@ const ApiRequestPanel = ({ typingState, isGenerating }: { typingState: any, isGe
     }
     .typing-cursor {
       animation: blink 1s step-end infinite;
-      width: 2px;
-      height: 1.5rem;
+      width: 4px;
+      height: 3rem;
       background-color: #22c55e;
       display: inline-block;
       vertical-align: sub;
-      margin-left: 2px;
+      margin-left: 4px;
     }
   `;
 
