@@ -301,28 +301,28 @@ const ExecutiveDistributionFlow = () => {
     return (
         <VisualContainer>
             <style>{cursorStyle}</style>
-            <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+            <div className="relative w-full max-w-sm lg:max-w-md mx-auto min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
                 {/* Panel 0: Pool Overview */}
                 <div className={panel0Classes} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
-                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
                         <Header title="Liquidity Pool" subtitle="BSD / USDC" icon={<Briefcase className="w-5 h-5 text-slate-400" />} />
-                        <div className="p-4 rounded-lg">
+                        <div className="p-3 lg:p-4 rounded-lg">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Total Liquidity</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">$4,950,000.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">$4,950,000.00</p>
                                 </div>
-                                <DollarSign className="w-8 h-8 text-green-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">14.5%</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">14.5%</p>
                                 </div>
-                                <TrendingUp className="w-8 h-8 text-green-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                         </div>
-                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500 ${isAddButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}`}>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4 bg-blue-500 ${isAddButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600 hover:scale-105'}`}>
                             <Plus className="w-4 h-4" /> <span>Add Liquidity</span>
                         </button>
                         <div className="flex-grow mt-4 flex flex-col justify-end">
@@ -336,25 +336,25 @@ const ExecutiveDistributionFlow = () => {
 
                 {/* Panel 2: Your Position */}
                 <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 2 }}>
-                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
                         <Header title="Your Position" subtitle="BSD / USDC" icon={<User className="w-5 h-5 text-slate-400" />} />
-                        <div className="p-4 rounded-lg">
+                        <div className="p-3 lg:p-4 rounded-lg">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Your Liquidity</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
                                 </div>
-                                <DollarSign className="w-8 h-8 text-green-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Fees Earned</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">${compoundingYield.toFixed(2)}</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${compoundingYield.toFixed(2)}</p>
                                 </div>
-                                <TrendingUp className="w-8 h-8 text-green-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                         </div>
-                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold rounded-lg transition-all duration-200 my-4`}>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4`}>
                             <ArrowRight className="w-4 h-4 rotate-180" /> <span>Withdraw Liquidity</span>
                         </button>
                     </div>
@@ -362,57 +362,57 @@ const ExecutiveDistributionFlow = () => {
 
                 {/* Popup Container */}
                 <div className={keypadPopupContainerClasses}>
-                    <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4 min-h-[300px]`}>
+                    <div className={`${keypadPopupClasses} p-6 lg:p-8 flex flex-col space-y-3 lg:space-y-4 min-h-[280px] lg:min-h-[300px]`}>
                         <Header title="Add Liquidity" subtitle="Enter deposit amount" icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
 
                         {signatureState === 'idle' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center">
-                                <div className="flex flex-col gap-3 w-full px-4">
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                <div className="flex flex-col gap-2 lg:gap-3 w-full px-3 lg:px-4">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit Amount</span>
                                             <div className="flex items-baseline">
-                                                <span className="text-3xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
+                                                <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
                                                 <span className="typing-cursor"></span>
                                             </div>
                                         </div>
-                                        <span className="text-xl font-semibold text-slate-500">USDC</span>
+                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">USDC</span>
                                     </div>
 
                                     <div className="flex items-center justify-center">
-                                        <Plus className="w-5 h-5 text-slate-300" />
+                                        <Plus className="w-4 lg:w-5 h-4 lg:h-5 text-slate-300" />
                                     </div>
 
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Matching Amount</span>
-                                            <span className="text-3xl font-bold text-slate-800 dark:text-slate-100">
+                                            <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">
                                                 {amount ? (parseInt(amount.replace(/,/g, '')) * 12.5).toLocaleString() : '0'}
                                             </span>
                                         </div>
-                                        <span className="text-xl font-semibold text-slate-500">BSD</span>
+                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">BSD</span>
                                     </div>
                                     <p className="text-xs text-center text-slate-400 mt-1">1 USDC = 12.50 BSD</p>
                                 </div>
-                                <button className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500 ${isConfirmButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}`}>
-                                    <CheckCircle className="w-5 h-5" /> <span>Confirm Deposit</span>
+                                <button className={`flex items-center justify-center w-full mt-3 lg:mt-4 space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-sm lg:text-base font-semibold rounded-lg transition-all duration-200 bg-blue-500 ${isConfirmButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600'}`}>
+                                    <CheckCircle className="w-4 lg:w-5 h-4 lg:h-5" /> <span>Confirm Deposit</span>
                                 </button>
                             </div>
                         )}
 
                         {signatureState === 'awaiting' && (
-                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
-                                <Loader2 className="w-12 h-12 text-green-500 spin" />
-                                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
+                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
+                                <Loader2 className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500 spin" />
+                                <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
+                                <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
                             </div>
                         )}
 
                         {signatureState === 'received' && (
-                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
-                                <CheckCircle className="w-12 h-12 text-green-500" />
-                                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
+                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
+                                <CheckCircle className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500" />
+                                <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
+                                <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
                             </div>
                         )}
                     </div>
@@ -981,28 +981,28 @@ const ExecutiveLiquidityFlow = () => {
     return (
         <VisualContainer>
             <style>{cursorStyle}</style>
-            <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+            <div className="relative w-full max-w-sm lg:max-w-md mx-auto min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
                 {/* Panel 0: Pool Overview */}
                 <div className={panel0Classes} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
-                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
                         <Header title="Liquidity Pool" subtitle="BSD / USDC" icon={<Briefcase className="w-5 h-5 text-slate-400" />} />
-                        <div className="p-4 rounded-lg">
+                        <div className="p-3 lg:p-4 rounded-lg">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Total Liquidity</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">$4,950,000.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">$4,950,000.00</p>
                                 </div>
-                                <DollarSign className="w-8 h-8 text-green-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">14.5%</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">14.5%</p>
                                 </div>
-                                <TrendingUp className="w-8 h-8 text-green-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                         </div>
-                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500 ${isAddButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}`}>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4 bg-blue-500 ${isAddButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600 hover:scale-105'}`}>
                             <Plus className="w-4 h-4" /> <span>Add Liquidity</span>
                         </button>
                         <div className="flex-grow mt-4 flex flex-col justify-end">
@@ -1016,25 +1016,25 @@ const ExecutiveLiquidityFlow = () => {
 
                 {/* Panel 2: Your Position */}
                 <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 2 }}>
-                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+                    <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 lg:p-5 flex flex-col space-y-3 lg:space-y-4">
                         <Header title="Your Position" subtitle="BSD / USDC" icon={<User className="w-5 h-5 text-slate-400" />} />
-                        <div className="p-4 rounded-lg">
+                        <div className="p-3 lg:p-4 rounded-lg">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Your Liquidity</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${(addedLiquidity * 2).toLocaleString()}.00</p>
                                 </div>
-                                <DollarSign className="w-8 h-8 text-green-500/30" />
+                                <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Fees Earned</p>
-                                    <p className="text-2xl font-bold text-green-500 tracking-tight">${compoundingYield.toFixed(2)}</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-blue-500 tracking-tight">${compoundingYield.toFixed(2)}</p>
                                 </div>
-                                <TrendingUp className="w-8 h-8 text-green-500/30" />
+                                <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8 text-blue-500/30" />
                             </div>
                         </div>
-                        <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold rounded-lg transition-all duration-200 my-4`}>
+                        <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white bg-blue-500 hover:bg-blue-600 text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4`}>
                             <ArrowRight className="w-4 h-4 rotate-180" /> <span>Withdraw Liquidity</span>
                         </button>
                     </div>
@@ -1042,57 +1042,57 @@ const ExecutiveLiquidityFlow = () => {
 
                 {/* Popup Container */}
                 <div className={keypadPopupContainerClasses}>
-                    <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4 min-h-[300px]`}>
+                    <div className={`${keypadPopupClasses} p-6 lg:p-8 flex flex-col space-y-3 lg:space-y-4 min-h-[280px] lg:min-h-[300px]`}>
                         <Header title="Add Liquidity" subtitle="Enter deposit amount" icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
 
                         {signatureState === 'idle' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center">
-                                <div className="flex flex-col gap-3 w-full px-4">
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                <div className="flex flex-col gap-2 lg:gap-3 w-full px-3 lg:px-4">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit Amount</span>
                                             <div className="flex items-baseline">
-                                                <span className="text-3xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
+                                                <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">{amount || '0'}</span>
                                                 <span className="typing-cursor"></span>
                                             </div>
                                         </div>
-                                        <span className="text-xl font-semibold text-slate-500">USDC</span>
+                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">USDC</span>
                                     </div>
 
                                     <div className="flex items-center justify-center">
-                                        <Plus className="w-5 h-5 text-slate-300" />
+                                        <Plus className="w-4 lg:w-5 h-4 lg:h-5 text-slate-300" />
                                     </div>
 
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-3 lg:p-4 rounded-xl border border-slate-100 dark:border-slate-700">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Matching Amount</span>
-                                            <span className="text-3xl font-bold text-slate-800 dark:text-slate-100">
+                                            <span className="text-2xl lg:text-3xl font-bold text-slate-800 dark:text-slate-100">
                                                 {amount ? (parseInt(amount.replace(/,/g, '')) * 12.5).toLocaleString() : '0'}
                                             </span>
                                         </div>
-                                        <span className="text-xl font-semibold text-slate-500">BSD</span>
+                                        <span className="text-lg lg:text-xl font-semibold text-slate-500">BSD</span>
                                     </div>
                                     <p className="text-xs text-center text-slate-400 mt-1">1 USDC = 12.50 BSD</p>
                                 </div>
-                                <button className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500 ${isConfirmButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}`}>
-                                    <CheckCircle className="w-5 h-5" /> <span>Confirm Deposit</span>
+                                <button className={`flex items-center justify-center w-full mt-3 lg:mt-4 space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-sm lg:text-base font-semibold rounded-lg transition-all duration-200 bg-blue-500 ${isConfirmButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600'}`}>
+                                    <CheckCircle className="w-4 lg:w-5 h-4 lg:h-5" /> <span>Confirm Deposit</span>
                                 </button>
                             </div>
                         )}
 
                         {signatureState === 'awaiting' && (
-                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
-                                <Loader2 className="w-12 h-12 text-green-500 spin" />
-                                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
+                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
+                                <Loader2 className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500 spin" />
+                                <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
+                                <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
                             </div>
                         )}
 
                         {signatureState === 'received' && (
-                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
-                                <CheckCircle className="w-12 h-12 text-green-500" />
-                                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
+                            <div className="flex-grow flex flex-col items-center justify-center text-center space-y-3 lg:space-y-4">
+                                <CheckCircle className="w-10 lg:w-12 h-10 lg:h-12 text-blue-500" />
+                                <h4 className="text-lg lg:text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
+                                <p className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
                             </div>
                         )}
                     </div>
