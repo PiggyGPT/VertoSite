@@ -1,4 +1,4 @@
-import { Calendar, TrendingUp, Shield, DollarSign, Navigation2, ArrowRight } from "lucide-react";
+import { Calendar, TrendingUp, Shield, DollarSign, Navigation2, ArrowRight, Send } from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
 export default function CompetitiveDiffSection() {
@@ -149,7 +149,7 @@ export default function CompetitiveDiffSection() {
                     </div>
 
                     {/* CTA Button - Enhanced */}
-                    <div className="flex justify-center">
+                    <div className="flex justify-center gap-4">
                     <button
                         onClick={() => openModal("Schedule Demo")}
                         className="group px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
@@ -158,6 +158,15 @@ export default function CompetitiveDiffSection() {
                         <span>Schedule Demo</span>
                         <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                     </button>
+                    <a
+                        href="https://t.me/nileshkhaitan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
+                    >
+                        <Send className="w-4 h-4" />
+                        <span>Contact Us</span>
+                    </a>
                     </div>
                 </div>
             </div>

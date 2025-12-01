@@ -1,7 +1,7 @@
 // src/components/PilotProgramSection.tsx
 
 
-import { Check, Rocket, BarChart3, Target, ArrowRight, Calendar } from "lucide-react";
+import { Check, Rocket, BarChart3, Target, ArrowRight, Calendar, Send } from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
 // Helper component for a timeline item
@@ -65,7 +65,7 @@ export default function PilotProgramSection() {
           </div>
 
           {/* --- NEW CTA SECTION --- */}
-          <div className="mt-10 sm:mt-12 text-center">
+          <div className="mt-10 sm:mt-12 text-center flex justify-center gap-4">
             <button
               onClick={() => openModal("Schedule Demo")}
               className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm gap-2 min-w-[160px]"
@@ -74,6 +74,15 @@ export default function PilotProgramSection() {
               <span>Schedule Demo</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" />
             </button>
+            <a
+              href="https://t.me/nileshkhaitan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center px-8 py-4 bg-transparent border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all duration-300 text-sm gap-2 min-w-[160px]"
+            >
+              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>Contact Us</span>
+            </a>
           </div>
 
         </div>
