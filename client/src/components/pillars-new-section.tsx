@@ -1363,7 +1363,7 @@ const MintingVisual = () => {
       });
       const timers = [
         setTimeout(() => setAnimationState(s => ({ ...s, typingAmount: true })), 300),
-        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 1800),
+        setTimeout(() => setAnimationState(s => ({ ...s, isSubmitting: true })), 400),
       ];
       return () => timers.forEach(clearTimeout);
     } 
