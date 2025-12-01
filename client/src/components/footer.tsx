@@ -38,7 +38,7 @@ export default function Footer() {
     };
 
     return (
-        <footer id="contact" className="text-white" style={{ backgroundColor: '#131B2E' }}>
+        <footer id="contact" className="text-white" style={{ backgroundColor: 'var(--albor-foundation)' }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12">
                 <div className="grid md:grid-cols-12 gap-6 sm:gap-8">
                     {/* Company Info */}
