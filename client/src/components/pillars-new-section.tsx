@@ -1035,49 +1035,74 @@ const ExecutiveLiquidityFlow = ({ accentColor = '#4D88FF' }: { accentColor?: str
   );
 };
 
-// --- Sub-component for Panel 1: API Request ---
+// --- Sub-component for Panel 1: API Request (Updated Animation) ---
 const ApiRequestPanel = ({ typingState, isGenerating }: { typingState: any, isGenerating: boolean }) => {
-  const sourceText = useTypingAnimation(`"fb_solana_wallet_0x1a2b"`, typingState.source);
-  const sourceTokenText = useTypingAnimation(`"USDC"`, typingState.sourceToken);
-  const destinationText = useTypingAnimation(`"merchant_tia_store_0x3c4d"`, typingState.destination);
-  const destinationTokenText = useTypingAnimation(`"25000.00 BOBC"`, typingState.destinationToken);
+  const cursorStyle = `
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .typing-cursor {
+      animation: blink 1s step-end infinite;
+      width: 2px;
+      height: 1.5rem;
+      background-color: #22c55e;
+      display: inline-block;
+      vertical-align: sub;
+      margin-left: 2px;
+    }
+  `;
 
   return (
-    <div className="bg-slate-900 w-full h-full mx-auto rounded-2xl shadow-2xl border border-slate-700 p-6 flex flex-col font-mono text-sm">
-      <div className="flex items-center mb-4">
-        <div className="flex space-x-1.5">
-          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+    <div className="w-full h-full rounded-2xl shadow-2xl border border-slate-700 bg-slate-900 flex flex-col p-6 overflow-hidden">
+      <style>{cursorStyle}</style>
+      
+      {/* Header */}
+      <div className="flex items-center justify-between pb-4 border-b border-slate-700 mb-6">
+        <div>
+          <h3 className="font-bold text-lg text-slate-100">Route Optimization</h3>
+          <p className="text-xs text-slate-400">Real-time computation</p>
         </div>
-        <span className="flex-1 text-center text-slate-400 text-xs">POST /v1/pay</span>
+        <Cpu className={`w-6 h-6 text-green-500 ${isGenerating ? 'animate-spin' : ''}`} />
       </div>
-      <div className="text-slate-300 flex-grow">
-        <span className="text-purple-400">{'{'}</span>
-        <div className="pl-4 space-y-1">
-          <div>
-            <span className="text-cyan-400">"source_wallet"</span>: <span className="text-amber-300">{sourceText}</span>
-            {typingState.source && !typingState.sourceToken && <motion.span className="animate-pulse">|</motion.span>}
-          </div>
-          <div>
-            <span className="text-cyan-400">"source_token"</span>: <span className="text-amber-300">{sourceTokenText}</span>
-            {typingState.sourceToken && !typingState.destination && <motion.span className="animate-pulse">|</motion.span>}
-          </div>
-          <div>
-            <span className="text-cyan-400">"destination_wallet"</span>: <span className="text-amber-300">{destinationText}</span>
-            {typingState.destination && !typingState.destinationToken && <motion.span className="animate-pulse">|</motion.span>}
-          </div>
-          <div>
-            <span className="text-cyan-400">"destination_amount"</span>: <span className="text-amber-300">{destinationTokenText}</span>
-            {typingState.destinationToken && !isGenerating && <motion.span className="animate-pulse">|</motion.span>}
+
+      {/* Status Content */}
+      <div className="flex-grow flex flex-col justify-center space-y-6">
+        {/* Typing Animation - Source */}
+        <div className="space-y-2">
+          <p className="text-xs text-slate-400 uppercase tracking-wider">Source</p>
+          <div className="bg-slate-800 p-3 rounded border border-slate-700 font-mono text-sm">
+            <span className="text-cyan-400">fb_solana_wallet_0x</span>
+            <span className="text-amber-300">{typingState.source && 'ab1a2b'}</span>
+            {typingState.source && !typingState.sourceToken && <span className="typing-cursor"></span>}
           </div>
         </div>
-        <span className="text-purple-400">{'}'}</span>
+
+        {/* Destination */}
+        <div className="space-y-2">
+          <p className="text-xs text-slate-400 uppercase tracking-wider">Destination</p>
+          <div className="bg-slate-800 p-3 rounded border border-slate-700 font-mono text-sm">
+            <span className="text-purple-400">merchant_store_0x</span>
+            <span className="text-amber-300">{typingState.destination && '3c4d9e8f'}</span>
+            {typingState.destination && !typingState.destinationToken && <span className="typing-cursor"></span>}
+          </div>
+        </div>
+
+        {/* Amount */}
+        <div className="space-y-2">
+          <p className="text-xs text-slate-400 uppercase tracking-wider">Amount</p>
+          <div className="bg-slate-800 p-3 rounded border border-slate-700 font-mono text-sm">
+            <span className="text-green-400">25,000.00</span>
+            <span className="text-slate-400 ml-2">BOBC</span>
+            {typingState.destinationToken && !isGenerating && <span className="typing-cursor"></span>}
+          </div>
+        </div>
       </div>
-      <div className={`mt-auto text-center pt-4 transition-opacity duration-500 ${isGenerating ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="inline-flex items-center gap-2 text-slate-400 text-xs">
-          <Cpu className="w-4 h-4 animate-spin" />
-          <span>Generating optimal route...</span>
+
+      {/* Status Message */}
+      <div className={`mt-6 p-4 rounded bg-slate-800/50 border border-slate-700 transition-opacity duration-500 ${isGenerating ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="flex items-center gap-2 justify-center">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span className="text-xs text-slate-300">Generating optimal route...</span>
         </div>
       </div>
     </div>
