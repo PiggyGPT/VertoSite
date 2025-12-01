@@ -314,6 +314,13 @@ const ExecutiveDistributionFlow = () => {
                                 </div>
                                 <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
+                            <div className="flex items-center justify-between mb-4">
+                                <div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Monthly Volume</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">$15,000,000</p>
+                                </div>
+                                <Activity className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
+                            </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
@@ -325,12 +332,6 @@ const ExecutiveDistributionFlow = () => {
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4 bg-blue-500 ${isAddButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600 hover:scale-105'}`}>
                             <Plus className="w-4 h-4" /> <span>Add Liquidity</span>
                         </button>
-                        <div className="flex-grow mt-4 flex flex-col justify-end">
-                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-4 border border-slate-100 dark:border-slate-800">
-                                <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Monthly Volume</p>
-                                <p className="text-3xl font-bold text-slate-800 dark:text-slate-100">$15,000,000</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -994,6 +995,13 @@ const ExecutiveLiquidityFlow = () => {
                                 </div>
                                 <DollarSign className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
                             </div>
+                            <div className="flex items-center justify-between mb-4">
+                                <div>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">Monthly Volume</p>
+                                    <p className="text-xl lg:text-2xl font-bold text-white tracking-tight">$15,000,000</p>
+                                </div>
+                                <Activity className="w-6 lg:w-8 h-6 lg:h-8 text-slate-400" />
+                            </div>
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
@@ -1005,12 +1013,6 @@ const ExecutiveLiquidityFlow = () => {
                         <button className={`flex items-center justify-center w-full space-x-2 px-3 py-2 lg:px-4 lg:py-3 text-white text-xs lg:text-sm font-semibold rounded-lg transition-all duration-200 my-2 lg:my-4 bg-blue-500 ${isAddButtonClicked ? 'scale-95 bg-blue-600 shadow-inner' : 'hover:bg-blue-600 hover:scale-105'}`}>
                             <Plus className="w-4 h-4" /> <span>Add Liquidity</span>
                         </button>
-                        <div className="flex-grow mt-4 flex flex-col justify-end">
-                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-4 border border-slate-100 dark:border-slate-800">
-                                <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Monthly Volume</p>
-                                <p className="text-3xl font-bold text-slate-800 dark:text-slate-100">$15,000,000</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
