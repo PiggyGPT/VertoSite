@@ -372,7 +372,7 @@ const ExecutiveDistributionFlow = () => {
                         {signatureState === 'idle' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center">
                                 <div className="flex flex-col gap-2 w-full px-2 lg:px-3">
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700 min-h-16 lg:min-h-20">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit</span>
                                             <div className="flex items-baseline">
@@ -387,7 +387,7 @@ const ExecutiveDistributionFlow = () => {
                                         <Plus className="w-4 lg:w-5 h-4 lg:h-5 text-slate-300" />
                                     </div>
 
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700 min-h-16 lg:min-h-20">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Match</span>
                                             <span className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-100">
@@ -1056,7 +1056,7 @@ const ExecutiveLiquidityFlow = () => {
                         {signatureState === 'idle' && (
                             <div className="flex-grow flex flex-col items-center justify-center text-center">
                                 <div className="flex flex-col gap-2 w-full px-2 lg:px-3">
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700 min-h-16 lg:min-h-20">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Deposit</span>
                                             <div className="flex items-baseline">
@@ -1071,7 +1071,7 @@ const ExecutiveLiquidityFlow = () => {
                                         <Plus className="w-4 lg:w-5 h-4 lg:h-5 text-slate-300" />
                                     </div>
 
-                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700">
+                                    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900/50 p-2 lg:p-3 rounded-lg border border-slate-100 dark:border-slate-700 min-h-16 lg:min-h-20">
                                         <div className="flex flex-col items-start">
                                             <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Match</span>
                                             <span className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-100">
