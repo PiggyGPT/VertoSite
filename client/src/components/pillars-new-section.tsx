@@ -2352,6 +2352,7 @@ export default function PillarsSection({
             >
               <Calendar className="w-4 h-4" />
               <span>Schedule Demo</span>
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </div>
 
