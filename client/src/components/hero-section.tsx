@@ -69,7 +69,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
               To Digital Dollars
           </h1>
 
-          <p className="text-base sm:text-xl md:text-2xl text-slate-300 leading-relaxed mb-12 max-w-2xl">
+          <p className="text-base sm:text-xl md:text-2xl text-slate-200 leading-relaxed mb-12 max-w-2xl">
             Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.
           </p>
 
