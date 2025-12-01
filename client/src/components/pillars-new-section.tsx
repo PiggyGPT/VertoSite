@@ -1436,7 +1436,7 @@ const MintingVisual = () => {
                   initial={{ scale: 0.85, opacity: 0, y: 40 }}
                   animate={{ scale: 1, opacity: 1, y: 0 }}
                   exit={{ scale: 0.85, opacity: 0, y: 60 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
                 >
                   <div className="w-full bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-6 overflow-hidden">
                     <div className="flex items-center justify-between mb-5 pb-4 border-b border-slate-200 dark:border-slate-700">
