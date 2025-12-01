@@ -17,9 +17,11 @@ const cursorStyle = `
     vertical-align: sub;
     margin-left: 4px;
   }
+  
   .spin {
     animation: spin 1s linear infinite;
   }
+  
   @keyframes spin {
     from {
       transform: rotate(0deg);

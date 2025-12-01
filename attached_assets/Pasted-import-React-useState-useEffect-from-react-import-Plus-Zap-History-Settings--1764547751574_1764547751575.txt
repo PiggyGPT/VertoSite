@@ -1,0 +1,371 @@
+import React, { useState, useEffect } from "react";
+import {
+  Plus,
+  Zap,
+  History,
+  Settings,
+  User,
+  Keyboard,
+  ArrowRight,
+  Coins,
+  Briefcase, // Replaces CreditCard
+  Users,
+  Loader2, // For spinner
+  CheckCircle, // For success
+  TrendingUp, // For APY
+  DollarSign, // For liquidity
+  Database, // For On-Chain
+} from "lucide-react";
+
+// Kept the cursor style for the typing animation
+const cursorStyle = `
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  .typing-cursor {
+    animation: blink 1s step-end infinite;
+    width: 4px;
+    height: 3rem;
+    background-color: #22c55e;
+    display: inline-block;
+    vertical-align: sub;
+    margin-left: 4px;
+  }
+  
+  .spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+// Reusable Header component from original file
+const Header = ({ title, subtitle, icon }: any) => (
+  <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
+    <div>
+      <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">{title}</h3>
+      {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</p>}
+    </div>
+    <div className="flex items-center gap-2">{icon}</div>
+  </div>
+);
+
+// Reusable FeatureItem component from original file, but we'll use new icons
+const FeatureItem = ({ icon: Icon, title, description }: any) => (
+  <div className="flex items-start">
+    <div className="flex-shrink-0">
+      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-100 dark:bg-slate-800">
+        <Icon className="w-6 h-6 text-green-500" />
+      </div>
+    </div>
+    <div className="ml-4">
+      <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h4>
+      <p className="mt-1 text-base text-slate-600 dark:text-slate-300 leading-relaxed">{description}</p>
+    </div>
+  </div>
+);
+
+// Kept the founder banner as it's part of the layout
+const FounderBanner = () => (
+  <div className="rounded-xl p-6 md:p-8 mt-8">
+    <div className="flex flex-col md:flex-row items-start gap-6">
+      {/* Placeholder for image, as we can't import it in this context */}
+      <div className="w-16 h-16 rounded-full bg-slate-300 dark:bg-slate-700 ring-4 ring-white/50 dark:ring-slate-950/50 flex-shrink-0 flex items-center justify-center">
+        <User className="w-8 h-8 text-slate-500" />
+      </div>
+      <div>
+        <blockquote className="text-lg md:text-xl font-medium leading-snug text-slate-800 dark:text-slate-100 border-l-4 border-green-500 pl-5">
+          <p>"The Fed systems securely distribute trillions of dollars through their global, trusted network. We help you re-create the same playbook."</p>
+        </blockquote>
+        <footer className="mt-4">
+          <p className="font-semibold text-slate-900 dark:text-white">David Cass</p>
+          <p className="text-sm font-medium text-green-500">CEO | Former Federal Reserve Regulator</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+);
+
+/**
+ * This is the main animation component, heavily modified to show the LP flow.
+ */
+const DistributionVisual = () => {
+  const [currentPanel, setCurrentPanel] = useState(0); // 0: Pool, 1: Popup (hidden), 2: Position
+  const [showPopup, setShowPopup] = useState(false);
+  const [amount, setAmount] = useState('');
+  const [addedLiquidity, setAddedLiquidity] = useState(0);
+  const [compoundingYield, setCompoundingYield] = useState(0.0);
+  const [signatureState, setSignatureState] = useState('idle'); // 'idle', 'awaiting', 'received'
+  
+  const [isAddButtonClicked, setAddButtonClicked] = useState(false);
+  const [isConfirmButtonClicked, setConfirmButtonClicked] = useState(false);
+  const [animationStep, setAnimationStep] = useState(0);
+
+  // Animation flow controller
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    let interval: NodeJS.Timeout;
+
+    const runAnimationStep = (step: number) => {
+      switch (step) {
+        case 0: // Show Panel 0 (Pool Overview)
+          setCurrentPanel(0);
+          setShowPopup(false);
+          setAmount('');
+          setAddedLiquidity(0);
+          setCompoundingYield(0.0);
+          setSignatureState('idle');
+          setAddButtonClicked(false);
+          setConfirmButtonClicked(false);
+          timeout = setTimeout(() => setAnimationStep(1), 2000);
+          break;
+        case 1: // Click "Add Liquidity" button
+          setAddButtonClicked(true);
+          timeout = setTimeout(() => setAnimationStep(2), 300);
+          break;
+        case 2: // Show Popup
+          setAddButtonClicked(false);
+          setShowPopup(true);
+          timeout = setTimeout(() => setAnimationStep(3), 500);
+          break;
+        case 3: // Type amount
+          setAmount('10,000'); // Simulate typing
+          timeout = setTimeout(() => setAnimationStep(4), 1500);
+          break;
+        case 4: // Click "Confirm Deposit" button
+          setConfirmButtonClicked(true);
+          timeout = setTimeout(() => setAnimationStep(5), 300);
+          break;
+        case 5: // Show "Awaiting Fireblocks"
+          setConfirmButtonClicked(false);
+          setSignatureState('awaiting');
+          timeout = setTimeout(() => setAnimationStep(6), 2500); // Wait for signature
+          break;
+        case 6: // Show "Signature Received"
+          setSignatureState('received');
+          timeout = setTimeout(() => setAnimationStep(7), 1500);
+          break;
+        case 7: // Hide popup, set liquidity
+          setShowPopup(false);
+          setAddedLiquidity(10000);
+          setAmount('');
+          timeout = setTimeout(() => setAnimationStep(8), 700);
+          break;
+        case 8: // Show Panel 2 (Your Position) and start compounding
+          setCurrentPanel(2);
+          setCompoundingYield(0.0);
+          interval = setInterval(() => {
+            setCompoundingYield(prev => prev + 0.00012345);
+          }, 100); // Start compounding
+          timeout = setTimeout(() => setAnimationStep(9), 5000); // Let it compound for 5s
+          break;
+        case 9: // Reset
+          clearInterval(interval);
+          timeout = setTimeout(() => setAnimationStep(0), 1000);
+          break;
+      }
+    };
+
+    runAnimationStep(animationStep);
+
+    return () => {
+      if (timeout) clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
+  }, [animationStep]);
+
+  // Panel transition classes
+  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
+  const panelVisibleClasses = "opacity-100 translate-x-0";
+  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
+  const panelHiddenRightClasses = "opacity-0 translate-x-full";
+  
+  // Panel 0: Pool Overview
+  const panel0Classes = `${panelBaseClasses} ${currentPanel === 0 ? panelVisibleClasses : panelHiddenLeftClasses}`;
+  // Panel 1 is the popup, not a main panel
+  // Panel 2: Your Position
+  const panel2Classes = `${panelBaseClasses} ${currentPanel === 2 ? panelVisibleClasses : panelHiddenRightClasses}`;
+  
+  // Popup transition classes
+  const keypadPopupClasses = `absolute w-full max-w-lg mx-auto bottom-0 rounded-t-2xl shadow-2xl transition-all duration-500 ease-in-out z-50 transform bg-white dark:bg-slate-800 ${showPopup ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`;
+  const keypadPopupContainerClasses = `absolute inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 ${showPopup ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
+
+  return (
+    <div className="relative min-h-[400px] md:min-h-[480px] flex items-center justify-center p-3 md:p-4 overflow-hidden">
+      <style>{cursorStyle}</style>
+      <div className="relative w-full max-w-lg mx-auto min-h-[400px] overflow-hidden rounded-2xl flex flex-col">
+        
+        {/* Panel 0: Pool Overview */}
+        <div className={panel0Classes} style={{ zIndex: currentPanel === 0 ? 3 : 1 }}>
+          <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+            <Header title="Liquidity Pool" subtitle="BSD / USDC" icon={<Briefcase className="w-5 h-5 text-slate-400" />} />
+            <div className="p-4 rounded-lg">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Total Liquidity</p>
+                  <p className="text-2xl font-bold text-green-500 tracking-tight">$4,950,000.00</p>
+                </div>
+                <DollarSign className="w-8 h-8 text-green-500/30" />
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Pool APY</p>
+                  <p className="text-2xl font-bold text-green-500 tracking-tight">14.5%</p>
+                </div>
+                <TrendingUp className="w-8 h-8 text-green-500/30" />
+              </div>
+            </div>
+            <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500 ${isAddButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90 hover:scale-105'}`}>
+              <Plus className="w-4 h-4" /><span>Add Liquidity</span>
+            </button>
+            <div className="flex-grow mt-4 overflow-hidden flex flex-col">
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2 mb-2"><History className="w-4 h-4" /> Recent Swaps</p>
+              <div className="space-y-2 text-sm overflow-y-auto">
+                <div className="flex justify-between items-center p-2 rounded-md">
+                  <div><span className="text-slate-600 dark:text-slate-400">Swap BSD for USDC</span><p className="text-xs text-slate-400">1 min ago</p></div>
+                  <span className="font-medium text-green-500">+ 5,000 BSD</span>
+                </div>
+                <div className="flex justify-between items-center p-2 rounded-md">
+                  <div><span className="text-slate-600 dark:text-slate-400">Swap USDC for BSD</span><p className="text-xs text-slate-400">3 mins ago</p></div>
+                  <span className="font-medium text-green-500">+ 1,200 USDC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Panel 2: Your Position (Compounding) */}
+        <div className={panel2Classes} style={{ zIndex: currentPanel === 2 ? 3 : 2 }}>
+          <div className="w-full h-full rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-5 flex flex-col space-y-4">
+            <Header title="Your Position" subtitle="BSD / USDC" icon={<User className="w-5 h-5 text-slate-400" />} />
+            <div className="p-4 rounded-lg">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Your Deposited Liquidity</p>
+                  <p className="text-2xl font-bold text-green-500 tracking-tight">${addedLiquidity.toLocaleString()}.00</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Fees Earned (Compounding)</p>
+                  <p className="text-2xl font-bold text-green-500 tracking-tight">${compoundingYield.toFixed(4)}</p>
+                </div>
+              </div>
+            </div>
+            <button className={`flex items-center justify-center w-full space-x-2 px-4 py-3 text-white text-sm font-semibold rounded-lg transition-all duration-200 my-4 bg-green-500 hover:bg-green-500/90 hover:scale-105`}>
+              <Coins className="w-4 h-4" /><span>Collect Fees</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Popup Container */}
+        <div className={keypadPopupContainerClasses}>
+          <div className={`${keypadPopupClasses} p-8 flex flex-col space-y-4 min-h-[300px]`}>
+            <Header title="Add Liquidity" subtitle="Enter deposit amount" icon={<Keyboard className="w-5 h-5 text-slate-400" />} />
+            
+            {/* State: 'idle' - Enter Amount */}
+            {signatureState === 'idle' && (
+              <div className="flex-grow flex flex-col items-center justify-center text-center">
+                <div className="flex items-center justify-center gap-2">
+                  <p className="text-6xl font-bold my-2 text-green-500 tracking-tight">
+                    {amount || '0'}<span className="text-4xl font-normal">.00</span>
+                    <span className="typing-cursor"></span>
+                    <span className="ml-2 text-3xl font-normal text-slate-500 dark:text-slate-400">USDC</span>
+                  </p>
+                </div>
+                <button className={`flex items-center justify-center w-full mt-4 space-x-2 px-4 py-3 text-white text-base font-semibold rounded-lg transition-all duration-200 bg-green-500 ${isConfirmButtonClicked ? 'scale-95 bg-green-600 shadow-inner' : 'hover:bg-green-500/90'}`}>
+                  <CheckCircle className="w-5 h-5" /><span>Confirm Deposit</span>
+                </button>
+              </div>
+            )}
+            
+            {/* State: 'awaiting' - Fireblocks */}
+            {signatureState === 'awaiting' && (
+              <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
+                <Loader2 className="w-12 h-12 text-green-500 spin" />
+                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Awaiting Fireblocks Signature...</h4>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Please sign the transaction in your Fireblocks wallet.</p>
+              </div>
+            )}
+            
+            {/* State: 'received' - Success */}
+            {signatureState === 'received' && (
+              <div className="flex-grow flex flex-col items-center justify-center text-center space-y-4">
+                <CheckCircle className="w-12 h-12 text-green-500" />
+                <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Signature Received!</h4>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Transaction submitted to the network.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/**
+ * Main Section Component
+ * Text content has been updated to match the new narrative.
+ */
+export default function DistributionSection() {
+  return (
+    <section className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16">
+      <div className="w-full border-b border-slate-200 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 lg:items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+          <div className="lg:col-span-1">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-green-500">Institutional Liquidity</p>
+              <h3 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mt-2 mb-4 tracking-tight">On-Chain Liquidity Pools</h3>
+              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk.</p>
+            </div>
+            <div className="lg:hidden my-10">
+              <DistributionVisual />
+            </div>
+            <div className="space-y-6 md:space-y-8 mt-10 mb-10">
+              {/* Updated Feature Items */}
+              <FeatureItem 
+                icon={Database} 
+                title="On-Chain Liquidity Pools" 
+                description="Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." 
+              />
+              <FeatureItem 
+                icon={Settings} 
+                title="Automated Market Making" 
+                description="Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." 
+              />
+              <FeatureItem 
+                icon={Zap} 
+                title="Instant Yield Distribution" 
+                description="Reward LPs with fees from every trade, distributed automatically per block." 
+              />
+               <FeatureItem 
+                icon={Keyboard} 
+                title="Secure Custody Integration" 
+                description="Integrate with Fireblocks for institutional-grade security and automated transaction signing." 
+              />
+            </div>
+            <button className="inline-flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors">
+              <span>Explore Liquidity Pools</span>
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:col-span-1 justify-center">
+            <div className="w-full max-w-md">
+              <DistributionVisual />
+            </div>
+          </div>
+        </div>
+        <FounderBanner />
+        </div>
+      </div>
+    </section>
+  );
+}
