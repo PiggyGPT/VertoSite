@@ -72,9 +72,9 @@ export default function Footer() {
                                         // Company links
                                         else if (link === "Platform") href = "#infrastructure";
                                         // Contact Us links
-                                        else if (link === "Email") href = "mailto:info@albor.ai";
-                                        else if (link === "X") href = "https://x.com/Albor_AI";
-                                        else if (link === "Telegram") href = "https://t.me/AlborAI";
+                                        else if (link === "Email") href = "mailto:nilesh@albor.fi";
+                                        else if (link === "X") href = "https://x.com/AlborFi";
+                                        else if (link === "Telegram") href = "https://t.me/AlborFi";
                                         
                                         return (
                                             <li key={link}>
@@ -109,9 +109,9 @@ export default function Footer() {
                         &copy; {new Date().getFullYear()} Albor Technologies Inc. All rights reserved.
                     </p>
                     <div className="flex items-center space-x-5">
-                         <a href="mailto:info@albor.ai" aria-label="Email" className="text-slate-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
-                         <a href="https://x.com/Albor_AI" target="_blank" rel="noopener noreferrer" aria-label="Follow Albor AI on X" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
-                         <a href="https://t.me/AlborAI" target="_blank" rel="noopener noreferrer" aria-label="Join Albor AI on Telegram" className="text-slate-500 hover:text-white transition-colors"><SiTelegram className="w-4 h-4" /></a>
+                         <a href="mailto:nilesh@albor.fi" aria-label="Email" className="text-slate-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
+                         <a href="https://x.com/AlborFi" target="_blank" rel="noopener noreferrer" aria-label="Follow Albor on X" className="text-slate-500 hover:text-white transition-colors"><SiX className="w-4 h-4" /></a>
+                         <a href="https://t.me/AlborFi" target="_blank" rel="noopener noreferrer" aria-label="Join Albor on Telegram" className="text-slate-500 hover:text-white transition-colors"><SiTelegram className="w-4 h-4" /></a>
 
                     </div>
                 </div>

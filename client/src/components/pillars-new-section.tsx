@@ -1939,7 +1939,7 @@ export default function PillarsSection({
       description: "Automate issuance, redemption, and reconciliation against deposits & withdrawals",
       visual: <MintingVisual />,
       founderQuote: {
-        quote: "Building trust in a stablecoin begins with two non-negotiable fundamentals: real-time settlement of deposits and withdrawals, and transparent asset backing.",
+        quote: "Building trust in a stablecoin begins with two non-negotiable fundamentals: real-time settlement of deposits and withdrawals, and verifiable asset backing.",
         name: "David Cass",
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
@@ -1952,7 +1952,7 @@ export default function PillarsSection({
       description: "Create a global dollar market for your token where anyone can trade and provide liquidity",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
-        quote: "Stablecoins build deep liquidity by attracting institutional market makers. They require both competitive yield and regulatory compliance - you can't sacrifice one for the other.",
+        quote: "Stablecoins build deep liquidity by attracting institutional market makers. They require both competitive yield and compliance - you can't sacrifice one for the other.",
         name: "David Cass",
         title: "Chairman | Former CISO at GSR",
         image: davidImage

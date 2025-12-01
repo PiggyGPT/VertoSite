@@ -82,7 +82,7 @@ const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, cta
       data-testid={testId}
     >
         <div>
-            <div className="flex items-start gap-2 mb-4">
+            <div className="flex items-start gap-2 mb-4 p-3 rounded-lg" style={{ backgroundColor: '#6B21A820' }}>
               <span style={{ color: colors.quote }}>
                 <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" />
               </span>
