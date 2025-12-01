@@ -1462,7 +1462,7 @@ const MintingVisual = () => {
                 {animationState.isSubmitting ? (
                   <>
                     <RefreshCw className="w-4 h-4 animate-spin" />
-                    <span>Allocating Virtual IBAN...</span>
+                    <span>Allocating Virtual Account...</span>
                   </>
                 ) : (
                   <span>Generate Deposit Instructions</span>
@@ -2275,7 +2275,7 @@ export default function PillarsSection({
       description: "Enable universal trading of your tokens from any bank, wallet, or chain",
       visual: <PaymentsVisual />,
       founderQuote: {
-        quote: "Stablecoins drive volume when users can seamlessly transact with their existing funds - whether it's fiat in their banks or crypto in wallets or exchanges.",
+        quote: "Stablecoins drive volume when any user, anywhere can trade them with their existing funds — fiat in banks or crypto in wallets.",
         name: "Nilesh Khaitan",
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
