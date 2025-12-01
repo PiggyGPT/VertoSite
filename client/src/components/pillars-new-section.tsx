@@ -434,8 +434,8 @@ const ExecutiveDistributionFlow = () => {
 // 1. Merchant creating the invoice
 const MerchantCreate = ({ amount }: { amount: string }) => (
   <div className="flex flex-col h-full items-center justify-center p-6 text-center pt-14">
-    <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(77, 136, 255, 0.1)' }}>
-      <Smartphone className="w-8 h-8" style={{ color: 'var(--albor-blue)' }} />
+    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6">
+      <Smartphone className="w-8 h-8 text-purple-600 dark:text-purple-400" />
     </div>
     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Create Payment</h3>
     <p className="text-slate-500 mb-6">Enter amount to receive</p>
@@ -443,7 +443,7 @@ const MerchantCreate = ({ amount }: { amount: string }) => (
       <span className="text-4xl font-bold text-slate-900 dark:text-white">{amount}</span>
       <span className="text-xl font-medium text-slate-500">BSD</span>
     </div>
-    <button className="w-full py-3 text-white rounded-xl font-semibold shadow-lg" style={{ backgroundColor: 'var(--albor-blue)', boxShadow: 'rgba(77, 136, 255, 0.2) 0 10px 15px -3px' }}>
+    <button className="w-full py-3 bg-purple-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-600/20">
       Generate Invoice
     </button>
   </div>
