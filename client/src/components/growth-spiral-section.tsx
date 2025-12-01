@@ -213,7 +213,6 @@ export default function GrowthSpiralSection() {
                             color: "white",
                         }}
                     >
-                        <Calendar className="w-4 h-4" />
                         <span>Schedule Demo</span>
                     </button>
                 </div>
