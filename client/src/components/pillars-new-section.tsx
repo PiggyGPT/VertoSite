@@ -144,7 +144,7 @@ import {
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
   Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow, Calendar, Quote,
   Loader2, Building, Blocks, ArrowUpRight, ArrowDownLeft, Hash, RefreshCw,
-  Smartphone, ScanLine, Fingerprint, Briefcase, DollarSign
+  Smartphone, ScanLine, Fingerprint, Briefcase, DollarSign, Activity, Gift
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
