@@ -1737,7 +1737,7 @@ const MintingVisual = () => {
 
 // --- VISUAL 5: Compliance (Animated Flow) ---
 const PolishedComplianceFlow = () => {
-  const [currentPanel, setCurrentPanel] = useState(0); // 0: ratings, 1: policy, 2: report
+  const [currentPanel, setCurrentPanel] = useState(1); // Start with Key Provider & Governance
 
   useEffect(() => {
     const panelOrder = [1, 2, 0]; // Show Key Provider -> Compliance -> Infrastructure
