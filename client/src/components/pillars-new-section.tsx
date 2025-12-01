@@ -2191,7 +2191,7 @@ export default function PillarsSection({
       label: "Secure Compliance", color: "albor-gold", icon: Shield,
       title: "Sovereign Infrastructure",
       description: "Satisfy regulatory and risk committee mandates by controling your keys and your data",
-      visual: <ExecutiveDistributionFlow />,
+      visual: <ExecutiveServiceFlow />,
       founderQuote: {
         quote: "No regulated financial institution should cede their monetary or data sovereignty. You either control your infrastructure or you don't control your business.",
         name: "Nilesh Khaitan",
