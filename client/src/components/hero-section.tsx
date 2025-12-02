@@ -70,7 +70,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
           </h1>
 
           <p className="text-base sm:text-xl md:text-2xl text-slate-200 leading-relaxed mb-12 max-w-2xl">
-            Albor's stablecoin rails make bank deposits interoperable and instantly tradable with the Dig economy.
+            Albor's stablecoin rails make bank deposits interoperable and instantly tradable with the Digital Dollar economy.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-20 w-full sm:w-auto">
