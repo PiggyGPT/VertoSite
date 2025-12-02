@@ -8,13 +8,13 @@ export interface PageSEO {
 
 export const pageSEOData: Record<string, PageSEO> = {
   home: {
-    title: "Connect Your Assets To Digital Dollars — Albor Stablecoin Platform",
+    title: "Bridge Your Bank To Digital Dollars — Albor Stablecoin Platform",
     description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.",
     image: "/favicon.png",
     imageAlt: "Launch Your Stablecoin with Albor"
   },
   "launch-stablecoin": {
-    title: "Connect Your Assets To Digital Dollars — Albor Stablecoin Platform",
+    title: "Bridge Your Bank To Digital Dollars — Albor Stablecoin Platform",
     description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.",
     image: "/favicon.png",
     imageAlt: "Launch Your Stablecoin with Albor"
