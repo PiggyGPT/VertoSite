@@ -1946,7 +1946,7 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Auto-trigger token mints to client wallets against verified fiat deposits in omnibus accounts." }, { icon: CreditCard, title: "Automated Off-Ramp", description: "Auto-trigger fiat wires against verified token deposits from client wallets." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
+      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Auto-trigger token mints to client wallets against verified fiat deposits in omnibus accounts." }, { icon: CreditCard, title: "Automated Off-Ramp", description: "Auto-trigger fiat wires from omnibus accounts against token burns from client wallets." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into standard line-item accounting for immediate reporting." },],
       cta: "Explore APIs"
     },
     trading: {
@@ -1959,7 +1959,7 @@ export default function PillarsSection({
         title: "Chairman | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: Store, title: "On-Chain Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "Automated Market Making", description: "Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." }, { icon: Lock, title: "Instant Yield Distribution", description: "Reward LPs with fees from every trade, distributed automatically per block." },],
+      features: [{ icon: Store, title: "On-Chain Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "Automated Market Making", description: "Maintain optimal exchange rates using a BIS-validated algorithmic model for price stability." }, { icon: DollarSign, title: "Instant Yield Distribution", description: "Reward LPs with fees from every trade, distributed automatically per block." },],
       cta: "Explore DEX"
     },
     payments: {
