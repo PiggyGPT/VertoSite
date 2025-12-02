@@ -47,7 +47,9 @@ export default function Footer() {
                             <img src="/logos/svg/albor.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
-                            Non-custodial stablecoin infrastructure to capture dollar liquidity on any chain.
+                            Stablecoin rails bridging bank deposits to the Digital Dollar economy
+
+
                         </p>
                     </div>
 
