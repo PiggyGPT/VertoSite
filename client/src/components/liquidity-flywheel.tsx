@@ -157,10 +157,13 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
             <motion.circle 
               cx="480" 
               cy="10" 
-              r="4" 
               fill="#4D88FF"
-              animate={{ r: [4, 6, 4] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 2 }}
+              initial={{ opacity: 0, r: 4 }}
+              animate={{ opacity: 1, r: [4, 6, 4] }}
+              transition={{
+                opacity: { delay: 2, duration: 0.5 },
+                r: { delay: 2, duration: 2, repeat: Infinity }
+              }}
             />
          </svg>
          
