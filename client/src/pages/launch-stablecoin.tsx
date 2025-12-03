@@ -7,6 +7,7 @@ import WhyNowSection from "@/components/why-now-section";
 import Footer from "@/components/footer";
 import CompetitiveDiffSection from "@/components/competitive-diff-section";
 import PillarsSection from "@/components/pillars-new-section";
+import LiquidityFlywheel from "@/components/liquidity-flywheel";
 import {
   Zap,
   Store,
@@ -126,6 +127,7 @@ export default function LaunchStablecoin() {
         <PillarsSection />
       </div>
       <div id="pillar-end"></div>
+      <LiquidityFlywheel />
       <CompetitiveDiffSection />
       <BoardChecklistSection />
       <div id="pilot">

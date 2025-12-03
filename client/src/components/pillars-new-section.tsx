@@ -1941,7 +1941,7 @@ export default function PillarsSection({
       description: "Automate stablecoin issuance, redemption, and reconciliation against bank deposits & withdrawals",
       visual: <MintingVisual />,
       founderQuote: {
-        quote: "Building trust in a regulated stablecoin begins with two non-negotiable fundamentals: real-time settlement of deposits and withdrawals, and audit-ready asset backing.",
+        quote: "Building trust in a regulated stablecoin begins with two non-negotiable mandates: real-time settlement of deposits and withdrawals, and audit-ready asset backing.",
         name: "David Cass",
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
