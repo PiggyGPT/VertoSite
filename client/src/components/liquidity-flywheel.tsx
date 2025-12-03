@@ -283,20 +283,27 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
       </div>
 
       <motion.button
-        whileHover={!isClicked ? { scale: 1.05 } : {}}
-        whileTap={!isClicked ? { scale: 0.95 } : {}}
+        whileHover={!isClicked ? { scale: 1.08, y: -2 } : {}}
+        whileTap={!isClicked ? { scale: 0.92, y: 4 } : {}}
         onClick={handleClick}
-        className={`group flex items-center gap-3 px-8 py-3 rounded-lg font-semibold shadow-lg transition-all mt-4 mx-auto font-sans ${
+        animate={isClicked ? { scale: 1, y: 0 } : {}}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        className={`group flex items-center gap-3 px-8 py-3 rounded-lg font-semibold transition-all mt-4 mx-auto font-sans ${
           isClicked
-            ? 'bg-emerald-500 shadow-emerald-500/20 cursor-default'
-            : 'bg-[#4D88FF] hover:bg-[#3A6FE6] text-white shadow-[#4D88FF]/20'
+            ? 'bg-emerald-500 cursor-default shadow-lg shadow-emerald-500/30'
+            : 'bg-[#4D88FF] hover:bg-[#3A6FE6] text-white shadow-lg shadow-[#4D88FF]/20'
         }`}
       >
          {isClicked ? (
-           <>
+           <motion.div
+             initial={{ scale: 0.8, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 0.3 }}
+             className="flex items-center gap-3"
+           >
              <CheckCircle className="w-4 h-4" />
              <span className="text-white">Liquidity Added</span>
-           </>
+           </motion.div>
          ) : (
            <>
              <Plus className="w-4 h-4" />
