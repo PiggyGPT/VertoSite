@@ -26,7 +26,7 @@ const STEPS = [
   },
   {
     id: "fees",
-    title: "Fees Drive Yield",
+    title: "Fees Drive Liquidity",
     subtitle: "Attract Liquidity",
     description: "Fees are distributed as yield, attracting liquidity providers to the ecosystem.",
     color: "blue"
@@ -99,21 +99,32 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
 };
 
 // 2. Yield View
-const YieldView = ({ onCtaClick, totalFees }: { onCtaClick?: () => void, totalFees: number }) => {
+const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, totalFees: number, tvl: number }) => {
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
-      <div className="flex justify-between items-end mb-6">
+      <div className="grid grid-cols-3 gap-4 mb-6">
         <div>
           <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Current APY</div>
-          <div className="text-3xl font-sans text-[#4D88FF] font-bold">5.42%</div>
+          <div className="text-2xl font-sans text-[#4D88FF] font-bold">5.42%</div>
+        </div>
+        <div className="text-center">
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Total TVL</div>
+          <motion.div 
+             key={`tvl-${tvl}`}
+             initial={{ scale: 0.95 }}
+             animate={{ scale: 1 }}
+             className="text-2xl font-sans font-semibold" style={{ color: '#5DD4E0' }}
+          >
+            ${(tvl / 1000000).toFixed(1)}M
+          </motion.div>
         </div>
         <div className="text-right">
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Fees Collected (24h)</div>
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Fees (24h)</div>
           <motion.div 
              key={`yield-fees-${totalFees}`}
              initial={{ scale: 0.95 }}
              animate={{ scale: 1 }}
-             className="text-lg font-sans font-semibold" style={{ color: '#4D88FF' }}
+             className="text-2xl font-sans font-semibold" style={{ color: '#4D88FF' }}
           >
             ${totalFees.toLocaleString()}
           </motion.div>
@@ -326,6 +337,7 @@ export default function LiquidityFlywheel() {
   // Calculate totals dynamically
   const totalFees = trades.reduce((sum, trade) => sum + trade.fee, 0);
   const totalVolume = trades.reduce((sum, trade) => sum + trade.size, 0);
+  const tvl = totalVolume * 12; // TVL multiplier based on volume
 
   // Helper to find index
   const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
@@ -483,7 +495,7 @@ export default function LiquidityFlywheel() {
                          className="h-full w-full"
                       >
                          {activeStepId === 'transactions' && <FeesView trades={trades} totalFees={totalFees} totalVolume={totalVolume} />}
-                         {activeStepId === 'fees' && <YieldView onCtaClick={handleAddLiquidity} totalFees={totalFees} />}
+                         {activeStepId === 'fees' && <YieldView onCtaClick={handleAddLiquidity} totalFees={totalFees} tvl={tvl} />}
                          {activeStepId === 'liquidity' && <MintView />}
                          {activeStepId === 'compliance' && <ComplianceView />}
                       </motion.div>
