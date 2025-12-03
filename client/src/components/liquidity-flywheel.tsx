@@ -153,17 +153,15 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
               transition={{ duration: 2, ease: "easeInOut" }}
             />
             
-            {/* Moving Dot along the line */}
+            {/* Pulsing Dot at the end - appears after line finishes drawing */}
             <motion.circle 
+              cx="600" 
+              cy="10" 
               r="4" 
               fill="#4D88FF"
-              animate={{ cx: [0, 600], cy: [100, 10] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ r: [4, 6, 4] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 2 }}
             />
-            {/* Pulsing Dot at the end */}
-            <motion.circle cx="600" cy="10" r="4" fill="#4D88FF">
-               <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
-            </motion.circle>
          </svg>
          
          {/* Grid Lines */}
