@@ -42,6 +42,39 @@ const STEPS = [
 
 // ===== DASHBOARD VIEWS =====
 
+// Slot Machine Digit Component
+const SlotDigit = ({ digit }: { digit: string }) => {
+  if (digit === '.') {
+    return (
+      <div className="h-12 md:h-16 flex items-center justify-center font-bold text-4xl md:text-5xl text-[#4D88FF]">
+        .
+      </div>
+    );
+  }
+
+  const digitValue = parseInt(digit);
+  const digits = Array.from({ length: 10 }, (_, i) => i);
+  
+  return (
+    <motion.div
+      className="relative h-12 md:h-16 overflow-hidden"
+      style={{ width: '0.9em' }}
+    >
+      <motion.div
+        animate={{ y: -digitValue * 48 }}
+        transition={{ type: "spring", stiffness: 80, damping: 12 }}
+        className="flex flex-col"
+      >
+        {digits.map((d) => (
+          <div key={d} className="h-12 md:h-16 flex items-center justify-center font-bold text-4xl md:text-5xl text-[#4D88FF] leading-none">
+            {d}
+          </div>
+        ))}
+      </motion.div>
+    </motion.div>
+  );
+};
+
 // 1. Transactions -> Fees View
 const FeesView = () => {
   const [trades, setTrades] = useState([
@@ -65,18 +98,20 @@ const FeesView = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const feeDisplay = "142890.00";
+
   return (
     <div className="h-full flex flex-col justify-between">
       <div className="text-center space-y-2 mb-6">
-        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest">24h Fees Collected</h4>
-        <motion.div 
-           key={trades[0].id}
-           initial={{ scale: 0.95, color: "#ffffff" }}
-           animate={{ scale: 1, color: "#34d399" }}
-           className="text-4xl md:text-5xl font-bold font-mono text-emerald-400"
-        >
-          $142,890.00
-        </motion.div>
+        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans font-medium uppercase tracking-widest">24h Fees Collected</h4>
+        <div className="text-4xl md:text-5xl font-bold flex items-center justify-center gap-1">
+          <span className="text-slate-900 dark:text-white">$</span>
+          <div className="flex gap-0.5">
+            {feeDisplay.split('').map((digit, idx) => (
+              <SlotDigit key={idx} digit={digit} />
+            ))}
+          </div>
+        </div>
         <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
           <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
           <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: $14,289,000</span>
@@ -89,13 +124,19 @@ const FeesView = () => {
           <span>Fee (1%)</span>
         </div>
         <AnimatePresence mode="popLayout">
-          {trades.map((trade) => (
+          {trades.map((trade, idx) => (
             <motion.div
               key={trade.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50"
+              initial={{ opacity: 0, x: -60, rotate: -10, scale: 0.8 }}
+              animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 40, rotate: 5 }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 25,
+                delay: idx === 0 ? 0.1 : 0
+              }}
+              className="flex items-center justify-between p-3 bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-lg border border-slate-200 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-emerald-500/10 rounded-md">
