@@ -327,7 +327,7 @@ export default function LiquidityFlywheel() {
         id: Date.now(),
         pair: Math.random() > 0.5 ? "BSD/USDC" : "USDT/BSD",
         size: size,
-        fee: Math.floor(size * 0.01) // 1% fee simulation
+        fee: Math.floor(size * 0.5) // 50% fee (matches 50x initial multiplier)
       };
       setTrades(prev => [newTrade, ...prev.slice(0, 3)]);
     }, 2000);
