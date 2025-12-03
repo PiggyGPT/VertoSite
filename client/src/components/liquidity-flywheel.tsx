@@ -109,7 +109,7 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
       // Wait for click animation to complete before transitioning
       await new Promise(resolve => setTimeout(resolve, 1500));
       onCtaClick?.();
-    }, 800); // Delay before animation starts
+    }, 300); // Delay before animation starts
     
     return () => clearTimeout(timer);
   }, [onCtaClick]);
