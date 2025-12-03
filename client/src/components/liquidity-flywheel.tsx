@@ -105,14 +105,9 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div>
           <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Total TVL</div>
-          <motion.div 
-             key={`tvl-${tvl}`}
-             initial={{ scale: 0.95 }}
-             animate={{ scale: 1 }}
-             className="text-2xl font-sans font-semibold" style={{ color: '#5DD4E0' }}
-          >
+          <div className="text-2xl font-sans font-semibold text-white">
             ${(tvl / 1000000).toFixed(1)}M
-          </motion.div>
+          </div>
         </div>
         <div className="text-center">
           <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Current APY</div>
@@ -337,7 +332,7 @@ export default function LiquidityFlywheel() {
   // Calculate totals dynamically
   const totalFees = trades.reduce((sum, trade) => sum + trade.fee, 0);
   const totalVolume = trades.reduce((sum, trade) => sum + trade.size, 0);
-  const tvl = totalVolume * 12; // TVL multiplier based on volume
+  const tvl = 30000000; // Static TVL value ($30M)
 
   // Helper to find index
   const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
