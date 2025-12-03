@@ -11,7 +11,6 @@ import {
   Plus,
   ArrowRight,
   Check,
-  CheckCircle,
   CheckCircle2
 } from "lucide-react";
 
@@ -21,21 +20,21 @@ const STEPS = [
   {
     id: "transactions",
     title: "Transactions Drive Fees",
-    subtitle: "Transact Globally",
+    subtitle: "Step 1: Volume",
     description: "Transaction volume generates protocol fees, creating revenue from payments.",
     color: "emerald"
   },
   {
     id: "fees",
     title: "Fees Drive Yield",
-    subtitle: "Attract Liquidity",
+    subtitle: "Step 2: Incentives",
     description: "Fees are distributed as yield, attracting liquidity providers to the ecosystem.",
     color: "blue"
   },
   {
     id: "liquidity",
     title: "Liquidity Drives Deposits",
-    subtitle: "Tokenize Deposits",
+    subtitle: "Step 3: Capital",
     description: "New liquidity enters as fiat deposits, minting stablecoins to capture yield.",
     color: "purple"
   }
@@ -51,10 +50,6 @@ const FeesView = () => {
     { id: 3, pair: "BSD/EURC", size: 75000, fee: 750 },
   ]);
 
-  const [totalFees, setTotalFees] = useState(142890);
-  const [totalVolume, setTotalVolume] = useState(14289000);
-  const [animatingIndices, setAnimatingIndices] = useState<Set<number>>(new Set());
-
   // Simulate live trades
   useEffect(() => {
     const interval = setInterval(() => {
@@ -63,115 +58,28 @@ const FeesView = () => {
         id: Date.now(),
         pair: Math.random() > 0.5 ? "BSD/USDC" : "USDT/BSD",
         size: size,
-        fee: Math.floor(size * 0.01)
+        fee: Math.floor(size * 0.01) // 1% fee simulation
       };
-      
-      setTrades(prev => [newTrade, ...prev.slice(0, 2)]);
-      
-      // Update volume
-      setTotalVolume(prev => prev + size);
-      
-      // Calculate new total and detect which digits changed
-      setTotalFees(prev => {
-        const newTotal = prev + newTrade.fee;
-        
-        // Format both as strings for comparison (without decimal)
-        const oldStr = prev.toString().padStart(6, '0');
-        const newStr = newTotal.toString().padStart(6, '0');
-        
-        // Detect which positions changed
-        const changed = new Set<number>();
-        for (let i = 0; i < oldStr.length; i++) {
-          if (oldStr[i] !== newStr[i]) {
-            changed.add(i);
-          }
-        }
-        
-        setAnimatingIndices(changed);
-        setTimeout(() => setAnimatingIndices(new Set()), 500);
-        
-        return newTotal;
-      });
+      setTrades(prev => [newTrade, ...prev.slice(0, 3)]);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
 
-  // Format the number: 142890 -> "142,890.00"
-  const feeStr = totalFees.toString().padStart(6, '0');
-  const displayStr = `${feeStr.slice(0, 3)},${feeStr.slice(3)}.00`;
-  
-  // Get indices without formatting (for animation tracking)
-  const digitsOnly = feeStr.split('');
-
   return (
     <div className="h-full flex flex-col justify-between">
       <div className="text-center space-y-2 mb-6">
-        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans font-medium uppercase tracking-widest">Fees Collected (24H)</h4>
-        <div className="text-4xl md:text-5xl font-bold">
-          <span className="text-slate-900 dark:text-white">$</span>
-          <span className="text-white inline-block font-mono tracking-tight">
-            {/* Render: 142,890 with rolling digits for numbers only */}
-            {digitsOnly[0] && (
-              <motion.span
-                initial={animatingIndices.has(0) ? { y: -24 } : {}}
-                animate={animatingIndices.has(0) ? { y: 0 } : {}}
-                transition={animatingIndices.has(0) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
-              >
-                {digitsOnly[0]}
-              </motion.span>
-            )}
-            {digitsOnly[1] && (
-              <motion.span
-                initial={animatingIndices.has(1) ? { y: -24 } : {}}
-                animate={animatingIndices.has(1) ? { y: 0 } : {}}
-                transition={animatingIndices.has(1) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
-              >
-                {digitsOnly[1]}
-              </motion.span>
-            )}
-            {digitsOnly[2] && (
-              <motion.span
-                initial={animatingIndices.has(2) ? { y: -24 } : {}}
-                animate={animatingIndices.has(2) ? { y: 0 } : {}}
-                transition={animatingIndices.has(2) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
-              >
-                {digitsOnly[2]}
-              </motion.span>
-            )}
-            <span>,</span>
-            {digitsOnly[3] && (
-              <motion.span
-                initial={animatingIndices.has(3) ? { y: -24 } : {}}
-                animate={animatingIndices.has(3) ? { y: 0 } : {}}
-                transition={animatingIndices.has(3) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
-              >
-                {digitsOnly[3]}
-              </motion.span>
-            )}
-            {digitsOnly[4] && (
-              <motion.span
-                initial={animatingIndices.has(4) ? { y: -24 } : {}}
-                animate={animatingIndices.has(4) ? { y: 0 } : {}}
-                transition={animatingIndices.has(4) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
-              >
-                {digitsOnly[4]}
-              </motion.span>
-            )}
-            {digitsOnly[5] && (
-              <motion.span
-                initial={animatingIndices.has(5) ? { y: -24 } : {}}
-                animate={animatingIndices.has(5) ? { y: 0 } : {}}
-                transition={animatingIndices.has(5) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
-              >
-                {digitsOnly[5]}
-              </motion.span>
-            )}
-            <span>.00</span>
-          </span>
-        </div>
+        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest">24h Fees Collected</h4>
+        <motion.div 
+           key={trades[0].id}
+           initial={{ scale: 0.95, color: "#ffffff" }}
+           animate={{ scale: 1, color: "#34d399" }}
+           className="text-4xl md:text-5xl font-bold font-mono text-emerald-400"
+        >
+          $142,890.00
+        </motion.div>
         <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
           <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
-          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: ${(totalVolume / 1000000).toFixed(1)}M</span>
+          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: $14,289,000</span>
         </div>
       </div>
 
@@ -181,19 +89,13 @@ const FeesView = () => {
           <span>Fee (1%)</span>
         </div>
         <AnimatePresence mode="popLayout">
-          {trades.map((trade, idx) => (
+          {trades.map((trade) => (
             <motion.div
               key={trade.id}
-              initial={{ opacity: 0, x: -60, rotate: -10, scale: 0.8 }}
-              animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 40, rotate: 5 }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 300, 
-                damping: 25,
-                delay: idx === 0 ? 0.1 : 0
-              }}
-              className="flex items-center justify-between p-3 bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-lg border border-slate-200 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-emerald-500/10 rounded-md">
@@ -218,13 +120,6 @@ const FeesView = () => {
 
 // 2. Yield View
 const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = () => {
-    setIsClicked(true);
-    onCtaClick?.();
-  };
-
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="flex justify-between items-end mb-6">
@@ -283,252 +178,82 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
       </div>
 
       <motion.button
-        whileHover={!isClicked ? { scale: 1.08, y: -2 } : {}}
-        whileTap={!isClicked ? { scale: 0.92, y: 4 } : {}}
-        onClick={handleClick}
-        animate={isClicked ? { scale: 1, y: 0 } : {}}
-        transition={{ type: "spring", stiffness: 300, damping: 15 }}
-        className={`group flex items-center gap-3 px-8 py-3 rounded-lg font-semibold transition-all mt-4 mx-auto font-sans ${
-          isClicked
-            ? 'bg-emerald-500 cursor-default shadow-lg shadow-emerald-500/30'
-            : 'bg-[#4D88FF] hover:bg-[#3A6FE6] text-white shadow-lg shadow-[#4D88FF]/20'
-        }`}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={onCtaClick}
+        className="group flex items-center gap-3 px-8 py-3 bg-[#4D88FF] hover:bg-[#3A6FE6] text-white rounded-lg font-semibold shadow-lg shadow-[#4D88FF]/20 transition-all mt-4 mx-auto font-sans"
       >
-         {isClicked ? (
-           <motion.div
-             initial={{ scale: 0.8, opacity: 0 }}
-             animate={{ scale: 1, opacity: 1 }}
-             transition={{ duration: 0.3 }}
-             className="flex items-center gap-3"
-           >
-             <CheckCircle className="w-4 h-4" />
-             <span className="text-white">Liquidity Added</span>
-           </motion.div>
-         ) : (
-           <>
-             <Plus className="w-4 h-4" />
-             <span>Add Liquidity to Earn 5.42%</span>
-             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-           </>
-         )}
+         <Plus className="w-4 h-4" />
+         <span>Add Liquidity to Earn 5.42%</span>
+         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </motion.button>
     </div>
   );
 };
 
-// 3. Minting View with Multi-Panel Animation
+// 3. Minting View
 const MintView = () => {
-  const [currentPanel, setCurrentPanel] = useState(0);
-  const [mintState, setMintState] = useState<'idle' | 'waiting' | 'minting' | 'complete'>('idle');
-
-  useEffect(() => {
-    const cycle = setInterval(() => {
-      setCurrentPanel(prev => {
-        const next = (prev + 1) % 3;
-        if (next === 0) {
-          setMintState('idle');
-        } else if (next === 1) {
-          setMintState('waiting');
-          setTimeout(() => setMintState('minting'), 1500);
-          setTimeout(() => setMintState('complete'), 3500);
-        }
-        return next;
-      });
-    }, 7000);
-    return () => clearInterval(cycle);
-  }, []);
-
-  const panelBaseClasses = "absolute inset-0 transition-all duration-1000 ease-in-out";
-  const panelVisibleClasses = "opacity-100 translate-x-0";
-  const panelHiddenLeftClasses = "opacity-0 -translate-x-full";
-  const panelHiddenRightClasses = "opacity-0 translate-x-full";
-
-  const getPanelClasses = (panelIndex: number) => {
-    if (currentPanel === panelIndex) return `${panelBaseClasses} ${panelVisibleClasses}`;
-    if (currentPanel > panelIndex) return `${panelBaseClasses} ${panelHiddenLeftClasses}`;
-    return `${panelBaseClasses} ${panelHiddenRightClasses}`;
-  };
-
   return (
-    <div className="h-full flex flex-col justify-center relative overflow-hidden">
-      <div className="absolute inset-0">
-        
-        {/* PANEL 0: Deposit Request */}
-        <div className={getPanelClasses(0)}>
-          <div className="h-full flex flex-col items-center justify-center space-y-6">
-            <div className="text-center">
-              <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans uppercase tracking-widest mb-2">Liquidity Injection</h4>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Add to Liquidity Pool</h2>
-            </div>
+    <div className="h-full flex flex-col items-center justify-center space-y-8">
+       <div className="text-center">
+          <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest mb-2">Liquidity Injection</h4>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Fiat to Stablecoin</h2>
+       </div>
 
-            <div className="bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 p-6 w-full max-w-sm space-y-4">
-              <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Deposit Amount</label>
-                <div className="w-full p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center gap-3">
-                  <span className="text-slate-400">$</span>
-                  <span className="text-slate-900 dark:text-white font-semibold text-lg">50,000.00</span>
-                  <span className="text-xs text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded ml-auto">USD</span>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Stablecoins to Mint</label>
-                <div className="w-full p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center gap-3">
-                  <span className="text-slate-900 dark:text-white font-semibold text-lg">50,000.00</span>
-                  <span className="text-xs text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded ml-auto">BSD</span>
-                </div>
-              </div>
-
-              <div className="p-3 bg-blue-50 dark:bg-blue-900/10 rounded border border-blue-100 dark:border-blue-800/30">
-                <p className="text-xs text-blue-800 dark:text-blue-300">
-                  <span className="font-bold">Info:</span> Funds will be minted to stablecoin and added to the LP.
-                </p>
-              </div>
-            </div>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-6 py-2 bg-[#4D88FF] hover:bg-[#3A6FE6] text-white rounded-lg font-semibold transition-all"
-            >
-              Proceed to Mint
-            </motion.button>
+       <div className="w-full max-w-sm relative">
+          {/* Path Line */}
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-300 dark:bg-slate-800 -translate-y-1/2 rounded-full overflow-hidden">
+             <motion.div 
+                className="h-full bg-gradient-to-r from-purple-500 to-indigo-500"
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+             />
           </div>
-        </div>
 
-        {/* PANEL 1: Minting Process */}
-        <div className={getPanelClasses(1)}>
-          <div className="h-full flex flex-col items-center justify-center">
-            <div className="space-y-4 w-full max-w-sm">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white text-center">Minting Process</h3>
-              
-              <div className="space-y-2">
-                {/* Step 1: Deposit Confirmed */}
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0 }}
-                  className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/30"
-                >
-                  <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${mintState !== 'idle' ? 'bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-600' : 'bg-slate-100 dark:bg-slate-700'}`}>
-                    {mintState !== 'idle' ? <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" /> : <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-slate-900 dark:text-white">Deposit Confirmed</p>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">50,000.00 USD received</p>
-                  </div>
-                </motion.div>
+          <div className="flex justify-between relative z-10">
+             {/* Left Node: Fiat */}
+             <div className="flex flex-col items-center gap-2">
+                <div className="w-16 h-16 bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-2xl flex items-center justify-center shadow-lg dark:shadow-xl">
+                   <span className="font-bold text-slate-700 dark:text-slate-400">USD</span>
+                </div>
+                <span className="text-xs font-mono text-slate-600 dark:text-slate-500">Deposit</span>
+             </div>
 
-                {/* Step 2: Minting */}
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/30"
-                >
-                  <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${mintState === 'minting' || mintState === 'complete' ? 'bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-300 dark:border-indigo-600' : 'bg-slate-100 dark:bg-slate-700'}`}>
-                    {mintState === 'complete' ? (
-                      <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    ) : mintState === 'minting' ? (
-                      <RefreshCw className="w-4 h-4 text-indigo-600 dark:text-indigo-400 animate-spin" />
-                    ) : (
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-slate-900 dark:text-white">Minting BSD</p>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Issuing stablecoins...</p>
-                  </div>
-                </motion.div>
+             {/* Center Node: Bank */}
+             <div className="flex flex-col items-center gap-2 -mt-4">
+                 <div className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center border border-slate-400 dark:border-slate-600 z-20">
+                    <Landmark className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                 </div>
+                 <span className="text-[10px] font-mono text-slate-700 dark:text-slate-600 bg-slate-100 dark:bg-slate-900 px-2 rounded">Albor Treasury</span>
+             </div>
 
-                {/* Step 3: Complete */}
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/30"
+             {/* Right Node: Token */}
+             <div className="flex flex-col items-center gap-2">
+                <motion.div 
+                   animate={{ 
+                     boxShadow: ["0 0 0px rgba(168,85,247,0)", "0 0 20px rgba(168,85,247,0.5)", "0 0 0px rgba(168,85,247,0)"],
+                     borderColor: ["#e2e8f0", "#a855f7", "#e2e8f0"]
+                   }}
+                   transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+                   className="w-16 h-16 bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-2xl flex items-center justify-center shadow-lg dark:shadow-xl"
                 >
-                  <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${mintState === 'complete' ? 'bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-600' : 'bg-slate-100 dark:bg-slate-700'}`}>
-                    {mintState === 'complete' ? <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" /> : <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-slate-900 dark:text-white">LP Deposit Complete</p>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">50,000 BSD added to pool</p>
-                  </div>
+                   <span className="font-bold text-purple-600 dark:text-purple-400">BSD</span>
                 </motion.div>
-              </div>
-            </div>
+                <span className="text-xs font-mono text-purple-600 dark:text-purple-400">Minted</span>
+             </div>
           </div>
-        </div>
+       </div>
 
-        {/* PANEL 2: Reconciliation */}
-        <div className={getPanelClasses(2)}>
-          <div className="h-full flex flex-col items-center justify-center">
-            <div className="space-y-6 w-full max-w-sm">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white text-center">Liquidity Added</h3>
-              
-              {/* Progress Bar */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between px-1">
-                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Add Deposits</span>
-                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Tokenize Deposits</span>
-                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Add Liquidity</span>
-                </div>
-                <div className="flex items-center gap-2 w-full">
-                  <motion.div
-                    initial={{ width: '0%' }}
-                    animate={{ width: '33.33%' }}
-                    transition={{ duration: 0.6 }}
-                    className="h-2 rounded-full"
-                    style={{ backgroundColor: '#5DD4E0' }}
-                  />
-                  <motion.div
-                    initial={{ width: '0%' }}
-                    animate={{ width: '33.33%' }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="h-2 rounded-full"
-                    style={{ backgroundColor: '#4D88FF' }}
-                  />
-                  <motion.div
-                    initial={{ width: '0%' }}
-                    animate={{ width: '33.33%' }}
-                    transition={{ duration: 1, delay: 0.4 }}
-                    className="h-2 rounded-full"
-                    style={{ backgroundColor: '#A885FF' }}
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded border border-slate-200 dark:border-slate-700">
-                  <p className="text-xs text-slate-500 uppercase">Initial Deposit</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white mt-1">50,000.00 USD</p>
-                </div>
-
-                <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded border border-slate-200 dark:border-slate-700">
-                  <p className="text-xs text-slate-500 uppercase">Stablecoins Minted</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white mt-1">50,000.00 BSD</p>
-                </div>
-
-                <div className="bg-emerald-50 dark:bg-emerald-900/10 p-3 rounded border border-emerald-200 dark:border-emerald-700/50">
-                  <p className="text-xs text-emerald-600 dark:text-emerald-500 uppercase font-bold mb-1">Status</p>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                    <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">Liquidity Active</span>
-                  </div>
-                </div>
-
-                <div className="bg-blue-50 dark:bg-blue-900/10 p-3 rounded border border-blue-100 dark:border-blue-800/30">
-                  <p className="text-[10px] text-blue-700 dark:text-blue-300">
-                    <span className="font-bold">Earning:</span> Your deposit now earns yield from protocol fees at 5.42% APY
-                  </p>
-                </div>
-              </div>
-            </div>
+       <div className="w-full bg-slate-100 dark:bg-slate-800/50 rounded-lg p-4 flex items-center justify-between border border-slate-200 dark:border-slate-700">
+          <div className="flex items-center gap-3">
+             <Check className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+             <div className="text-sm text-slate-700 dark:text-slate-300">Reserves Verified</div>
           </div>
-        </div>
-
-      </div>
+          <div className="text-sm font-mono text-slate-600 dark:text-slate-500">
+             1:1 Ratio
+          </div>
+       </div>
     </div>
   );
 };
@@ -730,7 +455,7 @@ export default function LiquidityFlywheel() {
              <div className="relative h-full w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl dark:shadow-2xl overflow-hidden flex flex-col">
                 
                 {/* Panel Header */}
-                <div className="h-14 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 flex items-center justify-between px-8">
+                <div className="h-14 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 flex items-center justify-between px-6">
                    <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700" />
                       <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700" />
