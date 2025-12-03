@@ -35,7 +35,7 @@ const STEPS = [
     id: "liquidity",
     title: "Liquidity Drives Deposits",
     subtitle: "Tokenize Deposits",
-    description: "LPs tokenize deposits to pair their capital with Digital Dollars, funding new capital to the Bank.",
+    description: "LPs tokenize deposits to pair their liquidity with Digital Dollars, funding new capital to the Bank.",
     color: "purple"
   }
 ];
@@ -375,12 +375,12 @@ export default function LiquidityFlywheel() {
       <div className="container mx-auto px-4 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-3 tracking-tight font-sans"
+            className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight font-sans"
           >
             Unlock The Liquidity Flywheel
           </motion.h2>
@@ -390,7 +390,7 @@ export default function LiquidityFlywheel() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ delay: 0.1 }}
-             className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed font-sans"
+             className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed font-sans"
           >
             Albor creates a self-reinforcing engine where transaction volume drives balance sheet growth.
           </motion.p>
@@ -418,15 +418,19 @@ export default function LiquidityFlywheel() {
                     {/* Active Progress Bar */}
                     {isActive && (
                       <motion.div 
-                        className="absolute left-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 z-20 rounded-bl-xl"
-                        style={{ width: `${progress}%`, maxWidth: '100%' }}
+                        className="absolute left-0 bottom-0 h-1 z-20 rounded-bl-xl"
+                        style={{ 
+                          width: `${progress}%`, 
+                          maxWidth: '100%',
+                          backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
+                        }}
                         transition={{ ease: "linear", duration: 0.1 }}
                       />
                     )}
 
                     <div className="flex items-start justify-between">
                       <div>
-                        <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? "text-[#4D88FF]" : "text-slate-600 dark:text-slate-500"}`}>
+                        <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? (step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]') : "text-slate-600 dark:text-slate-500"}`}>
                            {step.subtitle}
                         </div>
                         <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
@@ -447,7 +451,7 @@ export default function LiquidityFlywheel() {
                       </div>
                       
                       {isActive && (
-                        <motion.div layoutId="active-arrow" className="mt-2" style={{ color: '#4D88FF' }}>
+                        <motion.div layoutId="active-arrow" className="mt-2" style={{ color: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF' }}>
                            <ArrowUpRight className="w-5 h-5" />
                         </motion.div>
                       )}
@@ -469,9 +473,9 @@ export default function LiquidityFlywheel() {
                       <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700" />
                    </div>
                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                      <div className={`w-1.5 h-1.5 rounded-full ${
-                        activeStepId === 'compliance' ? 'bg-[#F1BD76]' : 'bg-[#5DD4E0]'
-                      } animate-pulse`} />
+                      <div className={`w-1.5 h-1.5 rounded-full animate-pulse`} style={{ 
+                        backgroundColor: activeStepId === 'transactions' ? '#22c55e' : activeStepId === 'fees' ? '#4D88FF' : activeStepId === 'liquidity' ? '#A885FF' : '#F1BD76'
+                      }} />
                       <span className="text-[10px] text-slate-600 dark:text-slate-400 font-sans font-semibold uppercase">
                         {STEPS.find(s => s.id === activeStepId)?.title}
                       </span>
