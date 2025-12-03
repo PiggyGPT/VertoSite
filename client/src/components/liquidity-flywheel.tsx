@@ -37,13 +37,6 @@ const STEPS = [
     subtitle: "Step 3: Capital",
     description: "New liquidity enters as fiat deposits, minting stablecoins to capture yield.",
     color: "purple"
-  },
-  {
-    id: "compliance",
-    title: "Compliance Drives Growth",
-    subtitle: "Step 4: Scale",
-    description: "Regulatory clarity eliminates risk, allowing the flywheel to spin indefinitely.",
-    color: "amber"
   }
 ];
 
@@ -270,8 +263,7 @@ const ComplianceView = () => {
   const riskItems = [
     { step: "Transactions Drive Fees", risk: "None", status: "Verified", riskColor: "text-[#5DD4E0]" },
     { step: "Fees Drive Yield", risk: "None", status: "Active", riskColor: "text-[#5DD4E0]" },
-    { step: "Liquidity Drives Deposits", risk: "None", status: "Operational", riskColor: "text-[#5DD4E0]" },
-    { step: "Compliance Drives Growth", risk: "Zero", status: "Sustained", riskColor: "text-[#5DD4E0]" }
+    { step: "Liquidity Drives Deposits", risk: "None", status: "Operational", riskColor: "text-[#5DD4E0]" }
   ];
 
   return (
