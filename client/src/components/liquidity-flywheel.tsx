@@ -102,8 +102,8 @@ const FeesView = () => {
               className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50"
             >
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-emerald-500/10 rounded-md">
-                  <ArrowRightLeft className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(77, 136, 255, 0.1)' }}>
+                  <ArrowRightLeft className="w-4 h-4" style={{ color: '#4D88FF' }} />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-200">{trade.pair}</div>
@@ -111,7 +111,7 @@ const FeesView = () => {
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm font-bold text-slate-900 dark:text-slate-200 font-sans">+${trade.fee.toLocaleString()}</div>
+                <div className="text-sm font-bold font-sans" style={{ color: '#4D88FF' }}>+${trade.fee.toLocaleString()}</div>
                 <div className="text-[10px] text-slate-600 dark:text-slate-500">Collected</div>
               </div>
             </motion.div>
