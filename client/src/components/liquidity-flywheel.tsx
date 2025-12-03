@@ -43,31 +43,7 @@ const STEPS = [
 // ===== DASHBOARD VIEWS =====
 
 // 1. Transactions -> Fees View
-const FeesView = () => {
-  const [trades, setTrades] = useState([
-    { id: 1, pair: "BSD/USDC", size: 50000, fee: 500 },
-    { id: 2, pair: "USDT/BSD", size: 125000, fee: 1250 },
-    { id: 3, pair: "BSD/EURC", size: 75000, fee: 750 },
-  ]);
-
-  // Simulate live trades
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const size = Math.floor(Math.random() * 80000) + 10000;
-      const newTrade = {
-        id: Date.now(),
-        pair: Math.random() > 0.5 ? "BSD/USDC" : "USDT/BSD",
-        size: size,
-        fee: Math.floor(size * 0.01) // 1% fee simulation
-      };
-      setTrades(prev => [newTrade, ...prev.slice(0, 3)]);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Calculate totals dynamically
-  const totalFees = trades.reduce((sum, trade) => sum + trade.fee, 0);
-  const totalVolume = trades.reduce((sum, trade) => sum + trade.size, 0);
+const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees: number, totalVolume: number }) => {
 
   return (
     <div className="h-full flex flex-col justify-between">
@@ -123,7 +99,7 @@ const FeesView = () => {
 };
 
 // 2. Yield View
-const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
+const YieldView = ({ onCtaClick, totalFees }: { onCtaClick?: () => void, totalFees: number }) => {
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="flex justify-between items-end mb-6">
@@ -133,7 +109,14 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
         </div>
         <div className="text-right">
           <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Fees Collected (24h)</div>
-          <div className="text-lg font-sans text-slate-900 dark:text-slate-200 font-semibold">$142,890.00</div>
+          <motion.div 
+             key={`yield-fees-${totalFees}`}
+             initial={{ scale: 0.95 }}
+             animate={{ scale: 1 }}
+             className="text-lg font-sans font-semibold" style={{ color: '#4D88FF' }}
+          >
+            ${totalFees.toLocaleString()}
+          </motion.div>
         </div>
       </div>
       
@@ -319,6 +302,30 @@ const ComplianceView = () => {
 export default function LiquidityFlywheel() {
   const [activeStepId, setActiveStepId] = useState("transactions");
   const [progress, setProgress] = useState(0);
+  const [trades, setTrades] = useState([
+    { id: 1, pair: "BSD/USDC", size: 50000, fee: 500 },
+    { id: 2, pair: "USDT/BSD", size: 125000, fee: 1250 },
+    { id: 3, pair: "BSD/EURC", size: 75000, fee: 750 },
+  ]);
+
+  // Simulate live trades
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const size = Math.floor(Math.random() * 80000) + 10000;
+      const newTrade = {
+        id: Date.now(),
+        pair: Math.random() > 0.5 ? "BSD/USDC" : "USDT/BSD",
+        size: size,
+        fee: Math.floor(size * 0.01) // 1% fee simulation
+      };
+      setTrades(prev => [newTrade, ...prev.slice(0, 3)]);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Calculate totals dynamically
+  const totalFees = trades.reduce((sum, trade) => sum + trade.fee, 0);
+  const totalVolume = trades.reduce((sum, trade) => sum + trade.size, 0);
 
   // Helper to find index
   const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
@@ -475,8 +482,8 @@ export default function LiquidityFlywheel() {
                          transition={{ duration: 0.3 }}
                          className="h-full w-full"
                       >
-                         {activeStepId === 'transactions' && <FeesView />}
-                         {activeStepId === 'fees' && <YieldView onCtaClick={handleAddLiquidity} />}
+                         {activeStepId === 'transactions' && <FeesView trades={trades} totalFees={totalFees} totalVolume={totalVolume} />}
+                         {activeStepId === 'fees' && <YieldView onCtaClick={handleAddLiquidity} totalFees={totalFees} />}
                          {activeStepId === 'liquidity' && <MintView />}
                          {activeStepId === 'compliance' && <ComplianceView />}
                       </motion.div>
