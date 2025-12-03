@@ -100,77 +100,58 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
 
 // 2. Yield View
 const YieldView = ({ onCtaClick, totalFees, tvl, feeHistory }: { onCtaClick?: () => void, totalFees: number, tvl: number, feeHistory: number[] }) => {
-  // Generate SVG path based on fee history
-  const generatePath = () => {
-    if (feeHistory.length === 0) return "M0,100 L0,150 L0,150 Z";
-    
-    const maxFee = Math.max(...feeHistory, 1);
-    const width = 100; // Will be scaled by SVG viewBox
+  // Generate a full-width wavy line path that grows upward as fees increase
+  const generateYieldPath = () => {
+    const width = 100;
     const height = 150;
-    const padding = 10;
-    const dataHeight = height - padding * 2;
+    const padding = 15;
     
-    // Calculate points
-    const points = feeHistory.map((fee, i) => {
-      const x = (i / Math.max(feeHistory.length - 1, 1)) * width;
-      const y = height - padding - (fee / maxFee) * dataHeight;
-      return { x, y, fee };
-    });
+    // Calculate max fee to determine height scaling
+    const maxFee = Math.max(...feeHistory, 25000); // Default min to show initial state
+    const currentFee = feeHistory.length > 0 ? feeHistory[feeHistory.length - 1] : 0;
+    const heightScale = (currentFee / maxFee) * 0.7; // Scale from 0 to 0.7 of available height
     
-    if (points.length === 0) return "M0,100 L0,150 L0,150 Z";
+    // Create a wavy curve that spans full width, with height based on fees
+    const baseY = height - padding - heightScale * (height - padding * 2);
+    const amplitude = 8 * heightScale;
+    const frequency = 0.15;
     
-    // Create smooth curve path
-    let pathData = `M${points[0].x},${points[0].y}`;
-    for (let i = 1; i < points.length; i++) {
-      const p1 = points[i - 1];
-      const p2 = points[i];
-      const cp1x = p1.x + (p2.x - p1.x) / 3;
-      const cp1y = p1.y;
-      const cp2x = p2.x - (p2.x - p1.x) / 3;
-      const cp2y = p2.y;
-      pathData += ` C${cp1x},${cp1y} ${cp2x},${cp2y} ${p2.x},${p2.y}`;
+    let pathData = `M0,${baseY}`;
+    for (let x = 0; x <= width; x += 2) {
+      const waveY = baseY - Math.sin(x * frequency) * amplitude - Math.cos(x * frequency * 0.5) * (amplitude * 0.6);
+      pathData += ` L${x},${waveY}`;
     }
     
     // Close the fill area
-    pathData += ` L${points[points.length - 1].x},${height} L0,${height} Z`;
-    
+    pathData += ` L${width},${height} L0,${height} Z`;
     return pathData;
   };
   
-  // Generate line path (without fill)
-  const generateLinePath = () => {
-    if (feeHistory.length === 0) return "M0,100";
-    
-    const maxFee = Math.max(...feeHistory, 1);
+  // Generate line path (without fill) - same wave but just the line
+  const generateYieldLinePath = () => {
     const width = 100;
     const height = 150;
-    const padding = 10;
-    const dataHeight = height - padding * 2;
+    const padding = 15;
     
-    const points = feeHistory.map((fee, i) => {
-      const x = (i / Math.max(feeHistory.length - 1, 1)) * width;
-      const y = height - padding - (fee / maxFee) * dataHeight;
-      return { x, y };
-    });
+    const maxFee = Math.max(...feeHistory, 25000);
+    const currentFee = feeHistory.length > 0 ? feeHistory[feeHistory.length - 1] : 0;
+    const heightScale = (currentFee / maxFee) * 0.7;
     
-    if (points.length === 0) return "M0,100";
+    const baseY = height - padding - heightScale * (height - padding * 2);
+    const amplitude = 8 * heightScale;
+    const frequency = 0.15;
     
-    let pathData = `M${points[0].x},${points[0].y}`;
-    for (let i = 1; i < points.length; i++) {
-      const p1 = points[i - 1];
-      const p2 = points[i];
-      const cp1x = p1.x + (p2.x - p1.x) / 3;
-      const cp1y = p1.y;
-      const cp2x = p2.x - (p2.x - p1.x) / 3;
-      const cp2y = p2.y;
-      pathData += ` C${cp1x},${cp1y} ${cp2x},${cp2y} ${p2.x},${p2.y}`;
+    let pathData = `M0,${baseY}`;
+    for (let x = 0; x <= width; x += 1) {
+      const waveY = baseY - Math.sin(x * frequency) * amplitude - Math.cos(x * frequency * 0.5) * (amplitude * 0.6);
+      pathData += ` L${x},${waveY}`;
     }
     
     return pathData;
   };
   
-  const fillPath = generatePath();
-  const linePath = generateLinePath();
+  const fillPath = generateYieldPath();
+  const linePath = generateYieldLinePath();
   
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
@@ -210,45 +191,36 @@ const YieldView = ({ onCtaClick, totalFees, tvl, feeHistory }: { onCtaClick?: ()
             <motion.path
               d={fillPath}
               fill="url(#yieldGradient)"
-              key={`fill-${feeHistory.length}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             />
             <motion.path
               d={linePath}
               fill="none"
               stroke="#4D88FF"
-              strokeWidth="0.8"
+              strokeWidth="1.2"
               strokeLinecap="round"
-              key={`line-${feeHistory.length}`}
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              strokeLinejoin="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
             />
             
-            {/* Pulsing Dots on data points */}
-            {feeHistory.map((fee, i) => {
-              const maxFee = Math.max(...feeHistory, 1);
-              const width = 100;
-              const height = 150;
-              const padding = 10;
-              const dataHeight = height - padding * 2;
-              const x = (i / Math.max(feeHistory.length - 1, 1)) * width;
-              const y = height - padding - (fee / maxFee) * dataHeight;
-              
-              return (
-                <circle 
-                  key={`dot-${i}`}
-                  cx={x} 
-                  cy={y} 
-                  r="0.6" 
-                  fill="#4D88FF"
-                >
-                  <animate attributeName="r" values="0.6;0.9;0.6" dur="2s" repeatCount="indefinite" />
-                </circle>
-              );
-            })}
+            {/* Peak dot at the highest point */}
+            {feeHistory.length > 0 && (
+              <circle 
+                cx="50"
+                cy={Math.max(
+                  150 - 15 - ((feeHistory[feeHistory.length - 1] / Math.max(...feeHistory, 25000)) * 0.7 * (150 - 30)),
+                  20
+                )}
+                r="1.2" 
+                fill="#4D88FF"
+              >
+                <animate attributeName="r" values="1.2;1.8;1.2" dur="2s" repeatCount="indefinite" />
+              </circle>
+            )}
          </svg>
          
          {/* Grid Lines */}
