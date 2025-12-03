@@ -153,10 +153,7 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
               transition={{ duration: 2, ease: "easeInOut" }}
             />
             
-            {/* Pulsing Dots on the line */}
-            <motion.circle cx="300" cy="40" r="4" fill="#4D88FF">
-               <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
-            </motion.circle>
+            {/* Pulsing Dot on the line */}
             <motion.circle cx="600" cy="10" r="4" fill="#4D88FF">
                <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
             </motion.circle>
