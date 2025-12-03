@@ -108,7 +108,7 @@ const FeesView = () => {
         <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans font-medium uppercase tracking-widest">Fees Collected (24H)</h4>
         <div className="text-4xl md:text-5xl font-bold">
           <span className="text-slate-900 dark:text-white">$</span>
-          <span className="text-[#4D88FF] inline-block font-mono tracking-tight">
+          <span className="text-white inline-block font-mono tracking-tight">
             {/* Render: 142,890 with rolling digits for numbers only */}
             {digitsOnly[0] && (
               <motion.span
