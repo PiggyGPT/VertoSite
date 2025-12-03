@@ -127,8 +127,8 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
       </div>
       
       {/* Animated Line Chart */}
-      <div className="flex-1 relative border-l border-b border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/20 rounded-bl-lg">
-         <svg className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
+      <div className="flex-1 relative border-l border-b border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/20 rounded-bl-lg overflow-hidden">
+         <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
             <defs>
               <linearGradient id="yieldGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#4D88FF" stopOpacity="0.2" />
