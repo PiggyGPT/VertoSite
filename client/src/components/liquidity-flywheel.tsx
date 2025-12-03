@@ -136,14 +136,14 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
               </linearGradient>
             </defs>
             <motion.path
-              d="M0,100 C100,90 200,80 300,40 C400,10 500,30 600,10 L600,150 L0,150 Z"
+              d="M0,100 C80,90 160,80 240,40 C320,10 400,30 480,10 L480,150 L0,150 Z"
               fill="url(#yieldGradient)"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             />
             <motion.path
-              d="M0,100 C100,90 200,80 300,40 C400,10 500,30 600,10"
+              d="M0,100 C80,90 160,80 240,40 C320,10 400,30 480,10"
               fill="none"
               stroke="#4D88FF"
               strokeWidth="3"
@@ -155,7 +155,7 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
             
             {/* Pulsing Dot at the end - appears after line finishes drawing */}
             <motion.circle 
-              cx="600" 
+              cx="480" 
               cy="10" 
               r="4" 
               fill="#4D88FF"
