@@ -8,28 +8,28 @@ export default function CompetitiveDiffSection() {
         {
             name: "Liquidity Engine",
             icon: TrendingUp,
-            albor: "Non-Custodial DEX",
-            competitors: "None",
+            albor: "Self-Custodial AMM",
+            competitors: "3P Centralized Exchange (CEX)",
             alborHas: true
         },
         {
             name: "Transaction Routing",
             icon: Navigation2,
-            albor: "Non-Custodial, CEX + DEX",
-            competitors: "CEX Deposits & Withdrawals",
+            albor: "Multi-Currency, Multi-Chain",
+            competitors: "Single Currency Only",
             alborHas: true
         },
         {
             name: "Fee Distribution",
             icon: DollarSign,
-            albor: "Non-Custodial, Atomic",
-            competitors: "CEX Payouts, Manual",
+            albor: "Instant, Atomic Payouts",
+            competitors: "Manual Payouts",
             alborHas: true
         },
         {
             name: "Data Sovereignty",
             icon: Shield,
-            albor: "Self-Hosted Deployment",
+            albor: "Single-Tenant Private Cloud",
             competitors: "US-Based Hosting",
             alborHas: true
         }
