@@ -314,9 +314,9 @@ export default function LiquidityFlywheel() {
   const [activeStepId, setActiveStepId] = useState("transactions");
   const [progress, setProgress] = useState(0);
   const [trades, setTrades] = useState([
-    { id: 1, pair: "BSD/USDC", size: 50000, fee: 500 },
-    { id: 2, pair: "USDT/BSD", size: 125000, fee: 1250 },
-    { id: 3, pair: "BSD/EURC", size: 75000, fee: 750 },
+    { id: 1, pair: "BSD/USDC", size: 50000, fee: 25000 },
+    { id: 2, pair: "USDT/BSD", size: 125000, fee: 62500 },
+    { id: 3, pair: "BSD/EURC", size: 75000, fee: 37500 },
   ]);
 
   // Simulate live trades
