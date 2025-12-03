@@ -133,8 +133,8 @@ export default function LaunchStablecoin() {
       <div id="pilot">
         <ProblemSection
           title="Why Now?"
-          subtitle="Your core business is now in a time-sensitive technology race.
-          Lead the market or be left behind."
+          subtitle="You are bleeding deposits to Digital Dollarization.
+          Recapture them today."
           customQuotes={[
             {
               icon: "CreditCard",

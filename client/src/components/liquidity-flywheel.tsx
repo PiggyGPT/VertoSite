@@ -445,7 +445,7 @@ export default function LiquidityFlywheel() {
              transition={{ delay: 0.1 }}
              className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans"
           >
-            Albor formalizes the demand for Digital Dollars to expand your balance sheet.
+            Albor captures the demand for Digital Dollars to expand your balance sheet.
           </motion.p>
         </div>
 

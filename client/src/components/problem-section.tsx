@@ -181,10 +181,10 @@ export default function ProblemSection({
         <section className="relative pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="relative max-w-7xl mx-auto">
                 <div className="text-center mb-12">
-                     <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight" data-testid="problem-title">
+                     <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3" data-testid="problem-title">
                         {title}
                      </h2>
-                     <p className="mt-3 text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-testid="problem-subtitle">
+                     <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
                         {subtitle} 
                      </p>
                 </div>

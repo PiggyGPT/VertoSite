@@ -41,11 +41,11 @@ export default function PilotProgramSection() {
       <section id="pilot" className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
               Launch Your Pilot in 90 Days
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed px-2">
-              De-risk your launch with a phased strategy that proves liquidity, network adoption, and operational readiness.
+            <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
+              De-risk your launch with a sandbox pilot that proves production readiness.
             </p>
           </div>
 
