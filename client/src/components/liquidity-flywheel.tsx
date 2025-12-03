@@ -51,6 +51,7 @@ const FeesView = () => {
   ]);
 
   const [totalFees, setTotalFees] = useState(142890);
+  const [totalVolume, setTotalVolume] = useState(14289000);
   const [animatingIndices, setAnimatingIndices] = useState<Set<number>>(new Set());
 
   // Simulate live trades
@@ -65,6 +66,9 @@ const FeesView = () => {
       };
       
       setTrades(prev => [newTrade, ...prev.slice(0, 2)]);
+      
+      // Update volume
+      setTotalVolume(prev => prev + size);
       
       // Calculate new total and detect which digits changed
       setTotalFees(prev => {
@@ -117,14 +121,10 @@ const FeesView = () => {
             ))}
             <span>.00</span>
           </span>
-          <span className="text-slate-700 dark:text-slate-400 ml-1">/</span>
-          <span className="text-slate-700 dark:text-slate-400 ml-1">
-            <span className="hidden sm:inline">142,890.00</span>
-          </span>
         </div>
         <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
           <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
-          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: $14,289,000</span>
+          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: ${(totalVolume / 1000000).toFixed(1)}M</span>
         </div>
       </div>
 
