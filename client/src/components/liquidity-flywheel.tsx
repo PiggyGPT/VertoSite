@@ -218,6 +218,13 @@ const FeesView = () => {
 
 // 2. Yield View
 const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+    onCtaClick?.();
+  };
+
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="flex justify-between items-end mb-6">
@@ -276,14 +283,27 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
       </div>
 
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={onCtaClick}
-        className="group flex items-center gap-3 px-8 py-3 bg-[#4D88FF] hover:bg-[#3A6FE6] text-white rounded-lg font-semibold shadow-lg shadow-[#4D88FF]/20 transition-all mt-4 mx-auto font-sans"
+        whileHover={!isClicked ? { scale: 1.05 } : {}}
+        whileTap={!isClicked ? { scale: 0.95 } : {}}
+        onClick={handleClick}
+        className={`group flex items-center gap-3 px-8 py-3 rounded-lg font-semibold shadow-lg transition-all mt-4 mx-auto font-sans ${
+          isClicked
+            ? 'bg-emerald-500 shadow-emerald-500/20 cursor-default'
+            : 'bg-[#4D88FF] hover:bg-[#3A6FE6] text-white shadow-[#4D88FF]/20'
+        }`}
       >
-         <Plus className="w-4 h-4" />
-         <span>Add Liquidity to Earn 5.42%</span>
-         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+         {isClicked ? (
+           <>
+             <CheckCircle className="w-4 h-4" />
+             <span className="text-white">Liquidity Added</span>
+           </>
+         ) : (
+           <>
+             <Plus className="w-4 h-4" />
+             <span>Add Liquidity to Earn 5.42%</span>
+             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+           </>
+         )}
       </motion.button>
     </div>
   );
@@ -437,8 +457,37 @@ const MintView = () => {
         {/* PANEL 2: Reconciliation */}
         <div className={getPanelClasses(2)}>
           <div className="h-full flex flex-col items-center justify-center">
-            <div className="space-y-4 w-full max-w-sm">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white text-center mb-6">Liquidity Added</h3>
+            <div className="space-y-6 w-full max-w-sm">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white text-center">Liquidity Added</h3>
+              
+              {/* Progress Bar */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between px-1">
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Add Deposits</span>
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Tokenize Deposits</span>
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Add Liquidity</span>
+                </div>
+                <div className="flex items-center gap-2 w-full">
+                  <motion.div
+                    initial={{ width: '0%' }}
+                    animate={{ width: '33.33%' }}
+                    transition={{ duration: 0.6 }}
+                    className="h-2 bg-emerald-500 rounded-full"
+                  />
+                  <motion.div
+                    initial={{ width: '0%' }}
+                    animate={{ width: '33.33%' }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="h-2 bg-blue-500 rounded-full"
+                  />
+                  <motion.div
+                    initial={{ width: '0%' }}
+                    animate={{ width: '33.33%' }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                    className="h-2 bg-purple-500 rounded-full"
+                  />
+                </div>
+              </div>
               
               <div className="space-y-3">
                 <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded border border-slate-200 dark:border-slate-700">
