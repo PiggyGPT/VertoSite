@@ -105,20 +105,66 @@ const FeesView = () => {
   return (
     <div className="h-full flex flex-col justify-between">
       <div className="text-center space-y-2 mb-6">
-        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans font-medium uppercase tracking-widest">24h Fees Collected</h4>
+        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans font-medium uppercase tracking-widest">Fees Collected (24H)</h4>
         <div className="text-4xl md:text-5xl font-bold">
           <span className="text-slate-900 dark:text-white">$</span>
-          <span className="text-[#4D88FF] inline-block">
-            {digitsOnly.map((digit, idx) => (
+          <span className="text-[#4D88FF] inline-block font-mono tracking-tight">
+            {/* Render: 142,890 with rolling digits for numbers only */}
+            {digitsOnly[0] && (
               <motion.span
-                key={`${idx}-${digit}`}
-                initial={animatingIndices.has(idx) ? { y: -20, opacity: 0 } : {}}
-                animate={animatingIndices.has(idx) ? { y: 0, opacity: 1 } : {}}
-                transition={animatingIndices.has(idx) ? { type: "spring", stiffness: 200, damping: 18 } : {}}
+                initial={animatingIndices.has(0) ? { y: -24 } : {}}
+                animate={animatingIndices.has(0) ? { y: 0 } : {}}
+                transition={animatingIndices.has(0) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
               >
-                {digit}
+                {digitsOnly[0]}
               </motion.span>
-            ))}
+            )}
+            {digitsOnly[1] && (
+              <motion.span
+                initial={animatingIndices.has(1) ? { y: -24 } : {}}
+                animate={animatingIndices.has(1) ? { y: 0 } : {}}
+                transition={animatingIndices.has(1) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
+              >
+                {digitsOnly[1]}
+              </motion.span>
+            )}
+            {digitsOnly[2] && (
+              <motion.span
+                initial={animatingIndices.has(2) ? { y: -24 } : {}}
+                animate={animatingIndices.has(2) ? { y: 0 } : {}}
+                transition={animatingIndices.has(2) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
+              >
+                {digitsOnly[2]}
+              </motion.span>
+            )}
+            <span>,</span>
+            {digitsOnly[3] && (
+              <motion.span
+                initial={animatingIndices.has(3) ? { y: -24 } : {}}
+                animate={animatingIndices.has(3) ? { y: 0 } : {}}
+                transition={animatingIndices.has(3) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
+              >
+                {digitsOnly[3]}
+              </motion.span>
+            )}
+            {digitsOnly[4] && (
+              <motion.span
+                initial={animatingIndices.has(4) ? { y: -24 } : {}}
+                animate={animatingIndices.has(4) ? { y: 0 } : {}}
+                transition={animatingIndices.has(4) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
+              >
+                {digitsOnly[4]}
+              </motion.span>
+            )}
+            {digitsOnly[5] && (
+              <motion.span
+                initial={animatingIndices.has(5) ? { y: -24 } : {}}
+                animate={animatingIndices.has(5) ? { y: 0 } : {}}
+                transition={animatingIndices.has(5) ? { type: "spring", stiffness: 250, damping: 20 } : {}}
+              >
+                {digitsOnly[5]}
+              </motion.span>
+            )}
             <span>.00</span>
           </span>
         </div>
