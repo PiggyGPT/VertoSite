@@ -100,11 +100,20 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
 
 // 2. Yield View
 const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, totalFees: number, tvl: number }) => {
+  const [isClicked, setIsClicked] = React.useState(false);
+
+  const handleButtonClick = async () => {
+    setIsClicked(true);
+    // Wait for animation to complete before transitioning
+    await new Promise(resolve => setTimeout(resolve, 600));
+    onCtaClick?.();
+  };
+
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div>
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Total TVL</div>
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Total Value Locked</div>
           <div className="text-2xl font-sans font-semibold text-white">
             ${(tvl / 1000000).toFixed(1)}M
           </div>
@@ -178,7 +187,9 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onClick={onCtaClick}
+        onClick={handleButtonClick}
+        animate={isClicked ? { scale: 0.95, opacity: 0.7 } : { scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         className="group flex items-center gap-3 px-8 py-3 bg-[#4D88FF] hover:bg-[#3A6FE6] text-white rounded-lg font-semibold shadow-lg shadow-[#4D88FF]/20 transition-all mt-4 mx-auto font-sans"
       >
          <Plus className="w-4 h-4" />
@@ -337,7 +348,7 @@ export default function LiquidityFlywheel() {
   // Calculate totals dynamically
   const totalFees = trades.reduce((sum, trade) => sum + trade.fee, 0);
   const totalVolume = trades.reduce((sum, trade) => sum + trade.size, 0);
-  const tvl = 30000000; // Static TVL value ($30M)
+  const tvl = 3000000; // Static TVL value ($30M)
 
   // Helper to find index
   const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
