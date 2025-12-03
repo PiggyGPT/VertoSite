@@ -41,7 +41,7 @@ export default function CompetitiveDiffSection() {
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-12">
                     <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
-                        The only non-custodial stack
+                        The only self-custodial stack
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
                         You own your keys and data. Your LPs own their liquidity.
