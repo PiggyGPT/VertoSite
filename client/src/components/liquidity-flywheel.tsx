@@ -21,21 +21,21 @@ const STEPS = [
   {
     id: "transactions",
     title: "Transactions Drive Fees",
-    subtitle: "Step 1: Volume",
+    subtitle: "Transact Globally",
     description: "Transaction volume generates protocol fees, creating revenue from payments.",
     color: "emerald"
   },
   {
     id: "fees",
     title: "Fees Drive Yield",
-    subtitle: "Step 2: Incentives",
+    subtitle: "Attract Liquidity",
     description: "Fees are distributed as yield, attracting liquidity providers to the ecosystem.",
     color: "blue"
   },
   {
     id: "liquidity",
     title: "Liquidity Drives Deposits",
-    subtitle: "Step 3: Capital",
+    subtitle: "Tokenize Deposits",
     description: "New liquidity enters as fiat deposits, minting stablecoins to capture yield.",
     color: "purple"
   }
@@ -472,19 +472,22 @@ const MintView = () => {
                     initial={{ width: '0%' }}
                     animate={{ width: '33.33%' }}
                     transition={{ duration: 0.6 }}
-                    className="h-2 bg-emerald-500 rounded-full"
+                    className="h-2 rounded-full"
+                    style={{ backgroundColor: '#5DD4E0' }}
                   />
                   <motion.div
                     initial={{ width: '0%' }}
                     animate={{ width: '33.33%' }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="h-2 bg-blue-500 rounded-full"
+                    className="h-2 rounded-full"
+                    style={{ backgroundColor: '#4D88FF' }}
                   />
                   <motion.div
                     initial={{ width: '0%' }}
                     animate={{ width: '33.33%' }}
                     transition={{ duration: 1, delay: 0.4 }}
-                    className="h-2 bg-purple-500 rounded-full"
+                    className="h-2 rounded-full"
+                    style={{ backgroundColor: '#A885FF' }}
                   />
                 </div>
               </div>
