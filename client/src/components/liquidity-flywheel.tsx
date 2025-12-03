@@ -104,10 +104,6 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div>
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Current APY</div>
-          <div className="text-2xl font-sans text-[#4D88FF] font-bold">5.42%</div>
-        </div>
-        <div className="text-center">
           <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Total TVL</div>
           <motion.div 
              key={`tvl-${tvl}`}
@@ -117,6 +113,10 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
           >
             ${(tvl / 1000000).toFixed(1)}M
           </motion.div>
+        </div>
+        <div className="text-center">
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Current APY</div>
+          <div className="text-2xl font-sans font-bold" style={{ color: '#10b981' }}>5.42%</div>
         </div>
         <div className="text-right">
           <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Fees (24h)</div>
