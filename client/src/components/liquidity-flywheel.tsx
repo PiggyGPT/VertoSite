@@ -100,58 +100,10 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
 
 // 2. Yield View
 const YieldView = ({ onCtaClick, totalFees, tvl, feeHistory }: { onCtaClick?: () => void, totalFees: number, tvl: number, feeHistory: number[] }) => {
-  // Generate a full-width wavy line path that grows upward as fees increase
-  const generateYieldPath = () => {
-    const width = 100;
-    const height = 150;
-    const padding = 15;
-    
-    // Calculate max fee to determine height scaling
-    const maxFee = Math.max(...feeHistory, 25000); // Default min to show initial state
-    const currentFee = feeHistory.length > 0 ? feeHistory[feeHistory.length - 1] : 0;
-    const heightScale = (currentFee / maxFee) * 0.7; // Scale from 0 to 0.7 of available height
-    
-    // Create a wavy curve that spans full width, with height based on fees
-    const baseY = height - padding - heightScale * (height - padding * 2);
-    const amplitude = 8 * heightScale;
-    const frequency = 0.15;
-    
-    let pathData = `M0,${baseY}`;
-    for (let x = 0; x <= width; x += 2) {
-      const waveY = baseY - Math.sin(x * frequency) * amplitude - Math.cos(x * frequency * 0.5) * (amplitude * 0.6);
-      pathData += ` L${x},${waveY}`;
-    }
-    
-    // Close the fill area
-    pathData += ` L${width},${height} L0,${height} Z`;
-    return pathData;
-  };
-  
-  // Generate line path (without fill) - same wave but just the line
-  const generateYieldLinePath = () => {
-    const width = 100;
-    const height = 150;
-    const padding = 15;
-    
-    const maxFee = Math.max(...feeHistory, 25000);
-    const currentFee = feeHistory.length > 0 ? feeHistory[feeHistory.length - 1] : 0;
-    const heightScale = (currentFee / maxFee) * 0.7;
-    
-    const baseY = height - padding - heightScale * (height - padding * 2);
-    const amplitude = 8 * heightScale;
-    const frequency = 0.15;
-    
-    let pathData = `M0,${baseY}`;
-    for (let x = 0; x <= width; x += 1) {
-      const waveY = baseY - Math.sin(x * frequency) * amplitude - Math.cos(x * frequency * 0.5) * (amplitude * 0.6);
-      pathData += ` L${x},${waveY}`;
-    }
-    
-    return pathData;
-  };
-  
-  const fillPath = generateYieldPath();
-  const linePath = generateYieldLinePath();
+  // Calculate end Y position based on current fees
+  const maxFee = Math.max(...feeHistory, 25000);
+  const currentFee = feeHistory.length > 0 ? feeHistory[feeHistory.length - 1] : 0;
+  const endY = 120 - (currentFee / maxFee) * 80; // Ranges from 120 (bottom) to ~40 (top)
   
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
@@ -179,48 +131,50 @@ const YieldView = ({ onCtaClick, totalFees, tvl, feeHistory }: { onCtaClick?: ()
         </div>
       </div>
       
-      {/* Animated Line Chart */}
+      {/* Animated Line Chart - FRESH START */}
       <div className="flex-1 relative border-l border-b border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/20 rounded-bl-lg">
-         <svg className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 150">
+         <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 150">
             <defs>
               <linearGradient id="yieldGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#4D88FF" stopOpacity="0.2" />
+                <stop offset="0%" stopColor="#4D88FF" stopOpacity="0.15" />
                 <stop offset="100%" stopColor="#4D88FF" stopOpacity="0" />
               </linearGradient>
             </defs>
+            
+            {/* Full-width horizontal line from left to right */}
+            <motion.line
+              x1="0"
+              y1={endY}
+              x2="100"
+              y2={endY}
+              stroke="#4D88FF"
+              strokeWidth="2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
+            
+            {/* Fill area under the line */}
             <motion.path
-              d={fillPath}
+              d={`M0,${endY} L100,${endY} L100,150 L0,150 Z`}
               fill="url(#yieldGradient)"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.path
-              d={linePath}
-              fill="none"
-              stroke="#4D88FF"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             />
             
-            {/* Peak dot at the highest point */}
-            {feeHistory.length > 0 && (
-              <circle 
-                cx="50"
-                cy={Math.max(
-                  150 - 15 - ((feeHistory[feeHistory.length - 1] / Math.max(...feeHistory, 25000)) * 0.7 * (150 - 30)),
-                  20
-                )}
-                r="1.2" 
-                fill="#4D88FF"
-              >
-                <animate attributeName="r" values="1.2;1.8;1.2" dur="2s" repeatCount="indefinite" />
-              </circle>
-            )}
+            {/* Big blue dot at the end */}
+            <motion.circle
+              cx="100"
+              cy={endY}
+              r="3"
+              fill="#4D88FF"
+              initial={{ r: 0, opacity: 0 }}
+              animate={{ r: 3, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <animate attributeName="r" values="3;4.5;3" dur="2s" repeatCount="indefinite" />
+            </motion.circle>
          </svg>
          
          {/* Grid Lines */}
