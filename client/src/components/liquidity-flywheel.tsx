@@ -86,12 +86,12 @@ const FeesView = () => {
         </motion.div>
         <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
           <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
-          <span className="text-slate-700 dark:text-slate-300 text-sm font-mono">24h Vol: $14,289,000</span>
+          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: $14,289,000</span>
         </div>
       </div>
 
       <div className="space-y-3">
-        <div className="flex justify-between text-[10px] text-slate-600 dark:text-slate-500 uppercase font-mono px-4">
+        <div className="flex justify-between text-[10px] text-slate-600 dark:text-slate-500 uppercase font-sans font-medium px-4">
           <span>Recent Activity</span>
           <span>Fee (1%)</span>
         </div>
@@ -110,11 +110,11 @@ const FeesView = () => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-200">{trade.pair}</div>
-                  <div className="text-xs text-slate-600 dark:text-slate-400 font-mono">Size: ${trade.size.toLocaleString()}</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">Size: ${trade.size.toLocaleString()}</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono">+${trade.fee.toLocaleString()}</div>
+                <div className="text-sm font-bold text-slate-900 dark:text-slate-200 font-sans">+${trade.fee.toLocaleString()}</div>
                 <div className="text-[10px] text-slate-600 dark:text-slate-500">Collected</div>
               </div>
             </motion.div>
@@ -131,12 +131,12 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="flex justify-between items-end mb-6">
         <div>
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-mono mb-1">Current APY</div>
-          <div className="text-3xl font-mono text-blue-600 dark:text-blue-400 font-bold">5.42%</div>
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Current APY</div>
+          <div className="text-3xl font-sans text-[#4D88FF] font-bold">5.42%</div>
         </div>
         <div className="text-right">
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-mono mb-1">Fees Collected (24h)</div>
-          <div className="text-lg font-mono text-slate-900 dark:text-slate-200">$142,890.00</div>
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Fees Collected (24h)</div>
+          <div className="text-lg font-sans text-slate-900 dark:text-slate-200 font-semibold">$142,890.00</div>
         </div>
       </div>
       
@@ -145,8 +145,8 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
          <svg className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
             <defs>
               <linearGradient id="yieldGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                <stop offset="0%" stopColor="#4D88FF" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#4D88FF" stopOpacity="0" />
               </linearGradient>
             </defs>
             <motion.path
@@ -159,7 +159,7 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
             <motion.path
               d="M0,100 C50,90 100,80 150,40 C200,10 250,30 300,10"
               fill="none"
-              stroke="#3b82f6"
+              stroke="#4D88FF"
               strokeWidth="3"
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
@@ -168,10 +168,10 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
             />
             
             {/* Pulsing Dots on the line */}
-            <motion.circle cx="150" cy="40" r="4" fill="#60a5fa">
+            <motion.circle cx="150" cy="40" r="4" fill="#4D88FF">
                <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
             </motion.circle>
-            <motion.circle cx="300" cy="10" r="4" fill="#60a5fa">
+            <motion.circle cx="300" cy="10" r="4" fill="#4D88FF">
                <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
             </motion.circle>
          </svg>
@@ -188,7 +188,7 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={onCtaClick}
-        className="group flex items-center gap-3 px-8 py-3 bg-blue-600 dark:bg-blue-600 hover:bg-blue-500 dark:hover:bg-blue-500 text-white rounded-lg font-semibold shadow-lg shadow-blue-900/20 transition-all mt-4 mx-auto"
+        className="group flex items-center gap-3 px-8 py-3 bg-[#4D88FF] hover:bg-[#3A6FE6] text-white rounded-lg font-semibold shadow-lg shadow-[#4D88FF]/20 transition-all mt-4 mx-auto font-sans"
       >
          <Plus className="w-4 h-4" />
          <span>Add Liquidity to Earn 5.42%</span>
@@ -267,36 +267,42 @@ const MintView = () => {
 
 // 4. Compliance View
 const ComplianceView = () => {
-  const items = [
-    { label: "Transactions Verified", status: "Confirmed", color: "text-emerald-600 dark:text-emerald-400" },
-    { label: "Yield Generation", status: "Active", color: "text-blue-600 dark:text-blue-400" },
-    { label: "Liquidity Deposits", status: "Operational", color: "text-purple-600 dark:text-purple-400" },
-    { label: "Counterparty Risk", status: "None", color: "text-emerald-600 dark:text-emerald-400" }
+  const riskItems = [
+    { step: "Transactions Drive Fees", risk: "None", status: "Verified", riskColor: "text-[#5DD4E0]" },
+    { step: "Fees Drive Yield", risk: "None", status: "Active", riskColor: "text-[#5DD4E0]" },
+    { step: "Liquidity Drives Deposits", risk: "None", status: "Operational", riskColor: "text-[#5DD4E0]" },
+    { step: "Compliance Drives Growth", risk: "Zero", status: "Sustained", riskColor: "text-[#5DD4E0]" }
   ];
 
   return (
     <div className="flex flex-col h-full">
       <div className="flex items-center gap-3 mb-6">
-        <ShieldCheck className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+        <ShieldCheck className="w-8 h-8" style={{ color: '#5DD4E0' }} />
         <div>
-           <div className="text-lg font-bold text-slate-900 dark:text-white">System Status</div>
-           <div className="text-xs text-amber-600 dark:text-amber-500 font-mono">OPERATIONAL</div>
+           <div className="text-lg font-bold text-slate-900 dark:text-white font-sans">System Status</div>
+           <div className="text-xs font-sans font-semibold" style={{ color: '#5DD4E0' }}>OPERATIONAL</div>
         </div>
       </div>
 
-      <div className="space-y-3">
-        {items.map((item, i) => (
+      <div className="space-y-2.5 flex-1 overflow-y-auto">
+        {riskItems.map((item, i) => (
           <motion.div
-            key={item.label}
+            key={item.step}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.15 }}
+            transition={{ delay: i * 0.12 }}
             className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded border border-slate-200 dark:border-slate-700"
           >
-             <span className="text-sm text-slate-700 dark:text-slate-400">{item.label}</span>
-             <div className="flex items-center gap-2">
-                <CheckCircle2 className={`w-4 h-4 ${item.color}`} />
-                <span className={`text-sm font-mono font-semibold ${item.color}`}>{item.status}</span>
+             <div className="flex-1">
+                <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wide font-sans font-medium mb-1">Counterparty Risk</div>
+                <div className="text-sm font-sans font-semibold text-slate-900 dark:text-slate-200">{item.step}</div>
+             </div>
+             <div className="text-right">
+                <div className={`text-xs font-sans font-bold ${item.riskColor} mb-1`}>{item.risk}</div>
+                <div className="flex items-center gap-1.5">
+                   <CheckCircle2 className="w-4 h-4" style={{ color: '#5DD4E0' }} />
+                   <span className="text-xs font-sans font-semibold text-slate-700 dark:text-slate-300">{item.status}</span>
+                </div>
              </div>
           </motion.div>
         ))}
@@ -304,8 +310,8 @@ const ComplianceView = () => {
       
       <div className="mt-auto pt-4 border-t border-slate-300 dark:border-slate-800">
          <div className="flex justify-between items-center">
-            <span className="text-xs text-slate-600 dark:text-slate-500">Last Audit Scan</span>
-            <span className="text-xs font-mono text-slate-700 dark:text-slate-400">12s ago</span>
+            <span className="text-xs text-slate-600 dark:text-slate-500 font-sans">Last Audit Scan</span>
+            <span className="text-xs font-sans text-slate-700 dark:text-slate-400">12s ago</span>
          </div>
       </div>
     </div>
@@ -364,7 +370,7 @@ export default function LiquidityFlywheel() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 text-xs font-mono uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[#4D88FF] text-xs font-sans uppercase tracking-widest mb-6 font-semibold"
           >
              <RefreshCw className="w-3 h-3" />
              <span>The Growth Engine</span>
@@ -374,9 +380,9 @@ export default function LiquidityFlywheel() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight font-sans"
           >
-            The Liquidity <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Flywheel</span>
+            The Liquidity <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4D88FF, #5DD4E0)' }}>Flywheel</span>
           </motion.h2>
           
           <motion.p
@@ -384,7 +390,7 @@ export default function LiquidityFlywheel() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ delay: 0.1 }}
-             className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed"
+             className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed font-sans"
           >
             Create a self-reinforcing engine where transaction volume translates directly into balance sheet growth.
           </motion.p>
@@ -420,7 +426,7 @@ export default function LiquidityFlywheel() {
 
                     <div className="flex items-start justify-between">
                       <div>
-                        <div className={`text-xs font-mono mb-2 uppercase tracking-wider ${isActive ? "text-blue-600 dark:text-blue-400" : "text-slate-600 dark:text-slate-500"}`}>
+                        <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? "text-[#4D88FF]" : "text-slate-600 dark:text-slate-500"}`}>
                            {step.subtitle}
                         </div>
                         <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
@@ -432,7 +438,7 @@ export default function LiquidityFlywheel() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-2"
+                              className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-2 font-sans"
                             >
                               {step.description}
                             </motion.p>
@@ -441,7 +447,7 @@ export default function LiquidityFlywheel() {
                       </div>
                       
                       {isActive && (
-                        <motion.div layoutId="active-arrow" className="text-blue-600 dark:text-blue-400 mt-2">
+                        <motion.div layoutId="active-arrow" className="mt-2" style={{ color: '#4D88FF' }}>
                            <ArrowUpRight className="w-5 h-5" />
                         </motion.div>
                       )}
@@ -464,9 +470,9 @@ export default function LiquidityFlywheel() {
                    </div>
                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                       <div className={`w-1.5 h-1.5 rounded-full ${
-                        activeStepId === 'compliance' ? 'bg-amber-500' : 'bg-emerald-500'
+                        activeStepId === 'compliance' ? 'bg-[#F1BD76]' : 'bg-[#5DD4E0]'
                       } animate-pulse`} />
-                      <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono uppercase">
+                      <span className="text-[10px] text-slate-600 dark:text-slate-400 font-sans font-semibold uppercase">
                         {STEPS.find(s => s.id === activeStepId)?.title}
                       </span>
                    </div>
