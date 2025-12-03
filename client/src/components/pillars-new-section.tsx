@@ -1951,7 +1951,7 @@ export default function PillarsSection({
     },
     trading: {
       label: "Attract Liquidity", color: "albor-blue", title: "Automated Market Maker", icon: Coins,
-      description: "Create a dollar market for your stablecoin with 24/7 global access to traders and liquidity providers",
+      description: "Establish a Digital Dollar market for your stablecoin to enable 24/7 access to trade and provide liqudity.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
         quote: "To capture global flows, stablecoins must offer deep liquidity. This requires a market structure that attracts institutional capital while adhering to strict counterparty compliance.",
@@ -1959,12 +1959,12 @@ export default function PillarsSection({
         title: "Chairman | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: Store, title: "Isolated Liquidity Pools", description: "Allow LPs to deposit stablecoins into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "BIS-Validated Pricing Models", description: "Maintain stable exchange rates and optimal spreads using BIS-validated market making algorithms." }, { icon: DollarSign, title: "Instant Yield Distribution", description: "Automatically distribute fees to LPs with every trade, instantly claimable via smart contracts." },],
+      features: [{ icon: Store, title: "Isolated Liquidity Pools", description: "Allow Market Makers to deposit their capital into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "BIS-Validated Pricing Models", description: "Maintain stable exchange rates and optimal spreads using BIS-validated market making algorithms." }, { icon: DollarSign, title: "Instant Yield Distribution", description: "Automatically distributes transaction fees to Market Makers against their deposited liquidity share." },],
       cta: "Explore DEX"
     },
     payments: {
       label: "Transact Globally", color: "albor-teal", title: "Patent-Pending Router", icon: Globe,
-      description: "Enable your clients to transact with any bank or wallet across major blockchains through your stablecoin.",
+      description: "Enable your clients to directly transact globally with external wallets and banks through your stablecoin.",
       visual: <PaymentsVisual />,
       founderQuote: {
         quote: "Stablecoins drive volume when any user, anywhere can trade them with their existing funds — be it fiat in banks or crypto in wallets.",
