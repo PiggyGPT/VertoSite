@@ -20,21 +20,21 @@ const STEPS = [
   {
     id: "transactions",
     title: "Transactions Drive Fees",
-    subtitle: "Step 1: Volume",
+    subtitle: "Transact Globally",
     description: "Transaction volume generates protocol fees, creating revenue from payments.",
     color: "emerald"
   },
   {
     id: "fees",
     title: "Fees Drive Yield",
-    subtitle: "Step 2: Incentives",
+    subtitle: "Attract Liquidity",
     description: "Fees are distributed as yield, attracting liquidity providers to the ecosystem.",
     color: "blue"
   },
   {
     id: "liquidity",
     title: "Liquidity Drives Deposits",
-    subtitle: "Step 3: Capital",
+    subtitle: "Tokenize Deposits",
     description: "New liquidity enters as fiat deposits, minting stablecoins to capture yield.",
     color: "purple"
   }
@@ -65,21 +65,25 @@ const FeesView = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Calculate totals dynamically
+  const totalFees = trades.reduce((sum, trade) => sum + trade.fee, 0);
+  const totalVolume = trades.reduce((sum, trade) => sum + trade.size, 0);
+
   return (
     <div className="h-full flex flex-col justify-between">
       <div className="text-center space-y-2 mb-6">
-        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest">24h Fees Collected</h4>
+        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans uppercase tracking-widest font-medium">24h Fees Collected</h4>
         <motion.div 
-           key={trades[0].id}
-           initial={{ scale: 0.95, color: "#ffffff" }}
-           animate={{ scale: 1, color: "#34d399" }}
-           className="text-4xl md:text-5xl font-bold font-mono text-emerald-400"
+           key={`fees-${totalFees}`}
+           initial={{ scale: 0.95 }}
+           animate={{ scale: 1 }}
+           className="text-4xl md:text-5xl font-bold font-sans text-[#4D88FF]"
         >
-          $142,890.00
+          ${totalFees.toLocaleString()}
         </motion.div>
         <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
           <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
-          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: $14,289,000</span>
+          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: ${totalVolume.toLocaleString()}</span>
         </div>
       </div>
 
@@ -358,23 +362,13 @@ export default function LiquidityFlywheel() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[#4D88FF] text-xs font-sans uppercase tracking-widest mb-6 font-semibold"
-          >
-             <RefreshCw className="w-3 h-3" />
-             <span>The Growth Engine</span>
-          </motion.div>
-          
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight font-sans"
           >
-            The Liquidity <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4D88FF, #5DD4E0)' }}>Flywheel</span>
+            Unlock The Liquidity Flywheel
           </motion.h2>
           
           <motion.p
@@ -384,7 +378,7 @@ export default function LiquidityFlywheel() {
              transition={{ delay: 0.1 }}
              className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed font-sans"
           >
-            Create a self-reinforcing engine where transaction volume translates directly into balance sheet growth.
+            Albor creates a self-reinforcing engine where transaction volume drives balance sheet growth.
           </motion.p>
         </div>
 
