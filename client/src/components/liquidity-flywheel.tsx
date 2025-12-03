@@ -42,39 +42,6 @@ const STEPS = [
 
 // ===== DASHBOARD VIEWS =====
 
-// Slot Machine Digit Component
-const SlotDigit = ({ digit }: { digit: string }) => {
-  if (digit === '.') {
-    return (
-      <div className="h-12 md:h-16 flex items-center justify-center font-bold text-4xl md:text-5xl text-[#4D88FF]">
-        .
-      </div>
-    );
-  }
-
-  const digitValue = parseInt(digit);
-  const digits = Array.from({ length: 10 }, (_, i) => i);
-  
-  return (
-    <motion.div
-      className="relative h-12 md:h-16 overflow-hidden"
-      style={{ width: '0.9em' }}
-    >
-      <motion.div
-        animate={{ y: -digitValue * 48 }}
-        transition={{ type: "spring", stiffness: 80, damping: 12 }}
-        className="flex flex-col"
-      >
-        {digits.map((d) => (
-          <div key={d} className="h-12 md:h-16 flex items-center justify-center font-bold text-4xl md:text-5xl text-[#4D88FF] leading-none">
-            {d}
-          </div>
-        ))}
-      </motion.div>
-    </motion.div>
-  );
-};
-
 // 1. Transactions -> Fees View
 const FeesView = () => {
   const [trades, setTrades] = useState([
@@ -82,6 +49,9 @@ const FeesView = () => {
     { id: 2, pair: "USDT/BSD", size: 125000, fee: 1250 },
     { id: 3, pair: "BSD/EURC", size: 75000, fee: 750 },
   ]);
+
+  const [totalFees, setTotalFees] = useState(142890);
+  const [animatingIndices, setAnimatingIndices] = useState<Set<number>>(new Set());
 
   // Simulate live trades
   useEffect(() => {
@@ -91,26 +61,66 @@ const FeesView = () => {
         id: Date.now(),
         pair: Math.random() > 0.5 ? "BSD/USDC" : "USDT/BSD",
         size: size,
-        fee: Math.floor(size * 0.01) // 1% fee simulation
+        fee: Math.floor(size * 0.01)
       };
-      setTrades(prev => [newTrade, ...prev.slice(0, 3)]);
+      
+      setTrades(prev => [newTrade, ...prev.slice(0, 2)]);
+      
+      // Calculate new total and detect which digits changed
+      setTotalFees(prev => {
+        const newTotal = prev + newTrade.fee;
+        
+        // Format both as strings for comparison (without decimal)
+        const oldStr = prev.toString().padStart(6, '0');
+        const newStr = newTotal.toString().padStart(6, '0');
+        
+        // Detect which positions changed
+        const changed = new Set<number>();
+        for (let i = 0; i < oldStr.length; i++) {
+          if (oldStr[i] !== newStr[i]) {
+            changed.add(i);
+          }
+        }
+        
+        setAnimatingIndices(changed);
+        setTimeout(() => setAnimatingIndices(new Set()), 500);
+        
+        return newTotal;
+      });
     }, 2000);
     return () => clearInterval(interval);
   }, []);
 
-  const feeDisplay = "142890.00";
+  // Format the number: 142890 -> "142,890.00"
+  const feeStr = totalFees.toString().padStart(6, '0');
+  const displayStr = `${feeStr.slice(0, 3)},${feeStr.slice(3)}.00`;
+  
+  // Get indices without formatting (for animation tracking)
+  const digitsOnly = feeStr.split('');
 
   return (
     <div className="h-full flex flex-col justify-between">
       <div className="text-center space-y-2 mb-6">
         <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans font-medium uppercase tracking-widest">24h Fees Collected</h4>
-        <div className="text-4xl md:text-5xl font-bold flex items-center justify-center gap-1">
+        <div className="text-4xl md:text-5xl font-bold">
           <span className="text-slate-900 dark:text-white">$</span>
-          <div className="flex gap-0.5">
-            {feeDisplay.split('').map((digit, idx) => (
-              <SlotDigit key={idx} digit={digit} />
+          <span className="text-[#4D88FF] inline-block">
+            {digitsOnly.map((digit, idx) => (
+              <motion.span
+                key={`${idx}-${digit}`}
+                initial={animatingIndices.has(idx) ? { y: -20, opacity: 0 } : {}}
+                animate={animatingIndices.has(idx) ? { y: 0, opacity: 1 } : {}}
+                transition={animatingIndices.has(idx) ? { type: "spring", stiffness: 200, damping: 18 } : {}}
+              >
+                {digit}
+              </motion.span>
             ))}
-          </div>
+            <span>.00</span>
+          </span>
+          <span className="text-slate-700 dark:text-slate-400 ml-1">/</span>
+          <span className="text-slate-700 dark:text-slate-400 ml-1">
+            <span className="hidden sm:inline">142,890.00</span>
+          </span>
         </div>
         <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
           <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
