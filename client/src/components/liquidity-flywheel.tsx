@@ -74,7 +74,7 @@ const FeesView = () => {
   return (
     <div className="h-full flex flex-col justify-between">
       <div className="text-center space-y-2 mb-6">
-        <h4 className="text-slate-400 text-xs font-mono uppercase tracking-widest">24h Fees Collected</h4>
+        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest">24h Fees Collected</h4>
         <motion.div 
            key={trades[0].id}
            initial={{ scale: 0.95, color: "#ffffff" }}
@@ -83,14 +83,14 @@ const FeesView = () => {
         >
           $142,890.00
         </motion.div>
-        <div className="inline-flex items-center gap-2 bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700">
-          <Activity className="w-3 h-3 text-slate-400" />
-          <span className="text-slate-300 text-sm font-mono">24h Vol: $14,289,000</span>
+        <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
+          <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
+          <span className="text-slate-700 dark:text-slate-300 text-sm font-mono">24h Vol: $14,289,000</span>
         </div>
       </div>
 
       <div className="space-y-3">
-        <div className="flex justify-between text-[10px] text-slate-500 uppercase font-mono px-4">
+        <div className="flex justify-between text-[10px] text-slate-600 dark:text-slate-500 uppercase font-mono px-4">
           <span>Recent Activity</span>
           <span>Fee (1%)</span>
         </div>
@@ -101,20 +101,20 @@ const FeesView = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg border border-slate-700/50"
+              className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-emerald-500/10 rounded-md">
-                  <ArrowRightLeft className="w-4 h-4 text-emerald-400" />
+                  <ArrowRightLeft className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-200">{trade.pair}</div>
-                  <div className="text-xs text-slate-400 font-mono">Size: ${trade.size.toLocaleString()}</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-200">{trade.pair}</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400 font-mono">Size: ${trade.size.toLocaleString()}</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm font-bold text-emerald-400 font-mono">+${trade.fee.toLocaleString()}</div>
-                <div className="text-[10px] text-slate-500">Collected</div>
+                <div className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono">+${trade.fee.toLocaleString()}</div>
+                <div className="text-[10px] text-slate-600 dark:text-slate-500">Collected</div>
               </div>
             </motion.div>
           ))}
@@ -129,12 +129,12 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
   return (
     <div className="h-full flex flex-col justify-center items-center text-center space-y-8">
       <div className="w-full">
-         <h4 className="text-slate-400 text-xs font-mono uppercase tracking-widest mb-3">Current Protocol APY</h4>
+         <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest mb-3">Current Protocol APY</h4>
          <div className="relative inline-block">
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="text-6xl font-bold text-blue-400 tracking-tight"
+              className="text-6xl font-bold text-blue-600 dark:text-blue-400 tracking-tight"
             >
               5.42%
             </motion.div>
@@ -146,12 +146,12 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
          </div>
          <div className="mt-4 flex justify-center gap-8">
             <div className="text-center">
-              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Total Value Locked</div>
-              <div className="text-xl font-mono text-white">$24.5M</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-500 uppercase tracking-wider">Total Value Locked</div>
+              <div className="text-xl font-mono text-slate-900 dark:text-white">$24.5M</div>
             </div>
-            <div className="text-center border-l border-slate-700 pl-8">
-              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Yield Paid (24h)</div>
-              <div className="text-xl font-mono text-blue-300">$3,420</div>
+            <div className="text-center border-l border-slate-300 dark:border-slate-700 pl-8">
+              <div className="text-[10px] text-slate-600 dark:text-slate-500 uppercase tracking-wider">Yield Paid (24h)</div>
+              <div className="text-xl font-mono text-blue-600 dark:text-blue-300">$3,420</div>
             </div>
          </div>
       </div>
@@ -175,13 +175,13 @@ const MintView = () => {
   return (
     <div className="h-full flex flex-col items-center justify-center space-y-8">
        <div className="text-center">
-          <h4 className="text-slate-400 text-xs font-mono uppercase tracking-widest mb-2">Liquidity Injection</h4>
-          <h2 className="text-2xl font-bold text-white">Fiat to Stablecoin</h2>
+          <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest mb-2">Liquidity Injection</h4>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Fiat to Stablecoin</h2>
        </div>
 
        <div className="w-full max-w-sm relative">
           {/* Path Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-800 -translate-y-1/2 rounded-full overflow-hidden">
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-300 dark:bg-slate-800 -translate-y-1/2 rounded-full overflow-hidden">
              <motion.div 
                 className="h-full bg-gradient-to-r from-purple-500 to-indigo-500"
                 initial={{ width: "0%" }}
@@ -193,18 +193,18 @@ const MintView = () => {
           <div className="flex justify-between relative z-10">
              {/* Left Node: Fiat */}
              <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-slate-900 border-2 border-slate-700 rounded-2xl flex items-center justify-center shadow-xl">
-                   <span className="font-bold text-slate-400">USD</span>
+                <div className="w-16 h-16 bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-2xl flex items-center justify-center shadow-lg dark:shadow-xl">
+                   <span className="font-bold text-slate-700 dark:text-slate-400">USD</span>
                 </div>
-                <span className="text-xs font-mono text-slate-500">Deposit</span>
+                <span className="text-xs font-mono text-slate-600 dark:text-slate-500">Deposit</span>
              </div>
 
              {/* Center Node: Bank */}
              <div className="flex flex-col items-center gap-2 -mt-4">
-                 <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-600 z-20">
-                    <Landmark className="w-5 h-5 text-slate-300" />
+                 <div className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center border border-slate-400 dark:border-slate-600 z-20">
+                    <Landmark className="w-5 h-5 text-slate-700 dark:text-slate-300" />
                  </div>
-                 <span className="text-[10px] font-mono text-slate-600 bg-slate-900 px-2 rounded">Albor Treasury</span>
+                 <span className="text-[10px] font-mono text-slate-700 dark:text-slate-600 bg-slate-100 dark:bg-slate-900 px-2 rounded">Albor Treasury</span>
              </div>
 
              {/* Right Node: Token */}
@@ -212,24 +212,24 @@ const MintView = () => {
                 <motion.div 
                    animate={{ 
                      boxShadow: ["0 0 0px rgba(168,85,247,0)", "0 0 20px rgba(168,85,247,0.5)", "0 0 0px rgba(168,85,247,0)"],
-                     borderColor: ["#334155", "#a855f7", "#334155"]
+                     borderColor: ["#e2e8f0", "#a855f7", "#e2e8f0"]
                    }}
                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                   className="w-16 h-16 bg-slate-900 border-2 border-slate-700 rounded-2xl flex items-center justify-center shadow-xl"
+                   className="w-16 h-16 bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-2xl flex items-center justify-center shadow-lg dark:shadow-xl"
                 >
-                   <span className="font-bold text-purple-400">BSD</span>
+                   <span className="font-bold text-purple-600 dark:text-purple-400">BSD</span>
                 </motion.div>
-                <span className="text-xs font-mono text-purple-400">Minted</span>
+                <span className="text-xs font-mono text-purple-600 dark:text-purple-400">Minted</span>
              </div>
           </div>
        </div>
 
-       <div className="w-full bg-slate-800/50 rounded-lg p-4 flex items-center justify-between border border-slate-700">
+       <div className="w-full bg-slate-100 dark:bg-slate-800/50 rounded-lg p-4 flex items-center justify-between border border-slate-200 dark:border-slate-700">
           <div className="flex items-center gap-3">
-             <Check className="w-5 h-5 text-emerald-400" />
-             <div className="text-sm text-slate-300">Reserves Verified</div>
+             <Check className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+             <div className="text-sm text-slate-700 dark:text-slate-300">Reserves Verified</div>
           </div>
-          <div className="text-sm font-mono text-slate-500">
+          <div className="text-sm font-mono text-slate-600 dark:text-slate-500">
              1:1 Ratio
           </div>
        </div>
@@ -250,19 +250,19 @@ const ComplianceView = () => {
          <ShieldCheck className="w-24 h-24 text-amber-400 relative z-10" />
       </motion.div>
 
-      <h2 className="text-3xl font-bold text-white mb-2">Institutional Grade</h2>
-      <p className="text-slate-400 mb-8 text-center max-w-xs">
+      <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Institutional Grade</h2>
+      <p className="text-slate-600 dark:text-slate-400 mb-8 text-center max-w-xs">
         Eliminating counterparty risk through transparent, on-chain proof of reserves.
       </p>
 
       <div className="grid grid-cols-2 gap-4 w-full">
-         <div className="bg-slate-800/40 p-4 rounded-lg border border-slate-700 text-center">
-            <div className="text-xs text-slate-500 uppercase mb-1">Risk Level</div>
-            <div className="text-xl font-bold text-emerald-400">0%</div>
+         <div className="bg-slate-100 dark:bg-slate-800/40 p-4 rounded-lg border border-slate-200 dark:border-slate-700 text-center">
+            <div className="text-xs text-slate-600 dark:text-slate-500 uppercase mb-1">Risk Level</div>
+            <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">0%</div>
          </div>
-         <div className="bg-slate-800/40 p-4 rounded-lg border border-slate-700 text-center">
-            <div className="text-xs text-slate-500 uppercase mb-1">Growth Cap</div>
-            <div className="text-xl font-bold text-emerald-400">Unlimited</div>
+         <div className="bg-slate-100 dark:bg-slate-800/40 p-4 rounded-lg border border-slate-200 dark:border-slate-700 text-center">
+            <div className="text-xs text-slate-600 dark:text-slate-500 uppercase mb-1">Growth Cap</div>
+            <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">Unlimited</div>
          </div>
       </div>
     </div>
@@ -311,12 +311,7 @@ export default function LiquidityFlywheel() {
   };
 
   return (
-    <section className="relative w-full py-24 bg-slate-950 text-slate-50 overflow-hidden">
-      {/* Subtle Background Glows */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[120px]" />
-         <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-emerald-900/10 rounded-full blur-[120px]" />
-      </div>
+    <section className="relative w-full py-24 overflow-hidden">
 
       <div className="container mx-auto px-4 relative z-10">
         
@@ -326,7 +321,7 @@ export default function LiquidityFlywheel() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-blue-400 text-xs font-mono uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 text-xs font-mono uppercase tracking-widest mb-6"
           >
              <RefreshCw className="w-3 h-3" />
              <span>The Growth Engine</span>
@@ -336,7 +331,7 @@ export default function LiquidityFlywheel() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight"
           >
             The Liquidity <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Flywheel</span>
           </motion.h2>
@@ -346,7 +341,7 @@ export default function LiquidityFlywheel() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ delay: 0.1 }}
-             className="text-slate-400 text-lg md:text-xl leading-relaxed"
+             className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed"
           >
             Create a self-reinforcing engine where transaction volume translates directly into balance sheet growth.
           </motion.p>
@@ -366,8 +361,8 @@ export default function LiquidityFlywheel() {
                     className={`
                       relative p-5 rounded-xl cursor-pointer transition-all duration-300
                       ${isActive 
-                        ? "bg-slate-900 border border-slate-700 shadow-xl" 
-                        : "bg-transparent border border-transparent hover:bg-slate-900/30 hover:border-slate-800"
+                        ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl" 
+                        : "bg-transparent border border-transparent hover:bg-slate-100 dark:hover:bg-slate-900/30 hover:border-slate-200 dark:hover:border-slate-800"
                       }
                     `}
                   >
@@ -382,10 +377,10 @@ export default function LiquidityFlywheel() {
 
                     <div className="flex items-start justify-between">
                       <div>
-                        <div className={`text-xs font-mono mb-2 uppercase tracking-wider ${isActive ? "text-blue-400" : "text-slate-500"}`}>
+                        <div className={`text-xs font-mono mb-2 uppercase tracking-wider ${isActive ? "text-blue-600 dark:text-blue-400" : "text-slate-600 dark:text-slate-500"}`}>
                            {step.subtitle}
                         </div>
-                        <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-white" : "text-slate-400"}`}>
+                        <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
                           {step.title}
                         </h3>
                         <AnimatePresence>
@@ -394,7 +389,7 @@ export default function LiquidityFlywheel() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="text-slate-400 text-sm leading-relaxed mt-2"
+                              className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-2"
                             >
                               {step.description}
                             </motion.p>
@@ -403,7 +398,7 @@ export default function LiquidityFlywheel() {
                       </div>
                       
                       {isActive && (
-                        <motion.div layoutId="active-arrow" className="text-blue-400 mt-2">
+                        <motion.div layoutId="active-arrow" className="text-blue-600 dark:text-blue-400 mt-2">
                            <ArrowUpRight className="w-5 h-5" />
                         </motion.div>
                       )}
@@ -416,19 +411,19 @@ export default function LiquidityFlywheel() {
 
           {/* RIGHT: Unified Dashboard Panel */}
           <div className="lg:col-span-7 h-[450px]">
-             <div className="relative h-full w-full bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col">
+             <div className="relative h-full w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl dark:shadow-2xl overflow-hidden flex flex-col">
                 
                 {/* Panel Header */}
-                <div className="h-14 border-b border-slate-800 bg-slate-950/50 flex items-center justify-between px-6">
+                <div className="h-14 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 flex items-center justify-between px-6">
                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-slate-700" />
-                      <div className="w-3 h-3 rounded-full bg-slate-700" />
+                      <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700" />
+                      <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700" />
                    </div>
-                   <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800">
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                       <div className={`w-1.5 h-1.5 rounded-full ${
                         activeStepId === 'compliance' ? 'bg-amber-500' : 'bg-emerald-500'
                       } animate-pulse`} />
-                      <span className="text-[10px] text-slate-400 font-mono uppercase">
+                      <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono uppercase">
                         {STEPS.find(s => s.id === activeStepId)?.title}
                       </span>
                    </div>
