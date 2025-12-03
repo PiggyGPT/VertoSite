@@ -21,21 +21,21 @@ const STEPS = [
     id: "transactions",
     title: "Transactions Drive Fees",
     subtitle: "Transact Globally",
-    description: "Transaction volume generates protocol fees, creating revenue from payments.",
+    description: "Clients route Digital Dollar transactions via Bank stablecoins, formalizing them in the Bank ledger.",
     color: "emerald"
   },
   {
     id: "fees",
     title: "Fees Drive Liquidity",
     subtitle: "Attract Liquidity",
-    description: "Fees are distributed as yield, attracting liquidity providers to the ecosystem.",
+    description: "Transaction fees are shared with LPs to attract their capital into a high-yield environment.",
     color: "blue"
   },
   {
     id: "liquidity",
     title: "Liquidity Drives Deposits",
     subtitle: "Tokenize Deposits",
-    description: "New liquidity enters as fiat deposits, minting stablecoins to capture yield.",
+    description: "LPs tokenize deposits to pair their capital with Digital Dollars, funding new capital to the Bank.",
     color: "purple"
   }
 ];
@@ -375,12 +375,12 @@ export default function LiquidityFlywheel() {
       <div className="container mx-auto px-4 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight font-sans"
+            className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-3 tracking-tight font-sans"
           >
             Unlock The Liquidity Flywheel
           </motion.h2>
@@ -390,7 +390,7 @@ export default function LiquidityFlywheel() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ delay: 0.1 }}
-             className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed font-sans"
+             className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed font-sans"
           >
             Albor creates a self-reinforcing engine where transaction volume drives balance sheet growth.
           </motion.p>
