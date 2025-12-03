@@ -99,12 +99,7 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
 };
 
 // 2. Yield View
-const YieldView = ({ onCtaClick, totalFees, tvl, feeHistory }: { onCtaClick?: () => void, totalFees: number, tvl: number, feeHistory: number[] }) => {
-  // Calculate end Y position based on current fees
-  const maxFee = Math.max(...feeHistory, 25000);
-  const currentFee = feeHistory.length > 0 ? feeHistory[feeHistory.length - 1] : 0;
-  const endY = 120 - (currentFee / maxFee) * 80; // Ranges from 120 (bottom) to ~40 (top)
-  
+const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, totalFees: number, tvl: number }) => {
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="grid grid-cols-3 gap-4 mb-6">
@@ -131,49 +126,39 @@ const YieldView = ({ onCtaClick, totalFees, tvl, feeHistory }: { onCtaClick?: ()
         </div>
       </div>
       
-      {/* Animated Line Chart - FRESH START */}
+      {/* Animated Line Chart */}
       <div className="flex-1 relative border-l border-b border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/20 rounded-bl-lg">
-         <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 150">
+         <svg className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
             <defs>
               <linearGradient id="yieldGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#4D88FF" stopOpacity="0.15" />
+                <stop offset="0%" stopColor="#4D88FF" stopOpacity="0.2" />
                 <stop offset="100%" stopColor="#4D88FF" stopOpacity="0" />
               </linearGradient>
             </defs>
-            
-            {/* Full-width horizontal line from left to right */}
-            <motion.line
-              x1="0"
-              y1={endY}
-              x2="100"
-              y2={endY}
-              stroke="#4D88FF"
-              strokeWidth="2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            />
-            
-            {/* Fill area under the line */}
             <motion.path
-              d={`M0,${endY} L100,${endY} L100,150 L0,150 Z`}
+              d="M0,100 C50,90 100,80 150,40 C200,10 250,30 300,10 L300,150 L0,150 Z"
               fill="url(#yieldGradient)"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 1 }}
+            />
+            <motion.path
+              d="M0,100 C50,90 100,80 150,40 C200,10 250,30 300,10"
+              fill="none"
+              stroke="#4D88FF"
+              strokeWidth="3"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
             />
             
-            {/* Big blue dot at the end */}
-            <motion.circle
-              cx="100"
-              cy={endY}
-              r="3"
-              fill="#4D88FF"
-              initial={{ r: 0, opacity: 0 }}
-              animate={{ r: 3, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <animate attributeName="r" values="3;4.5;3" dur="2s" repeatCount="indefinite" />
+            {/* Pulsing Dots on the line */}
+            <motion.circle cx="150" cy="40" r="4" fill="#4D88FF">
+               <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
+            </motion.circle>
+            <motion.circle cx="300" cy="10" r="4" fill="#4D88FF">
+               <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
             </motion.circle>
          </svg>
          
@@ -328,9 +313,8 @@ export default function LiquidityFlywheel() {
     { id: 2, pair: "USDT/BSD", size: 1250000, fee: 12500 },
     { id: 3, pair: "BSD/EURC", size: 750000, fee: 7500 },
   ]);
-  const [feeHistory, setFeeHistory] = useState<number[]>([]);
 
-  // Simulate live trades and track fee history
+  // Simulate live trades
   useEffect(() => {
     const interval = setInterval(() => {
       const size = Math.floor(Math.random() * 800000) + 100000;
@@ -341,16 +325,9 @@ export default function LiquidityFlywheel() {
         fee: Math.floor(size * 0.01) // 1% fee
       };
       setTrades(prev => [newTrade, ...prev.slice(0, 3)]);
-      
-      // Track cumulative fees for the graph
-      setFeeHistory(prev => {
-        const totalFee = [newTrade, ...trades.slice(0, 2)].reduce((sum, t) => sum + t.fee, 0);
-        const newHistory = [...prev, totalFee].slice(-12); // Keep last 12 data points
-        return newHistory;
-      });
     }, 2000);
     return () => clearInterval(interval);
-  }, [trades]);
+  }, []);
 
   // Calculate totals dynamically
   const totalFees = trades.reduce((sum, trade) => sum + trade.fee, 0);
@@ -517,7 +494,7 @@ export default function LiquidityFlywheel() {
                          className="h-full w-full"
                       >
                          {activeStepId === 'transactions' && <FeesView trades={trades} totalFees={totalFees} totalVolume={totalVolume} />}
-                         {activeStepId === 'fees' && <YieldView onCtaClick={handleAddLiquidity} totalFees={totalFees} tvl={tvl} feeHistory={feeHistory} />}
+                         {activeStepId === 'fees' && <YieldView onCtaClick={handleAddLiquidity} totalFees={totalFees} tvl={tvl} />}
                          {activeStepId === 'liquidity' && <MintView />}
                          {activeStepId === 'compliance' && <ComplianceView />}
                       </motion.div>
