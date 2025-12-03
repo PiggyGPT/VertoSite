@@ -10,7 +10,8 @@ import {
   Landmark,
   Plus,
   ArrowRight,
-  Check
+  Check,
+  CheckCircle2
 } from "lucide-react";
 
 // ===== DATA & CONFIG =====
@@ -127,32 +128,59 @@ const FeesView = () => {
 // 2. Yield View
 const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
   return (
-    <div className="h-full flex flex-col justify-center items-center text-center space-y-8">
-      <div className="w-full">
-         <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest mb-3">Current Protocol APY</h4>
-         <div className="relative inline-block">
-            <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="text-6xl font-bold text-blue-600 dark:text-blue-400 tracking-tight"
-            >
-              5.42%
-            </motion.div>
-            <motion.div 
-               animate={{ opacity: [0, 1, 0], scale: [1, 1.2, 1.5] }}
-               transition={{ duration: 2, repeat: Infinity }}
-               className="absolute -top-2 -right-4 w-3 h-3 bg-blue-400 rounded-full"
+    <div className="flex flex-col h-full relative overflow-hidden">
+      <div className="flex justify-between items-end mb-6">
+        <div>
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-mono mb-1">Current APY</div>
+          <div className="text-3xl font-mono text-blue-600 dark:text-blue-400 font-bold">5.42%</div>
+        </div>
+        <div className="text-right">
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-mono mb-1">Fees Collected (24h)</div>
+          <div className="text-lg font-mono text-slate-900 dark:text-slate-200">$142,890.00</div>
+        </div>
+      </div>
+      
+      {/* Animated Line Chart */}
+      <div className="flex-1 relative border-l border-b border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/20 rounded-bl-lg">
+         <svg className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="yieldGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <motion.path
+              d="M0,100 C50,90 100,80 150,40 C200,10 250,30 300,10 L300,150 L0,150 Z"
+              fill="url(#yieldGradient)"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
             />
-         </div>
-         <div className="mt-4 flex justify-center gap-8">
-            <div className="text-center">
-              <div className="text-[10px] text-slate-600 dark:text-slate-500 uppercase tracking-wider">Total Value Locked</div>
-              <div className="text-xl font-mono text-slate-900 dark:text-white">$24.5M</div>
-            </div>
-            <div className="text-center border-l border-slate-300 dark:border-slate-700 pl-8">
-              <div className="text-[10px] text-slate-600 dark:text-slate-500 uppercase tracking-wider">Yield Paid (24h)</div>
-              <div className="text-xl font-mono text-blue-600 dark:text-blue-300">$3,420</div>
-            </div>
+            <motion.path
+              d="M0,100 C50,90 100,80 150,40 C200,10 250,30 300,10"
+              fill="none"
+              stroke="#3b82f6"
+              strokeWidth="3"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+            />
+            
+            {/* Pulsing Dots on the line */}
+            <motion.circle cx="150" cy="40" r="4" fill="#60a5fa">
+               <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
+            </motion.circle>
+            <motion.circle cx="300" cy="10" r="4" fill="#60a5fa">
+               <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
+            </motion.circle>
+         </svg>
+         
+         {/* Grid Lines */}
+         <div className="absolute inset-0 flex flex-col justify-between pointer-events-none p-4 opacity-20">
+            <div className="w-full h-px bg-slate-500 border-dashed" />
+            <div className="w-full h-px bg-slate-500 border-dashed" />
+            <div className="w-full h-px bg-slate-500 border-dashed" />
          </div>
       </div>
 
@@ -160,9 +188,9 @@ const YieldView = ({ onCtaClick }: { onCtaClick?: () => void }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={onCtaClick}
-        className="group flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold shadow-lg shadow-blue-900/20 transition-all"
+        className="group flex items-center gap-3 px-8 py-3 bg-blue-600 dark:bg-blue-600 hover:bg-blue-500 dark:hover:bg-blue-500 text-white rounded-lg font-semibold shadow-lg shadow-blue-900/20 transition-all mt-4 mx-auto"
       >
-         <Plus className="w-5 h-5" />
+         <Plus className="w-4 h-4" />
          <span>Add Liquidity to Earn 5.42%</span>
          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </motion.button>
@@ -239,30 +267,45 @@ const MintView = () => {
 
 // 4. Compliance View
 const ComplianceView = () => {
+  const items = [
+    { label: "Transactions Verified", status: "Confirmed", color: "text-emerald-600 dark:text-emerald-400" },
+    { label: "Yield Generation", status: "Active", color: "text-blue-600 dark:text-blue-400" },
+    { label: "Liquidity Deposits", status: "Operational", color: "text-purple-600 dark:text-purple-400" },
+    { label: "Counterparty Risk", status: "None", color: "text-emerald-600 dark:text-emerald-400" }
+  ];
+
   return (
-    <div className="h-full flex flex-col items-center justify-center">
-      <motion.div 
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        className="relative mb-8"
-      >
-         <div className="absolute inset-0 bg-amber-500/20 blur-xl rounded-full animate-pulse" />
-         <ShieldCheck className="w-24 h-24 text-amber-400 relative z-10" />
-      </motion.div>
+    <div className="flex flex-col h-full">
+      <div className="flex items-center gap-3 mb-6">
+        <ShieldCheck className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+        <div>
+           <div className="text-lg font-bold text-slate-900 dark:text-white">System Status</div>
+           <div className="text-xs text-amber-600 dark:text-amber-500 font-mono">OPERATIONAL</div>
+        </div>
+      </div>
 
-      <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Institutional Grade</h2>
-      <p className="text-slate-600 dark:text-slate-400 mb-8 text-center max-w-xs">
-        Eliminating counterparty risk through transparent, on-chain proof of reserves.
-      </p>
-
-      <div className="grid grid-cols-2 gap-4 w-full">
-         <div className="bg-slate-100 dark:bg-slate-800/40 p-4 rounded-lg border border-slate-200 dark:border-slate-700 text-center">
-            <div className="text-xs text-slate-600 dark:text-slate-500 uppercase mb-1">Risk Level</div>
-            <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">0%</div>
-         </div>
-         <div className="bg-slate-100 dark:bg-slate-800/40 p-4 rounded-lg border border-slate-200 dark:border-slate-700 text-center">
-            <div className="text-xs text-slate-600 dark:text-slate-500 uppercase mb-1">Growth Cap</div>
-            <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">Unlimited</div>
+      <div className="space-y-3">
+        {items.map((item, i) => (
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: i * 0.15 }}
+            className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded border border-slate-200 dark:border-slate-700"
+          >
+             <span className="text-sm text-slate-700 dark:text-slate-400">{item.label}</span>
+             <div className="flex items-center gap-2">
+                <CheckCircle2 className={`w-4 h-4 ${item.color}`} />
+                <span className={`text-sm font-mono font-semibold ${item.color}`}>{item.status}</span>
+             </div>
+          </motion.div>
+        ))}
+      </div>
+      
+      <div className="mt-auto pt-4 border-t border-slate-300 dark:border-slate-800">
+         <div className="flex justify-between items-center">
+            <span className="text-xs text-slate-600 dark:text-slate-500">Last Audit Scan</span>
+            <span className="text-xs font-mono text-slate-700 dark:text-slate-400">12s ago</span>
          </div>
       </div>
     </div>
