@@ -102,12 +102,17 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
 const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, totalFees: number, tvl: number }) => {
   const [isClicked, setIsClicked] = React.useState(false);
 
-  const handleButtonClick = async () => {
-    setIsClicked(true);
-    // Wait for click animation to complete before transitioning
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    onCtaClick?.();
-  };
+  // Auto-trigger button click animation when component mounts
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      setIsClicked(true);
+      // Wait for click animation to complete before transitioning
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      onCtaClick?.();
+    }, 800); // Delay before animation starts
+    
+    return () => clearTimeout(timer);
+  }, [onCtaClick]);
 
   return (
     <div className="flex flex-col h-full relative overflow-hidden">
@@ -185,9 +190,6 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
       </div>
 
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={handleButtonClick}
         animate={isClicked ? { scale: 0.95, opacity: 0.7 } : { scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="group flex items-center gap-3 px-8 py-3 bg-[#4D88FF] hover:bg-[#3A6FE6] text-white rounded-lg font-semibold shadow-lg shadow-[#4D88FF]/20 transition-all mt-4 mx-auto font-sans"
