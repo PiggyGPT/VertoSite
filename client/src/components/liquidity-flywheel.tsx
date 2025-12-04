@@ -11,8 +11,11 @@ import {
   Plus,
   ArrowRight,
   Check,
-  CheckCircle2
+  CheckCircle2,
+  Calendar,
+  Send
 } from "lucide-react";
+import { useCalendlyModal } from "./calendly-modal";
 
 // ===== DATA & CONFIG =====
 
@@ -364,6 +367,7 @@ const ComplianceView = () => {
 // ===== MAIN COMPONENT =====
 
 export default function LiquidityFlywheel() {
+  const { openModal, CalendlyModal } = useCalendlyModal();
   const [activeStepId, setActiveStepId] = useState("transactions");
   const [progress, setProgress] = useState(0);
   const [trades, setTrades] = useState([
@@ -567,7 +571,29 @@ export default function LiquidityFlywheel() {
           </div>
 
         </div>
+
+        {/* CTA Section */}
+        <div className="mt-10 sm:mt-12 text-center flex justify-center gap-4">
+          <button
+            onClick={() => openModal("Schedule Demo")}
+            className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm gap-2 min-w-[160px]"
+          >
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span>Schedule Demo</span>
+          </button>
+          <a
+            href="https://t.me/nileshkhaitan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="roup px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
+          >
+            <Send className="w-4 h-4 hidden md:inline" />
+            <span>Contact Us</span>
+          </a>
+        </div>
       </div>
+
+      <CalendlyModal />
     </section>
   );
 }

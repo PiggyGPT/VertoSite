@@ -209,7 +209,7 @@ export default function ProblemSection({
                     href="https://t.me/nileshkhaitan"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-center px-8 py-4 bg-transparent border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all duration-300 text-sm gap-2 min-w-[160px]"
+                    className="roup px-8 py-4 rounded-lg bg-transparent border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
                   >
                     <Send className="w-4 h-4 hidden md:inline" />
                     <span>Contact Us</span>
