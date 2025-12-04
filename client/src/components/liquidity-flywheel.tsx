@@ -401,7 +401,7 @@ export default function LiquidityFlywheel() {
 
   // Auto-play logic
   useEffect(() => {
-    const duration = 6000; // 6 seconds per step
+    const duration = 9000; // 9 seconds per step (6000 * 1.5)
     const interval = 50;
     const stepSize = 100 / (duration / interval);
 
@@ -560,7 +560,7 @@ export default function LiquidityFlywheel() {
                     )}
 
                     <div className="flex items-start justify-between">
-                      <div className="flex-1">
+                      <div className="flex-1 min-h-[2rem]">
                         {isActive && (
                           <motion.div 
                             initial={{ opacity: 0 }}
@@ -571,7 +571,7 @@ export default function LiquidityFlywheel() {
                             {step.subtitle}
                           </motion.div>
                         )}
-                        <h3 className={`font-bold ${isActive ? "text-lg text-slate-900 dark:text-white" : "text-sm text-slate-700 dark:text-slate-300"}`}>
+                        <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300">
                           {step.title}
                         </h3>
                       </div>
