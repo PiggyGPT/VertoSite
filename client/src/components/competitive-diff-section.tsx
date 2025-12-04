@@ -27,10 +27,10 @@ export default function CompetitiveDiffSection() {
             alborHas: true
         },
         {
-            name: "Bank Revenue",
+            name: "Bank Revenue Model",
             icon: DollarSign,
-            albor: "FX & Interchange Fees",
-            competitors: "Pays platform fees",
+            albor: "Earn FX & Interchange Fees",
+            competitors: "Pay platform fees",
             alborHas: true
         },
         {
