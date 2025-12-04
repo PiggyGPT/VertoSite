@@ -22,7 +22,7 @@ const STEPS = [
     id: "transactions",
     title: "Utility Drives Revenue",
     subtitle: "Transact Globally",
-    description: "Clients stop withdrawing to exchanges because they can now send and receive Digital Dollars directly from your banking app.",
+    description: "Clients stop withdrawing to exchanges because they can send and receive Digital Dollars directly from your banking app.",
     color: "emerald"
   },
   {
@@ -34,7 +34,7 @@ const STEPS = [
   },
   {
     id: "liquidity",
-    title: "Liquidity Secures Deposits",
+    title: "Liquidity Drives Deposits",
     subtitle: "Tokenize Deposits",
     description: "Deep Digital Dollar liquidity drives higher transaction volumes, further expanding your balance sheet with new deposits.",
     color: "purple"
@@ -451,6 +451,8 @@ export default function LiquidityFlywheel() {
              className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans"
           >
             Use the same demand that pulls deposits out to bring new deposits in.
+
+
           </motion.p>
         </div>
 
@@ -500,7 +502,7 @@ export default function LiquidityFlywheel() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-2 font-sans"
+                              className="text-slate-600 dark:text-slate-200 text-s leading-relaxed mt-2 font-sans"
                             >
                               {step.description}
                             </motion.p>

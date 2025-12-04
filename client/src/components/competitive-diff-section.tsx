@@ -16,7 +16,7 @@ export default function CompetitiveDiffSection() {
             name: "Liquidity Engine",
             icon: TrendingUp,
             albor: "FX Provider with 3P Liquidity",
-            competitors: "None",
+            competitors: "Brokerage Only",
             alborHas: true
         },
         {
