@@ -440,7 +440,7 @@ export default function LiquidityFlywheel() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3"
           >
-            Digital Dollars → Sticky Deposits
+            Flip the Script on Digital Dollars
           </motion.h2>
 
           <motion.p
@@ -450,7 +450,7 @@ export default function LiquidityFlywheel() {
              transition={{ delay: 0.1 }}
              className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans"
           >
-            Albor formalizes the demand for Digital Dollars to expand your balance sheet.
+            Use the same demand that pulls deposits out to bring new deposits in.
           </motion.p>
         </div>
 

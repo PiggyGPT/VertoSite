@@ -1938,7 +1938,7 @@ export default function PillarsSection({
   const defaultPillars = {
     distribution: {
       label: "Tokenize Deposits", color: "albor-plum", title: "Omnibus APIs", icon: Workflow,
-      description: "Automate issuance and redemption of your bank stablecoin, backed 1:1 by deposits in your own omnibus account.",
+      description: "Automate issuance and redemption of your bank stablecoin against deposits in your omnibus accounts.",
       visual: <MintingVisual />,
       founderQuote: {
         quote: "Building trust in a regulated stablecoin begins with two non-negotiable mandates: real-time settlement of deposits and withdrawals, and audit-ready asset backing.",
@@ -1951,7 +1951,7 @@ export default function PillarsSection({
     },
     trading: {
       label: "Attract Liquidity", color: "albor-blue", title: "Automated FX Provider", icon: Coins,
-      description: "Secure 24/7 Digital Dollar liquidity for your bank stablecoin, funded by a network of institutional Market Makers.",
+      description: "Secure 24/7 Digital Dollar liquidity for your bank stablecoin, funded by a network of Market Makers.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
         quote: "To capture global flows, stablecoins must offer deep liquidity. This requires a market structure that attracts institutional capital while adhering to strict counterparty compliance.",
@@ -1959,12 +1959,12 @@ export default function PillarsSection({
         title: "Chairman | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: Store, title: "Third-Party Liquidity Pools", description: "Enable institutional Market Makers to fund secure liquidity pools with Digital Dollars and Bank Stablecoins." }, { icon: TrendingUp, title: "BIS-Aligned Pricing Engine", description: "Offer transparent exchange rates derived from pricing models validated by the Bank for International Settlements." }, { icon: DollarSign, title: "Automated Yield Distribution", description: "Automatically collect and share transaction fees with Market Makers against their deposited liquidity share." },],
+      features: [{ icon: Store, title: "Third-Party Liquidity Pools", description: "Enable Market Makers to fund secure liquidity pools with Digital Dollars and Bank Stablecoins." }, { icon: TrendingUp, title: "BIS-Aligned Pricing Engine", description: "Offer optimal exchange rates using pricing models validated by the Bank for International Settlements." }, { icon: DollarSign, title: "Automated Yield Distribution", description: "Capture FX fees on every swap and automatically distribute yield to attract and retain deep liquidity." },],
       cta: "Explore DEX"
     },
     payments: {
       label: "Transact Globally", color: "albor-teal", title: "Global Payments Router", icon: Globe,
-      description: "Enable clients to send and receive Digital Dollars worldwide directly from their fiat deposits — via your bank's stablecoin.",
+      description: "Enable clients to send and receive Digital Dollars worldwide directly using your bank's stablecoin.",
       visual: <PaymentsVisual />,
       founderQuote: {
         quote: "Stablecoins drive volume when any user, anywhere can trade them with their existing funds — be it fiat in banks or crypto in wallets.",
@@ -1972,7 +1972,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Route, title: "Smart Global Routing", description: "Find the best settlement route across diverse liquidity pools to transact with any external wallet or international bank." }, { icon: KeyIcon, title: "Peer-to-Peer Settlement", description: "Settle routes peer-to-peer between the bank, liquidity pools, and counterparty wallets. Albor never holds funds." }, { icon: Zap, title: "Interchange Revenue", description: "Automatically capture fees on Digital Dollar payments that currently bypass your bank entirely." },],
+      features: [{ icon: Route, title: "Smart Global Routing", description: "Find the best settlement route across diverse liquidity pools to transact with major external wallets and international banks." }, { icon: KeyIcon, title: "Peer-to-Peer Settlement", description: "Settle routes peer-to-peer between the bank, liquidity pools, and counterparty wallets. Albor never holds funds." }, { icon: Zap, title: "Interchange Revenue", description: "Automatically capture fees on Digital Dollar payments that currently bypass your bank entirely." },],
       cta: "Explore Router"
     },
     service: {

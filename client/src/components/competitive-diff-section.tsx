@@ -6,24 +6,31 @@ export default function CompetitiveDiffSection() {
 
     const features = [
         {
-            name: "Liquidity Engine",
-            icon: TrendingUp,
-            albor: "Self-Custodial AMM",
-            competitors: "3P Centralized Exchange (CEX)",
+            name: "Tokenization",
+            icon: Navigation2,
+            albor: "Omnibus Account Settlement",
+            competitors: "Issuance Only",
             alborHas: true
         },
         {
-            name: "Transaction Routing",
+            name: "Liquidity Engine",
+            icon: TrendingUp,
+            albor: "FX Provider with 3P Liquidity",
+            competitors: "None",
+            alborHas: true
+        },
+        {
+            name: "Global Payments",
             icon: Navigation2,
             albor: "Multi-Currency, Multi-Chain",
             competitors: "Single Currency Only",
             alborHas: true
         },
         {
-            name: "Fee Distribution",
+            name: "Bank Revenue Model",
             icon: DollarSign,
-            albor: "Instant, Atomic Payouts",
-            competitors: "Manual Payouts",
+            albor: "Earns FX & Interchange Fees",
+            competitors: "Pays platform fees",
             alborHas: true
         },
         {
@@ -41,10 +48,11 @@ export default function CompetitiveDiffSection() {
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-12">
                     <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
-                        The Only End-to-End Sovereign Stack
+                        Deposit‑Growth Infrastructure
+
                     </h2>
                     <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
-                        You own your keys and data. Your LPs own their liquidity.
+                        Other platforms help you issue tokens. Albor helps you grow deposits.
                     </p>
                 </div>
 
