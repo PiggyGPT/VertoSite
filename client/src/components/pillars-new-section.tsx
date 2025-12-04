@@ -1950,7 +1950,7 @@ export default function PillarsSection({
       cta: "Explore APIs"
     },
     trading: {
-      label: "Attract Liquidity", color: "albor-blue", title: "Automated Market Maker", icon: Coins,
+      label: "Attract Liquidity", color: "albor-blue", title: "Automated FX Provider", icon: Coins,
       description: "Secure 24/7 Digital Dollar liquidity for your bank stablecoin, funded by a network of institutional Market Makers.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
