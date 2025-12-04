@@ -57,37 +57,40 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-scroll mobile tabs to center active tab (during auto-play and when manually clicking)
+  // Auto-scroll mobile tabs to center active tab (only on manual clicks, not during auto-play on mobile)
   useEffect(() => {
     if (tabsContainerRef.current && window.innerWidth < 640) {
+      // Skip auto-scroll on mobile during auto-play to prevent page scrolling
+      if (isAutoPlaying) return;
+      
       const container = tabsContainerRef.current;
-      // Use animatedStep during auto-play, currentStep otherwise
-      const tabIndex = isAutoPlaying ? animatedStep : currentStep;
-      const activeTab = container.querySelector(`[data-tab-index="${tabIndex}"]`);
+      const activeTab = container.querySelector(`[data-tab-index="${currentStep}"]`);
       if (activeTab) {
         activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
-  }, [currentStep, animatedStep, isAutoPlaying]);
+  }, [currentStep, isAutoPlaying]);
 
   const handleStepClick = (index: number) => {
     if (onStepClick) onStepClick(index);
     // Trigger event for PillarsSection to listen
     window.dispatchEvent(new CustomEvent('activatePillar', { detail: orderedKeys[index] }));
-    // Scroll to pillar content
-    setTimeout(() => {
-      const element = document.getElementById('pillar-content');
-      if (element && navContainerRef.current) {
-        const mainNavHeight = 64;
-        const pillarNavHeight = navContainerRef.current.offsetHeight;
-        const totalNavHeight = mainNavHeight + pillarNavHeight;
-        const elementTop = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: elementTop - totalNavHeight,
-          behavior: 'smooth'
-        });
-      }
-    }, 50);
+    // Scroll to pillar content only on desktop, not on mobile
+    if (window.innerWidth >= 640) {
+      setTimeout(() => {
+        const element = document.getElementById('pillar-content');
+        if (element && navContainerRef.current) {
+          const mainNavHeight = 64;
+          const pillarNavHeight = navContainerRef.current.offsetHeight;
+          const totalNavHeight = mainNavHeight + pillarNavHeight;
+          const elementTop = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: elementTop - totalNavHeight,
+            behavior: 'smooth'
+          });
+        }
+      }, 50);
+    }
   };
 
   return (
