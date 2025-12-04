@@ -591,7 +591,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
             </div>
           <div className="bg-slate-800 p-2 rounded border border-slate-700">
             <span className="text-orange-400">FEE:</span> <span className="text-white">Banco Bisa</span>
-            <div className="text-slate-400 mt-1">Sponsored by Albor</div>
+            <div className="text-slate-400 mt-1">3.00 BSD</div>
           </div>
         </motion.div>
       </div>
