@@ -6,10 +6,10 @@ export default function CompetitiveDiffSection() {
 
     const features = [
         {
-            name: "Tokenization",
+            name: "Fiat Tokenization",
             icon: Navigation2,
             albor: "Omnibus Account Settlement",
-            competitors: "Issuance Only",
+            competitors: "Token Issuance Only",
             alborHas: true
         },
         {
