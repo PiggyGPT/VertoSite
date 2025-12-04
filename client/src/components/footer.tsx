@@ -47,7 +47,7 @@ export default function Footer() {
                             <img src="/logos/svg/albor.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
-                            Stablecoin rails making Bank deposits instantly tradable with the Digital Dollar economy
+                            Albor helps banks grow deposits and earn new revenue by bridging them to the Digital Dollar economy.
 
 
                         </p>
