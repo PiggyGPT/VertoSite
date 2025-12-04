@@ -18,19 +18,17 @@ import {
 import { useCalendlyModal } from "./calendly-modal";
 
 // ===== DATA & CONFIG =====
-
-// ===== DATA & CONFIG =====
 const STEPS = [
   {
     id: "transactions",
-    title: "Utility Drives Revenue",
+    title: "Volume Drives Yield",
     subtitle: "Transact Globally",
     description: "Clients stop withdrawing to exchanges because they can send and receive Digital Dollars directly using their bank deposits.",
     color: "emerald"
   },
   {
     id: "fees",
-    title: "Revenue Drives Liquidity",
+    title: "Yield Drives Liquidity",
     subtitle: "Attract Liquidity",
     description: "Transaction volume generates FX fees, which attracts deep-pocketed Market Makers to hold deposits at your bank.",
     color: "blue"
