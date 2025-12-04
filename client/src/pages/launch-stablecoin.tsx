@@ -132,9 +132,8 @@ export default function LaunchStablecoin() {
       <BoardChecklistSection />
       <div id="pilot">
         <ProblemSection
-          title="Why Now?"
-          subtitle="You are bleeding deposits to Digital Dollarization.
-          Recapture them today."
+          title="Why Act Now?"
+          subtitle="Digital Dollars are eating your deposits. GENIUS Act will turbocharge it."
           customQuotes={[
             {
               icon: "CreditCard",
