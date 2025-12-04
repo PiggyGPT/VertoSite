@@ -70,7 +70,7 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
           </h1>
 
           <p className="text-base sm:text-xl md:text-2xl text-slate-200 leading-relaxed mb-12 max-w-2xl">
-              Albor’s platform enables your clients to transact globally in Digital Dollars - while keeping their fiat deposits in your bank.
+              Albor’s platform enables your clients to transact globally with Digital Dollars - while keeping their fiat deposits in your bank.
 
 
           </p>
