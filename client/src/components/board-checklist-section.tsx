@@ -15,7 +15,7 @@ const TimelineItem = ({ phase, title, icon: Icon, color, children }: { phase: st
 
   return (
     <div className="relative pl-8 sm:pl-12 py-4 sm:py-6 group">
-      <div className={`absolute left-0 top-9 sm:top-11 h-full w-0.5 bg-slate-200 dark:bg-slate-700 group-last:h-0`}></div>
+      <div className={`absolute left-0 top-9 sm:top-11 h-full w-0.5 bg-slate-200 dark:bg-slate-600 group-last:h-0`}></div>
       <div className="absolute left-0 top-9 sm:top-11 w-0.5 transition-all duration-500 scale-y-0 group-hover:scale-y-100" style={{ backgroundColor: colorValue }}></div>
       <div className="absolute left-[-9px] sm:left-[-11px] top-6 sm:top-8 flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-slate-800 ring-4 ring-white dark:ring-slate-800">
         <div className="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full transition-colors" style={{ backgroundColor: colorValue }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = colorValue)}></div>
