@@ -51,7 +51,7 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
 
   return (
     <div className="h-full flex flex-col justify-between min-h-0">
-      <div className="text-center space-y-2 mb-6">
+      <div className="text-center mb-6">
         <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans uppercase tracking-widest font-medium">24h Fees Collected</h4>
         <motion.div 
            key={`fees-${totalFees}`}
@@ -432,8 +432,7 @@ export default function LiquidityFlywheel() {
   };
 
   return (
-    <section className="relative w-full py-24 overflow-hidden">
-
+      <section className="relative overflow-hidden w-full pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4 relative z-10">
 
         {/* Header */}
