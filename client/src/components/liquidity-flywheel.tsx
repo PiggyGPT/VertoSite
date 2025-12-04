@@ -401,7 +401,7 @@ export default function LiquidityFlywheel() {
 
   // Auto-play logic
   useEffect(() => {
-    const duration = 6000; // 6 seconds per step
+    const duration = 9000; // 9 seconds per step
     const interval = 50;
     const stepSize = 100 / (duration / interval);
 
