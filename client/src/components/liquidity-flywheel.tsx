@@ -21,7 +21,7 @@ import { useCalendlyModal } from "./calendly-modal";
 const STEPS = [
   {
     id: "transactions",
-    title: "Volume Drives Yield",
+    title: "Demand Drives Yield",
     subtitle: "Transact Globally",
     description: "Clients stop withdrawing to exchanges because they can send and receive Digital Dollars directly using their bank deposits.",
     color: "emerald"
