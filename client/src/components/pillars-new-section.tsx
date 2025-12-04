@@ -568,7 +568,7 @@ const RouteLogic = ({ status }: { status: 'calculating' | 'signing' | 'executing
               {isExecuting ? <CheckCircle className="w-4 h-4 text-white" /> : "3"}
             </div>
           <div className="bg-slate-800 p-2 rounded border border-slate-700">
-            <span className="text-green-400">SWAP:</span> <span className="text-white">EURe → BSD</span>
+            <span className="text-green-400">SWAP:</span> <span className="text-white">EURE → USDC → BSD</span>
             <div className="text-slate-400 mt-1">Pool: Albor Institutional V2</div>
           </div>
         </motion.div>
