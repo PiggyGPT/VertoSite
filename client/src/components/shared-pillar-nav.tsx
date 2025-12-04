@@ -79,11 +79,25 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
     if (window.innerWidth >= 640) {
       setTimeout(() => {
         const element = document.getElementById('pillar-content');
-        if (element) {
-          // Use scrollIntoView which respects scroll-mt-28 on the element
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (element && navContainerRef.current) {
+          // Get actual heights from DOM
+          const mainNavHeight = 64; // h-16 in px
+          const pillarNavHeight = navContainerRef.current.offsetHeight;
+          const totalNavHeight = mainNavHeight + pillarNavHeight;
+          
+          // Element position in the document
+          const elementRect = element.getBoundingClientRect();
+          const elementTop = elementRect.top + window.scrollY;
+          
+          // Scroll so content appears just below both navs
+          const targetScroll = Math.max(0, elementTop - totalNavHeight - 12);
+          
+          window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+          });
         }
-      }, 50);
+      }, 100);
     }
   };
 
