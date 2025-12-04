@@ -25,7 +25,7 @@ const STEPS = [
     id: "transactions",
     title: "Utility Drives Revenue",
     subtitle: "Transact Globally",
-    description: "Clients stop withdrawing to exchanges because they can send and receive Digital Dollars directly from your banking app.",
+    description: "Clients stop withdrawing to exchanges because they can send and receive Digital Dollars directly using their bank deposits.",
     color: "emerald"
   },
   {
@@ -463,66 +463,148 @@ export default function LiquidityFlywheel() {
 
           {/* LEFT: Navigation Steps */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <LayoutGroup>
-              {STEPS.map((step) => {
-                const isActive = activeStepId === step.id;
-                return (
-                  <motion.div
-                    key={step.id}
-                    onClick={() => handleStepClick(step.id)}
-                    className={`
-                      relative p-5 rounded-xl cursor-pointer transition-all duration-300
-                      ${isActive 
-                        ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl" 
-                        : "bg-transparent border border-transparent hover:bg-slate-100 dark:hover:bg-slate-900/30 hover:border-slate-200 dark:hover:border-slate-800"
-                      }
-                    `}
-                  >
-                    {/* Active Progress Bar */}
-                    {isActive && (
-                      <motion.div 
-                        className="absolute left-0 bottom-0 h-1 z-20 rounded-bl-xl"
-                        style={{ 
-                          width: `${progress}%`, 
-                          maxWidth: '100%',
-                          backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
-                        }}
-                        transition={{ ease: "linear", duration: 0.1 }}
-                      />
-                    )}
-
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? (step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]') : "text-slate-600 dark:text-slate-500"}`}>
-                           {step.subtitle}
-                        </div>
-                        <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
-                          {step.title}
-                        </h3>
-                        <AnimatePresence>
-                          {isActive && (
-                            <motion.p 
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="text-slate-600 dark:text-slate-200 text-s leading-relaxed mt-2 font-sans"
-                            >
-                              {step.description}
-                            </motion.p>
-                          )}
-                        </AnimatePresence>
-                      </div>
-
+            {/* DESKTOP: Stack all cards */}
+            <div className="hidden lg:block">
+              <LayoutGroup>
+                {STEPS.map((step) => {
+                  const isActive = activeStepId === step.id;
+                  return (
+                    <motion.div
+                      key={step.id}
+                      onClick={() => handleStepClick(step.id)}
+                      className={`
+                        relative p-5 rounded-xl cursor-pointer transition-all duration-300
+                        ${isActive 
+                          ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl" 
+                          : "bg-transparent border border-transparent hover:bg-slate-100 dark:hover:bg-slate-900/30 hover:border-slate-200 dark:hover:border-slate-800"
+                        }
+                      `}
+                    >
+                      {/* Active Progress Bar */}
                       {isActive && (
-                        <motion.div layoutId="active-arrow" className="mt-2" style={{ color: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF' }}>
-                           <ArrowUpRight className="w-5 h-5" />
-                        </motion.div>
+                        <motion.div 
+                          className="absolute left-0 bottom-0 h-1 z-20 rounded-bl-xl"
+                          style={{ 
+                            width: `${progress}%`, 
+                            maxWidth: '100%',
+                            backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
+                          }}
+                          transition={{ ease: "linear", duration: 0.1 }}
+                        />
                       )}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </LayoutGroup>
+
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? (step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]') : "text-slate-600 dark:text-slate-500"}`}>
+                             {step.subtitle}
+                          </div>
+                          <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
+                            {step.title}
+                          </h3>
+                          <AnimatePresence>
+                            {isActive && (
+                              <motion.p 
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="text-slate-600 dark:text-slate-200 text-s leading-relaxed mt-2 font-sans"
+                              >
+                                {step.description}
+                              </motion.p>
+                            )}
+                          </AnimatePresence>
+                        </div>
+
+                        {isActive && (
+                          <motion.div layoutId="active-arrow" className="mt-2" style={{ color: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF' }}>
+                             <ArrowUpRight className="w-5 h-5" />
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </LayoutGroup>
+            </div>
+
+            {/* MOBILE: Single stacked card animation */}
+            <div className="lg:hidden relative h-[280px]">
+              <AnimatePresence mode="popLayout">
+                {STEPS.map((step, index) => {
+                  const isActive = activeStepId === step.id;
+                  const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
+                  const stackOffset = (index - activeIndex) * 8;
+                  const isVisible = Math.abs(index - activeIndex) <= 2;
+                  
+                  if (!isVisible) return null;
+
+                  return (
+                    <motion.div
+                      key={step.id}
+                      onClick={() => handleStepClick(step.id)}
+                      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                      animate={{ 
+                        opacity: 1, 
+                        y: stackOffset,
+                        scale: 1,
+                        zIndex: isActive ? 30 : 20 - Math.abs(index - activeIndex)
+                      }}
+                      exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                      transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
+                      className={`
+                        absolute w-full p-5 rounded-xl cursor-pointer transition-all duration-300
+                        ${isActive 
+                          ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl" 
+                          : "bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 shadow-md"
+                        }
+                      `}
+                    >
+                      {/* Active Progress Bar */}
+                      {isActive && (
+                        <motion.div 
+                          className="absolute left-0 bottom-0 h-1 z-20 rounded-bl-xl"
+                          style={{ 
+                            width: `${progress}%`, 
+                            maxWidth: '100%',
+                            backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
+                          }}
+                          transition={{ ease: "linear", duration: 0.1 }}
+                        />
+                      )}
+
+                      <div className="flex items-start justify-between">
+                        <div className="w-full">
+                          <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? (step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]') : "text-slate-600 dark:text-slate-500"}`}>
+                             {step.subtitle}
+                          </div>
+                          <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
+                            {step.title}
+                          </h3>
+                          <AnimatePresence>
+                            {isActive && (
+                              <motion.p 
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mt-2 font-sans"
+                              >
+                                {step.description}
+                              </motion.p>
+                            )}
+                          </AnimatePresence>
+                        </div>
+
+                        {isActive && (
+                          <motion.div className="mt-2 ml-2 flex-shrink-0" style={{ color: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF' }}>
+                             <ArrowUpRight className="w-5 h-5" />
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* RIGHT: Unified Dashboard Panel */}
