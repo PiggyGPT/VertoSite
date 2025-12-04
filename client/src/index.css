@@ -30,8 +30,9 @@
   --albor-dawn: hsl(37.9, 86.8%, 64.7%); /* #F1BD76 - Primary Accent */
   --albor-white: hsl(0, 0%, 100%); /* #FFFFFF - Text/Data */
   --albor-teal: hsl(176.4, 72.2%, 64.3%); /* #5DD4E0 - Growth/Success */
-  --albor-blue: hsl(217.3, 100%, 59.8%); /* #4D88FF - Trust/Links */
+  --albor-blue: hsl(215.0, 73%, 47%); /* #2169D1 - Trust/Links */
   --albor-innovation: hsl(269.4, 100%, 68.2%); /* #A885FF - Decorative */
+  --albor-logo-blue: hsl(215.0, 73%, 47%); /* #2169D1 - Decorative */
   
   /* Deprecated - kept for backwards compatibility */
   --albor-gold: hsl(37.9, 86.8%, 64.7%); /* #F1BD76 - Now using Dawn */
