@@ -45,7 +45,7 @@ export default function PilotProgramSection() {
               Launch Your Pilot in 90 Days
             </h2>
             <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
-              De-risk your launch with a sandbox pilot that proves production readiness.
+              De-risk your launch with a sandbox environment that proves production readiness.
             </p>
           </div>
 
