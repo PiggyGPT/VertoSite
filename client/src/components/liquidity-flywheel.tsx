@@ -432,8 +432,8 @@ export default function LiquidityFlywheel() {
   };
 
   return (
-      <section className="relative overflow-hidden w-full pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto px-4 relative z-10">
+      <section className="relative overflow-hidden w-full pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
