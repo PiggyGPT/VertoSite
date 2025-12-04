@@ -80,10 +80,12 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
       setTimeout(() => {
         const element = document.getElementById('pillar-content');
         if (element && navContainerRef.current) {
-          const mainNavHeight = 64; // h-16
+          const mainNavHeight = 64;
+          const pillarNavHeight = navContainerRef.current.offsetHeight;
+          const totalNavHeight = mainNavHeight + pillarNavHeight;
           const elementTop = element.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
-            top: elementTop - mainNavHeight - 79, // mainNav + small padding
+            top: elementTop - totalNavHeight,
             behavior: 'smooth'
           });
         }
