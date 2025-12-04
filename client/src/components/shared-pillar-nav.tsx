@@ -94,7 +94,7 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
   };
 
   return (
-    <div ref={navContainerRef} className={`w-full transition-all duration-300 ${
+    <div ref={navContainerRef} className={`w-full h-fit transition-all duration-300 ${
       isVisible 
         ? `relative border-b border-white/10 pb-2 ${isFixed ? 'sm:fixed sm:top-16 sm:left-0 sm:right-0 sm:z-40 sm:backdrop-blur-md sm:border-white/20 sm:mb-4 sm:bottom-5 sm:pb-0' : ''}` 
         : 'hidden'
