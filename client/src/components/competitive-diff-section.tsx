@@ -9,7 +9,7 @@ export default function CompetitiveDiffSection() {
             name: "Fiat Tokenization",
             icon: Navigation2,
             albor: "Omnibus Account Settlement",
-            competitors: "Token Issuance Only",
+            competitors: "Issuance Only",
             alborHas: true
         },
         {
@@ -27,9 +27,9 @@ export default function CompetitiveDiffSection() {
             alborHas: true
         },
         {
-            name: "Bank Revenue Model",
+            name: "Bank Revenue",
             icon: DollarSign,
-            albor: "Earns FX & Interchange Fees",
+            albor: "FX & Interchange Fees",
             competitors: "Pays platform fees",
             alborHas: true
         },
@@ -113,13 +113,13 @@ export default function CompetitiveDiffSection() {
                         <table className="border-collapse w-full">
                             <thead>
                                 <tr className="border-b border-white/10">
-                                    <th className="text-left py-3 px-3 font-semibold text-slate-900 dark:text-white text-xs" style={{ width: '35%' }}>
+                                    <th className="text-left py-3 px-3 font-semibold text-slate-900 dark:text-white text-xs" style={{ width: '30%' }}>
                                         Feature
                                     </th>
-                                    <th className="py-3 px-3 text-center" style={{ width: '32.5%' }}>
+                                    <th className="py-3 px-3 text-center" style={{ width: '40%' }}>
                                         <img src="/logos/svg/albor.svg" alt="Albor" style={{ height: '12px', width: 'auto', margin: '0 auto', display: 'block' }} />
                                     </th>
-                                    <th className="text-center py-3 px-3 font-semibold text-slate-600 dark:text-slate-400 text-xs" style={{ width: '32.5%' }}>
+                                    <th className="text-center py-3 px-3 font-semibold text-slate-600 dark:text-slate-400 text-xs" style={{ width: '30%' }}>
                                         Others
                                     </th>
                                 </tr>

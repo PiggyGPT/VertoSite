@@ -122,7 +122,7 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div>
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Total Value Locked</div>
+          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Liquidity</div>
           <div className="text-2xl font-sans font-semibold text-white">
             ${(tvl / 1000000).toFixed(1)}M
           </div>
@@ -199,7 +199,7 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
         className="group flex items-center gap-3 px-8 py-3 bg-[#4D88FF] hover:bg-[#3A6FE6] text-white rounded-lg font-semibold shadow-lg shadow-[#4D88FF]/20 transition-all mt-4 mx-auto font-sans"
       >
          <Plus className="w-4 h-4" />
-         <span>Add Liquidity to Earn 5.42%</span>
+         <span>Add Liquidity</span>
          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </motion.button>
     </div>
