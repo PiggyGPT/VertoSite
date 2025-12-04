@@ -1963,7 +1963,7 @@ export default function PillarsSection({
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "albor-teal", title: "Global Fiat Router", icon: Globe,
+      label: "Transact Globally", color: "albor-teal", title: "Global Fiat Checkout", icon: Globe,
       description: "Enable clients to send and receive Digital Dollars worldwide directly using your Bank Stablecoin.",
       visual: <PaymentsVisual />,
       founderQuote: {
