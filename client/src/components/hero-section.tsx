@@ -65,12 +65,14 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
           <h1 className="font-bold text-3xl md:text-4xl sm:text-6xl lg:text-7xl tracking-tighter mb-8 leading-[1.05] text-white">
-            Bridge Your Bank<br />
+            Stop Losing Deposits<br />
               To Digital Dollars
           </h1>
 
           <p className="text-base sm:text-xl md:text-2xl text-slate-200 leading-relaxed mb-12 max-w-2xl">
-            Albor's stablecoin rails make bank deposits interoperable and instantly tradable with Digital Dollars.
+              Albor’s infrastructure enables your clients to transact globally in Digital Dollars - while keeping their fiat deposits in your bank.
+
+
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-20 w-full sm:w-auto">

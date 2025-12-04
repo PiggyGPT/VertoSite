@@ -1937,8 +1937,8 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "albor-plum", title: "Banking APIs", icon: Workflow,
-      description: "Automate stablecoin issuance, redemption, and reconciliation against bank deposits & withdrawals",
+      label: "Tokenize Deposits", color: "albor-plum", title: "Omnibus APIs", icon: Workflow,
+      description: "Automate issuance and redemption of your bank stablecoin, backed 1:1 by deposits in your own omnibus account.",
       visual: <MintingVisual />,
       founderQuote: {
         quote: "Building trust in a regulated stablecoin begins with two non-negotiable mandates: real-time settlement of deposits and withdrawals, and audit-ready asset backing.",
@@ -1946,12 +1946,12 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Auto-trigger token mints to client wallets upon verified fiat deposits in omnibus accounts." }, { icon: CreditCard, title: "Automated Off-Ramp", description: "Auto-trigger fiat wires from omnibus accounts against token burns from client wallets." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into Standard Line-Item Accounting and Omnibus Reconciliation." },],
+      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Automatically issue stablecoins to clients when they deposit local currency into your omnibus account." }, { icon: CreditCard, title: "Automated Off-Ramp", description: "Automatically redeem stablecoins and wire local currency from your omnibus account when clients cash out." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into Standard Line-Item Accounting and Omnibus Reconciliation." },],
       cta: "Explore APIs"
     },
     trading: {
       label: "Attract Liquidity", color: "albor-blue", title: "Automated Market Maker", icon: Coins,
-      description: "Establish a Digital Dollar market for your stablecoin to enable 24/7 access to trade and provide liqudity.",
+      description: "Secure 24/7 Digital Dollar liquidity for your bank stablecoin, funded by a network of institutional Market Makers.",
       visual: <ExecutiveLiquidityFlow />,
       founderQuote: {
         quote: "To capture global flows, stablecoins must offer deep liquidity. This requires a market structure that attracts institutional capital while adhering to strict counterparty compliance.",
@@ -1959,12 +1959,12 @@ export default function PillarsSection({
         title: "Chairman | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: Store, title: "Isolated Liquidity Pools", description: "Allow Market Makers to deposit their capital into smart contracts that eliminate counterparty risk." }, { icon: TrendingUp, title: "BIS-Validated Pricing Models", description: "Maintain stable exchange rates and optimal spreads using BIS-validated market making algorithms." }, { icon: DollarSign, title: "Instant Yield Distribution", description: "Automatically distributes transaction fees to Market Makers against their deposited liquidity share." },],
+      features: [{ icon: Store, title: "Third-Party Liquidity Pools", description: "Enable institutional Market Makers to fund secure liquidity pools with Digital Dollars and Bank Stablecoins." }, { icon: TrendingUp, title: "BIS-Aligned Pricing Engine", description: "Offer transparent exchange rates derived from pricing models validated by the Bank for International Settlements." }, { icon: DollarSign, title: "Automated Yield Distribution", description: "Automatically collect and share transaction fees with Market Makers against their deposited liquidity share." },],
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "albor-teal", title: "Patent-Pending Router", icon: Globe,
-      description: "Enable your clients to directly transact globally with external wallets and banks through your stablecoin.",
+      label: "Transact Globally", color: "albor-teal", title: "Global Payments Router", icon: Globe,
+      description: "Enable clients to send and receive Digital Dollars worldwide directly from their fiat deposits — via your bank's stablecoin.",
       visual: <PaymentsVisual />,
       founderQuote: {
         quote: "Stablecoins drive volume when any user, anywhere can trade them with their existing funds — be it fiat in banks or crypto in wallets.",
@@ -1972,7 +1972,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Route, title: "Best Execution Pathfinder", description: "Algorithmically scan global liquidity pools to route client trades through the most efficient path." }, { icon: KeyIcon, title: "Bank-Signed Execution", description: "Orchestrate multi-step routes with a single approval from the counterparty's wallet keys." }, { icon: Zap, title: "Automated Fee Splitting", description: "Instantly collect and distribute interchange fees within the executed route." },],
+      features: [{ icon: Route, title: "Smart Global Routing", description: "Find the best settlement route across diverse liquidity pools to transact with any external wallet or international bank." }, { icon: KeyIcon, title: "Peer-to-Peer Settlement", description: "Settle routes peer-to-peer between the bank, liquidity pools, and counterparty wallets. Albor never holds funds." }, { icon: Zap, title: "Interchange Revenue", description: "Automatically capture fees on Digital Dollar payments that currently bypass your bank entirely." },],
       cta: "Explore Router"
     },
     service: {
@@ -1986,7 +1986,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: ShieldCheck, title: "Enforce Pre-Trade AML/KYC", description: "Leverage Compliance integrations for real-time AML/KYC across all transactions." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy our stack in your own single-tenant private cloud or a local data-resident zone." }, ],
+      features: [{ icon: KeyIcon, title: "Connect Your Key Providers", description: "Integrate with your existing wallet providers and key governance systems." }, { icon: ShieldCheck, title: "Enforce AML/KYC Checks", description: "Leverage Compliance integrations for real-time AML/KYC checks for all transactions." }, { icon: Shield, title: "Secure Data Sovereignty", description: "Deploy our stack in your own single-tenant private cloud or a local data-resident zone." }, ],
       cta: "Explore Compliance"
     },
   };

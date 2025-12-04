@@ -16,26 +16,27 @@ import {
 
 // ===== DATA & CONFIG =====
 
+// ===== DATA & CONFIG =====
 const STEPS = [
   {
     id: "transactions",
-    title: "Transactions Drive Fees",
+    title: "Utility Drives Revenue",
     subtitle: "Transact Globally",
-    description: "Clients trade Digital Dollars directly through your Bank, bringing the volume back into your ledger.",
+    description: "Clients stop withdrawing to exchanges because they can now send and receive Digital Dollars directly from your banking app.",
     color: "emerald"
   },
   {
     id: "fees",
-    title: "Fees Drive Liquidity",
+    title: "Revenue Drives Liquidity",
     subtitle: "Attract Liquidity",
-    description: "Transaction fees are shared with Market Makers, attracting their liquidity into your stablecoin.",
+    description: "Transaction volume generates FX fees, which attracts deep-pocketed Market Makers to hold deposits at your bank.",
     color: "blue"
   },
   {
     id: "liquidity",
-    title: "Liquidity Drives Deposits",
+    title: "Liquidity Secures Deposits",
     subtitle: "Tokenize Deposits",
-    description: "Providing liquidity requires tokenizing Bank deposits, bringing new capital into the Bank.",
+    description: "Deep Digital Dollar liquidity drives higher transaction volumes, further expanding your balance sheet with new deposits.",
     color: "purple"
   }
 ];
@@ -206,6 +207,10 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
 const MintView = () => {
   return (
     <div className="h-full flex flex-col items-center space-y-6 min-h-0 p-4">
+       <div className="text-center">
+          <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest mb-2">Bank Deposits</h4>
+       </div>
+
        <div className="w-full max-w-sm relative max-h-[160px]">
           {/* Path Line */}
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-300 dark:bg-slate-800 -translate-y-1/2 rounded-full overflow-hidden">
@@ -238,7 +243,7 @@ const MintView = () => {
                  <div className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center border border-slate-400 dark:border-slate-600 z-20">
                     <Landmark className="w-5 h-5 text-slate-700 dark:text-slate-300" />
                  </div>
-                 <span className="text-[12px] font-mono text-slate-100 dark:text-slate-100 bg-slate-100 dark:bg-slate-900 px-2 rounded">BANK DEPOSIT</span>
+                 <span className="text-[12px] font-mono text-slate-100 dark:text-slate-100 bg-slate-100 dark:bg-slate-900 px-2 rounded">BALANCE SHEET</span>
              </div>
              {/* Left Node: Fiat */}
              <div className="flex flex-col items-center gap-2">
@@ -252,29 +257,29 @@ const MintView = () => {
 
        {/* REWORKED ROWS: use same visual language as FeesView rows for consistency */}
        <div className="w-full space-y-3 overflow-auto" style={{ maxHeight: '240px' }}>
-         <div className="flex items-center justify-between py-2 px-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
+         <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
            <div className="flex items-center gap-3">
              <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(168,85,247,0.08)' }}>
                <Check className="w-4 h-4" style={{ color: '#A885FF' }} />
              </div>
              <div>
                <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Wire Received</div>
-               <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">Bank transfer confirmed</div>
+               <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
              </div>
            </div>
            <div className="text-right">
-             <div className="text-sm font-bold font-mono text-slate-700 dark:text-slate-300">$1.00M USD → 12.50M BOB</div>
-             <div className="text-[10px] text-slate-600 dark:text-slate-500">Processed</div>
+             <div className="text-sm font-bold font-mono text-slate-700 dark:text-slate-300">$1.00M USD → 12.50M BSD</div>
+             <div className="text-[10px] text-slate-600 dark:text-slate-500">Minted</div>
            </div>
          </div>
 
-         <div className="flex items-center justify-between py-2 px-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
+         <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
            <div className="flex items-center gap-3">
              <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(168,85,247,0.06)' }}>
                <Check className="w-4 h-4" style={{ color: '#A885FF' }} />
              </div>
              <div>
-               <div className="text-sm font-bold text-slate-900 dark:text-slate-200">BSD Minted</div>
+               <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Wire Received</div>
                <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
              </div>
            </div>
@@ -284,13 +289,13 @@ const MintView = () => {
            </div>
          </div>
 
-         <div className="flex items-center justify-between py-2 px-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
+         <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
            <div className="flex items-center gap-3">
              <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(168,85,247,0.06)' }}>
                <Check className="w-4 h-4" style={{ color: '#A885FF' }} />
              </div>
              <div>
-               <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Liquidity Added</div>
+               <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Liquidity Added to AMM</div>
                <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">LP position opened</div>
              </div>
            </div>
@@ -445,7 +450,7 @@ export default function LiquidityFlywheel() {
              transition={{ delay: 0.1 }}
              className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans"
           >
-            Albor captures the demand for Digital Dollars to expand your balance sheet.
+            Albor formalizes the demand for Digital Dollars to expand your balance sheet.
           </motion.p>
         </div>
 
