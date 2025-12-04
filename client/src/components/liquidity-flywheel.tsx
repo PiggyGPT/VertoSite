@@ -527,42 +527,26 @@ export default function LiquidityFlywheel() {
               </LayoutGroup>
             </div>
 
-            {/* MOBILE: Single stacked card animation */}
-            <div className="lg:hidden relative h-[280px]">
-              <AnimatePresence mode="popLayout">
-                {STEPS.map((step, index) => {
-                  const isActive = activeStepId === step.id;
-                  const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
-                  const stackOffset = (index - activeIndex) * 8;
-                  const isVisible = Math.abs(index - activeIndex) <= 2;
-                  
-                  if (!isVisible) return null;
-
-                  return (
-                    <motion.div
-                      key={step.id}
-                      onClick={() => handleStepClick(step.id)}
-                      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                      animate={{ 
-                        opacity: 1, 
-                        y: stackOffset,
-                        scale: 1,
-                        zIndex: isActive ? 30 : 20 - Math.abs(index - activeIndex)
-                      }}
-                      exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                      transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
-                      className={`
-                        absolute w-full p-5 rounded-xl cursor-pointer transition-all duration-300
-                        ${isActive 
-                          ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl" 
-                          : "bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 shadow-md"
-                        }
-                      `}
-                    >
-                      {/* Active Progress Bar */}
-                      {isActive && (
+            {/* MOBILE: Stacked card animation with fixed height */}
+            <div className="lg:hidden flex flex-col h-[280px] gap-0">
+              {/* Active Card - Full Content */}
+              <div className="flex-1 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  {STEPS.map((step) => {
+                    if (activeStepId !== step.id) return null;
+                    
+                    return (
+                      <motion.div
+                        key={step.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
+                        className="h-full w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl rounded-xl p-5 cursor-pointer flex flex-col"
+                      >
+                        {/* Progress Bar */}
                         <motion.div 
-                          className="absolute left-0 bottom-0 h-1 z-20 rounded-bl-xl"
+                          className="absolute left-0 bottom-0 h-1 z-20 rounded-bl-xl w-full"
                           style={{ 
                             width: `${progress}%`, 
                             maxWidth: '100%',
@@ -570,40 +554,61 @@ export default function LiquidityFlywheel() {
                           }}
                           transition={{ ease: "linear", duration: 0.1 }}
                         />
-                      )}
-
-                      <div className="flex items-start justify-between">
-                        <div className="w-full">
-                          <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? (step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]') : "text-slate-600 dark:text-slate-500"}`}>
-                             {step.subtitle}
+                        
+                        <div className="flex items-start justify-between pb-4">
+                          <div className="flex-1">
+                            <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]'}`}>
+                               {step.subtitle}
+                            </div>
+                            <h3 className="text-lg font-bold mb-1 text-slate-900 dark:text-white">
+                              {step.title}
+                            </h3>
                           </div>
-                          <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
-                            {step.title}
-                          </h3>
-                          <AnimatePresence>
-                            {isActive && (
-                              <motion.p 
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mt-2 font-sans"
-                              >
-                                {step.description}
-                              </motion.p>
-                            )}
-                          </AnimatePresence>
-                        </div>
-
-                        {isActive && (
                           <motion.div className="mt-2 ml-2 flex-shrink-0" style={{ color: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF' }}>
                              <ArrowUpRight className="w-5 h-5" />
                           </motion.div>
-                        )}
-                      </div>
+                        </div>
+                        
+                        <motion.p 
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          className="text-slate-600 dark:text-slate-200 text-sm leading-relaxed font-sans flex-1"
+                        >
+                          {step.description}
+                        </motion.p>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
+              </div>
+
+              {/* Collapsed Cards - Title Only Headers */}
+              <div className="flex flex-col gap-1 pt-2">
+                {STEPS.map((step, index) => {
+                  const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
+                  const isActive = step.id === activeStepId;
+                  const positionIndex = (index - activeIndex + STEPS.length) % STEPS.length;
+                  
+                  // Show only the 2 inactive cards after active
+                  if (isActive || positionIndex > 2) return null;
+
+                  return (
+                    <motion.div
+                      key={step.id}
+                      onClick={() => handleStepClick(step.id)}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2, delay: positionIndex * 0.05 }}
+                      className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 shadow-sm rounded-lg p-3 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-900/70 transition-colors"
+                    >
+                      <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                        {step.title}
+                      </h4>
                     </motion.div>
                   );
                 })}
-              </AnimatePresence>
+              </div>
             </div>
           </div>
 
