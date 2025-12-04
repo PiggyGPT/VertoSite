@@ -75,22 +75,21 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
     if (onStepClick) onStepClick(index);
     // Trigger event for PillarsSection to listen
     window.dispatchEvent(new CustomEvent('activatePillar', { detail: orderedKeys[index] }));
-    // Scroll to pillar content only on desktop, not on mobile
-    if (window.innerWidth >= 640) {
-      setTimeout(() => {
-        const element = document.getElementById('pillar-content');
-        if (element && navContainerRef.current) {
-          const mainNavHeight = 64;
-          const pillarNavHeight = navContainerRef.current.offsetHeight;
-          const totalNavHeight = mainNavHeight + pillarNavHeight;
-          const elementTop = element.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({
-            top: elementTop - totalNavHeight,
-            behavior: 'smooth'
-          });
-        }
-      }, 50);
-    }
+    // Scroll to pillar content on manual click (both mobile and desktop)
+    // This is safe because handleStepClick is only called on manual clicks, not during auto-play
+    setTimeout(() => {
+      const element = document.getElementById('pillar-content');
+      if (element && navContainerRef.current) {
+        const mainNavHeight = 64;
+        const pillarNavHeight = navContainerRef.current.offsetHeight;
+        const totalNavHeight = mainNavHeight + pillarNavHeight;
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementTop - totalNavHeight,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
   };
 
   return (
