@@ -48,7 +48,7 @@ export default function CompetitiveDiffSection() {
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-12">
                     <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
-                        Deposit‑Growth Infrastructure
+                        Purpose-Built for Deposit Growth
 
                     </h2>
                     <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
