@@ -52,7 +52,7 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
   return (
     <div className="h-full flex flex-col justify-between min-h-0">
       <div className="text-center mb-6">
-        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans uppercase tracking-widest font-medium">24h Fees Collected</h4>
+        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans uppercase py-1 tracking-widest font-medium">24h Fees Collected</h4>
         <motion.div 
            key={`fees-${totalFees}`}
            initial={{ scale: 0.95 }}
@@ -61,7 +61,7 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
         >
           ${totalFees.toLocaleString()}
         </motion.div>
-        <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
+        <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 mt-3 rounded-full border border-slate-200 dark:border-slate-700">
           <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
           <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: ${totalVolume.toLocaleString()}</span>
         </div>
@@ -267,12 +267,12 @@ const MintView = () => {
              </div>
              <div>
                <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Wire Received</div>
-               <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
+               <div className="text-[10px] text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
              </div>
            </div>
            <div className="text-right">
-             <div className="text-sm font-bold font-mono text-slate-700 dark:text-slate-300">$1.00M USD → 12.50M BSD</div>
-             <div className="text-[10px] text-slate-600 dark:text-slate-500">Minted</div>
+             <div className="text-xs font-bold font-mono text-slate-700 dark:text-slate-300">$1.00M USD</div>
+             <div className="text-[10px] text-slate-600 dark:text-slate-500">12.50M BSD Minted</div>
            </div>
          </div>
 
@@ -283,12 +283,12 @@ const MintView = () => {
              </div>
              <div>
                <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Wire Received</div>
-               <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
+               <div className="text-[10px] text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
              </div>
            </div>
            <div className="text-right">
-             <div className="text-sm font-bold font-mono text-slate-700 dark:text-slate-300">12.50M BOB → 12.50M BSD</div>
-             <div className="text-[10px] text-slate-600 dark:text-slate-500">Minted</div>
+             <div className="text-xs font-bold font-mono text-slate-700 dark:text-slate-300">12.50M BOB </div>
+             <div className="text-[10px] text-slate-600 dark:text-slate-500">12.50M BSD Minted</div>
            </div>
          </div>
 
@@ -298,12 +298,12 @@ const MintView = () => {
                <Check className="w-4 h-4" style={{ color: '#A885FF' }} />
              </div>
              <div>
-               <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Liquidity Added to AMM</div>
+               <div className="text-xs font-bold text-slate-900 dark:text-slate-200">Liquidity Added to AMM</div>
                <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">LP position opened</div>
              </div>
            </div>
            <div className="text-right">
-             <div className="text-sm font-bold font-mono text-slate-700 dark:text-slate-300">1.00M USDC + 12.50M BSD</div>
+             <div className="text-xs font-bold font-mono text-slate-700 dark:text-slate-300">1.00M USDC + 12.50M BSD</div>
              <div className="text-[10px] text-slate-600 dark:text-slate-500">Active</div>
            </div>
          </div>
