@@ -1937,8 +1937,8 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Tokenize Deposits", color: "albor-plum", title: "Omnibus APIs", icon: Workflow,
-      description: "Automate 1:1 issuance and redemption of your Bank Stablecoin against deposits in your omnibus accounts.",
+      label: "Retain Deposits", color: "albor-plum", title: "Bank-Issued Stablecoin", icon: Workflow,
+      description: "Launch your own stablecoin, backed 1:1 by deposits held exclusively in your bank's omnibus accounts.",
       visual: <MintingVisual />,
       founderQuote: {
         quote: "Building trust in a regulated stablecoin begins with two non-negotiable mandates: real-time settlement of deposits and withdrawals, and audit-ready asset backing.",
@@ -1946,7 +1946,7 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Automated On-Ramp", description: "Automatically issue stablecoins to clients when they deposit local currency into your omnibus account." }, { icon: CreditCard, title: "Automated Off-Ramp", description: "Automatically redeem stablecoins and wire local currency from your omnibus account when clients cash out." }, { icon: CheckCircle, title: "End-to-End Reconciliation", description: "Translate complex blockchain data into Standard Line-Item Accounting and Omnibus Reconciliation." },],
+      features: [{ icon: Workflow, title: "Automated Issuance", description: "Client deposits into your omnibus account trigger 1:1 issuance of your stablecoin to their wallet." }, { icon: CreditCard, title: "Instant Redemption", description: "Clients redeem your stablecoin for immediate withdrawal from your omnibus account." }, { icon: CheckCircle, title: "Audit-Ready Reconciliation", description: "On-demand, audit-ready reports reconciling every mint and redemption with omnibus deposits." },],
       cta: "Explore APIs"
     },
     trading: {
@@ -1959,11 +1959,11 @@ export default function PillarsSection({
         title: "Chairman | Former CISO at GSR",
         image: davidImage
       },
-      features: [{ icon: Store, title: "Third-Party Liquidity Pools", description: "Enable Market Makers to fund secure liquidity pools with Digital Dollars and Bank Stablecoins." }, { icon: TrendingUp, title: "BIS-Aligned Pricing Engine", description: "Offer optimal exchange rates using pricing models validated by the Bank for International Settlements." }, { icon: DollarSign, title: "Automated Yield Distribution", description: "Capture FX fees on every swap and automatically distribute yield to attract and retain Market Maker liquidity." },],
+      features: [{ icon: Store, title: "Third-Party Liquidity Pools", description: "Enable Market Makers to fund secure liquidity pools with Digital Dollars and your Bank Stablecoins." }, { icon: TrendingUp, title: "BIS-Aligned Pricing Engine", description: "Offer optimal exchange rates using pricing models validated by the Bank for International Settlements." }, { icon: DollarSign, title: "Automated Yield Distribution", description: "Capture FX fees on every swap and automatically distribute yield to attract and retain Market Maker liquidity." },],
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "albor-teal", title: "Global Fiat Checkout", icon: Globe,
+      label: "Transact Globally", color: "albor-teal", title: "One-Tap Checkout", icon: Globe,
       description: "Enable clients to send and receive Digital Dollars worldwide directly using your Bank Stablecoin.",
       visual: <PaymentsVisual />,
       founderQuote: {

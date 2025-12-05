@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Zap, Store, Globe, Shield } from "lucide-react";
+import { Store ,VaultIcon, Globe, Shield } from "lucide-react";
 
 interface SharedPillarNavProps {
   currentStep?: number;
@@ -16,7 +16,7 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
 
   const orderedKeys = ["distribution", "trading", "payments", "service"];
   const pillars = {
-    distribution: { label: "Tokenize Deposits", color: "albor-plum", icon: Zap },
+    distribution: { label: "Tokenize Deposits", color: "albor-plum", icon: VaultIcon },
     trading: { label: "Attract Liquidity", color: "albor-blue", icon: Store },
     payments: { label: "Transact Globally", color: "albor-teal", icon: Globe },
     service: { label: "Secure Compliance", color: "albor-gold", icon: Shield },

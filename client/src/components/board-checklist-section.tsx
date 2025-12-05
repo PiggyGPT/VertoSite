@@ -42,25 +42,25 @@ export default function PilotProgramSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
-              Launch Your Pilot in 90 Days
+              De-Risk Your Stablecoin Launch
             </h2>
             <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
-              De-risk your launch with a sandbox environment that proves production readiness.
+              Our model mitigates 3 critical barriers to a successful commercial rollout.
             </p>
           </div>
 
           <div className="max-w-3xl mx-auto">
             {/* TimelineItem components remain unchanged */}
-            <TimelineItem phase="Days 1-90" title="Foundation & Liquidity Onboarding" icon={Rocket} color="albor-innovation">
-              <p>We integrate your core banking systems, onboard your team to run operations, and connect you with pre-vetted market makers to establish immediate liquidity.</p>
+            <TimelineItem phase="De-Risk Compliance" title="Digital Asset Subsidiary" icon={Rocket} color="albor-innovation">
+              <p>We create a bank subsidiary that holds deposits in omnibus accounts at the parent bank. We validate the 1:1 backing and compliance with SOC 2 certifications.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 91-120" title="Sandbox Pilot Operations" icon={Target} color="albor-teal">
-              <p>Your team operates the pilot with our 24/7 SOC support, protocol guidance, and performance monitoring to validate operational readiness.</p>
+            <TimelineItem phase="De-Risk Liquidity" title="Third Party Liquidity Network" icon={Target} color="albor-teal">
+              <p>We connect you with vetted market makers to deposit Digital Dollars and your stablecoin into dedicated pools, ensuring immediate liquidity at launch.</p>
             </TimelineItem>
 
-            <TimelineItem phase="Days 120+" title="Enterprise Scaling" icon={BarChart3} color="albor-dawn">
-              <p>We transition your team to full production operations with proven metrics and a clear path to scale across your enterprise.</p>
+            <TimelineItem phase="De-Risk Technology" title="Standard Bank Integration" icon={BarChart3} color="albor-dawn">
+              <p>We integrate with your existing authentication and reporting systems, requiring minimal custom development and no changes to your core banking infrastructure.</p>
             </TimelineItem>
           </div>
 
