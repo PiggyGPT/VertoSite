@@ -42,7 +42,7 @@ export default function PilotProgramSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
-              De-Risk Your Stablecoin Launch
+              De-Risk Your Bank Stablecoin
             </h2>
             <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
               Our model mitigates 3 critical barriers to a successful commercial rollout.
@@ -56,7 +56,7 @@ export default function PilotProgramSection() {
             </TimelineItem>
 
             <TimelineItem phase="De-Risk Liquidity" title="Third Party Liquidity Network" icon={Target} color="albor-teal">
-              <p>We connect you with vetted market makers to deposit Digital Dollars and your stablecoin into dedicated pools, ensuring immediate liquidity at launch.</p>
+              <p>We connect you with vetted institutional market makers to seed deep liquidity for Digital Dollars and your stablecoin, reducing volatility at launch.</p>
             </TimelineItem>
 
             <TimelineItem phase="De-Risk Technology" title="Standard Bank Integration" icon={BarChart3} color="albor-dawn">
