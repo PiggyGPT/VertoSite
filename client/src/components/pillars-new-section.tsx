@@ -1937,7 +1937,7 @@ export default function PillarsSection({
   // Reordered: Distribution (step 1) -> Trading (step 2) -> Payments (step 3) -> Service (step 4/spiral)
   const defaultPillars = {
     distribution: {
-      label: "Retain Deposits", color: "albor-plum", title: "Bank-Issued Stablecoin", icon: Workflow,
+      label: "Tokenize Deposits", color: "albor-plum", title: "Bank-Issued Stablecoin", icon: Workflow,
       description: "Launch your own stablecoin, backed 1:1 by deposits held exclusively in your bank's omnibus accounts.",
       visual: <MintingVisual />,
       founderQuote: {
