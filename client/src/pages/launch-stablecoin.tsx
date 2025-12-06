@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
+import { useCalendlyModal } from "@/components/calendly-modal";
 import HeroSection from "@/components/hero-section";
 import ProblemSection from "@/components/problem-section";
 import BoardChecklistSection from "@/components/board-checklist-section";
@@ -100,6 +101,7 @@ const stablecoinWhyNowReasons = [
 
 export default function LaunchStablecoin() {
   const [currentStep, setCurrentStep] = useState(0);
+  const { openModal, CalendlyModal } = useCalendlyModal();
 
   useEffect(() => {
     updatePageSEO("launch-stablecoin");
@@ -119,7 +121,7 @@ export default function LaunchStablecoin() {
 
   return (
     <div className="min-h-screen transition-colors">
-      <Navigation />
+      <Navigation onScheduleDemo={() => openModal("Schedule Demo")} />
       <div id="hero">
         <HeroSection currentStep={currentStep} onPillarClick={(index) => setCurrentStep(index)} />
       </div>
@@ -163,6 +165,7 @@ export default function LaunchStablecoin() {
         />
       </div>
       <Footer />
+      <CalendlyModal />
     </div>
   );
 }

@@ -3,7 +3,10 @@
 import { useState, useEffect } from "react";
 import { Rocket, Calendar } from "lucide-react";
 import { Link } from "wouter";
-import { useCalendlyModal } from "./calendly-modal";
+
+interface NavigationProps {
+  onScheduleDemo?: () => void;
+}
 
 // It's good practice to create a dedicated component for custom icons.
 const SocialXIcon = ({ className }: { className?: string }) => (
@@ -20,9 +23,8 @@ const SocialXIcon = ({ className }: { className?: string }) => (
 // Define navigation links for the new landing pages with icons
 const navLinks = [];
 
-export default function Navigation() {
+export default function Navigation({ onScheduleDemo }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { openModal, CalendlyModal } = useCalendlyModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +53,7 @@ export default function Navigation() {
 
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => openModal("Schedule Demo")}
+              onClick={onScheduleDemo}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold hover:scale-105 transition-all duration-300 text-[12px]"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
@@ -68,7 +70,7 @@ export default function Navigation() {
               Schedule Demo
             </button>
             <button
-              onClick={() => openModal("Schedule Demo")}
+              onClick={onScheduleDemo}
               className="md:hidden inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-200 font-semibold text-xs transition-all hover:bg-slate-50 dark:hover:bg-white/10"
               data-testid="mobile-schedule-demo"
             >
@@ -78,7 +80,6 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      <CalendlyModal />
     </nav>
   );
 }
