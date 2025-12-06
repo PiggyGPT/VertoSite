@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
 import { InlineWidget } from "react-calendly";
 
@@ -76,18 +76,24 @@ export function useCalendlyModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState("Schedule a Consultation");
 
-  const openModal = (modalTitle?: string) => {
+  const openModal = useCallback((modalTitle?: string) => {
     if (modalTitle) setTitle(modalTitle);
     setIsOpen(true);
-  };
-  const closeModal = () => setIsOpen(false);
+  }, []);
+
+  const closeModal = useCallback(() => setIsOpen(false), []);
+
+  const CalendlyModalComponent = useCallback(
+    (props: Omit<CalendlyModalProps, 'isOpen' | 'onClose'>) => (
+      <CalendlyModal {...props} isOpen={isOpen} onClose={closeModal} title={title} />
+    ),
+    [isOpen, closeModal, title]
+  );
 
   return {
     isOpen,
     openModal,
     closeModal,
-    CalendlyModal: (props: Omit<CalendlyModalProps, 'isOpen' | 'onClose'>) => (
-      <CalendlyModal {...props} isOpen={isOpen} onClose={closeModal} title={title} />
-    )
+    CalendlyModal: CalendlyModalComponent
   };
 }
