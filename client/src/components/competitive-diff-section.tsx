@@ -1,4 +1,4 @@
-import { Calendar, TrendingUp, Shield, DollarSign, Navigation2, ArrowRight, Send } from "lucide-react";
+import { Calendar, TrendingUp, Shield, DollarSign, CreditCard, Vault, Send } from "lucide-react";
 import { useCalendlyModal } from "./calendly-modal";
 
 export default function CompetitiveDiffSection() {
@@ -7,7 +7,7 @@ export default function CompetitiveDiffSection() {
     const features = [
         {
             name: "Fiat Tokenization",
-            icon: Navigation2,
+            icon: Vault,
             albor: "Omnibus Account Settlement",
             competitors: "Issuance Only",
             alborHas: true
@@ -21,16 +21,16 @@ export default function CompetitiveDiffSection() {
         },
         {
             name: "Global Payments",
-            icon: Navigation2,
+            icon: CreditCard,
             albor: "Multi-Currency, Multi-Chain",
             competitors: "Single Currency Only",
             alborHas: true
         },
         {
-            name: "Bank Business Model",
+            name: "Business Model",
             icon: DollarSign,
-            albor: "Earn FX & Interchange Fees",
-            competitors: "Pay Platform Fees",
+            albor: "Share Fees & Deposit Yield",
+            competitors: "Charge Platform Fees",
             alborHas: true
         },
         {
