@@ -59,7 +59,7 @@ import {
   ChevronDown, Landmark, History, Link, Clock, Plus,
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
   Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow, Calendar, Quote,
-  Loader2, Building, Blocks, ArrowUpRight, ArrowDownLeft, Hash, RefreshCw,
+  Loader2, Building, Blocks, ArrowUpRight, ArrowDownLeft, HandCoins, RefreshCw,
   Smartphone, ScanLine, Fingerprint, Briefcase, DollarSign, Activity, Gift
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
@@ -1963,8 +1963,8 @@ export default function PillarsSection({
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "albor-teal", title: "One-Tap Checkout", icon: Globe,
-      description: "Enable clients to send and receive Digital Dollars worldwide directly using your Bank Stablecoin.",
+      label: "Transact Globally", color: "albor-teal", title: "Whitelabel Wallet", icon: Globe,
+      description: "Enable clients to send and receive your Bank Stablecoin worldwide — directly from your domain and UX.",
       visual: <PaymentsVisual />,
       founderQuote: {
         quote: "Stablecoins drive volume when any user, anywhere can trade them with their existing funds — be it fiat in banks or crypto in wallets.",
@@ -1972,7 +1972,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Route, title: "Smart Global Routing", description: "Find the best settlement route across diverse liquidity pools to transact with external wallets and international banks." }, { icon: KeyIcon, title: "Peer-to-Peer Settlement", description: "Settle routes peer-to-peer between the bank, liquidity pools, and counterparty wallets. Albor never holds funds." }, { icon: Zap, title: "Interchange Revenue", description: "Automatically capture fees on Digital Dollar payments that currently bypass your bank entirely." },],
+      features: [{ icon: Globe, title: "Global Coverage", description: "Enable your clients to directly transact with major exchanges, international banks and external wallets." }, { icon: HandCoins, title: "Peer-to-Peer Settlement", description: "Enable external payers to directly move funds to your client wallets. Neither you nor Albor touches funds." }, { icon: Zap, title: "Interchange Revenue", description: "Automatically capture fees on Digital Dollar payments that currently bypass your bank entirely." },],
       cta: "Explore Router"
     },
     service: {
