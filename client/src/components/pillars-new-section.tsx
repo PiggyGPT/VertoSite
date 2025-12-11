@@ -1972,7 +1972,7 @@ export default function PillarsSection({
         title: "CEO | Ex-Venmo/PayPal Crypto",
         image: nileshImage
       },
-      features: [{ icon: Globe, title: "Global Coverage", description: "Enable your clients to directly transact with major exchanges, international banks and external wallets." }, { icon: HandCoins, title: "Peer-to-Peer Settlement", description: "Enable external payers to directly move funds to your client wallets. Neither you nor Albor touches funds." }, { icon: Zap, title: "Interchange Revenue", description: "Automatically capture fees on Digital Dollar payments that currently bypass your bank entirely." },],
+      features: [{ icon: Globe, title: "Global Coverage", description: "Enable your clients to directly transact with major exchanges, international banks and external wallets." }, { icon: HandCoins, title: "Peer-to-Peer Settlement", description: "Enable external payers to settle directly to your client wallets - without touching the flow of funds." }, { icon: Zap, title: "Interchange Revenue", description: "Automatically capture fees on Digital Dollar payments that currently bypass your bank entirely." },],
       cta: "Explore Router"
     },
     service: {
