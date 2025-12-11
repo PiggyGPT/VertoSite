@@ -1946,7 +1946,7 @@ export default function PillarsSection({
         title: "Chairman | Former Federal Reserve Regulator",
         image: davidImage
       },
-      features: [{ icon: Workflow, title: "Automated Issuance", description: "Client deposits into your omnibus account trigger 1:1 issuance of your stablecoin to their wallet." }, { icon: CreditCard, title: "Instant Redemption", description: "Clients redeem your stablecoin for immediate withdrawal from your omnibus account." }, { icon: CheckCircle, title: "Audit-Ready Reconciliation", description: "On-demand, audit-ready reports reconciling every mint and redemption with omnibus deposits." },],
+      features: [{ icon: Workflow, title: "Automated Issuance", description: "Trigger 1:1 issuance of your stablecoin to client wallets against verified deposits in your omnibus account." }, { icon: CreditCard, title: "Instant Redemption", description: "Trigger 1:1 redemption of your stablecoin with immediate bank transfers from your omnibus account." }, { icon: CheckCircle, title: "Audit-Ready Reconciliation", description: "On-demand, audit-ready reports reconciling every mint and redemption against omnibus account transfers." },],
       cta: "Explore APIs"
     },
     trading: {
@@ -1963,7 +1963,7 @@ export default function PillarsSection({
       cta: "Explore DEX"
     },
     payments: {
-      label: "Transact Globally", color: "albor-teal", title: "Whitelabel Wallet", icon: Globe,
+      label: "Transact Globally", color: "albor-teal", title: "Whitelabel Checkout", icon: Globe,
       description: "Enable clients to send and receive your Bank Stablecoin worldwide — directly from your domain and UX.",
       visual: <PaymentsVisual />,
       founderQuote: {
