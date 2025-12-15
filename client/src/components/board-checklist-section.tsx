@@ -52,7 +52,7 @@ export default function PilotProgramSection() {
           <div className="max-w-3xl mx-auto">
             {/* TimelineItem components remain unchanged */}
             <TimelineItem phase="De-Risk Compliance" title="Digital Asset Subsidiary" icon={Rocket} color="albor-innovation">
-              <p>We create a bank subsidiary that holds deposits in omnibus accounts at the parent bank. We validate the 1:1 backing and compliance with SOC 2 certifications.</p>
+              <p>We create a bank subsidiary that holds fiat deposits in omnibus accounts at the parent bank. We accelerate VASP compliance with our certifications.</p>
             </TimelineItem>
 
             <TimelineItem phase="De-Risk Liquidity" title="Third Party Liquidity Network" icon={Target} color="albor-teal">
