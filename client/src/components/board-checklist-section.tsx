@@ -42,7 +42,7 @@ export default function PilotProgramSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
-              De-Risk Your Launch
+              De-Risk Your Stablecoin
             </h2>
             <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
               Our model mitigates 3 critical barriers to a successful commercial rollout.
@@ -52,7 +52,7 @@ export default function PilotProgramSection() {
           <div className="max-w-3xl mx-auto">
             {/* TimelineItem components remain unchanged */}
             <TimelineItem phase="De-Risk Compliance" title="Digital Asset Subsidiary" icon={Rocket} color="albor-innovation">
-              <p>We create a bank subsidiary that holds fiat deposits in omnibus accounts at the parent bank. We accelerate VASP compliance with our certifications.</p>
+              <p>We create a subsidiary that holds fiat deposits in omnibus accounts at parent banks. We accelerate VASP compliance with our certifications.</p>
             </TimelineItem>
 
             <TimelineItem phase="De-Risk Liquidity" title="Third Party Liquidity Network" icon={Target} color="albor-teal">
