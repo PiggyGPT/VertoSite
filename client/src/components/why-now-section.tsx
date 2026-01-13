@@ -34,7 +34,7 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                 <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
                     {/* Left Side: Headline */}
                     <div className="text-center lg:text-left">
-                        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-tight">
                             {customTitle || "Why Now?"}
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">

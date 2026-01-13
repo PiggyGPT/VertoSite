@@ -23,7 +23,7 @@ const SectionHeading = ({ title, children }: { title: React.ReactNode, children:
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-[1.45]"
+      className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-[1.45]"
     >
       {title}
     </motion.h2>
@@ -32,7 +32,7 @@ const SectionHeading = ({ title, children }: { title: React.ReactNode, children:
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1 }}
-      className="max-w-3xl mx-auto text-xl md:text-2xl text-slate-300 leading-relaxed"
+      className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed"
     >
       {children}
     </motion.div>
