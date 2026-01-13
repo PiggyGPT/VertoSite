@@ -34,7 +34,7 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                 <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
                     {/* Left Side: Headline */}
                     <div className="text-center lg:text-left">
-                        <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white mb-6 tracking-tight" data-testid="why-now-title">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
                             {customTitle || "Why Now?"}
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -69,12 +69,12 @@ export default function WhyNowSection({ customReasons, customTitle, customSubtit
                 {/* Call to Action */}
                 <div className="relative max-w-7xl mx-auto mt-10 sm:mt-12 text-center">
                     <button
-                        onClick={() => openModal("Schedule Demo")}
+                        onClick={() => openModal("Book a Demo")}
                         className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 shadow-lg text-sm sm:text-base gap-2"
                         data-testid="launch-pilot-cta"
                     >
                         <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span>Schedule Demo</span>
+                        <span>Book a Demo</span>
                     </button>
                 </div>
             </div>

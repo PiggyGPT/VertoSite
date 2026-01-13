@@ -47,9 +47,7 @@ export default function Footer() {
                             <img src="/logos/svg/albor.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
-                            Albor helps banks grow deposits and earn new revenue by bridging them to the Digital Dollar economy.
-
-
+                            Albor enables banks to give cards to corporate buyers to pay their suppliers, just like they give cards to consumers to pay merchants.
                         </p>
                     </div>
 
@@ -71,8 +69,9 @@ export default function Footer() {
                                             };
                                             href = `/#pillar-${pillarMap[link] || '0'}`;
                                         }
-                                        // Company links
-                                        else if (link === "Platform") href = "#infrastructure";
+                                         // Company links
+                                         else if (link === "Platform") href = "#infrastructure";
+                                         else if (link === "Careers") href = "https://t.me/nileshkhaitan";
                                         // Contact Us links
                                         else if (link === "Email") href = "mailto:nilesh@albor.fi";
                                         else if (link === "X") href = "https://x.com/AlborFi";

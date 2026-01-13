@@ -9,6 +9,9 @@ import Footer from "@/components/footer";
 import CompetitiveDiffSection from "@/components/competitive-diff-section";
 import PillarsSection from "@/components/pillars-new-section";
 import LiquidityFlywheel from "@/components/liquidity-flywheel";
+import SwipesAnimationSection from "@/components/swipes-animation-section";
+import { EfficiencySection } from "@/components/efficiency-section";
+
 import {
   Zap,
   Store,
@@ -121,45 +124,43 @@ export default function LaunchStablecoin() {
 
   return (
     <div className="min-h-screen transition-colors">
-      <Navigation onScheduleDemo={() => openModal("Schedule Demo")} />
+      <Navigation onScheduleCall={() => openModal("Book a Demo")} />
       <div id="hero">
         <HeroSection currentStep={currentStep} onPillarClick={(index) => setCurrentStep(index)} />
       </div>
-      <div id="infrastructure">
+      <SwipesAnimationSection />
+      <LiquidityFlywheel />
+      <div id="infrastructure" className="my-12">
         <PillarsSection />
       </div>
-      <div id="pillar-end"></div>
-      <LiquidityFlywheel />
-      <CompetitiveDiffSection />
-      <BoardChecklistSection />
       <div id="pilot">
         <ProblemSection
-          title="Why Act Now?"
-          subtitle="Digital Dollars are eating your deposits. GENIUS Act will turbocharge it."
+          title="Why Now?"
+          subtitle="This is your Visa moment for trade finance."
           customQuotes={[
             {
-              icon: "CreditCard",
+              icon: "Clock",
               color: "albor-blue",
               persona: "Head of Corporate Banking",
-              company: "Panama Bank",
+              company: "The Market Is Desperate",
               quote:
-                "Our corporate clients are fleeing their treasuries to USDC for T+0 settlements. We need to match their offerings to pull that liquidity back onto our balance sheets.",
+                "77% of Latin American suppliers are facing payment delays today (Coface 2025 Survey), waiting over 100 days for cash. The market is desperate for your capital.",
             },
             {
-              icon: "Shield",
+              icon: "Gavel",
               color: "albor-green",
               persona: "Economic Advisor",
-              company: "Bolivian Central Bank",
+              company: "The Rails are Now Legal",
               quote:
-                "The rise in USDT has been draining our dollar reserves and inflating our currency. We need to formalize this demand and restore FX liquidity to the Boliviano.",
+                "The U.S. GENIUS Act (July 2025) and Guatemala's Bill 6538 (June 2025) license your bank as the cornerstone issuers of the new stablecoin infrastructure.",
             },
             {
-              icon: "BarChart3",
+              icon: "TrendingUp",
               color: "albor-gold",
               persona: "CEO",
-              company: "Guatemala Commodities",
+              company: "The Giants are Moving",
               quote:
-                "Our Gold instruments can't compete with PAXG's 24/7 global access and liquidity against USDC. We need to compete in the same pools to capture that market share.",
+                "Citi's live token services and $2B Mexico supply chain program, BBVA's 2026 stablecoin, and Santander's bank consortium are coming for your clients.",
             },
           ]}
         />

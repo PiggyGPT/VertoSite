@@ -206,7 +206,7 @@ export default function GrowthSpiralSection() {
                 {/* CTA Button - Matching Hero */}
                 <div className="text-center">
                     <button
-                        onClick={() => openModal("Schedule Demo")}
+                        onClick={() => openModal("Book a Demo")}
                         className="group inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg font-semibold text-sm transition-all hover:translate-y-[-2px] shadow-lg shadow-black/10 dark:shadow-black/30"
                         style={{
                             background: `linear-gradient(90deg, #EF660B, #8F73FE, #217DFE)`,
@@ -214,7 +214,7 @@ export default function GrowthSpiralSection() {
                         }}
                     >
                         <Calendar className="w-4 h-4" />
-                        <span>Schedule Demo</span>
+                        <span>Book a Demo</span>
                     </button>
                 </div>
             </div>

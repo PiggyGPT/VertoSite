@@ -2,33 +2,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "npm",
-            "script": "dev",
+            "label": "Start Dev Server",
+            "type": "shell",
+            "command": "npx vite --open",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "label": "npm: dev",
-            "detail": "Start development server"
-        },
-        {
-            "type": "npm",
-            "script": "build",
-            "group": "build",
-            "label": "npm: build",
-            "detail": "Build the project"
-        },
-        {
-            "type": "npm",
-            "script": "db:push",
-            "label": "npm: db:push",
-            "detail": "Push database schema changes"
-        },
-        {
-            "type": "shell",
-            "command": "${workspaceFolder}/node_modules/.bin/vite",
-            "label": "npm: client",
-            "detail": "Run client only (Vite)"
+            "problemMatcher": []
         }
     ]
 }

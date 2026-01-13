@@ -64,25 +64,24 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
         
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
-          <h1 className="font-bold text-3xl md:text-4xl sm:text-6xl lg:text-7xl tracking-tighter mb-8 leading-[1.05] text-white">
-            Stop Losing Deposits<br />
-              To Digital Dollars
+          <h1 className="font-bold text-4xl md:text-4xl sm:text-6xl lg:text-7xl tracking-tight mb-8 leading-[1.1] text-white">
+            The Credit Card<br />
+            For Supply Chains
           </h1>
 
-          <p className="text-base sm:text-xl md:text-2xl text-slate-200 leading-relaxed mb-12 max-w-2xl">
-              Albor enables your clients to transact globally with Digital Dollars - while keeping their fiat deposits in your bank.
-
+          <p className="text-base sm:text-xl md:text-2xl text-slate-100 leading-relaxed mb-12 max-w-2xl">
+              You give cards to consumers to pay merchants. <br/> Now, give <span className="text-white font-medium"> them</span> cards to pay their supply chain.
 
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto">
             <button
-              onClick={() => openModal("Schedule Demo")}
+              onClick={() => openModal("Book a Demo")}
               className="px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
               data-testid="hero-schedule-demo"
             >
               <Calendar className="w-4 h-4" />
-              Schedule Demo
+              Book a Demo
             </button>
             <a
               href="https://t.me/nileshkhaitan"
@@ -135,9 +134,6 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
 
         </div>
       </section>
-
-      <SharedPillarNav currentStep={currentStep} animatedStep={animatedStep} isAutoPlaying={isAutoPlaying} onStepClick={handlePillarClick} />
-
       <CalendlyModal />
     </div>
   );

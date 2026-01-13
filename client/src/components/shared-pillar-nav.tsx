@@ -1,22 +1,25 @@
 import { useState, useRef, useEffect } from "react";
-import { Store ,VaultIcon, Globe, Shield } from "lucide-react";
+import { Store ,VaultIcon, Globe, Shield, FileText, Users } from "lucide-react";
 
 interface SharedPillarNavProps {
   currentStep?: number;
   animatedStep?: number;
   isAutoPlaying?: boolean;
   onStepClick?: (step: number) => void;
+  onPillarClick?: (index: number) => void;
 }
 
 export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isAutoPlaying = true, onStepClick }: SharedPillarNavProps) {
-  const [isVisible, setIsVisible] = useState(true);
-  const [isFixed, setIsFixed] = useState(false);
+  /* eslint-disable react-hooks/exhaustive-deps */
+  const [isStuck, setIsStuck] = useState(false);
   const navContainerRef = useRef<HTMLDivElement>(null);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
 
-  const orderedKeys = ["distribution", "trading", "payments", "service"];
+  const orderedKeys = ["distribution", "invoicing", "payroll", "trading", "payments", "service"];
   const pillars = {
     distribution: { label: "Tokenize Deposits", color: "albor-plum", icon: VaultIcon },
+    invoicing: { label: "Invoice Factoring", color: "albor-blue", icon: FileText },
+    payroll: { label: "Salary Advance", color: "albor-green", icon: Users },
     trading: { label: "Attract Liquidity", color: "albor-blue", icon: Store },
     payments: { label: "Transact Globally", color: "albor-teal", icon: Globe },
     service: { label: "Secure Compliance", color: "albor-gold", icon: Shield },
@@ -34,49 +37,43 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
   useEffect(() => {
     const handleScroll = () => {
       const navContainer = navContainerRef.current;
-      const heroSection = document.getElementById('hero');
-      const pillarEnd = document.getElementById('pillar-end');
+      const infrastructureSection = document.getElementById('infrastructure');
       
-      if (navContainer && heroSection && pillarEnd) {
-        const heroRect = heroSection.getBoundingClientRect();
-        const pillarEndRect = pillarEnd.getBoundingClientRect();
+      if (navContainer && infrastructureSection) {
+        const sectionRect = infrastructureSection.getBoundingClientRect();
         const mainNavHeight = 64; // h-16
+        const navHeight = navContainer.offsetHeight;
         
-        // Nav should be fixed only if:
-        // 1. Hero has scrolled past the top (heroRect.bottom <= mainNavHeight means hero scrolled up/out)
-        // 2. AND we're still in the pillars section (pillarEndRect.top > mainNavHeight)
-        const shouldBeFixed = heroRect.bottom <= mainNavHeight && pillarEndRect.top > mainNavHeight;
-        setIsFixed(shouldBeFixed);
+        // Check if the nav is in its sticky position
+        // This happens when the infrastructure section top comes close to the main nav bottom
+        // We add a small buffer or use the exact height logic
+        const shouldBeStuck = sectionRect.top <= (mainNavHeight + navHeight);
         
-        // Hide when scrolled past the end of pillars section
-        setIsVisible(pillarEndRect.top > mainNavHeight);
+        setIsStuck(shouldBeStuck);
       }
     };
     
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-scroll mobile tabs to center active tab (only on manual clicks, not during auto-play on mobile)
+  // Auto-scroll mobile tabs to center active tab
   useEffect(() => {
     if (tabsContainerRef.current && window.innerWidth < 640) {
-      // Skip auto-scroll on mobile during auto-play to prevent page scrolling
-      if (isAutoPlaying) return;
-      
       const container = tabsContainerRef.current;
       const activeTab = container.querySelector(`[data-tab-index="${currentStep}"]`);
       if (activeTab) {
         activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
-  }, [currentStep, isAutoPlaying]);
+  }, [currentStep]);
 
   const handleStepClick = (index: number) => {
     if (onStepClick) onStepClick(index);
     // Trigger event for PillarsSection to listen
     window.dispatchEvent(new CustomEvent('activatePillar', { detail: orderedKeys[index] }));
-    // Scroll to pillar content on manual click (both mobile and desktop)
-    // This is safe because handleStepClick is only called on manual clicks, not during auto-play
+    // Scroll to pillar content on manual click
     setTimeout(() => {
       const element = document.getElementById('pillar-content');
       if (element && navContainerRef.current) {
@@ -93,11 +90,14 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
   };
 
   return (
-    <div ref={navContainerRef} className={`w-full h-fit transition-all duration-300 ${
-      isVisible 
-        ? `${isFixed ? 'fixed top-16 left-0 right-0 z-40 backdrop-blur-md border-white/20 mb-4 pb-0' : 'relative border-b border-white/10 pb-2'}` 
-        : 'hidden'
-    }`}>
+    <div 
+      ref={navContainerRef} 
+      className={`w-full h-fit transition-all duration-300 sticky top-16 z-40 ${
+        isStuck 
+          ? 'backdrop-blur-md border-white/20 mb-4 pb-0 border-b' 
+          : 'relative border-b border-white/10 pb-2'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
           {orderedKeys.map((key, index) => {

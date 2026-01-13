@@ -8,16 +8,16 @@ export interface PageSEO {
 
 export const pageSEOData: Record<string, PageSEO> = {
   home: {
-    title: "Albor Stablecoin Platform | Grow Bank Deposits with Digital Dollars",
-    description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.",
+    title: "Albor | The Credit Card for Supply Chains",
+    description: "Albor enables banks to give cards to corporate buyers to pay their suppliers, just like they give cards to consumers to pay merchants.",
     image: "/favicon.png",
-    imageAlt: "Launch Your Stablecoin with Albor"
+    imageAlt: "Albor | The Credit Card for Supply Chains"
   },
   "launch-stablecoin": {
-    title: "Albor Stablecoin Platform | Grow Bank Deposits with Digital Dollars",
-    description: "Launch your stablecoin in 90 days. Capture liquidity from the $300 Billion stablecoin market with compliant infrastructure.",
+    title: "Albor | The Credit Card for Supply Chains",
+    description: "Albor enables banks to give cards to corporate buyers to pay their suppliers, just like they give cards to consumers to pay merchants.",
     image: "/favicon.png",
-    imageAlt: "Launch Your Stablecoin with Albor"
+    imageAlt: "Albor | The Credit Card for Supply Chains"
   },
 };
 

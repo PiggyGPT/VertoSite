@@ -67,11 +67,11 @@ export default function PilotProgramSection() {
           {/* --- NEW CTA SECTION --- */}
           <div className="mt-10 sm:mt-12 text-center flex justify-center gap-4">
             <button
-              onClick={() => openModal("Schedule Demo")}
+              onClick={() => openModal("Book a Demo")}
               className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm gap-2 min-w-[160px]"
             >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>Schedule Demo</span>
+              <span>Book a Demo</span>
             </button>
             <a
               href="https://t.me/nileshkhaitan"

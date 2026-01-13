@@ -143,7 +143,7 @@ export default function ComplianceSection() {
               <FeatureItem icon={Shield} title="Automated Audit Trails" description="Generate human-readable, verifiable logs of every compliance decision for internal teams and regulators." />
             </div>
             <button className="inline-flex items-center px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-colors">
-              <span>Request Compliance Demo</span>
+              <span>Request Compliance Call</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </button>
           </div>

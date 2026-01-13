@@ -43,8 +43,8 @@ export default function CompetitiveDiffSection() {
     ];
 
     return (
-        <section className="relative w-full pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
+        <section className="relative w-full min-h-screen flex flex-col justify-center pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto mb-12">
                     <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3">
@@ -159,11 +159,11 @@ export default function CompetitiveDiffSection() {
                     {/* CTA Button - Enhanced */}
                     <div className="flex justify-center gap-4">
                     <button
-                        onClick={() => openModal("Schedule Demo")}
+                        onClick={() => openModal("Book a Demo")}
                         className="group px-8 py-4 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 min-w-[160px]"
                     >
                         <Calendar className="w-4 h-4" />
-                        <span>Schedule Demo</span>
+                        <span>Book a Demo</span>
                     </button>
                     <a
                         href="https://t.me/nileshkhaitan"

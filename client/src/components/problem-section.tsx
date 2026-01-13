@@ -1,4 +1,4 @@
-import { Landmark, Repeat, BarChart3, ArrowRight, CreditCard, Shield, TrendingDown, Users, Target, Quote, Calendar, Send } from "lucide-react";
+import { Landmark, Repeat, BarChart3, ArrowRight, CreditCard, Shield, TrendingDown, Users, Target, Quote, Calendar, Send, Clock, Gavel, TrendingUp, History, Info } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useCalendlyModal } from "./calendly-modal";
@@ -12,7 +12,12 @@ const iconMap = {
   Shield,
   TrendingDown,
   Users,
-  Target
+  Target,
+  Clock,
+  Gavel,
+  TrendingUp,
+  History,
+  Info
 };
 
 // Reusable Pain Point Card Component - Now with a CTA
@@ -78,42 +83,38 @@ const colorMap: { [key: string]: { bg: string; border: string; text: string; quo
   }
 };
 
-const PainPointCard = ({ icon: Icon, color, persona, company, quote, testId, ctaText, ctaLink }: PainPointCardProps) => {
+const PainPointCard = ({ icon: Icon, color, company, quote, testId }: PainPointCardProps) => {
   const colors = colorMap[color] || colorMap['albor-gold'];
   
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 8 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="relative rounded-xl p-4 md:p-6 overflow-hidden transition-all duration-300 border h-full flex flex-col justify-between"
-      style={{
-        background: `linear-gradient(135deg, ${colors.bg})`,
-        borderColor: colors.border
-      }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="relative rounded-2xl p-8 transition-all duration-300 border h-full flex flex-col items-start bg-slate-900/40 backdrop-blur-sm border-white/5 hover:border-white/10 group"
       data-testid={testId}
     >
-        <div>
-            <div className="flex items-start gap-2 mb-4">
-              <span style={{ color: colors.quote }}>
-                <Quote className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-50" />
-              </span>
-              <blockquote className="text-sm md:text-base font-medium leading-snug text-slate-700 dark:text-slate-200">
-                <p>"{quote}"</p>
-              </blockquote>
-            </div>
-            <div className="flex items-start gap-3 mt-6 pt-4 border-t border-opacity-10" style={{ borderColor: colors.border }}>
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${colors.text}20` }}>
-                    <span style={{ color: colors.text }}>
-                      <Icon className="w-5 h-5" />
-                    </span>
-                </div>
-                <div>
-                    <p className="font-semibold text-slate-900 dark:text-white text-sm">{company}</p>
-                    <p className="text-xs mt-0.5" style={{ color: colors.text }}>{persona}</p>
-                </div>
-            </div>
+        {/* Glow Effect */}
+        <div className="absolute inset-0 opacity-10 transition-opacity duration-300 group-hover:opacity-20" 
+             style={{ background: `radial-gradient(circle at top left, ${colors.bg}, transparent 70%)` }} />
+
+        {/* Icon */}
+        <div className="relative mb-6 p-3 rounded-xl bg-slate-800/50 border border-white/5 group-hover:scale-110 transition-transform duration-300">
+            <span style={{ color: colors.text }}>
+              <Icon className="w-6 h-6" />
+            </span>
         </div>
+
+        {/* Branding (Title) */}
+        <h3 className="text-xl font-bold text-white mb-3 relative z-10 leading-snug">
+            {company}
+        </h3>
+
+        {/* Description */}
+        <p className="text-slate-400 text-base leading-relaxed relative z-10">
+            {quote}
+        </p>
     </motion.div>
   );
 };
@@ -136,36 +137,11 @@ interface ProblemSectionProps {
 export default function ProblemSection({ 
   title = "Purpose-Built for Your Operations",
   subtitle = "We understand the unique operational, security, and compliance challenges institutions face when transacting on public blockchains.",
-  description = "We understand the unique operational, security, and compliance challenges institutions face when transacting on public blockchains.",
   customQuotes
 }: ProblemSectionProps = {}) {
     const { openModal, CalendlyModal } = useCalendlyModal();
     
-    const defaultPainPoints = [
-        {
-            icon: Landmark, color: 'albor-innovation', persona: 'Head of Innovation', company: 'Global Bank',
-            quote: 'How do we make our digital currency usable across our global network, without compromising the trust we\'ve built over decades?',
-            testId: 'quote-bank',
-            ctaText: 'Explore Banking Solutions',
-            ctaLink: '/solutions/banking'
-        },
-        {
-            icon: Repeat, color: 'albor-innovation', persona: 'Chief Operating Officer', company: 'Digital Assets Exchange',
-            quote: 'Our clients are withdrawing assets daily to chase yield we can\'t offer. We\'re becoming a free on-ramp to an ecosystem that\'s eating our lunch.',
-            testId: 'quote-exchange',
-            ctaText: 'Explore Exchange Solutions',
-            ctaLink: '/solutions/exchanges'
-        },
-        {
-            icon: BarChart3, color: 'albor-gold', persona: 'Chief Compliance Officer', company: 'Quantitative Hedge Fund',
-            quote: 'How do I give my traders the speed to execute time-sensitive alpha on-chain without signing off on a potential eight-figure mistake?',
-            testId: 'quote-trading',
-            ctaText: 'Explore Trading Solutions',
-            ctaLink: '/solutions/trading'
-        },
-    ];
-
-    // Convert custom quotes to pain points format if provided
+    // Icon mapping logic remains the same...
     const painPoints = customQuotes ? customQuotes.map((quote, index) => ({
         icon: iconMap[quote.icon as keyof typeof iconMap] || Landmark,
         color: quote.color,
@@ -175,22 +151,34 @@ export default function ProblemSection({
         testId: `quote-${index}`,
         ctaText: 'Learn More',
         ctaLink: '#'
-    })) : defaultPainPoints;
+    })) : []; // Default moved or handled if needed, for now focusing on customQuotes usage
 
     return (
-        <section className="relative pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="relative w-full py-16 md:py-40 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="relative max-w-7xl mx-auto">
-                <div className="text-center mb-12">
-                     <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3" data-testid="problem-title">
+                <div className="text-center mb-16 md:mb-28">
+                     <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight" 
+                        data-testid="problem-title"
+                     >
                         {title}
-                     </h2>
-                     <p className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans">
+                     </motion.h2>
+                     <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="max-w-3xl mx-auto text-xl md:text-2xl text-slate-300 leading-relaxed"
+                     >
                         {subtitle} 
-                     </p>
+                     </motion.p>
                 </div>
 
                 {/* Pain Points Grid */}
-                <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+                <div className="grid lg:grid-cols-3 gap-8 md:gap-12 mb-20 md:mb-24">
                     {painPoints.map((point, index) => (
                        <PainPointCard key={index} {...point} />
                     ))}
@@ -199,11 +187,11 @@ export default function ProblemSection({
                 {/* CTA Button */}
                 <div className="text-center flex justify-center gap-4">
                   <button
-                    onClick={() => openModal("Schedule Demo")}
+                    onClick={() => openModal("Book a Demo")}
                     className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm gap-2 min-w-[160px]"
                   >
                     <Calendar className="w-4 h-4" />
-                    <span>Schedule Demo</span>
+                    <span>Book a Demo</span>
                   </button>
                   <a
                     href="https://t.me/nileshkhaitan"

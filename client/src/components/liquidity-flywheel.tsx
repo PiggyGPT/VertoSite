@@ -21,24 +21,24 @@ import { useCalendlyModal } from "./calendly-modal";
 const STEPS = [
   {
     id: "transactions",
-    title: "Demand Drives Yield",
-    subtitle: "Transact Globally",
-    description: "Clients stop withdrawing to exchanges because they can send and receive Digital Dollars directly using their bank deposits.",
+    title: "No Cards for Merchants",
+    subtitle: "Merchants Can't Pay",
+    description: "Banks issue cards to consumers for credit purchases, but not to buyers for credit payables — forcing 60–120 day private IOUs.",
     color: "emerald"
   },
   {
-    id: "fees",
-    title: "Yield Drives Liquidity",
-    subtitle: "Attract Liquidity",
-    description: "Transaction volume generates FX fees, which attracts deep-pocketed Market Makers to hold deposits at your bank.",
-    color: "blue"
+    id: "liquidity",
+    title: "No Swipes for Suppliers",
+    subtitle: "Suppliers Can't Borrow",
+    description: "Banks pay merchants instantly on every swipe, but not to suppliers for receivables — forcing 20% discounts from private IOU lenders.",
+    color: "purple"
   },
   {
-    id: "liquidity",
-    title: "Liquidity Drives Deposits",
-    subtitle: "Tokenize Deposits",
-    description: "Deep Digital Dollar liquidity drives higher transaction volumes, further expanding your balance sheet with new deposits.",
-    color: "purple"
+    id: "fees",
+    title: "No Revenue for Banks",
+    subtitle: "Banks Can't Earn",
+    description: "Banks earn fees on every consumer swipe, but miss 90% of the trade value they finance — losing fees and data across the chain.",
+    color: "blue"
   }
 ];
 
@@ -430,18 +430,18 @@ export default function LiquidityFlywheel() {
   };
 
   return (
-      <section className="relative overflow-hidden w-full pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="relative overflow-hidden w-full min-h-[800px] flex flex-col justify-center py-24">
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-5xl mx-auto mb-24">
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight mb-3"
+            className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6"
           >
-            Flip the Script on Digital Dollars
+            Where Are the Credit Cards For Trade Loans?
           </motion.h2>
 
           <motion.p
@@ -449,214 +449,147 @@ export default function LiquidityFlywheel() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ delay: 0.1 }}
-             className="text-slate-200 dark:text-slate-200 text-lg md:text-xl leading-relaxed font-sans"
+             className="text-slate-200 dark:text-slate-200 text-lg md:text-2xl leading-relaxed font-sans"
           >
-            Use the same demand that pulls deposits out to bring new deposits in.
-
-
+            Cards offer us credit to buy sneakers, but not to the supply chain making them.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        {/* DESKTOP: 3 Animated Columns - Expanded View */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-12">
+          {STEPS.map((step, index) => {
+            const isActive = activeStepId === step.id;
+            const stepColor = step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF';
+            
+            return (
+              <motion.div
+                key={step.id}
+                onClick={() => handleStepClick(step.id)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                className={`
+                  relative pt-12 pb-10 px-8 rounded-3xl cursor-pointer transition-all duration-300 min-h-[280px] h-full flex flex-col
+                  ${isActive 
+                    ? "bg-white dark:bg-slate-900 border-2 shadow-2xl scale-[1.02]" 
+                    : "bg-slate-100/50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-900/50 hover:border-slate-300 dark:hover:border-slate-600"
+                  }
+                `}
+                style={{ borderColor: isActive ? stepColor : undefined }}
+              >
+                {/* Active Progress Bar */}
+                {isActive && (
+                  <motion.div 
+                    className="absolute left-0 bottom-0 h-1 z-20 rounded-b-2xl"
+                    style={{ 
+                      width: `${progress}%`, 
+                      maxWidth: '100%',
+                      backgroundColor: stepColor
+                    }}
+                    transition={{ ease: "linear", duration: 0.1 }}
+                  />
+                )}
 
-          {/* LEFT: Navigation Steps */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            {/* DESKTOP: Stack all cards */}
-            <div className="hidden lg:block">
-              <LayoutGroup>
-                {STEPS.map((step) => {
-                  const isActive = activeStepId === step.id;
-                  return (
-                    <motion.div
-                      key={step.id}
-                      onClick={() => handleStepClick(step.id)}
-                      className={`
-                        relative p-5 rounded-xl cursor-pointer transition-all duration-300
-                        ${isActive 
-                          ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl" 
-                          : "bg-transparent border border-transparent hover:bg-slate-100 dark:hover:bg-slate-900/30 hover:border-slate-200 dark:hover:border-slate-800"
-                        }
-                      `}
-                    >
-                      {/* Active Progress Bar */}
-                      {isActive && (
-                        <motion.div 
-                          className="absolute left-0 bottom-0 h-1 z-20 rounded-bl-xl"
-                          style={{ 
-                            width: `${progress}%`, 
-                            maxWidth: '100%',
-                            backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
-                          }}
-                          transition={{ ease: "linear", duration: 0.1 }}
-                        />
-                      )}
 
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <div className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${isActive ? (step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]') : "text-slate-600 dark:text-slate-500"}`}>
-                             {step.subtitle}
-                          </div>
-                          <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
-                            {step.title}
-                          </h3>
-                          <AnimatePresence>
-                            {isActive && (
-                              <motion.p 
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="text-slate-600 dark:text-slate-200 text-s leading-relaxed mt-2 font-sans"
-                              >
-                                {step.description}
-                              </motion.p>
-                            )}
-                          </AnimatePresence>
-                        </div>
 
-                        {isActive && (
-                          <motion.div layoutId="active-arrow" className="mt-2" style={{ color: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF' }}>
-                             <ArrowUpRight className="w-5 h-5" />
-                          </motion.div>
-                        )}
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </LayoutGroup>
-            </div>
-
-            {/* MOBILE: Expandable cards animation */}
-            <div className="lg:hidden flex flex-col h-[280px] gap-1">
-              {STEPS.map((step) => {
-                const isActive = activeStepId === step.id;
-
-                return (
-                  <motion.div
-                    key={step.id}
-                    onClick={() => handleStepClick(step.id)}
-                    layout
-                    initial={false}
-                    animate={{ height: isActive ? "auto" : "auto" }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className={`w-full rounded-lg cursor-pointer relative overflow-hidden ${
-                      isActive 
-                        ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl flex-1 p-5" 
-                        : "bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 shadow-sm p-3"
-                    }`}
+                {/* Content */}
+                <div className="flex-1 flex flex-col pt-4">
+                  <div 
+                    className={`text-sm font-sans font-bold mb-4 uppercase tracking-[0.15em] ${isActive ? '' : 'text-slate-600 dark:text-slate-500'}`}
+                    style={{ color: isActive ? stepColor : undefined }}
                   >
-                    {/* Progress Bar - Always visible when active */}
+                    {step.subtitle}
+                  </div>
+                  <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                    {step.title}
+                  </h3>
+                  <p className={`text-base md:text-lg leading-relaxed font-sans flex-1 ${isActive ? "text-slate-600 dark:text-slate-200" : "text-slate-500 dark:text-slate-400"}`}>
+                    {step.description}
+                  </p>
+                </div>
+
+
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* MOBILE: Expandable cards animation - Unchanged */}
+        <div className="lg:hidden flex flex-col h-[280px] gap-1">
+          {STEPS.map((step) => {
+            const isActive = activeStepId === step.id;
+
+            return (
+              <motion.div
+                key={step.id}
+                onClick={() => handleStepClick(step.id)}
+                layout
+                initial={false}
+                animate={{ height: isActive ? "auto" : "auto" }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className={`w-full rounded-lg cursor-pointer relative overflow-hidden ${
+                  isActive 
+                    ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl flex-1 p-5" 
+                    : "bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 shadow-sm p-3"
+                }`}
+              >
+                {/* Progress Bar - Always visible when active */}
+                {isActive && (
+                  <motion.div 
+                    className="absolute left-0 bottom-0 h-1 rounded-bl-lg w-full"
+                    style={{ 
+                      width: `${progress}%`, 
+                      maxWidth: '100%',
+                      backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
+                    }}
+                    transition={{ ease: "linear", duration: 0.1 }}
+                  />
+                )}
+
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
                     {isActive && (
                       <motion.div 
-                        className="absolute left-0 bottom-0 h-1 rounded-bl-lg w-full"
-                        style={{ 
-                          width: `${progress}%`, 
-                          maxWidth: '100%',
-                          backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
-                        }}
-                        transition={{ ease: "linear", duration: 0.1 }}
-                      />
-                    )}
-
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        {isActive && (
-                          <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.3 }}
-                            className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]'}`}
-                          >
-                            {step.subtitle}
-                          </motion.div>
-                        )}
-                        <h3 className={`font-bold ${isActive ? "text-lg text-slate-900 dark:text-white" : "text-sm text-slate-700 dark:text-slate-300"}`}>
-                          {step.title}
-                        </h3>
-                      </div>
-
-                      {isActive && (
-                        <motion.div 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-2 ml-2 flex-shrink-0" 
-                          style={{ color: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF' }}
-                        >
-                          <ArrowUpRight className="w-5 h-5" />
-                        </motion.div>
-                      )}
-                    </div>
-
-                    {isActive && (
-                      <motion.p 
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        transition={{ duration: 0.3, delay: 0.1 }}
-                        className="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mt-3 font-sans"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className={`text-xs font-sans font-semibold mb-2 uppercase tracking-wider ${step.id === 'transactions' ? 'text-[#22c55e]' : step.id === 'fees' ? 'text-[#4D88FF]' : 'text-[#A885FF]'}`}
                       >
-                        {step.description}
-                      </motion.p>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* RIGHT: Unified Dashboard Panel */}
-          <div className="lg:col-span-7 h-[450px] max-w-[550px]">
-             <div className="relative h-full w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl dark:shadow-2xl overflow-hidden flex flex-col min-h-0">
-
-                {/* Panel Header */}
-                <div className="h-14 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 flex items-center justify-between px-6">
-                   <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700" />
-                      <div className="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700" />
-                   </div>
-
-                   {/* Make the status pill non-shrinking and give it a consistent minimum width so it appears consistent across panels */}
-                   <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex-none min-w-[170px] sm:min-w-[220px] justify-center">
-                      <div className={`w-1.5 h-1.5 rounded-full animate-pulse`} style={{ 
-                        backgroundColor: activeStepId === 'transactions' ? '#22c55e' : activeStepId === 'fees' ? '#4D88FF' : activeStepId === 'liquidity' ? '#A885FF' : '#F1BD76'
-                      }} />
-                      <span className="text-[10px] text-slate-600 dark:text-slate-400 font-sans font-semibold uppercase">
-                        {STEPS.find(s => s.id === activeStepId)?.title}
-                      </span>
-                   </div>
-                </div>
-
-                {/* Panel Content Area */}
-                <div className="flex-1 p-6 relative min-h-0 overflow-hidden">
-                   <AnimatePresence mode="wait">
-                      <motion.div
-                         key={activeStepId}
-                         initial={{ opacity: 0, x: 20 }}
-                         animate={{ opacity: 1, x: 0 }}
-                         exit={{ opacity: 0, x: -20 }}
-                         transition={{ duration: 0.3 }}
-                         className="h-full w-full flex flex-col min-h-0"
-                      >
-                         {activeStepId === 'transactions' && <FeesView trades={trades} totalFees={totalFees} totalVolume={totalVolume} />}
-                         {activeStepId === 'fees' && <YieldView onCtaClick={handleAddLiquidity} totalFees={totalFees} tvl={tvl} />}
-                         {activeStepId === 'liquidity' && <MintView />}
-                         {activeStepId === 'compliance' && <ComplianceView />}
+                        {step.subtitle}
                       </motion.div>
-                   </AnimatePresence>
+                    )}
+                    <h3 className={`font-bold ${isActive ? "text-lg text-slate-900 dark:text-white" : "text-sm text-slate-700 dark:text-slate-300"}`}>
+                      {step.title}
+                    </h3>
+                  </div>
+
+
                 </div>
 
-             </div>
-          </div>
-
+                {isActive && (
+                  <motion.p 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mt-3 font-sans"
+                  >
+                    {step.description}
+                  </motion.p>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* CTA Section */}
-        <div className="mt-10 sm:mt-12 text-center flex justify-center gap-4">
+        <div className="mt-32 text-center flex justify-center gap-4">
           <button
-            onClick={() => openModal("Schedule Demo")}
+            onClick={() => openModal("Book a Demo")}
             className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-slate-400 dark:focus:ring-slate-600 text-sm gap-2 min-w-[160px]"
           >
             <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span>Schedule Demo</span>
+            <span>Book a Demo</span>
           </button>
           <a
             href="https://t.me/nileshkhaitan"
