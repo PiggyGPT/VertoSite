@@ -431,6 +431,35 @@ export default function LiquidityFlywheel() {
 
   return (
       <section className="relative overflow-hidden w-full min-h-[800px] flex flex-col justify-center py-16 md:py-24">
+        {/* Liquid Background Auras */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              x: [0, 30, 0],
+              y: [0, -20, 0]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-[120px]" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              x: [0, -40, 0],
+              y: [0, 30, 0]
+            }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[-15%] right-[-5%] w-[60%] h-[50%] bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[140px]" 
+          />
+          <motion.div 
+            animate={{ 
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{ duration: 10, repeat: Infinity }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(77,136,255,0.05)_0%,transparent_70%)]" 
+          />
+        </div>
+
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
@@ -470,14 +499,21 @@ export default function LiquidityFlywheel() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
                 className={`
-                  relative pt-12 pb-10 px-8 rounded-3xl cursor-pointer transition-all duration-300 min-h-[280px] h-full flex flex-col
+                  relative pt-12 pb-10 px-8 rounded-[32px] cursor-pointer transition-all duration-500 min-h-[300px] h-full flex flex-col overflow-hidden
                   ${isActive 
-                    ? "bg-white dark:bg-slate-900 border-2 shadow-2xl scale-[1.02]" 
-                    : "bg-slate-100/50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-900/50 hover:border-slate-300 dark:hover:border-slate-600"
+                    ? "bg-white/15 dark:bg-white/5 backdrop-blur-2xl border-white/20 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] scale-[1.02]" 
+                    : "bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border-white/5 hover:bg-white/10 dark:hover:bg-white/10 hover:border-white/10"
                   }
+                  border
                 `}
-                style={{ borderColor: isActive ? stepColor : undefined }}
               >
+                {/* Glow Accent for Active Card */}
+                {isActive && (
+                  <div 
+                    className="absolute -top-24 -right-24 w-48 h-48 rounded-full blur-[60px] opacity-20 pointer-events-none"
+                    style={{ backgroundColor: stepColor }}
+                  />
+                )}
                 {/* Active Progress Bar */}
                 {isActive && (
                   <motion.div 
@@ -528,10 +564,10 @@ export default function LiquidityFlywheel() {
                 initial={false}
                 animate={{ height: isActive ? "auto" : "auto" }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className={`w-full rounded-lg cursor-pointer relative overflow-hidden ${
+                className={`w-full rounded-2xl cursor-pointer relative overflow-hidden transition-all duration-300 ${
                   isActive 
-                    ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl flex-1 p-5" 
-                    : "bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 shadow-sm p-3"
+                    ? "bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 shadow-lg flex-1 p-5" 
+                    : "bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border border-white/5 p-4"
                 }`}
               >
                 {/* Progress Bar - Always visible when active */}
