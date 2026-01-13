@@ -154,14 +154,14 @@ export default function ProblemSection({
     })) : []; // Default moved or handled if needed, for now focusing on customQuotes usage
 
     return (
-        <section className="relative w-full py-16 md:py-40 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="relative w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="relative max-w-7xl mx-auto">
-                <div className="text-center mb-16 md:mb-28">
+                <div className="text-center mb-12 md:mb-16">
                      <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight" 
+                        className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-tight" 
                         data-testid="problem-title"
                      >
                         {title}
@@ -171,7 +171,7 @@ export default function ProblemSection({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="max-w-3xl mx-auto text-xl md:text-2xl text-slate-300 leading-relaxed"
+                        className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed"
                      >
                         {subtitle} 
                      </motion.p>

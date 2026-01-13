@@ -430,16 +430,16 @@ export default function LiquidityFlywheel() {
   };
 
   return (
-      <section className="relative overflow-hidden w-full min-h-[800px] flex flex-col justify-center py-24">
+      <section className="relative overflow-hidden w-full min-h-[800px] flex flex-col justify-center py-16 md:py-24">
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-5xl mx-auto mb-24">
+        <div className="text-center max-w-5xl mx-auto mb-12 md:mb-24">
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6"
+            className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6"
           >
             Where Are the Credit Cards For Trade Loans?
           </motion.h2>
@@ -449,7 +449,7 @@ export default function LiquidityFlywheel() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ delay: 0.1 }}
-             className="text-slate-200 dark:text-slate-200 text-lg md:text-2xl leading-relaxed font-sans"
+             className="text-slate-200 dark:text-slate-200 text-base sm:text-lg md:text-xl leading-relaxed font-sans"
           >
             Cards offer us credit to buy sneakers, but not to the supply chain making them.
           </motion.p>

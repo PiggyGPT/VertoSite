@@ -9,11 +9,11 @@ export function PilotCtaSection() {
 
     return (
         <section id="pilot-cta" className="backdrop-blur-sm">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 text-center">
-                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-16 md:py-24 text-center">
+                 <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight mb-4 md:mb-6">
                     Ready to Build the Future of Finance?
                 </h2>
-                <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto px-2">
+                <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto px-2">
                     Let's design a 90-day pilot that provides the data you need and the confidence your stakeholders demand.
                 </p>
                  <button

@@ -16,10 +16,10 @@ export default function SwipesAnimationSection() {
             </span>
           </div>
           
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight" style={{ lineHeight: 1.2 }}>
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-tight" style={{ lineHeight: 1.2 }}>
             Credit Cards Changed Consumer Loans Forever</h2>
           
-          <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
             By paying Merchants instantly and collecting from Consumers every 30 days, 
             banks earn discounting fees from merchants & interest from consumers
             <span className="text-white font-medium"> on every swipe.</span>

@@ -297,12 +297,12 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
   const activeColors = activePillar ? getColorClasses(activePillar.color) : getColorClasses('albor-blue');
 
   return (
-    <div id="applications-section" className="w-full py-16 md:py-2 space-y-4">
+    <div id="applications-section" className="w-full py-16 md:py-24 space-y-4">
        {/* Applications Header */}
-       <div className="text-center max-w-4xl mx-auto px-4 mb-2">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+       <div className="text-center max-w-4xl mx-auto px-4 mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-tight">
             Introducing the Albor Trade Card</h2>
-          <p className="text-2xl text-slate-600 dark:text-slate-200">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-200">
             Albor's interbank rails bridges three gaps blocking 90% of global trade finance.
           </p>
        </div>

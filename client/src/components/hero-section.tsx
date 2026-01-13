@@ -64,12 +64,12 @@ export default function HeroSection({ onPillarClick, currentStep: externalStep =
         
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
-          <h1 className="font-bold text-4xl md:text-4xl sm:text-6xl lg:text-7xl tracking-tight mb-8 leading-[1.1] text-white">
+          <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mb-6 md:mb-8 leading-[1.1] text-white">
             The Credit Card<br />
             For Supply Chains
           </h1>
 
-          <p className="text-base sm:text-xl md:text-2xl text-slate-100 leading-relaxed mb-12 max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-100 leading-relaxed mb-8 md:mb-12 max-w-2xl">
               You give cards to consumers to pay merchants. <br/> Now, give <span className="text-white font-medium"> them</span> cards to pay their supply chain.
 
           </p>

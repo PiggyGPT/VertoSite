@@ -54,7 +54,7 @@ export default function Navigation({ onScheduleCall }: NavigationProps) {
           <div className="flex items-center space-x-4">
             <button
               onClick={onScheduleCall}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold hover:scale-105 transition-all duration-300 text-[12px]"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold hover:scale-105 transition-all duration-300 text-xs"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
               }}
