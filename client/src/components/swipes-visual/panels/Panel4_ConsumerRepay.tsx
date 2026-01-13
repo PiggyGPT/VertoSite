@@ -43,10 +43,11 @@ export const Panel4_ConsumerRepay = ({ isActive }: { isActive: boolean }) => {
 
          {/* Paid Success Overlay */}
          <motion.div
-           initial={{ opacity: 0, scale: 0.8 }}
+           initial={{ opacity: 0, scale: 0.9 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ delay: 1.5, type: "spring" }}
-           className="absolute inset-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm z-10 flex flex-col items-center justify-center"
+           style={{ willChange: "transform, opacity" }}
+           className="absolute inset-0 bg-white/95 dark:bg-slate-900/98 z-50 flex flex-col items-center justify-center"
          >
              <div className="w-24 h-24 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-4">
                  <CheckCircle className="w-12 h-12 text-emerald-600 dark:text-emerald-500" />

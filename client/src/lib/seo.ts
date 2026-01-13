@@ -9,13 +9,13 @@ export interface PageSEO {
 export const pageSEOData: Record<string, PageSEO> = {
   home: {
     title: "Albor | The Credit Card for Supply Chains",
-    description: "Albor enables banks to give cards to corporate buyers to pay their suppliers, just like they give cards to consumers to pay merchants.",
+    description: "Albor enables banks to give cards to corporate buyers to pay their supply, just like they give cards to consumers to pay merchants.",
     image: "/favicon.png",
     imageAlt: "Albor | The Credit Card for Supply Chains"
   },
   "launch-stablecoin": {
     title: "Albor | The Credit Card for Supply Chains",
-    description: "Albor enables banks to give cards to corporate buyers to pay their suppliers, just like they give cards to consumers to pay merchants.",
+    description: "Albor enables banks to give cards to corporate buyers to pay their supply, just like they give cards to consumers to pay merchants.",
     image: "/favicon.png",
     imageAlt: "Albor | The Credit Card for Supply Chains"
   },

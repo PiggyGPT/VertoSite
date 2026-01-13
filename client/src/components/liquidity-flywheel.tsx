@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { 
   ArrowRightLeft, 
@@ -367,7 +367,7 @@ const ComplianceView = () => {
 export default function LiquidityFlywheel() {
   const { openModal, CalendlyModal } = useCalendlyModal();
   const [activeStepId, setActiveStepId] = useState("transactions");
-  const [progress, setProgress] = useState(0);
+  const [progressKey, setProgressKey] = useState(0);
   const [trades, setTrades] = useState([
     { id: 1, pair: "BSD/USDC", size: 500000, fee: 5000 },
     { id: 2, pair: "USDT/BSD", size: 1250000, fee: 12500 },
@@ -394,69 +394,65 @@ export default function LiquidityFlywheel() {
   const totalVolume = trades.reduce((sum, trade) => sum + trade.size, 0);
   const tvl = 3000000; // Static TVL value ($30M)
 
-  // Helper to find index
   const activeIndex = STEPS.findIndex(s => s.id === activeStepId);
 
-  // Auto-play logic
+  // Auto-play logic with simplified key update
   useEffect(() => {
-    const duration = 9000; // 9 seconds per step
-    const interval = 50;
-    const stepSize = 100 / (duration / interval);
-
+    const duration = 9000;
     const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          const nextIndex = (activeIndex + 1) % STEPS.length;
-          setActiveStepId(STEPS[nextIndex].id);
-          return 0;
-        }
-        return prev + stepSize;
+      setActiveStepId(prevId => {
+         const currentIndex = STEPS.findIndex(s => s.id === prevId);
+         const nextIndex = (currentIndex + 1) % STEPS.length;
+         return STEPS[nextIndex].id;
       });
-    }, interval);
+      setProgressKey(prev => prev + 1);
+    }, duration);
 
     return () => clearInterval(timer);
-  }, [activeStepId, activeIndex]);
+  }, []);
 
   // Handler for manual click
   const handleStepClick = (id: string) => {
     setActiveStepId(id);
-    setProgress(0); 
+    setProgressKey(prev => prev + 1);
   };
 
   // Handler for "Add Liquidity" button in step 2
   const handleAddLiquidity = () => {
     setActiveStepId("liquidity");
-    setProgress(0);
+    setProgressKey(prev => prev + 1);
   };
 
   return (
       <section className="relative overflow-hidden w-full min-h-[800px] flex flex-col justify-center py-16 md:py-24">
-        {/* Liquid Background Auras */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Progress Bar Keyframes */}
+        <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes growProgressBar {
+                from { width: 0%; }
+                to { width: 100%; }
+            }
+        `}} />
+        {/* Liquid Background Auras - Simplified for performance */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-50">
           <motion.div 
             animate={{ 
-              scale: [1, 1.2, 1],
-              x: [0, 30, 0],
-              y: [0, -20, 0]
+              scale: [1, 1.1, 1],
+              x: [0, 20, 0],
+              y: [0, -10, 0]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-[120px]" 
+            style={{ willChange: "transform" }}
+            className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-[60px] md:blur-[120px]" 
           />
           <motion.div 
             animate={{ 
-              scale: [1.2, 1, 1.2],
-              x: [0, -40, 0],
-              y: [0, 30, 0]
+              scale: [1.1, 1, 1.1],
+              x: [0, -20, 0],
+              y: [0, 15, 0]
             }}
             transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-[-15%] right-[-5%] w-[60%] h-[50%] bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[140px]" 
-          />
-          <motion.div 
-            animate={{ 
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{ duration: 10, repeat: Infinity }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(77,136,255,0.05)_0%,transparent_70%)]" 
+            style={{ willChange: "transform" }}
+            className="absolute bottom-[-15%] right-[-5%] w-[60%] h-[50%] bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[70px] md:blur-[140px]" 
           />
         </div>
 
@@ -514,16 +510,16 @@ export default function LiquidityFlywheel() {
                     style={{ backgroundColor: stepColor }}
                   />
                 )}
-                {/* Active Progress Bar */}
+                {/* Active Progress Bar - CSS Animation based */}
                 {isActive && (
-                  <motion.div 
-                    className="absolute left-0 bottom-0 h-1 z-20 rounded-b-2xl"
+                  <div 
+                    key={`progress-${progressKey}`}
+                    className="absolute left-0 bottom-0 h-1 z-20 rounded-b-2xl transition-all linear duration-[9000ms]"
                     style={{ 
-                      width: `${progress}%`, 
-                      maxWidth: '100%',
-                      backgroundColor: stepColor
+                        backgroundColor: stepColor,
+                        width: '0%',
+                        animation: 'growProgressBar 9000ms linear forwards'
                     }}
-                    transition={{ ease: "linear", duration: 0.1 }}
                   />
                 )}
 
@@ -560,26 +556,25 @@ export default function LiquidityFlywheel() {
               <motion.div
                 key={step.id}
                 onClick={() => handleStepClick(step.id)}
-                layout
                 initial={false}
-                animate={{ height: isActive ? "auto" : "auto" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                animate={{ height: "auto" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className={`w-full rounded-2xl cursor-pointer relative overflow-hidden transition-all duration-300 ${
                   isActive 
-                    ? "bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 shadow-lg flex-1 p-5" 
-                    : "bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border border-white/5 p-4"
+                    ? "bg-slate-800 dark:bg-white/10 border border-white/20 shadow-lg flex-1 p-5" 
+                    : "bg-slate-900/40 dark:bg-white/[0.05] border border-white/5 p-4"
                 }`}
               >
-                {/* Progress Bar - Always visible when active */}
+                {/* Progress Bar - CSS Animation based */}
                 {isActive && (
-                  <motion.div 
-                    className="absolute left-0 bottom-0 h-1 rounded-bl-lg w-full"
+                  <div 
+                    key={`progress-mobile-${progressKey}`}
+                    className="absolute left-0 bottom-0 h-1 rounded-bl-lg z-20"
                     style={{ 
-                      width: `${progress}%`, 
-                      maxWidth: '100%',
-                      backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF'
+                      width: '0%',
+                      backgroundColor: step.id === 'transactions' ? '#22c55e' : step.id === 'fees' ? '#4D88FF' : '#A885FF',
+                      animation: 'growProgressBar 9000ms linear forwards'
                     }}
-                    transition={{ ease: "linear", duration: 0.1 }}
                   />
                 )}
 

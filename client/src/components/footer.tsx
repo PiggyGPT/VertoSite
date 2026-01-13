@@ -47,7 +47,7 @@ export default function Footer() {
                             <img src="/logos/svg/albor.svg" alt="Albor Logo" className="h-6 w-auto drop-shadow-md" />
                         </Link>
                         <p className="mt-4 text-slate-400 leading-relaxed text-sm max-w-xs">
-                            Albor enables banks to give cards to corporate buyers to pay their suppliers, just like they give cards to consumers to pay merchants.
+                            Albor enables banks to give cards to corporate buyers to pay their supply, just like they give cards to consumers to pay merchants.
                         </p>
                     </div>
 

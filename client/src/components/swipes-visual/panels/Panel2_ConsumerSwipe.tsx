@@ -13,6 +13,7 @@ export const Panel2_ConsumerSwipe = ({ isActive }: { isActive: boolean }) => {
         initial={{ y: 200, rotateX: 60, scale: 0.8 }}
         animate={{ y: 0, rotateX: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        style={{ willChange: "transform" }}
         className="w-full relative z-10"
       >
          <SapphireCard />

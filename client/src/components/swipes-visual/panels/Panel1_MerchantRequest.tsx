@@ -33,11 +33,13 @@ export const Panel1_MerchantRequest = ({ isActive }: { isActive: boolean }) => {
                         className="absolute inset-0 bg-blue-500/20 rounded-full"
                         animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                         transition={{ duration: 2, repeat: Infinity }}
+                        style={{ willChange: "transform, opacity" }}
                     />
                      <motion.div 
                         className="absolute inset-0 bg-blue-500/10 rounded-full"
                         animate={{ scale: [1, 2, 1], opacity: [0.3, 0, 0.3] }}
                         transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                        style={{ willChange: "transform, opacity" }}
                     />
                     <div className="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center relative z-10 border border-slate-700">
                         <Wifi className="w-10 h-10 text-white rotate-90" />
