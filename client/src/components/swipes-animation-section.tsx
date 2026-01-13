@@ -1,4 +1,4 @@
-import { CreditCard, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { SwipesVisual } from "./swipes-visual/SwipesVisual";
 
 export default function SwipesAnimationSection() {
@@ -8,18 +8,11 @@ export default function SwipesAnimationSection() {
       <div className="relative max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         
         {/* Left Column: Text Content */}
-        <div className="flex-1 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-            <CreditCard className="w-4 h-4 text-blue-400" />
-            <span className="text-xs font-semibold tracking-wide text-blue-300 uppercase">
-              The Swipe Model
-            </span>
-          </div>
-          
+        <div className="flex-1 text-center lg:text-left">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-tight" style={{ lineHeight: 1.2 }}>
             Credit Cards Changed Consumer Loans Forever</h2>
           
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             By paying Merchants instantly and collecting from Consumers every 30 days, 
             banks earn discounting fees from merchants & interest from consumers
             <span className="text-white font-medium"> on every swipe.</span>
