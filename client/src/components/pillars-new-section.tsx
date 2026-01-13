@@ -221,13 +221,16 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
   const [activeTab, setActiveTab] = useState("settlement");
   const appTabsRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll mobile tabs to center active tab
+  // Auto-scroll mobile tabs to center active tab (container-relative, won't scroll page)
   useEffect(() => {
     if (appTabsRef.current && window.innerWidth < 640) {
       const container = appTabsRef.current;
-      const activeTabEl = container.querySelector(`[data-app-tab="${activeTab}"]`);
+      const activeTabEl = container.querySelector(`[data-app-tab="${activeTab}"]`) as HTMLElement;
       if (activeTabEl) {
-        activeTabEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        const containerRect = container.getBoundingClientRect();
+        const tabRect = activeTabEl.getBoundingClientRect();
+        const scrollLeft = container.scrollLeft + (tabRect.left - containerRect.left) - (containerRect.width / 2) + (tabRect.width / 2);
+        container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
       }
     }
   }, [activeTab]);
