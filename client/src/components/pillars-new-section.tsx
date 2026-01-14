@@ -48,7 +48,7 @@ import { PayrollVisual } from "./payroll-visual/PayrollVisual";
 import { PaymentsVisual } from "./payments-visual/PaymentsVisual";
 import { SharedSettlementVisual } from "./pillars-visuals/SharedSettlementVisual";
 import { InstantAuthorizationVisual } from "./pillars-visuals/InstantAuthorizationVisual";
-import { SharedIncentivesVisual } from "./pillars-visuals/SharedIncentivesVisual";
+import { RealTimeAuditsVisual } from "./pillars-visuals/RealTimeAuditsVisual";
 import { KeysVisual } from "./keys-visual/KeysVisual";
 import { RouterVisual } from "./router-visual/RouterVisual";
 import { UnitEconomicsSection } from "./unit-economics-section";
@@ -114,7 +114,7 @@ const getBrandColor = (textClass: string) => {
     'text-albor-plum': { hex: '#A18DE5', rgba: 'rgba(161, 141, 229, 0.3)' },
     'text-albor-blue': { hex: '#4D88FF', rgba: 'rgba(77, 136, 255, 0.3)' },
     'text-albor-teal': { hex: '#83F4EC', rgba: 'rgba(131, 244, 236, 0.3)' },
-    'text-albor-gold': { hex: '#FDB94E', rgba: 'rgba(253, 185, 78, 0.3)' },
+    'text-albor-gold': { hex: '#F1BD76', rgba: 'rgba(241, 189, 118, 0.3)' },
   };
   return colorMap[textClass] || { hex: '#FDB94E', rgba: 'rgba(253, 185, 78, 0.3)' };
 };
@@ -281,7 +281,7 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
     incentives: {
       label: "Shared Incentives", color: "albor-gold", title: "Interchange Revenue",
       description: "A fee protocol that turns trade flows into a high-margin revenue network.",
-      visual: <SharedIncentivesVisual />,
+      visual: <RealTimeAuditsVisual />,
       founderQuote: {
         quote: "Giving workers instant access to their earned wages reduces financial stress and reliance on predatory loans.",
         name: "Nilesh Khaitan", 

@@ -24,21 +24,21 @@ const STEPS = [
     title: "No Cards for Merchants",
     subtitle: "Merchants Can't Pay",
     description: "Banks issue cards to consumers for credit purchases, but not to buyers for credit payables — forcing 60–120 day private IOUs.",
-    color: "emerald"
+    color: "#F1BD76"
   },
   {
     id: "liquidity",
     title: "No Swipes for Suppliers",
     subtitle: "Suppliers Can't Borrow",
     description: "Banks pay merchants instantly on every swipe, but not to suppliers for receivables — forcing 20% discounts from private IOU lenders.",
-    color: "purple"
+    color: "#F1BD76"
   },
   {
     id: "fees",
     title: "No Revenue for Banks",
     subtitle: "Banks Can't Earn",
     description: "Banks earn fees on every consumer swipe, but miss 90% of the trade value they finance — losing fees and data across the chain.",
-    color: "blue"
+    color: "#F1BD76"
   }
 ];
 
@@ -50,23 +50,23 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
   return (
     <div className="h-full flex flex-col justify-between min-h-0">
       <div className="text-center mb-6">
-        <h4 className="text-slate-600 dark:text-slate-400 text-xs font-sans uppercase py-1 tracking-widest font-medium">24h Fees Collected</h4>
+        <h4 className="text-white/60 text-xs font-sans uppercase py-1 tracking-widest font-medium">24h Fees Collected</h4>
         <motion.div 
            key={`fees-${totalFees}`}
            initial={{ scale: 0.95 }}
            animate={{ scale: 1 }}
-           className="text-4xl md:text-5xl font-bold font-sans text-[#4D88FF]"
+           className="text-4xl md:text-5xl font-bold font-sans text-white"
         >
           ${totalFees.toLocaleString()}
         </motion.div>
-        <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800/50 px-3 py-1 mt-3 rounded-full border border-slate-200 dark:border-slate-700">
-          <Activity className="w-3 h-3 text-slate-600 dark:text-slate-400" />
-          <span className="text-slate-700 dark:text-slate-300 text-sm font-sans">24h Vol: ${totalVolume.toLocaleString()}</span>
+        <div className="inline-flex items-center gap-2 bg-white/5 px-3 py-1 mt-3 rounded-full border border-white/10">
+          <Activity className="w-3 h-3 text-white/40" />
+          <span className="text-white/80 text-sm font-sans">24h Vol: ${totalVolume.toLocaleString()}</span>
         </div>
       </div>
 
       <div className="space-y-3 overflow-auto" style={{ maxHeight: 'calc(100% - 160px)' }}>
-        <div className="flex justify-between text-[10px] text-slate-600 dark:text-slate-500 uppercase font-sans font-medium px-4">
+        <div className="flex justify-between text-[10px] text-white/40 uppercase font-sans font-medium px-4">
           <span>Recent Activity</span>
           <span>Fee (1%)</span>
         </div>
@@ -77,20 +77,20 @@ const FeesView = ({ trades, totalFees, totalVolume }: { trades: any[], totalFees
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50"
+              className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10"
             >
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(77, 136, 255, 0.1)' }}>
-                  <ArrowRightLeft className="w-4 h-4" style={{ color: '#4D88FF' }} />
+                <div className="p-2 rounded-md bg-white/5">
+                  <ArrowRightLeft className="w-4 h-4 text-white/60" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-slate-200">{trade.pair}</div>
-                  <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">Size: ${trade.size.toLocaleString()}</div>
+                  <div className="text-sm font-bold text-white">{trade.pair}</div>
+                  <div className="text-xs text-white/50 font-sans">Size: ${trade.size.toLocaleString()}</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm font-bold font-sans" style={{ color: '#4D88FF' }}>+${trade.fee.toLocaleString()}</div>
-                <div className="text-[10px] text-slate-600 dark:text-slate-500">Collected</div>
+                <div className="text-sm font-bold font-sans text-white">+${trade.fee.toLocaleString()}</div>
+                <div className="text-[10px] text-white/40">Collected</div>
               </div>
             </motion.div>
           ))}
@@ -120,22 +120,22 @@ const YieldView = ({ onCtaClick, totalFees, tvl }: { onCtaClick?: () => void, to
     <div className="flex flex-col h-full relative overflow-hidden">
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div>
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Liquidity</div>
+          <div className="text-xs text-white/40 uppercase tracking-wider font-sans mb-1 font-medium">Liquidity</div>
           <div className="text-2xl font-sans font-semibold text-white">
             ${(tvl / 1000000).toFixed(1)}M
           </div>
         </div>
         <div className="text-center">
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Current APY</div>
-          <div className="text-2xl font-sans font-bold" style={{ color: '#10b981' }}>5.42%</div>
+          <div className="text-xs text-white/40 uppercase tracking-wider font-sans mb-1 font-medium">Current APY</div>
+          <div className="text-2xl font-sans font-bold text-emerald-400">5.42%</div>
         </div>
         <div className="text-right">
-          <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wider font-sans mb-1 font-medium">Fees (24h)</div>
+          <div className="text-xs text-white/40 uppercase tracking-wider font-sans mb-1 font-medium">Fees (24h)</div>
           <motion.div 
              key={`yield-fees-${totalFees}`}
              initial={{ scale: 0.95 }}
              animate={{ scale: 1 }}
-             className="text-2xl font-sans font-semibold" style={{ color: '#4D88FF' }}
+             className="text-2xl font-sans font-semibold text-white"
           >
             ${totalFees.toLocaleString()}
           </motion.div>
@@ -209,7 +209,7 @@ const MintView = () => {
   return (
     <div className="h-full flex flex-col items-center space-y-6 min-h-0 p-4">
        <div className="text-center">
-          <h4 className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest mb-2">Bank Deposits</h4>
+          <h4 className="text-white/60 text-xs font-mono uppercase tracking-widest mb-2">Bank Deposits</h4>
        </div>
 
        <div className="w-full max-w-sm relative max-h-[160px]">
@@ -258,52 +258,52 @@ const MintView = () => {
 
        {/* REWORKED ROWS: use same visual language as FeesView rows for consistency */}
        <div className="w-full space-y-3 overflow-auto" style={{ maxHeight: '240px' }}>
-         <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
+         <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
            <div className="flex items-center gap-3">
-             <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(168,85,247,0.08)' }}>
-               <Check className="w-4 h-4" style={{ color: '#A885FF' }} />
+             <div className="p-2 rounded-md bg-white/5">
+               <Check className="w-4 h-4 text-[#A885FF]" />
              </div>
              <div>
-               <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Wire Received</div>
-               <div className="text-[10px] text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
+               <div className="text-sm font-bold text-white">Wire Received</div>
+               <div className="text-[10px] text-white/50 font-sans">Tokenization complete</div>
              </div>
            </div>
            <div className="text-right">
-             <div className="text-xs font-bold font-mono text-slate-700 dark:text-slate-300">$1.00M USD</div>
-             <div className="text-[10px] text-slate-600 dark:text-slate-500">12.50M BSD Minted</div>
+             <div className="text-xs font-bold font-mono text-white">$1.00M USD</div>
+             <div className="text-[10px] text-white/40">12.50M BSD Minted</div>
            </div>
          </div>
 
-         <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
+         <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
            <div className="flex items-center gap-3">
-             <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(168,85,247,0.06)' }}>
-               <Check className="w-4 h-4" style={{ color: '#A885FF' }} />
+             <div className="p-2 rounded-md bg-white/5">
+               <Check className="w-4 h-4 text-[#A885FF]" />
              </div>
              <div>
-               <div className="text-sm font-bold text-slate-900 dark:text-slate-200">Wire Received</div>
-               <div className="text-[10px] text-slate-600 dark:text-slate-400 font-sans">Tokenization complete</div>
+               <div className="text-sm font-bold text-white">Wire Received</div>
+               <div className="text-[10px] text-white/50 font-sans">Tokenization complete</div>
              </div>
            </div>
            <div className="text-right">
-             <div className="text-xs font-bold font-mono text-slate-700 dark:text-slate-300">12.50M BOB </div>
-             <div className="text-[10px] text-slate-600 dark:text-slate-500">12.50M BSD Minted</div>
+             <div className="text-xs font-bold font-mono text-white">12.50M BOB </div>
+             <div className="text-[10px] text-white/40">12.50M BSD Minted</div>
            </div>
          </div>
 
-         <div className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded-lg border border-slate-200 dark:border-slate-700/50">
+         <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
            <div className="flex items-center gap-3">
-             <div className="p-2 rounded-md" style={{ backgroundColor: 'rgba(168,85,247,0.06)' }}>
-               <Check className="w-4 h-4" style={{ color: '#A885FF' }} />
+             <div className="p-2 rounded-md bg-white/5">
+               <Check className="w-4 h-4 text-[#A885FF]" />
              </div>
              <div>
-               <div className="text-xs font-bold text-slate-900 dark:text-slate-200">Liquidity Added to AMM</div>
-               <div className="text-xs text-slate-600 dark:text-slate-400 font-sans">LP position opened</div>
+               <div className="text-xs font-bold text-white">Liquidity Added to AMM</div>
+               <div className="text-xs text-white/50 font-sans">LP position opened</div>
              </div>
            </div>
            <div className="text-right">
-             <div className="text-xs font-bold font-mono text-slate-700 dark:text-slate-300">1.00M USDC + 12.50M BSD</div>
-             <div className="text-[10px] text-slate-600 dark:text-slate-500">Active</div>
-           </div>
+             <div className="text-xs font-bold font-mono text-white">1.00M USDC + 12.50M BSD</div>
+             <div className="text-[10px] text-white/40">Active</div>
+          </div>
          </div>
        </div>
     </div>
@@ -335,27 +335,27 @@ const ComplianceView = () => {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.12 }}
-            className="flex items-center justify-between p-3 bg-slate-100 dark:bg-slate-800/40 rounded border border-slate-200 dark:border-slate-700"
+            className="flex items-center justify-between p-3 bg-white/5 rounded border border-white/10"
           >
              <div className="flex-1">
-                <div className="text-xs text-slate-600 dark:text-slate-500 uppercase tracking-wide font-sans font-medium mb-1">Counterparty Risk</div>
-                <div className="text-sm font-sans font-semibold text-slate-900 dark:text-slate-200">{item.step}</div>
+                <div className="text-xs text-white/40 uppercase tracking-wide font-sans font-medium mb-1">Counterparty Risk</div>
+                <div className="text-sm font-sans font-semibold text-white">{item.step}</div>
              </div>
              <div className="text-right">
                 <div className={`text-xs font-sans font-bold ${item.riskColor} mb-1`}>{item.risk}</div>
                 <div className="flex items-center gap-1.5">
                    <CheckCircle2 className="w-4 h-4" style={{ color: '#5DD4E0' }} />
-                   <span className="text-xs font-sans font-semibold text-slate-700 dark:text-slate-300">{item.status}</span>
+                   <span className="text-xs font-sans font-semibold text-white/80">{item.status}</span>
                 </div>
              </div>
           </motion.div>
         ))}
       </div>
 
-      <div className="mt-auto pt-4 border-t border-slate-300 dark:border-slate-800">
+      <div className="mt-auto pt-4 border-t border-white/10">
          <div className="flex justify-between items-center">
-            <span className="text-xs text-slate-600 dark:text-slate-500 font-sans">Last Audit Scan</span>
-            <span className="text-xs font-sans text-slate-700 dark:text-slate-400">12s ago</span>
+            <span className="text-xs text-white/40 font-sans">Last Audit Scan</span>
+            <span className="text-xs font-sans text-white/60">12s ago</span>
          </div>
       </div>
     </div>
@@ -528,15 +528,15 @@ export default function LiquidityFlywheel() {
                 {/* Content */}
                 <div className="flex-1 flex flex-col pt-4">
                   <div 
-                    className={`text-sm font-sans font-bold mb-4 uppercase tracking-[0.15em] ${isActive ? '' : 'text-slate-600 dark:text-slate-500'}`}
+                    className={`text-sm font-sans font-bold mb-4 uppercase tracking-[0.15em] ${isActive ? '' : 'text-white/40'}`}
                     style={{ color: isActive ? stepColor : undefined }}
                   >
                     {step.subtitle}
                   </div>
-                  <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${isActive ? "text-slate-900 dark:text-white" : "text-slate-700 dark:text-slate-300"}`}>
+                  <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${isActive ? "text-white" : "text-white/60"}`}>
                     {step.title}
                   </h3>
-                  <p className={`text-base md:text-lg leading-relaxed font-sans flex-1 ${isActive ? "text-slate-600 dark:text-slate-200" : "text-slate-500 dark:text-slate-400"}`}>
+                  <p className={`text-base md:text-lg leading-relaxed font-sans flex-1 ${isActive ? "text-white/90" : "text-white/40"}`}>
                     {step.description}
                   </p>
                 </div>
@@ -590,7 +590,7 @@ export default function LiquidityFlywheel() {
                         {step.subtitle}
                       </motion.div>
                     )}
-                    <h3 className={`font-bold ${isActive ? "text-lg text-slate-900 dark:text-white" : "text-sm text-slate-700 dark:text-slate-300"}`}>
+                    <h3 className={`font-bold ${isActive ? "text-lg text-white" : "text-sm text-white/60"}`}>
                       {step.title}
                     </h3>
                   </div>
@@ -603,7 +603,7 @@ export default function LiquidityFlywheel() {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     transition={{ duration: 0.3, delay: 0.1 }}
-                    className="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mt-3 font-sans"
+                    className="text-white/90 text-sm leading-relaxed mt-3 font-sans"
                   >
                     {step.description}
                   </motion.p>

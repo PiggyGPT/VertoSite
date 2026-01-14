@@ -25,14 +25,8 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
     service: { label: "Secure Compliance", color: "albor-gold", icon: Shield },
   };
 
-  const colorMap: { [key: string]: string } = {
-    'albor-plum': '#A885FF',
-    'albor-blue': '#4D88FF',
-    'albor-teal': '#5DD4E0',
-    'albor-gold': '#F1BD76',
-  };
-
-  const getAccentColor = (colorName: string) => colorMap[colorName] || '#FDB94E';
+  const activeColor = '#F1BD76';
+  const inactiveColor = '#ffffff';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,18 +91,15 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
       ref={navContainerRef} 
       className={`w-full h-fit transition-all duration-300 sticky top-16 z-40 ${
         isStuck 
-          ? 'backdrop-blur-md border-white/20 mb-4 pb-0 border-b' 
-          : 'relative border-b border-white/10 pb-2'
+          ? 'backdrop-blur-md border-white/10 mb-4 pb-0 border-b' 
+          : 'relative border-b border-white/5 pb-2'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={tabsContainerRef} className="flex sm:justify-between justify-start items-center w-full pl-0 sm:pl-8 pr-8 sm:pr-12 lg:pr-16 gap-4 sm:gap-0 overflow-x-auto sm:overflow-x-visible">
           {orderedKeys.map((key, index) => {
             const pillar = pillars[key as keyof typeof pillars];
-            const pillarColor = pillar?.color || 'albor-green';
-            const accentColor = getAccentColor(pillarColor);
             const IconComponent = pillar?.icon;
-            // During auto-play: keep tabs highlighted cumulatively. When stopped: only current tab highlighted
             const isActive = isAutoPlaying ? index <= animatedStep : index === currentStep;
             
             return (
@@ -116,22 +107,22 @@ export default function SharedPillarNav({ currentStep = 0, animatedStep = 0, isA
                 key={index}
                 data-tab-index={index}
                 onClick={() => handleStepClick(index)}
-                className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 py-6 sm:py-8 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start border-b-2 transition-colors`}
+                className={`relative sm:flex-shrink-0 w-[calc(100vw-4rem)] sm:w-auto px-4 py-6 sm:py-8 flex items-center gap-2 transition-all duration-300 cursor-pointer group justify-center sm:justify-start border-b-2`}
                 style={{
-                  borderBottomColor: isActive ? accentColor : 'transparent'
+                  borderBottomColor: isActive ? activeColor : 'rgba(255, 255, 255, 0.2)'
                 }}
               >
                 <IconComponent 
                   className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors"
                   style={{
-                    color: isActive ? accentColor : '#94a3b8'
+                    color: isActive ? activeColor : inactiveColor
                   }}
                 />
-                <p className={`text-sm font-semibold transition-colors whitespace-nowrap ${
-                  isActive
-                    ? 'text-slate-900 dark:text-white' 
-                    : 'text-slate-500 dark:text-slate-400'
-                }`}>
+                <p className={`text-sm font-semibold transition-colors whitespace-nowrap`}
+                  style={{
+                    color: isActive ? activeColor : inactiveColor
+                  }}
+                >
                   {pillar?.label}
                 </p>
               </button>

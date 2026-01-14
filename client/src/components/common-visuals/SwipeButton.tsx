@@ -10,12 +10,13 @@ interface SwipeButtonProps {
   color?: string; // Tailwind color class for active state (e.g. bg-blue-600)
   completedText?: string;
   isCompleted?: boolean;
+  isSwiped?: boolean;
   isLoading?: boolean;
   loadingText?: string;
   resetKey?: any; // Change this to auto-reset the button
 }
 
-export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600", completedText = "Confirmed", isCompleted = false, isLoading = false, loadingText, resetKey }: SwipeButtonProps) => {
+export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600", completedText = "Confirmed", isCompleted = false, isSwiped = false, isLoading = false, loadingText, resetKey }: SwipeButtonProps) => {
   const [complete, setComplete] = useState(false);
   const x = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,11 +40,11 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
 
   // Reset logic
   useEffect(() => {
-    if (!isCompleted) {
+    if (!isCompleted && !isSwiped) {
        setComplete(false);
        x.set(0);
     }
-  }, [resetKey, isCompleted]);
+  }, [resetKey, isCompleted, isSwiped]);
 
   const handleDragEnd = () => {
     if (x.get() > constraints.right * 0.8) {
@@ -59,7 +60,7 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
   const opacity = useTransform(x, [0, constraints.right / 2], [1, 0]);
 
   useEffect(() => {
-    if (isCompleted && !complete) {
+    if ((isCompleted || isSwiped) && !complete && constraints.right > 0) {
         animate(x, constraints.right, { 
             type: "spring", stiffness: 200, damping: 25,
             onComplete: () => {
@@ -68,7 +69,7 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
             } 
         });
     }
-  }, [isCompleted, constraints.right]);
+  }, [isCompleted, isSwiped, constraints.right]);
 
   return (
     <div 
@@ -80,7 +81,7 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
         ref={containerRef}
     >
       {/* Background Fill (Initial Swipe) */}
-      {!isLoading && !isCompleted && (
+      {!isLoading && !isCompleted && (!isSwiped || !complete) && (
         <motion.div 
           className={`absolute top-0 bottom-0 left-0 ${color} z-0 opacity-20`}
           style={{ width }}
@@ -90,12 +91,12 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
       {/* Background Text and Subtext */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none">
         <motion.span 
-          style={{ opacity: (complete || isCompleted) ? 0 : opacity }} 
+          style={{ opacity: (complete || isCompleted || (isSwiped && complete)) ? 0 : opacity }} 
           className="text-sm font-bold uppercase tracking-wider text-slate-400"
         >
           {text}
         </motion.span>
-        {subText && !complete && (
+        {subText && !complete && (!isSwiped || !complete) && (
            <motion.span style={{ opacity: complete ? 0 : opacity }} className="text-[9px] text-slate-300 font-medium">
              {subText}
            </motion.span>
@@ -103,7 +104,7 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
       </div>
 
       {/* Success/Loading Text */}
-       {(complete || isCompleted) && (
+       {(complete || isCompleted || (isSwiped && complete)) && (
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
@@ -121,15 +122,15 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
               <span className="truncate">{loadingText || completedText}</span>
             </>
           ) : (
-            <span className="truncate">{completedText}</span>
+            <span className="truncate">{(isSwiped && !isCompleted) ? loadingText : completedText}</span>
           )}
         </motion.div>
       )}
 
       {/* Draggable Handle */}
-      {!complete && !isLoading && (
+      {!complete && !isLoading && (!isSwiped || !complete) && (
         <motion.div
-            className={`absolute top-1 bottom-1 w-10 rounded-full flex items-center justify-center shadow-md z-20 cursor-grab active:cursor-grabbing bg-white dark:bg-slate-700`}
+            className={`absolute top-1 bottom-1 w-10 rounded-full flex items-center justify-center z-20 cursor-grab active:cursor-grabbing bg-transparent`}
             style={{ x }}
             drag="x"
             dragConstraints={constraints}
@@ -137,7 +138,7 @@ export const SwipeButton = ({ onComplete, text, subText, color = "bg-green-600",
             dragMomentum={false}
             onDragEnd={handleDragEnd}
         >
-            <ChevronRight className={`w-6 h-6 ${color.replace('bg-', 'text-')}`} />
+            <ChevronRight className={`w-6 h-6 ${color.replaceAll('bg-', 'text-')}`} />
         </motion.div>
       )}
     </div>

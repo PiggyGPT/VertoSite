@@ -23,7 +23,7 @@ interface WalletViewPanelProps {
     bottomElement?: React.ReactNode;
     hideBalance?: boolean;
     balance?: string;
-    transactions?: Array<{ id: string; type: string; entity: string; amount: string; date: string }>;
+    transactions?: Array<{ id: string; type: string; entity: string; amount: string; date: string; onClick?: () => void; isSimulatedClick?: boolean }>;
 }
 
 export const WalletViewPanel = ({ 
@@ -57,7 +57,7 @@ export const WalletViewPanel = ({
 
 
     return (
-        <div className="h-full w-full bg-slate-50 dark:bg-slate-950 flex flex-col font-sans">
+        <div className="h-full w-full bg-slate-950 flex flex-col font-sans">
              {/* Header - Glassy Badge for User ID */}
              <PanelHeader 
                 title=""
@@ -80,7 +80,7 @@ export const WalletViewPanel = ({
                         </div>
                         <div className="flex flex-col -gap-0.5">
                             <h2 className="text-[9.5px] whitespace-nowrap font-semibold text-white tracking-tight">{username}</h2>
-                            <p className="text-[7.5px] text-white/70 font-semibold tracking-widest uppercase">{userSubheader}</p>
+                            <p className="text-[7.5px] text-white/70 font-semibold tracking-widest uppercase whitespace-nowrap">{userSubheader}</p>
                         </div>
                     </div>
                 }
@@ -92,7 +92,7 @@ export const WalletViewPanel = ({
                 {/* Top Section: Albor Gradient Hero */}
                 <div className="shrink-0 flex flex-col">
                     <div 
-                        className="px-6 pt-32 pb-6 flex flex-col justify-center items-center relative overflow-hidden rounded-b-[40px] shadow-[0_45px_100px_-20px_rgba(33,105,209,0.3)]"
+                        className="px-6 pt-32 pb-6 flex flex-col justify-center items-center relative overflow-hidden rounded-b-[40px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),inset_0_-1px_0_0_rgba(255,255,255,0.3),inset_0_-8px_16px_-4px_rgba(0,0,0,0.15)]"
                         style={{ 
                             background: 'linear-gradient(135deg, #2169D1 0%, #F1BD76 100%)',
                             backgroundColor: '#2169D1'
@@ -168,9 +168,18 @@ export const WalletViewPanel = ({
                                 <motion.div 
                                     key={i}
                                     initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.5 + (i * 0.1) }}
-                                    className="px-5 py-3 flex items-center justify-between hover:bg-white dark:hover:bg-slate-900 transition-colors"
+                                    animate={{ 
+                                        opacity: 1,
+                                        scale: tx.isSimulatedClick ? 0.98 : 1,
+                                        backgroundColor: tx.isSimulatedClick ? 'rgba(33, 105, 209, 0.05)' : 'transparent'
+                                    }}
+                                    transition={{ 
+                                        opacity: { delay: 0.5 + (i * 0.1) },
+                                        scale: { duration: 0.1 },
+                                        backgroundColor: { duration: 0.1 }
+                                    }}
+                                    onClick={tx.onClick}
+                                    className="px-5 py-3 flex items-center justify-between hover:bg-white dark:hover:bg-slate-900 transition-colors cursor-pointer"
                                 >
                                     <div className="flex flex-col gap-0.5">
                                         <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-200">{tx.entity}</span>

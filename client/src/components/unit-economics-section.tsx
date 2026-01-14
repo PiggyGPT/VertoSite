@@ -23,7 +23,7 @@ const SectionHeading = ({ title, children }: { title: React.ReactNode, children:
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-[1.45]"
+      className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 md:mb-6 leading-[1.45] will-change-[transform,opacity]"
     >
       {title}
     </motion.h2>
@@ -32,7 +32,7 @@ const SectionHeading = ({ title, children }: { title: React.ReactNode, children:
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1 }}
-      className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed"
+      className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed will-change-[transform,opacity]"
     >
       {children}
     </motion.div>
@@ -68,7 +68,7 @@ const DivergingBar = ({
           whileInView={{ width: `${costWidth}%` }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className={`h-10 md:h-12 rounded-l-md relative flex items-center justify-end pr-3 transition-colors ${isAlbor ? 'bg-slate-700/80 group-hover:bg-slate-700' : 'bg-slate-700/80 group-hover:bg-slate-700'}`}
+          className="h-10 md:h-12 rounded-l-md relative flex items-center justify-end pr-3 bg-slate-700/80 group-hover:bg-slate-700 will-change-[width]"
         >
            <span className="font-semibold text-white text-xs md:text-sm opactiy-90">-{cost}%</span>
         </motion.div>
@@ -81,7 +81,7 @@ const DivergingBar = ({
           whileInView={{ width: `${revWidth}%` }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className={`h-10 md:h-12 rounded-r-md relative flex items-center justify-start pl-3 transition-all ${
+          className={`h-10 md:h-12 rounded-r-md relative flex items-center justify-start pl-3 will-change-[width] ${
             isAlbor
               ? 'bg-gradient-to-r from-[#2169D1] via-[#8F73FE] to-[#F1BD76] shadow-[0_0_20px_-5px_rgba(77,136,255,0.4)]'
               : 'bg-[#2169D1]'
@@ -126,7 +126,7 @@ export function UnitEconomicsSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row items-center justify-between pb-6 mb-2 border-b border-white/5 opacity-80 hover:opacity-100 transition-opacity"
+            className="flex flex-col md:flex-row items-center justify-between pb-6 mb-2 border-b border-white/5 opacity-80 hover:opacity-100 transition-opacity will-change-[transform,opacity]"
           >
              <div className="flex items-center gap-4 mb-4 md:mb-0">
                 <div className="p-2.5 bg-red-500/10 rounded-xl">
@@ -173,7 +173,7 @@ export function UnitEconomicsSection() {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row items-center justify-between pt-6 mt-2 border-t border-white/5 opacity-90 hover:opacity-100 transition-opacity"
+            className="flex flex-col md:flex-row items-center justify-between pt-6 mt-2 border-t border-white/5 opacity-90 hover:opacity-100 transition-opacity will-change-[transform,opacity]"
           >
              <div className="flex items-center gap-4 mb-4 md:mb-0">
                 <div className="p-2.5 bg-emerald-500/10 rounded-xl">

@@ -46,7 +46,7 @@ export function CollectiveOpportunitySection() {
 
   const nodeCount = 4;
   // Create nodes distributed from 10% to 90% (trimming 10% from top and bottom)
-  const nodes = Array.from({ length: nodeCount }, (_, i) => 10 + (i / (nodeCount - 1)) * 80);
+  const nodes = Array.from({ length: nodeCount }, (_, i) => 10 + (i / (nodeCount - 1)) * 90);
 
   return (
     <section className="relative w-full py-16 md:py-24 px-4 md:px-6 overflow-hidden">

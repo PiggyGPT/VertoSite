@@ -6,6 +6,7 @@ import { WalletViewPanel } from "./WalletViewPanel";
 import { SwipeButton } from "../common-visuals/SwipeButton";
 import { PanelHeader } from "../common-visuals/PanelHeader";
 import { ObjectCard } from "../common-visuals/ObjectCard";
+import davidImage from "@assets/david_1754986415369.png";
 
 // --- PANEL 1: AUTHENTICATION REQUEST (Buyer Side) ---
 const Panel1_Authorization = ({ onComplete }: { onComplete: () => void }) => {
@@ -95,19 +96,21 @@ const Panel1_Authorization = ({ onComplete }: { onComplete: () => void }) => {
     );
 };
 
+import { SharedIncentivesPanel } from "./SharedIncentivesVisual";
+
 // --- PANEL 2: BANRURAL WALLET RECEIPT ---
-const Panel2_BanruralWallet = ({ onComplete }: { onComplete: () => void }) => {
+const Panel2_BanruralWallet = ({ onComplete, onTransactionClick, isRowClicked }: { onComplete: () => void, onTransactionClick?: () => void, isRowClicked?: boolean }) => {
     return (
         <WalletViewPanel 
-            autoCompleteDelay={5000}
+            autoCompleteDelay={0}
             onComplete={onComplete}
             username="@mariasilva"
             userSubheader="BANRURAL"
             bankLogo="/logos/banrural.jpg"
-            profileImage="/profiles/maria_silva.png"
+            profileImage={davidImage}
             balance="19,800.00"
             transactions={[
-                { id: "TXN-2024-882", type: "Payment Received", entity: "Grupo Pantaleon S.A.", amount: "+9,800.00", date: "Just now" },
+                { id: "TXN-2024-882", type: "Payment Received", entity: "Grupo Pantaleon S.A.", amount: "+9,800.00", date: "Just now", onClick: onTransactionClick, isSimulatedClick: isRowClicked },
                 { id: "TXN-8820", type: "Transfer Out", entity: "Supplier A", amount: "-1,200.00", date: "Yesterday" },
                 { id: "TXN-8819", type: "Transfer Out", entity: "Logistics Corp", amount: "-350.00", date: "Yesterday" },
             ]}
@@ -117,9 +120,10 @@ const Panel2_BanruralWallet = ({ onComplete }: { onComplete: () => void }) => {
 
 export const InstantAuthorizationVisual = () => {
     const [step, setStep] = useState(0);
+    const [isRowClicked, setIsRowClicked] = useState(false);
 
 
-    const handleNext = () => setStep((s) => (s + 1) % 3);
+    const handleNext = () => setStep((s) => (s + 1) % 4);
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -136,6 +140,7 @@ export const InstantAuthorizationVisual = () => {
         if (step === 0) {
             setSelectedOption(null);
             setIsSubmitting(false);
+            setIsRowClicked(false);
             setAnimationState({ doSwipe1: false, procStep: 0 });
             
             const t1 = setTimeout(() => setDropdownOpen(true), 1000);
@@ -158,11 +163,6 @@ export const InstantAuthorizationVisual = () => {
         if (step === 1) {
             setIsSubmitting(false);
             
-            // If already completed swipe but not processing, start processing
-            if (animationState.doSwipe1 && animationState.procStep === 0) {
-                 setAnimationState(s => ({ ...s, procStep: 1 }));
-            }
-
             // Automatically trigger swipe after 3 seconds if not already swiped
             let t1: any;
             if (!animationState.doSwipe1) {
@@ -170,10 +170,34 @@ export const InstantAuthorizationVisual = () => {
                     setAnimationState(s => ({ ...s, doSwipe1: true }));
                 }, 3000);
             }
-
+            
             return () => {
                 if (t1) clearTimeout(t1);
             };
+        }
+
+        // Auto-click the transaction in step 2 to show incentives
+        if (step === 2) {
+            const t1 = setTimeout(() => {
+                setIsRowClicked(true);
+            }, 3500);
+            
+            const t2 = setTimeout(() => {
+                setStep(3);
+            }, 3800);
+            
+            return () => {
+                clearTimeout(t1);
+                clearTimeout(t2);
+            };
+        }
+
+        // Auto-cycle back to start from step 3
+        if (step === 3) {
+            const t = setTimeout(() => {
+                setStep(0);
+            }, 8000);
+            return () => clearTimeout(t);
         }
     }, [step, animationState.doSwipe1]);
 
@@ -435,19 +459,41 @@ export const InstantAuthorizationVisual = () => {
                                                                 <RefreshCw className="w-5 h-5 text-blue-600 animate-spin" />
                                                             )}
                                                         </div>
-                                                        <div className="flex flex-col">
-                                                            <span className="text-[15px] font-bold text-slate-800 dark:text-white tracking-tight">
-                                                                {animationState.procStep === 1 && "Verifying Invoice"}
-                                                                {animationState.procStep === 2 && "Authorizing Payment"}
-                                                                {animationState.procStep === 3 && "Interbank Settling"}
-                                                                {animationState.procStep === 4 && "Transaction Approved"}
-                                                            </span>
-                                                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-tight">
-                                                                {animationState.procStep === 1 && "Connecting with SAT (GUA)"}
-                                                                {animationState.procStep === 2 && "Signature Verification"}
-                                                                {animationState.procStep === 3 && "BI → Banrural Routing"}
-                                                                {animationState.procStep === 4 && "Funds Sent to Receiver"}
-                                                            </span>
+                                                        <div className="flex flex-col flex-1">
+                                                            <div className="h-[22px] relative overflow-hidden w-full">
+                                                                <AnimatePresence mode="wait">
+                                                                    <motion.div 
+                                                                        key={`title-${animationState.procStep}`}
+                                                                        initial={{ opacity: 0, y: 10 }}
+                                                                        animate={{ opacity: 1, y: 0 }}
+                                                                        exit={{ opacity: 0, y: -10 }}
+                                                                        transition={{ duration: 0.3 }}
+                                                                        className="text-[15px] font-bold text-slate-800 dark:text-white tracking-tight flex items-center h-full"
+                                                                    >
+                                                                        {animationState.procStep === 1 && "Verifying Invoice"}
+                                                                        {animationState.procStep === 2 && "Authorizing Payment"}
+                                                                        {animationState.procStep === 3 && "Interbank Settlement"}
+                                                                        {animationState.procStep === 4 && "Transaction Complete"}
+                                                                    </motion.div>
+                                                                </AnimatePresence>
+                                                            </div>
+                                                            <div className="h-[16px] relative overflow-hidden w-full mt-0.5">
+                                                                <AnimatePresence mode="wait">
+                                                                    <motion.div 
+                                                                        key={`sub-${animationState.procStep}`}
+                                                                        initial={{ opacity: 0, y: 5 }}
+                                                                        animate={{ opacity: 1, y: 0 }}
+                                                                        exit={{ opacity: 0, y: -5 }}
+                                                                        transition={{ duration: 0.3 }}
+                                                                        className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-tight flex items-center h-full"
+                                                                    >
+                                                                        {animationState.procStep === 1 && "Connecting with SAT (GUA)"}
+                                                                        {animationState.procStep === 2 && "Signature Verification"}
+                                                                        {animationState.procStep === 3 && "BI → Banrural Routing"}
+                                                                        {animationState.procStep === 4 && "Funds Sent to Receiver"}
+                                                                    </motion.div>
+                                                                </AnimatePresence>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </motion.div>
@@ -461,12 +507,13 @@ export const InstantAuthorizationVisual = () => {
                                             text="Pay 10,000.00 GTQ"
                                             completedText="Success!"
                                             loadingText="Procesando..."
-                                            isLoading={isProcessing && animationState.procStep < 4}
+                                            isLoading={(isProcessing && animationState.procStep < 4) || (animationState.procStep > 0 && animationState.procStep < 4)}
                                             color="bg-blue-600"
                                             onComplete={() => {
                                                 setAnimationState(s => ({ ...s, doSwipe1: true, procStep: 1 }));
                                             }} 
-                                            isCompleted={animationState.doSwipe1 || animationState.procStep === 4} 
+                                            isSwiped={animationState.doSwipe1}
+                                            isCompleted={animationState.procStep === 4} 
                                         />
                                     </div>
 
@@ -501,7 +548,16 @@ export const InstantAuthorizationVisual = () => {
                             }
                         />
                     )}
-                    {step === 2 && <Panel2_BanruralWallet onComplete={handleNext} />}
+                    {step === 2 && (
+                        <Panel2_BanruralWallet 
+                            onComplete={handleNext} 
+                            onTransactionClick={() => setStep(3)}
+                            isRowClicked={isRowClicked}
+                        />
+                    )}
+                    {step === 3 && (
+                        <SharedIncentivesPanel onBack={() => setStep(2)} />
+                    )}
                 </motion.div>
             </AnimatePresence>
         </MobileFrame>
