@@ -35,9 +35,9 @@ const Panel2_AuditReport = ({ onComplete }: { onComplete?: () => void }) => {
     } satisfies ChartConfig;
 
     const audits = [
-        { id: "AUD-2819", date: "09:41 AM", type: "Proof of Reserve", status: "Verified" },
-        { id: "AUD-2818", date: "Yesterday", type: "Daily Settlement", status: "Verified" },
-        { id: "AUD-2817", date: "Jan 10", type: "Yield Distribution", status: "Verified" },
+        { id: "AUD-2819", date: "09:41 AM", type: "Proof of Reserves", status: "Verified" },
+        { id: "AUD-2818", date: "Yesterday", type: "AML/KYC Compliance", status: "Verified" },
+        { id: "AUD-2817", date: "Jan 10", type: "Node Uptime", status: "99.99%" },
     ];
 
     return (
