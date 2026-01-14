@@ -35,7 +35,8 @@ import {
   Settings, Gauge, Network, Server, Globe, FileText, CheckCircle,
   Cpu, Keyboard, Monitor, Coins, CreditCard, TrendingUp, Workflow, Calendar, Quote,
   Loader2, Building, Blocks, ArrowUpRight, ArrowDownLeft, HandCoins, RefreshCw,
-  Smartphone, ScanLine, Fingerprint, Briefcase, DollarSign, Activity, Gift, Wallet
+  Smartphone, ScanLine, Fingerprint, Briefcase, DollarSign, Activity, Gift, Wallet,
+  Scale, FileCheck, Layers
 } from "lucide-react";
 import { QRCodeSVG } from 'qrcode.react';
 import davidImage from "@assets/david_1754986415369.png";
@@ -236,14 +237,14 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
   }, [activeTab]);
 
   const tabs = [
-    { key: "settlement", label: "Shared Settlement" },
-    { key: "authorization", label: "Interbank Authorization" },
-    { key: "incentives", label: "Shared Incentives" },
+    { key: "settlement", label: "Liquidity" },
+    { key: "authorization", label: "Execution" },
+    { key: "incentives", label: "Infrastructure" },
   ];
 
   const pillars = {
     settlement: {
-      label: "Shared Settlement", color: "albor-plum", title: "Digital Trade Credits",
+      label: "Sovereign Liquidity", color: "albor-gold", title: "Digital Trade Credits",
       description: "Instead of wiring cash to Tier 1 Clients for trade loans, issue them digital credit lines for Global Payables.",
       visual: <SharedSettlementVisual />,
       founderQuote: {
@@ -254,16 +255,18 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
       },
       features: [
         { 
-          icon: Zap, 
-          title: "Global Network Acceptance", 
-          description: "Credits settle instantly across the interbank network, replacing slow correspondent wires." 
+          icon: Landmark, 
+          title: "Mobilize Dollar Reserves", 
+          description: "Convert trapped USD reserves into programmable trade liquidity (1:1 backing). You control the asset issuance; you control the float." 
         }, 
         { 
-          icon: TrendingUp, title: "Deposit Yield Retention", description: "Your bank earns 3–5% on the underlying risk-free assets while the credits circulate as payment." }, 
-        { icon: ShieldCheck, title: "Full Regulatory Compliance", description: "Operate within established frameworks like GENIUS, MICA, and Guatemala’s Digital Asset Bill." }]
+          icon: TrendingUp, title: "Deposit Yield Retention", 
+          description: "Earn 3–5% yield on the underlying risk-free USD deposits while the digital credits circulate as payment." 
+        }, 
+        { icon: Scale, title: "Regulatory Certainty", description: "Operate with full confidence under Guatemala’s Digital Asset Bill (6538) and US GENIUS Act." }]
     },
     authorization: {
-      label: "Interbank Authorization", color: "albor-blue", title: "Digital Trade Swipes",
+      label: "Interbank Authorization", color: "albor-gold", title: "Digital Trade Swipes",
       description: "The first interbank authorization layer for invoices, payroll, and merchant payments.",
       visual: <InstantAuthorizationVisual />,
       founderQuote: {
@@ -273,14 +276,14 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
         image: davidImage
       },
       features: [
-        { icon: Network, title: "Reverse Factoring", description: "One network for all supply chain financing, using MLETR invoices that cards lack." },
-        { icon: ShieldCheck, title: "Interbank Authorization", description: "Replace manual verification with instant, interbank-guaranteed payment promises against approved invoices." }, 
-        { icon: Zap, title: "Risk-Free Settlement", description: "Suppliers and workers receive instant, prefunded payments—zero credit risk for your bank." }
+        { icon: FileCheck, title: "Interbank Authorization", description: "Replace manual vetting with automated verification of digital invoices (FEL 3.0) and proof of funds (Digital Credits) before execution." },
+        { icon: ShieldCheck, title: "Zero-Risk Distribution", description: "Suppliers receive instant, pre-funded payments using the Tier 1 Buyer’s credit line, eliminating the need to assess supplier risk." }, 
+        { icon: Layers, title: "Recursive Credit Flow", description: "Paid suppliers immediately become buyers, using received funds to pay their own vendors, propagating Tier 1 credit 5-7 layers deep." }
       ]
     },
     incentives: {
-      label: "Shared Incentives", color: "albor-gold", title: "Interchange Revenue",
-      description: "A fee protocol that turns trade flows into a high-margin revenue network.",
+      label: "Infrastructure", color: "albor-gold", title: "Bank-Hosted Node",
+      description: "Transition from renting foreign rails (SWIFT, Visa) to owning sovereign infrastructure.",
       visual: <RealTimeAuditsVisual />,
       founderQuote: {
         quote: "Giving workers instant access to their earned wages reduces financial stress and reliance on predatory loans.",
@@ -289,9 +292,9 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
         image: nileshImage
       },
       features: [
-        { icon: Coins, title: "Issuer Interchange", description: "Earn fees by time your credits move between any wallet in the network." }, 
-        { icon: Wallet, title: "Acquirer Fees", description: "Earn fees by processing transactions for your deep-tier supply chain clients." }, 
-        { icon: RefreshCw, title: "FX Spreads", description: "Capture LP fees from interbank credit swaps via automated market makers." }]
+        { icon: Server, title: "Sovereign Ownership", description: "Each bank co-owns the settlement layer. If one bank goes offline, the network survives. No single point of failure." }, 
+        { icon: ScanLine, title: "Automated Compliance", description: "Auto-enforce and audit compliance on every transaction: Valid FEL 3.0 Invoice, Real-time Proof of Funds, Automated AML Screening." }, 
+        { icon: Zap, title: "T+0 Instant Settlement", description: "Replace T+2 wire delays with T+0 digital finality. Interchange fees earned are collected and distributed immediately with execution." }]
     }
   };
 
@@ -312,14 +315,14 @@ export const ApplicationsSection = ({ onScheduleCall }: { onScheduleCall: () => 
 
        {/* Applications Tabs & Content */}
        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-           <div ref={appTabsRef} className="flex border-b border-slate-200 dark:border-slate-700 mb-8 overflow-x-auto no-scrollbar justify-center">
+           <div ref={appTabsRef} className="flex border-b border-slate-200 dark:border-slate-500 mb-8 overflow-x-auto no-scrollbar justify-center">
              {tabs.map((tab) => (
                <button
                  key={tab.key}
                  data-app-tab={tab.key}
                  onClick={() => setActiveTab(tab.key)}
-                 className={`px-6 py-4 text-sm font-semibold border-b-2 transition-colors whitespace-nowrap ${
-                    activeTab === tab.key ? `border-${activeColors.text.replace('text-', '')} ${activeColors.text}` : 'border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'
+                 className={`px-6 py-4 text-md font-semibold border-b-2 transition-colors whitespace-nowrap ${
+                    activeTab === tab.key ? `border-${activeColors.text.replace('text-', '')} ${activeColors.text}` : 'border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-200 dark:hover:text-slate-200'
                  }`}
                  style={{ borderColor: activeTab === tab.key ? getAccentColor(activePillar.color) : undefined, color: activeTab === tab.key ? getAccentColor(activePillar.color) : undefined }}
                >
